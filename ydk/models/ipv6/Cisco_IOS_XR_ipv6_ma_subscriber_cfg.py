@@ -24,27 +24,27 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class Ipv6ReachableVia_Enum(Enum):
+class Ipv6ReachableViaEnum(Enum):
     """
-    Ipv6ReachableVia_Enum
+    Ipv6ReachableViaEnum
 
     Ipv6 reachable via
 
-    """
+    .. data:: RECEIVED = 1
+
+    	Source is reachable via interface on which
+
+    	packet was received
 
     """
 
-    Source is reachable via interface on which
-    packet was received
-
-    """
     RECEIVED = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_ma_subscriber_cfg as meta
-        return meta._meta_table['Ipv6ReachableVia_Enum']
+        return meta._meta_table['Ipv6ReachableViaEnum']
 
 
 

@@ -20,673 +20,628 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class SlaBucketsSizeUnitsEnum_Enum(Enum):
+class SlaBucketsSizeUnitsEnumEnum(Enum):
     """
-    SlaBucketsSizeUnitsEnum_Enum
+    SlaBucketsSizeUnitsEnumEnum
 
     Sla buckets size units enum
 
-    """
+    .. data:: BUCKETS_PER_PROBE = 0
+
+    	Store results as a number of buckets per probe
+
+    	- note that this option has been DEPRECATED
+
+    .. data:: PROBES_PER_BUCKET = 1
+
+    	Store results as a number of probes per bucket
 
     """
 
-    Store results as a number of buckets per probe
-    \- note that this option has been DEPRECATED
-
-    """
     BUCKETS_PER_PROBE = 0
 
-    """
-
-    Store results as a number of probes per bucket
-
-    """
     PROBES_PER_BUCKET = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaBucketsSizeUnitsEnum_Enum']
+        return meta._meta_table['SlaBucketsSizeUnitsEnumEnum']
 
 
-class SlaBurstIntervalUnitsEnum_Enum(Enum):
+class SlaBurstIntervalUnitsEnumEnum(Enum):
     """
-    SlaBurstIntervalUnitsEnum_Enum
+    SlaBurstIntervalUnitsEnumEnum
 
     Sla burst interval units enum
 
-    """
+    .. data:: ONCE = 1
+
+    	Send one burst per probe
+
+    .. data:: SECONDS = 3
+
+    	Send bursts within a probe with an interval
+
+    	unit of seconds
+
+    .. data:: MINUTES = 4
+
+    	Send bursts within a probe with an interval
+
+    	unit of minutes
+
+    .. data:: HOURS = 5
+
+    	Send bursts within a probe with an interval
+
+    	unit of hours
 
     """
 
-    Send one burst per probe
-
-    """
     ONCE = 1
 
-    """
-
-    Send bursts within a probe with an interval
-    unit of seconds
-
-    """
     SECONDS = 3
 
-    """
-
-    Send bursts within a probe with an interval
-    unit of minutes
-
-    """
     MINUTES = 4
 
-    """
-
-    Send bursts within a probe with an interval
-    unit of hours
-
-    """
     HOURS = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaBurstIntervalUnitsEnum_Enum']
+        return meta._meta_table['SlaBurstIntervalUnitsEnumEnum']
 
 
-class SlaOnDemandProbeDurationUnitsEnum_Enum(Enum):
+class SlaOnDemandProbeDurationUnitsEnumEnum(Enum):
     """
-    SlaOnDemandProbeDurationUnitsEnum_Enum
+    SlaOnDemandProbeDurationUnitsEnumEnum
 
     Sla on demand probe duration units enum
 
-    """
+    .. data:: SECONDS = 3
+
+    	Schedule probes to run with a duration unit of
+
+    	seconds
+
+    .. data:: MINUTES = 4
+
+    	Schedule probes to run with a duration unit of
+
+    	minutes
+
+    .. data:: HOURS = 5
+
+    	Schedule probes to run with a duration unit of
+
+    	hours
 
     """
 
-    Schedule probes to run with a duration unit of
-    seconds
-
-    """
     SECONDS = 3
 
-    """
-
-    Schedule probes to run with a duration unit of
-    minutes
-
-    """
     MINUTES = 4
 
-    """
-
-    Schedule probes to run with a duration unit of
-    hours
-
-    """
     HOURS = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaOnDemandProbeDurationUnitsEnum_Enum']
+        return meta._meta_table['SlaOnDemandProbeDurationUnitsEnumEnum']
 
 
-class SlaOnDemandRepeatIntervalUnitsEnum_Enum(Enum):
+class SlaOnDemandRepeatIntervalUnitsEnumEnum(Enum):
     """
-    SlaOnDemandRepeatIntervalUnitsEnum_Enum
+    SlaOnDemandRepeatIntervalUnitsEnumEnum
 
     Sla on demand repeat interval units enum
 
-    """
+    .. data:: SECONDS = 3
+
+    	Schedule probes to repeat with an interval unit
+
+    	of seconds
+
+    .. data:: MINUTES = 4
+
+    	Schedule probes to repeat with an interval unit
+
+    	of minutes
+
+    .. data:: HOURS = 5
+
+    	Schedule probes to repeat with an interval unit
+
+    	of hours
 
     """
 
-    Schedule probes to repeat with an interval unit
-    of seconds
-
-    """
     SECONDS = 3
 
-    """
-
-    Schedule probes to repeat with an interval unit
-    of minutes
-
-    """
     MINUTES = 4
 
-    """
-
-    Schedule probes to repeat with an interval unit
-    of hours
-
-    """
     HOURS = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaOnDemandRepeatIntervalUnitsEnum_Enum']
+        return meta._meta_table['SlaOnDemandRepeatIntervalUnitsEnumEnum']
 
 
-class SlaOnDemandStartMonthEnum_Enum(Enum):
+class SlaOnDemandStartMonthEnumEnum(Enum):
     """
-    SlaOnDemandStartMonthEnum_Enum
+    SlaOnDemandStartMonthEnumEnum
 
     Sla on demand start month enum
 
-    """
+    .. data:: JANUARY = 0
+
+    	January
+
+    .. data:: FEBRUARY = 1
+
+    	February
+
+    .. data:: MARCH = 2
+
+    	March
+
+    .. data:: APRIL = 3
+
+    	April
+
+    .. data:: MAY = 4
+
+    	May
+
+    .. data:: JUNE = 5
+
+    	June
+
+    .. data:: JULY = 6
+
+    	July
+
+    .. data:: AUGUST = 7
+
+    	August
+
+    .. data:: SEPTEMBER = 8
+
+    	September
+
+    .. data:: OCTOBER = 9
+
+    	October
+
+    .. data:: NOVEMBER = 10
+
+    	November
+
+    .. data:: DECEMBER = 11
+
+    	December
 
     """
 
-    January
-
-    """
     JANUARY = 0
 
-    """
-
-    February
-
-    """
     FEBRUARY = 1
 
-    """
-
-    March
-
-    """
     MARCH = 2
 
-    """
-
-    April
-
-    """
     APRIL = 3
 
-    """
-
-    May
-
-    """
     MAY = 4
 
-    """
-
-    June
-
-    """
     JUNE = 5
 
-    """
-
-    July
-
-    """
     JULY = 6
 
-    """
-
-    August
-
-    """
     AUGUST = 7
 
-    """
-
-    September
-
-    """
     SEPTEMBER = 8
 
-    """
-
-    October
-
-    """
     OCTOBER = 9
 
-    """
-
-    November
-
-    """
     NOVEMBER = 10
 
-    """
-
-    December
-
-    """
     DECEMBER = 11
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaOnDemandStartMonthEnum_Enum']
+        return meta._meta_table['SlaOnDemandStartMonthEnumEnum']
 
 
-class SlaOnDemandStartTimeRelativeUnitsEnum_Enum(Enum):
+class SlaOnDemandStartTimeRelativeUnitsEnumEnum(Enum):
     """
-    SlaOnDemandStartTimeRelativeUnitsEnum_Enum
+    SlaOnDemandStartTimeRelativeUnitsEnumEnum
 
     Sla on demand start time relative units enum
 
-    """
+    .. data:: SECONDS = 3
+
+    	Schedule probe to start after a unit of seconds
+
+    .. data:: MINUTES = 4
+
+    	Schedule probe to start after a unit of minutes
+
+    .. data:: HOURS = 5
+
+    	Schedule probe to start after a unit of hours
 
     """
 
-    Schedule probe to start after a unit of seconds
-
-    """
     SECONDS = 3
 
-    """
-
-    Schedule probe to start after a unit of minutes
-
-    """
     MINUTES = 4
 
-    """
-
-    Schedule probe to start after a unit of hours
-
-    """
     HOURS = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaOnDemandStartTimeRelativeUnitsEnum_Enum']
+        return meta._meta_table['SlaOnDemandStartTimeRelativeUnitsEnumEnum']
 
 
-class SlaOnDemandStartTimeTypesEnum_Enum(Enum):
+class SlaOnDemandStartTimeTypesEnumEnum(Enum):
     """
-    SlaOnDemandStartTimeTypesEnum_Enum
+    SlaOnDemandStartTimeTypesEnumEnum
 
     Sla on demand start time types enum
 
-    """
+    .. data:: NOW = 0
+
+    	Start immediately
+
+    .. data:: ABSOLUTE = 1
+
+    	Start at a specified time
+
+    .. data:: RELATIVE = 2
+
+    	Start after a specified period
 
     """
 
-    Start immediately
-
-    """
     NOW = 0
 
-    """
-
-    Start at a specified time
-
-    """
     ABSOLUTE = 1
 
-    """
-
-    Start after a specified period
-
-    """
     RELATIVE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaOnDemandStartTimeTypesEnum_Enum']
+        return meta._meta_table['SlaOnDemandStartTimeTypesEnumEnum']
 
 
-class SlaPacketIntervalUnitsEnum_Enum(Enum):
+class SlaPacketIntervalUnitsEnumEnum(Enum):
     """
-    SlaPacketIntervalUnitsEnum_Enum
+    SlaPacketIntervalUnitsEnumEnum
 
     Sla packet interval units enum
 
-    """
+    .. data:: ONCE = 1
+
+    	Send one packet per burst
+
+    .. data:: MILLISECONDS = 2
+
+    	Send packets with an interval unit of
+
+    	milliseconds
+
+    .. data:: SECONDS = 3
+
+    	Send packets with an interval unit of seconds
+
+    .. data:: MINUTES = 4
+
+    	Send packets with an interval unit of minutes
+
+    .. data:: HOURS = 5
+
+    	Send packets with an interval unit of hours
 
     """
 
-    Send one packet per burst
-
-    """
     ONCE = 1
 
-    """
-
-    Send packets with an interval unit of
-    milliseconds
-
-    """
     MILLISECONDS = 2
 
-    """
-
-    Send packets with an interval unit of seconds
-
-    """
     SECONDS = 3
 
-    """
-
-    Send packets with an interval unit of minutes
-
-    """
     MINUTES = 4
 
-    """
-
-    Send packets with an interval unit of hours
-
-    """
     HOURS = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaPacketIntervalUnitsEnum_Enum']
+        return meta._meta_table['SlaPacketIntervalUnitsEnumEnum']
 
 
-class SlaPaddingPattern_Enum(Enum):
+class SlaPaddingPatternEnum(Enum):
     """
-    SlaPaddingPattern_Enum
+    SlaPaddingPatternEnum
 
     Sla padding pattern
 
-    """
+    .. data:: HEX = 0
+
+    	Use an optionally specified hex pattern for
+
+    	packet padding
+
+    .. data:: PSEUDO_RANDOM = 1
+
+    	Use a pseudo-random bit sequence for packet
+
+    	padding
 
     """
 
-    Use an optionally specified hex pattern for
-    packet padding
-
-    """
     HEX = 0
 
-    """
-
-    Use a pseudo\-random bit sequence for packet
-    padding
-
-    """
     PSEUDO_RANDOM = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaPaddingPattern_Enum']
+        return meta._meta_table['SlaPaddingPatternEnum']
 
 
-class SlaProbeDurationUnitsEnum_Enum(Enum):
+class SlaProbeDurationUnitsEnumEnum(Enum):
     """
-    SlaProbeDurationUnitsEnum_Enum
+    SlaProbeDurationUnitsEnumEnum
 
     Sla probe duration units enum
 
-    """
+    .. data:: SECONDS = 3
+
+    	Schedule probes to run with a duration unit of
+
+    	seconds
+
+    .. data:: MINUTES = 4
+
+    	Schedule probes to run with a duration unit of
+
+    	minutes
+
+    .. data:: HOURS = 5
+
+    	Schedule probes to run with a duration unit of
+
+    	hours
+
+    .. data:: DAY = 6
+
+    	Schedule probes to run for a duration of 1 day
+
+    .. data:: WEEK = 7
+
+    	Schedule probes to run for a duration of 1 week
 
     """
 
-    Schedule probes to run with a duration unit of
-    seconds
-
-    """
     SECONDS = 3
 
-    """
-
-    Schedule probes to run with a duration unit of
-    minutes
-
-    """
     MINUTES = 4
 
-    """
-
-    Schedule probes to run with a duration unit of
-    hours
-
-    """
     HOURS = 5
 
-    """
-
-    Schedule probes to run for a duration of 1 day
-
-    """
     DAY = 6
 
-    """
-
-    Schedule probes to run for a duration of 1 week
-
-    """
     WEEK = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaProbeDurationUnitsEnum_Enum']
+        return meta._meta_table['SlaProbeDurationUnitsEnumEnum']
 
 
-class SlaProbeIntervalDayEnum_Enum(Enum):
+class SlaProbeIntervalDayEnumEnum(Enum):
     """
-    SlaProbeIntervalDayEnum_Enum
+    SlaProbeIntervalDayEnumEnum
 
     Sla probe interval day enum
 
-    """
+    .. data:: MONDAY = 1
+
+    	Schedule every Monday
+
+    .. data:: TUESDAY = 2
+
+    	Schedule every Tuesday
+
+    .. data:: WEDNESDAY = 3
+
+    	Schedule every Wednesday
+
+    .. data:: THURSDAY = 4
+
+    	Schedule every Thursday
+
+    .. data:: FRIDAY = 5
+
+    	Schedule every Friday
+
+    .. data:: SATURDAY = 6
+
+    	Schedule every Saturday
+
+    .. data:: SUNDAY = 7
+
+    	Schedule every Sunday
 
     """
 
-    Schedule every Monday
-
-    """
     MONDAY = 1
 
-    """
-
-    Schedule every Tuesday
-
-    """
     TUESDAY = 2
 
-    """
-
-    Schedule every Wednesday
-
-    """
     WEDNESDAY = 3
 
-    """
-
-    Schedule every Thursday
-
-    """
     THURSDAY = 4
 
-    """
-
-    Schedule every Friday
-
-    """
     FRIDAY = 5
 
-    """
-
-    Schedule every Saturday
-
-    """
     SATURDAY = 6
 
-    """
-
-    Schedule every Sunday
-
-    """
     SUNDAY = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaProbeIntervalDayEnum_Enum']
+        return meta._meta_table['SlaProbeIntervalDayEnumEnum']
 
 
-class SlaProbeIntervalUnitsEnum_Enum(Enum):
+class SlaProbeIntervalUnitsEnumEnum(Enum):
     """
-    SlaProbeIntervalUnitsEnum_Enum
+    SlaProbeIntervalUnitsEnumEnum
 
     Sla probe interval units enum
 
-    """
+    .. data:: MINUTES = 4
+
+    	Schedule probes to run with an interval unit of
+
+    	minutes
+
+    .. data:: HOURS = 5
+
+    	Schedule probes to run with an interval unit of
+
+    	hours
+
+    .. data:: DAY = 6
+
+    	Schedule probes to run every day
+
+    .. data:: WEEK = 7
+
+    	Schedule probes to run every week
 
     """
 
-    Schedule probes to run with an interval unit of
-    minutes
-
-    """
     MINUTES = 4
 
-    """
-
-    Schedule probes to run with an interval unit of
-    hours
-
-    """
     HOURS = 5
 
-    """
-
-    Schedule probes to run every day
-
-    """
     DAY = 6
 
-    """
-
-    Schedule probes to run every week
-
-    """
     WEEK = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaProbeIntervalUnitsEnum_Enum']
+        return meta._meta_table['SlaProbeIntervalUnitsEnumEnum']
 
 
-class SlaSend_Enum(Enum):
+class SlaSendEnum(Enum):
     """
-    SlaSend_Enum
+    SlaSendEnum
 
     Sla send
 
-    """
+    .. data:: PACKET = 0
+
+    	Send individual packets
+
+    .. data:: BURST = 1
+
+    	Send bursts of packets
 
     """
 
-    Send individual packets
-
-    """
     PACKET = 0
 
-    """
-
-    Send bursts of packets
-
-    """
     BURST = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaSend_Enum']
+        return meta._meta_table['SlaSendEnum']
 
 
-class SlaStatisticTypeEnum_Enum(Enum):
+class SlaStatisticTypeEnumEnum(Enum):
     """
-    SlaStatisticTypeEnum_Enum
+    SlaStatisticTypeEnumEnum
 
     Sla statistic type enum
 
-    """
+    .. data:: ROUND_TRIP_DELAY = 1
+
+    	Collect round trip delay metric data
+
+    .. data:: ONE_WAY_DELAY_SD = 2
+
+    	Collect one way delay source->dest metric data
+
+    .. data:: ONE_WAY_DELAY_DS = 3
+
+    	Collect one way delay dest->source metric data
+
+    .. data:: ROUND_TRIP_JITTER = 4
+
+    	Collect round trip delay metric data
+
+    .. data:: ONE_WAY_JITTER_SD = 5
+
+    	Collect one way jitter source->dest metric data
+
+    .. data:: ONE_WAY_JITTER_DS = 6
+
+    	Collect one way jitter dest->source metric data
+
+    .. data:: ONE_WAY_LOSS_SD = 7
+
+    	Collect one way loss source->dest metric data
+
+    .. data:: ONE_WAY_LOSS_DS = 8
+
+    	Collect one way loss dest->source metric data
 
     """
 
-    Collect round trip delay metric data
-
-    """
     ROUND_TRIP_DELAY = 1
 
-    """
-
-    Collect one way delay source\->dest metric data
-
-    """
     ONE_WAY_DELAY_SD = 2
 
-    """
-
-    Collect one way delay dest\->source metric data
-
-    """
     ONE_WAY_DELAY_DS = 3
 
-    """
-
-    Collect round trip delay metric data
-
-    """
     ROUND_TRIP_JITTER = 4
 
-    """
-
-    Collect one way jitter source\->dest metric data
-
-    """
     ONE_WAY_JITTER_SD = 5
 
-    """
-
-    Collect one way jitter dest\->source metric data
-
-    """
     ONE_WAY_JITTER_DS = 6
 
-    """
-
-    Collect one way loss source\->dest metric data
-
-    """
     ONE_WAY_LOSS_SD = 7
 
-    """
-
-    Collect one way loss dest\->source metric data
-
-    """
     ONE_WAY_LOSS_DS = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaStatisticTypeEnum_Enum']
+        return meta._meta_table['SlaStatisticTypeEnumEnum']
 
 
 

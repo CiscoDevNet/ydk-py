@@ -24,33 +24,31 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class CryptoSamAction_Enum(Enum):
+class CryptoSamActionEnum(Enum):
     """
-    CryptoSamAction_Enum
+    CryptoSamActionEnum
 
     Crypto sam action
 
-    """
+    .. data:: PROCEED = 1
+
+    	To respond YES to the SAM prompt
+
+    .. data:: TERMINATE = 2
+
+    	To respond NO to the SAM prompt
 
     """
 
-    To respond YES to the SAM prompt
-
-    """
     PROCEED = 1
 
-    """
-
-    To respond NO to the SAM prompt
-
-    """
     TERMINATE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
-        return meta._meta_table['CryptoSamAction_Enum']
+        return meta._meta_table['CryptoSamActionEnum']
 
 
 
@@ -110,7 +108,12 @@ class Crypto(object):
             .. attribute:: action
             
             	Respond to SAM prompt either Proceed/Terminate
-            	**type**\: :py:class:`CryptoSamAction_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_cfg.CryptoSamAction_Enum>`
+            	**type**\: :py:class:`CryptoSamActionEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_cfg.CryptoSamActionEnum>`
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             .. attribute:: prompt_time
             
@@ -118,6 +121,11 @@ class Crypto(object):
             	**type**\: int
             
             	**range:** 0..300
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             
 
@@ -145,8 +153,6 @@ class Crypto(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.action is not None:
                     return True
 
@@ -154,10 +160,6 @@ class Crypto(object):
                     return True
 
                 return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return True
 
             @staticmethod
             def _meta_info():
@@ -176,18 +178,9 @@ class Crypto(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.prompt_interval is not None and self.prompt_interval._has_data():
                 return True
 
-            if self.prompt_interval is not None and self.prompt_interval.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -281,8 +274,6 @@ class Crypto(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.client_vrf is not None:
                     return True
 
@@ -295,10 +286,6 @@ class Crypto(object):
                 if self.source_interface is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -469,8 +456,6 @@ class Crypto(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf_name is not None:
                             return True
 
@@ -483,10 +468,6 @@ class Crypto(object):
                         if self.ipv6_access_list is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -506,17 +487,11 @@ class Crypto(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vrf is not None:
                         for child_ref in self.vrf:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -606,8 +581,6 @@ class Crypto(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf_name is not None:
                             return True
 
@@ -620,10 +593,6 @@ class Crypto(object):
                         if self.ipv6_access_list is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -643,17 +612,11 @@ class Crypto(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vrf is not None:
                         for child_ref in self.vrf:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -673,8 +636,6 @@ class Crypto(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.dscp is not None:
                     return True
 
@@ -685,9 +646,6 @@ class Crypto(object):
                     return True
 
                 if self.netconf_vrf_table is not None and self.netconf_vrf_table._has_data():
-                    return True
-
-                if self.netconf_vrf_table is not None and self.netconf_vrf_table.is_presence():
                     return True
 
                 if self.rate_limit is not None:
@@ -705,13 +663,6 @@ class Crypto(object):
                 if self.vrf_table is not None and self.vrf_table._has_data():
                     return True
 
-                if self.vrf_table is not None and self.vrf_table.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -731,24 +682,12 @@ class Crypto(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.client is not None and self.client._has_data():
-                return True
-
-            if self.client is not None and self.client.is_presence():
                 return True
 
             if self.server is not None and self.server._has_data():
                 return True
 
-            if self.server is not None and self.server.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -768,24 +707,12 @@ class Crypto(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.sam is not None and self.sam._has_data():
-            return True
-
-        if self.sam is not None and self.sam.is_presence():
             return True
 
         if self.ssh is not None and self.ssh._has_data():
             return True
 
-        if self.ssh is not None and self.ssh.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

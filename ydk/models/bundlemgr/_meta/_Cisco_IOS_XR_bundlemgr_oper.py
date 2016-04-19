@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,14 +14,14 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'BmdMlacpSwitchover_Enum' : _MetaInfoEnum('BmdMlacpSwitchover_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdMlacpSwitchoverEnum' : _MetaInfoEnum('BmdMlacpSwitchoverEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bmd-mlacp-switchover-nonrevertive':'BMD_MLACP_SWITCHOVER_NONREVERTIVE',
             'bmd-mlacp-switchover-brute-force':'BMD_MLACP_SWITCHOVER_BRUTE_FORCE',
             'bmd-mlacp-switchover-revertive':'BMD_MLACP_SWITCHOVER_REVERTIVE',
             'bmd-mlacp-switchover-count':'BMD_MLACP_SWITCHOVER_COUNT',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'LoadBalance_Enum' : _MetaInfoEnum('LoadBalance_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'LoadBalanceEnum' : _MetaInfoEnum('LoadBalanceEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'default':'DEFAULT',
             'auto':'AUTO',
@@ -30,7 +30,7 @@ _meta_table = {
             'destination-ip':'DESTINATION_IP',
             'unknown':'UNKNOWN',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmBdlState_Enum' : _MetaInfoEnum('BmBdlState_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmBdlStateEnum' : _MetaInfoEnum('BmBdlStateEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bm-bdl-state-admin-down':'BM_BDL_STATE_ADMIN_DOWN',
             'bm-bdl-state-down':'BM_BDL_STATE_DOWN',
@@ -46,19 +46,19 @@ _meta_table = {
             'bm-bdl-state-error-disabled':'BM_BDL_STATE_ERROR_DISABLED',
             'bm-bdl-state-efd-disabled':'BM_BDL_STATE_EFD_DISABLED',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'LacpPeriodState_Enum' : _MetaInfoEnum('LacpPeriodState_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'LacpPeriodStateEnum' : _MetaInfoEnum('LacpPeriodStateEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'period-s-low':'PERIOD_S_LOW',
             'period-fast':'PERIOD_FAST',
             'period-none':'PERIOD_NONE',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BundleMedia_Enum' : _MetaInfoEnum('BundleMedia_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BundleMediaEnum' : _MetaInfoEnum('BundleMediaEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bundle-media-ethernet':'BUNDLE_MEDIA_ETHERNET',
             'bundle-media-pos':'BUNDLE_MEDIA_POS',
             'bundle-media-count':'BUNDLE_MEDIA_COUNT',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdMlacpBdlStateEnum_Enum' : _MetaInfoEnum('BmdMlacpBdlStateEnum_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdMlacpBdlStateEnumEnum' : _MetaInfoEnum('BmdMlacpBdlStateEnumEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bdl-state-nak':'BDL_STATE_NAK',
             'bdl-state-unknown':'BDL_STATE_UNKNOWN',
@@ -70,12 +70,12 @@ _meta_table = {
             'bdl-state-test':'BDL_STATE_TEST',
             'bdl-state-error':'BDL_STATE_ERROR',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BundleMedia1_Enum' : _MetaInfoEnum('BundleMedia1_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BundleMedia1Enum' : _MetaInfoEnum('BundleMedia1Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'ethernet':'ETHERNET',
             'pos':'POS',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'Rxstates_Enum' : _MetaInfoEnum('Rxstates_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'RxstatesEnum' : _MetaInfoEnum('RxstatesEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'current-rx':'CURRENT_RX',
             'expired':'EXPIRED',
@@ -84,13 +84,13 @@ _meta_table = {
             'lacp-disabled':'LACP_DISABLED',
             'port-disabled':'PORT_DISABLED',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'LacpChurnstates_Enum' : _MetaInfoEnum('LacpChurnstates_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'LacpChurnstatesEnum' : _MetaInfoEnum('LacpChurnstatesEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'no-churn':'NO_CHURN',
             'churn':'CHURN',
             'churn-monitor':'CHURN_MONITOR',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdBagEventMbrItem_Enum' : _MetaInfoEnum('BmdBagEventMbrItem_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdBagEventMbrItemEnum' : _MetaInfoEnum('BmdBagEventMbrItemEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bmd-event-mbr-idb-create':'BMD_EVENT_MBR_IDB_CREATE',
             'bmd-event-mbr-bdl-add':'BMD_EVENT_MBR_BDL_ADD',
@@ -107,13 +107,13 @@ _meta_table = {
             'bmd-event-mbr-redundancy-role':'BMD_EVENT_MBR_REDUNDANCY_ROLE',
             'bmd-event-mbr-count':'BMD_EVENT_MBR_COUNT',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdBagEventData_Enum' : _MetaInfoEnum('BmdBagEventData_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdBagEventDataEnum' : _MetaInfoEnum('BmdBagEventDataEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bmd-bag-evt-data-none':'BMD_BAG_EVT_DATA_NONE',
             'bmd-bag-evt-data-error':'BMD_BAG_EVT_DATA_ERROR',
             'bmd-bag-evt-data-string':'BMD_BAG_EVT_DATA_STRING',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdSwitchReason_Enum' : _MetaInfoEnum('BmdSwitchReason_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdSwitchReasonEnum' : _MetaInfoEnum('BmdSwitchReasonEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bm-switch-reason-none':'BM_SWITCH_REASON_NONE',
             'bm-switch-reason-noop':'BM_SWITCH_REASON_NOOP',
@@ -125,18 +125,18 @@ _meta_table = {
             'bm-switch-reason-wrong-order':'BM_SWITCH_REASON_WRONG_ORDER',
             'bm-switch-reason-singleton':'BM_SWITCH_REASON_SINGLETON',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdMemberTypeEnum_Enum' : _MetaInfoEnum('BmdMemberTypeEnum_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdMemberTypeEnumEnum' : _MetaInfoEnum('BmdMemberTypeEnumEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bmd-mbr-local':'BMD_MBR_LOCAL',
             'bmd-mbr-foreign':'BMD_MBR_FOREIGN',
             'bmd-mbr-unknown':'BMD_MBR_UNKNOWN',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmAfId_Enum' : _MetaInfoEnum('BmAfId_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmAfIdEnum' : _MetaInfoEnum('BmAfIdEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bm-af-id-ipv4':'BM_AF_ID_IPV4',
             'bm-af-id-ipv6':'BM_AF_ID_IPV6',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmMbrStateReason_Enum' : _MetaInfoEnum('BmMbrStateReason_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmMbrStateReasonEnum' : _MetaInfoEnum('BmMbrStateReasonEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bm-mbr-state-reason-unknown':'BM_MBR_STATE_REASON_UNKNOWN',
             'bm-mbr-state-reason-unselectable-unknown':'BM_MBR_STATE_REASON_UNSELECTABLE_UNKNOWN',
@@ -210,7 +210,7 @@ _meta_table = {
             'bm-mbr-state-reason-singleton-pe-isolated':'BM_MBR_STATE_REASON_SINGLETON_PE_ISOLATED',
             'bm-mbr-state-reason-count':'BM_MBR_STATE_REASON_COUNT',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdBagEventBdlItem_Enum' : _MetaInfoEnum('BmdBagEventBdlItem_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdBagEventBdlItemEnum' : _MetaInfoEnum('BmdBagEventBdlItemEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bmd-event-bdl-idb-create':'BMD_EVENT_BDL_IDB_CREATE',
             'bmd-event-bdl-configured':'BMD_EVENT_BDL_CONFIGURED',
@@ -227,7 +227,7 @@ _meta_table = {
             'bmd-event-bdl-icl':'BMD_EVENT_BDL_ICL',
             'bmd-event-bdl-count':'BMD_EVENT_BDL_COUNT',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdMlacpNodeStateEnum_Enum' : _MetaInfoEnum('BmdMlacpNodeStateEnum_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdMlacpNodeStateEnumEnum' : _MetaInfoEnum('BmdMlacpNodeStateEnumEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'node-state-incomplete':'NODE_STATE_INCOMPLETE',
             'node-state-conn-rejected':'NODE_STATE_CONN_REJECTED',
@@ -244,7 +244,7 @@ _meta_table = {
             'node-state-test':'NODE_STATE_TEST',
             'node-state-up':'NODE_STATE_UP',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdBagEventRgItem_Enum' : _MetaInfoEnum('BmdBagEventRgItem_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdBagEventRgItemEnum' : _MetaInfoEnum('BmdBagEventRgItemEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bmd-event-rg-idb-create':'BMD_EVENT_RG_IDB_CREATE',
             'bmd-event-rg-configured':'BMD_EVENT_RG_CONFIGURED',
@@ -258,19 +258,19 @@ _meta_table = {
             'bmd-event-rg-iccp-event':'BMD_EVENT_RG_ICCP_EVENT',
             'bmd-event-rg-count':'BMD_EVENT_RG_COUNT',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmWhichSystem_Enum' : _MetaInfoEnum('BmWhichSystem_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmWhichSystemEnum' : _MetaInfoEnum('BmWhichSystemEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bm-which-system-actr':'BM_WHICH_SYSTEM_ACTR',
             'bm-which-system-ptnr':'BM_WHICH_SYSTEM_PTNR',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdBfdBdlState_Enum' : _MetaInfoEnum('BmdBfdBdlState_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdBfdBdlStateEnum' : _MetaInfoEnum('BmdBfdBdlStateEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bmd-bfd-bdl-down':'BMD_BFD_BDL_DOWN',
             'bmd-bfd-bdl-unknown':'BMD_BFD_BDL_UNKNOWN',
             'bmd-bfd-bdl-up':'BMD_BFD_BDL_UP',
             'bmd-bfd-bdl-count':'BMD_BFD_BDL_COUNT',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdMlacpMbrStateEnum_Enum' : _MetaInfoEnum('BmdMlacpMbrStateEnum_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdMlacpMbrStateEnumEnum' : _MetaInfoEnum('BmdMlacpMbrStateEnumEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'mbr-state-nak':'MBR_STATE_NAK',
             'mbr-state-unknown':'MBR_STATE_UNKNOWN',
@@ -280,14 +280,14 @@ _meta_table = {
             'mbr-state-test':'MBR_STATE_TEST',
             'mbr-state-error':'MBR_STATE_ERROR',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdBagTarget_Enum' : _MetaInfoEnum('BmdBagTarget_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdBagTargetEnum' : _MetaInfoEnum('BmdBagTargetEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bm-bag-target-mbr':'BM_BAG_TARGET_MBR',
             'bm-bag-target-bdl':'BM_BAG_TARGET_BDL',
             'bm-bag-target-node':'BM_BAG_TARGET_NODE',
             'bm-bag-target-rg':'BM_BAG_TARGET_RG',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmMuxstate_Enum' : _MetaInfoEnum('BmMuxstate_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmMuxstateEnum' : _MetaInfoEnum('BmMuxstateEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'detached':'DETACHED',
             'waiting':'WAITING',
@@ -296,13 +296,13 @@ _meta_table = {
             'distributing':'DISTRIBUTING',
             'collecting-distributing':'COLLECTING_DISTRIBUTING',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'LacpSelState_Enum' : _MetaInfoEnum('LacpSelState_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'LacpSelStateEnum' : _MetaInfoEnum('LacpSelStateEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'unselected':'UNSELECTED',
             'standby':'STANDBY',
             'selected':'SELECTED',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdMemberState_Enum' : _MetaInfoEnum('BmdMemberState_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdMemberStateEnum' : _MetaInfoEnum('BmdMemberStateEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bmd-mbr-state-configured':'BMD_MBR_STATE_CONFIGURED',
             'bmd-mbr-state-standby':'BMD_MBR_STATE_STANDBY',
@@ -311,7 +311,7 @@ _meta_table = {
             'bmd-mbr-state-bfd-running':'BMD_MBR_STATE_BFD_RUNNING',
             'bmd-mbr-state-active':'BMD_MBR_STATE_ACTIVE',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmMuxreason_Enum' : _MetaInfoEnum('BmMuxreason_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmMuxreasonEnum' : _MetaInfoEnum('BmMuxreasonEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bm-mux-reason-no-reason':'BM_MUX_REASON_NO_REASON',
             'bm-mux-reason-link-down':'BM_MUX_REASON_LINK_DOWN',
@@ -334,13 +334,13 @@ _meta_table = {
             'bm-mux-reason-distributing':'BM_MUX_REASON_DISTRIBUTING',
             'bm-mux-reason-count':'BM_MUX_REASON_COUNT',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmFeatureStatus_Enum' : _MetaInfoEnum('BmFeatureStatus_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmFeatureStatusEnum' : _MetaInfoEnum('BmFeatureStatusEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bm-feature-not-configured':'BM_FEATURE_NOT_CONFIGURED',
             'bm-feature-not-operational':'BM_FEATURE_NOT_OPERATIONAL',
             'bm-feature-operational':'BM_FEATURE_OPERATIONAL',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmSeverity_Enum' : _MetaInfoEnum('BmSeverity_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmSeverityEnum' : _MetaInfoEnum('BmSeverityEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'ok':'OK',
             'information':'INFORMATION',
@@ -348,23 +348,23 @@ _meta_table = {
             'warning':'WARNING',
             'error':'ERROR',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BundleMlacpMode_Enum' : _MetaInfoEnum('BundleMlacpMode_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BundleMlacpModeEnum' : _MetaInfoEnum('BundleMlacpModeEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bundle-mlacp-mode-standby':'BUNDLE_MLACP_MODE_STANDBY',
             'bundle-mlacp-mode-active':'BUNDLE_MLACP_MODE_ACTIVE',
             'bundle-mlacp-mode-count':'BUNDLE_MLACP_MODE_COUNT',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdBagMlacpSchActionItem_Enum' : _MetaInfoEnum('BmdBagMlacpSchActionItem_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdBagMlacpSchActionItemEnum' : _MetaInfoEnum('BmdBagMlacpSchActionItemEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'switchover':'SWITCHOVER',
             'switchback':'SWITCHBACK',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmStateReasonTarget_Enum' : _MetaInfoEnum('BmStateReasonTarget_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmStateReasonTargetEnum' : _MetaInfoEnum('BmStateReasonTargetEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'member-reason':'MEMBER_REASON',
             'bundle-reason':'BUNDLE_REASON',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdMlacpNodeSyncEnum_Enum' : _MetaInfoEnum('BmdMlacpNodeSyncEnum_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdMlacpNodeSyncEnumEnum' : _MetaInfoEnum('BmdMlacpNodeSyncEnumEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'node-sync-req':'NODE_SYNC_REQ',
             'node-sync-done':'NODE_SYNC_DONE',
@@ -372,7 +372,7 @@ _meta_table = {
             'node-sync-init':'NODE_SYNC_INIT',
             'node-sync-singleton':'NODE_SYNC_SINGLETON',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmBdlMacSource_Enum' : _MetaInfoEnum('BmBdlMacSource_Enum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmBdlMacSourceEnum' : _MetaInfoEnum('BmBdlMacSourceEnum', 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bm-bdl-mac-source-unknown':'BM_BDL_MAC_SOURCE_UNKNOWN',
             'bm-bdl-mac-source-chassis':'BM_BDL_MAC_SOURCE_CHASSIS',
@@ -805,13 +805,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MemberMuxData.MemberMuxStateReasonData',
             False, 
             [
-            _MetaInfoClassMember('reason-type', REFERENCE_ENUM_CLASS, 'BmStateReasonTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmStateReasonTarget_Enum', 
+            _MetaInfoClassMember('reason-type', REFERENCE_ENUM_CLASS, 'BmStateReasonTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmStateReasonTargetEnum', 
                 [], [], 
                 '''                The item the reason applies to
                 ''',
                 'reason_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'BmSeverity_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'BmSeverityEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmSeverityEnum', 
                 [], [], 
                 '''                The severity of the reason
                 ''',
@@ -835,7 +835,7 @@ _meta_table = {
                 ''',
                 'error',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMbrStateReason_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMbrStateReason_Enum', 
+            _MetaInfoClassMember('member-mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMbrStateReasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMbrStateReasonEnum', 
                 [], [], 
                 '''                Reason for last Mux state change
                 ''',
@@ -848,19 +848,19 @@ _meta_table = {
                 ''',
                 'member_mux_state_reason_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberState_Enum', 
+            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberStateEnum', 
                 [], [], 
                 '''                Current internal state of this bundle member
                 ''',
                 'member_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstate_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstate_Enum', 
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
                 [], [], 
                 '''                Current state of this bundle member
                 ''',
                 'mux_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreason_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreason_Enum', 
+            _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreasonEnum', 
                 [], [], 
                 '''                Reason for last Mux state change (Deprecated)
                 ''',
@@ -925,7 +925,7 @@ _meta_table = {
                 ''',
                 'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnum_Enum', 
+            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
                 [], [], 
                 '''                Member's type (local/foreign)
                 ''',
@@ -978,7 +978,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.BfdConfig.DestinationAddress',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfId_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfId_Enum', 
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfIdEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfIdEnum', 
                 [], [], 
                 '''                AF
                 ''',
@@ -1007,7 +1007,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
@@ -1126,7 +1126,7 @@ _meta_table = {
                 ''',
                 'bundle_interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
                 [], [], 
                 '''                The state of the bundle
                 ''',
@@ -1186,7 +1186,7 @@ _meta_table = {
                 ''',
                 'inter_chassis',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the BFD (IPv4) feature on the
                 bundle
@@ -1207,13 +1207,13 @@ _meta_table = {
                 ''',
                 'lacp_nonrevertive',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the LACP feature on the bundle
                 ''',
                 'lacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the link order signaling feature
                 on the bundle
@@ -1239,7 +1239,7 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSource_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSource_Enum', 
+            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
                 '''                The source of the MAC Address
                 ''',
@@ -1272,7 +1272,7 @@ _meta_table = {
                 ''',
                 'maximum_active_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystem_Enum', 
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
                 [], [], 
                 '''                Source of maximum active links value
                 ''',
@@ -1292,13 +1292,13 @@ _meta_table = {
                 ''',
                 'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpMode_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpMode_Enum', 
+            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the mLACP feature on the bundle
                 ''',
@@ -1337,7 +1337,7 @@ _meta_table = {
                 ''',
                 'suppression_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchover_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchover_Enum', 
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
                 [], [], 
                 '''                How a switchover of the bundle from this device
                 will occur
@@ -1378,13 +1378,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MemberMuxData.MemberMuxStateReasonData',
             False, 
             [
-            _MetaInfoClassMember('reason-type', REFERENCE_ENUM_CLASS, 'BmStateReasonTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmStateReasonTarget_Enum', 
+            _MetaInfoClassMember('reason-type', REFERENCE_ENUM_CLASS, 'BmStateReasonTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmStateReasonTargetEnum', 
                 [], [], 
                 '''                The item the reason applies to
                 ''',
                 'reason_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'BmSeverity_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'BmSeverityEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmSeverityEnum', 
                 [], [], 
                 '''                The severity of the reason
                 ''',
@@ -1408,7 +1408,7 @@ _meta_table = {
                 ''',
                 'error',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMbrStateReason_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMbrStateReason_Enum', 
+            _MetaInfoClassMember('member-mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMbrStateReasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMbrStateReasonEnum', 
                 [], [], 
                 '''                Reason for last Mux state change
                 ''',
@@ -1421,19 +1421,19 @@ _meta_table = {
                 ''',
                 'member_mux_state_reason_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberState_Enum', 
+            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberStateEnum', 
                 [], [], 
                 '''                Current internal state of this bundle member
                 ''',
                 'member_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstate_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstate_Enum', 
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
                 [], [], 
                 '''                Current state of this bundle member
                 ''',
                 'mux_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreason_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreason_Enum', 
+            _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreasonEnum', 
                 [], [], 
                 '''                Reason for last Mux state change (Deprecated)
                 ''',
@@ -1492,7 +1492,7 @@ _meta_table = {
                 ''',
                 'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnum_Enum', 
+            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
                 [], [], 
                 '''                Member's type (local/foreign)
                 ''',
@@ -1550,7 +1550,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.BfdConfig.DestinationAddress',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfId_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfId_Enum', 
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfIdEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfIdEnum', 
                 [], [], 
                 '''                AF
                 ''',
@@ -1579,7 +1579,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
@@ -1698,7 +1698,7 @@ _meta_table = {
                 ''',
                 'bundle_interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
                 [], [], 
                 '''                The state of the bundle
                 ''',
@@ -1758,7 +1758,7 @@ _meta_table = {
                 ''',
                 'inter_chassis',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the BFD (IPv4) feature on the
                 bundle
@@ -1779,13 +1779,13 @@ _meta_table = {
                 ''',
                 'lacp_nonrevertive',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the LACP feature on the bundle
                 ''',
                 'lacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the link order signaling feature
                 on the bundle
@@ -1811,7 +1811,7 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSource_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSource_Enum', 
+            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
                 '''                The source of the MAC Address
                 ''',
@@ -1844,7 +1844,7 @@ _meta_table = {
                 ''',
                 'maximum_active_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystem_Enum', 
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
                 [], [], 
                 '''                Source of maximum active links value
                 ''',
@@ -1864,13 +1864,13 @@ _meta_table = {
                 ''',
                 'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpMode_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpMode_Enum', 
+            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the mLACP feature on the bundle
                 ''',
@@ -1909,7 +1909,7 @@ _meta_table = {
                 ''',
                 'suppression_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchover_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchover_Enum', 
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
                 [], [], 
                 '''                How a switchover of the bundle from this device
                 will occur
@@ -1986,7 +1986,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.BfdConfig.DestinationAddress',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfId_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfId_Enum', 
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfIdEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfIdEnum', 
                 [], [], 
                 '''                AF
                 ''',
@@ -2015,7 +2015,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
@@ -2134,7 +2134,7 @@ _meta_table = {
                 ''',
                 'bundle_interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
                 [], [], 
                 '''                The state of the bundle
                 ''',
@@ -2194,7 +2194,7 @@ _meta_table = {
                 ''',
                 'inter_chassis',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the BFD (IPv4) feature on the
                 bundle
@@ -2215,13 +2215,13 @@ _meta_table = {
                 ''',
                 'lacp_nonrevertive',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the LACP feature on the bundle
                 ''',
                 'lacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the link order signaling feature
                 on the bundle
@@ -2247,7 +2247,7 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSource_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSource_Enum', 
+            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
                 '''                The source of the MAC Address
                 ''',
@@ -2280,7 +2280,7 @@ _meta_table = {
                 ''',
                 'maximum_active_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystem_Enum', 
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
                 [], [], 
                 '''                Source of maximum active links value
                 ''',
@@ -2300,13 +2300,13 @@ _meta_table = {
                 ''',
                 'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpMode_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpMode_Enum', 
+            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the mLACP feature on the bundle
                 ''',
@@ -2345,7 +2345,7 @@ _meta_table = {
                 ''',
                 'suppression_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchover_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchover_Enum', 
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
                 [], [], 
                 '''                How a switchover of the bundle from this device
                 will occur
@@ -2386,13 +2386,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MemberMuxData.MemberMuxStateReasonData',
             False, 
             [
-            _MetaInfoClassMember('reason-type', REFERENCE_ENUM_CLASS, 'BmStateReasonTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmStateReasonTarget_Enum', 
+            _MetaInfoClassMember('reason-type', REFERENCE_ENUM_CLASS, 'BmStateReasonTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmStateReasonTargetEnum', 
                 [], [], 
                 '''                The item the reason applies to
                 ''',
                 'reason_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'BmSeverity_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'BmSeverityEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmSeverityEnum', 
                 [], [], 
                 '''                The severity of the reason
                 ''',
@@ -2416,7 +2416,7 @@ _meta_table = {
                 ''',
                 'error',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMbrStateReason_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMbrStateReason_Enum', 
+            _MetaInfoClassMember('member-mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMbrStateReasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMbrStateReasonEnum', 
                 [], [], 
                 '''                Reason for last Mux state change
                 ''',
@@ -2429,19 +2429,19 @@ _meta_table = {
                 ''',
                 'member_mux_state_reason_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberState_Enum', 
+            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberStateEnum', 
                 [], [], 
                 '''                Current internal state of this bundle member
                 ''',
                 'member_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstate_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstate_Enum', 
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
                 [], [], 
                 '''                Current state of this bundle member
                 ''',
                 'mux_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreason_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreason_Enum', 
+            _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreasonEnum', 
                 [], [], 
                 '''                Reason for last Mux state change (Deprecated)
                 ''',
@@ -2500,7 +2500,7 @@ _meta_table = {
                 ''',
                 'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnum_Enum', 
+            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
                 [], [], 
                 '''                Member's type (local/foreign)
                 ''',
@@ -2575,13 +2575,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MemberMuxData.MemberMuxStateReasonData',
             False, 
             [
-            _MetaInfoClassMember('reason-type', REFERENCE_ENUM_CLASS, 'BmStateReasonTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmStateReasonTarget_Enum', 
+            _MetaInfoClassMember('reason-type', REFERENCE_ENUM_CLASS, 'BmStateReasonTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmStateReasonTargetEnum', 
                 [], [], 
                 '''                The item the reason applies to
                 ''',
                 'reason_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'BmSeverity_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'BmSeverityEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmSeverityEnum', 
                 [], [], 
                 '''                The severity of the reason
                 ''',
@@ -2605,7 +2605,7 @@ _meta_table = {
                 ''',
                 'error',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMbrStateReason_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMbrStateReason_Enum', 
+            _MetaInfoClassMember('member-mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMbrStateReasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMbrStateReasonEnum', 
                 [], [], 
                 '''                Reason for last Mux state change
                 ''',
@@ -2618,19 +2618,19 @@ _meta_table = {
                 ''',
                 'member_mux_state_reason_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberState_Enum', 
+            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberStateEnum', 
                 [], [], 
                 '''                Current internal state of this bundle member
                 ''',
                 'member_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstate_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstate_Enum', 
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
                 [], [], 
                 '''                Current state of this bundle member
                 ''',
                 'mux_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreason_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreason_Enum', 
+            _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreasonEnum', 
                 [], [], 
                 '''                Reason for last Mux state change (Deprecated)
                 ''',
@@ -2689,7 +2689,7 @@ _meta_table = {
                 ''',
                 'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnum_Enum', 
+            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
                 [], [], 
                 '''                Member's type (local/foreign)
                 ''',
@@ -2795,7 +2795,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.BfdConfig.DestinationAddress',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfId_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfId_Enum', 
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfIdEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfIdEnum', 
                 [], [], 
                 '''                AF
                 ''',
@@ -2824,7 +2824,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
@@ -2943,7 +2943,7 @@ _meta_table = {
                 ''',
                 'bundle_interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
                 [], [], 
                 '''                The state of the bundle
                 ''',
@@ -3003,7 +3003,7 @@ _meta_table = {
                 ''',
                 'inter_chassis',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the BFD (IPv4) feature on the
                 bundle
@@ -3024,13 +3024,13 @@ _meta_table = {
                 ''',
                 'lacp_nonrevertive',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the LACP feature on the bundle
                 ''',
                 'lacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the link order signaling feature
                 on the bundle
@@ -3056,7 +3056,7 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSource_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSource_Enum', 
+            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
                 '''                The source of the MAC Address
                 ''',
@@ -3089,7 +3089,7 @@ _meta_table = {
                 ''',
                 'maximum_active_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystem_Enum', 
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
                 [], [], 
                 '''                Source of maximum active links value
                 ''',
@@ -3109,13 +3109,13 @@ _meta_table = {
                 ''',
                 'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpMode_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpMode_Enum', 
+            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the mLACP feature on the bundle
                 ''',
@@ -3154,7 +3154,7 @@ _meta_table = {
                 ''',
                 'suppression_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchover_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchover_Enum', 
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
                 [], [], 
                 '''                How a switchover of the bundle from this device
                 will occur
@@ -3218,7 +3218,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -3253,7 +3253,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -3282,7 +3282,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -3323,7 +3323,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -3346,7 +3346,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -3387,7 +3387,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -3416,7 +3416,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -3468,7 +3468,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -3503,7 +3503,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -3532,7 +3532,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -3573,7 +3573,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -3596,7 +3596,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -3637,7 +3637,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -3666,7 +3666,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -3741,7 +3741,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -3776,7 +3776,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -3805,7 +3805,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -3846,7 +3846,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -3869,7 +3869,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -3910,7 +3910,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -3939,7 +3939,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -4008,7 +4008,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -4043,7 +4043,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -4072,7 +4072,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -4113,7 +4113,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -4136,7 +4136,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -4177,7 +4177,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -4206,7 +4206,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -4316,7 +4316,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -4351,7 +4351,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -4380,7 +4380,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -4421,7 +4421,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -4444,7 +4444,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -4485,7 +4485,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -4514,7 +4514,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -4566,7 +4566,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -4601,7 +4601,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -4630,7 +4630,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -4671,7 +4671,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -4694,7 +4694,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -4735,7 +4735,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -4764,7 +4764,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -4885,7 +4885,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -4920,7 +4920,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -4949,7 +4949,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -4990,7 +4990,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -5013,7 +5013,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -5054,7 +5054,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -5083,7 +5083,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -5175,7 +5175,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -5210,7 +5210,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -5239,7 +5239,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -5280,7 +5280,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -5303,7 +5303,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -5344,7 +5344,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -5373,7 +5373,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -5482,7 +5482,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -5517,7 +5517,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -5546,7 +5546,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -5587,7 +5587,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -5610,7 +5610,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -5651,7 +5651,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -5680,7 +5680,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -5803,7 +5803,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -5838,7 +5838,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -5867,7 +5867,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -5908,7 +5908,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -5931,7 +5931,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -5972,7 +5972,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -6001,7 +6001,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -6077,7 +6077,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -6112,7 +6112,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -6141,7 +6141,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -6182,7 +6182,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -6205,7 +6205,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -6246,7 +6246,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -6275,7 +6275,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -6391,7 +6391,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -6426,7 +6426,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -6455,7 +6455,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -6496,7 +6496,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -6519,7 +6519,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -6560,7 +6560,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -6589,7 +6589,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -6665,7 +6665,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -6700,7 +6700,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -6729,7 +6729,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -6770,7 +6770,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -6793,7 +6793,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -6834,7 +6834,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -6863,7 +6863,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -6979,7 +6979,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -7014,7 +7014,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -7043,7 +7043,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -7084,7 +7084,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -7107,7 +7107,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -7148,7 +7148,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -7177,7 +7177,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -7300,7 +7300,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -7335,7 +7335,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -7364,7 +7364,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -7405,7 +7405,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -7428,7 +7428,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -7469,7 +7469,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -7498,7 +7498,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -7590,7 +7590,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -7625,7 +7625,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -7654,7 +7654,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -7695,7 +7695,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -7718,7 +7718,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -7759,7 +7759,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -7788,7 +7788,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -7880,7 +7880,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.BundleEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -7915,7 +7915,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.BundleEvtInfo',
             False, 
             [
-            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItem_Enum', 
+            _MetaInfoClassMember('bundle-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventBdlItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventBdlItemEnum', 
                 [], [], 
                 '''                Type of event for bundle
                 ''',
@@ -7944,7 +7944,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.MemberEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -7985,7 +7985,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItem_Enum', 
+            _MetaInfoClassMember('member-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventMbrItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventMbrItemEnum', 
                 [], [], 
                 '''                Type of event for member
                 ''',
@@ -8008,7 +8008,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.RgEvtInfo.Data',
             False, 
             [
-            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventData_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventData_Enum', 
+            _MetaInfoClassMember('data-type', REFERENCE_ENUM_CLASS, 'BmdBagEventDataEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventDataEnum', 
                 [], [], 
                 '''                DataType
                 ''',
@@ -8049,7 +8049,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItem_Enum', 
+            _MetaInfoClassMember('rg-event-type', REFERENCE_ENUM_CLASS, 'BmdBagEventRgItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagEventRgItemEnum', 
                 [], [], 
                 '''                Type of event for RG
                 ''',
@@ -8078,7 +8078,7 @@ _meta_table = {
                 ''',
                 'bundle_evt_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                EventType
                 ''',
@@ -8374,7 +8374,7 @@ _meta_table = {
                 ''',
                 'local',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mbr-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnum_Enum', 
+            _MetaInfoClassMember('mbr-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
                 [], [], 
                 '''                MbrType
                 ''',
@@ -8518,7 +8518,7 @@ _meta_table = {
                 ''',
                 'member_interface',
                 'Cisco-IOS-XR-bundlemgr-oper', True),
-            _MetaInfoClassMember('actor-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstates_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstates_Enum', 
+            _MetaInfoClassMember('actor-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
                 [], [], 
                 '''                State of the Churn state machine for the Actor
                 ''',
@@ -8549,13 +8549,13 @@ _meta_table = {
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstate_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstate_Enum', 
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
                 [], [], 
                 '''                State of the Mux state machine
                 ''',
                 'mux_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstates_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstates_Enum', 
+            _MetaInfoClassMember('partner-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
                 [], [], 
                 '''                State of the Churn state machine for the Partner
                 ''',
@@ -8567,13 +8567,13 @@ _meta_table = {
                 ''',
                 'partner_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('period-state', REFERENCE_ENUM_CLASS, 'LacpPeriodState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpPeriodState_Enum', 
+            _MetaInfoClassMember('period-state', REFERENCE_ENUM_CLASS, 'LacpPeriodStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpPeriodStateEnum', 
                 [], [], 
                 '''                State of the Period state machine
                 ''',
                 'period_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('receive-machine-state', REFERENCE_ENUM_CLASS, 'Rxstates_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'Rxstates_Enum', 
+            _MetaInfoClassMember('receive-machine-state', REFERENCE_ENUM_CLASS, 'RxstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'RxstatesEnum', 
                 [], [], 
                 '''                State of the RX state machine
                 ''',
@@ -8585,7 +8585,7 @@ _meta_table = {
                 ''',
                 'selected_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('selection-state', REFERENCE_ENUM_CLASS, 'LacpSelState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpSelState_Enum', 
+            _MetaInfoClassMember('selection-state', REFERENCE_ENUM_CLASS, 'LacpSelStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpSelStateEnum', 
                 [], [], 
                 '''                State of the Selection Logic state machine
                 ''',
@@ -8619,7 +8619,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.BfdConfig.DestinationAddress',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfId_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfId_Enum', 
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfIdEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfIdEnum', 
                 [], [], 
                 '''                AF
                 ''',
@@ -8648,7 +8648,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
@@ -8767,7 +8767,7 @@ _meta_table = {
                 ''',
                 'bundle_interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
                 [], [], 
                 '''                The state of the bundle
                 ''',
@@ -8827,7 +8827,7 @@ _meta_table = {
                 ''',
                 'inter_chassis',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the BFD (IPv4) feature on the
                 bundle
@@ -8848,13 +8848,13 @@ _meta_table = {
                 ''',
                 'lacp_nonrevertive',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the LACP feature on the bundle
                 ''',
                 'lacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the link order signaling feature
                 on the bundle
@@ -8880,7 +8880,7 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSource_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSource_Enum', 
+            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
                 '''                The source of the MAC Address
                 ''',
@@ -8913,7 +8913,7 @@ _meta_table = {
                 ''',
                 'maximum_active_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystem_Enum', 
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
                 [], [], 
                 '''                Source of maximum active links value
                 ''',
@@ -8933,13 +8933,13 @@ _meta_table = {
                 ''',
                 'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpMode_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpMode_Enum', 
+            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the mLACP feature on the bundle
                 ''',
@@ -8978,7 +8978,7 @@ _meta_table = {
                 ''',
                 'suppression_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchover_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchover_Enum', 
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
                 [], [], 
                 '''                How a switchover of the bundle from this device
                 will occur
@@ -9263,7 +9263,7 @@ _meta_table = {
                 ''',
                 'local',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mbr-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnum_Enum', 
+            _MetaInfoClassMember('mbr-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
                 [], [], 
                 '''                MbrType
                 ''',
@@ -9401,7 +9401,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData',
             False, 
             [
-            _MetaInfoClassMember('actor-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstates_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstates_Enum', 
+            _MetaInfoClassMember('actor-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
                 [], [], 
                 '''                State of the Churn state machine for the Actor
                 ''',
@@ -9432,13 +9432,13 @@ _meta_table = {
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstate_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstate_Enum', 
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
                 [], [], 
                 '''                State of the Mux state machine
                 ''',
                 'mux_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstates_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstates_Enum', 
+            _MetaInfoClassMember('partner-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
                 [], [], 
                 '''                State of the Churn state machine for the Partner
                 ''',
@@ -9450,13 +9450,13 @@ _meta_table = {
                 ''',
                 'partner_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('period-state', REFERENCE_ENUM_CLASS, 'LacpPeriodState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpPeriodState_Enum', 
+            _MetaInfoClassMember('period-state', REFERENCE_ENUM_CLASS, 'LacpPeriodStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpPeriodStateEnum', 
                 [], [], 
                 '''                State of the Period state machine
                 ''',
                 'period_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('receive-machine-state', REFERENCE_ENUM_CLASS, 'Rxstates_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'Rxstates_Enum', 
+            _MetaInfoClassMember('receive-machine-state', REFERENCE_ENUM_CLASS, 'RxstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'RxstatesEnum', 
                 [], [], 
                 '''                State of the RX state machine
                 ''',
@@ -9468,7 +9468,7 @@ _meta_table = {
                 ''',
                 'selected_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('selection-state', REFERENCE_ENUM_CLASS, 'LacpSelState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpSelState_Enum', 
+            _MetaInfoClassMember('selection-state', REFERENCE_ENUM_CLASS, 'LacpSelStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpSelStateEnum', 
                 [], [], 
                 '''                State of the Selection Logic state machine
                 ''',
@@ -9508,7 +9508,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.BfdConfig.DestinationAddress',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfId_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfId_Enum', 
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfIdEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfIdEnum', 
                 [], [], 
                 '''                AF
                 ''',
@@ -9537,7 +9537,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
@@ -9656,7 +9656,7 @@ _meta_table = {
                 ''',
                 'bundle_interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
                 [], [], 
                 '''                The state of the bundle
                 ''',
@@ -9716,7 +9716,7 @@ _meta_table = {
                 ''',
                 'inter_chassis',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the BFD (IPv4) feature on the
                 bundle
@@ -9737,13 +9737,13 @@ _meta_table = {
                 ''',
                 'lacp_nonrevertive',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the LACP feature on the bundle
                 ''',
                 'lacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the link order signaling feature
                 on the bundle
@@ -9769,7 +9769,7 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSource_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSource_Enum', 
+            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
                 '''                The source of the MAC Address
                 ''',
@@ -9802,7 +9802,7 @@ _meta_table = {
                 ''',
                 'maximum_active_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystem_Enum', 
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
                 [], [], 
                 '''                Source of maximum active links value
                 ''',
@@ -9822,13 +9822,13 @@ _meta_table = {
                 ''',
                 'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpMode_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpMode_Enum', 
+            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the mLACP feature on the bundle
                 ''',
@@ -9867,7 +9867,7 @@ _meta_table = {
                 ''',
                 'suppression_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchover_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchover_Enum', 
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
                 [], [], 
                 '''                How a switchover of the bundle from this device
                 will occur
@@ -10030,7 +10030,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.BfdConfig.DestinationAddress',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfId_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfId_Enum', 
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfIdEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfIdEnum', 
                 [], [], 
                 '''                AF
                 ''',
@@ -10059,7 +10059,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
@@ -10178,7 +10178,7 @@ _meta_table = {
                 ''',
                 'bundle_interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
                 [], [], 
                 '''                The state of the bundle
                 ''',
@@ -10238,7 +10238,7 @@ _meta_table = {
                 ''',
                 'inter_chassis',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the BFD (IPv4) feature on the
                 bundle
@@ -10259,13 +10259,13 @@ _meta_table = {
                 ''',
                 'lacp_nonrevertive',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the LACP feature on the bundle
                 ''',
                 'lacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the link order signaling feature
                 on the bundle
@@ -10291,7 +10291,7 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSource_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSource_Enum', 
+            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
                 '''                The source of the MAC Address
                 ''',
@@ -10324,7 +10324,7 @@ _meta_table = {
                 ''',
                 'maximum_active_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystem_Enum', 
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
                 [], [], 
                 '''                Source of maximum active links value
                 ''',
@@ -10344,13 +10344,13 @@ _meta_table = {
                 ''',
                 'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpMode_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpMode_Enum', 
+            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the mLACP feature on the bundle
                 ''',
@@ -10389,7 +10389,7 @@ _meta_table = {
                 ''',
                 'suppression_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchover_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchover_Enum', 
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
                 [], [], 
                 '''                How a switchover of the bundle from this device
                 will occur
@@ -10674,7 +10674,7 @@ _meta_table = {
                 ''',
                 'local',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mbr-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnum_Enum', 
+            _MetaInfoClassMember('mbr-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
                 [], [], 
                 '''                MbrType
                 ''',
@@ -10812,7 +10812,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData',
             False, 
             [
-            _MetaInfoClassMember('actor-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstates_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstates_Enum', 
+            _MetaInfoClassMember('actor-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
                 [], [], 
                 '''                State of the Churn state machine for the Actor
                 ''',
@@ -10843,13 +10843,13 @@ _meta_table = {
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstate_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstate_Enum', 
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
                 [], [], 
                 '''                State of the Mux state machine
                 ''',
                 'mux_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstates_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstates_Enum', 
+            _MetaInfoClassMember('partner-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
                 [], [], 
                 '''                State of the Churn state machine for the Partner
                 ''',
@@ -10861,13 +10861,13 @@ _meta_table = {
                 ''',
                 'partner_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('period-state', REFERENCE_ENUM_CLASS, 'LacpPeriodState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpPeriodState_Enum', 
+            _MetaInfoClassMember('period-state', REFERENCE_ENUM_CLASS, 'LacpPeriodStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpPeriodStateEnum', 
                 [], [], 
                 '''                State of the Period state machine
                 ''',
                 'period_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('receive-machine-state', REFERENCE_ENUM_CLASS, 'Rxstates_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'Rxstates_Enum', 
+            _MetaInfoClassMember('receive-machine-state', REFERENCE_ENUM_CLASS, 'RxstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'RxstatesEnum', 
                 [], [], 
                 '''                State of the RX state machine
                 ''',
@@ -10879,7 +10879,7 @@ _meta_table = {
                 ''',
                 'selected_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('selection-state', REFERENCE_ENUM_CLASS, 'LacpSelState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpSelState_Enum', 
+            _MetaInfoClassMember('selection-state', REFERENCE_ENUM_CLASS, 'LacpSelStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpSelStateEnum', 
                 [], [], 
                 '''                State of the Selection Logic state machine
                 ''',
@@ -11093,7 +11093,7 @@ _meta_table = {
                 ''',
                 'local',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mbr-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnum_Enum', 
+            _MetaInfoClassMember('mbr-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
                 [], [], 
                 '''                MbrType
                 ''',
@@ -11231,7 +11231,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem',
             False, 
             [
-            _MetaInfoClassMember('actor-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstates_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstates_Enum', 
+            _MetaInfoClassMember('actor-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
                 [], [], 
                 '''                State of the Churn state machine for the Actor
                 ''',
@@ -11262,13 +11262,13 @@ _meta_table = {
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstate_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstate_Enum', 
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
                 [], [], 
                 '''                State of the Mux state machine
                 ''',
                 'mux_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('partner-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstates_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstates_Enum', 
+            _MetaInfoClassMember('partner-churn-state', REFERENCE_ENUM_CLASS, 'LacpChurnstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpChurnstatesEnum', 
                 [], [], 
                 '''                State of the Churn state machine for the Partner
                 ''',
@@ -11280,13 +11280,13 @@ _meta_table = {
                 ''',
                 'partner_info',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('period-state', REFERENCE_ENUM_CLASS, 'LacpPeriodState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpPeriodState_Enum', 
+            _MetaInfoClassMember('period-state', REFERENCE_ENUM_CLASS, 'LacpPeriodStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpPeriodStateEnum', 
                 [], [], 
                 '''                State of the Period state machine
                 ''',
                 'period_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('receive-machine-state', REFERENCE_ENUM_CLASS, 'Rxstates_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'Rxstates_Enum', 
+            _MetaInfoClassMember('receive-machine-state', REFERENCE_ENUM_CLASS, 'RxstatesEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'RxstatesEnum', 
                 [], [], 
                 '''                State of the RX state machine
                 ''',
@@ -11298,7 +11298,7 @@ _meta_table = {
                 ''',
                 'selected_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('selection-state', REFERENCE_ENUM_CLASS, 'LacpSelState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpSelState_Enum', 
+            _MetaInfoClassMember('selection-state', REFERENCE_ENUM_CLASS, 'LacpSelStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LacpSelStateEnum', 
                 [], [], 
                 '''                State of the Selection Logic state machine
                 ''',
@@ -11482,7 +11482,7 @@ _meta_table = {
                 ''',
                 'bundle_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-state', REFERENCE_ENUM_CLASS, 'BmdMlacpBdlStateEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpBdlStateEnum_Enum', 
+            _MetaInfoClassMember('bundle-state', REFERENCE_ENUM_CLASS, 'BmdMlacpBdlStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpBdlStateEnumEnum', 
                 [], [], 
                 '''                Bundle state
                 ''',
@@ -11530,7 +11530,7 @@ _meta_table = {
                 ''',
                 'interface_handle',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMlacpMbrStateEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpMbrStateEnum_Enum', 
+            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMlacpMbrStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpMbrStateEnumEnum', 
                 [], [], 
                 '''                Member state
                 ''',
@@ -11577,7 +11577,7 @@ _meta_table = {
                 ''',
                 'bundle_interface_key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('media-type', REFERENCE_ENUM_CLASS, 'BundleMedia_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMedia_Enum', 
+            _MetaInfoClassMember('media-type', REFERENCE_ENUM_CLASS, 'BundleMediaEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMediaEnum', 
                 [], [], 
                 '''                The media type of the bundle interface
                 ''',
@@ -11652,7 +11652,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData.NodeData',
             False, 
             [
-            _MetaInfoClassMember('iccp-group-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeSyncEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeSyncEnum_Enum', 
+            _MetaInfoClassMember('iccp-group-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeSyncEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeSyncEnumEnum', 
                 [], [], 
                 '''                Node synchronization state
                 ''',
@@ -11670,7 +11670,7 @@ _meta_table = {
                 ''',
                 'mlacp_node_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeStateEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeStateEnum_Enum', 
+            _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeStateEnumEnum', 
                 [], [], 
                 '''                Node state
                 ''',
@@ -11845,7 +11845,7 @@ _meta_table = {
                 ''',
                 'bundle_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-state', REFERENCE_ENUM_CLASS, 'BmdMlacpBdlStateEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpBdlStateEnum_Enum', 
+            _MetaInfoClassMember('bundle-state', REFERENCE_ENUM_CLASS, 'BmdMlacpBdlStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpBdlStateEnumEnum', 
                 [], [], 
                 '''                Bundle state
                 ''',
@@ -11893,7 +11893,7 @@ _meta_table = {
                 ''',
                 'interface_handle',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMlacpMbrStateEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpMbrStateEnum_Enum', 
+            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMlacpMbrStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpMbrStateEnumEnum', 
                 [], [], 
                 '''                Member state
                 ''',
@@ -11940,7 +11940,7 @@ _meta_table = {
                 ''',
                 'bundle_interface_key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('media-type', REFERENCE_ENUM_CLASS, 'BundleMedia_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMedia_Enum', 
+            _MetaInfoClassMember('media-type', REFERENCE_ENUM_CLASS, 'BundleMediaEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMediaEnum', 
                 [], [], 
                 '''                The media type of the bundle interface
                 ''',
@@ -12015,7 +12015,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData.NodeData',
             False, 
             [
-            _MetaInfoClassMember('iccp-group-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeSyncEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeSyncEnum_Enum', 
+            _MetaInfoClassMember('iccp-group-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeSyncEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeSyncEnumEnum', 
                 [], [], 
                 '''                Node synchronization state
                 ''',
@@ -12033,7 +12033,7 @@ _meta_table = {
                 ''',
                 'mlacp_node_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeStateEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeStateEnum_Enum', 
+            _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeStateEnumEnum', 
                 [], [], 
                 '''                Node state
                 ''',
@@ -12214,7 +12214,7 @@ _meta_table = {
                 ''',
                 'bundle_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-state', REFERENCE_ENUM_CLASS, 'BmdMlacpBdlStateEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpBdlStateEnum_Enum', 
+            _MetaInfoClassMember('bundle-state', REFERENCE_ENUM_CLASS, 'BmdMlacpBdlStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpBdlStateEnumEnum', 
                 [], [], 
                 '''                Bundle state
                 ''',
@@ -12262,7 +12262,7 @@ _meta_table = {
                 ''',
                 'interface_handle',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMlacpMbrStateEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpMbrStateEnum_Enum', 
+            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMlacpMbrStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpMbrStateEnumEnum', 
                 [], [], 
                 '''                Member state
                 ''',
@@ -12309,7 +12309,7 @@ _meta_table = {
                 ''',
                 'bundle_interface_key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('media-type', REFERENCE_ENUM_CLASS, 'BundleMedia_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMedia_Enum', 
+            _MetaInfoClassMember('media-type', REFERENCE_ENUM_CLASS, 'BundleMediaEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMediaEnum', 
                 [], [], 
                 '''                The media type of the bundle interface
                 ''',
@@ -12384,7 +12384,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData.NodeData',
             False, 
             [
-            _MetaInfoClassMember('iccp-group-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeSyncEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeSyncEnum_Enum', 
+            _MetaInfoClassMember('iccp-group-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeSyncEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeSyncEnumEnum', 
                 [], [], 
                 '''                Node synchronization state
                 ''',
@@ -12402,7 +12402,7 @@ _meta_table = {
                 ''',
                 'mlacp_node_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeStateEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeStateEnum_Enum', 
+            _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeStateEnumEnum', 
                 [], [], 
                 '''                Node state
                 ''',
@@ -12560,7 +12560,7 @@ _meta_table = {
                 ''',
                 'bundle_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-state', REFERENCE_ENUM_CLASS, 'BmdMlacpBdlStateEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpBdlStateEnum_Enum', 
+            _MetaInfoClassMember('bundle-state', REFERENCE_ENUM_CLASS, 'BmdMlacpBdlStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpBdlStateEnumEnum', 
                 [], [], 
                 '''                Bundle state
                 ''',
@@ -12608,7 +12608,7 @@ _meta_table = {
                 ''',
                 'interface_handle',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMlacpMbrStateEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpMbrStateEnum_Enum', 
+            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMlacpMbrStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpMbrStateEnumEnum', 
                 [], [], 
                 '''                Member state
                 ''',
@@ -12655,7 +12655,7 @@ _meta_table = {
                 ''',
                 'bundle_interface_key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('media-type', REFERENCE_ENUM_CLASS, 'BundleMedia_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMedia_Enum', 
+            _MetaInfoClassMember('media-type', REFERENCE_ENUM_CLASS, 'BundleMediaEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMediaEnum', 
                 [], [], 
                 '''                The media type of the bundle interface
                 ''',
@@ -12730,7 +12730,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData.NodeData',
             False, 
             [
-            _MetaInfoClassMember('iccp-group-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeSyncEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeSyncEnum_Enum', 
+            _MetaInfoClassMember('iccp-group-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeSyncEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeSyncEnumEnum', 
                 [], [], 
                 '''                Node synchronization state
                 ''',
@@ -12748,7 +12748,7 @@ _meta_table = {
                 ''',
                 'mlacp_node_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeStateEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeStateEnum_Enum', 
+            _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'BmdMlacpNodeStateEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpNodeStateEnumEnum', 
                 [], [], 
                 '''                Node state
                 ''',
@@ -18824,7 +18824,7 @@ _meta_table = {
                 ''',
                 'bundle_interface_handle',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTarget_Enum', 
+            _MetaInfoClassMember('event-type', REFERENCE_ENUM_CLASS, 'BmdBagTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagTargetEnum', 
                 [], [], 
                 '''                Scope of the last event that impacted the bundle
                 ''',
@@ -18949,13 +18949,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BundleInformation.ScheduledActions.ScheduledActionsBundles.ScheduledActionsBundle.ScheduledActionsBundleItem.ScheduledAction',
             False, 
             [
-            _MetaInfoClassMember('action-state', REFERENCE_ENUM_CLASS, 'BmdSwitchReason_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdSwitchReason_Enum', 
+            _MetaInfoClassMember('action-state', REFERENCE_ENUM_CLASS, 'BmdSwitchReasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdSwitchReasonEnum', 
                 [], [], 
                 '''                Details whether the switch action is viable
                 ''',
                 'action_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-action', REFERENCE_ENUM_CLASS, 'BmdBagMlacpSchActionItem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagMlacpSchActionItem_Enum', 
+            _MetaInfoClassMember('mlacp-action', REFERENCE_ENUM_CLASS, 'BmdBagMlacpSchActionItemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBagMlacpSchActionItemEnum', 
                 [], [], 
                 '''                Type of mLACP scheduled action for a bundle
                 ''',
@@ -19411,7 +19411,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Data.BfdConfig.DestinationAddress',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfId_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfId_Enum', 
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfIdEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfIdEnum', 
                 [], [], 
                 '''                AF
                 ''',
@@ -19440,7 +19440,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Data.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
@@ -19559,7 +19559,7 @@ _meta_table = {
                 ''',
                 'bundle_interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
                 [], [], 
                 '''                The state of the bundle
                 ''',
@@ -19619,7 +19619,7 @@ _meta_table = {
                 ''',
                 'inter_chassis',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the BFD (IPv4) feature on the
                 bundle
@@ -19640,13 +19640,13 @@ _meta_table = {
                 ''',
                 'lacp_nonrevertive',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the LACP feature on the bundle
                 ''',
                 'lacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the link order signaling feature
                 on the bundle
@@ -19672,7 +19672,7 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSource_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSource_Enum', 
+            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
                 '''                The source of the MAC Address
                 ''',
@@ -19705,7 +19705,7 @@ _meta_table = {
                 ''',
                 'maximum_active_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystem_Enum', 
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
                 [], [], 
                 '''                Source of maximum active links value
                 ''',
@@ -19725,13 +19725,13 @@ _meta_table = {
                 ''',
                 'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpMode_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpMode_Enum', 
+            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the mLACP feature on the bundle
                 ''',
@@ -19770,7 +19770,7 @@ _meta_table = {
                 ''',
                 'suppression_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchover_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchover_Enum', 
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
                 [], [], 
                 '''                How a switchover of the bundle from this device
                 will occur
@@ -19811,13 +19811,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData',
             False, 
             [
-            _MetaInfoClassMember('reason-type', REFERENCE_ENUM_CLASS, 'BmStateReasonTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmStateReasonTarget_Enum', 
+            _MetaInfoClassMember('reason-type', REFERENCE_ENUM_CLASS, 'BmStateReasonTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmStateReasonTargetEnum', 
                 [], [], 
                 '''                The item the reason applies to
                 ''',
                 'reason_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'BmSeverity_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'BmSeverityEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmSeverityEnum', 
                 [], [], 
                 '''                The severity of the reason
                 ''',
@@ -19841,7 +19841,7 @@ _meta_table = {
                 ''',
                 'error',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMbrStateReason_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMbrStateReason_Enum', 
+            _MetaInfoClassMember('member-mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMbrStateReasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMbrStateReasonEnum', 
                 [], [], 
                 '''                Reason for last Mux state change
                 ''',
@@ -19854,19 +19854,19 @@ _meta_table = {
                 ''',
                 'member_mux_state_reason_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberState_Enum', 
+            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberStateEnum', 
                 [], [], 
                 '''                Current internal state of this bundle member
                 ''',
                 'member_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstate_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstate_Enum', 
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
                 [], [], 
                 '''                Current state of this bundle member
                 ''',
                 'mux_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreason_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreason_Enum', 
+            _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreasonEnum', 
                 [], [], 
                 '''                Reason for last Mux state change (Deprecated)
                 ''',
@@ -19931,7 +19931,7 @@ _meta_table = {
                 ''',
                 'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnum_Enum', 
+            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
                 [], [], 
                 '''                Member's type (local/foreign)
                 ''',
@@ -20053,7 +20053,7 @@ _meta_table = {
                 ''',
                 'local_link_threshold',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoadBalance_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LoadBalance_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoadBalanceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LoadBalanceEnum', 
                 [], [], 
                 '''                Type of load balancing to use
                 ''',
@@ -20164,7 +20164,7 @@ _meta_table = {
                 ''',
                 'local_link_threshold',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoadBalance_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LoadBalance_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoadBalanceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LoadBalanceEnum', 
                 [], [], 
                 '''                Type of load balancing to use
                 ''',
@@ -20258,7 +20258,7 @@ _meta_table = {
                 ''',
                 'local_link_threshold',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoadBalance_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LoadBalance_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoadBalanceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LoadBalanceEnum', 
                 [], [], 
                 '''                Type of load balancing to use
                 ''',
@@ -20323,7 +20323,7 @@ _meta_table = {
                 ''',
                 'local_link_threshold',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoadBalance_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LoadBalance_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoadBalanceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'LoadBalanceEnum', 
                 [], [], 
                 '''                Type of load balancing to use
                 ''',
@@ -20393,7 +20393,7 @@ _meta_table = {
                 ''',
                 'max_member_count',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('media', REFERENCE_ENUM_CLASS, 'BundleMedia1_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMedia1_Enum', 
+            _MetaInfoClassMember('media', REFERENCE_ENUM_CLASS, 'BundleMedia1Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMedia1Enum', 
                 [], [], 
                 '''                Media type of bundle
                 ''',
@@ -20881,7 +20881,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('LacpBundles.Bundles.Bundle.Data.ActorBundleData.BfdConfig.DestinationAddress',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfId_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfId_Enum', 
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfIdEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfIdEnum', 
                 [], [], 
                 '''                AF
                 ''',
@@ -20910,7 +20910,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('LacpBundles.Bundles.Bundle.Data.ActorBundleData.BfdConfig',
             False, 
             [
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
                 [], [], 
                 '''                Status of BFD on the bundle
                 ''',
@@ -21029,7 +21029,7 @@ _meta_table = {
                 ''',
                 'bundle_interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlState_Enum', 
+            _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmBdlStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlStateEnum', 
                 [], [], 
                 '''                The state of the bundle
                 ''',
@@ -21089,7 +21089,7 @@ _meta_table = {
                 ''',
                 'inter_chassis',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('ipv4bfd-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the BFD (IPv4) feature on the
                 bundle
@@ -21110,13 +21110,13 @@ _meta_table = {
                 ''',
                 'lacp_nonrevertive',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('lacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the LACP feature on the bundle
                 ''',
                 'lacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('link-order-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the link order signaling feature
                 on the bundle
@@ -21142,7 +21142,7 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSource_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSource_Enum', 
+            _MetaInfoClassMember('mac-source', REFERENCE_ENUM_CLASS, 'BmBdlMacSourceEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmBdlMacSourceEnum', 
                 [], [], 
                 '''                The source of the MAC Address
                 ''',
@@ -21175,7 +21175,7 @@ _meta_table = {
                 ''',
                 'maximum_active_links',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystem_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystem_Enum', 
+            _MetaInfoClassMember('maximum-active-links-source', REFERENCE_ENUM_CLASS, 'BmWhichSystemEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmWhichSystemEnum', 
                 [], [], 
                 '''                Source of maximum active links value
                 ''',
@@ -21195,13 +21195,13 @@ _meta_table = {
                 ''',
                 'minimum_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpMode_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpMode_Enum', 
+            _MetaInfoClassMember('mlacp-mode', REFERENCE_ENUM_CLASS, 'BundleMlacpModeEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BundleMlacpModeEnum', 
                 [], [], 
                 '''                Indicates the mode of the device for the bundle
                 ''',
                 'mlacp_mode',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatus_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatus_Enum', 
+            _MetaInfoClassMember('mlacp-status', REFERENCE_ENUM_CLASS, 'BmFeatureStatusEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmFeatureStatusEnum', 
                 [], [], 
                 '''                The status of the mLACP feature on the bundle
                 ''',
@@ -21240,7 +21240,7 @@ _meta_table = {
                 ''',
                 'suppression_timer',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchover_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchover_Enum', 
+            _MetaInfoClassMember('switchover-type', REFERENCE_ENUM_CLASS, 'BmdMlacpSwitchoverEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMlacpSwitchoverEnum', 
                 [], [], 
                 '''                How a switchover of the bundle from this device
                 will occur
@@ -21368,13 +21368,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('LacpBundles.Bundles.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData',
             False, 
             [
-            _MetaInfoClassMember('reason-type', REFERENCE_ENUM_CLASS, 'BmStateReasonTarget_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmStateReasonTarget_Enum', 
+            _MetaInfoClassMember('reason-type', REFERENCE_ENUM_CLASS, 'BmStateReasonTargetEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmStateReasonTargetEnum', 
                 [], [], 
                 '''                The item the reason applies to
                 ''',
                 'reason_type',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'BmSeverity_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'BmSeverityEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmSeverityEnum', 
                 [], [], 
                 '''                The severity of the reason
                 ''',
@@ -21398,7 +21398,7 @@ _meta_table = {
                 ''',
                 'error',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMbrStateReason_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMbrStateReason_Enum', 
+            _MetaInfoClassMember('member-mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMbrStateReasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMbrStateReasonEnum', 
                 [], [], 
                 '''                Reason for last Mux state change
                 ''',
@@ -21411,19 +21411,19 @@ _meta_table = {
                 ''',
                 'member_mux_state_reason_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberState_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberState_Enum', 
+            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberStateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberStateEnum', 
                 [], [], 
                 '''                Current internal state of this bundle member
                 ''',
                 'member_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstate_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstate_Enum', 
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxstateEnum', 
                 [], [], 
                 '''                Current state of this bundle member
                 ''',
                 'mux_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreason_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreason_Enum', 
+            _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreasonEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmMuxreasonEnum', 
                 [], [], 
                 '''                Reason for last Mux state change (Deprecated)
                 ''',
@@ -21488,7 +21488,7 @@ _meta_table = {
                 ''',
                 'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnum_Enum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnum_Enum', 
+            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.bundlemgr.Cisco_IOS_XR_bundlemgr_oper', 'BmdMemberTypeEnumEnum', 
                 [], [], 
                 '''                Member's type (local/foreign)
                 ''',

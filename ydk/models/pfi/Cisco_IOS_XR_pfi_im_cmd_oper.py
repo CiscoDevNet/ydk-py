@@ -24,5101 +24,4505 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class BmMbrStateReason_Enum(Enum):
+class BmMbrStateReasonEnum(Enum):
     """
-    BmMbrStateReason_Enum
+    BmMbrStateReasonEnum
 
     Bm mbr state reason
 
-    """
+    .. data:: BM_MBR_STATE_REASON_UNKNOWN = 0
+
+    	Reason unavailable (diagnostics error)
+
+    .. data:: BM_MBR_STATE_REASON_UNSELECTABLE_UNKNOWN = 1
+
+    	Link cannot be used (unknown reason)
+
+    .. data:: BM_MBR_STATE_REASON_LINK_DOWN = 2
+
+    	Link is down
+
+    .. data:: BM_MBR_STATE_REASON_LINK_DELETING = 3
+
+    	Link is being removed from the bundle
+
+    .. data:: BM_MBR_STATE_REASON_CREATING = 4
+
+    	Link is in the process of being created
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_CREATING = 5
+
+    	Bundle is in the process of being created
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_DELETING = 6
+
+    	Bundle is in the process of being deleted
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_ADMIN_DOWN = 7
+
+    	Bundle has been shut down
+
+    .. data:: BM_MBR_STATE_REASON_REPLICATING = 8
+
+    	Bundle is in the process of being replicated to
+
+    	this location
+
+    .. data:: BM_MBR_STATE_REASON_BANDWIDTH = 9
+
+    	Incompatible with other links in the bundle
+
+    	(bandwidth out of range)
+
+    .. data:: BM_MBR_STATE_REASON_LOOP_BACK = 10
+
+    	Loopback: Actor and Partner have the same
+
+    	System ID and Key
+
+    .. data:: BM_MBR_STATE_REASON_ACTIVITY_TYPE = 11
+
+    	Incompatible with other links in the bundle
+
+    	(LACP vs non-LACP)
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_SHUTDOWN = 12
+
+    	Bundle shutdown is configured for the bundle
+
+    .. data:: BM_MBR_STATE_REASON_MIN_SELECTED = 13
+
+    	Not enough links available to meet
+
+    	minimum-active threshold
+
+    .. data:: BM_MBR_STATE_REASON_MAX_SELECTED = 14
+
+    	Link is Standby due to maximum-active links
+
+    	configuration
+
+    .. data:: BM_MBR_STATE_REASON_LINK_LIMIT = 15
+
+    	Bundle has too many member links configured
+
+    .. data:: BM_MBR_STATE_REASON_ACTIVE_LIMIT = 16
+
+    	Bundle has reached maximum supported number of
+
+    	active links
+
+    .. data:: BM_MBR_STATE_REASON_STANDBY_UNKNOWN = 17
+
+    	Link is Standby (unknown reason)
+
+    .. data:: BM_MBR_STATE_REASON_EXPIRED = 18
+
+    	Link is Expired; LACPDUs are not being received
+
+    	from the partner
+
+    .. data:: BM_MBR_STATE_REASON_DEFAULTED = 19
+
+    	Link is Defaulted; LACPDUs are not being
+
+    	received from the partner
+
+    .. data:: BM_MBR_STATE_REASON_ACT_OR_NOT_AGG = 20
+
+    	Link is Not Aggregatable (unknown reason)
+
+    .. data:: BM_MBR_STATE_REASON_PARTNER_NOT_AGG = 21
+
+    	Partner has marked the link as Not Aggregatable
+
+    .. data:: BM_MBR_STATE_REASON_LAGID = 22
+
+    	Partner System ID/Key do not match that of the
+
+    	Selected links
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_NOT_CFGD = 23
+
+    	Bundle interface is not present in
+
+    	configuration
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_NOT_READY = 24
+
+    	Wait-while timer is running
+
+    .. data:: BM_MBR_STATE_REASON_PARTNER_OOD = 25
+
+    	Partner has not echoed the correct parameters
+
+    	for this link
+
+    .. data:: BM_MBR_STATE_REASON_PARTNER_NOT_IN_SYNC = 26
+
+    	Partner is not Synchronized (Waiting, Standby,
+
+    	or LAG ID mismatch)
+
+    .. data:: BM_MBR_STATE_REASON_FOREIGN_PARTNER_OOS = 27
+
+    	Partner is not Synchronized (Waiting, not
+
+    	Selected, or out-of-date)
+
+    .. data:: BM_MBR_STATE_REASON_ATTACH_UNKNOWN = 28
+
+    	Link is Attached and has not gone Collecting
+
+    	(unknown reason)
+
+    .. data:: BM_MBR_STATE_REASON_PARTNER_NOT_COLLECTING = 29
+
+    	Partner has not advertized that it is
+
+    	Collecting
+
+    .. data:: BM_MBR_STATE_REASON_COLLECT_UNKNOWN = 30
+
+    	Link is Collecting and has not gone
+
+    	Distributing (unknown reason)
+
+    .. data:: BM_MBR_STATE_REASON_STANDBY_FOREIGN = 31
+
+    	Link is marked as Standby by mLACP peer
+
+    .. data:: BM_MBR_STATE_REASON_BFD_STARTING = 32
+
+    	Link is waiting for BFD session to start
+
+    .. data:: BM_MBR_STATE_REASON_BFD_DOWN = 33
+
+    	BFD state of this link is Down
+
+    .. data:: BM_MBR_STATE_REASON_BFD_NBR_UNCONFIG = 34
+
+    	BFD session is unconfigured on the remote end
+
+    .. data:: BM_MBR_STATE_REASON_MLACP = 35
+
+    	Link is not operational as a result of mLACP
+
+    	negotiations
+
+    .. data:: BM_MBR_STATE_REASON_PE_ISOLATED = 36
+
+    	ICCP group is isolated from the core network
+
+    .. data:: BM_MBR_STATE_REASON_FORCED_SWITCHOVER = 37
+
+    	Forced switchover to the mLACP peer
+
+    .. data:: BM_MBR_STATE_REASON_ERRDIS_UNKNOWN = 38
+
+    	Link is error disabled (unknown reason)
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_NO_MBR_STATE_INFO = 39
+
+    	Waiting for member state information from mLACP
+
+    	peer
+
+    .. data:: BM_MBR_STATE_REASON_ACTIVE = 40
+
+    	Link is Active
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_NO_BDL_STATE_INFO = 41
+
+    	Waiting for bundle state information from mLACP
+
+    	peer
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_NO_BDL_CONFIG_INFO = 42
+
+    	Waiting for bundle configuration information
+
+    	from mLACP peer
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_NO_BDL_SYNC = 43
+
+    	Waiting for bundle to complete initial
+
+    	synchronization with mLACP peer
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_BDL_HAS_NO_PEER = 44
+
+    	mLACP bundle does not have a peer device
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_NAK = 45
+
+    	Link is being ignored due to an inconsistency
+
+    	with mLACP peer
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_TRANSPORT_UNAVAILABLE = 46
+
+    	ICCP transport is unavailable
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_NOT_CONFIGURED = 47
+
+    	ICCP Group is not fully configured
+
+    .. data:: BM_MBR_STATE_REASON_RECOVERY_TIMER = 48
+
+    	mLACP recovery delay timer is running
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_STANDBY = 49
+
+    	mLACP peer is active
+
+    .. data:: BM_MBR_STATE_REASON_MAXIMIZED_OUT = 50
+
+    	mLACP peer has more links/bandwidth available
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_PEER_SELECTED = 51
+
+    	mLACP peer has one or more links Selected
+
+    .. data:: BM_MBR_STATE_REASON_MLACP_CONNECT_TIMER_RUNNING = 52
+
+    	mLACP bundle does not have a peer device
+
+    	(connect timer running)
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_NOT_MLACP = 53
+
+    	Bundle is not configured to run mLACP
+
+    .. data:: BM_MBR_STATE_REASON_NO_LON = 54
+
+    	Bundle has too many working links configured
+
+    	(more than the maximum-active limit)
+
+    .. data:: BM_MBR_STATE_REASON_CUMUL_REL_BW_LIMIT = 55
+
+    	Additional bandwidth from link would exceed
+
+    	load balancing capabilities
+
+    .. data:: BM_MBR_STATE_REASON_NO_MAC = 56
+
+    	No MAC address available for the bundle
+
+    .. data:: BM_MBR_STATE_REASON_NO_SYSTEM_ID = 57
+
+    	No system ID available for use by this bundle
+
+    .. data:: BM_MBR_STATE_REASON_LINK_SHUTDOWN = 58
+
+    	Link is shutdown
+
+    .. data:: BM_MBR_STATE_REASON_ACTIVITY_MLACP = 59
+
+    	Non-LACP link in mLACP bundle
+
+    .. data:: BM_MBR_STATE_REASON_ACTIVITY_ICCP = 60
+
+    	LACP link in inter-chassis bundle
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_ICPE_MLACP = 61
+
+    	Parent bundle is both inter-chassis and
+
+    	configured for mLACP
+
+    .. data:: BM_MBR_STATE_REASON_NO_LINK_NUM = 62
+
+    	Too many bundle members in system; no link
+
+    	number available
+
+    .. data:: BM_MBR_STATE_REASON_STANDBY_PEER_HIGHER_PRIO = 63
+
+    	mLACP peer has a higher priority link
+
+    .. data:: BM_MBR_STATE_REASON_RED_STATE_STANDBY = 64
+
+    	Link is in standby redundancy state
+
+    .. data:: BM_MBR_STATE_REASON_OTHER_RED_STATE_STANDBY = 65
+
+    	One or more links in the bundle are in standby
+
+    	redundancy state
+
+    .. data:: BM_MBR_STATE_REASON_HOLD_ING = 66
+
+    	Holding down temporary to avoid churn after
+
+    	restart
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_ERROR_DISABLED = 67
+
+    	Bundle has been error-disabled
+
+    .. data:: BM_MBR_STATE_REASON_BUNDLE_EFD_DISABLED = 68
+
+    	Bundle has been disabled by EFD
+
+    .. data:: BM_MBR_STATE_REASON_SINGLETON_PE_ISOLATED = 69
+
+    	Singleton ICCP group is isolated from the core
+
+    	network
+
+    .. data:: BM_MBR_STATE_REASON_COUNT = 70
+
+    	Enumeration maximum value
 
     """
 
-    Reason unavailable (diagnostics error)
-
-    """
     BM_MBR_STATE_REASON_UNKNOWN = 0
 
-    """
-
-    Link cannot be used (unknown reason)
-
-    """
     BM_MBR_STATE_REASON_UNSELECTABLE_UNKNOWN = 1
 
-    """
-
-    Link is down
-
-    """
     BM_MBR_STATE_REASON_LINK_DOWN = 2
 
-    """
-
-    Link is being removed from the bundle
-
-    """
     BM_MBR_STATE_REASON_LINK_DELETING = 3
 
-    """
-
-    Link is in the process of being created
-
-    """
     BM_MBR_STATE_REASON_CREATING = 4
 
-    """
-
-    Bundle is in the process of being created
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_CREATING = 5
 
-    """
-
-    Bundle is in the process of being deleted
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_DELETING = 6
 
-    """
-
-    Bundle has been shut down
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_ADMIN_DOWN = 7
 
-    """
-
-    Bundle is in the process of being replicated to
-    this location
-
-    """
     BM_MBR_STATE_REASON_REPLICATING = 8
 
-    """
-
-    Incompatible with other links in the bundle
-    (bandwidth out of range)
-
-    """
     BM_MBR_STATE_REASON_BANDWIDTH = 9
 
-    """
-
-    Loopback\: Actor and Partner have the same
-    System ID and Key
-
-    """
     BM_MBR_STATE_REASON_LOOP_BACK = 10
 
-    """
-
-    Incompatible with other links in the bundle
-    (LACP vs non\-LACP)
-
-    """
     BM_MBR_STATE_REASON_ACTIVITY_TYPE = 11
 
-    """
-
-    Bundle shutdown is configured for the bundle
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_SHUTDOWN = 12
 
-    """
-
-    Not enough links available to meet
-    minimum\-active threshold
-
-    """
     BM_MBR_STATE_REASON_MIN_SELECTED = 13
 
-    """
-
-    Link is Standby due to maximum\-active links
-    configuration
-
-    """
     BM_MBR_STATE_REASON_MAX_SELECTED = 14
 
-    """
-
-    Bundle has too many member links configured
-
-    """
     BM_MBR_STATE_REASON_LINK_LIMIT = 15
 
-    """
-
-    Bundle has reached maximum supported number of
-    active links
-
-    """
     BM_MBR_STATE_REASON_ACTIVE_LIMIT = 16
 
-    """
-
-    Link is Standby (unknown reason)
-
-    """
     BM_MBR_STATE_REASON_STANDBY_UNKNOWN = 17
 
-    """
-
-    Link is Expired; LACPDUs are not being received
-    from the partner
-
-    """
     BM_MBR_STATE_REASON_EXPIRED = 18
 
-    """
-
-    Link is Defaulted; LACPDUs are not being
-    received from the partner
-
-    """
     BM_MBR_STATE_REASON_DEFAULTED = 19
 
-    """
-
-    Link is Not Aggregatable (unknown reason)
-
-    """
     BM_MBR_STATE_REASON_ACT_OR_NOT_AGG = 20
 
-    """
-
-    Partner has marked the link as Not Aggregatable
-
-    """
     BM_MBR_STATE_REASON_PARTNER_NOT_AGG = 21
 
-    """
-
-    Partner System ID/Key do not match that of the
-    Selected links
-
-    """
     BM_MBR_STATE_REASON_LAGID = 22
 
-    """
-
-    Bundle interface is not present in
-    configuration
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_NOT_CFGD = 23
 
-    """
-
-    Wait\-while timer is running
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_NOT_READY = 24
 
-    """
-
-    Partner has not echoed the correct parameters
-    for this link
-
-    """
     BM_MBR_STATE_REASON_PARTNER_OOD = 25
 
-    """
-
-    Partner is not Synchronized (Waiting, Standby,
-    or LAG ID mismatch)
-
-    """
     BM_MBR_STATE_REASON_PARTNER_NOT_IN_SYNC = 26
 
-    """
-
-    Partner is not Synchronized (Waiting, not
-    Selected, or out\-of\-date)
-
-    """
     BM_MBR_STATE_REASON_FOREIGN_PARTNER_OOS = 27
 
-    """
-
-    Link is Attached and has not gone Collecting
-    (unknown reason)
-
-    """
     BM_MBR_STATE_REASON_ATTACH_UNKNOWN = 28
 
-    """
-
-    Partner has not advertized that it is
-    Collecting
-
-    """
     BM_MBR_STATE_REASON_PARTNER_NOT_COLLECTING = 29
 
-    """
-
-    Link is Collecting and has not gone
-    Distributing (unknown reason)
-
-    """
     BM_MBR_STATE_REASON_COLLECT_UNKNOWN = 30
 
-    """
-
-    Link is marked as Standby by mLACP peer
-
-    """
     BM_MBR_STATE_REASON_STANDBY_FOREIGN = 31
 
-    """
-
-    Link is waiting for BFD session to start
-
-    """
     BM_MBR_STATE_REASON_BFD_STARTING = 32
 
-    """
-
-    BFD state of this link is Down
-
-    """
     BM_MBR_STATE_REASON_BFD_DOWN = 33
 
-    """
-
-    BFD session is unconfigured on the remote end
-
-    """
     BM_MBR_STATE_REASON_BFD_NBR_UNCONFIG = 34
 
-    """
-
-    Link is not operational as a result of mLACP
-    negotiations
-
-    """
     BM_MBR_STATE_REASON_MLACP = 35
 
-    """
-
-    ICCP group is isolated from the core network
-
-    """
     BM_MBR_STATE_REASON_PE_ISOLATED = 36
 
-    """
-
-    Forced switchover to the mLACP peer
-
-    """
     BM_MBR_STATE_REASON_FORCED_SWITCHOVER = 37
 
-    """
-
-    Link is error disabled (unknown reason)
-
-    """
     BM_MBR_STATE_REASON_ERRDIS_UNKNOWN = 38
 
-    """
-
-    Waiting for member state information from mLACP
-    peer
-
-    """
     BM_MBR_STATE_REASON_MLACP_NO_MBR_STATE_INFO = 39
 
-    """
-
-    Link is Active
-
-    """
     BM_MBR_STATE_REASON_ACTIVE = 40
 
-    """
-
-    Waiting for bundle state information from mLACP
-    peer
-
-    """
     BM_MBR_STATE_REASON_MLACP_NO_BDL_STATE_INFO = 41
 
-    """
-
-    Waiting for bundle configuration information
-    from mLACP peer
-
-    """
     BM_MBR_STATE_REASON_MLACP_NO_BDL_CONFIG_INFO = 42
 
-    """
-
-    Waiting for bundle to complete initial
-    synchronization with mLACP peer
-
-    """
     BM_MBR_STATE_REASON_MLACP_NO_BDL_SYNC = 43
 
-    """
-
-    mLACP bundle does not have a peer device
-
-    """
     BM_MBR_STATE_REASON_MLACP_BDL_HAS_NO_PEER = 44
 
-    """
-
-    Link is being ignored due to an inconsistency
-    with mLACP peer
-
-    """
     BM_MBR_STATE_REASON_MLACP_NAK = 45
 
-    """
-
-    ICCP transport is unavailable
-
-    """
     BM_MBR_STATE_REASON_MLACP_TRANSPORT_UNAVAILABLE = 46
 
-    """
-
-    ICCP Group is not fully configured
-
-    """
     BM_MBR_STATE_REASON_MLACP_NOT_CONFIGURED = 47
 
-    """
-
-    mLACP recovery delay timer is running
-
-    """
     BM_MBR_STATE_REASON_RECOVERY_TIMER = 48
 
-    """
-
-    mLACP peer is active
-
-    """
     BM_MBR_STATE_REASON_MLACP_STANDBY = 49
 
-    """
-
-    mLACP peer has more links/bandwidth available
-
-    """
     BM_MBR_STATE_REASON_MAXIMIZED_OUT = 50
 
-    """
-
-    mLACP peer has one or more links Selected
-
-    """
     BM_MBR_STATE_REASON_MLACP_PEER_SELECTED = 51
 
-    """
-
-    mLACP bundle does not have a peer device
-    (connect timer running)
-
-    """
     BM_MBR_STATE_REASON_MLACP_CONNECT_TIMER_RUNNING = 52
 
-    """
-
-    Bundle is not configured to run mLACP
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_NOT_MLACP = 53
 
-    """
-
-    Bundle has too many working links configured
-    (more than the maximum\-active limit)
-
-    """
     BM_MBR_STATE_REASON_NO_LON = 54
 
-    """
-
-    Additional bandwidth from link would exceed
-    load balancing capabilities
-
-    """
     BM_MBR_STATE_REASON_CUMUL_REL_BW_LIMIT = 55
 
-    """
-
-    No MAC address available for the bundle
-
-    """
     BM_MBR_STATE_REASON_NO_MAC = 56
 
-    """
-
-    No system ID available for use by this bundle
-
-    """
     BM_MBR_STATE_REASON_NO_SYSTEM_ID = 57
 
-    """
-
-    Link is shutdown
-
-    """
     BM_MBR_STATE_REASON_LINK_SHUTDOWN = 58
 
-    """
-
-    Non\-LACP link in mLACP bundle
-
-    """
     BM_MBR_STATE_REASON_ACTIVITY_MLACP = 59
 
-    """
-
-    LACP link in inter\-chassis bundle
-
-    """
     BM_MBR_STATE_REASON_ACTIVITY_ICCP = 60
 
-    """
-
-    Parent bundle is both inter\-chassis and
-    configured for mLACP
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_ICPE_MLACP = 61
 
-    """
-
-    Too many bundle members in system; no link
-    number available
-
-    """
     BM_MBR_STATE_REASON_NO_LINK_NUM = 62
 
-    """
-
-    mLACP peer has a higher priority link
-
-    """
     BM_MBR_STATE_REASON_STANDBY_PEER_HIGHER_PRIO = 63
 
-    """
-
-    Link is in standby redundancy state
-
-    """
     BM_MBR_STATE_REASON_RED_STATE_STANDBY = 64
 
-    """
-
-    One or more links in the bundle are in standby
-    redundancy state
-
-    """
     BM_MBR_STATE_REASON_OTHER_RED_STATE_STANDBY = 65
 
-    """
-
-    Holding down temporary to avoid churn after
-    restart
-
-    """
     BM_MBR_STATE_REASON_HOLD_ING = 66
 
-    """
-
-    Bundle has been error\-disabled
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_ERROR_DISABLED = 67
 
-    """
-
-    Bundle has been disabled by EFD
-
-    """
     BM_MBR_STATE_REASON_BUNDLE_EFD_DISABLED = 68
 
-    """
-
-    Singleton ICCP group is isolated from the core
-    network
-
-    """
     BM_MBR_STATE_REASON_SINGLETON_PE_ISOLATED = 69
 
-    """
-
-    Enumeration maximum value
-
-    """
     BM_MBR_STATE_REASON_COUNT = 70
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['BmMbrStateReason_Enum']
+        return meta._meta_table['BmMbrStateReasonEnum']
 
 
-class BmMuxreason_Enum(Enum):
+class BmMuxreasonEnum(Enum):
     """
-    BmMuxreason_Enum
+    BmMuxreasonEnum
 
     Bm muxreason
 
-    """
+    .. data:: BM_MUX_REASON_NO_REASON = 0
+
+    	Selection logic has not yet been run for the
+
+    	bundle this link is a member of
+
+    .. data:: BM_MUX_REASON_LINK_DOWN = 1
+
+    	Link is down
+
+    .. data:: BM_MUX_REASON_LINK_DELETED = 2
+
+    	Link is being removed from the bundle
+
+    .. data:: BM_MUX_REASON_DUPLEX = 3
+
+    	Link has wrong duplexity
+
+    .. data:: BM_MUX_REASON_BANDWIDTH = 4
+
+    	Link has wrong bandwidth
+
+    .. data:: BM_MUX_REASON_LOOP_BACK = 5
+
+    	Link is a loopback interface
+
+    .. data:: BM_MUX_REASON_ACTIVITY_TYPE = 6
+
+    	Link has wrong activity type
+
+    .. data:: BM_MUX_REASON_LINK_LIMIT = 7
+
+    	Link's bundle already has maximum number of
+
+    	members allowed
+
+    .. data:: BM_MUX_REASON_SHARED = 8
+
+    	Link is attached to a shared medium
+
+    .. data:: BM_MUX_REASON_LAGID = 9
+
+    	Link has wrong LAG ID
+
+    .. data:: BM_MUX_REASON_NO_BUNDLE = 10
+
+    	Link's bundle does not exist
+
+    .. data:: BM_MUX_REASON_NO_PRIMARY = 11
+
+    	Link's bundle has no primary link
+
+    .. data:: BM_MUX_REASON_BUNDLE_DOWN = 12
+
+    	Link's bundle is shut down
+
+    .. data:: BM_MUX_REASON_INDIVIDUAL = 13
+
+    	Link is marked individual by partner
+
+    .. data:: BM_MUX_REASON_DEFAULTED = 14
+
+    	Link is Defaulted, suggesting it is not
+
+    	receiving LACPDUs from the peer
+
+    .. data:: BM_MUX_REASON_IN_SYNC = 15
+
+    	Link is in InSync state
+
+    .. data:: BM_MUX_REASON_COLLECTING = 16
+
+    	Link is in Collecting state
+
+    .. data:: BM_MUX_REASON_ACTIVE_LINK_LIMIT = 17
+
+    	Link exceeds maximum active limit
+
+    .. data:: BM_MUX_REASON_DISTRIBUTING = 18
+
+    	Link is in Distributing state
+
+    .. data:: BM_MUX_REASON_COUNT = 19
+
+    	Enumeration maximum value
 
     """
 
-    Selection logic has not yet been run for the
-    bundle this link is a member of
-
-    """
     BM_MUX_REASON_NO_REASON = 0
 
-    """
-
-    Link is down
-
-    """
     BM_MUX_REASON_LINK_DOWN = 1
 
-    """
-
-    Link is being removed from the bundle
-
-    """
     BM_MUX_REASON_LINK_DELETED = 2
 
-    """
-
-    Link has wrong duplexity
-
-    """
     BM_MUX_REASON_DUPLEX = 3
 
-    """
-
-    Link has wrong bandwidth
-
-    """
     BM_MUX_REASON_BANDWIDTH = 4
 
-    """
-
-    Link is a loopback interface
-
-    """
     BM_MUX_REASON_LOOP_BACK = 5
 
-    """
-
-    Link has wrong activity type
-
-    """
     BM_MUX_REASON_ACTIVITY_TYPE = 6
 
-    """
-
-    Link's bundle already has maximum number of
-    members allowed
-
-    """
     BM_MUX_REASON_LINK_LIMIT = 7
 
-    """
-
-    Link is attached to a shared medium
-
-    """
     BM_MUX_REASON_SHARED = 8
 
-    """
-
-    Link has wrong LAG ID
-
-    """
     BM_MUX_REASON_LAGID = 9
 
-    """
-
-    Link's bundle does not exist
-
-    """
     BM_MUX_REASON_NO_BUNDLE = 10
 
-    """
-
-    Link's bundle has no primary link
-
-    """
     BM_MUX_REASON_NO_PRIMARY = 11
 
-    """
-
-    Link's bundle is shut down
-
-    """
     BM_MUX_REASON_BUNDLE_DOWN = 12
 
-    """
-
-    Link is marked individual by partner
-
-    """
     BM_MUX_REASON_INDIVIDUAL = 13
 
-    """
-
-    Link is Defaulted, suggesting it is not
-    receiving LACPDUs from the peer
-
-    """
     BM_MUX_REASON_DEFAULTED = 14
 
-    """
-
-    Link is in InSync state
-
-    """
     BM_MUX_REASON_IN_SYNC = 15
 
-    """
-
-    Link is in Collecting state
-
-    """
     BM_MUX_REASON_COLLECTING = 16
 
-    """
-
-    Link exceeds maximum active limit
-
-    """
     BM_MUX_REASON_ACTIVE_LINK_LIMIT = 17
 
-    """
-
-    Link is in Distributing state
-
-    """
     BM_MUX_REASON_DISTRIBUTING = 18
 
-    """
-
-    Enumeration maximum value
-
-    """
     BM_MUX_REASON_COUNT = 19
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['BmMuxreason_Enum']
+        return meta._meta_table['BmMuxreasonEnum']
 
 
-class BmMuxstate_Enum(Enum):
+class BmMuxstateEnum(Enum):
     """
-    BmMuxstate_Enum
+    BmMuxstateEnum
 
     Bm muxstate
 
-    """
+    .. data:: DETACHED = 1
+
+    	Port is not attached to a bundle
+
+    .. data:: WAITING = 2
+
+    	Port has chosen bundle and is waiting to join
+
+    .. data:: ATTACHED = 3
+
+    	Port is attached to the bundle but not active
+
+    .. data:: COLLECTING = 4
+
+    	Port is ready to receive data
+
+    .. data:: DISTRIBUTING = 5
+
+    	Port is distributing data
+
+    .. data:: COLLECTING_DISTRIBUTING = 6
+
+    	Port is active and can send and receive data
 
     """
 
-    Port is not attached to a bundle
-
-    """
     DETACHED = 1
 
-    """
-
-    Port has chosen bundle and is waiting to join
-
-    """
     WAITING = 2
 
-    """
-
-    Port is attached to the bundle but not active
-
-    """
     ATTACHED = 3
 
-    """
-
-    Port is ready to receive data
-
-    """
     COLLECTING = 4
 
-    """
-
-    Port is distributing data
-
-    """
     DISTRIBUTING = 5
 
-    """
-
-    Port is active and can send and receive data
-
-    """
     COLLECTING_DISTRIBUTING = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['BmMuxstate_Enum']
+        return meta._meta_table['BmMuxstateEnum']
 
 
-class BmSeverity_Enum(Enum):
+class BmSeverityEnum(Enum):
     """
-    BmSeverity_Enum
+    BmSeverityEnum
 
     Severity of the member state reason
 
-    """
+    .. data:: OK = 0
+
+    	OK
+
+    .. data:: INFORMATION = 1
+
+    	Information
+
+    .. data:: MISCONFIGURATION = 2
+
+    	Misconfiguration
+
+    .. data:: WARNING = 3
+
+    	Warning
+
+    .. data:: ERROR = 5
+
+    	Error
 
     """
 
-    OK
-
-    """
     OK = 0
 
-    """
-
-    Information
-
-    """
     INFORMATION = 1
 
-    """
-
-    Misconfiguration
-
-    """
     MISCONFIGURATION = 2
 
-    """
-
-    Warning
-
-    """
     WARNING = 3
 
-    """
-
-    Error
-
-    """
     ERROR = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['BmSeverity_Enum']
+        return meta._meta_table['BmSeverityEnum']
 
 
-class BmStateReasonTarget_Enum(Enum):
+class BmStateReasonTargetEnum(Enum):
     """
-    BmStateReasonTarget_Enum
+    BmStateReasonTargetEnum
 
     Scope of the state reason
 
-    """
+    .. data:: MEMBER_REASON = 0
+
+    	Member applicable reason
+
+    .. data:: BUNDLE_REASON = 1
+
+    	Bundle applicable reason
 
     """
 
-    Member applicable reason
-
-    """
     MEMBER_REASON = 0
 
-    """
-
-    Bundle applicable reason
-
-    """
     BUNDLE_REASON = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['BmStateReasonTarget_Enum']
+        return meta._meta_table['BmStateReasonTargetEnum']
 
 
-class BmdMemberState_Enum(Enum):
+class BmdMemberStateEnum(Enum):
     """
-    BmdMemberState_Enum
+    BmdMemberStateEnum
 
     Bmd member state
 
-    """
+    .. data:: BMD_MBR_STATE_CONFIGURED = 1
+
+    	Member is configured
+
+    .. data:: BMD_MBR_STATE_STANDBY = 2
+
+    	Member is standby
+
+    .. data:: BMD_MBR_STATE_HOT_STANDBY = 3
+
+    	Member is hot standby
+
+    .. data:: BMD_MBR_STATE_NEGOTIATING = 4
+
+    	Member is negotiating
+
+    .. data:: BMD_MBR_STATE_BFD_RUNNING = 5
+
+    	Member has a BFD session running
+
+    .. data:: BMD_MBR_STATE_ACTIVE = 6
+
+    	Member is active
 
     """
 
-    Member is configured
-
-    """
     BMD_MBR_STATE_CONFIGURED = 1
 
-    """
-
-    Member is standby
-
-    """
     BMD_MBR_STATE_STANDBY = 2
 
-    """
-
-    Member is hot standby
-
-    """
     BMD_MBR_STATE_HOT_STANDBY = 3
 
-    """
-
-    Member is negotiating
-
-    """
     BMD_MBR_STATE_NEGOTIATING = 4
 
-    """
-
-    Member has a BFD session running
-
-    """
     BMD_MBR_STATE_BFD_RUNNING = 5
 
-    """
-
-    Member is active
-
-    """
     BMD_MBR_STATE_ACTIVE = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['BmdMemberState_Enum']
+        return meta._meta_table['BmdMemberStateEnum']
 
 
-class BmdMemberTypeEnum_Enum(Enum):
+class BmdMemberTypeEnumEnum(Enum):
     """
-    BmdMemberTypeEnum_Enum
+    BmdMemberTypeEnumEnum
 
     Bmd member type enum
 
-    """
+    .. data:: BMD_MBR_LOCAL = 0
+
+    	Member has been configured on the local device
+
+    .. data:: BMD_MBR_FOREIGN = 1
+
+    	Member has been configured on an mLACP peer
+
+    	device
+
+    .. data:: BMD_MBR_UNKNOWN = 2
+
+    	Member's type is unknown
 
     """
 
-    Member has been configured on the local device
-
-    """
     BMD_MBR_LOCAL = 0
 
-    """
-
-    Member has been configured on an mLACP peer
-    device
-
-    """
     BMD_MBR_FOREIGN = 1
 
-    """
-
-    Member's type is unknown
-
-    """
     BMD_MBR_UNKNOWN = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['BmdMemberTypeEnum_Enum']
+        return meta._meta_table['BmdMemberTypeEnumEnum']
 
 
-class EfpPayloadEtype_Enum(Enum):
+class EfpPayloadEtypeEnum(Enum):
     """
-    EfpPayloadEtype_Enum
+    EfpPayloadEtypeEnum
 
     Payload ethertype match
 
-    """
+    .. data:: PAYLOAD_ETHERTYPE_ANY = 0
+
+    	Any
+
+    .. data:: PAYLOAD_ETHERTYPE_IP = 1
+
+    	IP
+
+    .. data:: PAYLOAD_ETHERTYPE_PPPOE = 2
+
+    	PPPoE
 
     """
 
-    Any
-
-    """
     PAYLOAD_ETHERTYPE_ANY = 0
 
-    """
-
-    IP
-
-    """
     PAYLOAD_ETHERTYPE_IP = 1
 
-    """
-
-    PPPoE
-
-    """
     PAYLOAD_ETHERTYPE_PPPOE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['EfpPayloadEtype_Enum']
+        return meta._meta_table['EfpPayloadEtypeEnum']
 
 
-class EfpTagEtype_Enum(Enum):
+class EfpTagEtypeEnum(Enum):
     """
-    EfpTagEtype_Enum
+    EfpTagEtypeEnum
 
     Tag ethertype
 
-    """
+    .. data:: UNTAGGED = 0
+
+    	Untagged
+
+    .. data:: DOT1Q = 33024
+
+    	Dot1Q
+
+    .. data:: DOT1AD = 34984
+
+    	Dot1ad
 
     """
 
-    Untagged
-
-    """
     UNTAGGED = 0
 
-    """
-
-    Dot1Q
-
-    """
     DOT1Q = 33024
 
-    """
-
-    Dot1ad
-
-    """
     DOT1AD = 34984
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['EfpTagEtype_Enum']
+        return meta._meta_table['EfpTagEtypeEnum']
 
 
-class EfpTagPriority_Enum(Enum):
+class EfpTagPriorityEnum(Enum):
     """
-    EfpTagPriority_Enum
+    EfpTagPriorityEnum
 
     Priority
 
-    """
+    .. data:: PRIORITY0 = 0
+
+    	Priority 0
+
+    .. data:: PRIORITY1 = 1
+
+    	Priority 1
+
+    .. data:: PRIORITY2 = 2
+
+    	Priority 2
+
+    .. data:: PRIORITY3 = 3
+
+    	Priority 3
+
+    .. data:: PRIORITY4 = 4
+
+    	Priority 4
+
+    .. data:: PRIORITY5 = 5
+
+    	Priority 5
+
+    .. data:: PRIORITY6 = 6
+
+    	Priority 6
+
+    .. data:: PRIORITY7 = 7
+
+    	Priority 7
+
+    .. data:: PRIORITY_ANY = 8
+
+    	Any priority
 
     """
 
-    Priority 0
-
-    """
     PRIORITY0 = 0
 
-    """
-
-    Priority 1
-
-    """
     PRIORITY1 = 1
 
-    """
-
-    Priority 2
-
-    """
     PRIORITY2 = 2
 
-    """
-
-    Priority 3
-
-    """
     PRIORITY3 = 3
 
-    """
-
-    Priority 4
-
-    """
     PRIORITY4 = 4
 
-    """
-
-    Priority 5
-
-    """
     PRIORITY5 = 5
 
-    """
-
-    Priority 6
-
-    """
     PRIORITY6 = 6
 
-    """
-
-    Priority 7
-
-    """
     PRIORITY7 = 7
 
-    """
-
-    Any priority
-
-    """
     PRIORITY_ANY = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['EfpTagPriority_Enum']
+        return meta._meta_table['EfpTagPriorityEnum']
 
 
-class GccDerState_Enum(Enum):
+class GccDerStateEnum(Enum):
     """
-    GccDerState_Enum
+    GccDerStateEnum
 
     Gcc der state
 
-    """
+    .. data:: IN_SERVICE = 0
+
+    	In Service
+
+    .. data:: OUT_OF_SERVICE = 1
+
+    	Out Of Service
+
+    .. data:: MAINTAINANCE = 2
+
+    	Maintainance
+
+    .. data:: AIS = 3
+
+    	Automatic In Service
 
     """
 
-    In Service
-
-    """
     IN_SERVICE = 0
 
-    """
-
-    Out Of Service
-
-    """
     OUT_OF_SERVICE = 1
 
-    """
-
-    Maintainance
-
-    """
     MAINTAINANCE = 2
 
-    """
-
-    Automatic In Service
-
-    """
     AIS = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['GccDerState_Enum']
+        return meta._meta_table['GccDerStateEnum']
 
 
-class GccSecState_Enum(Enum):
+class GccSecStateEnum(Enum):
     """
-    GccSecState_Enum
+    GccSecStateEnum
 
     Gcc sec state
 
-    """
+    .. data:: NORMAL = 0
+
+    	Normal
+
+    .. data:: MAINTAINANCE = 1
+
+    	Maintainance
+
+    .. data:: AIS = 2
+
+    	Automatic In Service
 
     """
 
-    Normal
-
-    """
     NORMAL = 0
 
-    """
-
-    Maintainance
-
-    """
     MAINTAINANCE = 1
 
-    """
-
-    Automatic In Service
-
-    """
     AIS = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['GccSecState_Enum']
+        return meta._meta_table['GccSecStateEnum']
 
 
-class ImAttrDuplex_Enum(Enum):
+class ImAttrDuplexEnum(Enum):
     """
-    ImAttrDuplex_Enum
+    ImAttrDuplexEnum
 
     Im attr duplex
 
-    """
+    .. data:: IM_ATTR_DUPLEX_UNKNOWN = 0
+
+    	im attr duplex unknown
+
+    .. data:: IM_ATTR_DUPLEX_HALF = 1
+
+    	im attr duplex half
+
+    .. data:: IM_ATTR_DUPLEX_FULL = 2
+
+    	im attr duplex full
 
     """
 
-    im attr duplex unknown
-
-    """
     IM_ATTR_DUPLEX_UNKNOWN = 0
 
-    """
-
-    im attr duplex half
-
-    """
     IM_ATTR_DUPLEX_HALF = 1
 
-    """
-
-    im attr duplex full
-
-    """
     IM_ATTR_DUPLEX_FULL = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['ImAttrDuplex_Enum']
+        return meta._meta_table['ImAttrDuplexEnum']
 
 
-class ImAttrFlowControl_Enum(Enum):
+class ImAttrFlowControlEnum(Enum):
     """
-    ImAttrFlowControl_Enum
+    ImAttrFlowControlEnum
 
     Im attr flow control
 
-    """
+    .. data:: IM_ATTR_FLOW_CONTROL_OFF = 0
+
+    	im attr flow control off
+
+    .. data:: IM_ATTR_FLOW_CONTROL_ON = 1
+
+    	im attr flow control on
+
+    .. data:: IM_ATTR_FLOW_CONTROL_NOT_SUP = 2
+
+    	im attr flow control not sup
 
     """
 
-    im attr flow control off
-
-    """
     IM_ATTR_FLOW_CONTROL_OFF = 0
 
-    """
-
-    im attr flow control on
-
-    """
     IM_ATTR_FLOW_CONTROL_ON = 1
 
-    """
-
-    im attr flow control not sup
-
-    """
     IM_ATTR_FLOW_CONTROL_NOT_SUP = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['ImAttrFlowControl_Enum']
+        return meta._meta_table['ImAttrFlowControlEnum']
 
 
-class ImAttrLink_Enum(Enum):
+class ImAttrLinkEnum(Enum):
     """
-    ImAttrLink_Enum
+    ImAttrLinkEnum
 
     Im attr link
 
-    """
+    .. data:: IM_ATTR_LINK_TYPE_AUTO = 0
+
+    	im attr link type auto
+
+    .. data:: IM_ATTR_LINK_TYPE_FORCE = 1
+
+    	im attr link type force
 
     """
 
-    im attr link type auto
-
-    """
     IM_ATTR_LINK_TYPE_AUTO = 0
 
-    """
-
-    im attr link type force
-
-    """
     IM_ATTR_LINK_TYPE_FORCE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['ImAttrLink_Enum']
+        return meta._meta_table['ImAttrLinkEnum']
 
 
-class ImAttrMedia_Enum(Enum):
+class ImAttrMediaEnum(Enum):
     """
-    ImAttrMedia_Enum
+    ImAttrMediaEnum
 
     Im attr media
 
-    """
+    .. data:: IM_ATTR_MEDIA_OTHER = 0
+
+    	im attr media other
+
+    .. data:: IM_ATTR_MEDIA_UNKNOWN = 1
+
+    	im attr media unknown
+
+    .. data:: IM_ATTR_MEDIA_AUI = 2
+
+    	im attr media aui
+
+    .. data:: IM_ATTR_MEDIA_10BASE5 = 3
+
+    	im attr media 10base5
+
+    .. data:: IM_ATTR_MEDIA_FOIRL = 4
+
+    	im attr media foirl
+
+    .. data:: IM_ATTR_MEDIA_10BASE2 = 5
+
+    	im attr media 10base2
+
+    .. data:: IM_ATTR_MEDIA_10BROAD36 = 6
+
+    	im attr media 10broad36
+
+    .. data:: IM_ATTR_MEDIA_10BASE = 7
+
+    	im attr media 10base
+
+    .. data:: IM_ATTR_MEDIA_10BASE_THD = 8
+
+    	im attr media 10base thd
+
+    .. data:: IM_ATTR_MEDIA_10BASE_TFD = 9
+
+    	im attr media 10base tfd
+
+    .. data:: IM_ATTR_MEDIA_10BASE_FP = 10
+
+    	im attr media 10base fp
+
+    .. data:: IM_ATTR_MEDIA_10BASE_FB = 11
+
+    	im attr media 10base fb
+
+    .. data:: IM_ATTR_MEDIA_10BASE_FL = 12
+
+    	im attr media 10base fl
+
+    .. data:: IM_ATTR_MEDIA_10BASE_FLHD = 13
+
+    	im attr media 10base flhd
+
+    .. data:: IM_ATTR_MEDIA_10BASE_FLFD = 14
+
+    	im attr media 10base flfd
+
+    .. data:: IM_ATTR_MEDIA_100BASE_T4 = 15
+
+    	im attr media 100base t4
+
+    .. data:: IM_ATTR_MEDIA_100BASE_TX = 16
+
+    	im attr media 100base tx
+
+    .. data:: IM_ATTR_MEDIA_100BASE_TXHD = 17
+
+    	im attr media 100base txhd
+
+    .. data:: IM_ATTR_MEDIA_100BASE_TXFD = 18
+
+    	im attr media 100base txfd
+
+    .. data:: IM_ATTR_MEDIA_100BASE_FX = 19
+
+    	im attr media 100base fx
+
+    .. data:: IM_ATTR_MEDIA_100BASE_FXHD = 20
+
+    	im attr media 100base fxhd
+
+    .. data:: IM_ATTR_MEDIA_100BASE_FXFD = 21
+
+    	im attr media 100base fxfd
+
+    .. data:: IM_ATTR_MEDIA_100BASE_EX = 22
+
+    	im attr media 100base ex
+
+    .. data:: IM_ATTR_MEDIA_100BASE_EXHD = 23
+
+    	im attr media 100base exhd
+
+    .. data:: IM_ATTR_MEDIA_100BASE_EXFD = 24
+
+    	im attr media 100base exfd
+
+    .. data:: IM_ATTR_MEDIA_100BASE_T2 = 25
+
+    	im attr media 100base t2
+
+    .. data:: IM_ATTR_MEDIA_100BASE_T2HD = 26
+
+    	im attr media 100base t2hd
+
+    .. data:: IM_ATTR_MEDIA_100BASE_T2FD = 27
+
+    	im attr media 100base t2fd
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_X = 28
+
+    	im attr media 1000base x
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_XHDX = 29
+
+    	im attr media 1000base xhdx
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_XFD = 30
+
+    	im attr media 1000base xfd
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_LX = 31
+
+    	im attr media 1000base lx
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_LXHD = 32
+
+    	im attr media 1000base lxhd
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_LXFDX = 33
+
+    	im attr media 1000base lxfdx
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_SX = 34
+
+    	im attr media 1000base sx
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_SXHD = 35
+
+    	im attr media 1000base sxhd
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_SXFD = 36
+
+    	im attr media 1000base sxfd
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_CX = 37
+
+    	im attr media 1000base cx
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_CXHDX = 38
+
+    	im attr media 1000base cxhdx
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_CXFD = 39
+
+    	im attr media 1000base cxfd
+
+    .. data:: IM_ATTR_MEDIA_1000BASE = 40
+
+    	im attr media 1000base
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_THD = 41
+
+    	im attr media 1000base thd
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_TFD = 42
+
+    	im attr media 1000base tfd
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_X = 43
+
+    	im attr media 10gbase x
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_LX4 = 44
+
+    	im attr media 10gbase lx4
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_R = 45
+
+    	im attr media 10gbase r
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_ER = 46
+
+    	im attr media 10gbase er
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_LR = 47
+
+    	im attr media 10gbase lr
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_SR = 48
+
+    	im attr media 10gbase sr
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_W = 49
+
+    	im attr media 10gbase w
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_EW = 50
+
+    	im attr media 10gbase ew
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_LW = 51
+
+    	im attr media 10gbase lw
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_SW = 52
+
+    	im attr media 10gbase sw
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_ZR = 53
+
+    	im attr media 10gbase zr
+
+    .. data:: IM_ATTR_MEDIA_802_9A = 54
+
+    	im attr media 802 9a
+
+    .. data:: IM_ATTR_MEDIA_RJ45 = 55
+
+    	im attr media rj45
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_ZX = 56
+
+    	im attr media 1000base zx
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_CWDM = 57
+
+    	im attr media 1000base cwdm
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_CWDM_1470 = 58
+
+    	im attr media 1000base cwdm 1470
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_CWDM_1490 = 59
+
+    	im attr media 1000base cwdm 1490
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_CWDM_1510 = 60
+
+    	im attr media 1000base cwdm 1510
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_CWDM_1530 = 61
+
+    	im attr media 1000base cwdm 1530
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_CWDM_1550 = 62
+
+    	im attr media 1000base cwdm 1550
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_CWDM_1570 = 63
+
+    	im attr media 1000base cwdm 1570
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_CWDM_1590 = 64
+
+    	im attr media 1000base cwdm 1590
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_CWDM_1610 = 65
+
+    	im attr media 1000base cwdm 1610
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM = 66
+
+    	im attr media 10gbase dwdm
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_LR4 = 67
+
+    	im attr media 100gbase lr4
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM = 68
+
+    	im attr media 1000base dwdm
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1533 = 69
+
+    	im attr media 1000base dwdm 1533
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1537 = 70
+
+    	im attr media 1000base dwdm 1537
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1541 = 71
+
+    	im attr media 1000base dwdm 1541
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1545 = 72
+
+    	im attr media 1000base dwdm 1545
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1549 = 73
+
+    	im attr media 1000base dwdm 1549
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1553 = 74
+
+    	im attr media 1000base dwdm 1553
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1557 = 75
+
+    	im attr media 1000base dwdm 1557
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1561 = 76
+
+    	im attr media 1000base dwdm 1561
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_LR4 = 77
+
+    	im attr media 40gbase lr4
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_ER4 = 78
+
+    	im attr media 40gbase er4
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_ER4 = 79
+
+    	im attr media 100gbase er4
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_EX = 80
+
+    	im attr media 1000base ex
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_BX10_D = 81
+
+    	im attr media 1000base bx10 d
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_BX10_U = 82
+
+    	im attr media 1000base bx10 u
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1561_42 = 83
+
+    	im attr media 1000base dwdm 1561 42
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1560_61 = 84
+
+    	im attr media 1000base dwdm 1560 61
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1559_79 = 85
+
+    	im attr media 1000base dwdm 1559 79
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1558_98 = 86
+
+    	im attr media 1000base dwdm 1558 98
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1558_17 = 87
+
+    	im attr media 1000base dwdm 1558 17
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1557_36 = 88
+
+    	im attr media 1000base dwdm 1557 36
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1556_55 = 89
+
+    	im attr media 1000base dwdm 1556 55
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1555_75 = 90
+
+    	im attr media 1000base dwdm 1555 75
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1554_94 = 91
+
+    	im attr media 1000base dwdm 1554 94
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1554_13 = 92
+
+    	im attr media 1000base dwdm 1554 13
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1553_33 = 93
+
+    	im attr media 1000base dwdm 1553 33
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1552_52 = 94
+
+    	im attr media 1000base dwdm 1552 52
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1551_72 = 95
+
+    	im attr media 1000base dwdm 1551 72
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1550_92 = 96
+
+    	im attr media 1000base dwdm 1550 92
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1550_12 = 97
+
+    	im attr media 1000base dwdm 1550 12
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1549_32 = 98
+
+    	im attr media 1000base dwdm 1549 32
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1548_51 = 99
+
+    	im attr media 1000base dwdm 1548 51
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1547_72 = 100
+
+    	im attr media 1000base dwdm 1547 72
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1546_92 = 101
+
+    	im attr media 1000base dwdm 1546 92
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1546_12 = 102
+
+    	im attr media 1000base dwdm 1546 12
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1545_32 = 103
+
+    	im attr media 1000base dwdm 1545 32
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1544_53 = 104
+
+    	im attr media 1000base dwdm 1544 53
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1543_73 = 105
+
+    	im attr media 1000base dwdm 1543 73
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1542_94 = 106
+
+    	im attr media 1000base dwdm 1542 94
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1542_14 = 107
+
+    	im attr media 1000base dwdm 1542 14
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1541_35 = 108
+
+    	im attr media 1000base dwdm 1541 35
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1540_56 = 109
+
+    	im attr media 1000base dwdm 1540 56
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1539_77 = 110
+
+    	im attr media 1000base dwdm 1539 77
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1538_98 = 111
+
+    	im attr media 1000base dwdm 1538 98
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1538_19 = 112
+
+    	im attr media 1000base dwdm 1538 19
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1537_40 = 113
+
+    	im attr media 1000base dwdm 1537 40
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1536_61 = 114
+
+    	im attr media 1000base dwdm 1536 61
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1535_82 = 115
+
+    	im attr media 1000base dwdm 1535 82
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1535_04 = 116
+
+    	im attr media 1000base dwdm 1535 04
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1534_25 = 117
+
+    	im attr media 1000base dwdm 1534 25
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1533_47 = 118
+
+    	im attr media 1000base dwdm 1533 47
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1532_68 = 119
+
+    	im attr media 1000base dwdm 1532 68
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1531_90 = 120
+
+    	im attr media 1000base dwdm 1531 90
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1531_12 = 121
+
+    	im attr media 1000base dwdm 1531 12
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_1530_33 = 122
+
+    	im attr media 1000base dwdm 1530 33
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DWDM_TUNABLE = 123
+
+    	im attr media 1000base dwdm tunable
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1561_42 = 124
+
+    	im attr media 10gbase dwdm 1561 42
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1560_61 = 125
+
+    	im attr media 10gbase dwdm 1560 61
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1559_79 = 126
+
+    	im attr media 10gbase dwdm 1559 79
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1558_98 = 127
+
+    	im attr media 10gbase dwdm 1558 98
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1558_17 = 128
+
+    	im attr media 10gbase dwdm 1558 17
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1557_36 = 129
+
+    	im attr media 10gbase dwdm 1557 36
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1556_55 = 130
+
+    	im attr media 10gbase dwdm 1556 55
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1555_75 = 131
+
+    	im attr media 10gbase dwdm 1555 75
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1554_94 = 132
+
+    	im attr media 10gbase dwdm 1554 94
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1554_13 = 133
+
+    	im attr media 10gbase dwdm 1554 13
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1553_33 = 134
+
+    	im attr media 10gbase dwdm 1553 33
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1552_52 = 135
+
+    	im attr media 10gbase dwdm 1552 52
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1551_72 = 136
+
+    	im attr media 10gbase dwdm 1551 72
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1550_92 = 137
+
+    	im attr media 10gbase dwdm 1550 92
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1550_12 = 138
+
+    	im attr media 10gbase dwdm 1550 12
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1549_32 = 139
+
+    	im attr media 10gbase dwdm 1549 32
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1548_51 = 140
+
+    	im attr media 10gbase dwdm 1548 51
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1547_72 = 141
+
+    	im attr media 10gbase dwdm 1547 72
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1546_92 = 142
+
+    	im attr media 10gbase dwdm 1546 92
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1546_12 = 143
+
+    	im attr media 10gbase dwdm 1546 12
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1545_32 = 144
+
+    	im attr media 10gbase dwdm 1545 32
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1544_53 = 145
+
+    	im attr media 10gbase dwdm 1544 53
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1543_73 = 146
+
+    	im attr media 10gbase dwdm 1543 73
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1542_94 = 147
+
+    	im attr media 10gbase dwdm 1542 94
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1542_14 = 148
+
+    	im attr media 10gbase dwdm 1542 14
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1541_35 = 149
+
+    	im attr media 10gbase dwdm 1541 35
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1540_56 = 150
+
+    	im attr media 10gbase dwdm 1540 56
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1539_77 = 151
+
+    	im attr media 10gbase dwdm 1539 77
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1538_98 = 152
+
+    	im attr media 10gbase dwdm 1538 98
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1538_19 = 153
+
+    	im attr media 10gbase dwdm 1538 19
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1537_40 = 154
+
+    	im attr media 10gbase dwdm 1537 40
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1536_61 = 155
+
+    	im attr media 10gbase dwdm 1536 61
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1535_82 = 156
+
+    	im attr media 10gbase dwdm 1535 82
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1535_04 = 157
+
+    	im attr media 10gbase dwdm 1535 04
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1534_25 = 158
+
+    	im attr media 10gbase dwdm 1534 25
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1533_47 = 159
+
+    	im attr media 10gbase dwdm 1533 47
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1532_68 = 160
+
+    	im attr media 10gbase dwdm 1532 68
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1531_90 = 161
+
+    	im attr media 10gbase dwdm 1531 90
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1531_12 = 162
+
+    	im attr media 10gbase dwdm 1531 12
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_1530_33 = 163
+
+    	im attr media 10gbase dwdm 1530 33
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_DWDM_TUNABLE = 164
+
+    	im attr media 10gbase dwdm tunable
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1561_42 = 165
+
+    	im attr media 40gbase dwdm 1561 42
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1560_61 = 166
+
+    	im attr media 40gbase dwdm 1560 61
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1559_79 = 167
+
+    	im attr media 40gbase dwdm 1559 79
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1558_98 = 168
+
+    	im attr media 40gbase dwdm 1558 98
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1558_17 = 169
+
+    	im attr media 40gbase dwdm 1558 17
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1557_36 = 170
+
+    	im attr media 40gbase dwdm 1557 36
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1556_55 = 171
+
+    	im attr media 40gbase dwdm 1556 55
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1555_75 = 172
+
+    	im attr media 40gbase dwdm 1555 75
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1554_94 = 173
+
+    	im attr media 40gbase dwdm 1554 94
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1554_13 = 174
+
+    	im attr media 40gbase dwdm 1554 13
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1553_33 = 175
+
+    	im attr media 40gbase dwdm 1553 33
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1552_52 = 176
+
+    	im attr media 40gbase dwdm 1552 52
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1551_72 = 177
+
+    	im attr media 40gbase dwdm 1551 72
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1550_92 = 178
+
+    	im attr media 40gbase dwdm 1550 92
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1550_12 = 179
+
+    	im attr media 40gbase dwdm 1550 12
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1549_32 = 180
+
+    	im attr media 40gbase dwdm 1549 32
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1548_51 = 181
+
+    	im attr media 40gbase dwdm 1548 51
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1547_72 = 182
+
+    	im attr media 40gbase dwdm 1547 72
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1546_92 = 183
+
+    	im attr media 40gbase dwdm 1546 92
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1546_12 = 184
+
+    	im attr media 40gbase dwdm 1546 12
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1545_32 = 185
+
+    	im attr media 40gbase dwdm 1545 32
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1544_53 = 186
+
+    	im attr media 40gbase dwdm 1544 53
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1543_73 = 187
+
+    	im attr media 40gbase dwdm 1543 73
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1542_94 = 188
+
+    	im attr media 40gbase dwdm 1542 94
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1542_14 = 189
+
+    	im attr media 40gbase dwdm 1542 14
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1541_35 = 190
+
+    	im attr media 40gbase dwdm 1541 35
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1540_56 = 191
+
+    	im attr media 40gbase dwdm 1540 56
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1539_77 = 192
+
+    	im attr media 40gbase dwdm 1539 77
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1538_98 = 193
+
+    	im attr media 40gbase dwdm 1538 98
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1538_19 = 194
+
+    	im attr media 40gbase dwdm 1538 19
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1537_40 = 195
+
+    	im attr media 40gbase dwdm 1537 40
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1536_61 = 196
+
+    	im attr media 40gbase dwdm 1536 61
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1535_82 = 197
+
+    	im attr media 40gbase dwdm 1535 82
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1535_04 = 198
+
+    	im attr media 40gbase dwdm 1535 04
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1534_25 = 199
+
+    	im attr media 40gbase dwdm 1534 25
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1533_47 = 200
+
+    	im attr media 40gbase dwdm 1533 47
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1532_68 = 201
+
+    	im attr media 40gbase dwdm 1532 68
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1531_90 = 202
+
+    	im attr media 40gbase dwdm 1531 90
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1531_12 = 203
+
+    	im attr media 40gbase dwdm 1531 12
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_1530_33 = 204
+
+    	im attr media 40gbase dwdm 1530 33
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_DWDM_TUNABLE = 205
+
+    	im attr media 40gbase dwdm tunable
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1561_42 = 206
+
+    	im attr media 100gbase dwdm 1561 42
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1560_61 = 207
+
+    	im attr media 100gbase dwdm 1560 61
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1559_79 = 208
+
+    	im attr media 100gbase dwdm 1559 79
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1558_98 = 209
+
+    	im attr media 100gbase dwdm 1558 98
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1558_17 = 210
+
+    	im attr media 100gbase dwdm 1558 17
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1557_36 = 211
+
+    	im attr media 100gbase dwdm 1557 36
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1556_55 = 212
+
+    	im attr media 100gbase dwdm 1556 55
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1555_75 = 213
+
+    	im attr media 100gbase dwdm 1555 75
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1554_94 = 214
+
+    	im attr media 100gbase dwdm 1554 94
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1554_13 = 215
+
+    	im attr media 100gbase dwdm 1554 13
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1553_33 = 216
+
+    	im attr media 100gbase dwdm 1553 33
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1552_52 = 217
+
+    	im attr media 100gbase dwdm 1552 52
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1551_72 = 218
+
+    	im attr media 100gbase dwdm 1551 72
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1550_92 = 219
+
+    	im attr media 100gbase dwdm 1550 92
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1550_12 = 220
+
+    	im attr media 100gbase dwdm 1550 12
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1549_32 = 221
+
+    	im attr media 100gbase dwdm 1549 32
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1548_51 = 222
+
+    	im attr media 100gbase dwdm 1548 51
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1547_72 = 223
+
+    	im attr media 100gbase dwdm 1547 72
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1546_92 = 224
+
+    	im attr media 100gbase dwdm 1546 92
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1546_12 = 225
+
+    	im attr media 100gbase dwdm 1546 12
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1545_32 = 226
+
+    	im attr media 100gbase dwdm 1545 32
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1544_53 = 227
+
+    	im attr media 100gbase dwdm 1544 53
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1543_73 = 228
+
+    	im attr media 100gbase dwdm 1543 73
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1542_94 = 229
+
+    	im attr media 100gbase dwdm 1542 94
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1542_14 = 230
+
+    	im attr media 100gbase dwdm 1542 14
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1541_35 = 231
+
+    	im attr media 100gbase dwdm 1541 35
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1540_56 = 232
+
+    	im attr media 100gbase dwdm 1540 56
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1539_77 = 233
+
+    	im attr media 100gbase dwdm 1539 77
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1538_98 = 234
+
+    	im attr media 100gbase dwdm 1538 98
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1538_19 = 235
+
+    	im attr media 100gbase dwdm 1538 19
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1537_40 = 236
+
+    	im attr media 100gbase dwdm 1537 40
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1536_61 = 237
+
+    	im attr media 100gbase dwdm 1536 61
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1535_82 = 238
+
+    	im attr media 100gbase dwdm 1535 82
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1535_04 = 239
+
+    	im attr media 100gbase dwdm 1535 04
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1534_25 = 240
+
+    	im attr media 100gbase dwdm 1534 25
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1533_47 = 241
+
+    	im attr media 100gbase dwdm 1533 47
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1532_68 = 242
+
+    	im attr media 100gbase dwdm 1532 68
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1531_90 = 243
+
+    	im attr media 100gbase dwdm 1531 90
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1531_12 = 244
+
+    	im attr media 100gbase dwdm 1531 12
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_1530_33 = 245
+
+    	im attr media 100gbase dwdm 1530 33
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_DWDM_TUNABLE = 246
+
+    	im attr media 100gbase dwdm tunable
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_KR4 = 247
+
+    	im attr media 40gbase kr4
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_CR4 = 248
+
+    	im attr media 40gbase cr4
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_SR4 = 249
+
+    	im attr media 40gbase sr4
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_FR = 250
+
+    	im attr media 40gbase fr
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_CR10 = 251
+
+    	im attr media 100gbase cr10
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_SR10 = 252
+
+    	im attr media 100gbase sr10
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_CSR4 = 253
+
+    	im attr media 40gbase csr4
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_CWDM = 254
+
+    	im attr media 10gbase cwdm
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_CWDM_TUNABLE = 255
+
+    	im attr media 10gbase cwdm tunable
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_CWDM_1470 = 256
+
+    	im attr media 10gbase cwdm 1470
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_CWDM_1490 = 257
+
+    	im attr media 10gbase cwdm 1490
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_CWDM_1510 = 258
+
+    	im attr media 10gbase cwdm 1510
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_CWDM_1530 = 259
+
+    	im attr media 10gbase cwdm 1530
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_CWDM_1550 = 260
+
+    	im attr media 10gbase cwdm 1550
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_CWDM_1570 = 261
+
+    	im attr media 10gbase cwdm 1570
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_CWDM_1590 = 262
+
+    	im attr media 10gbase cwdm 1590
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_CWDM_1610 = 263
+
+    	im attr media 10gbase cwdm 1610
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_CWDM = 264
+
+    	im attr media 40gbase cwdm
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_CWDM_TUNABLE = 265
+
+    	im attr media 40gbase cwdm tunable
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_CWDM_1470 = 266
+
+    	im attr media 40gbase cwdm 1470
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_CWDM_1490 = 267
+
+    	im attr media 40gbase cwdm 1490
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_CWDM_1510 = 268
+
+    	im attr media 40gbase cwdm 1510
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_CWDM_1530 = 269
+
+    	im attr media 40gbase cwdm 1530
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_CWDM_1550 = 270
+
+    	im attr media 40gbase cwdm 1550
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_CWDM_1570 = 271
+
+    	im attr media 40gbase cwdm 1570
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_CWDM_1590 = 272
+
+    	im attr media 40gbase cwdm 1590
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_CWDM_1610 = 273
+
+    	im attr media 40gbase cwdm 1610
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_CWDM = 274
+
+    	im attr media 100gbase cwdm
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_CWDM_TUNABLE = 275
+
+    	im attr media 100gbase cwdm tunable
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_CWDM_1470 = 276
+
+    	im attr media 100gbase cwdm 1470
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_CWDM_1490 = 277
+
+    	im attr media 100gbase cwdm 1490
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_CWDM_1510 = 278
+
+    	im attr media 100gbase cwdm 1510
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_CWDM_1530 = 279
+
+    	im attr media 100gbase cwdm 1530
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_CWDM_1550 = 280
+
+    	im attr media 100gbase cwdm 1550
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_CWDM_1570 = 281
+
+    	im attr media 100gbase cwdm 1570
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_CWDM_1590 = 282
+
+    	im attr media 100gbase cwdm 1590
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_CWDM_1610 = 283
+
+    	im attr media 100gbase cwdm 1610
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_ELPB = 284
+
+    	im attr media 40gbase elpb
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_ELPB = 285
+
+    	im attr media 100gbase elpb
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_LR10 = 286
+
+    	im attr media 100gbase lr10
+
+    .. data:: IM_ATTR_MEDIA_40GBASE = 287
+
+    	im attr media 40gbase
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_KP4 = 288
+
+    	im attr media 100gbase kp4
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_KR4 = 289
+
+    	im attr media 100gbase kr4
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_LRM = 290
+
+    	im attr media 10gbase lrm
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_CX4 = 291
+
+    	im attr media 10gbase cx4
+
+    .. data:: IM_ATTR_MEDIA_10GBASE = 292
+
+    	im attr media 10gbase
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_KX4 = 293
+
+    	im attr media 10gbase kx4
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_KR = 294
+
+    	im attr media 10gbase kr
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_PR = 295
+
+    	im attr media 10gbase pr
+
+    .. data:: IM_ATTR_MEDIA_100BASE_LX = 296
+
+    	im attr media 100base lx
+
+    .. data:: IM_ATTR_MEDIA_100BASE_ZX = 297
+
+    	im attr media 100base zx
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_BX_D = 298
+
+    	im attr media 1000base bx d
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_BX_U = 299
+
+    	im attr media 1000base bx u
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_BX20_D = 300
+
+    	im attr media 1000base bx20 d
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_BX20_U = 301
+
+    	im attr media 1000base bx20 u
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_BX40_D = 302
+
+    	im attr media 1000base bx40 d
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_BX40_DA = 303
+
+    	im attr media 1000base bx40 da
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_BX40_U = 304
+
+    	im attr media 1000base bx40 u
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_BX80_D = 305
+
+    	im attr media 1000base bx80 d
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_BX80_U = 306
+
+    	im attr media 1000base bx80 u
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_BX120_D = 307
+
+    	im attr media 1000base bx120 d
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_BX120_U = 308
+
+    	im attr media 1000base bx120 u
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_BX_D = 309
+
+    	im attr media 10gbase bx d
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_BX_U = 310
+
+    	im attr media 10gbase bx u
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_BX10_D = 311
+
+    	im attr media 10gbase bx10 d
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_BX10_U = 312
+
+    	im attr media 10gbase bx10 u
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_BX20_D = 313
+
+    	im attr media 10gbase bx20 d
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_BX20_U = 314
+
+    	im attr media 10gbase bx20 u
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_BX40_D = 315
+
+    	im attr media 10gbase bx40 d
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_BX40_U = 316
+
+    	im attr media 10gbase bx40 u
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_BX80_D = 317
+
+    	im attr media 10gbase bx80 d
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_BX80_U = 318
+
+    	im attr media 10gbase bx80 u
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_BX120_D = 319
+
+    	im attr media 10gbase bx120 d
+
+    .. data:: IM_ATTR_MEDIA_10GBASE_BX120_U = 320
+
+    	im attr media 10gbase bx120 u
+
+    .. data:: IM_ATTR_MEDIA_1000BASE_DR_LX = 321
+
+    	im attr media 1000base dr lx
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_ER4L = 322
+
+    	im attr media 100gbase er4l
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_SR4 = 323
+
+    	im attr media 100gbase sr4
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_SR_BD = 324
+
+    	im attr media 40gbase sr bd
 
     """
 
-    im attr media other
-
-    """
     IM_ATTR_MEDIA_OTHER = 0
 
-    """
-
-    im attr media unknown
-
-    """
     IM_ATTR_MEDIA_UNKNOWN = 1
 
-    """
-
-    im attr media aui
-
-    """
     IM_ATTR_MEDIA_AUI = 2
 
-    """
-
-    im attr media 10base5
-
-    """
     IM_ATTR_MEDIA_10BASE5 = 3
 
-    """
-
-    im attr media foirl
-
-    """
     IM_ATTR_MEDIA_FOIRL = 4
 
-    """
-
-    im attr media 10base2
-
-    """
     IM_ATTR_MEDIA_10BASE2 = 5
 
-    """
-
-    im attr media 10broad36
-
-    """
     IM_ATTR_MEDIA_10BROAD36 = 6
 
-    """
-
-    im attr media 10base
-
-    """
     IM_ATTR_MEDIA_10BASE = 7
 
-    """
-
-    im attr media 10base thd
-
-    """
     IM_ATTR_MEDIA_10BASE_THD = 8
 
-    """
-
-    im attr media 10base tfd
-
-    """
     IM_ATTR_MEDIA_10BASE_TFD = 9
 
-    """
-
-    im attr media 10base fp
-
-    """
     IM_ATTR_MEDIA_10BASE_FP = 10
 
-    """
-
-    im attr media 10base fb
-
-    """
     IM_ATTR_MEDIA_10BASE_FB = 11
 
-    """
-
-    im attr media 10base fl
-
-    """
     IM_ATTR_MEDIA_10BASE_FL = 12
 
-    """
-
-    im attr media 10base flhd
-
-    """
     IM_ATTR_MEDIA_10BASE_FLHD = 13
 
-    """
-
-    im attr media 10base flfd
-
-    """
     IM_ATTR_MEDIA_10BASE_FLFD = 14
 
-    """
-
-    im attr media 100base t4
-
-    """
     IM_ATTR_MEDIA_100BASE_T4 = 15
 
-    """
-
-    im attr media 100base tx
-
-    """
     IM_ATTR_MEDIA_100BASE_TX = 16
 
-    """
-
-    im attr media 100base txhd
-
-    """
     IM_ATTR_MEDIA_100BASE_TXHD = 17
 
-    """
-
-    im attr media 100base txfd
-
-    """
     IM_ATTR_MEDIA_100BASE_TXFD = 18
 
-    """
-
-    im attr media 100base fx
-
-    """
     IM_ATTR_MEDIA_100BASE_FX = 19
 
-    """
-
-    im attr media 100base fxhd
-
-    """
     IM_ATTR_MEDIA_100BASE_FXHD = 20
 
-    """
-
-    im attr media 100base fxfd
-
-    """
     IM_ATTR_MEDIA_100BASE_FXFD = 21
 
-    """
-
-    im attr media 100base ex
-
-    """
     IM_ATTR_MEDIA_100BASE_EX = 22
 
-    """
-
-    im attr media 100base exhd
-
-    """
     IM_ATTR_MEDIA_100BASE_EXHD = 23
 
-    """
-
-    im attr media 100base exfd
-
-    """
     IM_ATTR_MEDIA_100BASE_EXFD = 24
 
-    """
-
-    im attr media 100base t2
-
-    """
     IM_ATTR_MEDIA_100BASE_T2 = 25
 
-    """
-
-    im attr media 100base t2hd
-
-    """
     IM_ATTR_MEDIA_100BASE_T2HD = 26
 
-    """
-
-    im attr media 100base t2fd
-
-    """
     IM_ATTR_MEDIA_100BASE_T2FD = 27
 
-    """
-
-    im attr media 1000base x
-
-    """
     IM_ATTR_MEDIA_1000BASE_X = 28
 
-    """
-
-    im attr media 1000base xhdx
-
-    """
     IM_ATTR_MEDIA_1000BASE_XHDX = 29
 
-    """
-
-    im attr media 1000base xfd
-
-    """
     IM_ATTR_MEDIA_1000BASE_XFD = 30
 
-    """
-
-    im attr media 1000base lx
-
-    """
     IM_ATTR_MEDIA_1000BASE_LX = 31
 
-    """
-
-    im attr media 1000base lxhd
-
-    """
     IM_ATTR_MEDIA_1000BASE_LXHD = 32
 
-    """
-
-    im attr media 1000base lxfdx
-
-    """
     IM_ATTR_MEDIA_1000BASE_LXFDX = 33
 
-    """
-
-    im attr media 1000base sx
-
-    """
     IM_ATTR_MEDIA_1000BASE_SX = 34
 
-    """
-
-    im attr media 1000base sxhd
-
-    """
     IM_ATTR_MEDIA_1000BASE_SXHD = 35
 
-    """
-
-    im attr media 1000base sxfd
-
-    """
     IM_ATTR_MEDIA_1000BASE_SXFD = 36
 
-    """
-
-    im attr media 1000base cx
-
-    """
     IM_ATTR_MEDIA_1000BASE_CX = 37
 
-    """
-
-    im attr media 1000base cxhdx
-
-    """
     IM_ATTR_MEDIA_1000BASE_CXHDX = 38
 
-    """
-
-    im attr media 1000base cxfd
-
-    """
     IM_ATTR_MEDIA_1000BASE_CXFD = 39
 
-    """
-
-    im attr media 1000base
-
-    """
     IM_ATTR_MEDIA_1000BASE = 40
 
-    """
-
-    im attr media 1000base thd
-
-    """
     IM_ATTR_MEDIA_1000BASE_THD = 41
 
-    """
-
-    im attr media 1000base tfd
-
-    """
     IM_ATTR_MEDIA_1000BASE_TFD = 42
 
-    """
-
-    im attr media 10gbase x
-
-    """
     IM_ATTR_MEDIA_10GBASE_X = 43
 
-    """
-
-    im attr media 10gbase lx4
-
-    """
     IM_ATTR_MEDIA_10GBASE_LX4 = 44
 
-    """
-
-    im attr media 10gbase r
-
-    """
     IM_ATTR_MEDIA_10GBASE_R = 45
 
-    """
-
-    im attr media 10gbase er
-
-    """
     IM_ATTR_MEDIA_10GBASE_ER = 46
 
-    """
-
-    im attr media 10gbase lr
-
-    """
     IM_ATTR_MEDIA_10GBASE_LR = 47
 
-    """
-
-    im attr media 10gbase sr
-
-    """
     IM_ATTR_MEDIA_10GBASE_SR = 48
 
-    """
-
-    im attr media 10gbase w
-
-    """
     IM_ATTR_MEDIA_10GBASE_W = 49
 
-    """
-
-    im attr media 10gbase ew
-
-    """
     IM_ATTR_MEDIA_10GBASE_EW = 50
 
-    """
-
-    im attr media 10gbase lw
-
-    """
     IM_ATTR_MEDIA_10GBASE_LW = 51
 
-    """
-
-    im attr media 10gbase sw
-
-    """
     IM_ATTR_MEDIA_10GBASE_SW = 52
 
-    """
-
-    im attr media 10gbase zr
-
-    """
     IM_ATTR_MEDIA_10GBASE_ZR = 53
 
-    """
-
-    im attr media 802 9a
-
-    """
     IM_ATTR_MEDIA_802_9A = 54
 
-    """
-
-    im attr media rj45
-
-    """
     IM_ATTR_MEDIA_RJ45 = 55
 
-    """
-
-    im attr media 1000base zx
-
-    """
     IM_ATTR_MEDIA_1000BASE_ZX = 56
 
-    """
-
-    im attr media 1000base cwdm
-
-    """
     IM_ATTR_MEDIA_1000BASE_CWDM = 57
 
-    """
-
-    im attr media 1000base cwdm 1470
-
-    """
     IM_ATTR_MEDIA_1000BASE_CWDM_1470 = 58
 
-    """
-
-    im attr media 1000base cwdm 1490
-
-    """
     IM_ATTR_MEDIA_1000BASE_CWDM_1490 = 59
 
-    """
-
-    im attr media 1000base cwdm 1510
-
-    """
     IM_ATTR_MEDIA_1000BASE_CWDM_1510 = 60
 
-    """
-
-    im attr media 1000base cwdm 1530
-
-    """
     IM_ATTR_MEDIA_1000BASE_CWDM_1530 = 61
 
-    """
-
-    im attr media 1000base cwdm 1550
-
-    """
     IM_ATTR_MEDIA_1000BASE_CWDM_1550 = 62
 
-    """
-
-    im attr media 1000base cwdm 1570
-
-    """
     IM_ATTR_MEDIA_1000BASE_CWDM_1570 = 63
 
-    """
-
-    im attr media 1000base cwdm 1590
-
-    """
     IM_ATTR_MEDIA_1000BASE_CWDM_1590 = 64
 
-    """
-
-    im attr media 1000base cwdm 1610
-
-    """
     IM_ATTR_MEDIA_1000BASE_CWDM_1610 = 65
 
-    """
-
-    im attr media 10gbase dwdm
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM = 66
 
-    """
-
-    im attr media 100gbase lr4
-
-    """
     IM_ATTR_MEDIA_100GBASE_LR4 = 67
 
-    """
-
-    im attr media 1000base dwdm
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM = 68
 
-    """
-
-    im attr media 1000base dwdm 1533
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1533 = 69
 
-    """
-
-    im attr media 1000base dwdm 1537
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1537 = 70
 
-    """
-
-    im attr media 1000base dwdm 1541
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1541 = 71
 
-    """
-
-    im attr media 1000base dwdm 1545
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1545 = 72
 
-    """
-
-    im attr media 1000base dwdm 1549
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1549 = 73
 
-    """
-
-    im attr media 1000base dwdm 1553
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1553 = 74
 
-    """
-
-    im attr media 1000base dwdm 1557
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1557 = 75
 
-    """
-
-    im attr media 1000base dwdm 1561
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1561 = 76
 
-    """
-
-    im attr media 40gbase lr4
-
-    """
     IM_ATTR_MEDIA_40GBASE_LR4 = 77
 
-    """
-
-    im attr media 40gbase er4
-
-    """
     IM_ATTR_MEDIA_40GBASE_ER4 = 78
 
-    """
-
-    im attr media 100gbase er4
-
-    """
     IM_ATTR_MEDIA_100GBASE_ER4 = 79
 
-    """
-
-    im attr media 1000base ex
-
-    """
     IM_ATTR_MEDIA_1000BASE_EX = 80
 
-    """
-
-    im attr media 1000base bx10 d
-
-    """
     IM_ATTR_MEDIA_1000BASE_BX10_D = 81
 
-    """
-
-    im attr media 1000base bx10 u
-
-    """
     IM_ATTR_MEDIA_1000BASE_BX10_U = 82
 
-    """
-
-    im attr media 1000base dwdm 1561 42
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1561_42 = 83
 
-    """
-
-    im attr media 1000base dwdm 1560 61
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1560_61 = 84
 
-    """
-
-    im attr media 1000base dwdm 1559 79
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1559_79 = 85
 
-    """
-
-    im attr media 1000base dwdm 1558 98
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1558_98 = 86
 
-    """
-
-    im attr media 1000base dwdm 1558 17
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1558_17 = 87
 
-    """
-
-    im attr media 1000base dwdm 1557 36
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1557_36 = 88
 
-    """
-
-    im attr media 1000base dwdm 1556 55
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1556_55 = 89
 
-    """
-
-    im attr media 1000base dwdm 1555 75
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1555_75 = 90
 
-    """
-
-    im attr media 1000base dwdm 1554 94
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1554_94 = 91
 
-    """
-
-    im attr media 1000base dwdm 1554 13
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1554_13 = 92
 
-    """
-
-    im attr media 1000base dwdm 1553 33
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1553_33 = 93
 
-    """
-
-    im attr media 1000base dwdm 1552 52
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1552_52 = 94
 
-    """
-
-    im attr media 1000base dwdm 1551 72
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1551_72 = 95
 
-    """
-
-    im attr media 1000base dwdm 1550 92
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1550_92 = 96
 
-    """
-
-    im attr media 1000base dwdm 1550 12
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1550_12 = 97
 
-    """
-
-    im attr media 1000base dwdm 1549 32
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1549_32 = 98
 
-    """
-
-    im attr media 1000base dwdm 1548 51
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1548_51 = 99
 
-    """
-
-    im attr media 1000base dwdm 1547 72
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1547_72 = 100
 
-    """
-
-    im attr media 1000base dwdm 1546 92
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1546_92 = 101
 
-    """
-
-    im attr media 1000base dwdm 1546 12
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1546_12 = 102
 
-    """
-
-    im attr media 1000base dwdm 1545 32
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1545_32 = 103
 
-    """
-
-    im attr media 1000base dwdm 1544 53
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1544_53 = 104
 
-    """
-
-    im attr media 1000base dwdm 1543 73
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1543_73 = 105
 
-    """
-
-    im attr media 1000base dwdm 1542 94
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1542_94 = 106
 
-    """
-
-    im attr media 1000base dwdm 1542 14
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1542_14 = 107
 
-    """
-
-    im attr media 1000base dwdm 1541 35
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1541_35 = 108
 
-    """
-
-    im attr media 1000base dwdm 1540 56
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1540_56 = 109
 
-    """
-
-    im attr media 1000base dwdm 1539 77
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1539_77 = 110
 
-    """
-
-    im attr media 1000base dwdm 1538 98
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1538_98 = 111
 
-    """
-
-    im attr media 1000base dwdm 1538 19
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1538_19 = 112
 
-    """
-
-    im attr media 1000base dwdm 1537 40
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1537_40 = 113
 
-    """
-
-    im attr media 1000base dwdm 1536 61
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1536_61 = 114
 
-    """
-
-    im attr media 1000base dwdm 1535 82
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1535_82 = 115
 
-    """
-
-    im attr media 1000base dwdm 1535 04
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1535_04 = 116
 
-    """
-
-    im attr media 1000base dwdm 1534 25
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1534_25 = 117
 
-    """
-
-    im attr media 1000base dwdm 1533 47
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1533_47 = 118
 
-    """
-
-    im attr media 1000base dwdm 1532 68
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1532_68 = 119
 
-    """
-
-    im attr media 1000base dwdm 1531 90
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1531_90 = 120
 
-    """
-
-    im attr media 1000base dwdm 1531 12
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1531_12 = 121
 
-    """
-
-    im attr media 1000base dwdm 1530 33
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_1530_33 = 122
 
-    """
-
-    im attr media 1000base dwdm tunable
-
-    """
     IM_ATTR_MEDIA_1000BASE_DWDM_TUNABLE = 123
 
-    """
-
-    im attr media 10gbase dwdm 1561 42
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1561_42 = 124
 
-    """
-
-    im attr media 10gbase dwdm 1560 61
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1560_61 = 125
 
-    """
-
-    im attr media 10gbase dwdm 1559 79
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1559_79 = 126
 
-    """
-
-    im attr media 10gbase dwdm 1558 98
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1558_98 = 127
 
-    """
-
-    im attr media 10gbase dwdm 1558 17
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1558_17 = 128
 
-    """
-
-    im attr media 10gbase dwdm 1557 36
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1557_36 = 129
 
-    """
-
-    im attr media 10gbase dwdm 1556 55
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1556_55 = 130
 
-    """
-
-    im attr media 10gbase dwdm 1555 75
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1555_75 = 131
 
-    """
-
-    im attr media 10gbase dwdm 1554 94
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1554_94 = 132
 
-    """
-
-    im attr media 10gbase dwdm 1554 13
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1554_13 = 133
 
-    """
-
-    im attr media 10gbase dwdm 1553 33
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1553_33 = 134
 
-    """
-
-    im attr media 10gbase dwdm 1552 52
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1552_52 = 135
 
-    """
-
-    im attr media 10gbase dwdm 1551 72
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1551_72 = 136
 
-    """
-
-    im attr media 10gbase dwdm 1550 92
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1550_92 = 137
 
-    """
-
-    im attr media 10gbase dwdm 1550 12
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1550_12 = 138
 
-    """
-
-    im attr media 10gbase dwdm 1549 32
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1549_32 = 139
 
-    """
-
-    im attr media 10gbase dwdm 1548 51
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1548_51 = 140
 
-    """
-
-    im attr media 10gbase dwdm 1547 72
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1547_72 = 141
 
-    """
-
-    im attr media 10gbase dwdm 1546 92
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1546_92 = 142
 
-    """
-
-    im attr media 10gbase dwdm 1546 12
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1546_12 = 143
 
-    """
-
-    im attr media 10gbase dwdm 1545 32
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1545_32 = 144
 
-    """
-
-    im attr media 10gbase dwdm 1544 53
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1544_53 = 145
 
-    """
-
-    im attr media 10gbase dwdm 1543 73
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1543_73 = 146
 
-    """
-
-    im attr media 10gbase dwdm 1542 94
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1542_94 = 147
 
-    """
-
-    im attr media 10gbase dwdm 1542 14
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1542_14 = 148
 
-    """
-
-    im attr media 10gbase dwdm 1541 35
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1541_35 = 149
 
-    """
-
-    im attr media 10gbase dwdm 1540 56
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1540_56 = 150
 
-    """
-
-    im attr media 10gbase dwdm 1539 77
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1539_77 = 151
 
-    """
-
-    im attr media 10gbase dwdm 1538 98
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1538_98 = 152
 
-    """
-
-    im attr media 10gbase dwdm 1538 19
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1538_19 = 153
 
-    """
-
-    im attr media 10gbase dwdm 1537 40
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1537_40 = 154
 
-    """
-
-    im attr media 10gbase dwdm 1536 61
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1536_61 = 155
 
-    """
-
-    im attr media 10gbase dwdm 1535 82
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1535_82 = 156
 
-    """
-
-    im attr media 10gbase dwdm 1535 04
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1535_04 = 157
 
-    """
-
-    im attr media 10gbase dwdm 1534 25
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1534_25 = 158
 
-    """
-
-    im attr media 10gbase dwdm 1533 47
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1533_47 = 159
 
-    """
-
-    im attr media 10gbase dwdm 1532 68
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1532_68 = 160
 
-    """
-
-    im attr media 10gbase dwdm 1531 90
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1531_90 = 161
 
-    """
-
-    im attr media 10gbase dwdm 1531 12
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1531_12 = 162
 
-    """
-
-    im attr media 10gbase dwdm 1530 33
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_1530_33 = 163
 
-    """
-
-    im attr media 10gbase dwdm tunable
-
-    """
     IM_ATTR_MEDIA_10GBASE_DWDM_TUNABLE = 164
 
-    """
-
-    im attr media 40gbase dwdm 1561 42
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1561_42 = 165
 
-    """
-
-    im attr media 40gbase dwdm 1560 61
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1560_61 = 166
 
-    """
-
-    im attr media 40gbase dwdm 1559 79
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1559_79 = 167
 
-    """
-
-    im attr media 40gbase dwdm 1558 98
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1558_98 = 168
 
-    """
-
-    im attr media 40gbase dwdm 1558 17
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1558_17 = 169
 
-    """
-
-    im attr media 40gbase dwdm 1557 36
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1557_36 = 170
 
-    """
-
-    im attr media 40gbase dwdm 1556 55
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1556_55 = 171
 
-    """
-
-    im attr media 40gbase dwdm 1555 75
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1555_75 = 172
 
-    """
-
-    im attr media 40gbase dwdm 1554 94
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1554_94 = 173
 
-    """
-
-    im attr media 40gbase dwdm 1554 13
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1554_13 = 174
 
-    """
-
-    im attr media 40gbase dwdm 1553 33
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1553_33 = 175
 
-    """
-
-    im attr media 40gbase dwdm 1552 52
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1552_52 = 176
 
-    """
-
-    im attr media 40gbase dwdm 1551 72
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1551_72 = 177
 
-    """
-
-    im attr media 40gbase dwdm 1550 92
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1550_92 = 178
 
-    """
-
-    im attr media 40gbase dwdm 1550 12
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1550_12 = 179
 
-    """
-
-    im attr media 40gbase dwdm 1549 32
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1549_32 = 180
 
-    """
-
-    im attr media 40gbase dwdm 1548 51
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1548_51 = 181
 
-    """
-
-    im attr media 40gbase dwdm 1547 72
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1547_72 = 182
 
-    """
-
-    im attr media 40gbase dwdm 1546 92
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1546_92 = 183
 
-    """
-
-    im attr media 40gbase dwdm 1546 12
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1546_12 = 184
 
-    """
-
-    im attr media 40gbase dwdm 1545 32
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1545_32 = 185
 
-    """
-
-    im attr media 40gbase dwdm 1544 53
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1544_53 = 186
 
-    """
-
-    im attr media 40gbase dwdm 1543 73
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1543_73 = 187
 
-    """
-
-    im attr media 40gbase dwdm 1542 94
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1542_94 = 188
 
-    """
-
-    im attr media 40gbase dwdm 1542 14
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1542_14 = 189
 
-    """
-
-    im attr media 40gbase dwdm 1541 35
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1541_35 = 190
 
-    """
-
-    im attr media 40gbase dwdm 1540 56
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1540_56 = 191
 
-    """
-
-    im attr media 40gbase dwdm 1539 77
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1539_77 = 192
 
-    """
-
-    im attr media 40gbase dwdm 1538 98
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1538_98 = 193
 
-    """
-
-    im attr media 40gbase dwdm 1538 19
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1538_19 = 194
 
-    """
-
-    im attr media 40gbase dwdm 1537 40
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1537_40 = 195
 
-    """
-
-    im attr media 40gbase dwdm 1536 61
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1536_61 = 196
 
-    """
-
-    im attr media 40gbase dwdm 1535 82
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1535_82 = 197
 
-    """
-
-    im attr media 40gbase dwdm 1535 04
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1535_04 = 198
 
-    """
-
-    im attr media 40gbase dwdm 1534 25
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1534_25 = 199
 
-    """
-
-    im attr media 40gbase dwdm 1533 47
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1533_47 = 200
 
-    """
-
-    im attr media 40gbase dwdm 1532 68
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1532_68 = 201
 
-    """
-
-    im attr media 40gbase dwdm 1531 90
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1531_90 = 202
 
-    """
-
-    im attr media 40gbase dwdm 1531 12
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1531_12 = 203
 
-    """
-
-    im attr media 40gbase dwdm 1530 33
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_1530_33 = 204
 
-    """
-
-    im attr media 40gbase dwdm tunable
-
-    """
     IM_ATTR_MEDIA_40GBASE_DWDM_TUNABLE = 205
 
-    """
-
-    im attr media 100gbase dwdm 1561 42
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1561_42 = 206
 
-    """
-
-    im attr media 100gbase dwdm 1560 61
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1560_61 = 207
 
-    """
-
-    im attr media 100gbase dwdm 1559 79
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1559_79 = 208
 
-    """
-
-    im attr media 100gbase dwdm 1558 98
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1558_98 = 209
 
-    """
-
-    im attr media 100gbase dwdm 1558 17
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1558_17 = 210
 
-    """
-
-    im attr media 100gbase dwdm 1557 36
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1557_36 = 211
 
-    """
-
-    im attr media 100gbase dwdm 1556 55
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1556_55 = 212
 
-    """
-
-    im attr media 100gbase dwdm 1555 75
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1555_75 = 213
 
-    """
-
-    im attr media 100gbase dwdm 1554 94
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1554_94 = 214
 
-    """
-
-    im attr media 100gbase dwdm 1554 13
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1554_13 = 215
 
-    """
-
-    im attr media 100gbase dwdm 1553 33
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1553_33 = 216
 
-    """
-
-    im attr media 100gbase dwdm 1552 52
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1552_52 = 217
 
-    """
-
-    im attr media 100gbase dwdm 1551 72
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1551_72 = 218
 
-    """
-
-    im attr media 100gbase dwdm 1550 92
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1550_92 = 219
 
-    """
-
-    im attr media 100gbase dwdm 1550 12
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1550_12 = 220
 
-    """
-
-    im attr media 100gbase dwdm 1549 32
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1549_32 = 221
 
-    """
-
-    im attr media 100gbase dwdm 1548 51
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1548_51 = 222
 
-    """
-
-    im attr media 100gbase dwdm 1547 72
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1547_72 = 223
 
-    """
-
-    im attr media 100gbase dwdm 1546 92
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1546_92 = 224
 
-    """
-
-    im attr media 100gbase dwdm 1546 12
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1546_12 = 225
 
-    """
-
-    im attr media 100gbase dwdm 1545 32
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1545_32 = 226
 
-    """
-
-    im attr media 100gbase dwdm 1544 53
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1544_53 = 227
 
-    """
-
-    im attr media 100gbase dwdm 1543 73
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1543_73 = 228
 
-    """
-
-    im attr media 100gbase dwdm 1542 94
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1542_94 = 229
 
-    """
-
-    im attr media 100gbase dwdm 1542 14
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1542_14 = 230
 
-    """
-
-    im attr media 100gbase dwdm 1541 35
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1541_35 = 231
 
-    """
-
-    im attr media 100gbase dwdm 1540 56
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1540_56 = 232
 
-    """
-
-    im attr media 100gbase dwdm 1539 77
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1539_77 = 233
 
-    """
-
-    im attr media 100gbase dwdm 1538 98
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1538_98 = 234
 
-    """
-
-    im attr media 100gbase dwdm 1538 19
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1538_19 = 235
 
-    """
-
-    im attr media 100gbase dwdm 1537 40
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1537_40 = 236
 
-    """
-
-    im attr media 100gbase dwdm 1536 61
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1536_61 = 237
 
-    """
-
-    im attr media 100gbase dwdm 1535 82
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1535_82 = 238
 
-    """
-
-    im attr media 100gbase dwdm 1535 04
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1535_04 = 239
 
-    """
-
-    im attr media 100gbase dwdm 1534 25
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1534_25 = 240
 
-    """
-
-    im attr media 100gbase dwdm 1533 47
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1533_47 = 241
 
-    """
-
-    im attr media 100gbase dwdm 1532 68
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1532_68 = 242
 
-    """
-
-    im attr media 100gbase dwdm 1531 90
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1531_90 = 243
 
-    """
-
-    im attr media 100gbase dwdm 1531 12
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1531_12 = 244
 
-    """
-
-    im attr media 100gbase dwdm 1530 33
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_1530_33 = 245
 
-    """
-
-    im attr media 100gbase dwdm tunable
-
-    """
     IM_ATTR_MEDIA_100GBASE_DWDM_TUNABLE = 246
 
-    """
-
-    im attr media 40gbase kr4
-
-    """
     IM_ATTR_MEDIA_40GBASE_KR4 = 247
 
-    """
-
-    im attr media 40gbase cr4
-
-    """
     IM_ATTR_MEDIA_40GBASE_CR4 = 248
 
-    """
-
-    im attr media 40gbase sr4
-
-    """
     IM_ATTR_MEDIA_40GBASE_SR4 = 249
 
-    """
-
-    im attr media 40gbase fr
-
-    """
     IM_ATTR_MEDIA_40GBASE_FR = 250
 
-    """
-
-    im attr media 100gbase cr10
-
-    """
     IM_ATTR_MEDIA_100GBASE_CR10 = 251
 
-    """
-
-    im attr media 100gbase sr10
-
-    """
     IM_ATTR_MEDIA_100GBASE_SR10 = 252
 
-    """
-
-    im attr media 40gbase csr4
-
-    """
     IM_ATTR_MEDIA_40GBASE_CSR4 = 253
 
-    """
-
-    im attr media 10gbase cwdm
-
-    """
     IM_ATTR_MEDIA_10GBASE_CWDM = 254
 
-    """
-
-    im attr media 10gbase cwdm tunable
-
-    """
     IM_ATTR_MEDIA_10GBASE_CWDM_TUNABLE = 255
 
-    """
-
-    im attr media 10gbase cwdm 1470
-
-    """
     IM_ATTR_MEDIA_10GBASE_CWDM_1470 = 256
 
-    """
-
-    im attr media 10gbase cwdm 1490
-
-    """
     IM_ATTR_MEDIA_10GBASE_CWDM_1490 = 257
 
-    """
-
-    im attr media 10gbase cwdm 1510
-
-    """
     IM_ATTR_MEDIA_10GBASE_CWDM_1510 = 258
 
-    """
-
-    im attr media 10gbase cwdm 1530
-
-    """
     IM_ATTR_MEDIA_10GBASE_CWDM_1530 = 259
 
-    """
-
-    im attr media 10gbase cwdm 1550
-
-    """
     IM_ATTR_MEDIA_10GBASE_CWDM_1550 = 260
 
-    """
-
-    im attr media 10gbase cwdm 1570
-
-    """
     IM_ATTR_MEDIA_10GBASE_CWDM_1570 = 261
 
-    """
-
-    im attr media 10gbase cwdm 1590
-
-    """
     IM_ATTR_MEDIA_10GBASE_CWDM_1590 = 262
 
-    """
-
-    im attr media 10gbase cwdm 1610
-
-    """
     IM_ATTR_MEDIA_10GBASE_CWDM_1610 = 263
 
-    """
-
-    im attr media 40gbase cwdm
-
-    """
     IM_ATTR_MEDIA_40GBASE_CWDM = 264
 
-    """
-
-    im attr media 40gbase cwdm tunable
-
-    """
     IM_ATTR_MEDIA_40GBASE_CWDM_TUNABLE = 265
 
-    """
-
-    im attr media 40gbase cwdm 1470
-
-    """
     IM_ATTR_MEDIA_40GBASE_CWDM_1470 = 266
 
-    """
-
-    im attr media 40gbase cwdm 1490
-
-    """
     IM_ATTR_MEDIA_40GBASE_CWDM_1490 = 267
 
-    """
-
-    im attr media 40gbase cwdm 1510
-
-    """
     IM_ATTR_MEDIA_40GBASE_CWDM_1510 = 268
 
-    """
-
-    im attr media 40gbase cwdm 1530
-
-    """
     IM_ATTR_MEDIA_40GBASE_CWDM_1530 = 269
 
-    """
-
-    im attr media 40gbase cwdm 1550
-
-    """
     IM_ATTR_MEDIA_40GBASE_CWDM_1550 = 270
 
-    """
-
-    im attr media 40gbase cwdm 1570
-
-    """
     IM_ATTR_MEDIA_40GBASE_CWDM_1570 = 271
 
-    """
-
-    im attr media 40gbase cwdm 1590
-
-    """
     IM_ATTR_MEDIA_40GBASE_CWDM_1590 = 272
 
-    """
-
-    im attr media 40gbase cwdm 1610
-
-    """
     IM_ATTR_MEDIA_40GBASE_CWDM_1610 = 273
 
-    """
-
-    im attr media 100gbase cwdm
-
-    """
     IM_ATTR_MEDIA_100GBASE_CWDM = 274
 
-    """
-
-    im attr media 100gbase cwdm tunable
-
-    """
     IM_ATTR_MEDIA_100GBASE_CWDM_TUNABLE = 275
 
-    """
-
-    im attr media 100gbase cwdm 1470
-
-    """
     IM_ATTR_MEDIA_100GBASE_CWDM_1470 = 276
 
-    """
-
-    im attr media 100gbase cwdm 1490
-
-    """
     IM_ATTR_MEDIA_100GBASE_CWDM_1490 = 277
 
-    """
-
-    im attr media 100gbase cwdm 1510
-
-    """
     IM_ATTR_MEDIA_100GBASE_CWDM_1510 = 278
 
-    """
-
-    im attr media 100gbase cwdm 1530
-
-    """
     IM_ATTR_MEDIA_100GBASE_CWDM_1530 = 279
 
-    """
-
-    im attr media 100gbase cwdm 1550
-
-    """
     IM_ATTR_MEDIA_100GBASE_CWDM_1550 = 280
 
-    """
-
-    im attr media 100gbase cwdm 1570
-
-    """
     IM_ATTR_MEDIA_100GBASE_CWDM_1570 = 281
 
-    """
-
-    im attr media 100gbase cwdm 1590
-
-    """
     IM_ATTR_MEDIA_100GBASE_CWDM_1590 = 282
 
-    """
-
-    im attr media 100gbase cwdm 1610
-
-    """
     IM_ATTR_MEDIA_100GBASE_CWDM_1610 = 283
 
-    """
-
-    im attr media 40gbase elpb
-
-    """
     IM_ATTR_MEDIA_40GBASE_ELPB = 284
 
-    """
-
-    im attr media 100gbase elpb
-
-    """
     IM_ATTR_MEDIA_100GBASE_ELPB = 285
 
-    """
-
-    im attr media 100gbase lr10
-
-    """
     IM_ATTR_MEDIA_100GBASE_LR10 = 286
 
-    """
-
-    im attr media 40gbase
-
-    """
     IM_ATTR_MEDIA_40GBASE = 287
 
-    """
-
-    im attr media 100gbase kp4
-
-    """
     IM_ATTR_MEDIA_100GBASE_KP4 = 288
 
-    """
-
-    im attr media 100gbase kr4
-
-    """
     IM_ATTR_MEDIA_100GBASE_KR4 = 289
 
-    """
-
-    im attr media 10gbase lrm
-
-    """
     IM_ATTR_MEDIA_10GBASE_LRM = 290
 
-    """
-
-    im attr media 10gbase cx4
-
-    """
     IM_ATTR_MEDIA_10GBASE_CX4 = 291
 
-    """
-
-    im attr media 10gbase
-
-    """
     IM_ATTR_MEDIA_10GBASE = 292
 
-    """
-
-    im attr media 10gbase kx4
-
-    """
     IM_ATTR_MEDIA_10GBASE_KX4 = 293
 
-    """
-
-    im attr media 10gbase kr
-
-    """
     IM_ATTR_MEDIA_10GBASE_KR = 294
 
-    """
-
-    im attr media 10gbase pr
-
-    """
     IM_ATTR_MEDIA_10GBASE_PR = 295
 
-    """
-
-    im attr media 100base lx
-
-    """
     IM_ATTR_MEDIA_100BASE_LX = 296
 
-    """
-
-    im attr media 100base zx
-
-    """
     IM_ATTR_MEDIA_100BASE_ZX = 297
 
-    """
-
-    im attr media 1000base bx d
-
-    """
     IM_ATTR_MEDIA_1000BASE_BX_D = 298
 
-    """
-
-    im attr media 1000base bx u
-
-    """
     IM_ATTR_MEDIA_1000BASE_BX_U = 299
 
-    """
-
-    im attr media 1000base bx20 d
-
-    """
     IM_ATTR_MEDIA_1000BASE_BX20_D = 300
 
-    """
-
-    im attr media 1000base bx20 u
-
-    """
     IM_ATTR_MEDIA_1000BASE_BX20_U = 301
 
-    """
-
-    im attr media 1000base bx40 d
-
-    """
     IM_ATTR_MEDIA_1000BASE_BX40_D = 302
 
-    """
-
-    im attr media 1000base bx40 da
-
-    """
     IM_ATTR_MEDIA_1000BASE_BX40_DA = 303
 
-    """
-
-    im attr media 1000base bx40 u
-
-    """
     IM_ATTR_MEDIA_1000BASE_BX40_U = 304
 
-    """
-
-    im attr media 1000base bx80 d
-
-    """
     IM_ATTR_MEDIA_1000BASE_BX80_D = 305
 
-    """
-
-    im attr media 1000base bx80 u
-
-    """
     IM_ATTR_MEDIA_1000BASE_BX80_U = 306
 
-    """
-
-    im attr media 1000base bx120 d
-
-    """
     IM_ATTR_MEDIA_1000BASE_BX120_D = 307
 
-    """
-
-    im attr media 1000base bx120 u
-
-    """
     IM_ATTR_MEDIA_1000BASE_BX120_U = 308
 
-    """
-
-    im attr media 10gbase bx d
-
-    """
     IM_ATTR_MEDIA_10GBASE_BX_D = 309
 
-    """
-
-    im attr media 10gbase bx u
-
-    """
     IM_ATTR_MEDIA_10GBASE_BX_U = 310
 
-    """
-
-    im attr media 10gbase bx10 d
-
-    """
     IM_ATTR_MEDIA_10GBASE_BX10_D = 311
 
-    """
-
-    im attr media 10gbase bx10 u
-
-    """
     IM_ATTR_MEDIA_10GBASE_BX10_U = 312
 
-    """
-
-    im attr media 10gbase bx20 d
-
-    """
     IM_ATTR_MEDIA_10GBASE_BX20_D = 313
 
-    """
-
-    im attr media 10gbase bx20 u
-
-    """
     IM_ATTR_MEDIA_10GBASE_BX20_U = 314
 
-    """
-
-    im attr media 10gbase bx40 d
-
-    """
     IM_ATTR_MEDIA_10GBASE_BX40_D = 315
 
-    """
-
-    im attr media 10gbase bx40 u
-
-    """
     IM_ATTR_MEDIA_10GBASE_BX40_U = 316
 
-    """
-
-    im attr media 10gbase bx80 d
-
-    """
     IM_ATTR_MEDIA_10GBASE_BX80_D = 317
 
-    """
-
-    im attr media 10gbase bx80 u
-
-    """
     IM_ATTR_MEDIA_10GBASE_BX80_U = 318
 
-    """
-
-    im attr media 10gbase bx120 d
-
-    """
     IM_ATTR_MEDIA_10GBASE_BX120_D = 319
 
-    """
-
-    im attr media 10gbase bx120 u
-
-    """
     IM_ATTR_MEDIA_10GBASE_BX120_U = 320
 
-    """
-
-    im attr media 1000base dr lx
-
-    """
     IM_ATTR_MEDIA_1000BASE_DR_LX = 321
 
-    """
-
-    im attr media 100gbase er4l
-
-    """
     IM_ATTR_MEDIA_100GBASE_ER4L = 322
 
-    """
-
-    im attr media 100gbase sr4
-
-    """
     IM_ATTR_MEDIA_100GBASE_SR4 = 323
 
-    """
-
-    im attr media 40gbase sr bd
-
-    """
     IM_ATTR_MEDIA_40GBASE_SR_BD = 324
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['ImAttrMedia_Enum']
+        return meta._meta_table['ImAttrMediaEnum']
 
 
-class ImAttrTransportMode_Enum(Enum):
+class ImAttrTransportModeEnum(Enum):
     """
-    ImAttrTransportMode_Enum
+    ImAttrTransportModeEnum
 
     Im attr transport mode
 
-    """
+    .. data:: IM_ATTR_TRANSPORT_MODE_UNKNOWN = 0
+
+    	im attr transport mode unknown
+
+    .. data:: IM_ATTR_TRANSPORT_MODE_LAN = 1
+
+    	im attr transport mode lan
+
+    .. data:: IM_ATTR_TRANSPORT_MODE_WAN = 2
+
+    	im attr transport mode wan
+
+    .. data:: IM_ATTR_TRANSPORT_MODE_OTN_BT_OPU1E = 3
+
+    	im attr transport mode otn bt opu1e
+
+    .. data:: IM_ATTR_TRANSPORT_MODE_OTN_BT_OPU2E = 4
+
+    	im attr transport mode otn bt opu2e
+
+    .. data:: IM_ATTR_TRANSPORT_MODE_OTN_OPU3 = 5
+
+    	im attr transport mode otn opu3
+
+    .. data:: IM_ATTR_TRANSPORT_MODE_OTN_OPU4 = 6
+
+    	im attr transport mode otn opu4
 
     """
 
-    im attr transport mode unknown
-
-    """
     IM_ATTR_TRANSPORT_MODE_UNKNOWN = 0
 
-    """
-
-    im attr transport mode lan
-
-    """
     IM_ATTR_TRANSPORT_MODE_LAN = 1
 
-    """
-
-    im attr transport mode wan
-
-    """
     IM_ATTR_TRANSPORT_MODE_WAN = 2
 
-    """
-
-    im attr transport mode otn bt opu1e
-
-    """
     IM_ATTR_TRANSPORT_MODE_OTN_BT_OPU1E = 3
 
-    """
-
-    im attr transport mode otn bt opu2e
-
-    """
     IM_ATTR_TRANSPORT_MODE_OTN_BT_OPU2E = 4
 
-    """
-
-    im attr transport mode otn opu3
-
-    """
     IM_ATTR_TRANSPORT_MODE_OTN_OPU3 = 5
 
-    """
-
-    im attr transport mode otn opu4
-
-    """
     IM_ATTR_TRANSPORT_MODE_OTN_OPU4 = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['ImAttrTransportMode_Enum']
+        return meta._meta_table['ImAttrTransportModeEnum']
 
 
-class ImCmdEncapsEnum_Enum(Enum):
+class ImCmdEncapsEnumEnum(Enum):
     """
-    ImCmdEncapsEnum_Enum
+    ImCmdEncapsEnumEnum
 
     Im cmd encaps enum
 
-    """
+    .. data:: FRAME_RELAY = 0
+
+    	frame relay
+
+    .. data:: VLAN = 1
+
+    	vlan
+
+    .. data:: PPP = 2
+
+    	ppp
 
     """
 
-    frame relay
-
-    """
     FRAME_RELAY = 0
 
-    """
-
-    vlan
-
-    """
     VLAN = 1
 
-    """
-
-    ppp
-
-    """
     PPP = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['ImCmdEncapsEnum_Enum']
+        return meta._meta_table['ImCmdEncapsEnumEnum']
 
 
-class ImCmdFrTypeEnum_Enum(Enum):
+class ImCmdFrTypeEnumEnum(Enum):
     """
-    ImCmdFrTypeEnum_Enum
+    ImCmdFrTypeEnumEnum
 
     Im cmd fr type enum
 
-    """
+    .. data:: FRAME_RELAY_CISCO = 0
+
+    	frame relay cisco
+
+    .. data:: FRAME_RELAY_IETF = 1
+
+    	frame relay ietf
 
     """
 
-    frame relay cisco
-
-    """
     FRAME_RELAY_CISCO = 0
 
-    """
-
-    frame relay ietf
-
-    """
     FRAME_RELAY_IETF = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['ImCmdFrTypeEnum_Enum']
+        return meta._meta_table['ImCmdFrTypeEnumEnum']
 
 
-class ImCmdIntfTypeEnum_Enum(Enum):
+class ImCmdIntfTypeEnumEnum(Enum):
     """
-    ImCmdIntfTypeEnum_Enum
+    ImCmdIntfTypeEnumEnum
 
     Im cmd intf type enum
 
-    """
+    .. data:: SRP = 0
+
+    	srp
+
+    .. data:: TUNNEL = 1
+
+    	tunnel
+
+    .. data:: BUNDLE = 2
+
+    	bundle
+
+    .. data:: SERIAL = 3
+
+    	serial
+
+    .. data:: SONET_POS = 4
+
+    	sonet pos
+
+    .. data:: TUNNEL_GRE = 5
+
+    	tunnel gre
+
+    .. data:: PSEUDOWIRE_HEAD_END = 6
+
+    	pseudowire head end
+
+    .. data:: CEM = 7
+
+    	cem
+
+    .. data:: GCC = 8
+
+    	gcc
 
     """
 
-    srp
-
-    """
     SRP = 0
 
-    """
-
-    tunnel
-
-    """
     TUNNEL = 1
 
-    """
-
-    bundle
-
-    """
     BUNDLE = 2
 
-    """
-
-    serial
-
-    """
     SERIAL = 3
 
-    """
-
-    sonet pos
-
-    """
     SONET_POS = 4
 
-    """
-
-    tunnel gre
-
-    """
     TUNNEL_GRE = 5
 
-    """
-
-    pseudowire head end
-
-    """
     PSEUDOWIRE_HEAD_END = 6
 
-    """
-
-    cem
-
-    """
     CEM = 7
 
-    """
-
-    gcc
-
-    """
     GCC = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['ImCmdIntfTypeEnum_Enum']
+        return meta._meta_table['ImCmdIntfTypeEnumEnum']
 
 
-class ImCmdLmiTypeEnum_Enum(Enum):
+class ImCmdLmiTypeEnumEnum(Enum):
     """
-    ImCmdLmiTypeEnum_Enum
+    ImCmdLmiTypeEnumEnum
 
     Im cmd lmi type enum
 
-    """
+    .. data:: LMI_TYPE_AUTO = 0
+
+    	lmi type auto
+
+    .. data:: LMI_TYPE_ANSI = 1
+
+    	lmi type ansi
+
+    .. data:: LMI_TYPE_CCITT = 2
+
+    	lmi type ccitt
+
+    .. data:: LMI_TYPE_CISCO = 3
+
+    	lmi type cisco
 
     """
 
-    lmi type auto
-
-    """
     LMI_TYPE_AUTO = 0
 
-    """
-
-    lmi type ansi
-
-    """
     LMI_TYPE_ANSI = 1
 
-    """
-
-    lmi type ccitt
-
-    """
     LMI_TYPE_CCITT = 2
 
-    """
-
-    lmi type cisco
-
-    """
     LMI_TYPE_CISCO = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['ImCmdLmiTypeEnum_Enum']
+        return meta._meta_table['ImCmdLmiTypeEnumEnum']
 
 
-class ImCmdLoopbackEnum_Enum(Enum):
+class ImCmdLoopbackEnumEnum(Enum):
     """
-    ImCmdLoopbackEnum_Enum
+    ImCmdLoopbackEnumEnum
 
     Im cmd loopback enum
 
-    """
+    .. data:: NO_LOOPBACK = 0
+
+    	no loopback
+
+    .. data:: INTERNAL_LOOPBACK = 1
+
+    	internal loopback
+
+    .. data:: EXTERNAL_LOOPBACK = 2
+
+    	external loopback
+
+    .. data:: LINE_LOOPBACK = 3
+
+    	line loopback
 
     """
 
-    no loopback
-
-    """
     NO_LOOPBACK = 0
 
-    """
-
-    internal loopback
-
-    """
     INTERNAL_LOOPBACK = 1
 
-    """
-
-    external loopback
-
-    """
     EXTERNAL_LOOPBACK = 2
 
-    """
-
-    line loopback
-
-    """
     LINE_LOOPBACK = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['ImCmdLoopbackEnum_Enum']
+        return meta._meta_table['ImCmdLoopbackEnumEnum']
 
 
-class ImCmdStatsEnum_Enum(Enum):
+class ImCmdStatsEnumEnum(Enum):
     """
-    ImCmdStatsEnum_Enum
+    ImCmdStatsEnumEnum
 
     List of different interface stats structures
 
-    """
+    .. data:: FULL = 1
+
+    	full
+
+    .. data:: BASIC = 2
+
+    	basic
 
     """
 
-    full
-
-    """
     FULL = 1
 
-    """
-
-    basic
-
-    """
     BASIC = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['ImCmdStatsEnum_Enum']
+        return meta._meta_table['ImCmdStatsEnumEnum']
 
 
-class ImStateEnum_Enum(Enum):
+class ImStateEnumEnum(Enum):
     """
-    ImStateEnum_Enum
+    ImStateEnumEnum
 
     Im state enum
 
-    """
+    .. data:: IM_STATE_NOT_READY = 0
+
+    	im state not ready
+
+    .. data:: IM_STATE_ADMIN_DOWN = 1
+
+    	im state admin down
+
+    .. data:: IM_STATE_DOWN = 2
+
+    	im state down
+
+    .. data:: IM_STATE_UP = 3
+
+    	im state up
+
+    .. data:: IM_STATE_SHUTDOWN = 4
+
+    	im state shutdown
+
+    .. data:: IM_STATE_ERR_DISABLE = 5
+
+    	im state err disable
+
+    .. data:: IM_STATE_DOWN_IMMEDIATE = 6
+
+    	im state down immediate
+
+    .. data:: IM_STATE_DOWN_IMMEDIATE_ADMIN = 7
+
+    	im state down immediate admin
+
+    .. data:: IM_STATE_DOWN_GRACEFUL = 8
+
+    	im state down graceful
+
+    .. data:: IM_STATE_BEGIN_SHUTDOWN = 9
+
+    	im state begin shutdown
+
+    .. data:: IM_STATE_END_SHUTDOWN = 10
+
+    	im state end shutdown
+
+    .. data:: IM_STATE_BEGIN_ERROR_DISABLE = 11
+
+    	im state begin error disable
+
+    .. data:: IM_STATE_END_ERROR_DISABLE = 12
+
+    	im state end error disable
+
+    .. data:: IM_STATE_BEGIN_DOWN_GRACEFUL = 13
+
+    	im state begin down graceful
+
+    .. data:: IM_STATE_RESET = 14
+
+    	im state reset
+
+    .. data:: IM_STATE_OPERATIONAL = 15
+
+    	im state operational
+
+    .. data:: IM_STATE_NOT_OPERATIONAL = 16
+
+    	im state not operational
+
+    .. data:: IM_STATE_UNKNOWN = 17
+
+    	im state unknown
+
+    .. data:: IM_STATE_LAST = 18
+
+    	im state last
 
     """
 
-    im state not ready
-
-    """
     IM_STATE_NOT_READY = 0
 
-    """
-
-    im state admin down
-
-    """
     IM_STATE_ADMIN_DOWN = 1
 
-    """
-
-    im state down
-
-    """
     IM_STATE_DOWN = 2
 
-    """
-
-    im state up
-
-    """
     IM_STATE_UP = 3
 
-    """
-
-    im state shutdown
-
-    """
     IM_STATE_SHUTDOWN = 4
 
-    """
-
-    im state err disable
-
-    """
     IM_STATE_ERR_DISABLE = 5
 
-    """
-
-    im state down immediate
-
-    """
     IM_STATE_DOWN_IMMEDIATE = 6
 
-    """
-
-    im state down immediate admin
-
-    """
     IM_STATE_DOWN_IMMEDIATE_ADMIN = 7
 
-    """
-
-    im state down graceful
-
-    """
     IM_STATE_DOWN_GRACEFUL = 8
 
-    """
-
-    im state begin shutdown
-
-    """
     IM_STATE_BEGIN_SHUTDOWN = 9
 
-    """
-
-    im state end shutdown
-
-    """
     IM_STATE_END_SHUTDOWN = 10
 
-    """
-
-    im state begin error disable
-
-    """
     IM_STATE_BEGIN_ERROR_DISABLE = 11
 
-    """
-
-    im state end error disable
-
-    """
     IM_STATE_END_ERROR_DISABLE = 12
 
-    """
-
-    im state begin down graceful
-
-    """
     IM_STATE_BEGIN_DOWN_GRACEFUL = 13
 
-    """
-
-    im state reset
-
-    """
     IM_STATE_RESET = 14
 
-    """
-
-    im state operational
-
-    """
     IM_STATE_OPERATIONAL = 15
 
-    """
-
-    im state not operational
-
-    """
     IM_STATE_NOT_OPERATIONAL = 16
 
-    """
-
-    im state unknown
-
-    """
     IM_STATE_UNKNOWN = 17
 
-    """
-
-    im state last
-
-    """
     IM_STATE_LAST = 18
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['ImStateEnum_Enum']
+        return meta._meta_table['ImStateEnumEnum']
 
 
-class InterfaceTypeSet_Enum(Enum):
+class InterfaceTypeSetEnum(Enum):
     """
-    InterfaceTypeSet_Enum
+    InterfaceTypeSetEnum
 
     Interface type set
 
-    """
+    .. data:: HARDWARE_INTERFACES = 0
+
+    	Restrict the output to hardware interfaces only
 
     """
 
-    Restrict the output to hardware interfaces only
-
-    """
     HARDWARE_INTERFACES = 0
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['InterfaceTypeSet_Enum']
+        return meta._meta_table['InterfaceTypeSetEnum']
 
 
-class NcpIdent_Enum(Enum):
+class NcpIdentEnum(Enum):
     """
-    NcpIdent_Enum
+    NcpIdentEnum
 
     Ncp ident
 
-    """
+    .. data:: CDPCP = 1
+
+    	CDP control protocol
+
+    .. data:: IPCP = 2
+
+    	IPv4 control protocol
+
+    .. data:: IPCPIW = 3
+
+    	IPv4 Interworking control protocol
+
+    .. data:: IPV6CP = 4
+
+    	IPv6 control protocol
+
+    .. data:: MPLSCP = 5
+
+    	MPLS control protocol
+
+    .. data:: OSICP = 6
+
+    	OSI (CLNS) control protocol
 
     """
 
-    CDP control protocol
-
-    """
     CDPCP = 1
 
-    """
-
-    IPv4 control protocol
-
-    """
     IPCP = 2
 
-    """
-
-    IPv4 Interworking control protocol
-
-    """
     IPCPIW = 3
 
-    """
-
-    IPv6 control protocol
-
-    """
     IPV6CP = 4
 
-    """
-
-    MPLS control protocol
-
-    """
     MPLSCP = 5
 
-    """
-
-    OSI (CLNS) control protocol
-
-    """
     OSICP = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['NcpIdent_Enum']
+        return meta._meta_table['NcpIdentEnum']
 
 
-class PppFsmState_Enum(Enum):
+class PppFsmStateEnum(Enum):
     """
-    PppFsmState_Enum
+    PppFsmStateEnum
 
     Ppp fsm state
 
-    """
+    .. data:: PPP_FSM_STATE_INITIAL_0 = 0
+
+    	Connection Idle
+
+    .. data:: PPP_FSM_STATE_STARTING_1 = 1
+
+    	This layer required, but lower layer down
+
+    .. data:: PPP_FSM_STATE_CLOSED_2 = 2
+
+    	Lower layer up, but this layer not required
+
+    .. data:: PPP_FSM_STATE_STOPPED_3 = 3
+
+    	Listening for a Config Request
+
+    .. data:: PPP_FSM_STATE_CLOSING_4 = 4
+
+    	Shutting down due to local change
+
+    .. data:: PPP_FSM_STATE_STOPPING_5 = 5
+
+    	Shutting down due to peer's actions
+
+    .. data:: PPP_FSM_STATE_REQ_SENT_6 = 6
+
+    	Config Request Sent
+
+    .. data:: PPP_FSM_STATE_ACK_RCVD_7 = 7
+
+    	Config Ack Received
+
+    .. data:: PPP_FSM_STATE_ACK_SENT_8 = 8
+
+    	Config Ack Sent
+
+    .. data:: PPP_FSM_STATE_OPENED_9 = 9
+
+    	Connection Open
 
     """
 
-    Connection Idle
-
-    """
     PPP_FSM_STATE_INITIAL_0 = 0
 
-    """
-
-    This layer required, but lower layer down
-
-    """
     PPP_FSM_STATE_STARTING_1 = 1
 
-    """
-
-    Lower layer up, but this layer not required
-
-    """
     PPP_FSM_STATE_CLOSED_2 = 2
 
-    """
-
-    Listening for a Config Request
-
-    """
     PPP_FSM_STATE_STOPPED_3 = 3
 
-    """
-
-    Shutting down due to local change
-
-    """
     PPP_FSM_STATE_CLOSING_4 = 4
 
-    """
-
-    Shutting down due to peer's actions
-
-    """
     PPP_FSM_STATE_STOPPING_5 = 5
 
-    """
-
-    Config Request Sent
-
-    """
     PPP_FSM_STATE_REQ_SENT_6 = 6
 
-    """
-
-    Config Ack Received
-
-    """
     PPP_FSM_STATE_ACK_RCVD_7 = 7
 
-    """
-
-    Config Ack Sent
-
-    """
     PPP_FSM_STATE_ACK_SENT_8 = 8
 
-    """
-
-    Connection Open
-
-    """
     PPP_FSM_STATE_OPENED_9 = 9
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['PppFsmState_Enum']
+        return meta._meta_table['PppFsmStateEnum']
 
 
-class SonetApsEt_Enum(Enum):
+class SonetApsEtEnum(Enum):
     """
-    SonetApsEt_Enum
+    SonetApsEtEnum
 
     APS states
 
-    """
+    .. data:: NOT_CONFIGURED = 0
+
+    	APS not configured on port
+
+    .. data:: WORKING_ACTIVE = 1
+
+    	Working port is up 
+
+    .. data:: PROTECT_ACTIVE = 2
+
+    	Protect port is up  
+
+    .. data:: WORKING_INACTIVE = 3
+
+    	Working port is down 
+
+    .. data:: PROTECT_INACTIVE = 4
+
+    	Protect port is down  
 
     """
 
-    APS not configured on port
-
-    """
     NOT_CONFIGURED = 0
 
-    """
-
-    Working port is up 
-
-    """
     WORKING_ACTIVE = 1
 
-    """
-
-    Protect port is up  
-
-    """
     PROTECT_ACTIVE = 2
 
-    """
-
-    Working port is down 
-
-    """
     WORKING_INACTIVE = 3
 
-    """
-
-    Protect port is down  
-
-    """
     PROTECT_INACTIVE = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['SonetApsEt_Enum']
+        return meta._meta_table['SonetApsEtEnum']
 
 
-class SrpMgmtFailureEt_Enum(Enum):
+class SrpMgmtFailureEtEnum(Enum):
     """
-    SrpMgmtFailureEt_Enum
+    SrpMgmtFailureEtEnum
 
     SRP failure type
 
-    """
+    .. data:: HARDWARE_MISSING_FAILURE = 0
+
+    	Hardware missing
+
+    .. data:: LAYER1_ADMIN_STATE_FAILURE = 1
+
+    	L1 admin state
+
+    .. data:: LAYER1_ERROR_FAILURE = 2
+
+    	Layer 1 error
+
+    .. data:: KEEPALIVE_MISSED_FAILURE = 3
+
+    	Keepalive missed
+
+    .. data:: LINK_QUALITY_DEGRADED_FAILURE = 4
+
+    	Link quality degraded
+
+    .. data:: MATE_PROBLEM_FAILURE = 5
+
+    	Mate problem
+
+    .. data:: SIDE_MISMATCH_FAILURE = 6
+
+    	Side mismatch
+
+    .. data:: UNKNOWN_FAILURE = 7
+
+    	Unknown
 
     """
 
-    Hardware missing
-
-    """
     HARDWARE_MISSING_FAILURE = 0
 
-    """
-
-    L1 admin state
-
-    """
     LAYER1_ADMIN_STATE_FAILURE = 1
 
-    """
-
-    Layer 1 error
-
-    """
     LAYER1_ERROR_FAILURE = 2
 
-    """
-
-    Keepalive missed
-
-    """
     KEEPALIVE_MISSED_FAILURE = 3
 
-    """
-
-    Link quality degraded
-
-    """
     LINK_QUALITY_DEGRADED_FAILURE = 4
 
-    """
-
-    Mate problem
-
-    """
     MATE_PROBLEM_FAILURE = 5
 
-    """
-
-    Side mismatch
-
-    """
     SIDE_MISMATCH_FAILURE = 6
 
-    """
-
-    Unknown
-
-    """
     UNKNOWN_FAILURE = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['SrpMgmtFailureEt_Enum']
+        return meta._meta_table['SrpMgmtFailureEtEnum']
 
 
-class SrpMgmtFailureStateEt_Enum(Enum):
+class SrpMgmtFailureStateEtEnum(Enum):
     """
-    SrpMgmtFailureStateEt_Enum
+    SrpMgmtFailureStateEtEnum
 
     SRP failure state type
 
-    """
+    .. data:: IDLE_FAILURE_STATE = 0
+
+    	Idle
+
+    .. data:: WAIT_TO_RESTORE_FAILURE_STATE = 1
+
+    	Wait To Restore
+
+    .. data:: MANUAL_SWITCH_FAILURE_STATE = 2
+
+    	Manual Switch
+
+    .. data:: SIGNAL_DEGRADE_FAILURE_STATE = 3
+
+    	Signal Degrade
+
+    .. data:: SIGNAL_FAIL_FAILURE_STATE = 4
+
+    	Signal Fail
+
+    .. data:: FORCED_SWITCH_FAILURE_STATE = 5
+
+    	Forced Switch
+
+    .. data:: SHUTDOWN_FAILURE_STATE = 6
+
+    	Shutdown
+
+    .. data:: INVALID_FAILURE_STATE = 7
+
+    	Invalid
+
+    .. data:: UNKNOWN_FAILURE_STATE = 8
+
+    	Unknown
 
     """
 
-    Idle
-
-    """
     IDLE_FAILURE_STATE = 0
 
-    """
-
-    Wait To Restore
-
-    """
     WAIT_TO_RESTORE_FAILURE_STATE = 1
 
-    """
-
-    Manual Switch
-
-    """
     MANUAL_SWITCH_FAILURE_STATE = 2
 
-    """
-
-    Signal Degrade
-
-    """
     SIGNAL_DEGRADE_FAILURE_STATE = 3
 
-    """
-
-    Signal Fail
-
-    """
     SIGNAL_FAIL_FAILURE_STATE = 4
 
-    """
-
-    Forced Switch
-
-    """
     FORCED_SWITCH_FAILURE_STATE = 5
 
-    """
-
-    Shutdown
-
-    """
     SHUTDOWN_FAILURE_STATE = 6
 
-    """
-
-    Invalid
-
-    """
     INVALID_FAILURE_STATE = 7
 
-    """
-
-    Unknown
-
-    """
     UNKNOWN_FAILURE_STATE = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['SrpMgmtFailureStateEt_Enum']
+        return meta._meta_table['SrpMgmtFailureStateEtEnum']
 
 
-class SrpMgmtIpsPathInd_Enum(Enum):
+class SrpMgmtIpsPathIndEnum(Enum):
     """
-    SrpMgmtIpsPathInd_Enum
+    SrpMgmtIpsPathIndEnum
 
     SRP IPS path indication
 
-    """
+    .. data:: SHORT_PATH = 0
+
+    	SHORT
+
+    .. data:: LONG_PATH = 1
+
+    	LONG
+
+    .. data:: UNKNOWN_PATH = 2
+
+    	UNKNOWN
 
     """
 
-    SHORT
-
-    """
     SHORT_PATH = 0
 
-    """
-
-    LONG
-
-    """
     LONG_PATH = 1
 
-    """
-
-    UNKNOWN
-
-    """
     UNKNOWN_PATH = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['SrpMgmtIpsPathInd_Enum']
+        return meta._meta_table['SrpMgmtIpsPathIndEnum']
 
 
-class SrpMgmtIpsReq_Enum(Enum):
+class SrpMgmtIpsReqEnum(Enum):
     """
-    SrpMgmtIpsReq_Enum
+    SrpMgmtIpsReqEnum
 
     SRP IPS request type
 
-    """
+    .. data:: IDLE_IPS_REQUEST = 0
+
+    	Idle
+
+    .. data:: WAIT_TO_RESTORE_IPS_REQUEST = 1
+
+    	Wait To Restore
+
+    .. data:: MANUAL_SWITCH_IPS_REQUEST = 2
+
+    	Manual Switch
+
+    .. data:: SIGNAL_DEGRADE_IPS_REQUEST = 3
+
+    	Signal Degrade
+
+    .. data:: SIGNAL_FAIL_IPS_REQUEST = 4
+
+    	Signal Fail
+
+    .. data:: FORCED_SWITCH_IPS_REQUEST = 5
+
+    	Forced Switch
+
+    .. data:: UNKNOWN_IPS_REQUEST = 6
+
+    	UNKNOWN
 
     """
 
-    Idle
-
-    """
     IDLE_IPS_REQUEST = 0
 
-    """
-
-    Wait To Restore
-
-    """
     WAIT_TO_RESTORE_IPS_REQUEST = 1
 
-    """
-
-    Manual Switch
-
-    """
     MANUAL_SWITCH_IPS_REQUEST = 2
 
-    """
-
-    Signal Degrade
-
-    """
     SIGNAL_DEGRADE_IPS_REQUEST = 3
 
-    """
-
-    Signal Fail
-
-    """
     SIGNAL_FAIL_IPS_REQUEST = 4
 
-    """
-
-    Forced Switch
-
-    """
     FORCED_SWITCH_IPS_REQUEST = 5
 
-    """
-
-    UNKNOWN
-
-    """
     UNKNOWN_IPS_REQUEST = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['SrpMgmtIpsReq_Enum']
+        return meta._meta_table['SrpMgmtIpsReqEnum']
 
 
-class SrpMgmtIpsWrapState_Enum(Enum):
+class SrpMgmtIpsWrapStateEnum(Enum):
     """
-    SrpMgmtIpsWrapState_Enum
+    SrpMgmtIpsWrapStateEnum
 
     SRP IPS side wrap state
 
-    """
+    .. data:: IDLE_WRAP_STATE = 0
+
+    	Idle
+
+    .. data:: WRAPPED_STATE = 1
+
+    	Wrapped
+
+    .. data:: LOCKED_OUT_WRAP_STATE = 2
+
+    	Locked out
+
+    .. data:: UNKNOWN_WRAP_STATE = 3
+
+    	UNKNOWN
 
     """
 
-    Idle
-
-    """
     IDLE_WRAP_STATE = 0
 
-    """
-
-    Wrapped
-
-    """
     WRAPPED_STATE = 1
 
-    """
-
-    Locked out
-
-    """
     LOCKED_OUT_WRAP_STATE = 2
 
-    """
-
-    UNKNOWN
-
-    """
     UNKNOWN_WRAP_STATE = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['SrpMgmtIpsWrapState_Enum']
+        return meta._meta_table['SrpMgmtIpsWrapStateEnum']
 
 
-class SrpMgmtSrrFailure_Enum(Enum):
+class SrpMgmtSrrFailureEnum(Enum):
     """
-    SrpMgmtSrrFailure_Enum
+    SrpMgmtSrrFailureEnum
 
     SRP SRR failure type
 
-    """
+    .. data:: IDLE_SRR_FAILURE = 0
+
+    	Idle
+
+    .. data:: WAIT_TO_RESTORE_SRR_FAILURE = 1
+
+    	Wait To Restore
+
+    .. data:: SIGNAL_FAIL_SRR_FAILURE = 2
+
+    	Signal Fail
+
+    .. data:: FORCED_SWITCH_SRR_FAILURE = 3
+
+    	Forced Switch
+
+    .. data:: UNKNOWN_SRR_FAILURE = 4
+
+    	UNKNOWN
 
     """
 
-    Idle
-
-    """
     IDLE_SRR_FAILURE = 0
 
-    """
-
-    Wait To Restore
-
-    """
     WAIT_TO_RESTORE_SRR_FAILURE = 1
 
-    """
-
-    Signal Fail
-
-    """
     SIGNAL_FAIL_SRR_FAILURE = 2
 
-    """
-
-    Forced Switch
-
-    """
     FORCED_SWITCH_SRR_FAILURE = 3
 
-    """
-
-    UNKNOWN
-
-    """
     UNKNOWN_SRR_FAILURE = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['SrpMgmtSrrFailure_Enum']
+        return meta._meta_table['SrpMgmtSrrFailureEnum']
 
 
-class SrpMgmtSrrNodeState_Enum(Enum):
+class SrpMgmtSrrNodeStateEnum(Enum):
     """
-    SrpMgmtSrrNodeState_Enum
+    SrpMgmtSrrNodeStateEnum
 
     SRP SRR node state
 
-    """
+    .. data:: IDLE_SRR_STATE = 0
+
+    	Idle
+
+    .. data:: DISCOVERY_SRR_STATE = 1
+
+    	Discovery
+
+    .. data:: UNKNOWN_SRR_STATE = 2
+
+    	UNKNOWN
 
     """
 
-    Idle
-
-    """
     IDLE_SRR_STATE = 0
 
-    """
-
-    Discovery
-
-    """
     DISCOVERY_SRR_STATE = 1
 
-    """
-
-    UNKNOWN
-
-    """
     UNKNOWN_SRR_STATE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['SrpMgmtSrrNodeState_Enum']
+        return meta._meta_table['SrpMgmtSrrNodeStateEnum']
 
 
-class StatsCounter_Enum(Enum):
+class StatsCounterEnum(Enum):
     """
-    StatsCounter_Enum
+    StatsCounterEnum
 
     Stats counter
 
-    """
+    .. data:: STATS_COUNTER_RATE = 0
+
+    	stats counter rate
+
+    .. data:: STATS_COUNTER_UINT32 = 1
+
+    	stats counter uint32
+
+    .. data:: STATS_COUNTER_UINT64 = 2
+
+    	stats counter uint64
+
+    .. data:: STATS_COUNTER_GENERIC = 3
+
+    	stats counter generic
+
+    .. data:: STATS_COUNTER_PROTO = 4
+
+    	stats counter proto
+
+    .. data:: STATS_COUNTER_SRP = 5
+
+    	stats counter srp
+
+    .. data:: STATS_COUNTER_IPV4_PREC = 6
+
+    	stats counter ipv4 prec
+
+    .. data:: STATS_COUNTER_IPV4_DSCP = 7
+
+    	stats counter ipv4 dscp
+
+    .. data:: STATS_COUNTER_MPLS_EXP = 8
+
+    	stats counter mpls exp
+
+    .. data:: STATS_COUNTER_IPV4_BGPPA = 9
+
+    	stats counter ipv4 bgppa
+
+    .. data:: STATS_COUNTER_SRC_BGPPA = 10
+
+    	stats counter src bgppa
+
+    .. data:: STATS_COUNTER_BASIC = 11
+
+    	stats counter basic
+
+    .. data:: STATS_COUNTER_COMP_GENERIC = 12
+
+    	stats counter comp generic
+
+    .. data:: STATS_COUNTER_COMP_PROTO = 13
+
+    	stats counter comp proto
+
+    .. data:: STATS_COUNTER_COMP_BASIC = 14
+
+    	stats counter comp basic
+
+    .. data:: STATS_COUNTER_ACCOUNTING = 15
+
+    	stats counter accounting
+
+    .. data:: STATS_COUNTER_COMP_ACCOUNTING = 16
+
+    	stats counter comp accounting
+
+    .. data:: STATS_COUNTER_FLOW = 17
+
+    	stats counter flow
+
+    .. data:: STATS_COUNTER_COMP_FLOW = 18
+
+    	stats counter comp flow
 
     """
 
-    stats counter rate
-
-    """
     STATS_COUNTER_RATE = 0
 
-    """
-
-    stats counter uint32
-
-    """
     STATS_COUNTER_UINT32 = 1
 
-    """
-
-    stats counter uint64
-
-    """
     STATS_COUNTER_UINT64 = 2
 
-    """
-
-    stats counter generic
-
-    """
     STATS_COUNTER_GENERIC = 3
 
-    """
-
-    stats counter proto
-
-    """
     STATS_COUNTER_PROTO = 4
 
-    """
-
-    stats counter srp
-
-    """
     STATS_COUNTER_SRP = 5
 
-    """
-
-    stats counter ipv4 prec
-
-    """
     STATS_COUNTER_IPV4_PREC = 6
 
-    """
-
-    stats counter ipv4 dscp
-
-    """
     STATS_COUNTER_IPV4_DSCP = 7
 
-    """
-
-    stats counter mpls exp
-
-    """
     STATS_COUNTER_MPLS_EXP = 8
 
-    """
-
-    stats counter ipv4 bgppa
-
-    """
     STATS_COUNTER_IPV4_BGPPA = 9
 
-    """
-
-    stats counter src bgppa
-
-    """
     STATS_COUNTER_SRC_BGPPA = 10
 
-    """
-
-    stats counter basic
-
-    """
     STATS_COUNTER_BASIC = 11
 
-    """
-
-    stats counter comp generic
-
-    """
     STATS_COUNTER_COMP_GENERIC = 12
 
-    """
-
-    stats counter comp proto
-
-    """
     STATS_COUNTER_COMP_PROTO = 13
 
-    """
-
-    stats counter comp basic
-
-    """
     STATS_COUNTER_COMP_BASIC = 14
 
-    """
-
-    stats counter accounting
-
-    """
     STATS_COUNTER_ACCOUNTING = 15
 
-    """
-
-    stats counter comp accounting
-
-    """
     STATS_COUNTER_COMP_ACCOUNTING = 16
 
-    """
-
-    stats counter flow
-
-    """
     STATS_COUNTER_FLOW = 17
 
-    """
-
-    stats counter comp flow
-
-    """
     STATS_COUNTER_COMP_FLOW = 18
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['StatsCounter_Enum']
+        return meta._meta_table['StatsCounterEnum']
 
 
-class StatsId_Enum(Enum):
+class StatsIdEnum(Enum):
     """
-    StatsId_Enum
+    StatsIdEnum
 
     Stats id
 
-    """
+    .. data:: STATS_ID_TYPE_UNKNOWN = 0
+
+    	stats id type unknown
+
+    .. data:: STATS_ID_TYPE_MIN = 1
+
+    	stats id type min
+
+    .. data:: STATS_ID_TYPE_SPARE = 2
+
+    	stats id type spare
+
+    .. data:: STATS_ID_TYPE_NODE = 3
+
+    	stats id type node
+
+    .. data:: STATS_ID_TYPE_OTHER = 4
+
+    	stats id type other
+
+    .. data:: STATS_ID_TYPE_FEATURE = 5
+
+    	stats id type feature
+
+    .. data:: STATS_ID_TYPE_MAX = 6
+
+    	stats id type max
 
     """
 
-    stats id type unknown
-
-    """
     STATS_ID_TYPE_UNKNOWN = 0
 
-    """
-
-    stats id type min
-
-    """
     STATS_ID_TYPE_MIN = 1
 
-    """
-
-    stats id type spare
-
-    """
     STATS_ID_TYPE_SPARE = 2
 
-    """
-
-    stats id type node
-
-    """
     STATS_ID_TYPE_NODE = 3
 
-    """
-
-    stats id type other
-
-    """
     STATS_ID_TYPE_OTHER = 4
 
-    """
-
-    stats id type feature
-
-    """
     STATS_ID_TYPE_FEATURE = 5
 
-    """
-
-    stats id type max
-
-    """
     STATS_ID_TYPE_MAX = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['StatsId_Enum']
+        return meta._meta_table['StatsIdEnum']
 
 
-class StatsTypeContents_Enum(Enum):
+class StatsTypeContentsEnum(Enum):
     """
-    StatsTypeContents_Enum
+    StatsTypeContentsEnum
 
     Stats type contents
 
-    """
+    .. data:: STATS_TYPE_SINGLE = 100
+
+    	stats type single
+
+    .. data:: STATS_TYPE_VARIABLE = 101
+
+    	stats type variable
 
     """
 
-    stats type single
-
-    """
     STATS_TYPE_SINGLE = 100
 
-    """
-
-    stats type variable
-
-    """
     STATS_TYPE_VARIABLE = 101
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['StatsTypeContents_Enum']
+        return meta._meta_table['StatsTypeContentsEnum']
 
 
-class TunlPfiAfId_Enum(Enum):
+class TunlPfiAfIdEnum(Enum):
     """
-    TunlPfiAfId_Enum
+    TunlPfiAfIdEnum
 
     Tunl pfi af id
 
-    """
+    .. data:: TUNL_PFI_AF_ID_NONE = 0
+
+    	Unspecified AFI
+
+    .. data:: TUNL_PFI_AF_ID_IPV4 = 2
+
+    	IPv4 AFI
+
+    .. data:: TUNL_PFI_AF_ID_IPV6 = 10
+
+    	IPv6 AFI
 
     """
 
-    Unspecified AFI
-
-    """
     TUNL_PFI_AF_ID_NONE = 0
 
-    """
-
-    IPv4 AFI
-
-    """
     TUNL_PFI_AF_ID_IPV4 = 2
 
-    """
-
-    IPv6 AFI
-
-    """
     TUNL_PFI_AF_ID_IPV6 = 10
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['TunlPfiAfId_Enum']
+        return meta._meta_table['TunlPfiAfIdEnum']
 
 
-class TunnelGreMode_Enum(Enum):
+class TunnelGreModeEnum(Enum):
     """
-    TunnelGreMode_Enum
+    TunnelGreModeEnum
 
     Tunnel gre mode
 
-    """
+    .. data:: UNKNOWN = 0
+
+    	Tunnel GRE mode is Unknown
+
+    .. data:: GR_EO_IPV4 = 1
+
+    	Tunnel GRE Mode is IPv4
+
+    .. data:: GR_EO_IPV6 = 2
+
+    	Tunnel GRE Mode is IPv6
+
+    .. data:: MGR_EO_IPV4 = 3
+
+    	Tunnel MGRE Mode is IPv4
+
+    .. data:: MGR_EO_IPV6 = 4
+
+    	Tunnel MGRE Mode is IPv6
+
+    .. data:: IPV4 = 5
+
+    	Tunnel Mode is IPv4
+
+    .. data:: IPV6 = 6
+
+    	Tunnel Mode is IPv6
 
     """
 
-    Tunnel GRE mode is Unknown
-
-    """
     UNKNOWN = 0
 
-    """
-
-    Tunnel GRE Mode is IPv4
-
-    """
     GR_EO_IPV4 = 1
 
-    """
-
-    Tunnel GRE Mode is IPv6
-
-    """
     GR_EO_IPV6 = 2
 
-    """
-
-    Tunnel MGRE Mode is IPv4
-
-    """
     MGR_EO_IPV4 = 3
 
-    """
-
-    Tunnel MGRE Mode is IPv6
-
-    """
     MGR_EO_IPV6 = 4
 
-    """
-
-    Tunnel Mode is IPv4
-
-    """
     IPV4 = 5
 
-    """
-
-    Tunnel Mode is IPv6
-
-    """
     IPV6 = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['TunnelGreMode_Enum']
+        return meta._meta_table['TunnelGreModeEnum']
 
 
-class TunnelKaDfState_Enum(Enum):
+class TunnelKaDfStateEnum(Enum):
     """
-    TunnelKaDfState_Enum
+    TunnelKaDfStateEnum
 
     Tunnel ka df state
 
-    """
+    .. data:: DISABLE = 0
+
+    	Tunnel GRE KA State is Disabled
+
+    .. data:: ENABLE = 1
+
+    	Tunnel GRE KA State is Enabled
 
     """
 
-    Tunnel GRE KA State is Disabled
-
-    """
     DISABLE = 0
 
-    """
-
-    Tunnel GRE KA State is Enabled
-
-    """
     ENABLE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['TunnelKaDfState_Enum']
+        return meta._meta_table['TunnelKaDfStateEnum']
 
 
-class TunnelKeyState_Enum(Enum):
+class TunnelKeyStateEnum(Enum):
     """
-    TunnelKeyState_Enum
+    TunnelKeyStateEnum
 
     Tunnel key state
 
-    """
+    .. data:: ABSENT = 0
+
+    	Tunnel GRE Key is not present
+
+    .. data:: PRESENT = 1
+
+    	Tunnel GRE Key is present
 
     """
 
-    Tunnel GRE Key is not present
-
-    """
     ABSENT = 0
 
-    """
-
-    Tunnel GRE Key is present
-
-    """
     PRESENT = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['TunnelKeyState_Enum']
+        return meta._meta_table['TunnelKeyStateEnum']
 
 
-class VlanEncaps_Enum(Enum):
+class VlanEncapsEnum(Enum):
     """
-    VlanEncaps_Enum
+    VlanEncapsEnum
 
     VLAN encapsulation
 
-    """
+    .. data:: NO_ENCAPSULATION = 0
+
+    	No encapsulation
+
+    .. data:: DOT1Q = 1
+
+    	IEEE 802.1Q encapsulation
+
+    .. data:: QINQ = 2
+
+    	Double 802.1Q encapsulation
+
+    .. data:: QIN_ANY = 3
+
+    	Double 802.1Q wildcarded encapsulation
+
+    .. data:: DOT1Q_NATIVE = 4
+
+    	IEEE 802.1Q native VLAN encapsulation
+
+    .. data:: DOT1AD = 5
+
+    	IEEE 802.1ad encapsulation
+
+    .. data:: DOT1AD_NATIVE = 6
+
+    	IEEE 802.1ad native VLAN encapsulation
+
+    .. data:: SERVICE_INSTANCE = 7
+
+    	Ethernet Service Instance
+
+    .. data:: DOT1AD_DOT1Q = 8
+
+    	IEEE 802.1ad 802.1Q encapsulation
+
+    .. data:: DOT1AD_ANY = 9
+
+    	IEEE 802.1ad wildcard 802.1Q encapsulation
 
     """
 
-    No encapsulation
-
-    """
     NO_ENCAPSULATION = 0
 
-    """
-
-    IEEE 802.1Q encapsulation
-
-    """
     DOT1Q = 1
 
-    """
-
-    Double 802.1Q encapsulation
-
-    """
     QINQ = 2
 
-    """
-
-    Double 802.1Q wildcarded encapsulation
-
-    """
     QIN_ANY = 3
 
-    """
-
-    IEEE 802.1Q native VLAN encapsulation
-
-    """
     DOT1Q_NATIVE = 4
 
-    """
-
-    IEEE 802.1ad encapsulation
-
-    """
     DOT1AD = 5
 
-    """
-
-    IEEE 802.1ad native VLAN encapsulation
-
-    """
     DOT1AD_NATIVE = 6
 
-    """
-
-    Ethernet Service Instance
-
-    """
     SERVICE_INSTANCE = 7
 
-    """
-
-    IEEE 802.1ad 802.1Q encapsulation
-
-    """
     DOT1AD_DOT1Q = 8
 
-    """
-
-    IEEE 802.1ad wildcard 802.1Q encapsulation
-
-    """
     DOT1AD_ANY = 9
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-        return meta._meta_table['VlanEncaps_Enum']
+        return meta._meta_table['VlanEncapsEnum']
 
 
 
@@ -5216,12 +4620,12 @@ class Interfaces(object):
             .. attribute:: actual_line_state
             
             	Line protocol state with no translation of error disable or shutdown
-            	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum_Enum>`
+            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
             
             .. attribute:: actual_state
             
             	Operational state with no translation of error disable or shutdown
-            	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum_Enum>`
+            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
             
             .. attribute:: bandwidth
             
@@ -5257,7 +4661,7 @@ class Interfaces(object):
             .. attribute:: line_state
             
             	Line protocol state
-            	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum_Enum>`
+            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
             
             .. attribute:: mtu
             
@@ -5276,7 +4680,7 @@ class Interfaces(object):
             .. attribute:: state
             
             	Operational state
-            	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum_Enum>`
+            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
             
             .. attribute:: sub_interface_mtu_overhead
             
@@ -5328,8 +4732,6 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface_name is not None:
                     return True
 
@@ -5374,10 +4776,6 @@ class Interfaces(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
@@ -5395,17 +4793,11 @@ class Interfaces(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.interface_brief is not None:
                 for child_ref in self.interface_brief:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -5502,8 +4894,6 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.admin_down_interface_count is not None:
                     return True
 
@@ -5516,10 +4906,6 @@ class Interfaces(object):
                 if self.up_interface_count is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5620,8 +5006,6 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.admin_down_interface_count is not None:
                         return True
 
@@ -5634,10 +5018,6 @@ class Interfaces(object):
                     if self.up_interface_count is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5657,12 +5037,7 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface_counts is not None and self.interface_counts._has_data():
-                    return True
-
-                if self.interface_counts is not None and self.interface_counts.is_presence():
                     return True
 
                 if self.interface_type_description is not None:
@@ -5671,10 +5046,6 @@ class Interfaces(object):
                 if self.interface_type_name is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5694,12 +5065,7 @@ class Interfaces(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.interface_counts is not None and self.interface_counts._has_data():
-                return True
-
-            if self.interface_counts is not None and self.interface_counts.is_presence():
                 return True
 
             if self.interface_type is not None:
@@ -5707,10 +5073,6 @@ class Interfaces(object):
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -5802,7 +5164,7 @@ class Interfaces(object):
             .. attribute:: duplexity
             
             	Interface duplexity
-            	**type**\: :py:class:`ImAttrDuplex_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrDuplex_Enum>`
+            	**type**\: :py:class:`ImAttrDuplexEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrDuplexEnum>`
             
             .. attribute:: encapsulation
             
@@ -5831,7 +5193,7 @@ class Interfaces(object):
             .. attribute:: in_flow_control
             
             	Input flow control configuration
-            	**type**\: :py:class:`ImAttrFlowControl_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrFlowControl_Enum>`
+            	**type**\: :py:class:`ImAttrFlowControlEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrFlowControlEnum>`
             
             .. attribute:: interface_handle
             
@@ -5912,17 +5274,17 @@ class Interfaces(object):
             .. attribute:: line_state
             
             	Line protocol state
-            	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum_Enum>`
+            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
             
             .. attribute:: link_type
             
             	Interface link type
-            	**type**\: :py:class:`ImAttrLink_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrLink_Enum>`
+            	**type**\: :py:class:`ImAttrLinkEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrLinkEnum>`
             
             .. attribute:: loopback_configuration
             
             	Interface loopback configuration
-            	**type**\: :py:class:`ImCmdLoopbackEnum_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdLoopbackEnum_Enum>`
+            	**type**\: :py:class:`ImCmdLoopbackEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdLoopbackEnumEnum>`
             
             .. attribute:: mac_address
             
@@ -5939,7 +5301,7 @@ class Interfaces(object):
             .. attribute:: media_type
             
             	Interface media type
-            	**type**\: :py:class:`ImAttrMedia_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrMedia_Enum>`
+            	**type**\: :py:class:`ImAttrMediaEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrMediaEnum>`
             
             .. attribute:: mtu
             
@@ -5956,7 +5318,7 @@ class Interfaces(object):
             .. attribute:: out_flow_control
             
             	Output flow control configuration
-            	**type**\: :py:class:`ImAttrFlowControl_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrFlowControl_Enum>`
+            	**type**\: :py:class:`ImAttrFlowControlEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrFlowControlEnum>`
             
             .. attribute:: parent_interface_name
             
@@ -5975,7 +5337,7 @@ class Interfaces(object):
             .. attribute:: state
             
             	Interface state
-            	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum_Enum>`
+            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
             
             .. attribute:: state_transition_count
             
@@ -5987,7 +5349,7 @@ class Interfaces(object):
             .. attribute:: transport_mode
             
             	Interface transport mode
-            	**type**\: :py:class:`ImAttrTransportMode_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrTransportMode_Enum>`
+            	**type**\: :py:class:`ImAttrTransportModeEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrTransportModeEnum>`
             
             
 
@@ -6103,8 +5465,6 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.arp_is_learning_disabled is not None:
                         return True
 
@@ -6114,10 +5474,6 @@ class Interfaces(object):
                     if self.arp_type_name is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6162,15 +5518,9 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.address is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6223,18 +5573,12 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.carrier_delay_down is not None:
                         return True
 
                     if self.carrier_delay_up is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6333,8 +5677,6 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.half_life is not None:
                         return True
 
@@ -6359,10 +5701,6 @@ class Interfaces(object):
                     if self.suppress_threshold is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6503,8 +5841,6 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bandwidth is not None:
                         return True
 
@@ -6546,10 +5882,6 @@ class Interfaces(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
@@ -6563,12 +5895,12 @@ class Interfaces(object):
                 .. attribute:: dot1q_information
                 
                 	VLAN 802.1q information
-                	**type**\: :py:class:`Dot1qInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation>`
+                	**type**\: :py:class:`Dot1QInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation>`
                 
                 .. attribute:: encapsulation_type
                 
                 	EncapsulationType
-                	**type**\: :py:class:`ImCmdEncapsEnum_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdEncapsEnum_Enum>`
+                	**type**\: :py:class:`ImCmdEncapsEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdEncapsEnumEnum>`
                 
                 .. attribute:: frame_relay_information
                 
@@ -6589,7 +5921,7 @@ class Interfaces(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.dot1q_information = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation()
+                    self.dot1q_information = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation()
                     self.dot1q_information.parent = self
                     self.encapsulation_type = None
                     self.frame_relay_information = Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation()
@@ -6598,14 +5930,14 @@ class Interfaces(object):
                     self.ppp_information.parent = self
 
 
-                class Dot1qInformation(object):
+                class Dot1QInformation(object):
                     """
                     VLAN 802.1q information
                     
                     .. attribute:: encapsulation_details
                     
                     	Encapsulation type and tag stack
-                    	**type**\: :py:class:`EncapsulationDetails <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails>`
+                    	**type**\: :py:class:`EncapsulationDetails <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails>`
                     
                     
 
@@ -6616,7 +5948,7 @@ class Interfaces(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.encapsulation_details = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails()
+                        self.encapsulation_details = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails()
                         self.encapsulation_details.parent = self
 
 
@@ -6627,7 +5959,7 @@ class Interfaces(object):
                         .. attribute:: dot1ad_dot1q_stack
                         
                         	802.1ad 802.1Q stack value
-                        	**type**\: :py:class:`Dot1adDot1qStack <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack>`
+                        	**type**\: :py:class:`Dot1AdDot1QStack <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack>`
                         
                         .. attribute:: dot1ad_native_tag
                         
@@ -6667,12 +5999,12 @@ class Interfaces(object):
                         .. attribute:: service_instance_details
                         
                         	Service Instance encapsulation
-                        	**type**\: :py:class:`ServiceInstanceDetails <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails>`
+                        	**type**\: :py:class:`ServiceInstanceDetails <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails>`
                         
                         .. attribute:: stack
                         
                         	Stack value
-                        	**type**\: :py:class:`Stack <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack>`
+                        	**type**\: :py:class:`Stack <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack>`
                         
                         .. attribute:: tag
                         
@@ -6684,7 +6016,7 @@ class Interfaces(object):
                         .. attribute:: vlan_encapsulation
                         
                         	VLANEncapsulation
-                        	**type**\: :py:class:`VlanEncaps_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.VlanEncaps_Enum>`
+                        	**type**\: :py:class:`VlanEncapsEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.VlanEncapsEnum>`
                         
                         
 
@@ -6695,22 +6027,22 @@ class Interfaces(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.dot1ad_dot1q_stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack()
+                            self.dot1ad_dot1q_stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack()
                             self.dot1ad_dot1q_stack.parent = self
                             self.dot1ad_native_tag = None
                             self.dot1ad_outer_tag = None
                             self.dot1ad_tag = None
                             self.native_tag = None
                             self.outer_tag = None
-                            self.service_instance_details = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails()
+                            self.service_instance_details = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails()
                             self.service_instance_details.parent = self
-                            self.stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack()
+                            self.stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack()
                             self.stack.parent = self
                             self.tag = None
                             self.vlan_encapsulation = None
 
 
-                        class Dot1adDot1qStack(object):
+                        class Dot1AdDot1QStack(object):
                             """
                             802.1ad 802.1Q stack value
                             
@@ -6754,8 +6086,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.outer_tag is not None:
                                     return True
 
@@ -6764,14 +6094,10 @@ class Interfaces(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack']['meta_info']
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack']['meta_info']
 
 
                         class ServiceInstanceDetails(object):
@@ -6809,17 +6135,17 @@ class Interfaces(object):
                             .. attribute:: local_traffic_stack
                             
                             	VLAN tags for locally\-sourced traffic
-                            	**type**\: :py:class:`LocalTrafficStack <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack>`
+                            	**type**\: :py:class:`LocalTrafficStack <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack>`
                             
                             .. attribute:: payload_ethertype
                             
                             	Payload Ethertype to match
-                            	**type**\: :py:class:`EfpPayloadEtype_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.EfpPayloadEtype_Enum>`
+                            	**type**\: :py:class:`EfpPayloadEtypeEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.EfpPayloadEtypeEnum>`
                             
                             .. attribute:: pushe
                             
                             	VLAN tags pushed on egress
-                            	**type**\: list of :py:class:`Pushe <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
+                            	**type**\: list of :py:class:`Pushe <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
                             
                             .. attribute:: source_mac_match
                             
@@ -6838,7 +6164,7 @@ class Interfaces(object):
                             .. attribute:: tags_to_match
                             
                             	Tags to match on ingress packets
-                            	**type**\: list of :py:class:`TagsToMatch <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch>`
+                            	**type**\: list of :py:class:`TagsToMatch <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch>`
                             
                             
 
@@ -6853,7 +6179,7 @@ class Interfaces(object):
                                 self.is_exact_match = None
                                 self.is_native_preserving = None
                                 self.is_native_vlan = None
-                                self.local_traffic_stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack()
+                                self.local_traffic_stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack()
                                 self.local_traffic_stack.parent = self
                                 self.payload_ethertype = None
                                 self.pushe = YList()
@@ -6873,7 +6199,7 @@ class Interfaces(object):
                                 .. attribute:: local_traffic_tag
                                 
                                 	VLAN tags for locally\-sourced traffic
-                                	**type**\: list of :py:class:`LocalTrafficTag <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag>`
+                                	**type**\: list of :py:class:`LocalTrafficTag <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag>`
                                 
                                 
 
@@ -6896,7 +6222,7 @@ class Interfaces(object):
                                     .. attribute:: ethertype
                                     
                                     	Ethertype of tag
-                                    	**type**\: :py:class:`EfpTagEtype_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtype_Enum>`
+                                    	**type**\: :py:class:`EfpTagEtypeEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtypeEnum>`
                                     
                                     .. attribute:: vlan_id
                                     
@@ -6931,8 +6257,6 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.ethertype is not None:
                                             return True
 
@@ -6941,14 +6265,10 @@ class Interfaces(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag']['meta_info']
+                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -6964,8 +6284,6 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.local_traffic_tag is not None:
                                         for child_ref in self.local_traffic_tag:
                                             if child_ref._has_data():
@@ -6973,14 +6291,10 @@ class Interfaces(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack']['meta_info']
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack']['meta_info']
 
 
                             class Pushe(object):
@@ -6990,7 +6304,7 @@ class Interfaces(object):
                                 .. attribute:: ethertype
                                 
                                 	Ethertype of tag
-                                	**type**\: :py:class:`EfpTagEtype_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtype_Enum>`
+                                	**type**\: :py:class:`EfpTagEtypeEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtypeEnum>`
                                 
                                 .. attribute:: vlan_id
                                 
@@ -7025,8 +6339,6 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ethertype is not None:
                                         return True
 
@@ -7035,14 +6347,10 @@ class Interfaces(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe']['meta_info']
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe']['meta_info']
 
 
                             class TagsToMatch(object):
@@ -7052,17 +6360,17 @@ class Interfaces(object):
                                 .. attribute:: ethertype
                                 
                                 	Ethertype of tag to match
-                                	**type**\: :py:class:`EfpTagEtype_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtype_Enum>`
+                                	**type**\: :py:class:`EfpTagEtypeEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtypeEnum>`
                                 
                                 .. attribute:: priority
                                 
                                 	Priority to match
-                                	**type**\: :py:class:`EfpTagPriority_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagPriority_Enum>`
+                                	**type**\: :py:class:`EfpTagPriorityEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagPriorityEnum>`
                                 
                                 .. attribute:: vlan_range
                                 
                                 	VLAN Ids to match
-                                	**type**\: list of :py:class:`VlanRange <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange>`
+                                	**type**\: list of :py:class:`VlanRange <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange>`
                                 
                                 
 
@@ -7124,8 +6432,6 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vlan_id_high is not None:
                                             return True
 
@@ -7134,14 +6440,10 @@ class Interfaces(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange']['meta_info']
+                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -7157,8 +6459,6 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ethertype is not None:
                                         return True
 
@@ -7172,14 +6472,10 @@ class Interfaces(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch']['meta_info']
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -7195,8 +6491,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.destination_mac_match is not None:
                                     return True
 
@@ -7210,9 +6504,6 @@ class Interfaces(object):
                                     return True
 
                                 if self.local_traffic_stack is not None and self.local_traffic_stack._has_data():
-                                    return True
-
-                                if self.local_traffic_stack is not None and self.local_traffic_stack.is_presence():
                                     return True
 
                                 if self.payload_ethertype is not None:
@@ -7236,14 +6527,10 @@ class Interfaces(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
 
 
                         class Stack(object):
@@ -7290,8 +6577,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.outer_tag is not None:
                                     return True
 
@@ -7300,14 +6585,10 @@ class Interfaces(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack']['meta_info']
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -7323,12 +6604,7 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.dot1ad_dot1q_stack is not None and self.dot1ad_dot1q_stack._has_data():
-                                return True
-
-                            if self.dot1ad_dot1q_stack is not None and self.dot1ad_dot1q_stack.is_presence():
                                 return True
 
                             if self.dot1ad_native_tag is not None:
@@ -7349,13 +6625,7 @@ class Interfaces(object):
                             if self.service_instance_details is not None and self.service_instance_details._has_data():
                                 return True
 
-                            if self.service_instance_details is not None and self.service_instance_details.is_presence():
-                                return True
-
                             if self.stack is not None and self.stack._has_data():
-                                return True
-
-                            if self.stack is not None and self.stack.is_presence():
                                 return True
 
                             if self.tag is not None:
@@ -7366,14 +6636,10 @@ class Interfaces(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                            return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails']['meta_info']
+                            return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -7389,24 +6655,15 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.encapsulation_details is not None and self.encapsulation_details._has_data():
                             return True
 
-                        if self.encapsulation_details is not None and self.encapsulation_details.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation']['meta_info']
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation']['meta_info']
 
 
                 class FrameRelayInformation(object):
@@ -7430,7 +6687,7 @@ class Interfaces(object):
                     .. attribute:: fr_encapsulation_type
                     
                     	Frame Relay encapsulation type
-                    	**type**\: :py:class:`ImCmdFrTypeEnum_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdFrTypeEnum_Enum>`
+                    	**type**\: :py:class:`ImCmdFrTypeEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdFrTypeEnumEnum>`
                     
                     .. attribute:: is_dte
                     
@@ -7460,7 +6717,7 @@ class Interfaces(object):
                     .. attribute:: lmi_type
                     
                     	The LMI type\: Autosense, ANSI, CCITT or CISCO
-                    	**type**\: :py:class:`ImCmdLmiTypeEnum_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdLmiTypeEnum_Enum>`
+                    	**type**\: :py:class:`ImCmdLmiTypeEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdLmiTypeEnumEnum>`
                     
                     .. attribute:: lmidlci
                     
@@ -7535,8 +6792,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.enquiries_received is not None:
                             return True
 
@@ -7581,10 +6836,6 @@ class Interfaces(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
@@ -7626,7 +6877,7 @@ class Interfaces(object):
                     .. attribute:: lcp_state
                     
                     	LCP State
-                    	**type**\: :py:class:`PppFsmState_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.PppFsmState_Enum>`
+                    	**type**\: :py:class:`PppFsmStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.PppFsmStateEnum>`
                     
                     .. attribute:: ncp_info_array
                     
@@ -7659,12 +6910,12 @@ class Interfaces(object):
                         .. attribute:: ncp_identifier
                         
                         	NCP state identifier
-                        	**type**\: :py:class:`NcpIdent_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.NcpIdent_Enum>`
+                        	**type**\: :py:class:`NcpIdentEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.NcpIdentEnum>`
                         
                         .. attribute:: ncp_state
                         
                         	NCP state value
-                        	**type**\: :py:class:`PppFsmState_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.PppFsmState_Enum>`
+                        	**type**\: :py:class:`PppFsmStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.PppFsmStateEnum>`
                         
                         
 
@@ -7692,18 +6943,12 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ncp_identifier is not None:
                                 return True
 
                             if self.ncp_state is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7725,8 +6970,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.is_loopback_detected is not None:
                             return True
 
@@ -7749,10 +6992,6 @@ class Interfaces(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
@@ -7772,12 +7011,7 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.dot1q_information is not None and self.dot1q_information._has_data():
-                        return True
-
-                    if self.dot1q_information is not None and self.dot1q_information.is_presence():
                         return True
 
                     if self.encapsulation_type is not None:
@@ -7786,19 +7020,9 @@ class Interfaces(object):
                     if self.frame_relay_information is not None and self.frame_relay_information._has_data():
                         return True
 
-                    if self.frame_relay_information is not None and self.frame_relay_information.is_presence():
-                        return True
-
                     if self.ppp_information is not None and self.ppp_information._has_data():
                         return True
 
-                    if self.ppp_information is not None and self.ppp_information.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7824,7 +7048,7 @@ class Interfaces(object):
                 .. attribute:: stats_type
                 
                 	StatsType
-                	**type**\: :py:class:`ImCmdStatsEnum_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdStatsEnum_Enum>`
+                	**type**\: :py:class:`ImCmdStatsEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdStatsEnumEnum>`
                 
                 
 
@@ -7998,8 +7222,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bytes_received is not None:
                             return True
 
@@ -8048,10 +7270,6 @@ class Interfaces(object):
                         if self.unknown_protocol_packets_received is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8376,8 +7594,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.applique is not None:
                             return True
 
@@ -8488,10 +7704,6 @@ class Interfaces(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
@@ -8511,27 +7723,15 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.basic_interface_stats is not None and self.basic_interface_stats._has_data():
-                        return True
-
-                    if self.basic_interface_stats is not None and self.basic_interface_stats.is_presence():
                         return True
 
                     if self.full_interface_stats is not None and self.full_interface_stats._has_data():
                         return True
 
-                    if self.full_interface_stats is not None and self.full_interface_stats.is_presence():
-                        return True
-
                     if self.stats_type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8562,7 +7762,7 @@ class Interfaces(object):
                 .. attribute:: interface_type_info
                 
                 	InterfaceTypeInfo
-                	**type**\: :py:class:`ImCmdIntfTypeEnum_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdIntfTypeEnum_Enum>`
+                	**type**\: :py:class:`ImCmdIntfTypeEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdIntfTypeEnumEnum>`
                 
                 .. attribute:: pseudowire_head_end_information
                 
@@ -8697,7 +7897,7 @@ class Interfaces(object):
                         .. attribute:: member_type
                         
                         	Member's type (local/foreign)
-                        	**type**\: :py:class:`BmdMemberTypeEnum_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmdMemberTypeEnum_Enum>`
+                        	**type**\: :py:class:`BmdMemberTypeEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmdMemberTypeEnumEnum>`
                         
                         .. attribute:: port_number
                         
@@ -8780,15 +7980,9 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8811,7 +8005,7 @@ class Interfaces(object):
                             .. attribute:: member_mux_state_reason
                             
                             	Reason for last Mux state change
-                            	**type**\: :py:class:`BmMbrStateReason_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmMbrStateReason_Enum>`
+                            	**type**\: :py:class:`BmMbrStateReasonEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmMbrStateReasonEnum>`
                             
                             .. attribute:: member_mux_state_reason_data
                             
@@ -8821,17 +8015,17 @@ class Interfaces(object):
                             .. attribute:: member_state
                             
                             	Current internal state of this bundle member
-                            	**type**\: :py:class:`BmdMemberState_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmdMemberState_Enum>`
+                            	**type**\: :py:class:`BmdMemberStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmdMemberStateEnum>`
                             
                             .. attribute:: mux_state
                             
                             	Current state of this bundle member
-                            	**type**\: :py:class:`BmMuxstate_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmMuxstate_Enum>`
+                            	**type**\: :py:class:`BmMuxstateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmMuxstateEnum>`
                             
                             .. attribute:: mux_state_reason
                             
                             	Reason for last Mux state change (Deprecated)
-                            	**type**\: :py:class:`BmMuxreason_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmMuxreason_Enum>`
+                            	**type**\: :py:class:`BmMuxreasonEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmMuxreasonEnum>`
                             
                             
 
@@ -8859,12 +8053,12 @@ class Interfaces(object):
                                 .. attribute:: reason_type
                                 
                                 	The item the reason applies to
-                                	**type**\: :py:class:`BmStateReasonTarget_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmStateReasonTarget_Enum>`
+                                	**type**\: :py:class:`BmStateReasonTargetEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmStateReasonTargetEnum>`
                                 
                                 .. attribute:: severity
                                 
                                 	The severity of the reason
-                                	**type**\: :py:class:`BmSeverity_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmSeverity_Enum>`
+                                	**type**\: :py:class:`BmSeverityEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmSeverityEnum>`
                                 
                                 
 
@@ -8892,18 +8086,12 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.reason_type is not None:
                                         return True
 
                                     if self.severity is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8925,8 +8113,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.error is not None:
                                     return True
 
@@ -8934,9 +8120,6 @@ class Interfaces(object):
                                     return True
 
                                 if self.member_mux_state_reason_data is not None and self.member_mux_state_reason_data._has_data():
-                                    return True
-
-                                if self.member_mux_state_reason_data is not None and self.member_mux_state_reason_data.is_presence():
                                     return True
 
                                 if self.member_state is not None:
@@ -8948,10 +8131,6 @@ class Interfaces(object):
                                 if self.mux_state_reason is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8973,8 +8152,6 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bandwidth is not None:
                                 return True
 
@@ -8990,13 +8167,7 @@ class Interfaces(object):
                             if self.mac_address is not None and self.mac_address._has_data():
                                 return True
 
-                            if self.mac_address is not None and self.mac_address.is_presence():
-                                return True
-
                             if self.member_mux_data is not None and self.member_mux_data._has_data():
-                                return True
-
-                            if self.member_mux_data is not None and self.member_mux_data.is_presence():
                                 return True
 
                             if self.member_name is not None:
@@ -9014,10 +8185,6 @@ class Interfaces(object):
                             if self.underlying_link_id is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9039,17 +8206,11 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.member is not None:
                             for child_ref in self.member:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9116,8 +8277,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.dejitter_buffer is not None:
                             return True
 
@@ -9130,10 +8289,6 @@ class Interfaces(object):
                         if self.timeslots is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9149,12 +8304,12 @@ class Interfaces(object):
                     .. attribute:: derived_mode
                     
                     	Derived State
-                    	**type**\: :py:class:`GccDerState_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.GccDerState_Enum>`
+                    	**type**\: :py:class:`GccDerStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.GccDerStateEnum>`
                     
                     .. attribute:: sec_state
                     
                     	Sec State 
-                    	**type**\: :py:class:`GccSecState_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.GccSecState_Enum>`
+                    	**type**\: :py:class:`GccSecStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.GccSecStateEnum>`
                     
                     
 
@@ -9182,18 +8337,12 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.derived_mode is not None:
                             return True
 
                         if self.sec_state is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9252,8 +8401,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_list_name is not None:
                             return True
 
@@ -9263,10 +8410,6 @@ class Interfaces(object):
                         if self.l2_overhead is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9309,15 +8452,9 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.timeslots is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9333,7 +8470,7 @@ class Interfaces(object):
                     .. attribute:: aps_state
                     
                     	APS state
-                    	**type**\: :py:class:`SonetApsEt_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SonetApsEt_Enum>`
+                    	**type**\: :py:class:`SonetApsEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SonetApsEtEnum>`
                     
                     
 
@@ -9360,15 +8497,9 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.aps_state is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9562,12 +8693,12 @@ class Interfaces(object):
                                     .. attribute:: remote_request
                                     
                                     	Remote Requests
-                                    	**type**\: :py:class:`SrpMgmtIpsReq_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
                                     
                                     .. attribute:: rx_message_type
                                     
                                     	Type of message received
-                                    	**type**\: :py:class:`SrpMgmtIpsReq_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
                                     
                                     .. attribute:: rx_neighbor_mac_address
                                     
@@ -9584,7 +8715,7 @@ class Interfaces(object):
                                     .. attribute:: rx_path_type
                                     
                                     	Short/long path for received message
-                                    	**type**\: :py:class:`SrpMgmtIpsPathInd_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsPathInd_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtIpsPathIndEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsPathIndEnum>`
                                     
                                     .. attribute:: rx_ttl
                                     
@@ -9596,7 +8727,7 @@ class Interfaces(object):
                                     .. attribute:: self_detected_request
                                     
                                     	Self Detected Requests
-                                    	**type**\: :py:class:`SrpMgmtIpsReq_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
                                     
                                     .. attribute:: send_timer_time_remaining
                                     
@@ -9608,7 +8739,7 @@ class Interfaces(object):
                                     .. attribute:: tx_message_type
                                     
                                     	Type of message transmitted
-                                    	**type**\: :py:class:`SrpMgmtIpsReq_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
                                     
                                     .. attribute:: tx_neighbor_mac_address
                                     
@@ -9625,7 +8756,7 @@ class Interfaces(object):
                                     .. attribute:: tx_path_type
                                     
                                     	Short/long path of transmitted message
-                                    	**type**\: :py:class:`SrpMgmtIpsPathInd_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsPathInd_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtIpsPathIndEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsPathIndEnum>`
                                     
                                     .. attribute:: tx_ttl
                                     
@@ -9637,7 +8768,7 @@ class Interfaces(object):
                                     .. attribute:: wrap_state
                                     
                                     	Wrap state
-                                    	**type**\: :py:class:`SrpMgmtIpsWrapState_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsWrapState_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtIpsWrapStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsWrapStateEnum>`
                                     
                                     .. attribute:: wtr_timer_remaining
                                     
@@ -9685,7 +8816,7 @@ class Interfaces(object):
                                         .. attribute:: current_state
                                         
                                         	Current state
-                                        	**type**\: :py:class:`SrpMgmtFailureStateEt_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt_Enum>`
+                                        	**type**\: :py:class:`SrpMgmtFailureStateEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEtEnum>`
                                         
                                         .. attribute:: debounced_delay
                                         
@@ -9697,12 +8828,12 @@ class Interfaces(object):
                                         .. attribute:: debounced_state
                                         
                                         	Debounced state
-                                        	**type**\: :py:class:`SrpMgmtFailureStateEt_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt_Enum>`
+                                        	**type**\: :py:class:`SrpMgmtFailureStateEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEtEnum>`
                                         
                                         .. attribute:: reported_state
                                         
                                         	Reported state
-                                        	**type**\: :py:class:`SrpMgmtFailureStateEt_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt_Enum>`
+                                        	**type**\: :py:class:`SrpMgmtFailureStateEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEtEnum>`
                                         
                                         .. attribute:: stable_time
                                         
@@ -9714,7 +8845,7 @@ class Interfaces(object):
                                         .. attribute:: type
                                         
                                         	Failure type
-                                        	**type**\: :py:class:`SrpMgmtFailureEt_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureEt_Enum>`
+                                        	**type**\: :py:class:`SrpMgmtFailureEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureEtEnum>`
                                         
                                         
 
@@ -9746,8 +8877,6 @@ class Interfaces(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.current_state is not None:
                                                 return True
 
@@ -9766,10 +8895,6 @@ class Interfaces(object):
                                             if self.type is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -9791,8 +8916,6 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.asserted_failure is not None:
                                             for child_ref in self.asserted_failure:
                                                 if child_ref._has_data():
@@ -9852,10 +8975,6 @@ class Interfaces(object):
                                         if self.wtr_timer_remaining is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9895,12 +9014,12 @@ class Interfaces(object):
                                     .. attribute:: remote_request
                                     
                                     	Remote Requests
-                                    	**type**\: :py:class:`SrpMgmtIpsReq_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
                                     
                                     .. attribute:: rx_message_type
                                     
                                     	Type of message received
-                                    	**type**\: :py:class:`SrpMgmtIpsReq_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
                                     
                                     .. attribute:: rx_neighbor_mac_address
                                     
@@ -9917,7 +9036,7 @@ class Interfaces(object):
                                     .. attribute:: rx_path_type
                                     
                                     	Short/long path for received message
-                                    	**type**\: :py:class:`SrpMgmtIpsPathInd_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsPathInd_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtIpsPathIndEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsPathIndEnum>`
                                     
                                     .. attribute:: rx_ttl
                                     
@@ -9929,7 +9048,7 @@ class Interfaces(object):
                                     .. attribute:: self_detected_request
                                     
                                     	Self Detected Requests
-                                    	**type**\: :py:class:`SrpMgmtIpsReq_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
                                     
                                     .. attribute:: send_timer_time_remaining
                                     
@@ -9941,7 +9060,7 @@ class Interfaces(object):
                                     .. attribute:: tx_message_type
                                     
                                     	Type of message transmitted
-                                    	**type**\: :py:class:`SrpMgmtIpsReq_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
                                     
                                     .. attribute:: tx_neighbor_mac_address
                                     
@@ -9958,7 +9077,7 @@ class Interfaces(object):
                                     .. attribute:: tx_path_type
                                     
                                     	Short/long path of transmitted message
-                                    	**type**\: :py:class:`SrpMgmtIpsPathInd_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsPathInd_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtIpsPathIndEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsPathIndEnum>`
                                     
                                     .. attribute:: tx_ttl
                                     
@@ -9970,7 +9089,7 @@ class Interfaces(object):
                                     .. attribute:: wrap_state
                                     
                                     	Wrap state
-                                    	**type**\: :py:class:`SrpMgmtIpsWrapState_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsWrapState_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtIpsWrapStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsWrapStateEnum>`
                                     
                                     .. attribute:: wtr_timer_remaining
                                     
@@ -10018,7 +9137,7 @@ class Interfaces(object):
                                         .. attribute:: current_state
                                         
                                         	Current state
-                                        	**type**\: :py:class:`SrpMgmtFailureStateEt_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt_Enum>`
+                                        	**type**\: :py:class:`SrpMgmtFailureStateEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEtEnum>`
                                         
                                         .. attribute:: debounced_delay
                                         
@@ -10030,12 +9149,12 @@ class Interfaces(object):
                                         .. attribute:: debounced_state
                                         
                                         	Debounced state
-                                        	**type**\: :py:class:`SrpMgmtFailureStateEt_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt_Enum>`
+                                        	**type**\: :py:class:`SrpMgmtFailureStateEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEtEnum>`
                                         
                                         .. attribute:: reported_state
                                         
                                         	Reported state
-                                        	**type**\: :py:class:`SrpMgmtFailureStateEt_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt_Enum>`
+                                        	**type**\: :py:class:`SrpMgmtFailureStateEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEtEnum>`
                                         
                                         .. attribute:: stable_time
                                         
@@ -10047,7 +9166,7 @@ class Interfaces(object):
                                         .. attribute:: type
                                         
                                         	Failure type
-                                        	**type**\: :py:class:`SrpMgmtFailureEt_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureEt_Enum>`
+                                        	**type**\: :py:class:`SrpMgmtFailureEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureEtEnum>`
                                         
                                         
 
@@ -10079,8 +9198,6 @@ class Interfaces(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.current_state is not None:
                                                 return True
 
@@ -10099,10 +9216,6 @@ class Interfaces(object):
                                             if self.type is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -10124,8 +9237,6 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.asserted_failure is not None:
                                             for child_ref in self.asserted_failure:
                                                 if child_ref._has_data():
@@ -10187,10 +9298,6 @@ class Interfaces(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
@@ -10210,8 +9317,6 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.is_inter_card_bus_enabled is not None:
                                         return True
 
@@ -10221,22 +9326,12 @@ class Interfaces(object):
                                     if self.side_a is not None and self.side_a._has_data():
                                         return True
 
-                                    if self.side_a is not None and self.side_a.is_presence():
-                                        return True
-
                                     if self.side_b is not None and self.side_b._has_data():
-                                        return True
-
-                                    if self.side_b is not None and self.side_b.is_presence():
                                         return True
 
                                     if self.wtr_timer_period is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -10258,8 +9353,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.is_admin_down is not None:
                                     return True
 
@@ -10268,10 +9361,6 @@ class Interfaces(object):
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10347,15 +9436,9 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.min_priority_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -10377,8 +9460,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.is_admin_down is not None:
                                     return True
 
@@ -10387,10 +9468,6 @@ class Interfaces(object):
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10445,7 +9522,7 @@ class Interfaces(object):
                                 .. attribute:: inner_fail_type
                                 
                                 	Inner fail type
-                                	**type**\: :py:class:`SrpMgmtSrrFailure_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure_Enum>`
+                                	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
                                 
                                 .. attribute:: is_announce
                                 
@@ -10497,7 +9574,7 @@ class Interfaces(object):
                                 .. attribute:: node_state
                                 
                                 	SRR node state
-                                	**type**\: :py:class:`SrpMgmtSrrNodeState_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrNodeState_Enum>`
+                                	**type**\: :py:class:`SrpMgmtSrrNodeStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrNodeStateEnum>`
                                 
                                 .. attribute:: nodes_not_on_ring
                                 
@@ -10512,7 +9589,7 @@ class Interfaces(object):
                                 .. attribute:: outer_fail_type
                                 
                                 	Outer fail type
-                                	**type**\: :py:class:`SrpMgmtSrrFailure_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure_Enum>`
+                                	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
                                 
                                 .. attribute:: packet_send_timer
                                 
@@ -10596,7 +9673,7 @@ class Interfaces(object):
                                     .. attribute:: inner_failure
                                     
                                     	Inner failure
-                                    	**type**\: :py:class:`SrpMgmtSrrFailure_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
                                     
                                     .. attribute:: is_last_announce_received
                                     
@@ -10625,7 +9702,7 @@ class Interfaces(object):
                                     .. attribute:: outer_failure
                                     
                                     	Outer failure
-                                    	**type**\: :py:class:`SrpMgmtSrrFailure_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
                                     
                                     .. attribute:: srr_entry_exits
                                     
@@ -10665,8 +9742,6 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.inner_failure is not None:
                                             return True
 
@@ -10690,10 +9765,6 @@ class Interfaces(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
@@ -10707,7 +9778,7 @@ class Interfaces(object):
                                     .. attribute:: inner_failure
                                     
                                     	Inner failure
-                                    	**type**\: :py:class:`SrpMgmtSrrFailure_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
                                     
                                     .. attribute:: is_last_announce_received
                                     
@@ -10736,7 +9807,7 @@ class Interfaces(object):
                                     .. attribute:: outer_failure
                                     
                                     	Outer failure
-                                    	**type**\: :py:class:`SrpMgmtSrrFailure_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure_Enum>`
+                                    	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
                                     
                                     .. attribute:: srr_entry_exits
                                     
@@ -10776,8 +9847,6 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.inner_failure is not None:
                                             return True
 
@@ -10801,10 +9870,6 @@ class Interfaces(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
@@ -10824,8 +9889,6 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.inner_fail_type is not None:
                                         return True
 
@@ -10886,10 +9949,6 @@ class Interfaces(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
@@ -10909,8 +9968,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.is_admin_down is not None:
                                     return True
 
@@ -10922,10 +9979,6 @@ class Interfaces(object):
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11100,8 +10153,6 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.hop_count is not None:
                                             return True
 
@@ -11120,10 +10171,6 @@ class Interfaces(object):
                                         if self.node_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -11145,8 +10192,6 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.next_topology_packet_delay is not None:
                                         return True
 
@@ -11169,10 +10214,6 @@ class Interfaces(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
@@ -11192,8 +10233,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.is_admin_down is not None:
                                     return True
 
@@ -11202,10 +10241,6 @@ class Interfaces(object):
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11227,36 +10262,18 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ips_info is not None and self.ips_info._has_data():
-                                return True
-
-                            if self.ips_info is not None and self.ips_info.is_presence():
                                 return True
 
                             if self.rate_limit_info is not None and self.rate_limit_info._has_data():
                                 return True
 
-                            if self.rate_limit_info is not None and self.rate_limit_info.is_presence():
-                                return True
-
                             if self.srr_info is not None and self.srr_info._has_data():
-                                return True
-
-                            if self.srr_info is not None and self.srr_info.is_presence():
                                 return True
 
                             if self.topology_info is not None and self.topology_info._has_data():
                                 return True
 
-                            if self.topology_info is not None and self.topology_info.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11376,8 +10393,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bit_rate_received is not None:
                                     return True
 
@@ -11390,10 +10405,6 @@ class Interfaces(object):
                                 if self.packet_rate_sent is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11502,8 +10513,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.crc_errors is not None:
                                     return True
 
@@ -11531,10 +10540,6 @@ class Interfaces(object):
                                 if self.mac_runt_packets_received is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11603,8 +10608,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.bit_rate_received is not None:
                                     return True
 
@@ -11617,10 +10620,6 @@ class Interfaces(object):
                                 if self.packet_rate_sent is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11729,8 +10728,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.crc_errors is not None:
                                     return True
 
@@ -11760,10 +10757,6 @@ class Interfaces(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
@@ -11783,39 +10776,21 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.data_rate_interval is not None:
                                 return True
 
                             if self.side_a_data_rate is not None and self.side_a_data_rate._has_data():
                                 return True
 
-                            if self.side_a_data_rate is not None and self.side_a_data_rate.is_presence():
-                                return True
-
                             if self.side_a_errors is not None and self.side_a_errors._has_data():
-                                return True
-
-                            if self.side_a_errors is not None and self.side_a_errors.is_presence():
                                 return True
 
                             if self.side_b_data_rate is not None and self.side_b_data_rate._has_data():
                                 return True
 
-                            if self.side_b_data_rate is not None and self.side_b_data_rate.is_presence():
-                                return True
-
                             if self.side_b_errors is not None and self.side_b_errors._has_data():
                                 return True
 
-                            if self.side_b_errors is not None and self.side_b_errors.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11837,24 +10812,12 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.srp_information is not None and self.srp_information._has_data():
-                            return True
-
-                        if self.srp_information is not None and self.srp_information.is_presence():
                             return True
 
                         if self.srp_statistics is not None and self.srp_statistics._has_data():
                             return True
 
-                        if self.srp_statistics is not None and self.srp_statistics.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11875,7 +10838,7 @@ class Interfaces(object):
                     .. attribute:: df_bit_state
                     
                     	DF Bit State
-                    	**type**\: :py:class:`TunnelKaDfState_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKaDfState_Enum>`
+                    	**type**\: :py:class:`TunnelKaDfStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKaDfStateEnum>`
                     
                     .. attribute:: keepalive_maximum_retry
                     
@@ -11894,7 +10857,7 @@ class Interfaces(object):
                     .. attribute:: keepalive_state
                     
                     	Keepalive State
-                    	**type**\: :py:class:`TunnelKaDfState_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKaDfState_Enum>`
+                    	**type**\: :py:class:`TunnelKaDfStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKaDfStateEnum>`
                     
                     .. attribute:: key
                     
@@ -11906,7 +10869,7 @@ class Interfaces(object):
                     .. attribute:: key_bit_state
                     
                     	Key Config State
-                    	**type**\: :py:class:`TunnelKeyState_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKeyState_Enum>`
+                    	**type**\: :py:class:`TunnelKeyStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKeyStateEnum>`
                     
                     .. attribute:: source_ip_address
                     
@@ -11921,7 +10884,7 @@ class Interfaces(object):
                     .. attribute:: tunnel_mode
                     
                     	Tunnel GRE Mode
-                    	**type**\: :py:class:`TunnelGreMode_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelGreMode_Enum>`
+                    	**type**\: :py:class:`TunnelGreModeEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelGreModeEnum>`
                     
                     .. attribute:: tunnel_tos
                     
@@ -11969,7 +10932,7 @@ class Interfaces(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\: :py:class:`TunlPfiAfId_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunlPfiAfId_Enum>`
+                        	**type**\: :py:class:`TunlPfiAfIdEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunlPfiAfIdEnum>`
                         
                         .. attribute:: ipv4
                         
@@ -12012,8 +10975,6 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.afi is not None:
                                 return True
 
@@ -12023,10 +10984,6 @@ class Interfaces(object):
                             if self.ipv6 is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -12042,7 +10999,7 @@ class Interfaces(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\: :py:class:`TunlPfiAfId_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunlPfiAfId_Enum>`
+                        	**type**\: :py:class:`TunlPfiAfIdEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunlPfiAfIdEnum>`
                         
                         .. attribute:: ipv4
                         
@@ -12085,8 +11042,6 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.afi is not None:
                                 return True
 
@@ -12096,10 +11051,6 @@ class Interfaces(object):
                             if self.ipv6 is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -12121,12 +11072,7 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.destination_ip_address is not None and self.destination_ip_address._has_data():
-                            return True
-
-                        if self.destination_ip_address is not None and self.destination_ip_address.is_presence():
                             return True
 
                         if self.df_bit_state is not None:
@@ -12150,9 +11096,6 @@ class Interfaces(object):
                         if self.source_ip_address is not None and self.source_ip_address._has_data():
                             return True
 
-                        if self.source_ip_address is not None and self.source_ip_address.is_presence():
-                            return True
-
                         if self.source_name is not None:
                             return True
 
@@ -12165,10 +11108,6 @@ class Interfaces(object):
                         if self.tunnel_ttl is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12249,8 +11188,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.destination_ipv4_address is not None:
                             return True
 
@@ -12269,10 +11206,6 @@ class Interfaces(object):
                         if self.tunnel_type is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12294,24 +11227,13 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_information is not None and self.bundle_information._has_data():
-                        return True
-
-                    if self.bundle_information is not None and self.bundle_information.is_presence():
                         return True
 
                     if self.cem_information is not None and self.cem_information._has_data():
                         return True
 
-                    if self.cem_information is not None and self.cem_information.is_presence():
-                        return True
-
                     if self.gcc_information is not None and self.gcc_information._has_data():
-                        return True
-
-                    if self.gcc_information is not None and self.gcc_information.is_presence():
                         return True
 
                     if self.interface_type_info is not None:
@@ -12320,43 +11242,21 @@ class Interfaces(object):
                     if self.pseudowire_head_end_information is not None and self.pseudowire_head_end_information._has_data():
                         return True
 
-                    if self.pseudowire_head_end_information is not None and self.pseudowire_head_end_information.is_presence():
-                        return True
-
                     if self.serial_information is not None and self.serial_information._has_data():
-                        return True
-
-                    if self.serial_information is not None and self.serial_information.is_presence():
                         return True
 
                     if self.sonet_pos_information is not None and self.sonet_pos_information._has_data():
                         return True
 
-                    if self.sonet_pos_information is not None and self.sonet_pos_information.is_presence():
-                        return True
-
                     if self.srp_information is not None and self.srp_information._has_data():
-                        return True
-
-                    if self.srp_information is not None and self.srp_information.is_presence():
                         return True
 
                     if self.tunnel_gre_information is not None and self.tunnel_gre_information._has_data():
                         return True
 
-                    if self.tunnel_gre_information is not None and self.tunnel_gre_information.is_presence():
-                        return True
-
                     if self.tunnel_information is not None and self.tunnel_information._has_data():
                         return True
 
-                    if self.tunnel_information is not None and self.tunnel_information.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12409,18 +11309,12 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ip_address is not None:
                         return True
 
                     if self.subnet_mask_length is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12441,7 +11335,7 @@ class Interfaces(object):
                 .. attribute:: contents
                 
                 	Bag contents
-                	**type**\: :py:class:`StatsTypeContents_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.StatsTypeContents_Enum>`
+                	**type**\: :py:class:`StatsTypeContentsEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.StatsTypeContentsEnum>`
                 
                 .. attribute:: element_array
                 
@@ -12502,7 +11396,7 @@ class Interfaces(object):
                     .. attribute:: type
                     
                     	type
-                    	**type**\: :py:class:`StatsCounter_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.StatsCounter_Enum>`
+                    	**type**\: :py:class:`StatsCounterEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.StatsCounterEnum>`
                     
                     
 
@@ -12531,8 +11425,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.count is not None:
                             return True
 
@@ -12542,10 +11434,6 @@ class Interfaces(object):
                         if self.type is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12606,7 +11494,7 @@ class Interfaces(object):
                         .. attribute:: type
                         
                         	type
-                        	**type**\: :py:class:`StatsCounter_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.StatsCounter_Enum>`
+                        	**type**\: :py:class:`StatsCounterEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.StatsCounterEnum>`
                         
                         
 
@@ -12635,8 +11523,6 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.count is not None:
                                 return True
 
@@ -12646,10 +11532,6 @@ class Interfaces(object):
                             if self.type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -12671,8 +11553,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.block_array is not None:
                             for child_ref in self.block_array:
                                 if child_ref._has_data():
@@ -12681,10 +11561,6 @@ class Interfaces(object):
                         if self.key is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12714,7 +11590,7 @@ class Interfaces(object):
                     .. attribute:: id_type
                     
                     	id type
-                    	**type**\: :py:class:`StatsId_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.StatsId_Enum>`
+                    	**type**\: :py:class:`StatsIdEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.StatsIdEnum>`
                     
                     .. attribute:: interface_handle
                     
@@ -12767,8 +11643,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.feature_id is not None:
                             return True
 
@@ -12787,10 +11661,6 @@ class Interfaces(object):
                         if self.unused is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12812,8 +11682,6 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.block_array is not None:
                         for child_ref in self.block_array:
                             if child_ref._has_data():
@@ -12830,16 +11698,9 @@ class Interfaces(object):
                     if self.stats_id is not None and self.stats_id._has_data():
                         return True
 
-                    if self.stats_id is not None and self.stats_id.is_presence():
-                        return True
-
                     if self.stats_type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12884,15 +11745,9 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.address is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12935,15 +11790,9 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.controller is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12965,15 +11814,10 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface_name is not None:
                     return True
 
                 if self.arp_information is not None and self.arp_information._has_data():
-                    return True
-
-                if self.arp_information is not None and self.arp_information.is_presence():
                     return True
 
                 if self.bandwidth is not None:
@@ -12982,13 +11826,7 @@ class Interfaces(object):
                 if self.burned_in_address is not None and self.burned_in_address._has_data():
                     return True
 
-                if self.burned_in_address is not None and self.burned_in_address.is_presence():
-                    return True
-
                 if self.carrier_delay is not None and self.carrier_delay._has_data():
-                    return True
-
-                if self.carrier_delay is not None and self.carrier_delay.is_presence():
                     return True
 
                 if self.crc_length is not None:
@@ -12997,13 +11835,7 @@ class Interfaces(object):
                 if self.dampening_information is not None and self.dampening_information._has_data():
                     return True
 
-                if self.dampening_information is not None and self.dampening_information.is_presence():
-                    return True
-
                 if self.data_rates is not None and self.data_rates._has_data():
-                    return True
-
-                if self.data_rates is not None and self.data_rates.is_presence():
                     return True
 
                 if self.description is not None:
@@ -13016,9 +11848,6 @@ class Interfaces(object):
                     return True
 
                 if self.encapsulation_information is not None and self.encapsulation_information._has_data():
-                    return True
-
-                if self.encapsulation_information is not None and self.encapsulation_information.is_presence():
                     return True
 
                 if self.encapsulation_type_string is not None:
@@ -13036,22 +11865,13 @@ class Interfaces(object):
                 if self.interface_statistics is not None and self.interface_statistics._has_data():
                     return True
 
-                if self.interface_statistics is not None and self.interface_statistics.is_presence():
-                    return True
-
                 if self.interface_type is not None:
                     return True
 
                 if self.interface_type_information is not None and self.interface_type_information._has_data():
                     return True
 
-                if self.interface_type_information is not None and self.interface_type_information.is_presence():
-                    return True
-
                 if self.ip_information is not None and self.ip_information._has_data():
-                    return True
-
-                if self.ip_information is not None and self.ip_information.is_presence():
                     return True
 
                 if self.is_dampening_enabled is not None:
@@ -13078,9 +11898,6 @@ class Interfaces(object):
                 if self.l2_interface_statistics is not None and self.l2_interface_statistics._has_data():
                     return True
 
-                if self.l2_interface_statistics is not None and self.l2_interface_statistics.is_presence():
-                    return True
-
                 if self.last_state_transition_time is not None:
                     return True
 
@@ -13096,9 +11913,6 @@ class Interfaces(object):
                 if self.mac_address is not None and self.mac_address._has_data():
                     return True
 
-                if self.mac_address is not None and self.mac_address.is_presence():
-                    return True
-
                 if self.max_bandwidth is not None:
                     return True
 
@@ -13109,9 +11923,6 @@ class Interfaces(object):
                     return True
 
                 if self.nv_optical is not None and self.nv_optical._has_data():
-                    return True
-
-                if self.nv_optical is not None and self.nv_optical.is_presence():
                     return True
 
                 if self.out_flow_control is not None:
@@ -13134,10 +11945,6 @@ class Interfaces(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
@@ -13155,17 +11962,11 @@ class Interfaces(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -13223,12 +12024,12 @@ class Interfaces(object):
             .. attribute:: line_state
             
             	Line protocol state with no translation of error disable or shutdown
-            	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum_Enum>`
+            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
             
             .. attribute:: state
             
             	Operational state with no translation of error disable or shutdown
-            	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum_Enum>`
+            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
             
             
 
@@ -13259,8 +12060,6 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface_name is not None:
                     return True
 
@@ -13276,10 +12075,6 @@ class Interfaces(object):
                 if self.state is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -13299,17 +12094,11 @@ class Interfaces(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -13406,8 +12195,6 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.admin_down_interface_count is not None:
                     return True
 
@@ -13420,10 +12207,6 @@ class Interfaces(object):
                 if self.up_interface_count is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -13524,8 +12307,6 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.admin_down_interface_count is not None:
                         return True
 
@@ -13538,10 +12319,6 @@ class Interfaces(object):
                     if self.up_interface_count is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -13561,12 +12338,7 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface_counts is not None and self.interface_counts._has_data():
-                    return True
-
-                if self.interface_counts is not None and self.interface_counts.is_presence():
                     return True
 
                 if self.interface_type_description is not None:
@@ -13575,10 +12347,6 @@ class Interfaces(object):
                 if self.interface_type_name is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -13598,12 +12366,7 @@ class Interfaces(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.interface_counts is not None and self.interface_counts._has_data():
-                return True
-
-            if self.interface_counts is not None and self.interface_counts.is_presence():
                 return True
 
             if self.interface_type is not None:
@@ -13611,10 +12374,6 @@ class Interfaces(object):
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -13667,7 +12426,7 @@ class Interfaces(object):
             .. attribute:: type_set_name
             
             	The interface type to filter on
-            	**type**\: :py:class:`InterfaceTypeSet_Enum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.InterfaceTypeSet_Enum>`
+            	**type**\: :py:class:`InterfaceTypeSetEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.InterfaceTypeSetEnum>`
             
             
 
@@ -13772,8 +12531,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.admin_down_interface_count is not None:
                             return True
 
@@ -13786,10 +12543,6 @@ class Interfaces(object):
                         if self.up_interface_count is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -13890,8 +12643,6 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.admin_down_interface_count is not None:
                                 return True
 
@@ -13904,10 +12655,6 @@ class Interfaces(object):
                             if self.up_interface_count is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -13927,12 +12674,7 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_counts is not None and self.interface_counts._has_data():
-                            return True
-
-                        if self.interface_counts is not None and self.interface_counts.is_presence():
                             return True
 
                         if self.interface_type_description is not None:
@@ -13941,10 +12683,6 @@ class Interfaces(object):
                         if self.interface_type_name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -13964,12 +12702,7 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface_counts is not None and self.interface_counts._has_data():
-                        return True
-
-                    if self.interface_counts is not None and self.interface_counts.is_presence():
                         return True
 
                     if self.interface_type is not None:
@@ -13977,10 +12710,6 @@ class Interfaces(object):
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -14000,12 +12729,7 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface_summary is not None and self.interface_summary._has_data():
-                    return True
-
-                if self.interface_summary is not None and self.interface_summary.is_presence():
                     return True
 
                 if self.node_name is not None:
@@ -14014,10 +12738,6 @@ class Interfaces(object):
                 if self.type_set_name is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -14037,17 +12757,11 @@ class Interfaces(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node_type_set is not None:
                 for child_ref in self.node_type_set:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -14067,48 +12781,24 @@ class Interfaces(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.interface_briefs is not None and self.interface_briefs._has_data():
-            return True
-
-        if self.interface_briefs is not None and self.interface_briefs.is_presence():
             return True
 
         if self.interface_summary is not None and self.interface_summary._has_data():
             return True
 
-        if self.interface_summary is not None and self.interface_summary.is_presence():
-            return True
-
         if self.interface_xr is not None and self.interface_xr._has_data():
-            return True
-
-        if self.interface_xr is not None and self.interface_xr.is_presence():
             return True
 
         if self.interfaces is not None and self.interfaces._has_data():
             return True
 
-        if self.interfaces is not None and self.interfaces.is_presence():
-            return True
-
         if self.inventory_summary is not None and self.inventory_summary._has_data():
-            return True
-
-        if self.inventory_summary is not None and self.inventory_summary.is_presence():
             return True
 
         if self.node_type_sets is not None and self.node_type_sets._has_data():
             return True
 
-        if self.node_type_sets is not None and self.node_type_sets.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

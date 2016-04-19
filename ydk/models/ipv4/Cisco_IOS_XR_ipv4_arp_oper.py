@@ -25,506 +25,454 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class ArpGmpBagEncap_Enum(Enum):
+class ArpGmpBagEncapEnum(Enum):
     """
-    ArpGmpBagEncap_Enum
+    ArpGmpBagEncapEnum
 
     ARP encapsulation
 
-    """
+    .. data:: NONE = 0
+
+    	No encapsulation
+
+    .. data:: ARPA = 1
+
+    	ARPA
+
+    .. data:: SNAP = 2
+
+    	SNAP
+
+    .. data:: IEEE802_1Q = 3
+
+    	802 1Q
+
+    .. data:: SRP = 4
+
+    	SRP
+
+    .. data:: SRPA = 5
+
+    	SRPA
+
+    .. data:: SRPB = 6
+
+    	SRPB
 
     """
 
-    No encapsulation
-
-    """
     NONE = 0
 
-    """
-
-    ARPA
-
-    """
     ARPA = 1
 
-    """
-
-    SNAP
-
-    """
     SNAP = 2
 
-    """
-
-    802 1Q
-
-    """
     IEEE802_1Q = 3
 
-    """
-
-    SRP
-
-    """
     SRP = 4
 
-    """
-
-    SRPA
-
-    """
     SRPA = 5
 
-    """
-
-    SRPB
-
-    """
     SRPB = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
-        return meta._meta_table['ArpGmpBagEncap_Enum']
+        return meta._meta_table['ArpGmpBagEncapEnum']
 
 
-class ArpGmpBagEntry_Enum(Enum):
+class ArpGmpBagEntryEnum(Enum):
     """
-    ArpGmpBagEntry_Enum
+    ArpGmpBagEntryEnum
 
     ARP Entry type
 
-    """
+    .. data:: NULL = 0
+
+    	No state
+
+    .. data:: STATIC = 1
+
+    	Static
+
+    .. data:: ALIAS = 2
+
+    	Alias
 
     """
 
-    No state
-
-    """
     NULL = 0
 
-    """
-
-    Static
-
-    """
     STATIC = 1
 
-    """
-
-    Alias
-
-    """
     ALIAS = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
-        return meta._meta_table['ArpGmpBagEntry_Enum']
+        return meta._meta_table['ArpGmpBagEntryEnum']
 
 
-class ArpResolutionHistoryStatus_Enum(Enum):
+class ArpResolutionHistoryStatusEnum(Enum):
     """
-    ArpResolutionHistoryStatus_Enum
+    ArpResolutionHistoryStatusEnum
 
     Arp resolution history status
 
-    """
+    .. data:: STATUS_NONE = 0
+
+    	No Status
+
+    .. data:: STATUS_RESOLUTION_REQUEST = 1
+
+    	Resolution Request Received
+
+    .. data:: STATUS_RESOLVED_REPLY = 2
+
+    	Resolved with ARP reply
+
+    .. data:: STATUS_RESOLVED_GRAT_ARP = 3
+
+    	Resolved with Grat ARP
+
+    .. data:: STATUS_RESOLVED_REQUEST = 4
+
+    	Resolved with ARP Request
+
+    .. data:: STATUS_RESOLVED_LC_SYNC = 5
+
+    	Resolved via a Linecard sync
+
+    .. data:: STATUS_RESOLVED_LC_SYNC_PURGE_DELAY = 6
+
+    	Resolved via a Linecard sync while purge
+
+    	delayed
+
+    .. data:: STATUS_RESOLVED_CLIENT = 7
+
+    	Resolved from an ARP API client
+
+    .. data:: STATUS_REMOVED_CLIENT = 8
+
+    	Removed by an ARP API client
+
+    .. data:: STATUS_ALREADY_RESOLVED = 9
+
+    	Already Resolved
+
+    .. data:: STATUS_FAILED = 10
+
+    	Resolution Failed
+
+    .. data:: STATUS_DROPPED_INTERFACE_DOWN = 11
+
+    	Dropped because the Interface was down
+
+    .. data:: STATUS_DROPPED_BROADCAST_DISABLED = 12
+
+    	Dropped because the Interface was broadcast
+
+    	disabled
+
+    .. data:: STATUS_DROPPED_INTERFACE_UNAVAILABLE = 13
+
+    	Dropped because the Interface was unavailable
+
+    	to arp
+
+    .. data:: STATUS_DROPPED_BAD_SUBNET = 14
+
+    	The requested IP address didn't belong to the
+
+    	subnet
+
+    .. data:: STATUS_DROPPED_DYNAMIC_LEARNING_DISABLED = 15
+
+    	Dynamic learning of ARP entries is disabled on
+
+    	the interface
+
+    .. data:: STATUS_DROPPED_OUT_OF_SUBNET_DISABLED = 16
+
+    	Out of Subnet address learning is disabled on
+
+    	the interface
+
+    .. data:: STATUS_REMOVED_CLIENT_SWEEP = 17
+
+    	Removed by an ARP API client during a resync
+
+    .. data:: STATUS_ADDED_CLIENT = 18
+
+    	Added by an ARP API client
+
+    .. data:: STATUS_ADDED_V1 = 19
+
+    	Added by replication from ARP V1 during ISSU
+
+    .. data:: STATUS_REMOVED_V1 = 20
+
+    	Removed by replication from ARP V1 during ISSU
+
+    .. data:: STATUS_RESOLVED_PEER_SYNC = 21
+
+    	Resolved via a Peer Router sync
 
     """
 
-    No Status
-
-    """
     STATUS_NONE = 0
 
-    """
-
-    Resolution Request Received
-
-    """
     STATUS_RESOLUTION_REQUEST = 1
 
-    """
-
-    Resolved with ARP reply
-
-    """
     STATUS_RESOLVED_REPLY = 2
 
-    """
-
-    Resolved with Grat ARP
-
-    """
     STATUS_RESOLVED_GRAT_ARP = 3
 
-    """
-
-    Resolved with ARP Request
-
-    """
     STATUS_RESOLVED_REQUEST = 4
 
-    """
-
-    Resolved via a Linecard sync
-
-    """
     STATUS_RESOLVED_LC_SYNC = 5
 
-    """
-
-    Resolved via a Linecard sync while purge
-    delayed
-
-    """
     STATUS_RESOLVED_LC_SYNC_PURGE_DELAY = 6
 
-    """
-
-    Resolved from an ARP API client
-
-    """
     STATUS_RESOLVED_CLIENT = 7
 
-    """
-
-    Removed by an ARP API client
-
-    """
     STATUS_REMOVED_CLIENT = 8
 
-    """
-
-    Already Resolved
-
-    """
     STATUS_ALREADY_RESOLVED = 9
 
-    """
-
-    Resolution Failed
-
-    """
     STATUS_FAILED = 10
 
-    """
-
-    Dropped because the Interface was down
-
-    """
     STATUS_DROPPED_INTERFACE_DOWN = 11
 
-    """
-
-    Dropped because the Interface was broadcast
-    disabled
-
-    """
     STATUS_DROPPED_BROADCAST_DISABLED = 12
 
-    """
-
-    Dropped because the Interface was unavailable
-    to arp
-
-    """
     STATUS_DROPPED_INTERFACE_UNAVAILABLE = 13
 
-    """
-
-    The requested IP address didn't belong to the
-    subnet
-
-    """
     STATUS_DROPPED_BAD_SUBNET = 14
 
-    """
-
-    Dynamic learning of ARP entries is disabled on
-    the interface
-
-    """
     STATUS_DROPPED_DYNAMIC_LEARNING_DISABLED = 15
 
-    """
-
-    Out of Subnet address learning is disabled on
-    the interface
-
-    """
     STATUS_DROPPED_OUT_OF_SUBNET_DISABLED = 16
 
-    """
-
-    Removed by an ARP API client during a resync
-
-    """
     STATUS_REMOVED_CLIENT_SWEEP = 17
 
-    """
-
-    Added by an ARP API client
-
-    """
     STATUS_ADDED_CLIENT = 18
 
-    """
-
-    Added by replication from ARP V1 during ISSU
-
-    """
     STATUS_ADDED_V1 = 19
 
-    """
-
-    Removed by replication from ARP V1 during ISSU
-
-    """
     STATUS_REMOVED_V1 = 20
 
-    """
-
-    Resolved via a Peer Router sync
-
-    """
     STATUS_RESOLVED_PEER_SYNC = 21
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
-        return meta._meta_table['ArpResolutionHistoryStatus_Enum']
+        return meta._meta_table['ArpResolutionHistoryStatusEnum']
 
 
-class IpArpBagEncap_Enum(Enum):
+class IpArpBagEncapEnum(Enum):
     """
-    IpArpBagEncap_Enum
+    IpArpBagEncapEnum
 
     ARP encapsulation
 
-    """
+    .. data:: NONE = 0
+
+    	No encapsulation
+
+    .. data:: ARPA = 1
+
+    	ARPA
+
+    .. data:: SNAP = 2
+
+    	SNAP
+
+    .. data:: IEEE802_1Q = 3
+
+    	802 1Q
+
+    .. data:: SRP = 4
+
+    	SRP
+
+    .. data:: SRPA = 5
+
+    	SRPA
+
+    .. data:: SRPB = 6
+
+    	SRPB
 
     """
 
-    No encapsulation
-
-    """
     NONE = 0
 
-    """
-
-    ARPA
-
-    """
     ARPA = 1
 
-    """
-
-    SNAP
-
-    """
     SNAP = 2
 
-    """
-
-    802 1Q
-
-    """
     IEEE802_1Q = 3
 
-    """
-
-    SRP
-
-    """
     SRP = 4
 
-    """
-
-    SRPA
-
-    """
     SRPA = 5
 
-    """
-
-    SRPB
-
-    """
     SRPB = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
-        return meta._meta_table['IpArpBagEncap_Enum']
+        return meta._meta_table['IpArpBagEncapEnum']
 
 
-class IpArpBagMedia_Enum(Enum):
+class IpArpBagMediaEnum(Enum):
     """
-    IpArpBagMedia_Enum
+    IpArpBagMediaEnum
 
     ARP media type
 
-    """
+    .. data:: MEDIA_ARPA = 0
+
+    	ARPA
+
+    .. data:: MEDIA_SRP = 1
+
+    	SRP
+
+    .. data:: MEDIA_UNKNOWN = 2
+
+    	Unknown
 
     """
 
-    ARPA
-
-    """
     MEDIA_ARPA = 0
 
-    """
-
-    SRP
-
-    """
     MEDIA_SRP = 1
 
-    """
-
-    Unknown
-
-    """
     MEDIA_UNKNOWN = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
-        return meta._meta_table['IpArpBagMedia_Enum']
+        return meta._meta_table['IpArpBagMediaEnum']
 
 
-class IpArpBagState_Enum(Enum):
+class IpArpBagStateEnum(Enum):
     """
-    IpArpBagState_Enum
+    IpArpBagStateEnum
 
     ARP state
 
-    """
+    .. data:: STATE_NONE = 0
+
+    	No state
+
+    .. data:: STATE_INTERFACE = 1
+
+    	Interface
+
+    .. data:: STATE_STANDBY = 2
+
+    	Standby
+
+    .. data:: STATE_STATIC = 3
+
+    	Static
+
+    .. data:: STATE_ALIAS = 4
+
+    	Alias
+
+    .. data:: STATE_MOBILE = 5
+
+    	Mobile
+
+    .. data:: STATE_INCOMPLETE = 6
+
+    	Incomplete
+
+    .. data:: STATE_DELETED = 7
+
+    	Deleted
+
+    .. data:: STATE_DYNAMIC = 8
+
+    	Dynamic
+
+    .. data:: STATE_PROBE = 9
+
+    	Probe
+
+    .. data:: STATE_PURGE_DELAYED = 10
+
+    	Purge delayed
+
+    .. data:: STATE_DHCP = 11
+
+    	DHCP installed
+
+    .. data:: STATE_VXLAN = 12
+
+    	VXLAN installed
+
+    .. data:: STATE_SAT = 13
+
+    	Satellite installed
+
+    .. data:: STATE_R_SYNC = 14
+
+    	Geo-redundancy sync'ed
+
+    .. data:: STATE_MAX = 15
+
+    	Maximum state number
 
     """
 
-    No state
-
-    """
     STATE_NONE = 0
 
-    """
-
-    Interface
-
-    """
     STATE_INTERFACE = 1
 
-    """
-
-    Standby
-
-    """
     STATE_STANDBY = 2
 
-    """
-
-    Static
-
-    """
     STATE_STATIC = 3
 
-    """
-
-    Alias
-
-    """
     STATE_ALIAS = 4
 
-    """
-
-    Mobile
-
-    """
     STATE_MOBILE = 5
 
-    """
-
-    Incomplete
-
-    """
     STATE_INCOMPLETE = 6
 
-    """
-
-    Deleted
-
-    """
     STATE_DELETED = 7
 
-    """
-
-    Dynamic
-
-    """
     STATE_DYNAMIC = 8
 
-    """
-
-    Probe
-
-    """
     STATE_PROBE = 9
 
-    """
-
-    Purge delayed
-
-    """
     STATE_PURGE_DELAYED = 10
 
-    """
-
-    DHCP installed
-
-    """
     STATE_DHCP = 11
 
-    """
-
-    VXLAN installed
-
-    """
     STATE_VXLAN = 12
 
-    """
-
-    Satellite installed
-
-    """
     STATE_SAT = 13
 
-    """
-
-    Geo\-redundancy sync'ed
-
-    """
     STATE_R_SYNC = 14
 
-    """
-
-    Maximum state number
-
-    """
     STATE_MAX = 15
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
-        return meta._meta_table['IpArpBagState_Enum']
+        return meta._meta_table['IpArpBagStateEnum']
 
 
 
@@ -688,7 +636,7 @@ class Arp(object):
                     .. attribute:: encapsulation_type
                     
                     	Source encapsulation type
-                    	**type**\: :py:class:`IpArpBagEncap_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagEncap_Enum>`
+                    	**type**\: :py:class:`IpArpBagEncapEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagEncapEnum>`
                     
                     .. attribute:: hardware_address
                     
@@ -707,12 +655,12 @@ class Arp(object):
                     .. attribute:: media_type
                     
                     	Media type for this entry
-                    	**type**\: :py:class:`IpArpBagMedia_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagMedia_Enum>`
+                    	**type**\: :py:class:`IpArpBagMediaEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagMediaEnum>`
                     
                     .. attribute:: state
                     
                     	State of this entry
-                    	**type**\: :py:class:`IpArpBagState_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagState_Enum>`
+                    	**type**\: :py:class:`IpArpBagStateEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagStateEnum>`
                     
                     
 
@@ -750,8 +698,6 @@ class Arp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
@@ -778,10 +724,6 @@ class Arp(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
@@ -801,17 +743,11 @@ class Arp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.entry is not None:
                         for child_ref in self.entry:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -900,7 +836,7 @@ class Arp(object):
                     .. attribute:: status
                     
                     	Resolution status
-                    	**type**\: :py:class:`ArpResolutionHistoryStatus_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.ArpResolutionHistoryStatus_Enum>`
+                    	**type**\: :py:class:`ArpResolutionHistoryStatusEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.ArpResolutionHistoryStatusEnum>`
                     
                     
 
@@ -934,8 +870,6 @@ class Arp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.client_id is not None:
                             return True
 
@@ -962,10 +896,6 @@ class Arp(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
@@ -985,17 +915,11 @@ class Arp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.arp_entry is not None:
                         for child_ref in self.arp_entry:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1084,7 +1008,7 @@ class Arp(object):
                     .. attribute:: status
                     
                     	Resolution status
-                    	**type**\: :py:class:`ArpResolutionHistoryStatus_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.ArpResolutionHistoryStatus_Enum>`
+                    	**type**\: :py:class:`ArpResolutionHistoryStatusEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.ArpResolutionHistoryStatusEnum>`
                     
                     
 
@@ -1118,8 +1042,6 @@ class Arp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.client_id is not None:
                             return True
 
@@ -1146,10 +1068,6 @@ class Arp(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
@@ -1169,17 +1087,11 @@ class Arp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.arp_entry is not None:
                         for child_ref in self.arp_entry:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1449,8 +1361,6 @@ class Arp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
@@ -1531,10 +1441,6 @@ class Arp(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
@@ -1554,17 +1460,11 @@ class Arp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.traffic_interface is not None:
                         for child_ref in self.traffic_interface:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1801,8 +1701,6 @@ class Arp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.alias_entries is not None:
                         return True
 
@@ -1878,10 +1776,6 @@ class Arp(object):
                     if self.vxlan_entries is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2149,8 +2043,6 @@ class Arp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf_name is not None:
                             return True
 
@@ -2231,10 +2123,6 @@ class Arp(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
@@ -2254,17 +2142,11 @@ class Arp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.traffic_vrf is not None:
                         for child_ref in self.traffic_vrf:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2286,51 +2168,27 @@ class Arp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.entries is not None and self.entries._has_data():
                     return True
 
-                if self.entries is not None and self.entries.is_presence():
-                    return True
-
                 if self.resolution_history_client is not None and self.resolution_history_client._has_data():
-                    return True
-
-                if self.resolution_history_client is not None and self.resolution_history_client.is_presence():
                     return True
 
                 if self.resolution_history_dynamic is not None and self.resolution_history_dynamic._has_data():
                     return True
 
-                if self.resolution_history_dynamic is not None and self.resolution_history_dynamic.is_presence():
-                    return True
-
                 if self.traffic_interfaces is not None and self.traffic_interfaces._has_data():
-                    return True
-
-                if self.traffic_interfaces is not None and self.traffic_interfaces.is_presence():
                     return True
 
                 if self.traffic_node is not None and self.traffic_node._has_data():
                     return True
 
-                if self.traffic_node is not None and self.traffic_node.is_presence():
-                    return True
-
                 if self.traffic_vrfs is not None and self.traffic_vrfs._has_data():
                     return True
 
-                if self.traffic_vrfs is not None and self.traffic_vrfs.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2350,17 +2208,11 @@ class Arp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2380,18 +2232,9 @@ class Arp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -2525,8 +2368,6 @@ class ArpGmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.vrf_name is not None:
                     return True
 
@@ -2547,10 +2388,6 @@ class ArpGmp(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
@@ -2568,17 +2405,11 @@ class ArpGmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.vrf_info is not None:
                 for child_ref in self.vrf_info:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2692,12 +2523,12 @@ class ArpGmp(object):
                     .. attribute:: encapsulation_type
                     
                     	Encap type
-                    	**type**\: :py:class:`ArpGmpBagEncap_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEncap_Enum>`
+                    	**type**\: :py:class:`ArpGmpBagEncapEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEncapEnum>`
                     
                     .. attribute:: entry_type
                     
                     	Entry type static/alias
-                    	**type**\: :py:class:`ArpGmpBagEntry_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEntry_Enum>`
+                    	**type**\: :py:class:`ArpGmpBagEntryEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEntryEnum>`
                     
                     .. attribute:: hardware_address
                     
@@ -2744,8 +2575,6 @@ class ArpGmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
@@ -2761,10 +2590,6 @@ class ArpGmp(object):
                         if self.ip_address is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2786,17 +2611,11 @@ class ArpGmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.configured_ip_address is not None:
                         for child_ref in self.configured_ip_address:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2891,12 +2710,12 @@ class ArpGmp(object):
                         .. attribute:: encapsulation_type
                         
                         	Encap type
-                        	**type**\: :py:class:`ArpGmpBagEncap_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEncap_Enum>`
+                        	**type**\: :py:class:`ArpGmpBagEncapEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEncapEnum>`
                         
                         .. attribute:: entry_type
                         
                         	Entry type static/alias
-                        	**type**\: :py:class:`ArpGmpBagEntry_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEntry_Enum>`
+                        	**type**\: :py:class:`ArpGmpBagEntryEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEntryEnum>`
                         
                         .. attribute:: hardware_address
                         
@@ -2940,8 +2759,6 @@ class ArpGmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.encapsulation_type is not None:
                                 return True
 
@@ -2954,10 +2771,6 @@ class ArpGmp(object):
                             if self.ip_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2979,15 +2792,10 @@ class ArpGmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
                         if self.associated_configuration_entry is not None and self.associated_configuration_entry._has_data():
-                            return True
-
-                        if self.associated_configuration_entry is not None and self.associated_configuration_entry.is_presence():
                             return True
 
                         if self.interface_name is not None:
@@ -2999,10 +2807,6 @@ class ArpGmp(object):
                         if self.reference_count is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3024,17 +2828,11 @@ class ArpGmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface_configured_ip is not None:
                         for child_ref in self.interface_configured_ip:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3142,8 +2940,6 @@ class ArpGmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
@@ -3166,10 +2962,6 @@ class ArpGmp(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
@@ -3189,17 +2981,11 @@ class ArpGmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.route is not None:
                         for child_ref in self.route:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3221,33 +3007,18 @@ class ArpGmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.vrf_name is not None:
                     return True
 
                 if self.configured_ip_addresses is not None and self.configured_ip_addresses._has_data():
                     return True
 
-                if self.configured_ip_addresses is not None and self.configured_ip_addresses.is_presence():
-                    return True
-
                 if self.interface_configured_ips is not None and self.interface_configured_ips._has_data():
-                    return True
-
-                if self.interface_configured_ips is not None and self.interface_configured_ips.is_presence():
                     return True
 
                 if self.routes is not None and self.routes._has_data():
                     return True
 
-                if self.routes is not None and self.routes.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3267,17 +3038,11 @@ class ArpGmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3297,24 +3062,12 @@ class ArpGmp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.vrf_infos is not None and self.vrf_infos._has_data():
-            return True
-
-        if self.vrf_infos is not None and self.vrf_infos.is_presence():
             return True
 
         if self.vrfs is not None and self.vrfs._has_data():
             return True
 
-        if self.vrfs is not None and self.vrfs.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

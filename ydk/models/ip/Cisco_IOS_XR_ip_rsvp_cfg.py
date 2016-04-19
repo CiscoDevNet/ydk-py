@@ -28,135 +28,126 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class RsvpBc0_Enum(Enum):
+class RsvpBc0Enum(Enum):
     """
-    RsvpBc0_Enum
+    RsvpBc0Enum
 
     Rsvp bc0
 
-    """
+    .. data:: BC0 = 1
+
+    	Keyword is bc0
+
+    .. data:: GLOBAL_POOL = 2
+
+    	Keyword is global-pool
+
+    .. data:: NOT_SPECIFIED = 3
+
+    	Keyword is not specified
 
     """
 
-    Keyword is bc0
-
-    """
     BC0 = 1
 
-    """
-
-    Keyword is global\-pool
-
-    """
     GLOBAL_POOL = 2
 
-    """
-
-    Keyword is not specified
-
-    """
     NOT_SPECIFIED = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-        return meta._meta_table['RsvpBc0_Enum']
+        return meta._meta_table['RsvpBc0Enum']
 
 
-class RsvpBc1_Enum(Enum):
+class RsvpBc1Enum(Enum):
     """
-    RsvpBc1_Enum
+    RsvpBc1Enum
 
     Rsvp bc1
 
-    """
+    .. data:: BC1 = 1
+
+    	Keyword is bc1
+
+    .. data:: SUB_POOL = 2
+
+    	Keyword is sub-pool
 
     """
 
-    Keyword is bc1
-
-    """
     BC1 = 1
 
-    """
-
-    Keyword is sub\-pool
-
-    """
     SUB_POOL = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-        return meta._meta_table['RsvpBc1_Enum']
+        return meta._meta_table['RsvpBc1Enum']
 
 
-class RsvpBwCfg_Enum(Enum):
+class RsvpBwCfgEnum(Enum):
     """
-    RsvpBwCfg_Enum
+    RsvpBwCfgEnum
 
     Rsvp bw cfg
 
-    """
+    .. data:: ABSOLUTE = 0
+
+    	Configuration is in absolute bandwidth values
+
+    .. data:: PERCENTAGE = 1
+
+    	Configuration is in percentage of physical
+
+    	bandwidth values
 
     """
 
-    Configuration is in absolute bandwidth values
-
-    """
     ABSOLUTE = 0
 
-    """
-
-    Configuration is in percentage of physical
-    bandwidth values
-
-    """
     PERCENTAGE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-        return meta._meta_table['RsvpBwCfg_Enum']
+        return meta._meta_table['RsvpBwCfgEnum']
 
 
-class RsvpRdm_Enum(Enum):
+class RsvpRdmEnum(Enum):
     """
-    RsvpRdm_Enum
+    RsvpRdmEnum
 
     Rsvp rdm
 
-    """
+    .. data:: RDM = 1
+
+    	RDM Keyword Specified
+
+    .. data:: NOT_SPECIFIED = 2
+
+    	RDM Keyword Not Specified
+
+    .. data:: USE_DEFAULT_BANDWIDTH = 3
+
+    	Use Default Bandwidth - 75% Link Bandwidth
 
     """
 
-    RDM Keyword Specified
-
-    """
     RDM = 1
 
-    """
-
-    RDM Keyword Not Specified
-
-    """
     NOT_SPECIFIED = 2
 
-    """
-
-    Use Default Bandwidth \- 75% Link Bandwidth
-
-    """
     USE_DEFAULT_BANDWIDTH = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-        return meta._meta_table['RsvpRdm_Enum']
+        return meta._meta_table['RsvpRdmEnum']
 
 
 
@@ -273,8 +264,6 @@ class Rsvp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.key_chain is not None:
                 return True
 
@@ -284,10 +273,6 @@ class Rsvp(object):
             if self.window_size is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -421,18 +406,12 @@ class Rsvp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.missed_messages is not None:
                             return True
 
                         if self.refresh_interval is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -454,18 +433,9 @@ class Rsvp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.out_of_band is not None and self.out_of_band._has_data():
                         return True
 
-                    if self.out_of_band is not None and self.out_of_band.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -487,24 +457,15 @@ class Rsvp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.controller_name is not None:
                     return True
 
                 if self.cntl_signalling is not None and self.cntl_signalling._has_data():
                     return True
 
-                if self.cntl_signalling is not None and self.cntl_signalling.is_presence():
-                    return True
-
                 if self.enable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -524,17 +485,11 @@ class Rsvp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.controller is not None:
                 for child_ref in self.controller:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -645,8 +600,6 @@ class Rsvp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bc0_percent is not None:
                         return True
 
@@ -656,10 +609,6 @@ class Rsvp(object):
                     if self.max_res_percent is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -711,18 +660,12 @@ class Rsvp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bc0_percent is not None:
                         return True
 
                     if self.bc1_percent is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -742,24 +685,12 @@ class Rsvp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.mam is not None and self.mam._has_data():
-                    return True
-
-                if self.mam is not None and self.mam.is_presence():
                     return True
 
                 if self.rdm is not None and self.rdm._has_data():
                     return True
 
-                if self.rdm is not None and self.rdm.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -779,18 +710,9 @@ class Rsvp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.default_interface_percent is not None and self.default_interface_percent._has_data():
                 return True
 
-            if self.default_interface_percent is not None and self.default_interface_percent.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -837,18 +759,12 @@ class Rsvp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.log_issu_status is not None:
                 return True
 
             if self.log_nsr_status is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -982,8 +898,6 @@ class Rsvp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.key_chain is not None:
                         return True
 
@@ -993,10 +907,6 @@ class Rsvp(object):
                     if self.window_size is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1041,7 +951,7 @@ class Rsvp(object):
                     .. attribute:: bandwidth_mode
                     
                     	Absolute or Percentage bandwidth mode
-                    	**type**\: :py:class:`RsvpBwCfg_Enum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfg_Enum>`
+                    	**type**\: :py:class:`RsvpBwCfgEnum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfgEnum>`
                     
                     .. attribute:: bc0_bandwidth
                     
@@ -1100,8 +1010,6 @@ class Rsvp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bandwidth_mode is not None:
                             return True
 
@@ -1119,10 +1027,6 @@ class Rsvp(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
@@ -1136,7 +1040,7 @@ class Rsvp(object):
                     .. attribute:: bandwidth_mode
                     
                     	Absolute or Percentage bandwidth mode
-                    	**type**\: :py:class:`RsvpBwCfg_Enum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfg_Enum>`
+                    	**type**\: :py:class:`RsvpBwCfgEnum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfgEnum>`
                     
                     .. attribute:: bc0_bandwidth
                     
@@ -1148,7 +1052,7 @@ class Rsvp(object):
                     .. attribute:: bc0_keyword
                     
                     	Set requests should always use BC0
-                    	**type**\: :py:class:`RsvpBc0_Enum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc0_Enum>`
+                    	**type**\: :py:class:`RsvpBc0Enum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc0Enum>`
                     
                     .. attribute:: bc1_bandwidth
                     
@@ -1160,7 +1064,7 @@ class Rsvp(object):
                     .. attribute:: bc1_keyword
                     
                     	Set requests should always use BC1
-                    	**type**\: :py:class:`RsvpBc1_Enum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc1_Enum>`
+                    	**type**\: :py:class:`RsvpBc1Enum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc1Enum>`
                     
                     .. attribute:: max_resv_flow
                     
@@ -1172,7 +1076,7 @@ class Rsvp(object):
                     .. attribute:: rdm_keyword
                     
                     	Set requests should always use RDM
-                    	**type**\: :py:class:`RsvpRdm_Enum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpRdm_Enum>`
+                    	**type**\: :py:class:`RsvpRdmEnum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpRdmEnum>`
                     
                     
 
@@ -1205,8 +1109,6 @@ class Rsvp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bandwidth_mode is not None:
                             return True
 
@@ -1230,10 +1132,6 @@ class Rsvp(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
@@ -1253,24 +1151,12 @@ class Rsvp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.mam is not None and self.mam._has_data():
-                        return True
-
-                    if self.mam is not None and self.mam.is_presence():
                         return True
 
                     if self.rdm is not None and self.rdm._has_data():
                         return True
 
-                    if self.rdm is not None and self.rdm.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1396,18 +1282,12 @@ class Rsvp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interval_size is not None:
                             return True
 
                         if self.messages_per_interval is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1460,18 +1340,12 @@ class Rsvp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.missed_messages is not None:
                             return True
 
                         if self.refresh_interval is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1560,8 +1434,6 @@ class Rsvp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bundle_message_max_size is not None:
                             return True
 
@@ -1585,10 +1457,6 @@ class Rsvp(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
@@ -1608,8 +1476,6 @@ class Rsvp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.dscp is not None:
                         return True
 
@@ -1619,16 +1485,10 @@ class Rsvp(object):
                     if self.interval_rate is not None and self.interval_rate._has_data():
                         return True
 
-                    if self.interval_rate is not None and self.interval_rate.is_presence():
-                        return True
-
                     if self.missed_messages is not None:
                         return True
 
                     if self.out_of_band is not None and self.out_of_band._has_data():
-                        return True
-
-                    if self.out_of_band is not None and self.out_of_band.is_presence():
                         return True
 
                     if self.pacing is not None:
@@ -1640,13 +1500,6 @@ class Rsvp(object):
                     if self.refresh_reduction is not None and self.refresh_reduction._has_data():
                         return True
 
-                    if self.refresh_reduction is not None and self.refresh_reduction.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1668,21 +1521,13 @@ class Rsvp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
                 if self.authentication is not None and self.authentication._has_data():
                     return True
 
-                if self.authentication is not None and self.authentication.is_presence():
-                    return True
-
                 if self.bandwidth is not None and self.bandwidth._has_data():
-                    return True
-
-                if self.bandwidth is not None and self.bandwidth.is_presence():
                     return True
 
                 if self.enable is not None:
@@ -1691,13 +1536,6 @@ class Rsvp(object):
                 if self.if_signalling is not None and self.if_signalling._has_data():
                     return True
 
-                if self.if_signalling is not None and self.if_signalling.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1717,17 +1555,11 @@ class Rsvp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1841,8 +1673,6 @@ class Rsvp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.key_chain is not None:
                         return True
 
@@ -1852,10 +1682,6 @@ class Rsvp(object):
                     if self.window_size is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1877,21 +1703,12 @@ class Rsvp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.neighbor is not None:
                     return True
 
                 if self.authentication is not None and self.authentication._has_data():
                     return True
 
-                if self.authentication is not None and self.authentication.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1911,17 +1728,11 @@ class Rsvp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.neighbor is not None:
                 for child_ref in self.neighbor:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2028,15 +1839,9 @@ class Rsvp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.disable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2079,15 +1884,9 @@ class Rsvp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.vrf is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2136,18 +1935,12 @@ class Rsvp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
                 if self.restart_time is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2188,15 +1981,9 @@ class Rsvp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.disable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2268,15 +2055,9 @@ class Rsvp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.drop is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2296,21 +2077,12 @@ class Rsvp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.acl is not None:
                     return True
 
                 if self.default_deny_action is not None and self.default_deny_action._has_data():
                     return True
 
-                if self.default_deny_action is not None and self.default_deny_action.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2330,24 +2102,13 @@ class Rsvp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.checksum is not None and self.checksum._has_data():
-                return True
-
-            if self.checksum is not None and self.checksum.is_presence():
                 return True
 
             if self.global_out_of_band is not None and self.global_out_of_band._has_data():
                 return True
 
-            if self.global_out_of_band is not None and self.global_out_of_band.is_presence():
-                return True
-
             if self.graceful_restart is not None and self.graceful_restart._has_data():
-                return True
-
-            if self.graceful_restart is not None and self.graceful_restart.is_presence():
                 return True
 
             if self.hello_graceful_restart_interval is not None:
@@ -2359,19 +2120,9 @@ class Rsvp(object):
             if self.pesr is not None and self.pesr._has_data():
                 return True
 
-            if self.pesr is not None and self.pesr.is_presence():
-                return True
-
             if self.prefix_filtering is not None and self.prefix_filtering._has_data():
                 return True
 
-            if self.prefix_filtering is not None and self.prefix_filtering.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2391,54 +2142,27 @@ class Rsvp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.authentication is not None and self.authentication._has_data():
-            return True
-
-        if self.authentication is not None and self.authentication.is_presence():
             return True
 
         if self.controllers is not None and self.controllers._has_data():
             return True
 
-        if self.controllers is not None and self.controllers.is_presence():
-            return True
-
         if self.global_bandwidth is not None and self.global_bandwidth._has_data():
-            return True
-
-        if self.global_bandwidth is not None and self.global_bandwidth.is_presence():
             return True
 
         if self.global_logging is not None and self.global_logging._has_data():
             return True
 
-        if self.global_logging is not None and self.global_logging.is_presence():
-            return True
-
         if self.interfaces is not None and self.interfaces._has_data():
-            return True
-
-        if self.interfaces is not None and self.interfaces.is_presence():
             return True
 
         if self.neighbors is not None and self.neighbors._has_data():
             return True
 
-        if self.neighbors is not None and self.neighbors.is_presence():
-            return True
-
         if self.signalling is not None and self.signalling._has_data():
             return True
 
-        if self.signalling is not None and self.signalling.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

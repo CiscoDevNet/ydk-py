@@ -24,69 +24,64 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class CdpDuplex_Enum(Enum):
+class CdpDuplexEnum(Enum):
     """
-    CdpDuplex_Enum
+    CdpDuplexEnum
 
     Cdp duplex
 
-    """
+    .. data:: CDP_DPLX_NONE = 0
+
+    	cdp dplx none
+
+    .. data:: CDP_DPLX_HALF = 1
+
+    	cdp dplx half
+
+    .. data:: CDP_DPLX_FULL = 2
+
+    	cdp dplx full
 
     """
 
-    cdp dplx none
-
-    """
     CDP_DPLX_NONE = 0
 
-    """
-
-    cdp dplx half
-
-    """
     CDP_DPLX_HALF = 1
 
-    """
-
-    cdp dplx full
-
-    """
     CDP_DPLX_FULL = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.cdp._meta import _Cisco_IOS_XR_cdp_oper as meta
-        return meta._meta_table['CdpDuplex_Enum']
+        return meta._meta_table['CdpDuplexEnum']
 
 
-class CdpL3AddrProtocol_Enum(Enum):
+class CdpL3AddrProtocolEnum(Enum):
     """
-    CdpL3AddrProtocol_Enum
+    CdpL3AddrProtocolEnum
 
     Cdp l3 addr protocol
 
-    """
+    .. data:: IPV4 = 0
+
+    	IPv4
+
+    .. data:: IPV6 = 1
+
+    	IPv6
 
     """
 
-    IPv4
-
-    """
     IPV4 = 0
 
-    """
-
-    IPv6
-
-    """
     IPV6 = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.cdp._meta import _Cisco_IOS_XR_cdp_oper as meta
-        return meta._meta_table['CdpL3AddrProtocol_Enum']
+        return meta._meta_table['CdpL3AddrProtocolEnum']
 
 
 
@@ -271,8 +266,6 @@ class Cdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
@@ -288,10 +281,6 @@ class Cdp(object):
                         if self.interface_name_xr is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -313,17 +302,11 @@ class Cdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -506,7 +489,7 @@ class Cdp(object):
                                 .. attribute:: duplex
                                 
                                 	Duplex setting
-                                	**type**\: :py:class:`CdpDuplex_Enum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpDuplex_Enum>`
+                                	**type**\: :py:class:`CdpDuplexEnum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpDuplexEnum>`
                                 
                                 .. attribute:: native_vlan
                                 
@@ -612,7 +595,7 @@ class Cdp(object):
                                             .. attribute:: address_type
                                             
                                             	AddressType
-                                            	**type**\: :py:class:`CdpL3AddrProtocol_Enum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpL3AddrProtocol_Enum>`
+                                            	**type**\: :py:class:`CdpL3AddrProtocolEnum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpL3AddrProtocolEnum>`
                                             
                                             .. attribute:: ipv4_address
                                             
@@ -655,8 +638,6 @@ class Cdp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.address_type is not None:
                                                     return True
 
@@ -666,10 +647,6 @@ class Cdp(object):
                                                 if self.ipv6_address is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -691,18 +668,9 @@ class Cdp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.address is not None and self.address._has_data():
                                                 return True
 
-                                            if self.address is not None and self.address.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -724,17 +692,11 @@ class Cdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.cdp_addr_entry is not None:
                                             for child_ref in self.cdp_addr_entry:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -802,15 +764,9 @@ class Cdp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.hello_message is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -832,17 +788,11 @@ class Cdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.cdp_prot_hello_entry is not None:
                                             for child_ref in self.cdp_prot_hello_entry:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -864,8 +814,6 @@ class Cdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.duplex is not None:
                                         return True
 
@@ -875,13 +823,7 @@ class Cdp(object):
                                     if self.network_addresses is not None and self.network_addresses._has_data():
                                         return True
 
-                                    if self.network_addresses is not None and self.network_addresses.is_presence():
-                                        return True
-
                                     if self.protocol_hello_list is not None and self.protocol_hello_list._has_data():
-                                        return True
-
-                                    if self.protocol_hello_list is not None and self.protocol_hello_list.is_presence():
                                         return True
 
                                     if self.system_name is not None:
@@ -893,10 +835,6 @@ class Cdp(object):
                                     if self.vtp_domain is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -918,15 +856,10 @@ class Cdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.capabilities is not None:
                                     return True
 
                                 if self.detail is not None and self.detail._has_data():
-                                    return True
-
-                                if self.detail is not None and self.detail.is_presence():
                                     return True
 
                                 if self.device_id is not None:
@@ -949,10 +882,6 @@ class Cdp(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cdp._meta import _Cisco_IOS_XR_cdp_oper as meta
@@ -972,8 +901,6 @@ class Cdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.cdp_neighbor is not None:
                                 for child_ref in self.cdp_neighbor:
                                     if child_ref._has_data():
@@ -985,10 +912,6 @@ class Cdp(object):
                             if self.interface_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1010,17 +933,11 @@ class Cdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.detail is not None:
                             for child_ref in self.detail:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1159,7 +1076,7 @@ class Cdp(object):
                                 .. attribute:: duplex
                                 
                                 	Duplex setting
-                                	**type**\: :py:class:`CdpDuplex_Enum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpDuplex_Enum>`
+                                	**type**\: :py:class:`CdpDuplexEnum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpDuplexEnum>`
                                 
                                 .. attribute:: native_vlan
                                 
@@ -1265,7 +1182,7 @@ class Cdp(object):
                                             .. attribute:: address_type
                                             
                                             	AddressType
-                                            	**type**\: :py:class:`CdpL3AddrProtocol_Enum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpL3AddrProtocol_Enum>`
+                                            	**type**\: :py:class:`CdpL3AddrProtocolEnum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpL3AddrProtocolEnum>`
                                             
                                             .. attribute:: ipv4_address
                                             
@@ -1308,8 +1225,6 @@ class Cdp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.address_type is not None:
                                                     return True
 
@@ -1319,10 +1234,6 @@ class Cdp(object):
                                                 if self.ipv6_address is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1344,18 +1255,9 @@ class Cdp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.address is not None and self.address._has_data():
                                                 return True
 
-                                            if self.address is not None and self.address.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -1377,17 +1279,11 @@ class Cdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.cdp_addr_entry is not None:
                                             for child_ref in self.cdp_addr_entry:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1455,15 +1351,9 @@ class Cdp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.hello_message is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -1485,17 +1375,11 @@ class Cdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.cdp_prot_hello_entry is not None:
                                             for child_ref in self.cdp_prot_hello_entry:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1517,8 +1401,6 @@ class Cdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.duplex is not None:
                                         return True
 
@@ -1528,13 +1410,7 @@ class Cdp(object):
                                     if self.network_addresses is not None and self.network_addresses._has_data():
                                         return True
 
-                                    if self.network_addresses is not None and self.network_addresses.is_presence():
-                                        return True
-
                                     if self.protocol_hello_list is not None and self.protocol_hello_list._has_data():
-                                        return True
-
-                                    if self.protocol_hello_list is not None and self.protocol_hello_list.is_presence():
                                         return True
 
                                     if self.system_name is not None:
@@ -1546,10 +1422,6 @@ class Cdp(object):
                                     if self.vtp_domain is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1571,15 +1443,10 @@ class Cdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.capabilities is not None:
                                     return True
 
                                 if self.detail is not None and self.detail._has_data():
-                                    return True
-
-                                if self.detail is not None and self.detail.is_presence():
                                     return True
 
                                 if self.device_id is not None:
@@ -1600,10 +1467,6 @@ class Cdp(object):
                                 if self.receiving_interface_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1627,8 +1490,6 @@ class Cdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.device_id is not None:
                                 return True
 
@@ -1637,10 +1498,6 @@ class Cdp(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1662,17 +1519,11 @@ class Cdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.device is not None:
                             for child_ref in self.device:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1818,7 +1669,7 @@ class Cdp(object):
                                 .. attribute:: duplex
                                 
                                 	Duplex setting
-                                	**type**\: :py:class:`CdpDuplex_Enum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpDuplex_Enum>`
+                                	**type**\: :py:class:`CdpDuplexEnum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpDuplexEnum>`
                                 
                                 .. attribute:: native_vlan
                                 
@@ -1924,7 +1775,7 @@ class Cdp(object):
                                             .. attribute:: address_type
                                             
                                             	AddressType
-                                            	**type**\: :py:class:`CdpL3AddrProtocol_Enum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpL3AddrProtocol_Enum>`
+                                            	**type**\: :py:class:`CdpL3AddrProtocolEnum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpL3AddrProtocolEnum>`
                                             
                                             .. attribute:: ipv4_address
                                             
@@ -1967,8 +1818,6 @@ class Cdp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.address_type is not None:
                                                     return True
 
@@ -1978,10 +1827,6 @@ class Cdp(object):
                                                 if self.ipv6_address is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -2003,18 +1848,9 @@ class Cdp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.address is not None and self.address._has_data():
                                                 return True
 
-                                            if self.address is not None and self.address.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -2036,17 +1872,11 @@ class Cdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.cdp_addr_entry is not None:
                                             for child_ref in self.cdp_addr_entry:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2114,15 +1944,9 @@ class Cdp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.hello_message is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -2144,17 +1968,11 @@ class Cdp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.cdp_prot_hello_entry is not None:
                                             for child_ref in self.cdp_prot_hello_entry:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2176,8 +1994,6 @@ class Cdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.duplex is not None:
                                         return True
 
@@ -2187,13 +2003,7 @@ class Cdp(object):
                                     if self.network_addresses is not None and self.network_addresses._has_data():
                                         return True
 
-                                    if self.network_addresses is not None and self.network_addresses.is_presence():
-                                        return True
-
                                     if self.protocol_hello_list is not None and self.protocol_hello_list._has_data():
-                                        return True
-
-                                    if self.protocol_hello_list is not None and self.protocol_hello_list.is_presence():
                                         return True
 
                                     if self.system_name is not None:
@@ -2205,10 +2015,6 @@ class Cdp(object):
                                     if self.vtp_domain is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2230,15 +2036,10 @@ class Cdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.capabilities is not None:
                                     return True
 
                                 if self.detail is not None and self.detail._has_data():
-                                    return True
-
-                                if self.detail is not None and self.detail.is_presence():
                                     return True
 
                                 if self.device_id is not None:
@@ -2261,10 +2062,6 @@ class Cdp(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cdp._meta import _Cisco_IOS_XR_cdp_oper as meta
@@ -2284,8 +2081,6 @@ class Cdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.cdp_neighbor is not None:
                                 for child_ref in self.cdp_neighbor:
                                     if child_ref._has_data():
@@ -2297,10 +2092,6 @@ class Cdp(object):
                             if self.interface_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2322,17 +2113,11 @@ class Cdp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.summary is not None:
                             for child_ref in self.summary:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2354,30 +2139,15 @@ class Cdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.details is not None and self.details._has_data():
-                        return True
-
-                    if self.details is not None and self.details.is_presence():
                         return True
 
                     if self.devices is not None and self.devices._has_data():
                         return True
 
-                    if self.devices is not None and self.devices.is_presence():
-                        return True
-
                     if self.summaries is not None and self.summaries._has_data():
                         return True
 
-                    if self.summaries is not None and self.summaries.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2526,8 +2296,6 @@ class Cdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bad_packet_errors is not None:
                         return True
 
@@ -2572,10 +2340,6 @@ class Cdp(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cdp._meta import _Cisco_IOS_XR_cdp_oper as meta
@@ -2595,33 +2359,18 @@ class Cdp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
-                if self.interfaces is not None and self.interfaces.is_presence():
-                    return True
-
                 if self.neighbors is not None and self.neighbors._has_data():
-                    return True
-
-                if self.neighbors is not None and self.neighbors.is_presence():
                     return True
 
                 if self.statistics is not None and self.statistics._has_data():
                     return True
 
-                if self.statistics is not None and self.statistics.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2641,17 +2390,11 @@ class Cdp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2671,18 +2414,9 @@ class Cdp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

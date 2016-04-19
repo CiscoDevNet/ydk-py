@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'ImCmdIntfTypeEnum_Enum' : _MetaInfoEnum('ImCmdIntfTypeEnum_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'ImCmdIntfTypeEnumEnum' : _MetaInfoEnum('ImCmdIntfTypeEnumEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'srp':'SRP',
             'tunnel':'TUNNEL',
@@ -26,12 +26,12 @@ _meta_table = {
             'cem':'CEM',
             'gcc':'GCC',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'ImCmdStatsEnum_Enum' : _MetaInfoEnum('ImCmdStatsEnum_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'ImCmdStatsEnumEnum' : _MetaInfoEnum('ImCmdStatsEnumEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'full':'FULL',
             'basic':'BASIC',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'SrpMgmtFailureStateEt_Enum' : _MetaInfoEnum('SrpMgmtFailureStateEt_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'SrpMgmtFailureStateEtEnum' : _MetaInfoEnum('SrpMgmtFailureStateEtEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'idle-failure-state':'IDLE_FAILURE_STATE',
             'wait-to-restore-failure-state':'WAIT_TO_RESTORE_FAILURE_STATE',
@@ -43,20 +43,20 @@ _meta_table = {
             'invalid-failure-state':'INVALID_FAILURE_STATE',
             'unknown-failure-state':'UNKNOWN_FAILURE_STATE',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'GccDerState_Enum' : _MetaInfoEnum('GccDerState_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'GccDerStateEnum' : _MetaInfoEnum('GccDerStateEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'in-service':'IN_SERVICE',
             'out-of-service':'OUT_OF_SERVICE',
             'maintainance':'MAINTAINANCE',
             'ais':'AIS',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'EfpTagEtype_Enum' : _MetaInfoEnum('EfpTagEtype_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'EfpTagEtypeEnum' : _MetaInfoEnum('EfpTagEtypeEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'untagged':'UNTAGGED',
             'dot1q':'DOT1Q',
             'dot1ad':'DOT1AD',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'TunnelGreMode_Enum' : _MetaInfoEnum('TunnelGreMode_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'TunnelGreModeEnum' : _MetaInfoEnum('TunnelGreModeEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'unknown':'UNKNOWN',
             'gr-eo-ipv4':'GR_EO_IPV4',
@@ -66,20 +66,20 @@ _meta_table = {
             'ipv4':'IPV4',
             'ipv6':'IPV6',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'GccSecState_Enum' : _MetaInfoEnum('GccSecState_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'GccSecStateEnum' : _MetaInfoEnum('GccSecStateEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'normal':'NORMAL',
             'maintainance':'MAINTAINANCE',
             'ais':'AIS',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'SrpMgmtIpsWrapState_Enum' : _MetaInfoEnum('SrpMgmtIpsWrapState_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'SrpMgmtIpsWrapStateEnum' : _MetaInfoEnum('SrpMgmtIpsWrapStateEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'idle-wrap-state':'IDLE_WRAP_STATE',
             'wrapped-state':'WRAPPED_STATE',
             'locked-out-wrap-state':'LOCKED_OUT_WRAP_STATE',
             'unknown-wrap-state':'UNKNOWN_WRAP_STATE',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'StatsCounter_Enum' : _MetaInfoEnum('StatsCounter_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'StatsCounterEnum' : _MetaInfoEnum('StatsCounterEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'stats-counter-rate':'STATS_COUNTER_RATE',
             'stats-counter-uint32':'STATS_COUNTER_UINT32',
@@ -101,7 +101,7 @@ _meta_table = {
             'stats-counter-flow':'STATS_COUNTER_FLOW',
             'stats-counter-comp-flow':'STATS_COUNTER_COMP_FLOW',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'SonetApsEt_Enum' : _MetaInfoEnum('SonetApsEt_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'SonetApsEtEnum' : _MetaInfoEnum('SonetApsEtEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'not-configured':'NOT_CONFIGURED',
             'working-active':'WORKING_ACTIVE',
@@ -109,19 +109,19 @@ _meta_table = {
             'working-inactive':'WORKING_INACTIVE',
             'protect-inactive':'PROTECT_INACTIVE',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'ImAttrDuplex_Enum' : _MetaInfoEnum('ImAttrDuplex_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'ImAttrDuplexEnum' : _MetaInfoEnum('ImAttrDuplexEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'im-attr-duplex-unknown':'IM_ATTR_DUPLEX_UNKNOWN',
             'im-attr-duplex-half':'IM_ATTR_DUPLEX_HALF',
             'im-attr-duplex-full':'IM_ATTR_DUPLEX_FULL',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'SrpMgmtIpsPathInd_Enum' : _MetaInfoEnum('SrpMgmtIpsPathInd_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'SrpMgmtIpsPathIndEnum' : _MetaInfoEnum('SrpMgmtIpsPathIndEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'short-path':'SHORT_PATH',
             'long-path':'LONG_PATH',
             'unknown-path':'UNKNOWN_PATH',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'PppFsmState_Enum' : _MetaInfoEnum('PppFsmState_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'PppFsmStateEnum' : _MetaInfoEnum('PppFsmStateEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'ppp-fsm-state-initial-0':'PPP_FSM_STATE_INITIAL_0',
             'ppp-fsm-state-starting-1':'PPP_FSM_STATE_STARTING_1',
@@ -134,7 +134,7 @@ _meta_table = {
             'ppp-fsm-state-ack-sent-8':'PPP_FSM_STATE_ACK_SENT_8',
             'ppp-fsm-state-opened-9':'PPP_FSM_STATE_OPENED_9',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'EfpTagPriority_Enum' : _MetaInfoEnum('EfpTagPriority_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'EfpTagPriorityEnum' : _MetaInfoEnum('EfpTagPriorityEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'priority0':'PRIORITY0',
             'priority1':'PRIORITY1',
@@ -146,26 +146,26 @@ _meta_table = {
             'priority7':'PRIORITY7',
             'priority-any':'PRIORITY_ANY',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'ImCmdLoopbackEnum_Enum' : _MetaInfoEnum('ImCmdLoopbackEnum_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'ImCmdLoopbackEnumEnum' : _MetaInfoEnum('ImCmdLoopbackEnumEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'no-loopback':'NO_LOOPBACK',
             'internal-loopback':'INTERNAL_LOOPBACK',
             'external-loopback':'EXTERNAL_LOOPBACK',
             'line-loopback':'LINE_LOOPBACK',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'ImCmdFrTypeEnum_Enum' : _MetaInfoEnum('ImCmdFrTypeEnum_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'ImCmdFrTypeEnumEnum' : _MetaInfoEnum('ImCmdFrTypeEnumEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'frame-relay-cisco':'FRAME_RELAY_CISCO',
             'frame-relay-ietf':'FRAME_RELAY_IETF',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'ImCmdLmiTypeEnum_Enum' : _MetaInfoEnum('ImCmdLmiTypeEnum_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'ImCmdLmiTypeEnumEnum' : _MetaInfoEnum('ImCmdLmiTypeEnumEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'lmi-type-auto':'LMI_TYPE_AUTO',
             'lmi-type-ansi':'LMI_TYPE_ANSI',
             'lmi-type-ccitt':'LMI_TYPE_CCITT',
             'lmi-type-cisco':'LMI_TYPE_CISCO',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'SrpMgmtSrrFailure_Enum' : _MetaInfoEnum('SrpMgmtSrrFailure_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'SrpMgmtSrrFailureEnum' : _MetaInfoEnum('SrpMgmtSrrFailureEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'idle-srr-failure':'IDLE_SRR_FAILURE',
             'wait-to-restore-srr-failure':'WAIT_TO_RESTORE_SRR_FAILURE',
@@ -173,7 +173,7 @@ _meta_table = {
             'forced-switch-srr-failure':'FORCED_SWITCH_SRR_FAILURE',
             'unknown-srr-failure':'UNKNOWN_SRR_FAILURE',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'ImStateEnum_Enum' : _MetaInfoEnum('ImStateEnum_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'ImStateEnumEnum' : _MetaInfoEnum('ImStateEnumEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'im-state-not-ready':'IM_STATE_NOT_READY',
             'im-state-admin-down':'IM_STATE_ADMIN_DOWN',
@@ -195,18 +195,18 @@ _meta_table = {
             'im-state-unknown':'IM_STATE_UNKNOWN',
             'im-state-last':'IM_STATE_LAST',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'StatsTypeContents_Enum' : _MetaInfoEnum('StatsTypeContents_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'StatsTypeContentsEnum' : _MetaInfoEnum('StatsTypeContentsEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'stats-type-single':'STATS_TYPE_SINGLE',
             'stats-type-variable':'STATS_TYPE_VARIABLE',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'ImAttrFlowControl_Enum' : _MetaInfoEnum('ImAttrFlowControl_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'ImAttrFlowControlEnum' : _MetaInfoEnum('ImAttrFlowControlEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'im-attr-flow-control-off':'IM_ATTR_FLOW_CONTROL_OFF',
             'im-attr-flow-control-on':'IM_ATTR_FLOW_CONTROL_ON',
             'im-attr-flow-control-not-sup':'IM_ATTR_FLOW_CONTROL_NOT_SUP',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'StatsId_Enum' : _MetaInfoEnum('StatsId_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'StatsIdEnum' : _MetaInfoEnum('StatsIdEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'stats-id-type-unknown':'STATS_ID_TYPE_UNKNOWN',
             'stats-id-type-min':'STATS_ID_TYPE_MIN',
@@ -216,29 +216,29 @@ _meta_table = {
             'stats-id-type-feature':'STATS_ID_TYPE_FEATURE',
             'stats-id-type-max':'STATS_ID_TYPE_MAX',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'TunlPfiAfId_Enum' : _MetaInfoEnum('TunlPfiAfId_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'TunlPfiAfIdEnum' : _MetaInfoEnum('TunlPfiAfIdEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'tunl-pfi-af-id-none':'TUNL_PFI_AF_ID_NONE',
             'tunl-pfi-af-id-ipv4':'TUNL_PFI_AF_ID_IPV4',
             'tunl-pfi-af-id-ipv6':'TUNL_PFI_AF_ID_IPV6',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'TunnelKaDfState_Enum' : _MetaInfoEnum('TunnelKaDfState_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'TunnelKaDfStateEnum' : _MetaInfoEnum('TunnelKaDfStateEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'disable':'DISABLE',
             'enable':'ENABLE',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'BmdMemberTypeEnum_Enum' : _MetaInfoEnum('BmdMemberTypeEnum_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'BmdMemberTypeEnumEnum' : _MetaInfoEnum('BmdMemberTypeEnumEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'bmd-mbr-local':'BMD_MBR_LOCAL',
             'bmd-mbr-foreign':'BMD_MBR_FOREIGN',
             'bmd-mbr-unknown':'BMD_MBR_UNKNOWN',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'TunnelKeyState_Enum' : _MetaInfoEnum('TunnelKeyState_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'TunnelKeyStateEnum' : _MetaInfoEnum('TunnelKeyStateEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'absent':'ABSENT',
             'present':'PRESENT',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'BmMbrStateReason_Enum' : _MetaInfoEnum('BmMbrStateReason_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'BmMbrStateReasonEnum' : _MetaInfoEnum('BmMbrStateReasonEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'bm-mbr-state-reason-unknown':'BM_MBR_STATE_REASON_UNKNOWN',
             'bm-mbr-state-reason-unselectable-unknown':'BM_MBR_STATE_REASON_UNSELECTABLE_UNKNOWN',
@@ -312,7 +312,7 @@ _meta_table = {
             'bm-mbr-state-reason-singleton-pe-isolated':'BM_MBR_STATE_REASON_SINGLETON_PE_ISOLATED',
             'bm-mbr-state-reason-count':'BM_MBR_STATE_REASON_COUNT',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'BmSeverity_Enum' : _MetaInfoEnum('BmSeverity_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'BmSeverityEnum' : _MetaInfoEnum('BmSeverityEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'ok':'OK',
             'information':'INFORMATION',
@@ -320,7 +320,7 @@ _meta_table = {
             'warning':'WARNING',
             'error':'ERROR',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'SrpMgmtIpsReq_Enum' : _MetaInfoEnum('SrpMgmtIpsReq_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'SrpMgmtIpsReqEnum' : _MetaInfoEnum('SrpMgmtIpsReqEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'idle-ips-request':'IDLE_IPS_REQUEST',
             'wait-to-restore-ips-request':'WAIT_TO_RESTORE_IPS_REQUEST',
@@ -330,7 +330,7 @@ _meta_table = {
             'forced-switch-ips-request':'FORCED_SWITCH_IPS_REQUEST',
             'unknown-ips-request':'UNKNOWN_IPS_REQUEST',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'SrpMgmtFailureEt_Enum' : _MetaInfoEnum('SrpMgmtFailureEt_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'SrpMgmtFailureEtEnum' : _MetaInfoEnum('SrpMgmtFailureEtEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'hardware-missing-failure':'HARDWARE_MISSING_FAILURE',
             'layer1-admin-state-failure':'LAYER1_ADMIN_STATE_FAILURE',
@@ -341,7 +341,7 @@ _meta_table = {
             'side-mismatch-failure':'SIDE_MISMATCH_FAILURE',
             'unknown-failure':'UNKNOWN_FAILURE',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'ImAttrTransportMode_Enum' : _MetaInfoEnum('ImAttrTransportMode_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'ImAttrTransportModeEnum' : _MetaInfoEnum('ImAttrTransportModeEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'im-attr-transport-mode-unknown':'IM_ATTR_TRANSPORT_MODE_UNKNOWN',
             'im-attr-transport-mode-lan':'IM_ATTR_TRANSPORT_MODE_LAN',
@@ -351,13 +351,13 @@ _meta_table = {
             'im-attr-transport-mode-otn-opu3':'IM_ATTR_TRANSPORT_MODE_OTN_OPU3',
             'im-attr-transport-mode-otn-opu4':'IM_ATTR_TRANSPORT_MODE_OTN_OPU4',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'ImCmdEncapsEnum_Enum' : _MetaInfoEnum('ImCmdEncapsEnum_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'ImCmdEncapsEnumEnum' : _MetaInfoEnum('ImCmdEncapsEnumEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'frame-relay':'FRAME_RELAY',
             'vlan':'VLAN',
             'ppp':'PPP',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'BmMuxstate_Enum' : _MetaInfoEnum('BmMuxstate_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'BmMuxstateEnum' : _MetaInfoEnum('BmMuxstateEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'detached':'DETACHED',
             'waiting':'WAITING',
@@ -366,7 +366,7 @@ _meta_table = {
             'distributing':'DISTRIBUTING',
             'collecting-distributing':'COLLECTING_DISTRIBUTING',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'NcpIdent_Enum' : _MetaInfoEnum('NcpIdent_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'NcpIdentEnum' : _MetaInfoEnum('NcpIdentEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'cdpcp':'CDPCP',
             'ipcp':'IPCP',
@@ -375,7 +375,7 @@ _meta_table = {
             'mplscp':'MPLSCP',
             'osicp':'OSICP',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'BmdMemberState_Enum' : _MetaInfoEnum('BmdMemberState_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'BmdMemberStateEnum' : _MetaInfoEnum('BmdMemberStateEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'bmd-mbr-state-configured':'BMD_MBR_STATE_CONFIGURED',
             'bmd-mbr-state-standby':'BMD_MBR_STATE_STANDBY',
@@ -384,7 +384,7 @@ _meta_table = {
             'bmd-mbr-state-bfd-running':'BMD_MBR_STATE_BFD_RUNNING',
             'bmd-mbr-state-active':'BMD_MBR_STATE_ACTIVE',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'BmMuxreason_Enum' : _MetaInfoEnum('BmMuxreason_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'BmMuxreasonEnum' : _MetaInfoEnum('BmMuxreasonEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'bm-mux-reason-no-reason':'BM_MUX_REASON_NO_REASON',
             'bm-mux-reason-link-down':'BM_MUX_REASON_LINK_DOWN',
@@ -407,12 +407,12 @@ _meta_table = {
             'bm-mux-reason-distributing':'BM_MUX_REASON_DISTRIBUTING',
             'bm-mux-reason-count':'BM_MUX_REASON_COUNT',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'ImAttrLink_Enum' : _MetaInfoEnum('ImAttrLink_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'ImAttrLinkEnum' : _MetaInfoEnum('ImAttrLinkEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'im-attr-link-type-auto':'IM_ATTR_LINK_TYPE_AUTO',
             'im-attr-link-type-force':'IM_ATTR_LINK_TYPE_FORCE',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'VlanEncaps_Enum' : _MetaInfoEnum('VlanEncaps_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'VlanEncapsEnum' : _MetaInfoEnum('VlanEncapsEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'no-encapsulation':'NO_ENCAPSULATION',
             'dot1q':'DOT1Q',
@@ -425,22 +425,22 @@ _meta_table = {
             'dot1ad-dot1q':'DOT1AD_DOT1Q',
             'dot1ad-any':'DOT1AD_ANY',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'EfpPayloadEtype_Enum' : _MetaInfoEnum('EfpPayloadEtype_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'EfpPayloadEtypeEnum' : _MetaInfoEnum('EfpPayloadEtypeEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'payload-ethertype-any':'PAYLOAD_ETHERTYPE_ANY',
             'payload-ethertype-ip':'PAYLOAD_ETHERTYPE_IP',
             'payload-ethertype-pppoe':'PAYLOAD_ETHERTYPE_PPPOE',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'InterfaceTypeSet_Enum' : _MetaInfoEnum('InterfaceTypeSet_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'InterfaceTypeSetEnum' : _MetaInfoEnum('InterfaceTypeSetEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'hardware-interfaces':'HARDWARE_INTERFACES',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'BmStateReasonTarget_Enum' : _MetaInfoEnum('BmStateReasonTarget_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'BmStateReasonTargetEnum' : _MetaInfoEnum('BmStateReasonTargetEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'member-reason':'MEMBER_REASON',
             'bundle-reason':'BUNDLE_REASON',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'ImAttrMedia_Enum' : _MetaInfoEnum('ImAttrMedia_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'ImAttrMediaEnum' : _MetaInfoEnum('ImAttrMediaEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'im-attr-media-other':'IM_ATTR_MEDIA_OTHER',
             'im-attr-media-unknown':'IM_ATTR_MEDIA_UNKNOWN',
@@ -768,7 +768,7 @@ _meta_table = {
             'im-attr-media-100gbase-sr4':'IM_ATTR_MEDIA_100GBASE_SR4',
             'im-attr-media-40gbase-sr-bd':'IM_ATTR_MEDIA_40GBASE_SR_BD',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
-    'SrpMgmtSrrNodeState_Enum' : _MetaInfoEnum('SrpMgmtSrrNodeState_Enum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
+    'SrpMgmtSrrNodeStateEnum' : _MetaInfoEnum('SrpMgmtSrrNodeStateEnum', 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
             'idle-srr-state':'IDLE_SRR_STATE',
             'discovery-srr-state':'DISCOVERY_SRR_STATE',
@@ -784,14 +784,14 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', True),
-            _MetaInfoClassMember('actual-line-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('actual-line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Line protocol state with no translation of error
                 disable or shutdown
                 ''',
                 'actual_line_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('actual-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('actual-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Operational state with no translation of error
                 disable or shutdown
@@ -828,7 +828,7 @@ _meta_table = {
                 ''',
                 'l2_transport',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Line protocol state
                 ''',
@@ -846,7 +846,7 @@ _meta_table = {
                 ''',
                 'parent_interface',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Operational state
                 ''',
@@ -1230,8 +1230,8 @@ _meta_table = {
         'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper'
         ),
     },
-    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack' : {
-        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack',
+    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack' : {
+        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack',
             False, 
             [
             _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
@@ -1253,11 +1253,11 @@ _meta_table = {
         'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper'
         ),
     },
-    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag' : {
-        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag',
+    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag' : {
+        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag',
             False, 
             [
-            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtype_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpTagEtype_Enum', 
+            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtypeEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpTagEtypeEnum', 
                 [], [], 
                 '''                Ethertype of tag
                 ''',
@@ -1276,11 +1276,11 @@ _meta_table = {
         'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper'
         ),
     },
-    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack' : {
-        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack',
+    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack' : {
+        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack',
             False, 
             [
-            _MetaInfoClassMember('local-traffic-tag', REFERENCE_LIST, 'LocalTrafficTag' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag', 
+            _MetaInfoClassMember('local-traffic-tag', REFERENCE_LIST, 'LocalTrafficTag' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag', 
                 [], [], 
                 '''                VLAN tags for locally-sourced traffic
                 ''',
@@ -1293,11 +1293,11 @@ _meta_table = {
         'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper'
         ),
     },
-    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe' : {
-        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe',
+    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe' : {
+        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe',
             False, 
             [
-            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtype_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpTagEtype_Enum', 
+            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtypeEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpTagEtypeEnum', 
                 [], [], 
                 '''                Ethertype of tag
                 ''',
@@ -1316,8 +1316,8 @@ _meta_table = {
         'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper'
         ),
     },
-    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange' : {
-        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange',
+    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange' : {
+        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange',
             False, 
             [
             _MetaInfoClassMember('vlan-id-high', ATTRIBUTE, 'int' , None, None, 
@@ -1339,23 +1339,23 @@ _meta_table = {
         'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper'
         ),
     },
-    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch' : {
-        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch',
+    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch' : {
+        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch',
             False, 
             [
-            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtype_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpTagEtype_Enum', 
+            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtypeEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpTagEtypeEnum', 
                 [], [], 
                 '''                Ethertype of tag to match
                 ''',
                 'ethertype',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'EfpTagPriority_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpTagPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'EfpTagPriorityEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpTagPriorityEnum', 
                 [], [], 
                 '''                Priority to match
                 ''',
                 'priority',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('vlan-range', REFERENCE_LIST, 'VlanRange' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange', 
+            _MetaInfoClassMember('vlan-range', REFERENCE_LIST, 'VlanRange' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange', 
                 [], [], 
                 '''                VLAN Ids to match
                 ''',
@@ -1368,8 +1368,8 @@ _meta_table = {
         'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper'
         ),
     },
-    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails' : {
-        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails',
+    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails' : {
+        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails',
             False, 
             [
             _MetaInfoClassMember('destination-mac-match', ATTRIBUTE, 'str' , None, None, 
@@ -1399,19 +1399,19 @@ _meta_table = {
                 ''',
                 'is_native_vlan',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('local-traffic-stack', REFERENCE_CLASS, 'LocalTrafficStack' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack', 
+            _MetaInfoClassMember('local-traffic-stack', REFERENCE_CLASS, 'LocalTrafficStack' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack', 
                 [], [], 
                 '''                VLAN tags for locally-sourced traffic
                 ''',
                 'local_traffic_stack',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('payload-ethertype', REFERENCE_ENUM_CLASS, 'EfpPayloadEtype_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpPayloadEtype_Enum', 
+            _MetaInfoClassMember('payload-ethertype', REFERENCE_ENUM_CLASS, 'EfpPayloadEtypeEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpPayloadEtypeEnum', 
                 [], [], 
                 '''                Payload Ethertype to match
                 ''',
                 'payload_ethertype',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('pushe', REFERENCE_LIST, 'Pushe' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe', 
+            _MetaInfoClassMember('pushe', REFERENCE_LIST, 'Pushe' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe', 
                 [], [], 
                 '''                VLAN tags pushed on egress
                 ''',
@@ -1429,7 +1429,7 @@ _meta_table = {
                 ''',
                 'tags_popped',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('tags-to-match', REFERENCE_LIST, 'TagsToMatch' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch', 
+            _MetaInfoClassMember('tags-to-match', REFERENCE_LIST, 'TagsToMatch' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch', 
                 [], [], 
                 '''                Tags to match on ingress packets
                 ''',
@@ -1442,8 +1442,8 @@ _meta_table = {
         'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper'
         ),
     },
-    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack' : {
-        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack',
+    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack' : {
+        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack',
             False, 
             [
             _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
@@ -1465,11 +1465,11 @@ _meta_table = {
         'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper'
         ),
     },
-    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails' : {
-        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails',
+    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails' : {
+        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails',
             False, 
             [
-            _MetaInfoClassMember('dot1ad-dot1q-stack', REFERENCE_CLASS, 'Dot1adDot1qStack' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack', 
+            _MetaInfoClassMember('dot1ad-dot1q-stack', REFERENCE_CLASS, 'Dot1AdDot1QStack' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack', 
                 [], [], 
                 '''                802.1ad 802.1Q stack value
                 ''',
@@ -1505,13 +1505,13 @@ _meta_table = {
                 ''',
                 'outer_tag',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('service-instance-details', REFERENCE_CLASS, 'ServiceInstanceDetails' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails', 
+            _MetaInfoClassMember('service-instance-details', REFERENCE_CLASS, 'ServiceInstanceDetails' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails', 
                 [], [], 
                 '''                Service Instance encapsulation
                 ''',
                 'service_instance_details',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('stack', REFERENCE_CLASS, 'Stack' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack', 
+            _MetaInfoClassMember('stack', REFERENCE_CLASS, 'Stack' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack', 
                 [], [], 
                 '''                Stack value
                 ''',
@@ -1523,7 +1523,7 @@ _meta_table = {
                 ''',
                 'tag',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('vlan-encapsulation', REFERENCE_ENUM_CLASS, 'VlanEncaps_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'VlanEncaps_Enum', 
+            _MetaInfoClassMember('vlan-encapsulation', REFERENCE_ENUM_CLASS, 'VlanEncapsEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'VlanEncapsEnum', 
                 [], [], 
                 '''                VLANEncapsulation
                 ''',
@@ -1536,11 +1536,11 @@ _meta_table = {
         'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper'
         ),
     },
-    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation' : {
-        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation',
+    'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation' : {
+        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation',
             False, 
             [
-            _MetaInfoClassMember('encapsulation-details', REFERENCE_CLASS, 'EncapsulationDetails' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails', 
+            _MetaInfoClassMember('encapsulation-details', REFERENCE_CLASS, 'EncapsulationDetails' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails', 
                 [], [], 
                 '''                Encapsulation type and tag stack
                 ''',
@@ -1569,7 +1569,7 @@ _meta_table = {
                 ''',
                 'enquiries_sent',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('fr-encapsulation-type', REFERENCE_ENUM_CLASS, 'ImCmdFrTypeEnum_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdFrTypeEnum_Enum', 
+            _MetaInfoClassMember('fr-encapsulation-type', REFERENCE_ENUM_CLASS, 'ImCmdFrTypeEnumEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdFrTypeEnumEnum', 
                 [], [], 
                 '''                Frame Relay encapsulation type
                 ''',
@@ -1607,7 +1607,7 @@ _meta_table = {
                 ''',
                 'is_nni',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('lmi-type', REFERENCE_ENUM_CLASS, 'ImCmdLmiTypeEnum_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdLmiTypeEnum_Enum', 
+            _MetaInfoClassMember('lmi-type', REFERENCE_ENUM_CLASS, 'ImCmdLmiTypeEnumEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdLmiTypeEnumEnum', 
                 [], [], 
                 '''                The LMI type: Autosense, ANSI, CCITT or CISCO
                 ''',
@@ -1654,13 +1654,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray',
             False, 
             [
-            _MetaInfoClassMember('ncp-identifier', REFERENCE_ENUM_CLASS, 'NcpIdent_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'NcpIdent_Enum', 
+            _MetaInfoClassMember('ncp-identifier', REFERENCE_ENUM_CLASS, 'NcpIdentEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'NcpIdentEnum', 
                 [], [], 
                 '''                NCP state identifier
                 ''',
                 'ncp_identifier',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('ncp-state', REFERENCE_ENUM_CLASS, 'PppFsmState_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'PppFsmState_Enum', 
+            _MetaInfoClassMember('ncp-state', REFERENCE_ENUM_CLASS, 'PppFsmStateEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'PppFsmStateEnum', 
                 [], [], 
                 '''                NCP state value
                 ''',
@@ -1701,7 +1701,7 @@ _meta_table = {
                 ''',
                 'keepalive_period',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('lcp-state', REFERENCE_ENUM_CLASS, 'PppFsmState_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'PppFsmState_Enum', 
+            _MetaInfoClassMember('lcp-state', REFERENCE_ENUM_CLASS, 'PppFsmStateEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'PppFsmStateEnum', 
                 [], [], 
                 '''                LCP State
                 ''',
@@ -1724,13 +1724,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.EncapsulationInformation',
             False, 
             [
-            _MetaInfoClassMember('dot1q-information', REFERENCE_CLASS, 'Dot1qInformation' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation', 
+            _MetaInfoClassMember('dot1q-information', REFERENCE_CLASS, 'Dot1QInformation' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation', 
                 [], [], 
                 '''                VLAN 802.1q information
                 ''',
                 'dot1q_information',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('encapsulation-type', REFERENCE_ENUM_CLASS, 'ImCmdEncapsEnum_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdEncapsEnum_Enum', 
+            _MetaInfoClassMember('encapsulation-type', REFERENCE_ENUM_CLASS, 'ImCmdEncapsEnumEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdEncapsEnumEnum', 
                 [], [], 
                 '''                EncapsulationType
                 ''',
@@ -2109,7 +2109,7 @@ _meta_table = {
                 ''',
                 'full_interface_stats',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('stats-type', REFERENCE_ENUM_CLASS, 'ImCmdStatsEnum_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdStatsEnum_Enum', 
+            _MetaInfoClassMember('stats-type', REFERENCE_ENUM_CLASS, 'ImCmdStatsEnumEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdStatsEnumEnum', 
                 [], [], 
                 '''                StatsType
                 ''',
@@ -2143,13 +2143,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData',
             False, 
             [
-            _MetaInfoClassMember('reason-type', REFERENCE_ENUM_CLASS, 'BmStateReasonTarget_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmStateReasonTarget_Enum', 
+            _MetaInfoClassMember('reason-type', REFERENCE_ENUM_CLASS, 'BmStateReasonTargetEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmStateReasonTargetEnum', 
                 [], [], 
                 '''                The item the reason applies to
                 ''',
                 'reason_type',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'BmSeverity_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'BmSeverityEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmSeverityEnum', 
                 [], [], 
                 '''                The severity of the reason
                 ''',
@@ -2173,7 +2173,7 @@ _meta_table = {
                 ''',
                 'error',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('member-mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMbrStateReason_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmMbrStateReason_Enum', 
+            _MetaInfoClassMember('member-mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMbrStateReasonEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmMbrStateReasonEnum', 
                 [], [], 
                 '''                Reason for last Mux state change
                 ''',
@@ -2186,19 +2186,19 @@ _meta_table = {
                 ''',
                 'member_mux_state_reason_data',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberState_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmdMemberState_Enum', 
+            _MetaInfoClassMember('member-state', REFERENCE_ENUM_CLASS, 'BmdMemberStateEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmdMemberStateEnum', 
                 [], [], 
                 '''                Current internal state of this bundle member
                 ''',
                 'member_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstate_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmMuxstate_Enum', 
+            _MetaInfoClassMember('mux-state', REFERENCE_ENUM_CLASS, 'BmMuxstateEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmMuxstateEnum', 
                 [], [], 
                 '''                Current state of this bundle member
                 ''',
                 'mux_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreason_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmMuxreason_Enum', 
+            _MetaInfoClassMember('mux-state-reason', REFERENCE_ENUM_CLASS, 'BmMuxreasonEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmMuxreasonEnum', 
                 [], [], 
                 '''                Reason for last Mux state change (Deprecated)
                 ''',
@@ -2257,7 +2257,7 @@ _meta_table = {
                 ''',
                 'member_name',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnum_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmdMemberTypeEnum_Enum', 
+            _MetaInfoClassMember('member-type', REFERENCE_ENUM_CLASS, 'BmdMemberTypeEnumEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmdMemberTypeEnumEnum', 
                 [], [], 
                 '''                Member's type (local/foreign)
                 ''',
@@ -2350,13 +2350,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation',
             False, 
             [
-            _MetaInfoClassMember('derived-mode', REFERENCE_ENUM_CLASS, 'GccDerState_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'GccDerState_Enum', 
+            _MetaInfoClassMember('derived-mode', REFERENCE_ENUM_CLASS, 'GccDerStateEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'GccDerStateEnum', 
                 [], [], 
                 '''                Derived State
                 ''',
                 'derived_mode',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('sec-state', REFERENCE_ENUM_CLASS, 'GccSecState_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'GccSecState_Enum', 
+            _MetaInfoClassMember('sec-state', REFERENCE_ENUM_CLASS, 'GccSecStateEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'GccSecStateEnum', 
                 [], [], 
                 '''                Sec State 
                 ''',
@@ -2422,7 +2422,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation',
             False, 
             [
-            _MetaInfoClassMember('aps-state', REFERENCE_ENUM_CLASS, 'SonetApsEt_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SonetApsEt_Enum', 
+            _MetaInfoClassMember('aps-state', REFERENCE_ENUM_CLASS, 'SonetApsEtEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SonetApsEtEnum', 
                 [], [], 
                 '''                APS state
                 ''',
@@ -2439,7 +2439,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA.AssertedFailure',
             False, 
             [
-            _MetaInfoClassMember('current-state', REFERENCE_ENUM_CLASS, 'SrpMgmtFailureStateEt_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEt_Enum', 
+            _MetaInfoClassMember('current-state', REFERENCE_ENUM_CLASS, 'SrpMgmtFailureStateEtEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEtEnum', 
                 [], [], 
                 '''                Current state
                 ''',
@@ -2451,13 +2451,13 @@ _meta_table = {
                 ''',
                 'debounced_delay',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('debounced-state', REFERENCE_ENUM_CLASS, 'SrpMgmtFailureStateEt_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEt_Enum', 
+            _MetaInfoClassMember('debounced-state', REFERENCE_ENUM_CLASS, 'SrpMgmtFailureStateEtEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEtEnum', 
                 [], [], 
                 '''                Debounced state
                 ''',
                 'debounced_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('reported-state', REFERENCE_ENUM_CLASS, 'SrpMgmtFailureStateEt_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEt_Enum', 
+            _MetaInfoClassMember('reported-state', REFERENCE_ENUM_CLASS, 'SrpMgmtFailureStateEtEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEtEnum', 
                 [], [], 
                 '''                Reported state
                 ''',
@@ -2469,7 +2469,7 @@ _meta_table = {
                 ''',
                 'stable_time',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'SrpMgmtFailureEt_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureEt_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'SrpMgmtFailureEtEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureEtEnum', 
                 [], [], 
                 '''                Failure type
                 ''',
@@ -2511,13 +2511,13 @@ _meta_table = {
                 ''',
                 'packet_sent_timer',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('remote-request', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsReq_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReq_Enum', 
+            _MetaInfoClassMember('remote-request', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsReqEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReqEnum', 
                 [], [], 
                 '''                Remote Requests
                 ''',
                 'remote_request',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('rx-message-type', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsReq_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReq_Enum', 
+            _MetaInfoClassMember('rx-message-type', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsReqEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReqEnum', 
                 [], [], 
                 '''                Type of message received
                 ''',
@@ -2535,7 +2535,7 @@ _meta_table = {
                 ''',
                 'rx_packet_test',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('rx-path-type', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsPathInd_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsPathInd_Enum', 
+            _MetaInfoClassMember('rx-path-type', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsPathIndEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsPathIndEnum', 
                 [], [], 
                 '''                Short/long path for received message
                 ''',
@@ -2547,7 +2547,7 @@ _meta_table = {
                 ''',
                 'rx_ttl',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('self-detected-request', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsReq_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReq_Enum', 
+            _MetaInfoClassMember('self-detected-request', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsReqEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReqEnum', 
                 [], [], 
                 '''                Self Detected Requests
                 ''',
@@ -2560,7 +2560,7 @@ _meta_table = {
                 ''',
                 'send_timer_time_remaining',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('tx-message-type', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsReq_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReq_Enum', 
+            _MetaInfoClassMember('tx-message-type', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsReqEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReqEnum', 
                 [], [], 
                 '''                Type of message transmitted
                 ''',
@@ -2578,7 +2578,7 @@ _meta_table = {
                 ''',
                 'tx_packet_test',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('tx-path-type', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsPathInd_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsPathInd_Enum', 
+            _MetaInfoClassMember('tx-path-type', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsPathIndEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsPathIndEnum', 
                 [], [], 
                 '''                Short/long path of transmitted message
                 ''',
@@ -2590,7 +2590,7 @@ _meta_table = {
                 ''',
                 'tx_ttl',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('wrap-state', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsWrapState_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsWrapState_Enum', 
+            _MetaInfoClassMember('wrap-state', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsWrapStateEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsWrapStateEnum', 
                 [], [], 
                 '''                Wrap state
                 ''',
@@ -2613,7 +2613,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB.AssertedFailure',
             False, 
             [
-            _MetaInfoClassMember('current-state', REFERENCE_ENUM_CLASS, 'SrpMgmtFailureStateEt_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEt_Enum', 
+            _MetaInfoClassMember('current-state', REFERENCE_ENUM_CLASS, 'SrpMgmtFailureStateEtEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEtEnum', 
                 [], [], 
                 '''                Current state
                 ''',
@@ -2625,13 +2625,13 @@ _meta_table = {
                 ''',
                 'debounced_delay',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('debounced-state', REFERENCE_ENUM_CLASS, 'SrpMgmtFailureStateEt_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEt_Enum', 
+            _MetaInfoClassMember('debounced-state', REFERENCE_ENUM_CLASS, 'SrpMgmtFailureStateEtEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEtEnum', 
                 [], [], 
                 '''                Debounced state
                 ''',
                 'debounced_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('reported-state', REFERENCE_ENUM_CLASS, 'SrpMgmtFailureStateEt_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEt_Enum', 
+            _MetaInfoClassMember('reported-state', REFERENCE_ENUM_CLASS, 'SrpMgmtFailureStateEtEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEtEnum', 
                 [], [], 
                 '''                Reported state
                 ''',
@@ -2643,7 +2643,7 @@ _meta_table = {
                 ''',
                 'stable_time',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'SrpMgmtFailureEt_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureEt_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'SrpMgmtFailureEtEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureEtEnum', 
                 [], [], 
                 '''                Failure type
                 ''',
@@ -2685,13 +2685,13 @@ _meta_table = {
                 ''',
                 'packet_sent_timer',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('remote-request', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsReq_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReq_Enum', 
+            _MetaInfoClassMember('remote-request', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsReqEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReqEnum', 
                 [], [], 
                 '''                Remote Requests
                 ''',
                 'remote_request',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('rx-message-type', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsReq_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReq_Enum', 
+            _MetaInfoClassMember('rx-message-type', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsReqEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReqEnum', 
                 [], [], 
                 '''                Type of message received
                 ''',
@@ -2709,7 +2709,7 @@ _meta_table = {
                 ''',
                 'rx_packet_test',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('rx-path-type', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsPathInd_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsPathInd_Enum', 
+            _MetaInfoClassMember('rx-path-type', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsPathIndEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsPathIndEnum', 
                 [], [], 
                 '''                Short/long path for received message
                 ''',
@@ -2721,7 +2721,7 @@ _meta_table = {
                 ''',
                 'rx_ttl',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('self-detected-request', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsReq_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReq_Enum', 
+            _MetaInfoClassMember('self-detected-request', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsReqEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReqEnum', 
                 [], [], 
                 '''                Self Detected Requests
                 ''',
@@ -2734,7 +2734,7 @@ _meta_table = {
                 ''',
                 'send_timer_time_remaining',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('tx-message-type', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsReq_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReq_Enum', 
+            _MetaInfoClassMember('tx-message-type', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsReqEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReqEnum', 
                 [], [], 
                 '''                Type of message transmitted
                 ''',
@@ -2752,7 +2752,7 @@ _meta_table = {
                 ''',
                 'tx_packet_test',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('tx-path-type', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsPathInd_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsPathInd_Enum', 
+            _MetaInfoClassMember('tx-path-type', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsPathIndEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsPathIndEnum', 
                 [], [], 
                 '''                Short/long path of transmitted message
                 ''',
@@ -2764,7 +2764,7 @@ _meta_table = {
                 ''',
                 'tx_ttl',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('wrap-state', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsWrapState_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsWrapState_Enum', 
+            _MetaInfoClassMember('wrap-state', REFERENCE_ENUM_CLASS, 'SrpMgmtIpsWrapStateEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsWrapStateEnum', 
                 [], [], 
                 '''                Wrap state
                 ''',
@@ -2892,7 +2892,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing',
             False, 
             [
-            _MetaInfoClassMember('inner-failure', REFERENCE_ENUM_CLASS, 'SrpMgmtSrrFailure_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailure_Enum', 
+            _MetaInfoClassMember('inner-failure', REFERENCE_ENUM_CLASS, 'SrpMgmtSrrFailureEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailureEnum', 
                 [], [], 
                 '''                Inner failure
                 ''',
@@ -2922,7 +2922,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('outer-failure', REFERENCE_ENUM_CLASS, 'SrpMgmtSrrFailure_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailure_Enum', 
+            _MetaInfoClassMember('outer-failure', REFERENCE_ENUM_CLASS, 'SrpMgmtSrrFailureEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailureEnum', 
                 [], [], 
                 '''                Outer failure
                 ''',
@@ -2945,7 +2945,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing',
             False, 
             [
-            _MetaInfoClassMember('inner-failure', REFERENCE_ENUM_CLASS, 'SrpMgmtSrrFailure_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailure_Enum', 
+            _MetaInfoClassMember('inner-failure', REFERENCE_ENUM_CLASS, 'SrpMgmtSrrFailureEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailureEnum', 
                 [], [], 
                 '''                Inner failure
                 ''',
@@ -2975,7 +2975,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('outer-failure', REFERENCE_ENUM_CLASS, 'SrpMgmtSrrFailure_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailure_Enum', 
+            _MetaInfoClassMember('outer-failure', REFERENCE_ENUM_CLASS, 'SrpMgmtSrrFailureEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailureEnum', 
                 [], [], 
                 '''                Outer failure
                 ''',
@@ -2998,7 +2998,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo',
             False, 
             [
-            _MetaInfoClassMember('inner-fail-type', REFERENCE_ENUM_CLASS, 'SrpMgmtSrrFailure_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailure_Enum', 
+            _MetaInfoClassMember('inner-fail-type', REFERENCE_ENUM_CLASS, 'SrpMgmtSrrFailureEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailureEnum', 
                 [], [], 
                 '''                Inner fail type
                 ''',
@@ -3047,7 +3047,7 @@ _meta_table = {
                 ''',
                 'next_srr_packet_send_time',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'SrpMgmtSrrNodeState_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrNodeState_Enum', 
+            _MetaInfoClassMember('node-state', REFERENCE_ENUM_CLASS, 'SrpMgmtSrrNodeStateEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrNodeStateEnum', 
                 [], [], 
                 '''                SRR node state
                 ''',
@@ -3065,7 +3065,7 @@ _meta_table = {
                 ''',
                 'nodes_on_ring',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('outer-fail-type', REFERENCE_ENUM_CLASS, 'SrpMgmtSrrFailure_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailure_Enum', 
+            _MetaInfoClassMember('outer-fail-type', REFERENCE_ENUM_CLASS, 'SrpMgmtSrrFailureEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailureEnum', 
                 [], [], 
                 '''                Outer fail type
                 ''',
@@ -3565,7 +3565,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'TunlPfiAfId_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunlPfiAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'TunlPfiAfIdEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunlPfiAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -3594,7 +3594,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'TunlPfiAfId_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunlPfiAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'TunlPfiAfIdEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunlPfiAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -3629,7 +3629,7 @@ _meta_table = {
                 ''',
                 'destination_ip_address',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('df-bit-state', REFERENCE_ENUM_CLASS, 'TunnelKaDfState_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunnelKaDfState_Enum', 
+            _MetaInfoClassMember('df-bit-state', REFERENCE_ENUM_CLASS, 'TunnelKaDfStateEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunnelKaDfStateEnum', 
                 [], [], 
                 '''                DF Bit State
                 ''',
@@ -3647,7 +3647,7 @@ _meta_table = {
                 ''',
                 'keepalive_period',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('keepalive-state', REFERENCE_ENUM_CLASS, 'TunnelKaDfState_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunnelKaDfState_Enum', 
+            _MetaInfoClassMember('keepalive-state', REFERENCE_ENUM_CLASS, 'TunnelKaDfStateEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunnelKaDfStateEnum', 
                 [], [], 
                 '''                Keepalive State
                 ''',
@@ -3659,7 +3659,7 @@ _meta_table = {
                 ''',
                 'key',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('key-bit-state', REFERENCE_ENUM_CLASS, 'TunnelKeyState_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunnelKeyState_Enum', 
+            _MetaInfoClassMember('key-bit-state', REFERENCE_ENUM_CLASS, 'TunnelKeyStateEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunnelKeyStateEnum', 
                 [], [], 
                 '''                Key Config State
                 ''',
@@ -3677,7 +3677,7 @@ _meta_table = {
                 ''',
                 'source_name',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('tunnel-mode', REFERENCE_ENUM_CLASS, 'TunnelGreMode_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunnelGreMode_Enum', 
+            _MetaInfoClassMember('tunnel-mode', REFERENCE_ENUM_CLASS, 'TunnelGreModeEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunnelGreModeEnum', 
                 [], [], 
                 '''                Tunnel GRE Mode
                 ''',
@@ -3771,7 +3771,7 @@ _meta_table = {
                 ''',
                 'gcc_information',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('interface-type-info', REFERENCE_ENUM_CLASS, 'ImCmdIntfTypeEnum_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdIntfTypeEnum_Enum', 
+            _MetaInfoClassMember('interface-type-info', REFERENCE_ENUM_CLASS, 'ImCmdIntfTypeEnumEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdIntfTypeEnumEnum', 
                 [], [], 
                 '''                InterfaceTypeInfo
                 ''',
@@ -3859,7 +3859,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'StatsCounter_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'StatsCounter_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'StatsCounterEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'StatsCounterEnum', 
                 [], [], 
                 '''                type
                 ''',
@@ -3888,7 +3888,7 @@ _meta_table = {
                 ''',
                 'data',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'StatsCounter_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'StatsCounter_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'StatsCounterEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'StatsCounterEnum', 
                 [], [], 
                 '''                type
                 ''',
@@ -3940,7 +3940,7 @@ _meta_table = {
                 ''',
                 'id',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('id-type', REFERENCE_ENUM_CLASS, 'StatsId_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'StatsId_Enum', 
+            _MetaInfoClassMember('id-type', REFERENCE_ENUM_CLASS, 'StatsIdEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'StatsIdEnum', 
                 [], [], 
                 '''                id type
                 ''',
@@ -3981,7 +3981,7 @@ _meta_table = {
                 ''',
                 'block_array',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('contents', REFERENCE_ENUM_CLASS, 'StatsTypeContents_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'StatsTypeContents_Enum', 
+            _MetaInfoClassMember('contents', REFERENCE_ENUM_CLASS, 'StatsTypeContentsEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'StatsTypeContentsEnum', 
                 [], [], 
                 '''                Bag contents
                 ''',
@@ -4104,7 +4104,7 @@ _meta_table = {
                 ''',
                 'description',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('duplexity', REFERENCE_ENUM_CLASS, 'ImAttrDuplex_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrDuplex_Enum', 
+            _MetaInfoClassMember('duplexity', REFERENCE_ENUM_CLASS, 'ImAttrDuplexEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrDuplexEnum', 
                 [], [], 
                 '''                Interface duplexity
                 ''',
@@ -4134,7 +4134,7 @@ _meta_table = {
                 ''',
                 'hardware_type_string',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('in-flow-control', REFERENCE_ENUM_CLASS, 'ImAttrFlowControl_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrFlowControl_Enum', 
+            _MetaInfoClassMember('in-flow-control', REFERENCE_ENUM_CLASS, 'ImAttrFlowControlEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrFlowControlEnum', 
                 [], [], 
                 '''                Input flow control configuration
                 ''',
@@ -4224,19 +4224,19 @@ _meta_table = {
                 ''',
                 'last_state_transition_time',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Line protocol state
                 ''',
                 'line_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'ImAttrLink_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrLink_Enum', 
+            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'ImAttrLinkEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrLinkEnum', 
                 [], [], 
                 '''                Interface link type
                 ''',
                 'link_type',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('loopback-configuration', REFERENCE_ENUM_CLASS, 'ImCmdLoopbackEnum_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdLoopbackEnum_Enum', 
+            _MetaInfoClassMember('loopback-configuration', REFERENCE_ENUM_CLASS, 'ImCmdLoopbackEnumEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdLoopbackEnumEnum', 
                 [], [], 
                 '''                Interface loopback configuration
                 ''',
@@ -4254,7 +4254,7 @@ _meta_table = {
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('media-type', REFERENCE_ENUM_CLASS, 'ImAttrMedia_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrMedia_Enum', 
+            _MetaInfoClassMember('media-type', REFERENCE_ENUM_CLASS, 'ImAttrMediaEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrMediaEnum', 
                 [], [], 
                 '''                Interface media type
                 ''',
@@ -4272,7 +4272,7 @@ _meta_table = {
                 ''',
                 'nv_optical',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('out-flow-control', REFERENCE_ENUM_CLASS, 'ImAttrFlowControl_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrFlowControl_Enum', 
+            _MetaInfoClassMember('out-flow-control', REFERENCE_ENUM_CLASS, 'ImAttrFlowControlEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrFlowControlEnum', 
                 [], [], 
                 '''                Output flow control configuration
                 ''',
@@ -4290,7 +4290,7 @@ _meta_table = {
                 ''',
                 'speed',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -4302,7 +4302,7 @@ _meta_table = {
                 ''',
                 'state_transition_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('transport-mode', REFERENCE_ENUM_CLASS, 'ImAttrTransportMode_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrTransportMode_Enum', 
+            _MetaInfoClassMember('transport-mode', REFERENCE_ENUM_CLASS, 'ImAttrTransportModeEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrTransportModeEnum', 
                 [], [], 
                 '''                Interface transport mode
                 ''',
@@ -4355,14 +4355,14 @@ _meta_table = {
                 ''',
                 'interface',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Line protocol state with no translation of error
                 disable or shutdown
                 ''',
                 'line_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Operational state with no translation of error
                 disable or shutdown
@@ -4653,7 +4653,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('type-set-name', REFERENCE_ENUM_CLASS, 'InterfaceTypeSet_Enum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'InterfaceTypeSet_Enum', 
+            _MetaInfoClassMember('type-set-name', REFERENCE_ENUM_CLASS, 'InterfaceTypeSetEnum' , 'ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper', 'InterfaceTypeSetEnum', 
                 [], [], 
                 '''                The interface type to filter on
                 ''',
@@ -4738,17 +4738,17 @@ _meta_table['Interfaces.InterfaceBriefs.InterfaceBrief']['meta_info'].parent =_m
 _meta_table['Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts']['meta_info'].parent =_meta_table['Interfaces.InterfaceSummary.InterfaceType']['meta_info']
 _meta_table['Interfaces.InterfaceSummary.InterfaceCounts']['meta_info'].parent =_meta_table['Interfaces.InterfaceSummary']['meta_info']
 _meta_table['Interfaces.InterfaceSummary.InterfaceType']['meta_info'].parent =_meta_table['Interfaces.InterfaceSummary']['meta_info']
-_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack']['meta_info']
-_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch']['meta_info']
-_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
-_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
-_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
-_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails']['meta_info']
-_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails']['meta_info']
-_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails']['meta_info']
-_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation']['meta_info']
+_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack']['meta_info']
+_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch']['meta_info']
+_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
+_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
+_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
+_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails']['meta_info']
+_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails']['meta_info']
+_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails']['meta_info']
+_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation']['meta_info']
 _meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation']['meta_info']
-_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation']['meta_info']
+_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation']['meta_info']
 _meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation']['meta_info']
 _meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation']['meta_info']
 _meta_table['Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.InterfaceStatistics']['meta_info']

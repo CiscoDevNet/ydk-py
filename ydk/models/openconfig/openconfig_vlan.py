@@ -17,33 +17,31 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class VlanModeType_Enum(Enum):
+class VlanModeTypeEnum(Enum):
     """
-    VlanModeType_Enum
+    VlanModeTypeEnum
 
     VLAN interface mode (trunk or access)
 
-    """
+    .. data:: ACCESS = 0
+
+    	Access mode VLAN interface (No 802.1q header)
+
+    .. data:: TRUNK = 1
+
+    	Trunk mode VLAN interface
 
     """
 
-    Access mode VLAN interface (No 802.1q header)
-
-    """
     ACCESS = 0
 
-    """
-
-    Trunk mode VLAN interface
-
-    """
     TRUNK = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_vlan as meta
-        return meta._meta_table['VlanModeType_Enum']
+        return meta._meta_table['VlanModeTypeEnum']
 
 
 
@@ -119,7 +117,7 @@ class Vlans(object):
             .. attribute:: status
             
             	Admin state of the VLAN
-            	**type**\: :py:class:`Status_Enum <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Config.Status_Enum>`
+            	**type**\: :py:class:`StatusEnum <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Config.StatusEnum>`
             
             .. attribute:: vlan_id
             
@@ -141,33 +139,31 @@ class Vlans(object):
                 self.status = None
                 self.vlan_id = None
 
-            class Status_Enum(Enum):
+            class StatusEnum(Enum):
                 """
-                Status_Enum
+                StatusEnum
 
                 Admin state of the VLAN
 
-                """
+                .. data:: ACTIVE = 0
+
+                	VLAN is active
+
+                .. data:: SUSPENDED = 1
+
+                	VLAN is inactive / suspended
 
                 """
 
-                VLAN is active
-
-                """
                 ACTIVE = 0
 
-                """
-
-                VLAN is inactive / suspended
-
-                """
                 SUSPENDED = 1
 
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_vlan as meta
-                    return meta._meta_table['Vlans.Vlan.Config.Status_Enum']
+                    return meta._meta_table['Vlans.Vlan.Config.StatusEnum']
 
 
             @property
@@ -184,8 +180,6 @@ class Vlans(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
@@ -195,10 +189,6 @@ class Vlans(object):
                 if self.vlan_id is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -224,7 +214,7 @@ class Vlans(object):
             .. attribute:: status
             
             	Admin state of the VLAN
-            	**type**\: :py:class:`Status_Enum <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.State.Status_Enum>`
+            	**type**\: :py:class:`StatusEnum <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.State.StatusEnum>`
             
             .. attribute:: vlan_id
             
@@ -247,33 +237,31 @@ class Vlans(object):
                 self.status = None
                 self.vlan_id = None
 
-            class Status_Enum(Enum):
+            class StatusEnum(Enum):
                 """
-                Status_Enum
+                StatusEnum
 
                 Admin state of the VLAN
 
-                """
+                .. data:: ACTIVE = 0
+
+                	VLAN is active
+
+                .. data:: SUSPENDED = 1
+
+                	VLAN is inactive / suspended
 
                 """
 
-                VLAN is active
-
-                """
                 ACTIVE = 0
 
-                """
-
-                VLAN is inactive / suspended
-
-                """
                 SUSPENDED = 1
 
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_vlan as meta
-                    return meta._meta_table['Vlans.Vlan.State.Status_Enum']
+                    return meta._meta_table['Vlans.Vlan.State.StatusEnum']
 
 
             @property
@@ -290,8 +278,6 @@ class Vlans(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.member_ports is not None:
                     for child in self.member_ports:
                         if child is not None:
@@ -306,10 +292,6 @@ class Vlans(object):
                 if self.vlan_id is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -331,27 +313,15 @@ class Vlans(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.vlan_id is not None:
                 return True
 
             if self.config is not None and self.config._has_data():
                 return True
 
-            if self.config is not None and self.config.is_presence():
-                return True
-
             if self.state is not None and self.state._has_data():
                 return True
 
-            if self.state is not None and self.state.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -371,17 +341,11 @@ class Vlans(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.vlan is not None:
             for child_ref in self.vlan:
                 if child_ref._has_data():
                     return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

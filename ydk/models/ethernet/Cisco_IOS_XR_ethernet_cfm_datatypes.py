@@ -20,155 +20,142 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class BandwidthNotificationState_Enum(Enum):
+class BandwidthNotificationStateEnum(Enum):
     """
-    BandwidthNotificationState_Enum
+    BandwidthNotificationStateEnum
 
     Bandwidth notification state
 
-    """
+    .. data:: OK = 1
+
+    	Link is not degraded
+
+    .. data:: DEGRADED = 2
+
+    	Link is in degraded state
 
     """
 
-    Link is not degraded
-
-    """
     OK = 1
 
-    """
-
-    Link is in degraded state
-
-    """
     DEGRADED = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_datatypes as meta
-        return meta._meta_table['BandwidthNotificationState_Enum']
+        return meta._meta_table['BandwidthNotificationStateEnum']
 
 
-class CfmAisInterval_Enum(Enum):
+class CfmAisIntervalEnum(Enum):
     """
-    CfmAisInterval_Enum
+    CfmAisIntervalEnum
 
     Cfm ais interval
 
-    """
+    .. data:: Y_1S = 4
+
+    	1s
+
+    .. data:: Y_1M = 6
+
+    	1m
 
     """
 
-    1s
-
-    """
     Y_1S = 4
 
-    """
-
-    1m
-
-    """
     Y_1M = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_datatypes as meta
-        return meta._meta_table['CfmAisInterval_Enum']
+        return meta._meta_table['CfmAisIntervalEnum']
 
 
-class CfmCcmInterval_Enum(Enum):
+class CfmCcmIntervalEnum(Enum):
     """
-    CfmCcmInterval_Enum
+    CfmCcmIntervalEnum
 
     Cfm ccm interval
 
-    """
+    .. data:: Y_3__DOT__3MS = 1
+
+    	3.3ms
+
+    .. data:: Y_10MS = 2
+
+    	10ms
+
+    .. data:: Y_100MS = 3
+
+    	100ms
+
+    .. data:: Y_1S = 4
+
+    	1s
+
+    .. data:: Y_10S = 5
+
+    	10s
+
+    .. data:: Y_1M = 6
+
+    	1m
+
+    .. data:: Y_10M = 7
+
+    	10m
 
     """
 
-    3.3ms
-
-    """
     Y_3__DOT__3MS = 1
 
-    """
-
-    10ms
-
-    """
     Y_10MS = 2
 
-    """
-
-    100ms
-
-    """
     Y_100MS = 3
 
-    """
-
-    1s
-
-    """
     Y_1S = 4
 
-    """
-
-    10s
-
-    """
     Y_10S = 5
 
-    """
-
-    1m
-
-    """
     Y_1M = 6
 
-    """
-
-    10m
-
-    """
     Y_10M = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_datatypes as meta
-        return meta._meta_table['CfmCcmInterval_Enum']
+        return meta._meta_table['CfmCcmIntervalEnum']
 
 
-class CfmMepDir_Enum(Enum):
+class CfmMepDirEnum(Enum):
     """
-    CfmMepDir_Enum
+    CfmMepDirEnum
 
     Cfm mep dir
 
-    """
+    .. data:: UP = 0
+
+    	Up MEP
+
+    .. data:: DOWN = 1
+
+    	Down MEP
 
     """
 
-    Up MEP
-
-    """
     UP = 0
 
-    """
-
-    Down MEP
-
-    """
     DOWN = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_datatypes as meta
-        return meta._meta_table['CfmMepDir_Enum']
+        return meta._meta_table['CfmMepDirEnum']
 
 
 

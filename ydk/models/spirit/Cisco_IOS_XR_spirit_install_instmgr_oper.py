@@ -24,543 +24,481 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class CardTypeEt_Enum(Enum):
+class CardTypeEtEnum(Enum):
     """
-    CardTypeEt_Enum
+    CardTypeEtEnum
 
     card type
 
-    """
+    .. data:: CARD_RP = 0
+
+    	Card RP
+
+    .. data:: CARD_DRP = 1
+
+    	Card DRP
+
+    .. data:: CARD_LC = 2
+
+    	Card LC
+
+    .. data:: CARD_SC = 3
+
+    	Card SC
+
+    .. data:: CARD_SP = 4
+
+    	Card SP
+
+    .. data:: CARD_OTHER = 5
+
+    	Card Other
 
     """
 
-    Card RP
-
-    """
     CARD_RP = 0
 
-    """
-
-    Card DRP
-
-    """
     CARD_DRP = 1
 
-    """
-
-    Card LC
-
-    """
     CARD_LC = 2
 
-    """
-
-    Card SC
-
-    """
     CARD_SC = 3
 
-    """
-
-    Card SP
-
-    """
     CARD_SP = 4
 
-    """
-
-    Card Other
-
-    """
     CARD_OTHER = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-        return meta._meta_table['CardTypeEt_Enum']
+        return meta._meta_table['CardTypeEtEnum']
 
 
-class IsdErrorEt_Enum(Enum):
+class IsdErrorEtEnum(Enum):
     """
-    IsdErrorEt_Enum
+    IsdErrorEtEnum
 
     isd error
 
-    """
+    .. data:: NONE = 0
+
+    	ISD ERROR NONE
+
+    .. data:: NOT_COMPATIBLE = 1
+
+    	ISD ERROR NOT COMPATIBLE
+
+    .. data:: NOT_ENOUGH_RESOURCE = 2
+
+    	ISD ERROR NOT ENOUGH RESOURCE
+
+    .. data:: NOT_NSR_READY = 3
+
+    	ISD ERROR NOT NSR READY
+
+    .. data:: NOT_CONN_SDRSM = 4
+
+    	ISD ERROR NOT CONNECTED SDR SM
+
+    .. data:: CMD_INVALID = 5
+
+    	ISD ERROR INST CMD INVALID
+
+    .. data:: LOAD_PREP_FAIL = 6
+
+    	ISD ERROR INST LOAD PREP FAILURE
+
+    .. data:: ERROR_TIMEOUT = 7
+
+    	ISD ERROR TIMEOUT
+
+    .. data:: ERR_NODE_DOWN = 8
+
+    	ISD ERROR NODE DOWN
+
+    .. data:: NODE_NOT_READY = 9
+
+    	ISD ERROR NODE NOT READY
+
+    .. data:: ERR_NODE_NEW = 10
+
+    	ISD ERROR NODE NEW
+
+    .. data:: ERR_CARD_OIR = 11
+
+    	ISD ERROR CARD OIR
+
+    .. data:: INVALID_EVT = 12
+
+    	ISD ERROR INVALID EVT
+
+    .. data:: DISCONN_FROM_CALV = 13
+
+    	ISD ERROR DISCONN FROM CALVADOS
+
+    .. data:: GSP_DOWN = 14
+
+    	ISD ERROR GSP DOWN
+
+    .. data:: ABORT_BY_ISM = 15
+
+    	ISD ERROR ABORT BY ISM
+
+    .. data:: RPFO = 16
+
+    	ISD ERROR RPFO
+
+    .. data:: PKG_NULL = 17
+
+    	ISD ERROR PKG NULL
+
+    .. data:: ERROR_GENERAL = 18
+
+    	ISD ERROR GENERAL
+
+    .. data:: FSA_ERROR = 19
+
+    	ISD ERROR FSA ERROR
+
+    .. data:: ERR_POST_ISSU = 20
+
+    	ISD ERROR POST ISSU
+
+    .. data:: ERR_ISSU_DIR_RESTART = 21
+
+    	ISD ERROR ISSUDIR RESTART
 
     """
 
-    ISD ERROR NONE
-
-    """
     NONE = 0
 
-    """
-
-    ISD ERROR NOT COMPATIBLE
-
-    """
     NOT_COMPATIBLE = 1
 
-    """
-
-    ISD ERROR NOT ENOUGH RESOURCE
-
-    """
     NOT_ENOUGH_RESOURCE = 2
 
-    """
-
-    ISD ERROR NOT NSR READY
-
-    """
     NOT_NSR_READY = 3
 
-    """
-
-    ISD ERROR NOT CONNECTED SDR SM
-
-    """
     NOT_CONN_SDRSM = 4
 
-    """
-
-    ISD ERROR INST CMD INVALID
-
-    """
     CMD_INVALID = 5
 
-    """
-
-    ISD ERROR INST LOAD PREP FAILURE
-
-    """
     LOAD_PREP_FAIL = 6
 
-    """
-
-    ISD ERROR TIMEOUT
-
-    """
     ERROR_TIMEOUT = 7
 
-    """
-
-    ISD ERROR NODE DOWN
-
-    """
     ERR_NODE_DOWN = 8
 
-    """
-
-    ISD ERROR NODE NOT READY
-
-    """
     NODE_NOT_READY = 9
 
-    """
-
-    ISD ERROR NODE NEW
-
-    """
     ERR_NODE_NEW = 10
 
-    """
-
-    ISD ERROR CARD OIR
-
-    """
     ERR_CARD_OIR = 11
 
-    """
-
-    ISD ERROR INVALID EVT
-
-    """
     INVALID_EVT = 12
 
-    """
-
-    ISD ERROR DISCONN FROM CALVADOS
-
-    """
     DISCONN_FROM_CALV = 13
 
-    """
-
-    ISD ERROR GSP DOWN
-
-    """
     GSP_DOWN = 14
 
-    """
-
-    ISD ERROR ABORT BY ISM
-
-    """
     ABORT_BY_ISM = 15
 
-    """
-
-    ISD ERROR RPFO
-
-    """
     RPFO = 16
 
-    """
-
-    ISD ERROR PKG NULL
-
-    """
     PKG_NULL = 17
 
-    """
-
-    ISD ERROR GENERAL
-
-    """
     ERROR_GENERAL = 18
 
-    """
-
-    ISD ERROR FSA ERROR
-
-    """
     FSA_ERROR = 19
 
-    """
-
-    ISD ERROR POST ISSU
-
-    """
     ERR_POST_ISSU = 20
 
-    """
-
-    ISD ERROR ISSUDIR RESTART
-
-    """
     ERR_ISSU_DIR_RESTART = 21
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-        return meta._meta_table['IsdErrorEt_Enum']
+        return meta._meta_table['IsdErrorEtEnum']
 
 
-class IsdIssuStatusEt_Enum(Enum):
+class IsdIssuStatusEtEnum(Enum):
     """
-    IsdIssuStatusEt_Enum
+    IsdIssuStatusEtEnum
 
     isd status
 
-    """
+    .. data:: OK = 0
+
+    	ISSU STATUS OK
+
+    .. data:: PREP_DONE = 1
+
+    	ISSU STATUS PREP DONE
+
+    .. data:: BIG_BANG = 2
+
+    	ISSU STATUS BIG BANG
+
+    .. data:: DONE = 3
+
+    	ISSU STATUS DONE
+
+    .. data:: ABORT = 4
+
+    	ISSU STATUS ABORT
+
+    .. data:: CMD_REJECT = 5
+
+    	ISSU STATUS CMD REJECT
+
+    .. data:: UNKNOWN = 6
+
+    	ISSU STATUS UNKNOWN
 
     """
 
-    ISSU STATUS OK
-
-    """
     OK = 0
 
-    """
-
-    ISSU STATUS PREP DONE
-
-    """
     PREP_DONE = 1
 
-    """
-
-    ISSU STATUS BIG BANG
-
-    """
     BIG_BANG = 2
 
-    """
-
-    ISSU STATUS DONE
-
-    """
     DONE = 3
 
-    """
-
-    ISSU STATUS ABORT
-
-    """
     ABORT = 4
 
-    """
-
-    ISSU STATUS CMD REJECT
-
-    """
     CMD_REJECT = 5
 
-    """
-
-    ISSU STATUS UNKNOWN
-
-    """
     UNKNOWN = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-        return meta._meta_table['IsdIssuStatusEt_Enum']
+        return meta._meta_table['IsdIssuStatusEtEnum']
 
 
-class IsdStateEt_Enum(Enum):
+class IsdStateEtEnum(Enum):
     """
-    IsdStateEt_Enum
+    IsdStateEtEnum
 
     isd state
 
-    """
+    .. data:: NONE = 0
+
+    	ISSU ST NONE
+
+    .. data:: IDLE = 1
+
+    	ISSU ST IDLE
+
+    .. data:: INIT = 2
+
+    	ISSU ST INIT
+
+    .. data:: INIT_DONE = 3
+
+    	ISSU ST INIT DONE
+
+    .. data:: LOAD_PREP = 4
+
+    	ISSU ST LOAD PREP
+
+    .. data:: LOAD_EXEC = 5
+
+    	ISSU ST LOAD EXEC
+
+    .. data:: LOAD_ISSU_GO = 6
+
+    	ISSU ST LOAD ISSU GO
+
+    .. data:: LOAD_DONE = 7
+
+    	ISSU ST LOAD DONE
+
+    .. data:: RUN_PREP = 8
+
+    	ISSU ST RUN PREP
+
+    .. data:: BIG_BANG = 9
+
+    	ISSU ST RUN BIG BANG
+
+    .. data:: RUN_DONE = 10
+
+    	ISSU ST RUN DONE
+
+    .. data:: CLEANUP = 11
+
+    	ISSU ST CLEANUP
+
+    .. data:: CLEANUP_DONE = 12
+
+    	ISSU ST CLEANUP DONE
+
+    .. data:: ABORT = 13
+
+    	ISSU ST ABORT
+
+    .. data:: UNKNOW_STATE = 14
+
+    	ISSU UNKNOWN STATE
 
     """
 
-    ISSU ST NONE
-
-    """
     NONE = 0
 
-    """
-
-    ISSU ST IDLE
-
-    """
     IDLE = 1
 
-    """
-
-    ISSU ST INIT
-
-    """
     INIT = 2
 
-    """
-
-    ISSU ST INIT DONE
-
-    """
     INIT_DONE = 3
 
-    """
-
-    ISSU ST LOAD PREP
-
-    """
     LOAD_PREP = 4
 
-    """
-
-    ISSU ST LOAD EXEC
-
-    """
     LOAD_EXEC = 5
 
-    """
-
-    ISSU ST LOAD ISSU GO
-
-    """
     LOAD_ISSU_GO = 6
 
-    """
-
-    ISSU ST LOAD DONE
-
-    """
     LOAD_DONE = 7
 
-    """
-
-    ISSU ST RUN PREP
-
-    """
     RUN_PREP = 8
 
-    """
-
-    ISSU ST RUN BIG BANG
-
-    """
     BIG_BANG = 9
 
-    """
-
-    ISSU ST RUN DONE
-
-    """
     RUN_DONE = 10
 
-    """
-
-    ISSU ST CLEANUP
-
-    """
     CLEANUP = 11
 
-    """
-
-    ISSU ST CLEANUP DONE
-
-    """
     CLEANUP_DONE = 12
 
-    """
-
-    ISSU ST ABORT
-
-    """
     ABORT = 13
 
-    """
-
-    ISSU UNKNOWN STATE
-
-    """
     UNKNOW_STATE = 14
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-        return meta._meta_table['IsdStateEt_Enum']
+        return meta._meta_table['IsdStateEtEnum']
 
 
-class IssuNodeRoleEt_Enum(Enum):
+class IssuNodeRoleEtEnum(Enum):
     """
-    IssuNodeRoleEt_Enum
+    IssuNodeRoleEtEnum
 
     ISSU role
 
-    """
+    .. data:: UNKNOWN_ROLE = 0
+
+    	Unknown
+
+    .. data:: PRIMARY_ROLE = 1
+
+    	Primary
+
+    .. data:: SECONDARY_ROLE = 2
+
+    	Secondary
+
+    .. data:: TERTIARY_ROLE = 3
+
+    	Tertiary
 
     """
 
-    Unknown
-
-    """
     UNKNOWN_ROLE = 0
 
-    """
-
-    Primary
-
-    """
     PRIMARY_ROLE = 1
 
-    """
-
-    Secondary
-
-    """
     SECONDARY_ROLE = 2
 
-    """
-
-    Tertiary
-
-    """
     TERTIARY_ROLE = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-        return meta._meta_table['IssuNodeRoleEt_Enum']
+        return meta._meta_table['IssuNodeRoleEtEnum']
 
 
-class IssudirNodeStatusEt_Enum(Enum):
+class IssudirNodeStatusEtEnum(Enum):
     """
-    IssudirNodeStatusEt_Enum
+    IssudirNodeStatusEtEnum
 
     ISSU node status
 
-    """
+    .. data:: NOT_ISSU_READY = 0
+
+    	Not ISSU Ready
+
+    .. data:: ISSU_READY = 1
+
+    	ISSU Ready
+
+    .. data:: ISUS_GO = 2
+
+    	ISSU Go
+
+    .. data:: NODE_FAIL = 3
+
+    	Node Fail
 
     """
 
-    Not ISSU Ready
-
-    """
     NOT_ISSU_READY = 0
 
-    """
-
-    ISSU Ready
-
-    """
     ISSU_READY = 1
 
-    """
-
-    ISSU Go
-
-    """
     ISUS_GO = 2
 
-    """
-
-    Node Fail
-
-    """
     NODE_FAIL = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-        return meta._meta_table['IssudirNodeStatusEt_Enum']
+        return meta._meta_table['IssudirNodeStatusEtEnum']
 
 
-class NodeRoleEt_Enum(Enum):
+class NodeRoleEtEnum(Enum):
     """
-    NodeRoleEt_Enum
+    NodeRoleEtEnum
 
     node role
 
-    """
+    .. data:: NODE_UNKNOWN = 0
+
+    	Unknown
+
+    .. data:: NODE_ACTIVE = 1
+
+    	Active
+
+    .. data:: NODE_STANDBY = 2
+
+    	Standby
+
+    .. data:: NODE_UNUSABLE = 3
+
+    	Unusable
 
     """
 
-    Unknown
-
-    """
     NODE_UNKNOWN = 0
 
-    """
-
-    Active
-
-    """
     NODE_ACTIVE = 1
 
-    """
-
-    Standby
-
-    """
     NODE_STANDBY = 2
 
-    """
-
-    Unusable
-
-    """
     NODE_UNUSABLE = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-        return meta._meta_table['NodeRoleEt_Enum']
+        return meta._meta_table['NodeRoleEtEnum']
 
 
 
@@ -756,8 +694,6 @@ class SoftwareInstall(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.active_packages is not None:
                     return True
 
@@ -778,10 +714,6 @@ class SoftwareInstall(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
@@ -799,17 +731,11 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.active_package_info is not None:
                 for child_ref in self.active_package_info:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -879,15 +805,9 @@ class SoftwareInstall(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.log is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -928,15 +848,9 @@ class SoftwareInstall(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.log is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -956,24 +870,12 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.detail is not None and self.detail._has_data():
-                return True
-
-            if self.detail is not None and self.detail.is_presence():
                 return True
 
             if self.summary is not None and self.summary._has_data():
                 return True
 
-            if self.summary is not None and self.summary.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1069,8 +971,6 @@ class SoftwareInstall(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.boot_partition_name is not None:
                     return True
 
@@ -1091,10 +991,6 @@ class SoftwareInstall(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
@@ -1112,17 +1008,11 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.committed_package_info is not None:
                 for child_ref in self.committed_package_info:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1223,15 +1113,9 @@ class SoftwareInstall(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.log is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1275,15 +1159,9 @@ class SoftwareInstall(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.log is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1305,27 +1183,15 @@ class SoftwareInstall(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.file_name is not None:
                     return True
 
                 if self.brief is not None and self.brief._has_data():
                     return True
 
-                if self.brief is not None and self.brief.is_presence():
-                    return True
-
                 if self.detail is not None and self.detail._has_data():
                     return True
 
-                if self.detail is not None and self.detail.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1345,17 +1211,11 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.file is not None:
                 for child_ref in self.file:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1396,15 +1256,9 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.log is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1472,7 +1326,7 @@ class SoftwareInstall(object):
                 .. attribute:: issu_node_role
                 
                 	ISSU Node Role
-                	**type**\: :py:class:`IssuNodeRoleEt_Enum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IssuNodeRoleEt_Enum>`
+                	**type**\: :py:class:`IssuNodeRoleEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IssuNodeRoleEtEnum>`
                 
                 .. attribute:: node_id
                 
@@ -1484,17 +1338,17 @@ class SoftwareInstall(object):
                 .. attribute:: node_role
                 
                 	Node role
-                	**type**\: :py:class:`NodeRoleEt_Enum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.NodeRoleEt_Enum>`
+                	**type**\: :py:class:`NodeRoleEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.NodeRoleEtEnum>`
                 
                 .. attribute:: node_state
                 
                 	Node State
-                	**type**\: :py:class:`IssudirNodeStatusEt_Enum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IssudirNodeStatusEt_Enum>`
+                	**type**\: :py:class:`IssudirNodeStatusEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IssudirNodeStatusEtEnum>`
                 
                 .. attribute:: node_type
                 
                 	Node Type
-                	**type**\: :py:class:`CardTypeEt_Enum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.CardTypeEt_Enum>`
+                	**type**\: :py:class:`CardTypeEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.CardTypeEtEnum>`
                 
                 
 
@@ -1523,8 +1377,6 @@ class SoftwareInstall(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.issu_node_role is not None:
                         return True
 
@@ -1540,10 +1392,6 @@ class SoftwareInstall(object):
                     if self.node_type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1563,17 +1411,11 @@ class SoftwareInstall(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.invinfo is not None:
                     for child_ref in self.invinfo:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1589,7 +1431,7 @@ class SoftwareInstall(object):
             .. attribute:: issu_error
             
             	ISSU Error
-            	**type**\: :py:class:`IsdErrorEt_Enum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdErrorEt_Enum>`
+            	**type**\: :py:class:`IsdErrorEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdErrorEtEnum>`
             
             .. attribute:: issu_node_cnt
             
@@ -1608,7 +1450,7 @@ class SoftwareInstall(object):
             .. attribute:: issu_status
             
             	Abort Status
-            	**type**\: :py:class:`IsdIssuStatusEt_Enum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdIssuStatusEt_Enum>`
+            	**type**\: :py:class:`IsdIssuStatusEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdIssuStatusEtEnum>`
             
             .. attribute:: percentage
             
@@ -1620,7 +1462,7 @@ class SoftwareInstall(object):
             .. attribute:: state
             
             	State
-            	**type**\: :py:class:`IsdStateEt_Enum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdStateEt_Enum>`
+            	**type**\: :py:class:`IsdStateEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdStateEtEnum>`
             
             
 
@@ -1650,8 +1492,6 @@ class SoftwareInstall(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.issu_error is not None:
                     return True
 
@@ -1672,10 +1512,6 @@ class SoftwareInstall(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
@@ -1693,24 +1529,12 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.inventory is not None and self.inventory._has_data():
-                return True
-
-            if self.inventory is not None and self.inventory.is_presence():
                 return True
 
             if self.stage is not None and self.stage._has_data():
                 return True
 
-            if self.stage is not None and self.stage.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1813,15 +1637,9 @@ class SoftwareInstall(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.log is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1864,15 +1682,9 @@ class SoftwareInstall(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.log is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1894,27 +1706,15 @@ class SoftwareInstall(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.last_n_logs is not None:
                     return True
 
                 if self.detail is not None and self.detail._has_data():
                     return True
 
-                if self.detail is not None and self.detail.is_presence():
-                    return True
-
                 if self.summary is not None and self.summary._has_data():
                     return True
 
-                if self.summary is not None and self.summary.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1934,17 +1734,11 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.last_n_operation_log is not None:
                 for child_ref in self.last_n_operation_log:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2048,15 +1842,9 @@ class SoftwareInstall(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.log is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2100,15 +1888,9 @@ class SoftwareInstall(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.log is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2130,27 +1912,15 @@ class SoftwareInstall(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.log_id is not None:
                     return True
 
                 if self.detail is not None and self.detail._has_data():
                     return True
 
-                if self.detail is not None and self.detail.is_presence():
-                    return True
-
                 if self.summary is not None and self.summary._has_data():
                     return True
 
-                if self.summary is not None and self.summary.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2170,17 +1940,11 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.operation_log is not None:
                 for child_ref in self.operation_log:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2288,15 +2052,9 @@ class SoftwareInstall(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.log is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2339,15 +2097,9 @@ class SoftwareInstall(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.log is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2390,15 +2142,9 @@ class SoftwareInstall(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.log is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2420,33 +2166,18 @@ class SoftwareInstall(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.package_name is not None:
                     return True
 
                 if self.brief is not None and self.brief._has_data():
                     return True
 
-                if self.brief is not None and self.brief.is_presence():
-                    return True
-
                 if self.detail is not None and self.detail._has_data():
-                    return True
-
-                if self.detail is not None and self.detail.is_presence():
                     return True
 
                 if self.verbose is not None and self.verbose._has_data():
                     return True
 
-                if self.verbose is not None and self.verbose.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2466,17 +2197,11 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.package is not None:
                 for child_ref in self.package:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2517,15 +2242,9 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.log is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2597,15 +2316,9 @@ class SoftwareInstall(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.log is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2646,15 +2359,9 @@ class SoftwareInstall(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.log is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2674,24 +2381,12 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.all is not None and self.all._has_data():
-                return True
-
-            if self.all is not None and self.all.is_presence():
                 return True
 
             if self.xr is not None and self.xr._has_data():
                 return True
 
-            if self.xr is not None and self.xr.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2732,15 +2427,9 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.log is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2781,15 +2470,9 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.log is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2809,90 +2492,45 @@ class SoftwareInstall(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.active is not None and self.active._has_data():
-            return True
-
-        if self.active is not None and self.active.is_presence():
             return True
 
         if self.all_operations_log is not None and self.all_operations_log._has_data():
             return True
 
-        if self.all_operations_log is not None and self.all_operations_log.is_presence():
-            return True
-
         if self.committed is not None and self.committed._has_data():
-            return True
-
-        if self.committed is not None and self.committed.is_presence():
             return True
 
         if self.files is not None and self.files._has_data():
             return True
 
-        if self.files is not None and self.files.is_presence():
-            return True
-
         if self.inactive is not None and self.inactive._has_data():
-            return True
-
-        if self.inactive is not None and self.inactive.is_presence():
             return True
 
         if self.issu is not None and self.issu._has_data():
             return True
 
-        if self.issu is not None and self.issu.is_presence():
-            return True
-
         if self.last_n_operation_logs is not None and self.last_n_operation_logs._has_data():
-            return True
-
-        if self.last_n_operation_logs is not None and self.last_n_operation_logs.is_presence():
             return True
 
         if self.operation_logs is not None and self.operation_logs._has_data():
             return True
 
-        if self.operation_logs is not None and self.operation_logs.is_presence():
-            return True
-
         if self.packages is not None and self.packages._has_data():
-            return True
-
-        if self.packages is not None and self.packages.is_presence():
             return True
 
         if self.prepare is not None and self.prepare._has_data():
             return True
 
-        if self.prepare is not None and self.prepare.is_presence():
-            return True
-
         if self.repository is not None and self.repository._has_data():
-            return True
-
-        if self.repository is not None and self.repository.is_presence():
             return True
 
         if self.request is not None and self.request._has_data():
             return True
 
-        if self.request is not None and self.request.is_presence():
-            return True
-
         if self.version is not None and self.version._has_data():
             return True
 
-        if self.version is not None and self.version.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

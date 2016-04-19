@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'OtuStateEt_Enum' : _MetaInfoEnum('OtuStateEt_Enum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
+    'OtuStateEtEnum' : _MetaInfoEnum('OtuStateEtEnum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
         {
             'not-ready':'NOT_READY',
             'admin-down':'ADMIN_DOWN',
@@ -36,18 +36,18 @@ _meta_table = {
             'unknown':'UNKNOWN',
             'last':'LAST',
         }, 'Cisco-IOS-XR-controller-otu-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-otu-oper']),
-    'OtuPerMon_Enum' : _MetaInfoEnum('OtuPerMon_Enum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
+    'OtuPerMonEnum' : _MetaInfoEnum('OtuPerMonEnum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
         {
             'disable':'DISABLE',
             'enable':'ENABLE',
         }, 'Cisco-IOS-XR-controller-otu-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-otu-oper']),
-    'OtuPpIntfState_Enum' : _MetaInfoEnum('OtuPpIntfState_Enum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
+    'OtuPpIntfStateEnum' : _MetaInfoEnum('OtuPpIntfStateEnum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
         {
             'otu-pp-intf-up':'OTU_PP_INTF_UP',
             'otu-pp-intf-failing':'OTU_PP_INTF_FAILING',
             'otu-pp-intf-down':'OTU_PP_INTF_DOWN',
         }, 'Cisco-IOS-XR-controller-otu-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-otu-oper']),
-    'OtuPpFsmState_Enum' : _MetaInfoEnum('OtuPpFsmState_Enum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
+    'OtuPpFsmStateEnum' : _MetaInfoEnum('OtuPpFsmStateEnum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
         {
             'otu-in-active':'OTU_IN_ACTIVE',
             'otu-disabled':'OTU_DISABLED',
@@ -61,14 +61,14 @@ _meta_table = {
             'otu-main-t-failed':'OTU_MAIN_T_FAILED',
             'otu-regen-failed':'OTU_REGEN_FAILED',
         }, 'Cisco-IOS-XR-controller-otu-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-otu-oper']),
-    'OtuTtiEt_Enum' : _MetaInfoEnum('OtuTtiEt_Enum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
+    'OtuTtiEtEnum' : _MetaInfoEnum('OtuTtiEtEnum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
         {
             'ascii':'ASCII',
             'hex':'HEX',
             'full-ascii':'FULL_ASCII',
             'full-hex':'FULL_HEX',
         }, 'Cisco-IOS-XR-controller-otu-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-otu-oper']),
-    'OtuG709fecMode_Enum' : _MetaInfoEnum('OtuG709fecMode_Enum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
+    'OtuG709FecModeEnum' : _MetaInfoEnum('OtuG709FecModeEnum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
         {
             'otu-bag-none-fec':'OTU_BAG_NONE_FEC',
             'otu-bag-standard-fec':'OTU_BAG_STANDARD_FEC',
@@ -81,26 +81,26 @@ _meta_table = {
             'otu-bag-sd7-fec':'OTU_BAG_SD7_FEC',
             'otu-bag-all-fec':'OTU_BAG_ALL_FEC',
         }, 'Cisco-IOS-XR-controller-otu-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-otu-oper']),
-    'OtuSecState_Enum' : _MetaInfoEnum('OtuSecState_Enum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
+    'OtuSecStateEnum' : _MetaInfoEnum('OtuSecStateEnum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
         {
             'normal':'NORMAL',
             'maintenance':'MAINTENANCE',
             'ais':'AIS',
         }, 'Cisco-IOS-XR-controller-otu-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-otu-oper']),
-    'OtuLoopBackMode_Enum' : _MetaInfoEnum('OtuLoopBackMode_Enum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
+    'OtuLoopBackModeEnum' : _MetaInfoEnum('OtuLoopBackModeEnum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
         {
             'none':'NONE',
             'line':'LINE',
             'internal':'INTERNAL',
         }, 'Cisco-IOS-XR-controller-otu-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-otu-oper']),
-    'GmplsOtuTtiMode_Enum' : _MetaInfoEnum('GmplsOtuTtiMode_Enum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
+    'GmplsOtuTtiModeEnum' : _MetaInfoEnum('GmplsOtuTtiModeEnum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
         {
             'gmpls-otu-tti-mode-none':'GMPLS_OTU_TTI_MODE_NONE',
             'gmpls-otu-tti-mode-sm':'GMPLS_OTU_TTI_MODE_SM',
             'gmpls-otu-tti-mode-pm':'GMPLS_OTU_TTI_MODE_PM',
             'gmpls-otu-tti-mode-tcm':'GMPLS_OTU_TTI_MODE_TCM',
         }, 'Cisco-IOS-XR-controller-otu-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-otu-oper']),
-    'OtuDerState_Enum' : _MetaInfoEnum('OtuDerState_Enum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
+    'OtuDerStateEnum' : _MetaInfoEnum('OtuDerStateEnum', 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper',
         {
             'out-of-service':'OUT_OF_SERVICE',
             'in-service':'IN_SERVICE',
@@ -842,13 +842,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.Proactive',
             False, 
             [
-            _MetaInfoClassMember('proactive-fsm-if-state', REFERENCE_ENUM_CLASS, 'OtuPpIntfState_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuPpIntfState_Enum', 
+            _MetaInfoClassMember('proactive-fsm-if-state', REFERENCE_ENUM_CLASS, 'OtuPpIntfStateEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuPpIntfStateEnum', 
                 [], [], 
                 '''                Proactive FSM IF State
                 ''',
                 'proactive_fsm_if_state',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('proactive-fsm-state', REFERENCE_ENUM_CLASS, 'OtuPpFsmState_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuPpFsmState_Enum', 
+            _MetaInfoClassMember('proactive-fsm-state', REFERENCE_ENUM_CLASS, 'OtuPpFsmStateEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuPpFsmStateEnum', 
                 [], [], 
                 '''                Proactive FSM State
                 ''',
@@ -878,7 +878,7 @@ _meta_table = {
                 ''',
                 'rvrt_thresh_power',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('sec-state', REFERENCE_ENUM_CLASS, 'OtuSecState_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuSecState_Enum', 
+            _MetaInfoClassMember('sec-state', REFERENCE_ENUM_CLASS, 'OtuSecStateEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuSecStateEnum', 
                 [], [], 
                 '''                Secondary Admin State
                 ''',
@@ -1029,19 +1029,19 @@ _meta_table = {
                 ''',
                 'exp',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('g709tti-exp-mode', REFERENCE_ENUM_CLASS, 'OtuTtiEt_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuTtiEt_Enum', 
+            _MetaInfoClassMember('g709tti-exp-mode', REFERENCE_ENUM_CLASS, 'OtuTtiEtEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuTtiEtEnum', 
                 [], [], 
                 '''                G709TTI Expected
                 ''',
                 'g709tti_exp_mode',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('g709tti-rec-mode', REFERENCE_ENUM_CLASS, 'OtuTtiEt_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuTtiEt_Enum', 
+            _MetaInfoClassMember('g709tti-rec-mode', REFERENCE_ENUM_CLASS, 'OtuTtiEtEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuTtiEtEnum', 
                 [], [], 
                 '''                G709TTI Recieved
                 ''',
                 'g709tti_rec_mode',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('g709tti-sent-mode', REFERENCE_ENUM_CLASS, 'OtuTtiEt_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuTtiEt_Enum', 
+            _MetaInfoClassMember('g709tti-sent-mode', REFERENCE_ENUM_CLASS, 'OtuTtiEtEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuTtiEtEnum', 
                 [], [], 
                 '''                G709TTI sent
                 ''',
@@ -1070,7 +1070,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info',
             False, 
             [
-            _MetaInfoClassMember('derivedstate-mode', REFERENCE_ENUM_CLASS, 'OtuDerState_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuDerState_Enum', 
+            _MetaInfoClassMember('derivedstate-mode', REFERENCE_ENUM_CLASS, 'OtuDerStateEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuDerStateEnum', 
                 [], [], 
                 '''                Derived State
                 ''',
@@ -1088,7 +1088,7 @@ _meta_table = {
                 ''',
                 'ec_value',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('fec-mode', REFERENCE_ENUM_CLASS, 'OtuG709fecMode_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuG709fecMode_Enum', 
+            _MetaInfoClassMember('fec-mode', REFERENCE_ENUM_CLASS, 'OtuG709FecModeEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuG709FecModeEnum', 
                 [], [], 
                 '''                FEC
                 ''',
@@ -1100,7 +1100,7 @@ _meta_table = {
                 ''',
                 'gcc_mode',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('gmpls-tti-mode', REFERENCE_ENUM_CLASS, 'GmplsOtuTtiMode_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'GmplsOtuTtiMode_Enum', 
+            _MetaInfoClassMember('gmpls-tti-mode', REFERENCE_ENUM_CLASS, 'GmplsOtuTtiModeEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'GmplsOtuTtiModeEnum', 
                 [], [], 
                 '''                GMPLS TTI MODE
                 ''',
@@ -1118,7 +1118,7 @@ _meta_table = {
                 ''',
                 'local',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('loopback-mode', REFERENCE_ENUM_CLASS, 'OtuLoopBackMode_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuLoopBackMode_Enum', 
+            _MetaInfoClassMember('loopback-mode', REFERENCE_ENUM_CLASS, 'OtuLoopBackModeEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuLoopBackModeEnum', 
                 [], [], 
                 '''                Loopback
                 ''',
@@ -1148,7 +1148,7 @@ _meta_table = {
                 ''',
                 'otu_alarm_info',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('performance-monitoring', REFERENCE_ENUM_CLASS, 'OtuPerMon_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuPerMon_Enum', 
+            _MetaInfoClassMember('performance-monitoring', REFERENCE_ENUM_CLASS, 'OtuPerMonEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuPerMonEnum', 
                 [], [], 
                 '''                Performance Monitoring
                 ''',
@@ -1208,7 +1208,7 @@ _meta_table = {
                 ''',
                 'sd',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('sec-state', REFERENCE_ENUM_CLASS, 'OtuSecState_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuSecState_Enum', 
+            _MetaInfoClassMember('sec-state', REFERENCE_ENUM_CLASS, 'OtuSecStateEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuSecStateEnum', 
                 [], [], 
                 '''                Sec State
                 ''',
@@ -1220,7 +1220,7 @@ _meta_table = {
                 ''',
                 'sf',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'OtuStateEt_Enum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuStateEt_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'OtuStateEtEnum' , 'ydk.models.controller.Cisco_IOS_XR_controller_otu_oper', 'OtuStateEtEnum', 
                 [], [], 
                 '''                Admin State
                 ''',

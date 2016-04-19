@@ -28,179 +28,167 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg import CfmMdidFormat_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg import CfmMipPolicy_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg import CfmService_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg import CfmShortMaNameFormat_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes import CfmAisInterval_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes import CfmCcmInterval_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnum1_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnum2_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnum4_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnum5_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnum6_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamProfileHelloIntervalEnum_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamProfileModeEnum_Enum
-from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamProfileRequireModeEnum_Enum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg import CfmMdidFormatEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg import CfmMipPolicyEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg import CfmServiceEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg import CfmShortMaNameFormatEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes import CfmAisIntervalEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes import CfmCcmIntervalEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnum1Enum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnum2Enum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnum4Enum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnum5Enum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnum6Enum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamProfileHelloIntervalEnumEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamProfileModeEnumEnum
+from ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamProfileRequireModeEnumEnum
 
-class EgressFiltering_Enum(Enum):
+class EgressFilteringEnum(Enum):
     """
-    EgressFiltering_Enum
+    EgressFilteringEnum
 
     Egress filtering
 
-    """
+    .. data:: EGRESS_FILTERING_TYPE_STRICT = 1
+
+    	Strict Egress Filtering
+
+    .. data:: EGRESS_FILTERING_TYPE_DISABLE = 2
+
+    	Egress Filtering Disabled
+
+    .. data:: EGRESS_FILTERING_TYPE_DEFAULT = 3
+
+    	Default Egress Filtering Behavior
 
     """
 
-    Strict Egress Filtering
-
-    """
     EGRESS_FILTERING_TYPE_STRICT = 1
 
-    """
-
-    Egress Filtering Disabled
-
-    """
     EGRESS_FILTERING_TYPE_DISABLE = 2
 
-    """
-
-    Default Egress Filtering Behavior
-
-    """
     EGRESS_FILTERING_TYPE_DEFAULT = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-        return meta._meta_table['EgressFiltering_Enum']
+        return meta._meta_table['EgressFilteringEnum']
 
 
-class Filtering_Enum(Enum):
+class FilteringEnum(Enum):
     """
-    Filtering_Enum
+    FilteringEnum
 
     Filtering
 
-    """
+    .. data:: FILTERING_TYPE_DOT1Q = 0
+
+    	C-Vlan ingress frame filtering (Table 8-1 of
+
+    	802.1ad standard)
+
+    .. data:: FILTERING_TYPE_DOT1AD = 1
+
+    	S-Vlan ingress frame filtering (Table 8-2 of
+
+    	802.1ad standard)
 
     """
 
-    C\-Vlan ingress frame filtering (Table 8\-1 of
-    802.1ad standard)
-
-    """
     FILTERING_TYPE_DOT1Q = 0
 
-    """
-
-    S\-Vlan ingress frame filtering (Table 8\-2 of
-    802.1ad standard)
-
-    """
     FILTERING_TYPE_DOT1AD = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-        return meta._meta_table['Filtering_Enum']
+        return meta._meta_table['FilteringEnum']
 
 
-class L2ProtocolMode_Enum(Enum):
+class L2ProtocolModeEnum(Enum):
     """
-    L2ProtocolMode_Enum
+    L2ProtocolModeEnum
 
     L2 protocol mode
 
-    """
+    .. data:: FORWARD = 0
+
+    	Forward packets transparently
+
+    .. data:: DROP = 1
+
+    	Drop the protocol's packets
+
+    .. data:: TUNNEL = 2
+
+    	Tunnel ingress frames, untunnel egress frames
+
+    .. data:: REVERSE_TUNNEL = 3
+
+    	Tunnel egress frames, untunnel ingress frames
 
     """
 
-    Forward packets transparently
-
-    """
     FORWARD = 0
 
-    """
-
-    Drop the protocol's packets
-
-    """
     DROP = 1
 
-    """
-
-    Tunnel ingress frames, untunnel egress frames
-
-    """
     TUNNEL = 2
 
-    """
-
-    Tunnel egress frames, untunnel ingress frames
-
-    """
     REVERSE_TUNNEL = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-        return meta._meta_table['L2ProtocolMode_Enum']
+        return meta._meta_table['L2ProtocolModeEnum']
 
 
-class L2ProtocolName_Enum(Enum):
+class L2ProtocolNameEnum(Enum):
     """
-    L2ProtocolName_Enum
+    L2ProtocolNameEnum
 
     L2 protocol name
 
-    """
+    .. data:: CDP = 0
+
+    	CDP
+
+    .. data:: STP = 1
+
+    	STP
+
+    .. data:: VTP = 2
+
+    	VTP
+
+    .. data:: PVST = 3
+
+    	PVST+
+
+    .. data:: CPSV = 4
+
+    	CDP, PVST+, STP, and VTP
 
     """
 
-    CDP
-
-    """
     CDP = 0
 
-    """
-
-    STP
-
-    """
     STP = 1
 
-    """
-
-    VTP
-
-    """
     VTP = 2
 
-    """
-
-    PVST+
-
-    """
     PVST = 3
 
-    """
-
-    CDP, PVST+, STP, and VTP
-
-    """
     CPSV = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-        return meta._meta_table['L2ProtocolName_Enum']
+        return meta._meta_table['L2ProtocolNameEnum']
 
 
 
@@ -347,7 +335,7 @@ class EthernetFeatures(object):
                     .. attribute:: mdid_format
                     
                     	Maintenance Domain ID Format
-                    	**type**\: :py:class:`CfmMdidFormat_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg.CfmMdidFormat_Enum>`
+                    	**type**\: :py:class:`CfmMdidFormatEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg.CfmMdidFormatEnum>`
                     
                     .. attribute:: mdid_mac_address
                     
@@ -399,8 +387,6 @@ class EthernetFeatures(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.level is not None:
                             return True
 
@@ -416,10 +402,6 @@ class EthernetFeatures(object):
                         if self.mdid_string is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -599,7 +581,12 @@ class EthernetFeatures(object):
                                 .. attribute:: ais_interval
                                 
                                 	AIS Interval
-                                	**type**\: :py:class:`CfmAisInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmAisInterval_Enum>`
+                                	**type**\: :py:class:`CfmAisIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmAisIntervalEnum>`
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 .. attribute:: cos
                                 
@@ -607,6 +594,11 @@ class EthernetFeatures(object):
                                 	**type**\: int
                                 
                                 	**range:** 0..7
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 
 
@@ -636,8 +628,6 @@ class EthernetFeatures(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ais_interval is not None:
                                         return True
 
@@ -645,10 +635,6 @@ class EthernetFeatures(object):
                                         return True
 
                                     return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return True
 
                                 @staticmethod
                                 def _meta_info():
@@ -669,18 +655,9 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.transmission is not None and self.transmission._has_data():
                                     return True
 
-                                if self.transmission is not None and self.transmission.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -698,7 +675,12 @@ class EthernetFeatures(object):
                             .. attribute:: ccm_interval
                             
                             	CCM Interval
-                            	**type**\: :py:class:`CfmCcmInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmCcmInterval_Enum>`
+                            	**type**\: :py:class:`CfmCcmIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmCcmIntervalEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             .. attribute:: loss_threshold
                             
@@ -706,6 +688,11 @@ class EthernetFeatures(object):
                             	**type**\: int
                             
                             	**range:** 2..255
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -735,8 +722,6 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ccm_interval is not None:
                                     return True
 
@@ -744,10 +729,6 @@ class EthernetFeatures(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -859,8 +840,6 @@ class EthernetFeatures(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.mep_id is not None:
                                             return True
 
@@ -870,10 +849,6 @@ class EthernetFeatures(object):
                                         if self.mac_address is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -895,17 +870,11 @@ class EthernetFeatures(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.cross_check_mep is not None:
                                         for child_ref in self.cross_check_mep:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -927,21 +896,12 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.auto is not None:
                                     return True
 
                                 if self.cross_check_meps is not None and self.cross_check_meps._has_data():
                                     return True
 
-                                if self.cross_check_meps is not None and self.cross_check_meps.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -960,10 +920,20 @@ class EthernetFeatures(object):
                             	Enable EFD
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: protection_switching_enable
                             
                             	Enable protection switching notifications
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -993,8 +963,6 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.enable is not None:
                                     return True
 
@@ -1002,10 +970,6 @@ class EthernetFeatures(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -1022,10 +986,20 @@ class EthernetFeatures(object):
                             	Enable CCM Learning at MIPs in this service
                             	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: mip_policy
                             
                             	MIP Auto\-creation Policy
-                            	**type**\: :py:class:`CfmMipPolicy_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg.CfmMipPolicy_Enum>`
+                            	**type**\: :py:class:`CfmMipPolicyEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg.CfmMipPolicyEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -1055,8 +1029,6 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ccm_learning_enable is not None:
                                     return True
 
@@ -1064,10 +1036,6 @@ class EthernetFeatures(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -1087,10 +1055,20 @@ class EthernetFeatures(object):
                             
                             	**range:** 1..16384
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: group_name
                             
                             	Bridge Group or Cross\-connect Group, if Service Type is BridgeDomain or CrossConnect
                             	**type**\: str
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             .. attribute:: remote_ce_id
                             
@@ -1099,15 +1077,30 @@ class EthernetFeatures(object):
                             
                             	**range:** 1..16384
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: service_type
                             
                             	Type of Service
-                            	**type**\: :py:class:`CfmService_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg.CfmService_Enum>`
+                            	**type**\: :py:class:`CfmServiceEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg.CfmServiceEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             .. attribute:: short_ma_name_format
                             
                             	Short MA Name Format
-                            	**type**\: :py:class:`CfmShortMaNameFormat_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg.CfmShortMaNameFormat_Enum>`
+                            	**type**\: :py:class:`CfmShortMaNameFormatEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg.CfmShortMaNameFormatEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             .. attribute:: short_ma_name_icc
                             
@@ -1116,12 +1109,22 @@ class EthernetFeatures(object):
                             
                             	**range:** 0..7
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: short_ma_name_number
                             
                             	Numeric Short MA Name, if format is VlanID or Number
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             .. attribute:: short_ma_name_oui
                             
@@ -1130,12 +1133,22 @@ class EthernetFeatures(object):
                             
                             	**range:** 0..16777215
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: short_ma_name_string
                             
                             	String Short MA Name, if format is String
                             	**type**\: str
                             
                             	**range:** 0..46
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             .. attribute:: short_ma_name_umc
                             
@@ -1144,6 +1157,11 @@ class EthernetFeatures(object):
                             
                             	**range:** 0..13
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: short_ma_name_vpn_index
                             
                             	VPN Index, if Short MA Name format is VPN\_ID
@@ -1151,10 +1169,20 @@ class EthernetFeatures(object):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: switching_name
                             
                             	Bridge Domain or Cross\-connect name, if Service Type is BridgeDomain or CrossConnect
                             	**type**\: str
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -1194,8 +1222,6 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ce_id is not None:
                                     return True
 
@@ -1234,10 +1260,6 @@ class EthernetFeatures(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
@@ -1259,15 +1281,10 @@ class EthernetFeatures(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.service is not None:
                                 return True
 
                             if self.ais is not None and self.ais._has_data():
-                                return True
-
-                            if self.ais is not None and self.ais.is_presence():
                                 return True
 
                             if self.continuity_check_archive_hold_time is not None:
@@ -1279,19 +1296,10 @@ class EthernetFeatures(object):
                             if self.continuity_check_interval is not None and self.continuity_check_interval._has_data():
                                 return True
 
-                            if self.continuity_check_interval is not None and self.continuity_check_interval.is_presence():
-                                return True
-
                             if self.cross_check is not None and self.cross_check._has_data():
                                 return True
 
-                            if self.cross_check is not None and self.cross_check.is_presence():
-                                return True
-
                             if self.efd2 is not None and self.efd2._has_data():
-                                return True
-
-                            if self.efd2 is not None and self.efd2.is_presence():
                                 return True
 
                             if self.log_ais is not None:
@@ -1315,22 +1323,12 @@ class EthernetFeatures(object):
                             if self.mip_auto_creation is not None and self.mip_auto_creation._has_data():
                                 return True
 
-                            if self.mip_auto_creation is not None and self.mip_auto_creation.is_presence():
-                                return True
-
                             if self.service_properties is not None and self.service_properties._has_data():
-                                return True
-
-                            if self.service_properties is not None and self.service_properties.is_presence():
                                 return True
 
                             if self.tags is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1352,17 +1350,11 @@ class EthernetFeatures(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.service is not None:
                             for child_ref in self.service:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1384,27 +1376,15 @@ class EthernetFeatures(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.domain is not None:
                         return True
 
                     if self.domain_properties is not None and self.domain_properties._has_data():
                         return True
 
-                    if self.domain_properties is not None and self.domain_properties.is_presence():
-                        return True
-
                     if self.services is not None and self.services._has_data():
                         return True
 
-                    if self.services is not None and self.services.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1424,17 +1404,11 @@ class EthernetFeatures(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.domain is not None:
                     for child_ref in self.domain:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1485,18 +1459,12 @@ class EthernetFeatures(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.cache_size is not None:
                     return True
 
                 if self.hold_time is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1516,12 +1484,7 @@ class EthernetFeatures(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.domains is not None and self.domains._has_data():
-                return True
-
-            if self.domains is not None and self.domains.is_presence():
                 return True
 
             if self.nv_satellite_sla_processing_disable is not None:
@@ -1530,13 +1493,6 @@ class EthernetFeatures(object):
             if self.traceroute_cache is not None and self.traceroute_cache._has_data():
                 return True
 
-            if self.traceroute_cache is not None and self.traceroute_cache.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1577,15 +1533,9 @@ class EthernetFeatures(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.egress_filtering_default_on is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1658,7 +1608,7 @@ class EthernetFeatures(object):
                 .. attribute:: hello_interval
                 
                 	Possible Ethernet Link OAM hello intervals
-                	**type**\: :py:class:`EtherLinkOamProfileHelloIntervalEnum_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamProfileHelloIntervalEnum_Enum>`
+                	**type**\: :py:class:`EtherLinkOamProfileHelloIntervalEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamProfileHelloIntervalEnumEnum>`
                 
                 .. attribute:: link_monitor
                 
@@ -1673,7 +1623,7 @@ class EthernetFeatures(object):
                 .. attribute:: mode
                 
                 	Set the OAM mode to passive
-                	**type**\: :py:class:`EtherLinkOamProfileModeEnum_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamProfileModeEnum_Enum>`
+                	**type**\: :py:class:`EtherLinkOamProfileModeEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamProfileModeEnumEnum>`
                 
                 .. attribute:: remote_loopback
                 
@@ -1728,52 +1678,52 @@ class EthernetFeatures(object):
                     .. attribute:: capabilities_conflict
                     
                     	Action to perform when a capabilities conflict occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum5_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum5Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5Enum>`
                     
                     .. attribute:: critical_event
                     
                     	Action to perform when a critical event occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum2_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum2_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum2Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum2Enum>`
                     
                     .. attribute:: discovery_timeout
                     
                     	Action to perform when discovery timeout occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum5_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum5Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5Enum>`
                     
                     .. attribute:: dying_gasp
                     
                     	Action to perform when a dying gasp occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum2_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum2_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum2Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum2Enum>`
                     
                     .. attribute:: high_threshold
                     
                     	Action to perform when a high\-threshold event occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum1_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum1_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum1Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum1Enum>`
                     
                     .. attribute:: link_fault
                     
                     	Action to perform when a link fault message is received
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum5_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum5Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5Enum>`
                     
                     .. attribute:: remote_loopback
                     
                     	Action to perform when remote loopback is entered or exited
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum4_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum4_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum4Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum4Enum>`
                     
                     .. attribute:: session_down
                     
                     	Action to perform when a session goes down
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum5_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum5Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5Enum>`
                     
                     .. attribute:: session_up
                     
                     	Action to perform when a session comes up
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum4_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum4_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum4Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum4Enum>`
                     
                     .. attribute:: wiring_conflict
                     
                     	Action to perform when a wiring conflict occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum6_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum6_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum6Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum6Enum>`
                     
                     
 
@@ -1809,8 +1759,6 @@ class EthernetFeatures(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.capabilities_conflict is not None:
                             return True
 
@@ -1841,10 +1789,6 @@ class EthernetFeatures(object):
                         if self.wiring_conflict is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1942,12 +1886,22 @@ class EthernetFeatures(object):
                             
                             	**range:** 1..12000000
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: threshold_low
                             
                             	The low threshold for frame events
                             	**type**\: int
                             
                             	**range:** 1..12000000
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -1977,8 +1931,6 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.threshold_high is not None:
                                     return True
 
@@ -1986,10 +1938,6 @@ class EthernetFeatures(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -2010,21 +1958,12 @@ class EthernetFeatures(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.threshold is not None and self.threshold._has_data():
-                                return True
-
-                            if self.threshold is not None and self.threshold.is_presence():
                                 return True
 
                             if self.window is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2074,12 +2013,22 @@ class EthernetFeatures(object):
                             
                             	**range:** 1..1000000
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: threshold_low
                             
                             	The low threshold for frame\-period events
                             	**type**\: int
                             
                             	**range:** 1..1000000
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -2109,8 +2058,6 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.threshold_high is not None:
                                     return True
 
@@ -2118,10 +2065,6 @@ class EthernetFeatures(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -2142,21 +2085,12 @@ class EthernetFeatures(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.threshold is not None and self.threshold._has_data():
-                                return True
-
-                            if self.threshold is not None and self.threshold.is_presence():
                                 return True
 
                             if self.window is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2206,12 +2140,22 @@ class EthernetFeatures(object):
                             
                             	**range:** 1..900
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: threshold_low
                             
                             	The low threshold for frame\-seconds events
                             	**type**\: int
                             
                             	**range:** 1..900
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -2241,8 +2185,6 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.threshold_high is not None:
                                     return True
 
@@ -2250,10 +2192,6 @@ class EthernetFeatures(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -2274,21 +2212,12 @@ class EthernetFeatures(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.threshold is not None and self.threshold._has_data():
-                                return True
-
-                            if self.threshold is not None and self.threshold.is_presence():
                                 return True
 
                             if self.window is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2338,12 +2267,22 @@ class EthernetFeatures(object):
                             
                             	**range:** 1..60000000
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: threshold_low
                             
                             	The low threshold for symbol\-period
                             	**type**\: int
                             
                             	**range:** 1..60000000
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -2373,8 +2312,6 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.threshold_high is not None:
                                     return True
 
@@ -2382,10 +2319,6 @@ class EthernetFeatures(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -2406,21 +2339,12 @@ class EthernetFeatures(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.threshold is not None and self.threshold._has_data():
-                                return True
-
-                            if self.threshold is not None and self.threshold.is_presence():
                                 return True
 
                             if self.window is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2442,24 +2366,13 @@ class EthernetFeatures(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.frame is not None and self.frame._has_data():
-                            return True
-
-                        if self.frame is not None and self.frame.is_presence():
                             return True
 
                         if self.frame_period is not None and self.frame_period._has_data():
                             return True
 
-                        if self.frame_period is not None and self.frame_period.is_presence():
-                            return True
-
                         if self.frame_seconds is not None and self.frame_seconds._has_data():
-                            return True
-
-                        if self.frame_seconds is not None and self.frame_seconds.is_presence():
                             return True
 
                         if self.monitoring is not None:
@@ -2468,13 +2381,6 @@ class EthernetFeatures(object):
                         if self.symbol_period is not None and self.symbol_period._has_data():
                             return True
 
-                        if self.symbol_period is not None and self.symbol_period.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2500,7 +2406,7 @@ class EthernetFeatures(object):
                     .. attribute:: mode
                     
                     	Possible required OAM modes
-                    	**type**\: :py:class:`EtherLinkOamProfileRequireModeEnum_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamProfileRequireModeEnum_Enum>`
+                    	**type**\: :py:class:`EtherLinkOamProfileRequireModeEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamProfileRequireModeEnumEnum>`
                     
                     .. attribute:: remote_loopback
                     
@@ -2535,8 +2441,6 @@ class EthernetFeatures(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.link_monitoring is not None:
                             return True
 
@@ -2549,10 +2453,6 @@ class EthernetFeatures(object):
                         if self.remote_loopback is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2574,24 +2474,16 @@ class EthernetFeatures(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.profile is not None:
                         return True
 
                     if self.action is not None and self.action._has_data():
                         return True
 
-                    if self.action is not None and self.action.is_presence():
-                        return True
-
                     if self.hello_interval is not None:
                         return True
 
                     if self.link_monitor is not None and self.link_monitor._has_data():
-                        return True
-
-                    if self.link_monitor is not None and self.link_monitor.is_presence():
                         return True
 
                     if self.mib_retrieval is not None:
@@ -2606,19 +2498,12 @@ class EthernetFeatures(object):
                     if self.require_remote is not None and self.require_remote._has_data():
                         return True
 
-                    if self.require_remote is not None and self.require_remote.is_presence():
-                        return True
-
                     if self.timeout is not None:
                         return True
 
                     if self.udlf is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2638,17 +2523,11 @@ class EthernetFeatures(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.profile is not None:
                     for child_ref in self.profile:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2668,18 +2547,9 @@ class EthernetFeatures(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.profiles is not None and self.profiles._has_data():
                 return True
 
-            if self.profiles is not None and self.profiles.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2699,30 +2569,15 @@ class EthernetFeatures(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.cfm is not None and self.cfm._has_data():
-            return True
-
-        if self.cfm is not None and self.cfm.is_presence():
             return True
 
         if self.egress_filtering is not None and self.egress_filtering._has_data():
             return True
 
-        if self.egress_filtering is not None and self.egress_filtering.is_presence():
-            return True
-
         if self.ether_link_oam is not None and self.ether_link_oam._has_data():
             return True
 
-        if self.ether_link_oam is not None and self.ether_link_oam.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

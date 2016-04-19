@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -18,7 +18,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Aggregation.Config',
             False, 
             [
-            _MetaInfoClassMember('lag-type', REFERENCE_ENUM_CLASS, 'AggregationType_Enum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'AggregationType_Enum', 
+            _MetaInfoClassMember('lag-type', REFERENCE_ENUM_CLASS, 'AggregationTypeEnum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'AggregationTypeEnum', 
                 [], [], 
                 '''                Sets the type of LAG, i.e., how it is
                 configured / maintained
@@ -44,14 +44,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Aggregation.Lacp.Config',
             False, 
             [
-            _MetaInfoClassMember('interval', REFERENCE_ENUM_CLASS, 'LacpPeriodType_Enum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpPeriodType_Enum', 
+            _MetaInfoClassMember('interval', REFERENCE_ENUM_CLASS, 'LacpPeriodTypeEnum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpPeriodTypeEnum', 
                 [], [], 
                 '''                Set the period between LACP messages -- uses
                 the lacp-period-type enumeration.
                 ''',
                 'interval',
                 'openconfig-if-aggregate', False),
-            _MetaInfoClassMember('lacp-mode', REFERENCE_ENUM_CLASS, 'LacpActivityType_Enum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpActivityType_Enum', 
+            _MetaInfoClassMember('lacp-mode', REFERENCE_ENUM_CLASS, 'LacpActivityTypeEnum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpActivityTypeEnum', 
                 [], [], 
                 '''                ACTIVE is to initiate the transmission of LACP packets.
                 PASSIVE is to wait for peer to initiate the transmission of
@@ -133,7 +133,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Aggregation.Lacp.Members.Member.State',
             False, 
             [
-            _MetaInfoClassMember('activity', REFERENCE_ENUM_CLASS, 'LacpActivityType_Enum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpActivityType_Enum', 
+            _MetaInfoClassMember('activity', REFERENCE_ENUM_CLASS, 'LacpActivityTypeEnum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpActivityTypeEnum', 
                 [], [], 
                 '''                Indicates participant is active or passive
                 ''',
@@ -194,7 +194,7 @@ _meta_table = {
                 ''',
                 'partner_key',
                 'openconfig-if-aggregate', False),
-            _MetaInfoClassMember('synchronization', REFERENCE_ENUM_CLASS, 'LacpSynchronizationType_Enum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpSynchronizationType_Enum', 
+            _MetaInfoClassMember('synchronization', REFERENCE_ENUM_CLASS, 'LacpSynchronizationTypeEnum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpSynchronizationTypeEnum', 
                 [], [], 
                 '''                Indicates whether the participant is in-sync or
                 out-of-sync
@@ -208,7 +208,7 @@ _meta_table = {
                 ''',
                 'system_id',
                 'openconfig-if-aggregate', False),
-            _MetaInfoClassMember('timeout', REFERENCE_ENUM_CLASS, 'LacpTimeoutType_Enum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpTimeoutType_Enum', 
+            _MetaInfoClassMember('timeout', REFERENCE_ENUM_CLASS, 'LacpTimeoutTypeEnum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpTimeoutTypeEnum', 
                 [], [], 
                 '''                The timeout type (short or long) used by the
                 participant
@@ -269,14 +269,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Aggregation.Lacp.State',
             False, 
             [
-            _MetaInfoClassMember('interval', REFERENCE_ENUM_CLASS, 'LacpPeriodType_Enum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpPeriodType_Enum', 
+            _MetaInfoClassMember('interval', REFERENCE_ENUM_CLASS, 'LacpPeriodTypeEnum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpPeriodTypeEnum', 
                 [], [], 
                 '''                Set the period between LACP messages -- uses
                 the lacp-period-type enumeration.
                 ''',
                 'interval',
                 'openconfig-if-aggregate', False),
-            _MetaInfoClassMember('lacp-mode', REFERENCE_ENUM_CLASS, 'LacpActivityType_Enum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpActivityType_Enum', 
+            _MetaInfoClassMember('lacp-mode', REFERENCE_ENUM_CLASS, 'LacpActivityTypeEnum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'LacpActivityTypeEnum', 
                 [], [], 
                 '''                ACTIVE is to initiate the transmission of LACP packets.
                 PASSIVE is to wait for peer to initiate the transmission of
@@ -342,7 +342,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Aggregation.State',
             False, 
             [
-            _MetaInfoClassMember('lag-type', REFERENCE_ENUM_CLASS, 'AggregationType_Enum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'AggregationType_Enum', 
+            _MetaInfoClassMember('lag-type', REFERENCE_ENUM_CLASS, 'AggregationTypeEnum' , 'ydk.models.openconfig.openconfig_if_aggregate', 'AggregationTypeEnum', 
                 [], [], 
                 '''                Sets the type of LAG, i.e., how it is
                 configured / maintained
@@ -394,7 +394,7 @@ _meta_table = {
                         'access_vlan',
                         'openconfig-vlan', False),
                 ]),
-            _MetaInfoClassMember('interface-mode', REFERENCE_ENUM_CLASS, 'VlanModeType_Enum' , 'ydk.models.openconfig.openconfig_vlan', 'VlanModeType_Enum', 
+            _MetaInfoClassMember('interface-mode', REFERENCE_ENUM_CLASS, 'VlanModeTypeEnum' , 'ydk.models.openconfig.openconfig_vlan', 'VlanModeTypeEnum', 
                 [], [], 
                 '''                Set the interface to access or trunk mode for
                 VLANs
@@ -528,7 +528,7 @@ _meta_table = {
                         'access_vlan',
                         'openconfig-vlan', False),
                 ]),
-            _MetaInfoClassMember('interface-mode', REFERENCE_ENUM_CLASS, 'VlanModeType_Enum' , 'ydk.models.openconfig.openconfig_vlan', 'VlanModeType_Enum', 
+            _MetaInfoClassMember('interface-mode', REFERENCE_ENUM_CLASS, 'VlanModeTypeEnum' , 'ydk.models.openconfig.openconfig_vlan', 'VlanModeTypeEnum', 
                 [], [], 
                 '''                Set the interface to access or trunk mode for
                 VLANs
@@ -831,7 +831,7 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_interfaces'
         ),
     },
-    'Interfaces.Interface.Ethernet.Config.DuplexMode_Enum' : _MetaInfoEnum('DuplexMode_Enum', 'ydk.models.openconfig.openconfig_interfaces',
+    'Interfaces.Interface.Ethernet.Config.DuplexModeEnum' : _MetaInfoEnum('DuplexModeEnum', 'ydk.models.openconfig.openconfig_interfaces',
         {
             'FULL':'FULL',
             'HALF':'HALF',
@@ -856,7 +856,7 @@ _meta_table = {
                 ''',
                 'auto_negotiate',
                 'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('duplex-mode', REFERENCE_ENUM_CLASS, 'DuplexMode_Enum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Ethernet.Config.DuplexMode_Enum', 
+            _MetaInfoClassMember('duplex-mode', REFERENCE_ENUM_CLASS, 'DuplexModeEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Ethernet.Config.DuplexModeEnum', 
                 [], [], 
                 '''                When auto-negotiate is TRUE, this optionally sets the
                 duplex mode that will be advertised to the peer.  If
@@ -982,7 +982,7 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_interfaces'
         ),
     },
-    'Interfaces.Interface.Ethernet.State.DuplexMode_Enum' : _MetaInfoEnum('DuplexMode_Enum', 'ydk.models.openconfig.openconfig_interfaces',
+    'Interfaces.Interface.Ethernet.State.DuplexModeEnum' : _MetaInfoEnum('DuplexModeEnum', 'ydk.models.openconfig.openconfig_interfaces',
         {
             'FULL':'FULL',
             'HALF':'HALF',
@@ -1013,7 +1013,7 @@ _meta_table = {
                 ''',
                 'counters',
                 'openconfig-if-ethernet', False),
-            _MetaInfoClassMember('duplex-mode', REFERENCE_ENUM_CLASS, 'DuplexMode_Enum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Ethernet.State.DuplexMode_Enum', 
+            _MetaInfoClassMember('duplex-mode', REFERENCE_ENUM_CLASS, 'DuplexModeEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Ethernet.State.DuplexModeEnum', 
                 [], [], 
                 '''                When auto-negotiate is TRUE, this optionally sets the
                 duplex mode that will be advertised to the peer.  If
@@ -1093,7 +1093,7 @@ _meta_table = {
                         'access_vlan',
                         'openconfig-vlan', False),
                 ]),
-            _MetaInfoClassMember('interface-mode', REFERENCE_ENUM_CLASS, 'VlanModeType_Enum' , 'ydk.models.openconfig.openconfig_vlan', 'VlanModeType_Enum', 
+            _MetaInfoClassMember('interface-mode', REFERENCE_ENUM_CLASS, 'VlanModeTypeEnum' , 'ydk.models.openconfig.openconfig_vlan', 'VlanModeTypeEnum', 
                 [], [], 
                 '''                Set the interface to access or trunk mode for
                 VLANs
@@ -1227,7 +1227,7 @@ _meta_table = {
                         'access_vlan',
                         'openconfig-vlan', False),
                 ]),
-            _MetaInfoClassMember('interface-mode', REFERENCE_ENUM_CLASS, 'VlanModeType_Enum' , 'ydk.models.openconfig.openconfig_vlan', 'VlanModeType_Enum', 
+            _MetaInfoClassMember('interface-mode', REFERENCE_ENUM_CLASS, 'VlanModeTypeEnum' , 'ydk.models.openconfig.openconfig_vlan', 'VlanModeTypeEnum', 
                 [], [], 
                 '''                Set the interface to access or trunk mode for
                 VLANs
@@ -1546,7 +1546,7 @@ _meta_table = {
                 ''',
                 'ip',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'IpAddressOrigin_Enum' , 'ydk.models.openconfig.openconfig_if_ip', 'IpAddressOrigin_Enum', 
+            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'IpAddressOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'IpAddressOriginEnum', 
                 [], [], 
                 '''                The origin of this address, e.g., statically configured,
                 assigned by DHCP, etc..
@@ -1979,7 +1979,7 @@ _meta_table = {
                 ''',
                 'link_layer_address',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'NeighborOrigin_Enum' , 'ydk.models.openconfig.openconfig_if_ip', 'NeighborOrigin_Enum', 
+            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'NeighborOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'NeighborOriginEnum', 
                 [], [], 
                 '''                The origin of this neighbor entry, static or dynamic.
                 ''',
@@ -2122,7 +2122,7 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_interfaces'
         ),
     },
-    'Interfaces.Interface.RoutedVlan.Ipv6.Address.State.Status_Enum' : _MetaInfoEnum('Status_Enum', 'ydk.models.openconfig.openconfig_interfaces',
+    'Interfaces.Interface.RoutedVlan.Ipv6.Address.State.StatusEnum' : _MetaInfoEnum('StatusEnum', 'ydk.models.openconfig.openconfig_interfaces',
         {
             'PREFERRED':'PREFERRED',
             'DEPRECATED':'DEPRECATED',
@@ -2145,7 +2145,7 @@ _meta_table = {
                 ''',
                 'ip',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'IpAddressOrigin_Enum' , 'ydk.models.openconfig.openconfig_if_ip', 'IpAddressOrigin_Enum', 
+            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'IpAddressOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'IpAddressOriginEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
                 
@@ -2161,7 +2161,7 @@ _meta_table = {
                 ''',
                 'prefix_length',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'Status_Enum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Address.State.Status_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'StatusEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Address.State.StatusEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
                 
@@ -2758,7 +2758,7 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_interfaces'
         ),
     },
-    'Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.State.NeighborState_Enum' : _MetaInfoEnum('NeighborState_Enum', 'ydk.models.openconfig.openconfig_interfaces',
+    'Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.State.NeighborStateEnum' : _MetaInfoEnum('NeighborStateEnum', 'ydk.models.openconfig.openconfig_interfaces',
         {
             'INCOMPLETE':'INCOMPLETE',
             'REACHABLE':'REACHABLE',
@@ -2794,7 +2794,7 @@ _meta_table = {
                 ''',
                 'link_layer_address',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborState_Enum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.State.NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.State.NeighborStateEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
                 
@@ -2803,7 +2803,7 @@ _meta_table = {
                 ''',
                 'neighbor_state',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'NeighborOrigin_Enum' , 'ydk.models.openconfig.openconfig_if_ip', 'NeighborOrigin_Enum', 
+            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'NeighborOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'NeighborOriginEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
                 
@@ -3259,13 +3259,13 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_interfaces'
         ),
     },
-    'Interfaces.Interface.State.AdminStatus_Enum' : _MetaInfoEnum('AdminStatus_Enum', 'ydk.models.openconfig.openconfig_interfaces',
+    'Interfaces.Interface.State.AdminStatusEnum' : _MetaInfoEnum('AdminStatusEnum', 'ydk.models.openconfig.openconfig_interfaces',
         {
             'UP':'UP',
             'DOWN':'DOWN',
             'TESTING':'TESTING',
         }, 'openconfig-interfaces', _yang_ns._namespaces['openconfig-interfaces']),
-    'Interfaces.Interface.State.OperStatus_Enum' : _MetaInfoEnum('OperStatus_Enum', 'ydk.models.openconfig.openconfig_interfaces',
+    'Interfaces.Interface.State.OperStatusEnum' : _MetaInfoEnum('OperStatusEnum', 'ydk.models.openconfig.openconfig_interfaces',
         {
             'UP':'UP',
             'DOWN':'DOWN',
@@ -3279,7 +3279,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.State',
             False, 
             [
-            _MetaInfoClassMember('admin-status', REFERENCE_ENUM_CLASS, 'AdminStatus_Enum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.State.AdminStatus_Enum', 
+            _MetaInfoClassMember('admin-status', REFERENCE_ENUM_CLASS, 'AdminStatusEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.State.AdminStatusEnum', 
                 [], [], 
                 '''                [adapted from IETF interfaces model (RFC 7223)]
                 
@@ -3416,7 +3416,7 @@ _meta_table = {
                 ''',
                 'name',
                 'openconfig-interfaces', False),
-            _MetaInfoClassMember('oper-status', REFERENCE_ENUM_CLASS, 'OperStatus_Enum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.State.OperStatus_Enum', 
+            _MetaInfoClassMember('oper-status', REFERENCE_ENUM_CLASS, 'OperStatusEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.State.OperStatusEnum', 
                 [], [], 
                 '''                [adapted from IETF interfaces model (RFC 7223)]
                 
@@ -3611,7 +3611,7 @@ _meta_table = {
                 ''',
                 'ip',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'IpAddressOrigin_Enum' , 'ydk.models.openconfig.openconfig_if_ip', 'IpAddressOrigin_Enum', 
+            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'IpAddressOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'IpAddressOriginEnum', 
                 [], [], 
                 '''                The origin of this address, e.g., statically configured,
                 assigned by DHCP, etc..
@@ -4044,7 +4044,7 @@ _meta_table = {
                 ''',
                 'link_layer_address',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'NeighborOrigin_Enum' , 'ydk.models.openconfig.openconfig_if_ip', 'NeighborOrigin_Enum', 
+            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'NeighborOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'NeighborOriginEnum', 
                 [], [], 
                 '''                The origin of this neighbor entry, static or dynamic.
                 ''',
@@ -4187,7 +4187,7 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_interfaces'
         ),
     },
-    'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.State.Status_Enum' : _MetaInfoEnum('Status_Enum', 'ydk.models.openconfig.openconfig_interfaces',
+    'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.State.StatusEnum' : _MetaInfoEnum('StatusEnum', 'ydk.models.openconfig.openconfig_interfaces',
         {
             'PREFERRED':'PREFERRED',
             'DEPRECATED':'DEPRECATED',
@@ -4210,7 +4210,7 @@ _meta_table = {
                 ''',
                 'ip',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'IpAddressOrigin_Enum' , 'ydk.models.openconfig.openconfig_if_ip', 'IpAddressOrigin_Enum', 
+            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'IpAddressOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'IpAddressOriginEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
                 
@@ -4226,7 +4226,7 @@ _meta_table = {
                 ''',
                 'prefix_length',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'Status_Enum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.State.Status_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'StatusEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.State.StatusEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
                 
@@ -4823,7 +4823,7 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_interfaces'
         ),
     },
-    'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State.NeighborState_Enum' : _MetaInfoEnum('NeighborState_Enum', 'ydk.models.openconfig.openconfig_interfaces',
+    'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State.NeighborStateEnum' : _MetaInfoEnum('NeighborStateEnum', 'ydk.models.openconfig.openconfig_interfaces',
         {
             'INCOMPLETE':'INCOMPLETE',
             'REACHABLE':'REACHABLE',
@@ -4859,7 +4859,7 @@ _meta_table = {
                 ''',
                 'link_layer_address',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborState_Enum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State.NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State.NeighborStateEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
                 
@@ -4868,7 +4868,7 @@ _meta_table = {
                 ''',
                 'neighbor_state',
                 'openconfig-if-ip', False),
-            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'NeighborOrigin_Enum' , 'ydk.models.openconfig.openconfig_if_ip', 'NeighborOrigin_Enum', 
+            _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'NeighborOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'NeighborOriginEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
                 
@@ -5250,13 +5250,13 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_interfaces'
         ),
     },
-    'Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatus_Enum' : _MetaInfoEnum('AdminStatus_Enum', 'ydk.models.openconfig.openconfig_interfaces',
+    'Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatusEnum' : _MetaInfoEnum('AdminStatusEnum', 'ydk.models.openconfig.openconfig_interfaces',
         {
             'UP':'UP',
             'DOWN':'DOWN',
             'TESTING':'TESTING',
         }, 'openconfig-interfaces', _yang_ns._namespaces['openconfig-interfaces']),
-    'Interfaces.Interface.Subinterfaces.Subinterface.State.OperStatus_Enum' : _MetaInfoEnum('OperStatus_Enum', 'ydk.models.openconfig.openconfig_interfaces',
+    'Interfaces.Interface.Subinterfaces.Subinterface.State.OperStatusEnum' : _MetaInfoEnum('OperStatusEnum', 'ydk.models.openconfig.openconfig_interfaces',
         {
             'UP':'UP',
             'DOWN':'DOWN',
@@ -5270,7 +5270,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Subinterfaces.Subinterface.State',
             False, 
             [
-            _MetaInfoClassMember('admin-status', REFERENCE_ENUM_CLASS, 'AdminStatus_Enum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatus_Enum', 
+            _MetaInfoClassMember('admin-status', REFERENCE_ENUM_CLASS, 'AdminStatusEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatusEnum', 
                 [], [], 
                 '''                [adapted from IETF interfaces model (RFC 7223)]
                 
@@ -5401,7 +5401,7 @@ _meta_table = {
                 ''',
                 'name',
                 'openconfig-interfaces', False),
-            _MetaInfoClassMember('oper-status', REFERENCE_ENUM_CLASS, 'OperStatus_Enum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.State.OperStatus_Enum', 
+            _MetaInfoClassMember('oper-status', REFERENCE_ENUM_CLASS, 'OperStatusEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.State.OperStatusEnum', 
                 [], [], 
                 '''                [adapted from IETF interfaces model (RFC 7223)]
                 

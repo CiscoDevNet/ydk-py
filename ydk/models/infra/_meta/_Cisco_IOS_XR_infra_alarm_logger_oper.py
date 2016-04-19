@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,13 +14,13 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'AlAlarmBistate_Enum' : _MetaInfoEnum('AlAlarmBistate_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper',
+    'AlAlarmBistateEnum' : _MetaInfoEnum('AlAlarmBistateEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper',
         {
             'not-available':'NOT_AVAILABLE',
             'active':'ACTIVE',
             'clear':'CLEAR',
         }, 'Cisco-IOS-XR-infra-alarm-logger-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-alarm-logger-oper']),
-    'AlAlarmSeverity_Enum' : _MetaInfoEnum('AlAlarmSeverity_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper',
+    'AlAlarmSeverityEnum' : _MetaInfoEnum('AlAlarmSeverityEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper',
         {
             'unknown':'UNKNOWN',
             'emergency':'EMERGENCY',
@@ -79,7 +79,7 @@ _meta_table = {
                 ''',
                 'is_admin',
                 'Cisco-IOS-XR-infra-alarm-logger-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'AlAlarmSeverity_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper', 'AlAlarmSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'AlAlarmSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper', 'AlAlarmSeverityEnum', 
                 [], [], 
                 '''                Severity of the alarm
                 ''',
@@ -92,7 +92,7 @@ _meta_table = {
                 ''',
                 'source_id',
                 'Cisco-IOS-XR-infra-alarm-logger-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'AlAlarmBistate_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper', 'AlAlarmBistate_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'AlAlarmBistateEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper', 'AlAlarmBistateEnum', 
                 [], [], 
                 '''                State of the alarm (bistate alarms only)
                 ''',
@@ -160,7 +160,7 @@ _meta_table = {
                 ''',
                 'record_count',
                 'Cisco-IOS-XR-infra-alarm-logger-oper', False),
-            _MetaInfoClassMember('severity-filter', REFERENCE_ENUM_CLASS, 'AlAlarmSeverity_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper', 'AlAlarmSeverity_Enum', 
+            _MetaInfoClassMember('severity-filter', REFERENCE_ENUM_CLASS, 'AlAlarmSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper', 'AlAlarmSeverityEnum', 
                 [], [], 
                 '''                Severity Filter
                 ''',

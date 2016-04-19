@@ -25,82 +25,73 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class SystemMessageSeverity_Enum(Enum):
+class SystemMessageSeverityEnum(Enum):
     """
-    SystemMessageSeverity_Enum
+    SystemMessageSeverityEnum
 
     System message severity
 
-    """
+    .. data:: MESSAGE_SEVERITY_UNKNOWN = -1
+
+    	Unknown
+
+    .. data:: MESSAGE_SEVERITY_EMERGENCY = 0
+
+    	Emergency
+
+    .. data:: MESSAGE_SEVERITY_ALERT = 1
+
+    	Alert
+
+    .. data:: MESSAGE_SEVERITY_CRITICAL = 2
+
+    	Critical
+
+    .. data:: MESSAGE_SEVERITY_ERROR = 3
+
+    	Error
+
+    .. data:: MESSAGE_SEVERITY_WARNING = 4
+
+    	Warning
+
+    .. data:: MESSAGE_SEVERITY_NOTICE = 5
+
+    	Notice
+
+    .. data:: MESSAGE_SEVERITY_INFORMATIONAL = 6
+
+    	Informational
+
+    .. data:: MESSAGE_SEVERITY_DEBUG = 7
+
+    	Debug
 
     """
 
-    Unknown
-
-    """
     MESSAGE_SEVERITY_UNKNOWN = -1
 
-    """
-
-    Emergency
-
-    """
     MESSAGE_SEVERITY_EMERGENCY = 0
 
-    """
-
-    Alert
-
-    """
     MESSAGE_SEVERITY_ALERT = 1
 
-    """
-
-    Critical
-
-    """
     MESSAGE_SEVERITY_CRITICAL = 2
 
-    """
-
-    Error
-
-    """
     MESSAGE_SEVERITY_ERROR = 3
 
-    """
-
-    Warning
-
-    """
     MESSAGE_SEVERITY_WARNING = 4
 
-    """
-
-    Notice
-
-    """
     MESSAGE_SEVERITY_NOTICE = 5
 
-    """
-
-    Informational
-
-    """
     MESSAGE_SEVERITY_INFORMATIONAL = 6
 
-    """
-
-    Debug
-
-    """
     MESSAGE_SEVERITY_DEBUG = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_oper as meta
-        return meta._meta_table['SystemMessageSeverity_Enum']
+        return meta._meta_table['SystemMessageSeverityEnum']
 
 
 
@@ -163,18 +154,12 @@ class Logging(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.message is not None:
                 return True
 
             if self.properties is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -194,18 +179,9 @@ class Logging(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.history is not None and self.history._has_data():
             return True
 
-        if self.history is not None and self.history.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -322,8 +298,6 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.ip_address is not None:
                     return True
 
@@ -336,10 +310,6 @@ class Syslog(object):
                 if self.vrf_severity is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -359,17 +329,11 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.an_remote_log_server is not None:
                 for child_ref in self.an_remote_log_server:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -470,7 +434,7 @@ class Syslog(object):
             .. attribute:: severity
             
             	Configured severity
-            	**type**\: :py:class:`SystemMessageSeverity_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity_Enum>`
+            	**type**\: :py:class:`SystemMessageSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             
 
@@ -498,8 +462,6 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.buffer_size is not None:
                     return True
 
@@ -512,10 +474,6 @@ class Syslog(object):
                 if self.severity is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -550,7 +508,7 @@ class Syslog(object):
             .. attribute:: severity
             
             	Configured severity
-            	**type**\: :py:class:`SystemMessageSeverity_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity_Enum>`
+            	**type**\: :py:class:`SystemMessageSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             
 
@@ -578,8 +536,6 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.buffer_size is not None:
                     return True
 
@@ -592,10 +548,6 @@ class Syslog(object):
                 if self.severity is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -644,18 +596,12 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.file_name is not None:
                     return True
 
                 if self.message_count is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -720,8 +666,6 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.drop_count is not None:
                     return True
 
@@ -734,10 +678,6 @@ class Syslog(object):
                 if self.overrun_count is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -772,7 +712,7 @@ class Syslog(object):
             .. attribute:: severity
             
             	Configured severity
-            	**type**\: :py:class:`SystemMessageSeverity_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity_Enum>`
+            	**type**\: :py:class:`SystemMessageSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             
 
@@ -800,8 +740,6 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.buffer_size is not None:
                     return True
 
@@ -814,10 +752,6 @@ class Syslog(object):
                 if self.severity is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -866,18 +800,12 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.message_count is not None:
                     return True
 
                 if self.remote_host_name is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -912,7 +840,7 @@ class Syslog(object):
             .. attribute:: severity
             
             	Configured severity
-            	**type**\: :py:class:`SystemMessageSeverity_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity_Enum>`
+            	**type**\: :py:class:`SystemMessageSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             
 
@@ -940,8 +868,6 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.buffer_size is not None:
                     return True
 
@@ -954,10 +880,6 @@ class Syslog(object):
                 if self.severity is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -977,18 +899,10 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.buffer_logging_stats is not None and self.buffer_logging_stats._has_data():
                 return True
 
-            if self.buffer_logging_stats is not None and self.buffer_logging_stats.is_presence():
-                return True
-
             if self.console_logging_stats is not None and self.console_logging_stats._has_data():
-                return True
-
-            if self.console_logging_stats is not None and self.console_logging_stats.is_presence():
                 return True
 
             if self.file_logging_stat is not None:
@@ -999,13 +913,7 @@ class Syslog(object):
             if self.logging_stats is not None and self.logging_stats._has_data():
                 return True
 
-            if self.logging_stats is not None and self.logging_stats.is_presence():
-                return True
-
             if self.monitor_logging_stats is not None and self.monitor_logging_stats._has_data():
-                return True
-
-            if self.monitor_logging_stats is not None and self.monitor_logging_stats.is_presence():
                 return True
 
             if self.remote_logging_stat is not None:
@@ -1016,13 +924,6 @@ class Syslog(object):
             if self.trap_logging_stats is not None and self.trap_logging_stats._has_data():
                 return True
 
-            if self.trap_logging_stats is not None and self.trap_logging_stats.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1100,7 +1001,7 @@ class Syslog(object):
             .. attribute:: severity
             
             	Message severity
-            	**type**\: :py:class:`SystemMessageSeverity_Enum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity_Enum>`
+            	**type**\: :py:class:`SystemMessageSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             .. attribute:: text
             
@@ -1160,8 +1061,6 @@ class Syslog(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.message_id is not None:
                     return True
 
@@ -1200,10 +1099,6 @@ class Syslog(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_syslog_oper as meta
@@ -1221,17 +1116,11 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.message is not None:
                 for child_ref in self.message:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1251,30 +1140,15 @@ class Syslog(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.an_remote_servers is not None and self.an_remote_servers._has_data():
-            return True
-
-        if self.an_remote_servers is not None and self.an_remote_servers.is_presence():
             return True
 
         if self.logging_statistics is not None and self.logging_statistics._has_data():
             return True
 
-        if self.logging_statistics is not None and self.logging_statistics.is_presence():
-            return True
-
         if self.messages is not None and self.messages._has_data():
             return True
 
-        if self.messages is not None and self.messages.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

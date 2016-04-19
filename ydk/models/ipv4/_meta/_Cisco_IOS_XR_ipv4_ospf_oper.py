@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,13 +14,13 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'NsfRtr_Enum' : _MetaInfoEnum('NsfRtr_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'NsfRtrEnum' : _MetaInfoEnum('NsfRtrEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-nsf-rtr-none':'MGMT_NSF_RTR_NONE',
             'mgmt-nsf-rtr-requester':'MGMT_NSF_RTR_REQUESTER',
             'mgmt-nsf-rtr-receiver':'MGMT_NSF_RTR_RECEIVER',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'IpfrrTbrkr_Enum' : _MetaInfoEnum('IpfrrTbrkr_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'IpfrrTbrkrEnum' : _MetaInfoEnum('IpfrrTbrkrEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'downstream':'DOWNSTREAM',
             'line-card-disjoint':'LINE_CARD_DISJOINT',
@@ -32,13 +32,13 @@ _meta_table = {
             'tunnel':'TUNNEL',
             'post-convergence':'POST_CONVERGENCE',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'IgpteLibBwModel_Enum' : _MetaInfoEnum('IgpteLibBwModel_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'IgpteLibBwModelEnum' : _MetaInfoEnum('IgpteLibBwModelEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'rdm':'RDM',
             'mam':'MAM',
             'not-set':'NOT_SET',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'LinkSubnet_Enum' : _MetaInfoEnum('LinkSubnet_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'LinkSubnetEnum' : _MetaInfoEnum('LinkSubnetEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-igp-subnet-type-none':'MGMT_IGP_SUBNET_TYPE_NONE',
             'mgmt-igp-subnet-type-p2p':'MGMT_IGP_SUBNET_TYPE_P2P',
@@ -48,21 +48,21 @@ _meta_table = {
             'mgmt-igp-subnet-type-loop-back':'MGMT_IGP_SUBNET_TYPE_LOOP_BACK',
             'mgmt-igp-subnet-type-max':'MGMT_IGP_SUBNET_TYPE_MAX',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'Authentication_Enum' : _MetaInfoEnum('Authentication_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'AuthenticationEnum' : _MetaInfoEnum('AuthenticationEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-ospf-auth-none':'MGMT_OSPF_AUTH_NONE',
             'mgmt-ospf-auth-ct':'MGMT_OSPF_AUTH_CT',
             'mgmt-ospf-auth-md':'MGMT_OSPF_AUTH_MD',
             'mgmt-ospf-auth-kc':'MGMT_OSPF_AUTH_KC',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'OspfLinkTypes_Enum' : _MetaInfoEnum('OspfLinkTypes_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'OspfLinkTypesEnum' : _MetaInfoEnum('OspfLinkTypesEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-rtr-link':'MGMT_RTR_LINK',
             'mgmt-trans-link':'MGMT_TRANS_LINK',
             'mgmt-stub-net':'MGMT_STUB_NET',
             'mgmt-vitural-link':'MGMT_VITURAL_LINK',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'OspfInterfaceState_Enum' : _MetaInfoEnum('OspfInterfaceState_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'OspfInterfaceStateEnum' : _MetaInfoEnum('OspfInterfaceStateEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-ospf-ifs-down':'MGMT_OSPF_IFS_DOWN',
             'mgmt-ospf-ifs-loop-back':'MGMT_OSPF_IFS_LOOP_BACK',
@@ -73,19 +73,19 @@ _meta_table = {
             'mgmt-ospf-ifs-backup':'MGMT_OSPF_IFS_BACKUP',
             'mgmt-ospf-ifs-other':'MGMT_OSPF_IFS_OTHER',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'Ipfrr_Enum' : _MetaInfoEnum('Ipfrr_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'IpfrrEnum' : _MetaInfoEnum('IpfrrEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'none':'NONE',
             'per-link':'PER_LINK',
             'per-prefix':'PER_PREFIX',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'OspfSrgbStatus_Enum' : _MetaInfoEnum('OspfSrgbStatus_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'OspfSrgbStatusEnum' : _MetaInfoEnum('OspfSrgbStatusEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'not-allocated':'NOT_ALLOCATED',
             'pending':'PENDING',
             'allocated':'ALLOCATED',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'Interface_Enum' : _MetaInfoEnum('Interface_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'InterfaceEnum' : _MetaInfoEnum('InterfaceEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-if-broadcast':'MGMT_IF_BROADCAST',
             'mgmt-if-nonbroadcast':'MGMT_IF_NONBROADCAST',
@@ -96,7 +96,7 @@ _meta_table = {
             'mgmt-if-sham-link':'MGMT_IF_SHAM_LINK',
             'mgmt-if-loop-back':'MGMT_IF_LOOP_BACK',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'InterfaceState_Enum' : _MetaInfoEnum('InterfaceState_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'InterfaceStateEnum' : _MetaInfoEnum('InterfaceStateEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-ifs-unknown':'MGMT_IFS_UNKNOWN',
             'mgmt-ifs-admin-down':'MGMT_IFS_ADMIN_DOWN',
@@ -104,13 +104,13 @@ _meta_table = {
             'mgmt-ifs-up':'MGMT_IFS_UP',
             'mgmt-ifs-shutdown':'MGMT_IFS_SHUTDOWN',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'ExMetric_Enum' : _MetaInfoEnum('ExMetric_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'ExMetricEnum' : _MetaInfoEnum('ExMetricEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-ex-metric-type-none':'MGMT_EX_METRIC_TYPE_NONE',
             'mgmt-ex-metric-type-1':'MGMT_EX_METRIC_TYPE_1',
             'mgmt-ex-metric-type-2':'MGMT_EX_METRIC_TYPE_2',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'GsState_Enum' : _MetaInfoEnum('GsState_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'GsStateEnum' : _MetaInfoEnum('GsStateEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-gs-init':'MGMT_GS_INIT',
             'mgmt-gs-normal':'MGMT_GS_NORMAL',
@@ -119,13 +119,13 @@ _meta_table = {
             'mgmt-gs-hello':'MGMT_GS_HELLO',
             'mgmt-gs-quiet':'MGMT_GS_QUIET',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'OspfShOpqRiPceAddrTypes_Enum' : _MetaInfoEnum('OspfShOpqRiPceAddrTypes_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'OspfShOpqRiPceAddrTypesEnum' : _MetaInfoEnum('OspfShOpqRiPceAddrTypesEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-ospf-opq-pce-addr-type-invalid':'MGMT_OSPF_OPQ_PCE_ADDR_TYPE_INVALID',
             'mgmt-ospf-opq-pce-addr-type-ipv4':'MGMT_OSPF_OPQ_PCE_ADDR_TYPE_IPV4',
             'mgmt-ospf-opq-pce-addr-type-ipv6':'MGMT_OSPF_OPQ_PCE_ADDR_TYPE_IPV6',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'MaxMetricSetReason_Enum' : _MetaInfoEnum('MaxMetricSetReason_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'MaxMetricSetReasonEnum' : _MetaInfoEnum('MaxMetricSetReasonEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-max-metric-on-proc-migration':'MGMT_MAX_METRIC_ON_PROC_MIGRATION',
             'mgmt-max-metric-on-proc-restart':'MGMT_MAX_METRIC_ON_PROC_RESTART',
@@ -134,7 +134,7 @@ _meta_table = {
             'mgmt-max-metric-always':'MGMT_MAX_METRIC_ALWAYS',
             'mgmt-max-metric-reason-none':'MGMT_MAX_METRIC_REASON_NONE',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'OspfRoute_Enum' : _MetaInfoEnum('OspfRoute_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'OspfRouteEnum' : _MetaInfoEnum('OspfRouteEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-r-type-none':'MGMT_R_TYPE_NONE',
             'mgmt-r-type-other':'MGMT_R_TYPE_OTHER',
@@ -154,7 +154,7 @@ _meta_table = {
             'mgmt-r-type-i-grp2-int':'MGMT_R_TYPE_I_GRP2_INT',
             'mgmt-r-type-i-grp2-ext':'MGMT_R_TYPE_I_GRP2_EXT',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'OspfShOpqRiTlvTypes_Enum' : _MetaInfoEnum('OspfShOpqRiTlvTypes_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'OspfShOpqRiTlvTypesEnum' : _MetaInfoEnum('OspfShOpqRiTlvTypesEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-ospf-opq-ri-tlv-type-unknown':'MGMT_OSPF_OPQ_RI_TLV_TYPE_UNKNOWN',
             'mgmt-ospf-opq-ri-tlv-type-rtrcap':'MGMT_OSPF_OPQ_RI_TLV_TYPE_RTRCAP',
@@ -162,14 +162,14 @@ _meta_table = {
             'mgmt-ospf-opq-ri-tlv-type-sr-algo':'MGMT_OSPF_OPQ_RI_TLV_TYPE_SR_ALGO',
             'mgmt-ospf-opq-ri-tlv-type-sr-range':'MGMT_OSPF_OPQ_RI_TLV_TYPE_SR_RANGE',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'Timer_Enum' : _MetaInfoEnum('Timer_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'TimerEnum' : _MetaInfoEnum('TimerEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-db-stop':'MGMT_DB_STOP',
             'mgmt-db-refresh':'MGMT_DB_REFRESH',
             'mgmt-db-checksum':'MGMT_DB_CHECKSUM',
             'mgmt-db-max-age':'MGMT_DB_MAX_AGE',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'MaxMetricUnsetReason_Enum' : _MetaInfoEnum('MaxMetricUnsetReason_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'MaxMetricUnsetReasonEnum' : _MetaInfoEnum('MaxMetricUnsetReasonEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-max-metric-unset-none':'MGMT_MAX_METRIC_UNSET_NONE',
             'mgmt-max-metric-unset-bgp':'MGMT_MAX_METRIC_UNSET_BGP',
@@ -178,13 +178,13 @@ _meta_table = {
             'mgmt-max-metric-unset-process-cleared':'MGMT_MAX_METRIC_UNSET_PROCESS_CLEARED',
             'mgmt-max-metric-unset-over-write':'MGMT_MAX_METRIC_UNSET_OVER_WRITE',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'OspfBr_Enum' : _MetaInfoEnum('OspfBr_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'OspfBrEnum' : _MetaInfoEnum('OspfBrEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-d-type-abr-asbr':'MGMT_D_TYPE_ABR_ASBR',
             'mgmt-d-type-asbr':'MGMT_D_TYPE_ASBR',
             'mgmt-d-type-abr':'MGMT_D_TYPE_ABR',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'Stlv_Enum' : _MetaInfoEnum('Stlv_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'StlvEnum' : _MetaInfoEnum('StlvEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-rrr-link-type':'MGMT_RRR_LINK_TYPE',
             'mgmt-rrr-link-id':'MGMT_RRR_LINK_ID',
@@ -204,7 +204,7 @@ _meta_table = {
             'mgmt-rrr-link-igp-metric':'MGMT_RRR_LINK_IGP_METRIC',
             'mgmt-ospf-rrr-link-ext-admin-sub':'MGMT_OSPF_RRR_LINK_EXT_ADMIN_SUB',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'NeighborState_Enum' : _MetaInfoEnum('NeighborState_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'NeighborStateEnum' : _MetaInfoEnum('NeighborStateEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-nbr-down':'MGMT_NBR_DOWN',
             'mgmt-nbr-attempt':'MGMT_NBR_ATTEMPT',
@@ -216,7 +216,7 @@ _meta_table = {
             'mgmt-nbr-full':'MGMT_NBR_FULL',
             'mgmt-nbr-sc-virtual':'MGMT_NBR_SC_VIRTUAL',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'OspfInternalLsaTypes_Enum' : _MetaInfoEnum('OspfInternalLsaTypes_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'OspfInternalLsaTypesEnum' : _MetaInfoEnum('OspfInternalLsaTypesEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-rtr-type':'MGMT_RTR_TYPE',
             'mgmt-ntwk-type':'MGMT_NTWK_TYPE',
@@ -230,14 +230,14 @@ _meta_table = {
             'mgmt-opq-epl-type':'MGMT_OPQ_EPL_TYPE',
             'mgmt-opq-ell-type':'MGMT_OPQ_ELL_TYPE',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'MplsTeOptTlv_Enum' : _MetaInfoEnum('MplsTeOptTlv_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'MplsTeOptTlvEnum' : _MetaInfoEnum('MplsTeOptTlvEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mpls-te-opt-tlv-type-none':'MPLS_TE_OPT_TLV_TYPE_NONE',
             'mpls-te-opt-tlv-type-srlg':'MPLS_TE_OPT_TLV_TYPE_SRLG',
             'mpls-te-opt-tlv-type-bc':'MPLS_TE_OPT_TLV_TYPE_BC',
             'mpls-te-opt-tlv-type-ixcd':'MPLS_TE_OPT_TLV_TYPE_IXCD',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'RedistProtocol_Enum' : _MetaInfoEnum('RedistProtocol_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'RedistProtocolEnum' : _MetaInfoEnum('RedistProtocolEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-rib-protocol-all':'MGMT_RIB_PROTOCOL_ALL',
             'mgmt-rib-protocol-connected':'MGMT_RIB_PROTOCOL_CONNECTED',
@@ -253,13 +253,13 @@ _meta_table = {
             'mgmt-rib-protocol-application':'MGMT_RIB_PROTOCOL_APPLICATION',
             'mgmt-rib-protocol-mobile':'MGMT_RIB_PROTOCOL_MOBILE',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'OspfLsaOpqRiScope_Enum' : _MetaInfoEnum('OspfLsaOpqRiScope_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'OspfLsaOpqRiScopeEnum' : _MetaInfoEnum('OspfLsaOpqRiScopeEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-lsa-opq-ri-scope-link':'MGMT_LSA_OPQ_RI_SCOPE_LINK',
             'mgmt-lsa-opq-ri-scope-area':'MGMT_LSA_OPQ_RI_SCOPE_AREA',
             'mgmt-lsa-opq-ri-scope-as':'MGMT_LSA_OPQ_RI_SCOPE_AS',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'Lsa_Enum' : _MetaInfoEnum('Lsa_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'LsaEnum' : _MetaInfoEnum('LsaEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-lsa-type-rtr':'MGMT_LSA_TYPE_RTR',
             'mgmt-lsa-type-net':'MGMT_LSA_TYPE_NET',
@@ -273,28 +273,28 @@ _meta_table = {
             'mgmt-lsa-type-opq-area':'MGMT_LSA_TYPE_OPQ_AREA',
             'mgmt-lsa-type-opq-as':'MGMT_LSA_TYPE_OPQ_AS',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'DrBdrState_Enum' : _MetaInfoEnum('DrBdrState_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'DrBdrStateEnum' : _MetaInfoEnum('DrBdrStateEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-dbdr-none':'MGMT_DBDR_NONE',
             'mgmt-dbdr-dr':'MGMT_DBDR_DR',
             'mgmt-dbdr-bdr':'MGMT_DBDR_BDR',
             'mgmt-dbdr-dr-other':'MGMT_DBDR_DR_OTHER',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'TimerTable_Enum' : _MetaInfoEnum('TimerTable_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'TimerTableEnum' : _MetaInfoEnum('TimerTableEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-db-no-table':'MGMT_DB_NO_TABLE',
             'mgmt-db-sec-table':'MGMT_DB_SEC_TABLE',
             'mgmt-db-buffer-table':'MGMT_DB_BUFFER_TABLE',
             'mgmt-db-min-table':'MGMT_DB_MIN_TABLE',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'OspfGrReason_Enum' : _MetaInfoEnum('OspfGrReason_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'OspfGrReasonEnum' : _MetaInfoEnum('OspfGrReasonEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'mgmt-gr-reason-unknown':'MGMT_GR_REASON_UNKNOWN',
             'mgmt-gr-reason-sw-restart':'MGMT_GR_REASON_SW_RESTART',
             'mgmt-gr-reason-sw-upgrade':'MGMT_GR_REASON_SW_UPGRADE',
             'mgmt-gr-reason-switchover':'MGMT_GR_REASON_SWITCHOVER',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'OspfMaxMetricAbrOffReasons_Enum' : _MetaInfoEnum('OspfMaxMetricAbrOffReasons_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'OspfMaxMetricAbrOffReasonsEnum' : _MetaInfoEnum('OspfMaxMetricAbrOffReasonsEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'ospf-max-metric-abr-off-reason-none':'OSPF_MAX_METRIC_ABR_OFF_REASON_NONE',
             'ospf-max-metric-abr-off-reason-no-nbr':'OSPF_MAX_METRIC_ABR_OFF_REASON_NO_NBR',
@@ -302,7 +302,7 @@ _meta_table = {
             'ospf-max-metric-abr-off-reason-nbr-full':'OSPF_MAX_METRIC_ABR_OFF_REASON_NBR_FULL',
             'ospf-max-metric-abr-off-reason-flush-p-end':'OSPF_MAX_METRIC_ABR_OFF_REASON_FLUSH_P_END',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
-    'OspfLs_Enum' : _MetaInfoEnum('OspfLs_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
+    'OspfLsEnum' : _MetaInfoEnum('OspfLsEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper',
         {
             'router':'ROUTER',
             'network':'NETWORK',
@@ -492,7 +492,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.NeighborDetails.NeighborDetail.NeighborSummary',
             False, 
             [
-            _MetaInfoClassMember('dr-bdr-state', REFERENCE_ENUM_CLASS, 'DrBdrState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'DrBdrState_Enum', 
+            _MetaInfoClassMember('dr-bdr-state', REFERENCE_ENUM_CLASS, 'DrBdrStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'DrBdrStateEnum', 
                 [], [], 
                 '''                Designated Router state
                 ''',
@@ -540,7 +540,7 @@ _meta_table = {
                 ''',
                 'neighbor_madj_interface',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborStateEnum', 
                 [], [], 
                 '''                Neighbor's state
                 ''',
@@ -587,7 +587,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Interface_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Interface_Enum', 
+            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'InterfaceEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'InterfaceEnum', 
                 [], [], 
                 '''                Interface type
                 ''',
@@ -714,7 +714,7 @@ _meta_table = {
                 ''',
                 'next_poll_interval',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('nsf-router-state', REFERENCE_ENUM_CLASS, 'NsfRtr_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NsfRtr_Enum', 
+            _MetaInfoClassMember('nsf-router-state', REFERENCE_ENUM_CLASS, 'NsfRtrEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NsfRtrEnum', 
                 [], [], 
                 '''                For cisco NSF, the router is either Requester or
                 Receiver
@@ -796,7 +796,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Neighbors.Neighbor',
             False, 
             [
-            _MetaInfoClassMember('dr-bdr-state', REFERENCE_ENUM_CLASS, 'DrBdrState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'DrBdrState_Enum', 
+            _MetaInfoClassMember('dr-bdr-state', REFERENCE_ENUM_CLASS, 'DrBdrStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'DrBdrStateEnum', 
                 [], [], 
                 '''                Designated Router state
                 ''',
@@ -856,7 +856,7 @@ _meta_table = {
                 ''',
                 'neighbor_madj_interface',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborStateEnum', 
                 [], [], 
                 '''                Neighbor's state
                 ''',
@@ -920,7 +920,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -1031,7 +1031,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -1078,7 +1078,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -1243,7 +1243,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -1290,7 +1290,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -1408,7 +1408,7 @@ _meta_table = {
                 ''',
                 'madj_area_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -1498,7 +1498,7 @@ _meta_table = {
                 ''',
                 'interfaceis_madj',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -1574,7 +1574,7 @@ _meta_table = {
                 ''',
                 'interface_as_next_flood_index',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('interface-authentication-type', REFERENCE_ENUM_CLASS, 'Authentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Authentication_Enum', 
+            _MetaInfoClassMember('interface-authentication-type', REFERENCE_ENUM_CLASS, 'AuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'AuthenticationEnum', 
                 [], [], 
                 '''                Authentication type
                 ''',
@@ -1731,7 +1731,7 @@ _meta_table = {
                 ''',
                 'madj_area_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -1891,7 +1891,7 @@ _meta_table = {
                 ''',
                 'fast_reroute_topology_independent_lfa',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('fast-reroute-type', REFERENCE_ENUM_CLASS, 'Ipfrr_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ipfrr_Enum', 
+            _MetaInfoClassMember('fast-reroute-type', REFERENCE_ENUM_CLASS, 'IpfrrEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IpfrrEnum', 
                 [], [], 
                 '''                IP Fast Reroute Type
                 ''',
@@ -2074,7 +2074,7 @@ _meta_table = {
                 ''',
                 'interface_sid_php_off',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'InterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'InterfaceState_Enum', 
+            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'InterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'InterfaceStateEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -2118,7 +2118,7 @@ _meta_table = {
                 ''',
                 'network_lsa_flush_timer',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Interface_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Interface_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'InterfaceEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'InterfaceEnum', 
                 [], [], 
                 '''                Network type
                 ''',
@@ -2136,7 +2136,7 @@ _meta_table = {
                 ''',
                 'next_hello_time_ms',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -2392,7 +2392,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Areas.Area.NeighborDetails.NeighborDetail.NeighborSummary',
             False, 
             [
-            _MetaInfoClassMember('dr-bdr-state', REFERENCE_ENUM_CLASS, 'DrBdrState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'DrBdrState_Enum', 
+            _MetaInfoClassMember('dr-bdr-state', REFERENCE_ENUM_CLASS, 'DrBdrStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'DrBdrStateEnum', 
                 [], [], 
                 '''                Designated Router state
                 ''',
@@ -2440,7 +2440,7 @@ _meta_table = {
                 ''',
                 'neighbor_madj_interface',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborStateEnum', 
                 [], [], 
                 '''                Neighbor's state
                 ''',
@@ -2487,7 +2487,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Interface_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Interface_Enum', 
+            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'InterfaceEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'InterfaceEnum', 
                 [], [], 
                 '''                Interface type
                 ''',
@@ -2614,7 +2614,7 @@ _meta_table = {
                 ''',
                 'next_poll_interval',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('nsf-router-state', REFERENCE_ENUM_CLASS, 'NsfRtr_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NsfRtr_Enum', 
+            _MetaInfoClassMember('nsf-router-state', REFERENCE_ENUM_CLASS, 'NsfRtrEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NsfRtrEnum', 
                 [], [], 
                 '''                For cisco NSF, the router is either Requester or
                 Receiver
@@ -2696,7 +2696,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Areas.Area.Neighbors.Neighbor',
             False, 
             [
-            _MetaInfoClassMember('dr-bdr-state', REFERENCE_ENUM_CLASS, 'DrBdrState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'DrBdrState_Enum', 
+            _MetaInfoClassMember('dr-bdr-state', REFERENCE_ENUM_CLASS, 'DrBdrStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'DrBdrStateEnum', 
                 [], [], 
                 '''                Designated Router state
                 ''',
@@ -2756,7 +2756,7 @@ _meta_table = {
                 ''',
                 'neighbor_madj_interface',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborStateEnum', 
                 [], [], 
                 '''                Neighbor's state
                 ''',
@@ -2820,7 +2820,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -2931,7 +2931,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -2978,7 +2978,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -3184,13 +3184,13 @@ _meta_table = {
                 ''',
                 'border_router_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('border-router-route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('border-router-route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
                 'border_router_route_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('border-router-type', REFERENCE_ENUM_CLASS, 'OspfBr_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfBr_Enum', 
+            _MetaInfoClassMember('border-router-type', REFERENCE_ENUM_CLASS, 'OspfBrEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfBrEnum', 
                 [], [], 
                 '''                Border router type
                 ''',
@@ -3277,7 +3277,7 @@ _meta_table = {
                 ''',
                 'dn_age_lsa',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -3360,7 +3360,7 @@ _meta_table = {
                 ''',
                 'ls_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'OspfLs_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLs_Enum', 
+            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'OspfLsEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLsEnum', 
                 [], [], 
                 '''                Link state type
                 ''',
@@ -3447,13 +3447,13 @@ _meta_table = {
                 ''',
                 'second_table_index',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('timer-location', REFERENCE_ENUM_CLASS, 'TimerTable_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'TimerTable_Enum', 
+            _MetaInfoClassMember('timer-location', REFERENCE_ENUM_CLASS, 'TimerTableEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'TimerTableEnum', 
                 [], [], 
                 '''                Timer table
                 ''',
                 'timer_location',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('timer-type', REFERENCE_ENUM_CLASS, 'Timer_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Timer_Enum', 
+            _MetaInfoClassMember('timer-type', REFERENCE_ENUM_CLASS, 'TimerEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'TimerEnum', 
                 [], [], 
                 '''                Timer type
                 ''',
@@ -3736,7 +3736,7 @@ _meta_table = {
                 ''',
                 'dn_age_lsa',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -3789,7 +3789,7 @@ _meta_table = {
                 ''',
                 'external_metric',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('external-metric-type', REFERENCE_ENUM_CLASS, 'ExMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'ExMetric_Enum', 
+            _MetaInfoClassMember('external-metric-type', REFERENCE_ENUM_CLASS, 'ExMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'ExMetricEnum', 
                 [], [], 
                 '''                External LSA metric type
                 ''',
@@ -3882,7 +3882,7 @@ _meta_table = {
                 ''',
                 'sub_tlv_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'Stlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Stlv_Enum', 
+            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'StlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'StlvEnum', 
                 [], [], 
                 '''                Type of sub TLV
                 ''',
@@ -3975,7 +3975,7 @@ _meta_table = {
                 ''',
                 'sub_tlv_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'Stlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Stlv_Enum', 
+            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'StlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'StlvEnum', 
                 [], [], 
                 '''                Type of sub TLV
                 ''',
@@ -4069,7 +4069,7 @@ _meta_table = {
                 ''',
                 'grace_period',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('grace-reason', REFERENCE_ENUM_CLASS, 'OspfGrReason_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfGrReason_Enum', 
+            _MetaInfoClassMember('grace-reason', REFERENCE_ENUM_CLASS, 'OspfGrReasonEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfGrReasonEnum', 
                 [], [], 
                 '''                Reason for router restart
                 ''',
@@ -4117,7 +4117,7 @@ _meta_table = {
                 ''',
                 'sub_tlv_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'Stlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Stlv_Enum', 
+            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'StlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'StlvEnum', 
                 [], [], 
                 '''                Type of sub TLV
                 ''',
@@ -4200,8 +4200,8 @@ _meta_table = {
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4pceAddr' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4pceAddr',
+    'Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4PceAddr' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4PceAddr',
             False, 
             [
             _MetaInfoClassMember('pceipv4-addr', ATTRIBUTE, 'str' , None, None, 
@@ -4217,8 +4217,8 @@ _meta_table = {
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6pceAddr' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6pceAddr',
+    'Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6PceAddr' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6PceAddr',
             False, 
             [
             _MetaInfoClassMember('pceipv6-addr', ATTRIBUTE, 'str' , None, None, 
@@ -4267,19 +4267,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr',
             False, 
             [
-            _MetaInfoClassMember('ipv4pce-addr', REFERENCE_CLASS, 'Ipv4pceAddr' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4pceAddr', 
+            _MetaInfoClassMember('ipv4pce-addr', REFERENCE_CLASS, 'Ipv4PceAddr' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4PceAddr', 
                 [], [], 
                 '''                IPv4 PCE Address
                 ''',
                 'ipv4pce_addr',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ipv6pce-addr', REFERENCE_CLASS, 'Ipv6pceAddr' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6pceAddr', 
+            _MetaInfoClassMember('ipv6pce-addr', REFERENCE_CLASS, 'Ipv6PceAddr' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6PceAddr', 
                 [], [], 
                 '''                IPv6 PCE Address
                 ''',
                 'ipv6pce_addr',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('pce-addr-type', REFERENCE_ENUM_CLASS, 'OspfShOpqRiPceAddrTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfShOpqRiPceAddrTypes_Enum', 
+            _MetaInfoClassMember('pce-addr-type', REFERENCE_ENUM_CLASS, 'OspfShOpqRiPceAddrTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfShOpqRiPceAddrTypesEnum', 
                 [], [], 
                 '''                PCEAddrType
                 ''',
@@ -4583,7 +4583,7 @@ _meta_table = {
                 ''',
                 'pcedtlv',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ritlv-internal-type', REFERENCE_ENUM_CLASS, 'OspfShOpqRiTlvTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfShOpqRiTlvTypes_Enum', 
+            _MetaInfoClassMember('ritlv-internal-type', REFERENCE_ENUM_CLASS, 'OspfShOpqRiTlvTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfShOpqRiTlvTypesEnum', 
                 [], [], 
                 '''                RITLVInternalType
                 ''',
@@ -4631,7 +4631,7 @@ _meta_table = {
                 ''',
                 'opaque_ri_interface_name',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('opaque-rilsa-scope', REFERENCE_ENUM_CLASS, 'OspfLsaOpqRiScope_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLsaOpqRiScope_Enum', 
+            _MetaInfoClassMember('opaque-rilsa-scope', REFERENCE_ENUM_CLASS, 'OspfLsaOpqRiScopeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLsaOpqRiScopeEnum', 
                 [], [], 
                 '''                Opaque LSA flooding scope, a.k.a., Opaque LSA
                 Type
@@ -4702,7 +4702,7 @@ _meta_table = {
                 ''',
                 'link_tos',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'OspfLinkTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLinkTypes_Enum', 
+            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'OspfLinkTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLinkTypesEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -4766,7 +4766,7 @@ _meta_table = {
                 ''',
                 'link_tos',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'OspfLinkTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLinkTypes_Enum', 
+            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'OspfLinkTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLinkTypesEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -4860,7 +4860,7 @@ _meta_table = {
                 ''',
                 'external_lsa_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('internal-lsa-type', REFERENCE_ENUM_CLASS, 'OspfInternalLsaTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInternalLsaTypes_Enum', 
+            _MetaInfoClassMember('internal-lsa-type', REFERENCE_ENUM_CLASS, 'OspfInternalLsaTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInternalLsaTypesEnum', 
                 [], [], 
                 '''                InternalLSAType
                 ''',
@@ -4955,7 +4955,7 @@ _meta_table = {
                 ''',
                 'ls_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'OspfLs_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLs_Enum', 
+            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'OspfLsEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLsEnum', 
                 [], [], 
                 '''                Link state type
                 ''',
@@ -5077,7 +5077,7 @@ _meta_table = {
                 ''',
                 'lsa_self_count',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                Type of LSAs
                 ''',
@@ -5165,7 +5165,7 @@ _meta_table = {
                 ''',
                 'lsa_self_count',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                Type of LSAs
                 ''',
@@ -5217,7 +5217,7 @@ _meta_table = {
                 ''',
                 'dn_age_lsa',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -5300,7 +5300,7 @@ _meta_table = {
                 ''',
                 'ls_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'OspfLs_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLs_Enum', 
+            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'OspfLsEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLsEnum', 
                 [], [], 
                 '''                Link state type
                 ''',
@@ -5387,13 +5387,13 @@ _meta_table = {
                 ''',
                 'second_table_index',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('timer-location', REFERENCE_ENUM_CLASS, 'TimerTable_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'TimerTable_Enum', 
+            _MetaInfoClassMember('timer-location', REFERENCE_ENUM_CLASS, 'TimerTableEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'TimerTableEnum', 
                 [], [], 
                 '''                Timer table
                 ''',
                 'timer_location',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('timer-type', REFERENCE_ENUM_CLASS, 'Timer_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Timer_Enum', 
+            _MetaInfoClassMember('timer-type', REFERENCE_ENUM_CLASS, 'TimerEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'TimerEnum', 
                 [], [], 
                 '''                Timer type
                 ''',
@@ -5676,7 +5676,7 @@ _meta_table = {
                 ''',
                 'dn_age_lsa',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -5729,7 +5729,7 @@ _meta_table = {
                 ''',
                 'external_metric',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('external-metric-type', REFERENCE_ENUM_CLASS, 'ExMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'ExMetric_Enum', 
+            _MetaInfoClassMember('external-metric-type', REFERENCE_ENUM_CLASS, 'ExMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'ExMetricEnum', 
                 [], [], 
                 '''                External LSA metric type
                 ''',
@@ -5822,7 +5822,7 @@ _meta_table = {
                 ''',
                 'sub_tlv_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'Stlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Stlv_Enum', 
+            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'StlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'StlvEnum', 
                 [], [], 
                 '''                Type of sub TLV
                 ''',
@@ -5915,7 +5915,7 @@ _meta_table = {
                 ''',
                 'sub_tlv_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'Stlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Stlv_Enum', 
+            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'StlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'StlvEnum', 
                 [], [], 
                 '''                Type of sub TLV
                 ''',
@@ -6009,7 +6009,7 @@ _meta_table = {
                 ''',
                 'grace_period',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('grace-reason', REFERENCE_ENUM_CLASS, 'OspfGrReason_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfGrReason_Enum', 
+            _MetaInfoClassMember('grace-reason', REFERENCE_ENUM_CLASS, 'OspfGrReasonEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfGrReasonEnum', 
                 [], [], 
                 '''                Reason for router restart
                 ''',
@@ -6057,7 +6057,7 @@ _meta_table = {
                 ''',
                 'sub_tlv_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'Stlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Stlv_Enum', 
+            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'StlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'StlvEnum', 
                 [], [], 
                 '''                Type of sub TLV
                 ''',
@@ -6140,8 +6140,8 @@ _meta_table = {
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4pceAddr' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4pceAddr',
+    'Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4PceAddr' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4PceAddr',
             False, 
             [
             _MetaInfoClassMember('pceipv4-addr', ATTRIBUTE, 'str' , None, None, 
@@ -6157,8 +6157,8 @@ _meta_table = {
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6pceAddr' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6pceAddr',
+    'Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6PceAddr' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6PceAddr',
             False, 
             [
             _MetaInfoClassMember('pceipv6-addr', ATTRIBUTE, 'str' , None, None, 
@@ -6207,19 +6207,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr',
             False, 
             [
-            _MetaInfoClassMember('ipv4pce-addr', REFERENCE_CLASS, 'Ipv4pceAddr' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4pceAddr', 
+            _MetaInfoClassMember('ipv4pce-addr', REFERENCE_CLASS, 'Ipv4PceAddr' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4PceAddr', 
                 [], [], 
                 '''                IPv4 PCE Address
                 ''',
                 'ipv4pce_addr',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ipv6pce-addr', REFERENCE_CLASS, 'Ipv6pceAddr' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6pceAddr', 
+            _MetaInfoClassMember('ipv6pce-addr', REFERENCE_CLASS, 'Ipv6PceAddr' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6PceAddr', 
                 [], [], 
                 '''                IPv6 PCE Address
                 ''',
                 'ipv6pce_addr',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('pce-addr-type', REFERENCE_ENUM_CLASS, 'OspfShOpqRiPceAddrTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfShOpqRiPceAddrTypes_Enum', 
+            _MetaInfoClassMember('pce-addr-type', REFERENCE_ENUM_CLASS, 'OspfShOpqRiPceAddrTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfShOpqRiPceAddrTypesEnum', 
                 [], [], 
                 '''                PCEAddrType
                 ''',
@@ -6523,7 +6523,7 @@ _meta_table = {
                 ''',
                 'pcedtlv',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ritlv-internal-type', REFERENCE_ENUM_CLASS, 'OspfShOpqRiTlvTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfShOpqRiTlvTypes_Enum', 
+            _MetaInfoClassMember('ritlv-internal-type', REFERENCE_ENUM_CLASS, 'OspfShOpqRiTlvTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfShOpqRiTlvTypesEnum', 
                 [], [], 
                 '''                RITLVInternalType
                 ''',
@@ -6571,7 +6571,7 @@ _meta_table = {
                 ''',
                 'opaque_ri_interface_name',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('opaque-rilsa-scope', REFERENCE_ENUM_CLASS, 'OspfLsaOpqRiScope_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLsaOpqRiScope_Enum', 
+            _MetaInfoClassMember('opaque-rilsa-scope', REFERENCE_ENUM_CLASS, 'OspfLsaOpqRiScopeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLsaOpqRiScopeEnum', 
                 [], [], 
                 '''                Opaque LSA flooding scope, a.k.a., Opaque LSA
                 Type
@@ -6642,7 +6642,7 @@ _meta_table = {
                 ''',
                 'link_tos',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'OspfLinkTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLinkTypes_Enum', 
+            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'OspfLinkTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLinkTypesEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -6706,7 +6706,7 @@ _meta_table = {
                 ''',
                 'link_tos',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'OspfLinkTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLinkTypes_Enum', 
+            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'OspfLinkTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLinkTypesEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -6800,7 +6800,7 @@ _meta_table = {
                 ''',
                 'external_lsa_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('internal-lsa-type', REFERENCE_ENUM_CLASS, 'OspfInternalLsaTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInternalLsaTypes_Enum', 
+            _MetaInfoClassMember('internal-lsa-type', REFERENCE_ENUM_CLASS, 'OspfInternalLsaTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInternalLsaTypesEnum', 
                 [], [], 
                 '''                InternalLSAType
                 ''',
@@ -6895,7 +6895,7 @@ _meta_table = {
                 ''',
                 'ls_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'OspfLs_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLs_Enum', 
+            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'OspfLsEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLsEnum', 
                 [], [], 
                 '''                Link state type
                 ''',
@@ -7153,7 +7153,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -7200,7 +7200,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -7318,7 +7318,7 @@ _meta_table = {
                 ''',
                 'madj_area_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -7408,7 +7408,7 @@ _meta_table = {
                 ''',
                 'interfaceis_madj',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -7484,7 +7484,7 @@ _meta_table = {
                 ''',
                 'interface_as_next_flood_index',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('interface-authentication-type', REFERENCE_ENUM_CLASS, 'Authentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Authentication_Enum', 
+            _MetaInfoClassMember('interface-authentication-type', REFERENCE_ENUM_CLASS, 'AuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'AuthenticationEnum', 
                 [], [], 
                 '''                Authentication type
                 ''',
@@ -7641,7 +7641,7 @@ _meta_table = {
                 ''',
                 'madj_area_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -7801,7 +7801,7 @@ _meta_table = {
                 ''',
                 'fast_reroute_topology_independent_lfa',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('fast-reroute-type', REFERENCE_ENUM_CLASS, 'Ipfrr_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ipfrr_Enum', 
+            _MetaInfoClassMember('fast-reroute-type', REFERENCE_ENUM_CLASS, 'IpfrrEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IpfrrEnum', 
                 [], [], 
                 '''                IP Fast Reroute Type
                 ''',
@@ -7984,7 +7984,7 @@ _meta_table = {
                 ''',
                 'interface_sid_php_off',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'InterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'InterfaceState_Enum', 
+            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'InterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'InterfaceStateEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -8028,7 +8028,7 @@ _meta_table = {
                 ''',
                 'network_lsa_flush_timer',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Interface_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Interface_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'InterfaceEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'InterfaceEnum', 
                 [], [], 
                 '''                Network type
                 ''',
@@ -8046,7 +8046,7 @@ _meta_table = {
                 ''',
                 'next_hello_time_ms',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -8262,7 +8262,7 @@ _meta_table = {
                 ''',
                 'virtual_link_retransmissoin',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('virtual-link-state', REFERENCE_ENUM_CLASS, 'NeighborState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborState_Enum', 
+            _MetaInfoClassMember('virtual-link-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborStateEnum', 
                 [], [], 
                 '''                Adjacency state
                 ''',
@@ -8303,7 +8303,7 @@ _meta_table = {
                 ''',
                 'virtaul_link_retransmission_interval',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('virtual-link-authentication-type', REFERENCE_ENUM_CLASS, 'Authentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Authentication_Enum', 
+            _MetaInfoClassMember('virtual-link-authentication-type', REFERENCE_ENUM_CLASS, 'AuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'AuthenticationEnum', 
                 [], [], 
                 '''                Authentication type
                 ''',
@@ -8425,7 +8425,7 @@ _meta_table = {
                 ''',
                 'virtual_link_passive',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('virtual-link-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('virtual-link-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                OSPF interface state for the virtual link
                 ''',
@@ -9115,7 +9115,7 @@ _meta_table = {
                 ''',
                 'ixcdtlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('opaque-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlv_Enum', 
+            _MetaInfoClassMember('opaque-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlvEnum', 
                 [], [], 
                 '''                OpaqueTLVType
                 ''',
@@ -9144,7 +9144,7 @@ _meta_table = {
                 ''',
                 'mplste_link_opt_tlv_len',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlv_Enum', 
+            _MetaInfoClassMember('mplste-link-opt-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlvEnum', 
                 [], [], 
                 '''                Type of Opt TLV
                 ''',
@@ -9190,7 +9190,7 @@ _meta_table = {
                 ''',
                 'affinity',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('dste-allocation-model-id', REFERENCE_ENUM_CLASS, 'IgpteLibBwModel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IgpteLibBwModel_Enum', 
+            _MetaInfoClassMember('dste-allocation-model-id', REFERENCE_ENUM_CLASS, 'IgpteLibBwModelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IgpteLibBwModelEnum', 
                 [], [], 
                 '''                DS-TE Allocation Model ID
                 ''',
@@ -9277,7 +9277,7 @@ _meta_table = {
                 ''',
                 'mpls_link_instance',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mpls-link-type', REFERENCE_ENUM_CLASS, 'LinkSubnet_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LinkSubnet_Enum', 
+            _MetaInfoClassMember('mpls-link-type', REFERENCE_ENUM_CLASS, 'LinkSubnetEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LinkSubnetEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -9994,7 +9994,7 @@ _meta_table = {
                 ''',
                 'ixcdtlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('opaque-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlv_Enum', 
+            _MetaInfoClassMember('opaque-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlvEnum', 
                 [], [], 
                 '''                OpaqueTLVType
                 ''',
@@ -10023,7 +10023,7 @@ _meta_table = {
                 ''',
                 'mplste_link_opt_tlv_len',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlv_Enum', 
+            _MetaInfoClassMember('mplste-link-opt-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlvEnum', 
                 [], [], 
                 '''                Type of Opt TLV
                 ''',
@@ -10069,7 +10069,7 @@ _meta_table = {
                 ''',
                 'affinity',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('dste-allocation-model-id', REFERENCE_ENUM_CLASS, 'IgpteLibBwModel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IgpteLibBwModel_Enum', 
+            _MetaInfoClassMember('dste-allocation-model-id', REFERENCE_ENUM_CLASS, 'IgpteLibBwModelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IgpteLibBwModelEnum', 
                 [], [], 
                 '''                DS-TE Allocation Model ID
                 ''',
@@ -10156,7 +10156,7 @@ _meta_table = {
                 ''',
                 'mpls_link_instance',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mpls-link-type', REFERENCE_ENUM_CLASS, 'LinkSubnet_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LinkSubnet_Enum', 
+            _MetaInfoClassMember('mpls-link-type', REFERENCE_ENUM_CLASS, 'LinkSubnetEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LinkSubnetEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -10926,7 +10926,7 @@ _meta_table = {
                 ''',
                 'ixcdtlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('opaque-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlv_Enum', 
+            _MetaInfoClassMember('opaque-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlvEnum', 
                 [], [], 
                 '''                OpaqueTLVType
                 ''',
@@ -10955,7 +10955,7 @@ _meta_table = {
                 ''',
                 'mplste_link_opt_tlv_len',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlv_Enum', 
+            _MetaInfoClassMember('mplste-link-opt-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlvEnum', 
                 [], [], 
                 '''                Type of Opt TLV
                 ''',
@@ -11001,7 +11001,7 @@ _meta_table = {
                 ''',
                 'affinity',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('dste-allocation-model-id', REFERENCE_ENUM_CLASS, 'IgpteLibBwModel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IgpteLibBwModel_Enum', 
+            _MetaInfoClassMember('dste-allocation-model-id', REFERENCE_ENUM_CLASS, 'IgpteLibBwModelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IgpteLibBwModelEnum', 
                 [], [], 
                 '''                DS-TE Allocation Model ID
                 ''',
@@ -11088,7 +11088,7 @@ _meta_table = {
                 ''',
                 'mpls_link_instance',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mpls-link-type', REFERENCE_ENUM_CLASS, 'LinkSubnet_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LinkSubnet_Enum', 
+            _MetaInfoClassMember('mpls-link-type', REFERENCE_ENUM_CLASS, 'LinkSubnetEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LinkSubnetEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -11805,7 +11805,7 @@ _meta_table = {
                 ''',
                 'ixcdtlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('opaque-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlv_Enum', 
+            _MetaInfoClassMember('opaque-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlvEnum', 
                 [], [], 
                 '''                OpaqueTLVType
                 ''',
@@ -11834,7 +11834,7 @@ _meta_table = {
                 ''',
                 'mplste_link_opt_tlv_len',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlv_Enum', 
+            _MetaInfoClassMember('mplste-link-opt-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlvEnum', 
                 [], [], 
                 '''                Type of Opt TLV
                 ''',
@@ -11880,7 +11880,7 @@ _meta_table = {
                 ''',
                 'affinity',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('dste-allocation-model-id', REFERENCE_ENUM_CLASS, 'IgpteLibBwModel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IgpteLibBwModel_Enum', 
+            _MetaInfoClassMember('dste-allocation-model-id', REFERENCE_ENUM_CLASS, 'IgpteLibBwModelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IgpteLibBwModelEnum', 
                 [], [], 
                 '''                DS-TE Allocation Model ID
                 ''',
@@ -11967,7 +11967,7 @@ _meta_table = {
                 ''',
                 'mpls_link_instance',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mpls-link-type', REFERENCE_ENUM_CLASS, 'LinkSubnet_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LinkSubnet_Enum', 
+            _MetaInfoClassMember('mpls-link-type', REFERENCE_ENUM_CLASS, 'LinkSubnetEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LinkSubnetEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -12383,7 +12383,7 @@ _meta_table = {
                 ''',
                 'area_total_stub',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('authentication-type', REFERENCE_ENUM_CLASS, 'Authentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Authentication_Enum', 
+            _MetaInfoClassMember('authentication-type', REFERENCE_ENUM_CLASS, 'AuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'AuthenticationEnum', 
                 [], [], 
                 '''                Authentication type
                 ''',
@@ -12578,7 +12578,7 @@ _meta_table = {
                 ''',
                 'tiebreaker_index',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('tiebreaker-type', REFERENCE_ENUM_CLASS, 'IpfrrTbrkr_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IpfrrTbrkr_Enum', 
+            _MetaInfoClassMember('tiebreaker-type', REFERENCE_ENUM_CLASS, 'IpfrrTbrkrEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IpfrrTbrkrEnum', 
                 [], [], 
                 '''                Tiebreaker Type
                 ''',
@@ -12679,7 +12679,7 @@ _meta_table = {
                 ''',
                 'maximum_metric_time_unset',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('maximum-metric-unset-reason', REFERENCE_ENUM_CLASS, 'MaxMetricUnsetReason_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MaxMetricUnsetReason_Enum', 
+            _MetaInfoClassMember('maximum-metric-unset-reason', REFERENCE_ENUM_CLASS, 'MaxMetricUnsetReasonEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MaxMetricUnsetReasonEnum', 
                 [], [], 
                 '''                Max-metric unset reason
                 ''',
@@ -12744,7 +12744,7 @@ _meta_table = {
                 ''',
                 'ospf_process_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('protocol-type', REFERENCE_ENUM_CLASS, 'RedistProtocol_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'RedistProtocol_Enum', 
+            _MetaInfoClassMember('protocol-type', REFERENCE_ENUM_CLASS, 'RedistProtocolEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'RedistProtocolEnum', 
                 [], [], 
                 '''                ProtocolType
                 ''',
@@ -12896,7 +12896,7 @@ _meta_table = {
                 ''',
                 'graceful_shutdown_retention_time',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('graceful-shutdown-state', REFERENCE_ENUM_CLASS, 'GsState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'GsState_Enum', 
+            _MetaInfoClassMember('graceful-shutdown-state', REFERENCE_ENUM_CLASS, 'GsStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'GsStateEnum', 
                 [], [], 
                 '''                State of graceful shutdown
                 ''',
@@ -13066,14 +13066,14 @@ _meta_table = {
                 ''',
                 'maximum_metric_abr_off_mode',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('maximum-metric-abr-off-reasons', REFERENCE_ENUM_CLASS, 'OspfMaxMetricAbrOffReasons_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfMaxMetricAbrOffReasons_Enum', 
+            _MetaInfoClassMember('maximum-metric-abr-off-reasons', REFERENCE_ENUM_CLASS, 'OspfMaxMetricAbrOffReasonsEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfMaxMetricAbrOffReasonsEnum', 
                 [], [], 
                 '''                Reasons for ABR duties being temporarily
                 disabled
                 ''',
                 'maximum_metric_abr_off_reasons',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('maximum-metric-set-reason', REFERENCE_ENUM_CLASS, 'MaxMetricSetReason_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MaxMetricSetReason_Enum', 
+            _MetaInfoClassMember('maximum-metric-set-reason', REFERENCE_ENUM_CLASS, 'MaxMetricSetReasonEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MaxMetricSetReasonEnum', 
                 [], [], 
                 '''                Max-metric set reason
                 ''',
@@ -13308,7 +13308,7 @@ _meta_table = {
                 ''',
                 'srgb_start',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('srgb-status', REFERENCE_ENUM_CLASS, 'OspfSrgbStatus_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfSrgbStatus_Enum', 
+            _MetaInfoClassMember('srgb-status', REFERENCE_ENUM_CLASS, 'OspfSrgbStatusEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfSrgbStatusEnum', 
                 [], [], 
                 '''                Segment Routing Global Block allocation status
                 ''',
@@ -13375,7 +13375,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.ProcessInformation.ProtocolAreas.ProtocolArea.ProtocolInterface',
             False, 
             [
-            _MetaInfoClassMember('protocol-authentication-type', REFERENCE_ENUM_CLASS, 'Authentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Authentication_Enum', 
+            _MetaInfoClassMember('protocol-authentication-type', REFERENCE_ENUM_CLASS, 'AuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'AuthenticationEnum', 
                 [], [], 
                 '''                Authentication type
                 ''',
@@ -13546,7 +13546,7 @@ _meta_table = {
                 ''',
                 'ospf_process_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('protocol-type', REFERENCE_ENUM_CLASS, 'RedistProtocol_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'RedistProtocol_Enum', 
+            _MetaInfoClassMember('protocol-type', REFERENCE_ENUM_CLASS, 'RedistProtocolEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'RedistProtocolEnum', 
                 [], [], 
                 '''                ProtocolType
                 ''',
@@ -14017,7 +14017,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -14299,7 +14299,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -14363,7 +14363,7 @@ _meta_table = {
                 ''',
                 'ospf_process_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('protocol-type', REFERENCE_ENUM_CLASS, 'RedistProtocol_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'RedistProtocol_Enum', 
+            _MetaInfoClassMember('protocol-type', REFERENCE_ENUM_CLASS, 'RedistProtocolEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'RedistProtocolEnum', 
                 [], [], 
                 '''                ProtocolType
                 ''',
@@ -14663,7 +14663,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -14987,7 +14987,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -15269,7 +15269,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -15646,7 +15646,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -15928,7 +15928,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -16210,7 +16210,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -16492,7 +16492,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -16774,7 +16774,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -17239,7 +17239,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -17468,7 +17468,7 @@ _meta_table = {
                 ''',
                 'summary_metric',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('summary-metric-type', REFERENCE_ENUM_CLASS, 'ExMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'ExMetric_Enum', 
+            _MetaInfoClassMember('summary-metric-type', REFERENCE_ENUM_CLASS, 'ExMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'ExMetricEnum', 
                 [], [], 
                 '''                Type of Metric
                 ''',
@@ -17771,7 +17771,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.NeighborDetails.NeighborDetail.NeighborSummary',
             False, 
             [
-            _MetaInfoClassMember('dr-bdr-state', REFERENCE_ENUM_CLASS, 'DrBdrState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'DrBdrState_Enum', 
+            _MetaInfoClassMember('dr-bdr-state', REFERENCE_ENUM_CLASS, 'DrBdrStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'DrBdrStateEnum', 
                 [], [], 
                 '''                Designated Router state
                 ''',
@@ -17819,7 +17819,7 @@ _meta_table = {
                 ''',
                 'neighbor_madj_interface',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborStateEnum', 
                 [], [], 
                 '''                Neighbor's state
                 ''',
@@ -17866,7 +17866,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Interface_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Interface_Enum', 
+            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'InterfaceEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'InterfaceEnum', 
                 [], [], 
                 '''                Interface type
                 ''',
@@ -17993,7 +17993,7 @@ _meta_table = {
                 ''',
                 'next_poll_interval',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('nsf-router-state', REFERENCE_ENUM_CLASS, 'NsfRtr_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NsfRtr_Enum', 
+            _MetaInfoClassMember('nsf-router-state', REFERENCE_ENUM_CLASS, 'NsfRtrEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NsfRtrEnum', 
                 [], [], 
                 '''                For cisco NSF, the router is either Requester or
                 Receiver
@@ -18075,7 +18075,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Neighbors.Neighbor',
             False, 
             [
-            _MetaInfoClassMember('dr-bdr-state', REFERENCE_ENUM_CLASS, 'DrBdrState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'DrBdrState_Enum', 
+            _MetaInfoClassMember('dr-bdr-state', REFERENCE_ENUM_CLASS, 'DrBdrStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'DrBdrStateEnum', 
                 [], [], 
                 '''                Designated Router state
                 ''',
@@ -18135,7 +18135,7 @@ _meta_table = {
                 ''',
                 'neighbor_madj_interface',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborStateEnum', 
                 [], [], 
                 '''                Neighbor's state
                 ''',
@@ -18199,7 +18199,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -18310,7 +18310,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -18357,7 +18357,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -18522,7 +18522,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -18569,7 +18569,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -18687,7 +18687,7 @@ _meta_table = {
                 ''',
                 'madj_area_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -18777,7 +18777,7 @@ _meta_table = {
                 ''',
                 'interfaceis_madj',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -18853,7 +18853,7 @@ _meta_table = {
                 ''',
                 'interface_as_next_flood_index',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('interface-authentication-type', REFERENCE_ENUM_CLASS, 'Authentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Authentication_Enum', 
+            _MetaInfoClassMember('interface-authentication-type', REFERENCE_ENUM_CLASS, 'AuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'AuthenticationEnum', 
                 [], [], 
                 '''                Authentication type
                 ''',
@@ -19010,7 +19010,7 @@ _meta_table = {
                 ''',
                 'madj_area_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -19170,7 +19170,7 @@ _meta_table = {
                 ''',
                 'fast_reroute_topology_independent_lfa',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('fast-reroute-type', REFERENCE_ENUM_CLASS, 'Ipfrr_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ipfrr_Enum', 
+            _MetaInfoClassMember('fast-reroute-type', REFERENCE_ENUM_CLASS, 'IpfrrEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IpfrrEnum', 
                 [], [], 
                 '''                IP Fast Reroute Type
                 ''',
@@ -19353,7 +19353,7 @@ _meta_table = {
                 ''',
                 'interface_sid_php_off',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'InterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'InterfaceState_Enum', 
+            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'InterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'InterfaceStateEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -19397,7 +19397,7 @@ _meta_table = {
                 ''',
                 'network_lsa_flush_timer',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Interface_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Interface_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'InterfaceEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'InterfaceEnum', 
                 [], [], 
                 '''                Network type
                 ''',
@@ -19415,7 +19415,7 @@ _meta_table = {
                 ''',
                 'next_hello_time_ms',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -19671,7 +19671,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetails.NeighborDetail.NeighborSummary',
             False, 
             [
-            _MetaInfoClassMember('dr-bdr-state', REFERENCE_ENUM_CLASS, 'DrBdrState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'DrBdrState_Enum', 
+            _MetaInfoClassMember('dr-bdr-state', REFERENCE_ENUM_CLASS, 'DrBdrStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'DrBdrStateEnum', 
                 [], [], 
                 '''                Designated Router state
                 ''',
@@ -19719,7 +19719,7 @@ _meta_table = {
                 ''',
                 'neighbor_madj_interface',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborStateEnum', 
                 [], [], 
                 '''                Neighbor's state
                 ''',
@@ -19766,7 +19766,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Interface_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Interface_Enum', 
+            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'InterfaceEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'InterfaceEnum', 
                 [], [], 
                 '''                Interface type
                 ''',
@@ -19893,7 +19893,7 @@ _meta_table = {
                 ''',
                 'next_poll_interval',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('nsf-router-state', REFERENCE_ENUM_CLASS, 'NsfRtr_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NsfRtr_Enum', 
+            _MetaInfoClassMember('nsf-router-state', REFERENCE_ENUM_CLASS, 'NsfRtrEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NsfRtrEnum', 
                 [], [], 
                 '''                For cisco NSF, the router is either Requester or
                 Receiver
@@ -19975,7 +19975,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Neighbors.Neighbor',
             False, 
             [
-            _MetaInfoClassMember('dr-bdr-state', REFERENCE_ENUM_CLASS, 'DrBdrState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'DrBdrState_Enum', 
+            _MetaInfoClassMember('dr-bdr-state', REFERENCE_ENUM_CLASS, 'DrBdrStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'DrBdrStateEnum', 
                 [], [], 
                 '''                Designated Router state
                 ''',
@@ -20035,7 +20035,7 @@ _meta_table = {
                 ''',
                 'neighbor_madj_interface',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborStateEnum', 
                 [], [], 
                 '''                Neighbor's state
                 ''',
@@ -20099,7 +20099,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -20210,7 +20210,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -20257,7 +20257,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -20463,13 +20463,13 @@ _meta_table = {
                 ''',
                 'border_router_route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('border-router-route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('border-router-route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
                 'border_router_route_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('border-router-type', REFERENCE_ENUM_CLASS, 'OspfBr_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfBr_Enum', 
+            _MetaInfoClassMember('border-router-type', REFERENCE_ENUM_CLASS, 'OspfBrEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfBrEnum', 
                 [], [], 
                 '''                Border router type
                 ''',
@@ -20556,7 +20556,7 @@ _meta_table = {
                 ''',
                 'dn_age_lsa',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -20639,7 +20639,7 @@ _meta_table = {
                 ''',
                 'ls_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'OspfLs_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLs_Enum', 
+            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'OspfLsEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLsEnum', 
                 [], [], 
                 '''                Link state type
                 ''',
@@ -20726,13 +20726,13 @@ _meta_table = {
                 ''',
                 'second_table_index',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('timer-location', REFERENCE_ENUM_CLASS, 'TimerTable_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'TimerTable_Enum', 
+            _MetaInfoClassMember('timer-location', REFERENCE_ENUM_CLASS, 'TimerTableEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'TimerTableEnum', 
                 [], [], 
                 '''                Timer table
                 ''',
                 'timer_location',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('timer-type', REFERENCE_ENUM_CLASS, 'Timer_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Timer_Enum', 
+            _MetaInfoClassMember('timer-type', REFERENCE_ENUM_CLASS, 'TimerEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'TimerEnum', 
                 [], [], 
                 '''                Timer type
                 ''',
@@ -21015,7 +21015,7 @@ _meta_table = {
                 ''',
                 'dn_age_lsa',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -21068,7 +21068,7 @@ _meta_table = {
                 ''',
                 'external_metric',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('external-metric-type', REFERENCE_ENUM_CLASS, 'ExMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'ExMetric_Enum', 
+            _MetaInfoClassMember('external-metric-type', REFERENCE_ENUM_CLASS, 'ExMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'ExMetricEnum', 
                 [], [], 
                 '''                External LSA metric type
                 ''',
@@ -21161,7 +21161,7 @@ _meta_table = {
                 ''',
                 'sub_tlv_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'Stlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Stlv_Enum', 
+            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'StlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'StlvEnum', 
                 [], [], 
                 '''                Type of sub TLV
                 ''',
@@ -21254,7 +21254,7 @@ _meta_table = {
                 ''',
                 'sub_tlv_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'Stlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Stlv_Enum', 
+            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'StlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'StlvEnum', 
                 [], [], 
                 '''                Type of sub TLV
                 ''',
@@ -21348,7 +21348,7 @@ _meta_table = {
                 ''',
                 'grace_period',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('grace-reason', REFERENCE_ENUM_CLASS, 'OspfGrReason_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfGrReason_Enum', 
+            _MetaInfoClassMember('grace-reason', REFERENCE_ENUM_CLASS, 'OspfGrReasonEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfGrReasonEnum', 
                 [], [], 
                 '''                Reason for router restart
                 ''',
@@ -21396,7 +21396,7 @@ _meta_table = {
                 ''',
                 'sub_tlv_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'Stlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Stlv_Enum', 
+            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'StlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'StlvEnum', 
                 [], [], 
                 '''                Type of sub TLV
                 ''',
@@ -21479,8 +21479,8 @@ _meta_table = {
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4pceAddr' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4pceAddr',
+    'Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4PceAddr' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4PceAddr',
             False, 
             [
             _MetaInfoClassMember('pceipv4-addr', ATTRIBUTE, 'str' , None, None, 
@@ -21496,8 +21496,8 @@ _meta_table = {
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6pceAddr' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6pceAddr',
+    'Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6PceAddr' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6PceAddr',
             False, 
             [
             _MetaInfoClassMember('pceipv6-addr', ATTRIBUTE, 'str' , None, None, 
@@ -21546,19 +21546,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr',
             False, 
             [
-            _MetaInfoClassMember('ipv4pce-addr', REFERENCE_CLASS, 'Ipv4pceAddr' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4pceAddr', 
+            _MetaInfoClassMember('ipv4pce-addr', REFERENCE_CLASS, 'Ipv4PceAddr' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4PceAddr', 
                 [], [], 
                 '''                IPv4 PCE Address
                 ''',
                 'ipv4pce_addr',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ipv6pce-addr', REFERENCE_CLASS, 'Ipv6pceAddr' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6pceAddr', 
+            _MetaInfoClassMember('ipv6pce-addr', REFERENCE_CLASS, 'Ipv6PceAddr' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6PceAddr', 
                 [], [], 
                 '''                IPv6 PCE Address
                 ''',
                 'ipv6pce_addr',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('pce-addr-type', REFERENCE_ENUM_CLASS, 'OspfShOpqRiPceAddrTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfShOpqRiPceAddrTypes_Enum', 
+            _MetaInfoClassMember('pce-addr-type', REFERENCE_ENUM_CLASS, 'OspfShOpqRiPceAddrTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfShOpqRiPceAddrTypesEnum', 
                 [], [], 
                 '''                PCEAddrType
                 ''',
@@ -21862,7 +21862,7 @@ _meta_table = {
                 ''',
                 'pcedtlv',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ritlv-internal-type', REFERENCE_ENUM_CLASS, 'OspfShOpqRiTlvTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfShOpqRiTlvTypes_Enum', 
+            _MetaInfoClassMember('ritlv-internal-type', REFERENCE_ENUM_CLASS, 'OspfShOpqRiTlvTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfShOpqRiTlvTypesEnum', 
                 [], [], 
                 '''                RITLVInternalType
                 ''',
@@ -21910,7 +21910,7 @@ _meta_table = {
                 ''',
                 'opaque_ri_interface_name',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('opaque-rilsa-scope', REFERENCE_ENUM_CLASS, 'OspfLsaOpqRiScope_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLsaOpqRiScope_Enum', 
+            _MetaInfoClassMember('opaque-rilsa-scope', REFERENCE_ENUM_CLASS, 'OspfLsaOpqRiScopeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLsaOpqRiScopeEnum', 
                 [], [], 
                 '''                Opaque LSA flooding scope, a.k.a., Opaque LSA
                 Type
@@ -21981,7 +21981,7 @@ _meta_table = {
                 ''',
                 'link_tos',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'OspfLinkTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLinkTypes_Enum', 
+            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'OspfLinkTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLinkTypesEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -22045,7 +22045,7 @@ _meta_table = {
                 ''',
                 'link_tos',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'OspfLinkTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLinkTypes_Enum', 
+            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'OspfLinkTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLinkTypesEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -22139,7 +22139,7 @@ _meta_table = {
                 ''',
                 'external_lsa_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('internal-lsa-type', REFERENCE_ENUM_CLASS, 'OspfInternalLsaTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInternalLsaTypes_Enum', 
+            _MetaInfoClassMember('internal-lsa-type', REFERENCE_ENUM_CLASS, 'OspfInternalLsaTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInternalLsaTypesEnum', 
                 [], [], 
                 '''                InternalLSAType
                 ''',
@@ -22234,7 +22234,7 @@ _meta_table = {
                 ''',
                 'ls_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'OspfLs_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLs_Enum', 
+            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'OspfLsEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLsEnum', 
                 [], [], 
                 '''                Link state type
                 ''',
@@ -22356,7 +22356,7 @@ _meta_table = {
                 ''',
                 'lsa_self_count',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                Type of LSAs
                 ''',
@@ -22444,7 +22444,7 @@ _meta_table = {
                 ''',
                 'lsa_self_count',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                Type of LSAs
                 ''',
@@ -22496,7 +22496,7 @@ _meta_table = {
                 ''',
                 'dn_age_lsa',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -22579,7 +22579,7 @@ _meta_table = {
                 ''',
                 'ls_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'OspfLs_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLs_Enum', 
+            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'OspfLsEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLsEnum', 
                 [], [], 
                 '''                Link state type
                 ''',
@@ -22666,13 +22666,13 @@ _meta_table = {
                 ''',
                 'second_table_index',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('timer-location', REFERENCE_ENUM_CLASS, 'TimerTable_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'TimerTable_Enum', 
+            _MetaInfoClassMember('timer-location', REFERENCE_ENUM_CLASS, 'TimerTableEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'TimerTableEnum', 
                 [], [], 
                 '''                Timer table
                 ''',
                 'timer_location',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('timer-type', REFERENCE_ENUM_CLASS, 'Timer_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Timer_Enum', 
+            _MetaInfoClassMember('timer-type', REFERENCE_ENUM_CLASS, 'TimerEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'TimerEnum', 
                 [], [], 
                 '''                Timer type
                 ''',
@@ -22955,7 +22955,7 @@ _meta_table = {
                 ''',
                 'dn_age_lsa',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -23008,7 +23008,7 @@ _meta_table = {
                 ''',
                 'external_metric',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('external-metric-type', REFERENCE_ENUM_CLASS, 'ExMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'ExMetric_Enum', 
+            _MetaInfoClassMember('external-metric-type', REFERENCE_ENUM_CLASS, 'ExMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'ExMetricEnum', 
                 [], [], 
                 '''                External LSA metric type
                 ''',
@@ -23101,7 +23101,7 @@ _meta_table = {
                 ''',
                 'sub_tlv_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'Stlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Stlv_Enum', 
+            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'StlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'StlvEnum', 
                 [], [], 
                 '''                Type of sub TLV
                 ''',
@@ -23194,7 +23194,7 @@ _meta_table = {
                 ''',
                 'sub_tlv_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'Stlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Stlv_Enum', 
+            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'StlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'StlvEnum', 
                 [], [], 
                 '''                Type of sub TLV
                 ''',
@@ -23288,7 +23288,7 @@ _meta_table = {
                 ''',
                 'grace_period',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('grace-reason', REFERENCE_ENUM_CLASS, 'OspfGrReason_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfGrReason_Enum', 
+            _MetaInfoClassMember('grace-reason', REFERENCE_ENUM_CLASS, 'OspfGrReasonEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfGrReasonEnum', 
                 [], [], 
                 '''                Reason for router restart
                 ''',
@@ -23336,7 +23336,7 @@ _meta_table = {
                 ''',
                 'sub_tlv_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'Stlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Stlv_Enum', 
+            _MetaInfoClassMember('sub-tlv-type', REFERENCE_ENUM_CLASS, 'StlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'StlvEnum', 
                 [], [], 
                 '''                Type of sub TLV
                 ''',
@@ -23419,8 +23419,8 @@ _meta_table = {
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4pceAddr' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4pceAddr',
+    'Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4PceAddr' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4PceAddr',
             False, 
             [
             _MetaInfoClassMember('pceipv4-addr', ATTRIBUTE, 'str' , None, None, 
@@ -23436,8 +23436,8 @@ _meta_table = {
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6pceAddr' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6pceAddr',
+    'Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6PceAddr' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6PceAddr',
             False, 
             [
             _MetaInfoClassMember('pceipv6-addr', ATTRIBUTE, 'str' , None, None, 
@@ -23486,19 +23486,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr',
             False, 
             [
-            _MetaInfoClassMember('ipv4pce-addr', REFERENCE_CLASS, 'Ipv4pceAddr' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4pceAddr', 
+            _MetaInfoClassMember('ipv4pce-addr', REFERENCE_CLASS, 'Ipv4PceAddr' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4PceAddr', 
                 [], [], 
                 '''                IPv4 PCE Address
                 ''',
                 'ipv4pce_addr',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ipv6pce-addr', REFERENCE_CLASS, 'Ipv6pceAddr' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6pceAddr', 
+            _MetaInfoClassMember('ipv6pce-addr', REFERENCE_CLASS, 'Ipv6PceAddr' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6PceAddr', 
                 [], [], 
                 '''                IPv6 PCE Address
                 ''',
                 'ipv6pce_addr',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('pce-addr-type', REFERENCE_ENUM_CLASS, 'OspfShOpqRiPceAddrTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfShOpqRiPceAddrTypes_Enum', 
+            _MetaInfoClassMember('pce-addr-type', REFERENCE_ENUM_CLASS, 'OspfShOpqRiPceAddrTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfShOpqRiPceAddrTypesEnum', 
                 [], [], 
                 '''                PCEAddrType
                 ''',
@@ -23802,7 +23802,7 @@ _meta_table = {
                 ''',
                 'pcedtlv',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ritlv-internal-type', REFERENCE_ENUM_CLASS, 'OspfShOpqRiTlvTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfShOpqRiTlvTypes_Enum', 
+            _MetaInfoClassMember('ritlv-internal-type', REFERENCE_ENUM_CLASS, 'OspfShOpqRiTlvTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfShOpqRiTlvTypesEnum', 
                 [], [], 
                 '''                RITLVInternalType
                 ''',
@@ -23850,7 +23850,7 @@ _meta_table = {
                 ''',
                 'opaque_ri_interface_name',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('opaque-rilsa-scope', REFERENCE_ENUM_CLASS, 'OspfLsaOpqRiScope_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLsaOpqRiScope_Enum', 
+            _MetaInfoClassMember('opaque-rilsa-scope', REFERENCE_ENUM_CLASS, 'OspfLsaOpqRiScopeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLsaOpqRiScopeEnum', 
                 [], [], 
                 '''                Opaque LSA flooding scope, a.k.a., Opaque LSA
                 Type
@@ -23921,7 +23921,7 @@ _meta_table = {
                 ''',
                 'link_tos',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'OspfLinkTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLinkTypes_Enum', 
+            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'OspfLinkTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLinkTypesEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -23985,7 +23985,7 @@ _meta_table = {
                 ''',
                 'link_tos',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'OspfLinkTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLinkTypes_Enum', 
+            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'OspfLinkTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLinkTypesEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -24079,7 +24079,7 @@ _meta_table = {
                 ''',
                 'external_lsa_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('internal-lsa-type', REFERENCE_ENUM_CLASS, 'OspfInternalLsaTypes_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInternalLsaTypes_Enum', 
+            _MetaInfoClassMember('internal-lsa-type', REFERENCE_ENUM_CLASS, 'OspfInternalLsaTypesEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInternalLsaTypesEnum', 
                 [], [], 
                 '''                InternalLSAType
                 ''',
@@ -24174,7 +24174,7 @@ _meta_table = {
                 ''',
                 'ls_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'OspfLs_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLs_Enum', 
+            _MetaInfoClassMember('ls-type', REFERENCE_ENUM_CLASS, 'OspfLsEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfLsEnum', 
                 [], [], 
                 '''                Link state type
                 ''',
@@ -24432,7 +24432,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -24479,7 +24479,7 @@ _meta_table = {
                 ''',
                 'header_lsa_checksum',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Lsa_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Lsa_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'LsaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LsaEnum', 
                 [], [], 
                 '''                LSA Type
                 ''',
@@ -24597,7 +24597,7 @@ _meta_table = {
                 ''',
                 'madj_area_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -24687,7 +24687,7 @@ _meta_table = {
                 ''',
                 'interfaceis_madj',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -24763,7 +24763,7 @@ _meta_table = {
                 ''',
                 'interface_as_next_flood_index',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('interface-authentication-type', REFERENCE_ENUM_CLASS, 'Authentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Authentication_Enum', 
+            _MetaInfoClassMember('interface-authentication-type', REFERENCE_ENUM_CLASS, 'AuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'AuthenticationEnum', 
                 [], [], 
                 '''                Authentication type
                 ''',
@@ -24920,7 +24920,7 @@ _meta_table = {
                 ''',
                 'madj_area_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -25080,7 +25080,7 @@ _meta_table = {
                 ''',
                 'fast_reroute_topology_independent_lfa',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('fast-reroute-type', REFERENCE_ENUM_CLASS, 'Ipfrr_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Ipfrr_Enum', 
+            _MetaInfoClassMember('fast-reroute-type', REFERENCE_ENUM_CLASS, 'IpfrrEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IpfrrEnum', 
                 [], [], 
                 '''                IP Fast Reroute Type
                 ''',
@@ -25263,7 +25263,7 @@ _meta_table = {
                 ''',
                 'interface_sid_php_off',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'InterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'InterfaceState_Enum', 
+            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'InterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'InterfaceStateEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -25307,7 +25307,7 @@ _meta_table = {
                 ''',
                 'network_lsa_flush_timer',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Interface_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Interface_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'InterfaceEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'InterfaceEnum', 
                 [], [], 
                 '''                Network type
                 ''',
@@ -25325,7 +25325,7 @@ _meta_table = {
                 ''',
                 'next_hello_time_ms',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -25541,7 +25541,7 @@ _meta_table = {
                 ''',
                 'virtual_link_retransmissoin',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('virtual-link-state', REFERENCE_ENUM_CLASS, 'NeighborState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborState_Enum', 
+            _MetaInfoClassMember('virtual-link-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborStateEnum', 
                 [], [], 
                 '''                Adjacency state
                 ''',
@@ -25582,7 +25582,7 @@ _meta_table = {
                 ''',
                 'virtaul_link_retransmission_interval',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('virtual-link-authentication-type', REFERENCE_ENUM_CLASS, 'Authentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Authentication_Enum', 
+            _MetaInfoClassMember('virtual-link-authentication-type', REFERENCE_ENUM_CLASS, 'AuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'AuthenticationEnum', 
                 [], [], 
                 '''                Authentication type
                 ''',
@@ -25704,7 +25704,7 @@ _meta_table = {
                 ''',
                 'virtual_link_passive',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('virtual-link-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('virtual-link-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                OSPF interface state for the virtual link
                 ''',
@@ -25925,7 +25925,7 @@ _meta_table = {
                 ''',
                 'sham_link_retransmissoin',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sham-link-state', REFERENCE_ENUM_CLASS, 'NeighborState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborState_Enum', 
+            _MetaInfoClassMember('sham-link-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'NeighborStateEnum', 
                 [], [], 
                 '''                Adjacency state
                 ''',
@@ -25960,7 +25960,7 @@ _meta_table = {
                 ''',
                 'sham_link_area',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sham-link-authentication-type', REFERENCE_ENUM_CLASS, 'Authentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Authentication_Enum', 
+            _MetaInfoClassMember('sham-link-authentication-type', REFERENCE_ENUM_CLASS, 'AuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'AuthenticationEnum', 
                 [], [], 
                 '''                Authentication type
                 ''',
@@ -26100,7 +26100,7 @@ _meta_table = {
                 ''',
                 'sham_link_source_address',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sham-link-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceState_Enum', 
+            _MetaInfoClassMember('sham-link-state', REFERENCE_ENUM_CLASS, 'OspfInterfaceStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfInterfaceStateEnum', 
                 [], [], 
                 '''                OSPF interface state for the sham link
                 ''',
@@ -26778,7 +26778,7 @@ _meta_table = {
                 ''',
                 'ixcdtlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('opaque-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlv_Enum', 
+            _MetaInfoClassMember('opaque-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlvEnum', 
                 [], [], 
                 '''                OpaqueTLVType
                 ''',
@@ -26807,7 +26807,7 @@ _meta_table = {
                 ''',
                 'mplste_link_opt_tlv_len',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlv_Enum', 
+            _MetaInfoClassMember('mplste-link-opt-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlvEnum', 
                 [], [], 
                 '''                Type of Opt TLV
                 ''',
@@ -26853,7 +26853,7 @@ _meta_table = {
                 ''',
                 'affinity',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('dste-allocation-model-id', REFERENCE_ENUM_CLASS, 'IgpteLibBwModel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IgpteLibBwModel_Enum', 
+            _MetaInfoClassMember('dste-allocation-model-id', REFERENCE_ENUM_CLASS, 'IgpteLibBwModelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IgpteLibBwModelEnum', 
                 [], [], 
                 '''                DS-TE Allocation Model ID
                 ''',
@@ -26940,7 +26940,7 @@ _meta_table = {
                 ''',
                 'mpls_link_instance',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mpls-link-type', REFERENCE_ENUM_CLASS, 'LinkSubnet_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LinkSubnet_Enum', 
+            _MetaInfoClassMember('mpls-link-type', REFERENCE_ENUM_CLASS, 'LinkSubnetEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LinkSubnetEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -27657,7 +27657,7 @@ _meta_table = {
                 ''',
                 'ixcdtlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('opaque-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlv_Enum', 
+            _MetaInfoClassMember('opaque-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlvEnum', 
                 [], [], 
                 '''                OpaqueTLVType
                 ''',
@@ -27686,7 +27686,7 @@ _meta_table = {
                 ''',
                 'mplste_link_opt_tlv_len',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlv_Enum', 
+            _MetaInfoClassMember('mplste-link-opt-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlvEnum', 
                 [], [], 
                 '''                Type of Opt TLV
                 ''',
@@ -27732,7 +27732,7 @@ _meta_table = {
                 ''',
                 'affinity',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('dste-allocation-model-id', REFERENCE_ENUM_CLASS, 'IgpteLibBwModel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IgpteLibBwModel_Enum', 
+            _MetaInfoClassMember('dste-allocation-model-id', REFERENCE_ENUM_CLASS, 'IgpteLibBwModelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IgpteLibBwModelEnum', 
                 [], [], 
                 '''                DS-TE Allocation Model ID
                 ''',
@@ -27819,7 +27819,7 @@ _meta_table = {
                 ''',
                 'mpls_link_instance',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mpls-link-type', REFERENCE_ENUM_CLASS, 'LinkSubnet_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LinkSubnet_Enum', 
+            _MetaInfoClassMember('mpls-link-type', REFERENCE_ENUM_CLASS, 'LinkSubnetEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LinkSubnetEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -28589,7 +28589,7 @@ _meta_table = {
                 ''',
                 'ixcdtlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('opaque-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlv_Enum', 
+            _MetaInfoClassMember('opaque-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlvEnum', 
                 [], [], 
                 '''                OpaqueTLVType
                 ''',
@@ -28618,7 +28618,7 @@ _meta_table = {
                 ''',
                 'mplste_link_opt_tlv_len',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlv_Enum', 
+            _MetaInfoClassMember('mplste-link-opt-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlvEnum', 
                 [], [], 
                 '''                Type of Opt TLV
                 ''',
@@ -28664,7 +28664,7 @@ _meta_table = {
                 ''',
                 'affinity',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('dste-allocation-model-id', REFERENCE_ENUM_CLASS, 'IgpteLibBwModel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IgpteLibBwModel_Enum', 
+            _MetaInfoClassMember('dste-allocation-model-id', REFERENCE_ENUM_CLASS, 'IgpteLibBwModelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IgpteLibBwModelEnum', 
                 [], [], 
                 '''                DS-TE Allocation Model ID
                 ''',
@@ -28751,7 +28751,7 @@ _meta_table = {
                 ''',
                 'mpls_link_instance',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mpls-link-type', REFERENCE_ENUM_CLASS, 'LinkSubnet_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LinkSubnet_Enum', 
+            _MetaInfoClassMember('mpls-link-type', REFERENCE_ENUM_CLASS, 'LinkSubnetEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LinkSubnetEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -29468,7 +29468,7 @@ _meta_table = {
                 ''',
                 'ixcdtlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('opaque-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlv_Enum', 
+            _MetaInfoClassMember('opaque-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlvEnum', 
                 [], [], 
                 '''                OpaqueTLVType
                 ''',
@@ -29497,7 +29497,7 @@ _meta_table = {
                 ''',
                 'mplste_link_opt_tlv_len',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlv_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlv_Enum', 
+            _MetaInfoClassMember('mplste-link-opt-tlv-type', REFERENCE_ENUM_CLASS, 'MplsTeOptTlvEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MplsTeOptTlvEnum', 
                 [], [], 
                 '''                Type of Opt TLV
                 ''',
@@ -29543,7 +29543,7 @@ _meta_table = {
                 ''',
                 'affinity',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('dste-allocation-model-id', REFERENCE_ENUM_CLASS, 'IgpteLibBwModel_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IgpteLibBwModel_Enum', 
+            _MetaInfoClassMember('dste-allocation-model-id', REFERENCE_ENUM_CLASS, 'IgpteLibBwModelEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IgpteLibBwModelEnum', 
                 [], [], 
                 '''                DS-TE Allocation Model ID
                 ''',
@@ -29630,7 +29630,7 @@ _meta_table = {
                 ''',
                 'mpls_link_instance',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mpls-link-type', REFERENCE_ENUM_CLASS, 'LinkSubnet_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LinkSubnet_Enum', 
+            _MetaInfoClassMember('mpls-link-type', REFERENCE_ENUM_CLASS, 'LinkSubnetEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'LinkSubnetEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -30046,7 +30046,7 @@ _meta_table = {
                 ''',
                 'area_total_stub',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('authentication-type', REFERENCE_ENUM_CLASS, 'Authentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Authentication_Enum', 
+            _MetaInfoClassMember('authentication-type', REFERENCE_ENUM_CLASS, 'AuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'AuthenticationEnum', 
                 [], [], 
                 '''                Authentication type
                 ''',
@@ -30241,7 +30241,7 @@ _meta_table = {
                 ''',
                 'tiebreaker_index',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('tiebreaker-type', REFERENCE_ENUM_CLASS, 'IpfrrTbrkr_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IpfrrTbrkr_Enum', 
+            _MetaInfoClassMember('tiebreaker-type', REFERENCE_ENUM_CLASS, 'IpfrrTbrkrEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'IpfrrTbrkrEnum', 
                 [], [], 
                 '''                Tiebreaker Type
                 ''',
@@ -30342,7 +30342,7 @@ _meta_table = {
                 ''',
                 'maximum_metric_time_unset',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('maximum-metric-unset-reason', REFERENCE_ENUM_CLASS, 'MaxMetricUnsetReason_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MaxMetricUnsetReason_Enum', 
+            _MetaInfoClassMember('maximum-metric-unset-reason', REFERENCE_ENUM_CLASS, 'MaxMetricUnsetReasonEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MaxMetricUnsetReasonEnum', 
                 [], [], 
                 '''                Max-metric unset reason
                 ''',
@@ -30407,7 +30407,7 @@ _meta_table = {
                 ''',
                 'ospf_process_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('protocol-type', REFERENCE_ENUM_CLASS, 'RedistProtocol_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'RedistProtocol_Enum', 
+            _MetaInfoClassMember('protocol-type', REFERENCE_ENUM_CLASS, 'RedistProtocolEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'RedistProtocolEnum', 
                 [], [], 
                 '''                ProtocolType
                 ''',
@@ -30559,7 +30559,7 @@ _meta_table = {
                 ''',
                 'graceful_shutdown_retention_time',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('graceful-shutdown-state', REFERENCE_ENUM_CLASS, 'GsState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'GsState_Enum', 
+            _MetaInfoClassMember('graceful-shutdown-state', REFERENCE_ENUM_CLASS, 'GsStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'GsStateEnum', 
                 [], [], 
                 '''                State of graceful shutdown
                 ''',
@@ -30729,14 +30729,14 @@ _meta_table = {
                 ''',
                 'maximum_metric_abr_off_mode',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('maximum-metric-abr-off-reasons', REFERENCE_ENUM_CLASS, 'OspfMaxMetricAbrOffReasons_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfMaxMetricAbrOffReasons_Enum', 
+            _MetaInfoClassMember('maximum-metric-abr-off-reasons', REFERENCE_ENUM_CLASS, 'OspfMaxMetricAbrOffReasonsEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfMaxMetricAbrOffReasonsEnum', 
                 [], [], 
                 '''                Reasons for ABR duties being temporarily
                 disabled
                 ''',
                 'maximum_metric_abr_off_reasons',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('maximum-metric-set-reason', REFERENCE_ENUM_CLASS, 'MaxMetricSetReason_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MaxMetricSetReason_Enum', 
+            _MetaInfoClassMember('maximum-metric-set-reason', REFERENCE_ENUM_CLASS, 'MaxMetricSetReasonEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'MaxMetricSetReasonEnum', 
                 [], [], 
                 '''                Max-metric set reason
                 ''',
@@ -30971,7 +30971,7 @@ _meta_table = {
                 ''',
                 'srgb_start',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('srgb-status', REFERENCE_ENUM_CLASS, 'OspfSrgbStatus_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfSrgbStatus_Enum', 
+            _MetaInfoClassMember('srgb-status', REFERENCE_ENUM_CLASS, 'OspfSrgbStatusEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfSrgbStatusEnum', 
                 [], [], 
                 '''                Segment Routing Global Block allocation status
                 ''',
@@ -31038,7 +31038,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.ProcessInformation.ProtocolAreas.ProtocolArea.ProtocolInterface',
             False, 
             [
-            _MetaInfoClassMember('protocol-authentication-type', REFERENCE_ENUM_CLASS, 'Authentication_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'Authentication_Enum', 
+            _MetaInfoClassMember('protocol-authentication-type', REFERENCE_ENUM_CLASS, 'AuthenticationEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'AuthenticationEnum', 
                 [], [], 
                 '''                Authentication type
                 ''',
@@ -31209,7 +31209,7 @@ _meta_table = {
                 ''',
                 'ospf_process_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('protocol-type', REFERENCE_ENUM_CLASS, 'RedistProtocol_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'RedistProtocol_Enum', 
+            _MetaInfoClassMember('protocol-type', REFERENCE_ENUM_CLASS, 'RedistProtocolEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'RedistProtocolEnum', 
                 [], [], 
                 '''                ProtocolType
                 ''',
@@ -31680,7 +31680,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -31962,7 +31962,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -32026,7 +32026,7 @@ _meta_table = {
                 ''',
                 'ospf_process_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('protocol-type', REFERENCE_ENUM_CLASS, 'RedistProtocol_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'RedistProtocol_Enum', 
+            _MetaInfoClassMember('protocol-type', REFERENCE_ENUM_CLASS, 'RedistProtocolEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'RedistProtocolEnum', 
                 [], [], 
                 '''                ProtocolType
                 ''',
@@ -32326,7 +32326,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -32650,7 +32650,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -32932,7 +32932,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -33309,7 +33309,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -33591,7 +33591,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -33873,7 +33873,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -34155,7 +34155,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -34437,7 +34437,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -34902,7 +34902,7 @@ _meta_table = {
                 ''',
                 'route_prefix_length',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRoute_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRoute_Enum', 
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'OspfRouteEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'OspfRouteEnum', 
                 [], [], 
                 '''                Route type
                 ''',
@@ -35131,7 +35131,7 @@ _meta_table = {
                 ''',
                 'summary_metric',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('summary-metric-type', REFERENCE_ENUM_CLASS, 'ExMetric_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'ExMetric_Enum', 
+            _MetaInfoClassMember('summary-metric-type', REFERENCE_ENUM_CLASS, 'ExMetricEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_ospf_oper', 'ExMetricEnum', 
                 [], [], 
                 '''                Type of Metric
                 ''',
@@ -35413,8 +35413,8 @@ _meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseAr
 _meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueEpLsaType.Tlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueEpLsaType']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueMplsTeLsaType.Tlv.TeLinkSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueMplsTeLsaType.Tlv']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueMplsTeLsaType.Tlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueMplsTeLsaType']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4pceAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6pceAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4PceAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6PceAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.PceAddrUnknownTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedScope']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv']['meta_info']
@@ -35462,8 +35462,8 @@ _meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData
 _meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueEpLsaType.Tlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueEpLsaType']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueMplsTeLsaType.Tlv.TeLinkSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueMplsTeLsaType.Tlv']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueMplsTeLsaType.Tlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueMplsTeLsaType']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4pceAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6pceAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4PceAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6PceAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.PceAddrUnknownTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedScope']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv']['meta_info']
@@ -35774,8 +35774,8 @@ _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueEpLsaType.Tlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueEpLsaType']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueMplsTeLsaType.Tlv.TeLinkSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueMplsTeLsaType.Tlv']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueMplsTeLsaType.Tlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueMplsTeLsaType']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4pceAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6pceAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4PceAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6PceAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.PceAddrUnknownTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedScope']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.DatabaseAreas.DatabaseArea.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv']['meta_info']
@@ -35823,8 +35823,8 @@ _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.O
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueEpLsaType.Tlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueEpLsaType']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueMplsTeLsaType.Tlv.TeLinkSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueMplsTeLsaType.Tlv']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueMplsTeLsaType.Tlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueMplsTeLsaType']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4pceAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6pceAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv4PceAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.Ipv6PceAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr.PceAddrUnknownTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedAddr']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv.PcedScope']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Database.Lsas.Lsa.LsaInternalData.OpaqueRouterInfoLsaType.OpaqueRitlv.Pcedtlv']['meta_info']

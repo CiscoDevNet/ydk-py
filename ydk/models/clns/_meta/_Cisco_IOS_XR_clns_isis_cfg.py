@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,78 +14,78 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'IsisSnpAuth_Enum' : _MetaInfoEnum('IsisSnpAuth_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisSnpAuthEnum' : _MetaInfoEnum('IsisSnpAuthEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'send-only':'SEND_ONLY',
             'full':'FULL',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibMaxAreaAddressMismatchBoolean_Enum' : _MetaInfoEnum('IsisMibMaxAreaAddressMismatchBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibMaxAreaAddressMismatchBooleanEnum' : _MetaInfoEnum('IsisMibMaxAreaAddressMismatchBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibLspTooLargeToPropagateBoolean_Enum' : _MetaInfoEnum('IsisMibLspTooLargeToPropagateBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibLspTooLargeToPropagateBooleanEnum' : _MetaInfoEnum('IsisMibLspTooLargeToPropagateBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibSequenceNumberSkipBoolean_Enum' : _MetaInfoEnum('IsisMibSequenceNumberSkipBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibSequenceNumberSkipBooleanEnum' : _MetaInfoEnum('IsisMibSequenceNumberSkipBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisAuthenticationAlgorithm_Enum' : _MetaInfoEnum('IsisAuthenticationAlgorithm_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisAuthenticationAlgorithmEnum' : _MetaInfoEnum('IsisAuthenticationAlgorithmEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'cleartext':'CLEARTEXT',
             'hmac-md5':'HMAC_MD5',
             'keychain':'KEYCHAIN',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisOverloadBitMode_Enum' : _MetaInfoEnum('IsisOverloadBitMode_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisOverloadBitModeEnum' : _MetaInfoEnum('IsisOverloadBitModeEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'permanently-set':'PERMANENTLY_SET',
             'startup-period':'STARTUP_PERIOD',
             'wait-for-bgp':'WAIT_FOR_BGP',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibRejectedAdjacencyBoolean_Enum' : _MetaInfoEnum('IsisMibRejectedAdjacencyBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibRejectedAdjacencyBooleanEnum' : _MetaInfoEnum('IsisMibRejectedAdjacencyBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibCorruptedLspDetectedBoolean_Enum' : _MetaInfoEnum('IsisMibCorruptedLspDetectedBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibCorruptedLspDetectedBooleanEnum' : _MetaInfoEnum('IsisMibCorruptedLspDetectedBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisAdjCheck_Enum' : _MetaInfoEnum('IsisAdjCheck_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisAdjCheckEnum' : _MetaInfoEnum('IsisAdjCheckEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'disabled':'DISABLED',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisispfState_Enum' : _MetaInfoEnum('IsisispfState_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisispfStateEnum' : _MetaInfoEnum('IsisispfStateEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'enabled':'ENABLED',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisfrrLoadSharing_Enum' : _MetaInfoEnum('IsisfrrLoadSharing_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisfrrLoadSharingEnum' : _MetaInfoEnum('IsisfrrLoadSharingEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'disable':'DISABLE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibAuthenticationFailureBoolean_Enum' : _MetaInfoEnum('IsisMibAuthenticationFailureBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibAuthenticationFailureBooleanEnum' : _MetaInfoEnum('IsisMibAuthenticationFailureBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisInterfaceState_Enum' : _MetaInfoEnum('IsisInterfaceState_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisInterfaceStateEnum' : _MetaInfoEnum('IsisInterfaceStateEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'shutdown':'SHUTDOWN',
             'suppressed':'SUPPRESSED',
             'passive':'PASSIVE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMetricStyle_Enum' : _MetaInfoEnum('IsisMetricStyle_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMetricStyleEnum' : _MetaInfoEnum('IsisMetricStyleEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'old-metric-style':'OLD_METRIC_STYLE',
             'new-metric-style':'NEW_METRIC_STYLE',
             'both-metric-style':'BOTH_METRIC_STYLE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisfrrTiebreaker_Enum' : _MetaInfoEnum('IsisfrrTiebreaker_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisfrrTiebreakerEnum' : _MetaInfoEnum('IsisfrrTiebreakerEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'downstream':'DOWNSTREAM',
             'lc-disjoint':'LC_DISJOINT',
@@ -95,107 +95,107 @@ _meta_table = {
             'secondary-path':'SECONDARY_PATH',
             'srlg-disjoint':'SRLG_DISJOINT',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisNsfFlavor_Enum' : _MetaInfoEnum('IsisNsfFlavor_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisNsfFlavorEnum' : _MetaInfoEnum('IsisNsfFlavorEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'cisco-proprietary-nsf':'CISCO_PROPRIETARY_NSF',
             'ietf-standard-nsf':'IETF_STANDARD_NSF',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisInterfaceAfState_Enum' : _MetaInfoEnum('IsisInterfaceAfState_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisInterfaceAfStateEnum' : _MetaInfoEnum('IsisInterfaceAfStateEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'disable':'DISABLE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisApplyWeight_Enum' : _MetaInfoEnum('IsisApplyWeight_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisApplyWeightEnum' : _MetaInfoEnum('IsisApplyWeightEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'ecmp-only':'ECMP_ONLY',
             'ucmp-only':'UCMP_ONLY',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisPrefixPriority_Enum' : _MetaInfoEnum('IsisPrefixPriority_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisPrefixPriorityEnum' : _MetaInfoEnum('IsisPrefixPriorityEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'critical-priority':'CRITICAL_PRIORITY',
             'high-priority':'HIGH_PRIORITY',
             'medium-priority':'MEDIUM_PRIORITY',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibAuthenticationTypeFailureBoolean_Enum' : _MetaInfoEnum('IsisMibAuthenticationTypeFailureBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibAuthenticationTypeFailureBooleanEnum' : _MetaInfoEnum('IsisMibAuthenticationTypeFailureBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMicroLoopAvoidance_Enum' : _MetaInfoEnum('IsisMicroLoopAvoidance_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMicroLoopAvoidanceEnum' : _MetaInfoEnum('IsisMicroLoopAvoidanceEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'not-set':'NOT_SET',
             'micro-loop-avoidance-all':'MICRO_LOOP_AVOIDANCE_ALL',
             'micro-loop-avoidance-protected':'MICRO_LOOP_AVOIDANCE_PROTECTED',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisAdvTypeExternal_Enum' : _MetaInfoEnum('IsisAdvTypeExternal_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisAdvTypeExternalEnum' : _MetaInfoEnum('IsisAdvTypeExternalEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'external':'EXTERNAL',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisRemoteLfa_Enum' : _MetaInfoEnum('IsisRemoteLfa_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisRemoteLfaEnum' : _MetaInfoEnum('IsisRemoteLfaEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'remote-lfa-none':'REMOTE_LFA_NONE',
             'remote-lfa-tunnel-ldp':'REMOTE_LFA_TUNNEL_LDP',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibAreaMismatchBoolean_Enum' : _MetaInfoEnum('IsisMibAreaMismatchBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibAreaMismatchBooleanEnum' : _MetaInfoEnum('IsisMibAreaMismatchBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisConfigurableLevels_Enum' : _MetaInfoEnum('IsisConfigurableLevels_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisConfigurableLevelsEnum' : _MetaInfoEnum('IsisConfigurableLevelsEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'level1':'LEVEL1',
             'level2':'LEVEL2',
             'level1-and2':'LEVEL1_AND2',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibAttemptToExceedMaxSequenceBoolean_Enum' : _MetaInfoEnum('IsisMibAttemptToExceedMaxSequenceBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibAttemptToExceedMaxSequenceBooleanEnum' : _MetaInfoEnum('IsisMibAttemptToExceedMaxSequenceBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibManualAddressDropsBoolean_Enum' : _MetaInfoEnum('IsisMibManualAddressDropsBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibManualAddressDropsBooleanEnum' : _MetaInfoEnum('IsisMibManualAddressDropsBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMetricStyleTransition_Enum' : _MetaInfoEnum('IsisMetricStyleTransition_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMetricStyleTransitionEnum' : _MetaInfoEnum('IsisMetricStyleTransitionEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'disabled':'DISABLED',
             'enabled':'ENABLED',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisexplicitNullFlag_Enum' : _MetaInfoEnum('IsisexplicitNullFlag_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisexplicitNullFlagEnum' : _MetaInfoEnum('IsisexplicitNullFlagEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'disable':'DISABLE',
             'enable':'ENABLE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMetric_Enum' : _MetaInfoEnum('IsisMetric_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMetricEnum' : _MetaInfoEnum('IsisMetricEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'internal':'INTERNAL',
             'external':'EXTERNAL',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisHelloPadding_Enum' : _MetaInfoEnum('IsisHelloPadding_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisHelloPaddingEnum' : _MetaInfoEnum('IsisHelloPaddingEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'never':'NEVER',
             'sometimes':'SOMETIMES',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibDatabaseOverFlowBoolean_Enum' : _MetaInfoEnum('IsisMibDatabaseOverFlowBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibDatabaseOverFlowBooleanEnum' : _MetaInfoEnum('IsisMibDatabaseOverFlowBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisAdvTypeInterLevel_Enum' : _MetaInfoEnum('IsisAdvTypeInterLevel_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisAdvTypeInterLevelEnum' : _MetaInfoEnum('IsisAdvTypeInterLevelEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'inter-level':'INTER_LEVEL',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisAuthenticationFailureMode_Enum' : _MetaInfoEnum('IsisAuthenticationFailureMode_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisAuthenticationFailureModeEnum' : _MetaInfoEnum('IsisAuthenticationFailureModeEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'drop':'DROP',
             'send-only':'SEND_ONLY',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibProtocolsSupportedMismatchBoolean_Enum' : _MetaInfoEnum('IsisMibProtocolsSupportedMismatchBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibProtocolsSupportedMismatchBooleanEnum' : _MetaInfoEnum('IsisMibProtocolsSupportedMismatchBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisRedistProto_Enum' : _MetaInfoEnum('IsisRedistProto_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisRedistProtoEnum' : _MetaInfoEnum('IsisRedistProtoEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'connected':'CONNECTED',
             'static':'STATIC',
@@ -209,68 +209,68 @@ _meta_table = {
             'application':'APPLICATION',
             'mobile':'MOBILE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibOriginatedLspBufferSizeMismatchBoolean_Enum' : _MetaInfoEnum('IsisMibOriginatedLspBufferSizeMismatchBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibOriginatedLspBufferSizeMismatchBooleanEnum' : _MetaInfoEnum('IsisMibOriginatedLspBufferSizeMismatchBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibIdLengthMismatchBoolean_Enum' : _MetaInfoEnum('IsisMibIdLengthMismatchBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibIdLengthMismatchBooleanEnum' : _MetaInfoEnum('IsisMibIdLengthMismatchBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibAllBoolean_Enum' : _MetaInfoEnum('IsisMibAllBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibAllBooleanEnum' : _MetaInfoEnum('IsisMibAllBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisphpFlag_Enum' : _MetaInfoEnum('IsisphpFlag_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisphpFlagEnum' : _MetaInfoEnum('IsisphpFlagEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'enable':'ENABLE',
             'disable':'DISABLE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'Isissid_Enum' : _MetaInfoEnum('Isissid_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsissidEnum' : _MetaInfoEnum('IsissidEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'index':'INDEX',
             'absolute':'ABSOLUTE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'Isisfrr_Enum' : _MetaInfoEnum('Isisfrr_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisfrrEnum' : _MetaInfoEnum('IsisfrrEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'per-link':'PER_LINK',
             'per-prefix':'PER_PREFIX',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisAttachedBit_Enum' : _MetaInfoEnum('IsisAttachedBit_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisAttachedBitEnum' : _MetaInfoEnum('IsisAttachedBitEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'area':'AREA',
             'on':'ON',
             'off':'OFF',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'NflagClear_Enum' : _MetaInfoEnum('NflagClear_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'NflagClearEnum' : _MetaInfoEnum('NflagClearEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'disable':'DISABLE',
             'enable':'ENABLE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisLabelPreference_Enum' : _MetaInfoEnum('IsisLabelPreference_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisLabelPreferenceEnum' : _MetaInfoEnum('IsisLabelPreferenceEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'ldp':'LDP',
             'segment-routing':'SEGMENT_ROUTING',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibAdjacencyChangeBoolean_Enum' : _MetaInfoEnum('IsisMibAdjacencyChangeBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibAdjacencyChangeBooleanEnum' : _MetaInfoEnum('IsisMibAdjacencyChangeBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibLspErrorDetectedBoolean_Enum' : _MetaInfoEnum('IsisMibLspErrorDetectedBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibLspErrorDetectedBooleanEnum' : _MetaInfoEnum('IsisMibLspErrorDetectedBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibOwnLspPurgeBoolean_Enum' : _MetaInfoEnum('IsisMibOwnLspPurgeBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibOwnLspPurgeBooleanEnum' : _MetaInfoEnum('IsisMibOwnLspPurgeBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
-    'IsisMibVersionSkewBoolean_Enum' : _MetaInfoEnum('IsisMibVersionSkewBoolean_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'IsisMibVersionSkewBooleanEnum' : _MetaInfoEnum('IsisMibVersionSkewBooleanEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'false':'FALSE',
             'true':'TRUE',
@@ -374,13 +374,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings.FrrLoadSharing',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('load-sharing', REFERENCE_ENUM_CLASS, 'IsisfrrLoadSharing_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrLoadSharing_Enum', 
+            _MetaInfoClassMember('load-sharing', REFERENCE_ENUM_CLASS, 'IsisfrrLoadSharingEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrLoadSharingEnum', 
                 [], [], 
                 '''                Load sharing
                 ''',
@@ -414,7 +414,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -455,13 +455,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers.FrrTiebreaker',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('tiebreaker', REFERENCE_ENUM_CLASS, 'IsisfrrTiebreaker_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrTiebreaker_Enum', 
+            _MetaInfoClassMember('tiebreaker', REFERENCE_ENUM_CLASS, 'IsisfrrTiebreakerEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrTiebreakerEnum', 
                 [], [], 
                 '''                Tiebreaker for which configuration
                 applies
@@ -502,13 +502,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies.FrrUseCandOnly',
             False, 
             [
-            _MetaInfoClassMember('frr-type', REFERENCE_ENUM_CLASS, 'Isisfrr_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isisfrr_Enum', 
+            _MetaInfoClassMember('frr-type', REFERENCE_ENUM_CLASS, 'IsisfrrEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrEnum', 
                 [], [], 
                 '''                Computation Type
                 ''',
                 'frr_type',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -543,19 +543,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit',
             False, 
             [
-            _MetaInfoClassMember('frr-type', REFERENCE_ENUM_CLASS, 'Isisfrr_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isisfrr_Enum', 
+            _MetaInfoClassMember('frr-type', REFERENCE_ENUM_CLASS, 'IsisfrrEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrEnum', 
                 [], [], 
                 '''                Computation Type
                 ''',
                 'frr_type',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'IsisPrefixPriority_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisPrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'IsisPrefixPriorityEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisPrefixPriorityEnum', 
                 [], [], 
                 '''                Compute for all prefixes upto the
                 specified priority
@@ -634,13 +634,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.Ispf.States.State',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'IsisispfState_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisispfState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'IsisispfStateEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisispfStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -691,7 +691,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes.MaxRedistPrefix',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -733,19 +733,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.MetricStyles.MetricStyle',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('style', REFERENCE_ENUM_CLASS, 'IsisMetricStyle_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetricStyle_Enum', 
+            _MetaInfoClassMember('style', REFERENCE_ENUM_CLASS, 'IsisMetricStyleEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetricStyleEnum', 
                 [], [], 
                 '''                Metric Style
                 ''',
                 'style',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('transition-state', REFERENCE_ENUM_CLASS, 'IsisMetricStyleTransition_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetricStyleTransition_Enum', 
+            _MetaInfoClassMember('transition-state', REFERENCE_ENUM_CLASS, 'IsisMetricStyleTransitionEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetricStyleTransitionEnum', 
                 [], [], 
                 '''                Transition state
                 ''',
@@ -775,7 +775,7 @@ _meta_table = {
         'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg'
         ),
     },
-    'Isis.Instances.Instance.Afs.Af.AfData.Metrics.Metric.Metric_Enum' : _MetaInfoEnum('Metric_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'Isis.Instances.Instance.Afs.Af.AfData.Metrics.Metric.MetricEnum' : _MetaInfoEnum('MetricEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'maximum':'MAXIMUM',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
@@ -783,7 +783,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.Metrics.Metric',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -796,7 +796,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-cfg', False, [
-                    _MetaInfoClassMember('metric', REFERENCE_ENUM_CLASS, 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_Enum', 
+                    _MetaInfoClassMember('metric', REFERENCE_ENUM_CLASS, 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.MetricEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.MetricEnum', 
                         [], [], 
                         '''                        Allowed metric: <1-63> for narrow,
                         <1-16777215> for wide
@@ -846,7 +846,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.MicroLoopAvoidance',
             False, 
             [
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'IsisMicroLoopAvoidance_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMicroLoopAvoidance_Enum', 
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'IsisMicroLoopAvoidanceEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMicroLoopAvoidanceEnum', 
                 [], [], 
                 '''                MicroLoop avoidance enable configuration
                 ''',
@@ -934,7 +934,7 @@ _meta_table = {
                 ''',
                 'igp_intact',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevels_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevels_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevelsEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevelsEnum', 
                 [], [], 
                 '''                Enable MPLS for an IS-IS at the given
                 levels
@@ -984,14 +984,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.Propagations.Propagation',
             False, 
             [
-            _MetaInfoClassMember('destination-level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('destination-level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Destination level for routes.  Must
                 differ from SourceLevel
                 ''',
                 'destination_level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('source-level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('source-level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Source level for routes
                 ''',
@@ -1051,7 +1051,7 @@ _meta_table = {
                 ''',
                 'as_yy',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('levels', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevels_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevels_Enum', 
+            _MetaInfoClassMember('levels', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevelsEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevelsEnum', 
                 [], [], 
                 '''                Levels to redistribute routes into
                 ''',
@@ -1064,7 +1064,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'IsisMetric_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'IsisMetricEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetricEnum', 
                 [], [], 
                 '''                IS-IS metric type
                 ''',
@@ -1094,7 +1094,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile',
             False, 
             [
-            _MetaInfoClassMember('levels', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevels_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevels_Enum', 
+            _MetaInfoClassMember('levels', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevelsEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevelsEnum', 
                 [], [], 
                 '''                Levels to redistribute routes into
                 ''',
@@ -1107,7 +1107,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'IsisMetric_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'IsisMetricEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetricEnum', 
                 [], [], 
                 '''                IS-IS metric type
                 ''',
@@ -1143,7 +1143,7 @@ _meta_table = {
                 ''',
                 'as_zz',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('levels', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevels_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevels_Enum', 
+            _MetaInfoClassMember('levels', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevelsEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevelsEnum', 
                 [], [], 
                 '''                Levels to redistribute routes into
                 ''',
@@ -1156,7 +1156,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'IsisMetric_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'IsisMetricEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetricEnum', 
                 [], [], 
                 '''                IS-IS metric type
                 ''',
@@ -1194,7 +1194,7 @@ _meta_table = {
                 ''',
                 'instance_name',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('levels', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevels_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevels_Enum', 
+            _MetaInfoClassMember('levels', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevelsEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevelsEnum', 
                 [], [], 
                 '''                Levels to redistribute routes into
                 ''',
@@ -1207,7 +1207,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'IsisMetric_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'IsisMetricEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetricEnum', 
                 [], [], 
                 '''                IS-IS metric type
                 ''',
@@ -1237,7 +1237,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution',
             False, 
             [
-            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'IsisRedistProto_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisRedistProto_Enum', 
+            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'IsisRedistProtoEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisRedistProtoEnum', 
                 [], [], 
                 '''                The protocol to be redistributed.  OSPFv3
                 may not be specified for an IPv4 topology
@@ -1326,7 +1326,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting',
             False, 
             [
-            _MetaInfoClassMember('mpls', REFERENCE_ENUM_CLASS, 'IsisLabelPreference_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisLabelPreference_Enum', 
+            _MetaInfoClassMember('mpls', REFERENCE_ENUM_CLASS, 'IsisLabelPreferenceEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisLabelPreferenceEnum', 
                 [], [], 
                 '''                Prefer segment routing labels over LDP
                 labels
@@ -1351,7 +1351,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals.SpfInterval',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -1406,7 +1406,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals.SpfPeriodicInterval',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -1447,13 +1447,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities.SpfPrefixPriority',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                SPF Level for prefix prioritization
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('prefix-priority-type', REFERENCE_ENUM_CLASS, 'IsisPrefixPriority_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisPrefixPriority_Enum', 
+            _MetaInfoClassMember('prefix-priority-type', REFERENCE_ENUM_CLASS, 'IsisPrefixPriorityEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisPrefixPriorityEnum', 
                 [], [], 
                 '''                SPF Priority to assign matching prefixes
                 ''',
@@ -1649,7 +1649,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData.Weights.Weight',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -1691,7 +1691,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.AfData',
             False, 
             [
-            _MetaInfoClassMember('adjacency-check', REFERENCE_ENUM_CLASS, 'IsisAdjCheck_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAdjCheck_Enum', 
+            _MetaInfoClassMember('adjacency-check', REFERENCE_ENUM_CLASS, 'IsisAdjCheckEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAdjCheckEnum', 
                 [], [], 
                 '''                Suppress check for consistent AF support on
                 received IIHs
@@ -1712,13 +1712,13 @@ _meta_table = {
                 ''',
                 'advertise_passive_only',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('apply-weight', REFERENCE_ENUM_CLASS, 'IsisApplyWeight_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisApplyWeight_Enum', 
+            _MetaInfoClassMember('apply-weight', REFERENCE_ENUM_CLASS, 'IsisApplyWeightEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisApplyWeightEnum', 
                 [], [], 
                 '''                Apply weights to UCMP or ECMP only
                 ''',
                 'apply_weight',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('attached-bit', REFERENCE_ENUM_CLASS, 'IsisAttachedBit_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAttachedBit_Enum', 
+            _MetaInfoClassMember('attached-bit', REFERENCE_ENUM_CLASS, 'IsisAttachedBitEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAttachedBitEnum', 
                 [], [], 
                 '''                Set the attached bit in this router's level
                 1 System LSP
@@ -2001,13 +2001,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings.FrrLoadSharing',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('load-sharing', REFERENCE_ENUM_CLASS, 'IsisfrrLoadSharing_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrLoadSharing_Enum', 
+            _MetaInfoClassMember('load-sharing', REFERENCE_ENUM_CLASS, 'IsisfrrLoadSharingEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrLoadSharingEnum', 
                 [], [], 
                 '''                Load sharing
                 ''',
@@ -2041,7 +2041,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -2082,13 +2082,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers.FrrTiebreaker',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('tiebreaker', REFERENCE_ENUM_CLASS, 'IsisfrrTiebreaker_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrTiebreaker_Enum', 
+            _MetaInfoClassMember('tiebreaker', REFERENCE_ENUM_CLASS, 'IsisfrrTiebreakerEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrTiebreakerEnum', 
                 [], [], 
                 '''                Tiebreaker for which configuration
                 applies
@@ -2129,13 +2129,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies.FrrUseCandOnly',
             False, 
             [
-            _MetaInfoClassMember('frr-type', REFERENCE_ENUM_CLASS, 'Isisfrr_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isisfrr_Enum', 
+            _MetaInfoClassMember('frr-type', REFERENCE_ENUM_CLASS, 'IsisfrrEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrEnum', 
                 [], [], 
                 '''                Computation Type
                 ''',
                 'frr_type',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -2170,19 +2170,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit',
             False, 
             [
-            _MetaInfoClassMember('frr-type', REFERENCE_ENUM_CLASS, 'Isisfrr_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isisfrr_Enum', 
+            _MetaInfoClassMember('frr-type', REFERENCE_ENUM_CLASS, 'IsisfrrEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrEnum', 
                 [], [], 
                 '''                Computation Type
                 ''',
                 'frr_type',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'IsisPrefixPriority_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisPrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'IsisPrefixPriorityEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisPrefixPriorityEnum', 
                 [], [], 
                 '''                Compute for all prefixes upto the
                 specified priority
@@ -2261,13 +2261,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States.State',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'IsisispfState_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisispfState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'IsisispfStateEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisispfStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -2318,7 +2318,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes.MaxRedistPrefix',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -2360,19 +2360,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles.MetricStyle',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('style', REFERENCE_ENUM_CLASS, 'IsisMetricStyle_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetricStyle_Enum', 
+            _MetaInfoClassMember('style', REFERENCE_ENUM_CLASS, 'IsisMetricStyleEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetricStyleEnum', 
                 [], [], 
                 '''                Metric Style
                 ''',
                 'style',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('transition-state', REFERENCE_ENUM_CLASS, 'IsisMetricStyleTransition_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetricStyleTransition_Enum', 
+            _MetaInfoClassMember('transition-state', REFERENCE_ENUM_CLASS, 'IsisMetricStyleTransitionEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetricStyleTransitionEnum', 
                 [], [], 
                 '''                Transition state
                 ''',
@@ -2402,7 +2402,7 @@ _meta_table = {
         'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg'
         ),
     },
-    'Isis.Instances.Instance.Afs.Af.TopologyName.Metrics.Metric.Metric_Enum' : _MetaInfoEnum('Metric_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'Isis.Instances.Instance.Afs.Af.TopologyName.Metrics.Metric.MetricEnum' : _MetaInfoEnum('MetricEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'maximum':'MAXIMUM',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
@@ -2410,7 +2410,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.Metrics.Metric',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -2423,7 +2423,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-cfg', False, [
-                    _MetaInfoClassMember('metric', REFERENCE_ENUM_CLASS, 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_Enum', 
+                    _MetaInfoClassMember('metric', REFERENCE_ENUM_CLASS, 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.MetricEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.MetricEnum', 
                         [], [], 
                         '''                        Allowed metric: <1-63> for narrow,
                         <1-16777215> for wide
@@ -2473,7 +2473,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.MicroLoopAvoidance',
             False, 
             [
-            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'IsisMicroLoopAvoidance_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMicroLoopAvoidance_Enum', 
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'IsisMicroLoopAvoidanceEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMicroLoopAvoidanceEnum', 
                 [], [], 
                 '''                MicroLoop avoidance enable configuration
                 ''',
@@ -2561,7 +2561,7 @@ _meta_table = {
                 ''',
                 'igp_intact',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevels_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevels_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevelsEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevelsEnum', 
                 [], [], 
                 '''                Enable MPLS for an IS-IS at the given
                 levels
@@ -2611,14 +2611,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.Propagations.Propagation',
             False, 
             [
-            _MetaInfoClassMember('destination-level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('destination-level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Destination level for routes.  Must
                 differ from SourceLevel
                 ''',
                 'destination_level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('source-level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('source-level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Source level for routes
                 ''',
@@ -2678,7 +2678,7 @@ _meta_table = {
                 ''',
                 'as_yy',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('levels', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevels_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevels_Enum', 
+            _MetaInfoClassMember('levels', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevelsEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevelsEnum', 
                 [], [], 
                 '''                Levels to redistribute routes into
                 ''',
@@ -2691,7 +2691,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'IsisMetric_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'IsisMetricEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetricEnum', 
                 [], [], 
                 '''                IS-IS metric type
                 ''',
@@ -2721,7 +2721,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile',
             False, 
             [
-            _MetaInfoClassMember('levels', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevels_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevels_Enum', 
+            _MetaInfoClassMember('levels', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevelsEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevelsEnum', 
                 [], [], 
                 '''                Levels to redistribute routes into
                 ''',
@@ -2734,7 +2734,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'IsisMetric_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'IsisMetricEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetricEnum', 
                 [], [], 
                 '''                IS-IS metric type
                 ''',
@@ -2770,7 +2770,7 @@ _meta_table = {
                 ''',
                 'as_zz',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('levels', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevels_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevels_Enum', 
+            _MetaInfoClassMember('levels', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevelsEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevelsEnum', 
                 [], [], 
                 '''                Levels to redistribute routes into
                 ''',
@@ -2783,7 +2783,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'IsisMetric_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'IsisMetricEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetricEnum', 
                 [], [], 
                 '''                IS-IS metric type
                 ''',
@@ -2821,7 +2821,7 @@ _meta_table = {
                 ''',
                 'instance_name',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('levels', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevels_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevels_Enum', 
+            _MetaInfoClassMember('levels', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevelsEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevelsEnum', 
                 [], [], 
                 '''                Levels to redistribute routes into
                 ''',
@@ -2834,7 +2834,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'IsisMetric_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'IsisMetricEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisMetricEnum', 
                 [], [], 
                 '''                IS-IS metric type
                 ''',
@@ -2864,7 +2864,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution',
             False, 
             [
-            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'IsisRedistProto_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisRedistProto_Enum', 
+            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'IsisRedistProtoEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisRedistProtoEnum', 
                 [], [], 
                 '''                The protocol to be redistributed.  OSPFv3
                 may not be specified for an IPv4 topology
@@ -2953,7 +2953,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting',
             False, 
             [
-            _MetaInfoClassMember('mpls', REFERENCE_ENUM_CLASS, 'IsisLabelPreference_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisLabelPreference_Enum', 
+            _MetaInfoClassMember('mpls', REFERENCE_ENUM_CLASS, 'IsisLabelPreferenceEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisLabelPreferenceEnum', 
                 [], [], 
                 '''                Prefer segment routing labels over LDP
                 labels
@@ -2978,7 +2978,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals.SpfInterval',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -3033,7 +3033,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals.SpfPeriodicInterval',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -3074,13 +3074,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities.SpfPrefixPriority',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                SPF Level for prefix prioritization
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('prefix-priority-type', REFERENCE_ENUM_CLASS, 'IsisPrefixPriority_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisPrefixPriority_Enum', 
+            _MetaInfoClassMember('prefix-priority-type', REFERENCE_ENUM_CLASS, 'IsisPrefixPriorityEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisPrefixPriorityEnum', 
                 [], [], 
                 '''                SPF Priority to assign matching prefixes
                 ''',
@@ -3276,7 +3276,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af.TopologyName.Weights.Weight',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -3324,7 +3324,7 @@ _meta_table = {
                 ''',
                 'topology_name',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('adjacency-check', REFERENCE_ENUM_CLASS, 'IsisAdjCheck_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAdjCheck_Enum', 
+            _MetaInfoClassMember('adjacency-check', REFERENCE_ENUM_CLASS, 'IsisAdjCheckEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAdjCheckEnum', 
                 [], [], 
                 '''                Suppress check for consistent AF support on
                 received IIHs
@@ -3345,13 +3345,13 @@ _meta_table = {
                 ''',
                 'advertise_passive_only',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('apply-weight', REFERENCE_ENUM_CLASS, 'IsisApplyWeight_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisApplyWeight_Enum', 
+            _MetaInfoClassMember('apply-weight', REFERENCE_ENUM_CLASS, 'IsisApplyWeightEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisApplyWeightEnum', 
                 [], [], 
                 '''                Apply weights to UCMP or ECMP only
                 ''',
                 'apply_weight',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('attached-bit', REFERENCE_ENUM_CLASS, 'IsisAttachedBit_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAttachedBit_Enum', 
+            _MetaInfoClassMember('attached-bit', REFERENCE_ENUM_CLASS, 'IsisAttachedBitEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAttachedBitEnum', 
                 [], [], 
                 '''                Set the attached bit in this router's level
                 1 System LSP
@@ -3539,13 +3539,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IsisAddressFamily_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IsisAddressFamilyEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'IsisSubAddressFamily_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisSubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'IsisSubAddressFamilyEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisSubAddressFamilyEnum', 
                 [], [], 
                 '''                Sub address family
                 ''',
@@ -3605,7 +3605,7 @@ _meta_table = {
                 ''',
                 'dist_throttle',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevels_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevels_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevelsEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevelsEnum', 
                 [], [], 
                 '''                Level
                 ''',
@@ -3661,7 +3661,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals.CsnpInterval',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -3703,7 +3703,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords.HelloAcceptPassword',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -3745,7 +3745,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.HelloIntervals.HelloInterval',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -3788,7 +3788,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers.HelloMultiplier',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -3830,13 +3830,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.HelloPaddings.HelloPadding',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('padding-type', REFERENCE_ENUM_CLASS, 'IsisHelloPadding_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisHelloPadding_Enum', 
+            _MetaInfoClassMember('padding-type', REFERENCE_ENUM_CLASS, 'IsisHelloPaddingEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisHelloPaddingEnum', 
                 [], [], 
                 '''                Hello padding type value
                 ''',
@@ -3870,19 +3870,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.HelloPasswords.HelloPassword',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'IsisAuthenticationAlgorithm_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAuthenticationAlgorithm_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'IsisAuthenticationAlgorithmEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAuthenticationAlgorithmEnum', 
                 [], [], 
                 '''                Algorithm
                 ''',
                 'algorithm',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('failure-mode', REFERENCE_ENUM_CLASS, 'IsisAuthenticationFailureMode_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAuthenticationFailureMode_Enum', 
+            _MetaInfoClassMember('failure-mode', REFERENCE_ENUM_CLASS, 'IsisAuthenticationFailureModeEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAuthenticationFailureModeEnum', 
                 [], [], 
                 '''                Failure Mode
                 ''',
@@ -3924,7 +3924,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags.AdminTag',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -3965,7 +3965,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics.AutoMetric',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -4014,7 +4014,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface',
             False, 
             [
-            _MetaInfoClassMember('frr-type', REFERENCE_ENUM_CLASS, 'Isisfrr_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isisfrr_Enum', 
+            _MetaInfoClassMember('frr-type', REFERENCE_ENUM_CLASS, 'IsisfrrEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrEnum', 
                 [], [], 
                 '''                Computation Type
                 ''',
@@ -4060,7 +4060,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -4101,13 +4101,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'IsisRemoteLfa_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisRemoteLfa_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'IsisRemoteLfaEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisRemoteLfaEnum', 
                 [], [], 
                 '''                Remote LFA Type
                 ''',
@@ -4142,13 +4142,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes.FrrType',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'Isisfrr_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isisfrr_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'IsisfrrEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrEnum', 
                 [], [], 
                 '''                Computation Type
                 ''',
@@ -4183,7 +4183,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface',
             False, 
             [
-            _MetaInfoClassMember('frr-type', REFERENCE_ENUM_CLASS, 'Isisfrr_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isisfrr_Enum', 
+            _MetaInfoClassMember('frr-type', REFERENCE_ENUM_CLASS, 'IsisfrrEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrEnum', 
                 [], [], 
                 '''                Computation Type
                 ''',
@@ -4230,7 +4230,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -4331,7 +4331,7 @@ _meta_table = {
         'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg'
         ),
     },
-    'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics.Metric.Metric_Enum' : _MetaInfoEnum('Metric_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics.Metric.MetricEnum' : _MetaInfoEnum('MetricEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'maximum':'MAXIMUM',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
@@ -4339,7 +4339,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Metrics.Metric',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -4352,7 +4352,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-cfg', False, [
-                    _MetaInfoClassMember('metric', REFERENCE_ENUM_CLASS, 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_Enum', 
+                    _MetaInfoClassMember('metric', REFERENCE_ENUM_CLASS, 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.MetricEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.MetricEnum', 
                         [], [], 
                         '''                        Allowed metric: <1-63> for narrow,
                         <1-16777215> for wide
@@ -4420,25 +4420,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSid',
             False, 
             [
-            _MetaInfoClassMember('explicit-null', REFERENCE_ENUM_CLASS, 'IsisexplicitNullFlag_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisexplicitNullFlag_Enum', 
+            _MetaInfoClassMember('explicit-null', REFERENCE_ENUM_CLASS, 'IsisexplicitNullFlagEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisexplicitNullFlagEnum', 
                 [], [], 
                 '''                Enable/Disable Explicit-NULL flag
                 ''',
                 'explicit_null',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('nflag-clear', REFERENCE_ENUM_CLASS, 'NflagClear_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'NflagClear_Enum', 
+            _MetaInfoClassMember('nflag-clear', REFERENCE_ENUM_CLASS, 'NflagClearEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'NflagClearEnum', 
                 [], [], 
                 '''                Clear N-flag for the prefix-SID
                 ''',
                 'nflag_clear',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('php', REFERENCE_ENUM_CLASS, 'IsisphpFlag_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisphpFlag_Enum', 
+            _MetaInfoClassMember('php', REFERENCE_ENUM_CLASS, 'IsisphpFlagEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisphpFlagEnum', 
                 [], [], 
                 '''                Enable/Disable Penultimate Hop Popping
                 ''',
                 'php',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'Isissid_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isissid_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'IsissidEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsissidEnum', 
                 [], [], 
                 '''                SID type for the interface
                 ''',
@@ -4461,7 +4461,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights.Weight',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -4515,7 +4515,7 @@ _meta_table = {
                 ''',
                 'auto_metrics',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('interface-af-state', REFERENCE_ENUM_CLASS, 'IsisInterfaceAfState_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisInterfaceAfState_Enum', 
+            _MetaInfoClassMember('interface-af-state', REFERENCE_ENUM_CLASS, 'IsisInterfaceAfStateEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisInterfaceAfStateEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -4582,7 +4582,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags.AdminTag',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -4623,7 +4623,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics.AutoMetric',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -4672,7 +4672,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface',
             False, 
             [
-            _MetaInfoClassMember('frr-type', REFERENCE_ENUM_CLASS, 'Isisfrr_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isisfrr_Enum', 
+            _MetaInfoClassMember('frr-type', REFERENCE_ENUM_CLASS, 'IsisfrrEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrEnum', 
                 [], [], 
                 '''                Computation Type
                 ''',
@@ -4718,7 +4718,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -4759,13 +4759,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'IsisRemoteLfa_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisRemoteLfa_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'IsisRemoteLfaEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisRemoteLfaEnum', 
                 [], [], 
                 '''                Remote LFA Type
                 ''',
@@ -4800,13 +4800,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes.FrrType',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'Isisfrr_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isisfrr_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'IsisfrrEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrEnum', 
                 [], [], 
                 '''                Computation Type
                 ''',
@@ -4841,7 +4841,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface',
             False, 
             [
-            _MetaInfoClassMember('frr-type', REFERENCE_ENUM_CLASS, 'Isisfrr_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isisfrr_Enum', 
+            _MetaInfoClassMember('frr-type', REFERENCE_ENUM_CLASS, 'IsisfrrEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisfrrEnum', 
                 [], [], 
                 '''                Computation Type
                 ''',
@@ -4888,7 +4888,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -4989,7 +4989,7 @@ _meta_table = {
         'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg'
         ),
     },
-    'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_Enum' : _MetaInfoEnum('Metric_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.MetricEnum' : _MetaInfoEnum('MetricEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'maximum':'MAXIMUM',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
@@ -4997,7 +4997,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -5010,7 +5010,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-cfg', False, [
-                    _MetaInfoClassMember('metric', REFERENCE_ENUM_CLASS, 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.Metric_Enum', 
+                    _MetaInfoClassMember('metric', REFERENCE_ENUM_CLASS, 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.MetricEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Metrics.Metric.MetricEnum', 
                         [], [], 
                         '''                        Allowed metric: <1-63> for narrow,
                         <1-16777215> for wide
@@ -5078,25 +5078,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSid',
             False, 
             [
-            _MetaInfoClassMember('explicit-null', REFERENCE_ENUM_CLASS, 'IsisexplicitNullFlag_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisexplicitNullFlag_Enum', 
+            _MetaInfoClassMember('explicit-null', REFERENCE_ENUM_CLASS, 'IsisexplicitNullFlagEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisexplicitNullFlagEnum', 
                 [], [], 
                 '''                Enable/Disable Explicit-NULL flag
                 ''',
                 'explicit_null',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('nflag-clear', REFERENCE_ENUM_CLASS, 'NflagClear_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'NflagClear_Enum', 
+            _MetaInfoClassMember('nflag-clear', REFERENCE_ENUM_CLASS, 'NflagClearEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'NflagClearEnum', 
                 [], [], 
                 '''                Clear N-flag for the prefix-SID
                 ''',
                 'nflag_clear',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('php', REFERENCE_ENUM_CLASS, 'IsisphpFlag_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisphpFlag_Enum', 
+            _MetaInfoClassMember('php', REFERENCE_ENUM_CLASS, 'IsisphpFlagEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisphpFlagEnum', 
                 [], [], 
                 '''                Enable/Disable Penultimate Hop Popping
                 ''',
                 'php',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'Isissid_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isissid_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'IsissidEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsissidEnum', 
                 [], [], 
                 '''                SID type for the interface
                 ''',
@@ -5119,7 +5119,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights.Weight',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -5179,7 +5179,7 @@ _meta_table = {
                 ''',
                 'auto_metrics',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('interface-af-state', REFERENCE_ENUM_CLASS, 'IsisInterfaceAfState_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisInterfaceAfState_Enum', 
+            _MetaInfoClassMember('interface-af-state', REFERENCE_ENUM_CLASS, 'IsisInterfaceAfStateEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisInterfaceAfStateEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -5246,13 +5246,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IsisAddressFamily_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IsisAddressFamilyEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'IsisSubAddressFamily_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisSubAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'IsisSubAddressFamilyEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisSubAddressFamilyEnum', 
                 [], [], 
                 '''                Sub address family
                 ''',
@@ -5303,7 +5303,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds.LspFastFloodThreshold',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -5344,7 +5344,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.LspIntervals.LspInterval',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -5385,7 +5385,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals.LspRetransmitInterval',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -5426,7 +5426,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals.LspRetransmitThrottleInterval',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -5467,7 +5467,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.Priorities.Priority',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -5503,7 +5503,7 @@ _meta_table = {
         'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg'
         ),
     },
-    'Isis.Instances.Instance.Interfaces.Interface.MeshGroup_Enum' : _MetaInfoEnum('MeshGroup_Enum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
+    'Isis.Instances.Instance.Interfaces.Interface.MeshGroupEnum' : _MetaInfoEnum('MeshGroupEnum', 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg',
         {
             'blocked':'BLOCKED',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
@@ -5523,7 +5523,7 @@ _meta_table = {
                 ''',
                 'bfd',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('circuit-type', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevels_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevels_Enum', 
+            _MetaInfoClassMember('circuit-type', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevelsEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevelsEnum', 
                 [], [], 
                 '''                Configure circuit type for interface
                 ''',
@@ -5609,7 +5609,7 @@ _meta_table = {
                 ''',
                 'mesh_group',
                 'Cisco-IOS-XR-clns-isis-cfg', False, [
-                    _MetaInfoClassMember('mesh-group', REFERENCE_ENUM_CLASS, 'Isis.Instances.Instance.Interfaces.Interface.MeshGroup_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.Interfaces.Interface.MeshGroup_Enum', 
+                    _MetaInfoClassMember('mesh-group', REFERENCE_ENUM_CLASS, 'Isis.Instances.Instance.Interfaces.Interface.MeshGroupEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.Interfaces.Interface.MeshGroupEnum', 
                         [], [], 
                         '''                        Mesh-group configuration
                         ''',
@@ -5644,7 +5644,7 @@ _meta_table = {
                 ''',
                 'running',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'IsisInterfaceState_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisInterfaceState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'IsisInterfaceStateEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisInterfaceStateEnum', 
                 [], [], 
                 '''                Enable/Disable routing
                 ''',
@@ -5742,7 +5742,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.LspAcceptPasswords.LspAcceptPassword',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -5784,7 +5784,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.LspArrivalTimes.LspArrivalTime',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -5839,7 +5839,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.LspCheckIntervals.LspCheckInterval',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -5879,7 +5879,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.LspGenerationIntervals.LspGenerationInterval',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -5934,7 +5934,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.LspLifetimes.LspLifetime',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -5974,7 +5974,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.LspMtus.LspMtu',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -6014,25 +6014,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.LspPasswords.LspPassword',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'IsisAuthenticationAlgorithm_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAuthenticationAlgorithm_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'IsisAuthenticationAlgorithmEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAuthenticationAlgorithmEnum', 
                 [], [], 
                 '''                Algorithm
                 ''',
                 'algorithm',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('authentication-type', REFERENCE_ENUM_CLASS, 'IsisSnpAuth_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisSnpAuth_Enum', 
+            _MetaInfoClassMember('authentication-type', REFERENCE_ENUM_CLASS, 'IsisSnpAuthEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisSnpAuthEnum', 
                 [], [], 
                 '''                SNP packet authentication mode
                 ''',
                 'authentication_type',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('failure-mode', REFERENCE_ENUM_CLASS, 'IsisAuthenticationFailureMode_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAuthenticationFailureMode_Enum', 
+            _MetaInfoClassMember('failure-mode', REFERENCE_ENUM_CLASS, 'IsisAuthenticationFailureModeEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAuthenticationFailureModeEnum', 
                 [], [], 
                 '''                Failure Mode
                 ''',
@@ -6073,7 +6073,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.LspRefreshIntervals.LspRefreshInterval',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -6114,7 +6114,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.MaxLinkMetrics.MaxLinkMetric',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
@@ -6182,7 +6182,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Nsf',
             False, 
             [
-            _MetaInfoClassMember('flavor', REFERENCE_ENUM_CLASS, 'IsisNsfFlavor_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisNsfFlavor_Enum', 
+            _MetaInfoClassMember('flavor', REFERENCE_ENUM_CLASS, 'IsisNsfFlavorEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisNsfFlavorEnum', 
                 [], [], 
                 '''                NSF not configured if item is deleted
                 ''',
@@ -6226,13 +6226,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.OverloadBits.OverloadBit',
             False, 
             [
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
                 [], [], 
                 '''                Level to which configuration applies
                 ''',
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
-            _MetaInfoClassMember('external-adv-type', REFERENCE_ENUM_CLASS, 'IsisAdvTypeExternal_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAdvTypeExternal_Enum', 
+            _MetaInfoClassMember('external-adv-type', REFERENCE_ENUM_CLASS, 'IsisAdvTypeExternalEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAdvTypeExternalEnum', 
                 [], [], 
                 '''                Advertise prefixes from other protocols
                 ''',
@@ -6245,13 +6245,13 @@ _meta_table = {
                 ''',
                 'hippity_period',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('inter-level-adv-type', REFERENCE_ENUM_CLASS, 'IsisAdvTypeInterLevel_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAdvTypeInterLevel_Enum', 
+            _MetaInfoClassMember('inter-level-adv-type', REFERENCE_ENUM_CLASS, 'IsisAdvTypeInterLevelEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisAdvTypeInterLevelEnum', 
                 [], [], 
                 '''                Advertise prefixes across ISIS levels
                 ''',
                 'inter_level_adv_type',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('overload-bit-mode', REFERENCE_ENUM_CLASS, 'IsisOverloadBitMode_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisOverloadBitMode_Enum', 
+            _MetaInfoClassMember('overload-bit-mode', REFERENCE_ENUM_CLASS, 'IsisOverloadBitModeEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisOverloadBitModeEnum', 
                 [], [], 
                 '''                Circumstances under which the overload bit
                 is set in the system LSP
@@ -6386,7 +6386,7 @@ _meta_table = {
                 ''',
                 'interfaces',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
-            _MetaInfoClassMember('is-type', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevels_Enum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevels_Enum', 
+            _MetaInfoClassMember('is-type', REFERENCE_ENUM_CLASS, 'IsisConfigurableLevelsEnum' , 'ydk.models.clns.Cisco_IOS_XR_clns_isis_cfg', 'IsisConfigurableLevelsEnum', 
                 [], [], 
                 '''                IS type of the IS-IS process
                 ''',

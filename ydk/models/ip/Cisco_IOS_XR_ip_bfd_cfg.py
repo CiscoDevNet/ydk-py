@@ -28,127 +28,118 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class BfdBundleCoexistenceBobBlb_Enum(Enum):
+class BfdBundleCoexistenceBobBlbEnum(Enum):
     """
-    BfdBundleCoexistenceBobBlb_Enum
+    BfdBundleCoexistenceBobBlbEnum
 
     Bfd bundle coexistence bob blb
 
-    """
+    .. data:: INHERITED = 1
+
+    	Inherited coexistence mode
+
+    .. data:: LOGICAL = 2
+
+    	Logical coexistence mode
 
     """
 
-    Inherited coexistence mode
-
-    """
     INHERITED = 1
 
-    """
-
-    Logical coexistence mode
-
-    """
     LOGICAL = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
-        return meta._meta_table['BfdBundleCoexistenceBobBlb_Enum']
+        return meta._meta_table['BfdBundleCoexistenceBobBlbEnum']
 
 
-class BfdEchoStartupValidate_Enum(Enum):
+class BfdEchoStartupValidateEnum(Enum):
     """
-    BfdEchoStartupValidate_Enum
+    BfdEchoStartupValidateEnum
 
     Bfd echo startup validate
 
-    """
+    .. data:: OFF = 0
+
+    	Disable echo startup validation
+
+    .. data:: ON = 1
+
+    	Enable echo startup validation
+
+    .. data:: FORCE = 2
+
+    	Force echo startup validation
 
     """
 
-    Disable echo startup validation
-
-    """
     OFF = 0
 
-    """
-
-    Enable echo startup validation
-
-    """
     ON = 1
 
-    """
-
-    Force echo startup validation
-
-    """
     FORCE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
-        return meta._meta_table['BfdEchoStartupValidate_Enum']
+        return meta._meta_table['BfdEchoStartupValidateEnum']
 
 
-class BfdIfEchoUsage_Enum(Enum):
+class BfdIfEchoUsageEnum(Enum):
     """
-    BfdIfEchoUsage_Enum
+    BfdIfEchoUsageEnum
 
     Bfd if echo usage
 
-    """
+    .. data:: ENABLE = 0
+
+    	Enable echo
+
+    .. data:: DISABLE = 1
+
+    	Disable echo
 
     """
 
-    Enable echo
-
-    """
     ENABLE = 0
 
-    """
-
-    Disable echo
-
-    """
     DISABLE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
-        return meta._meta_table['BfdIfEchoUsage_Enum']
+        return meta._meta_table['BfdIfEchoUsageEnum']
 
 
-class BfdIfIpv6ChecksumUsage_Enum(Enum):
+class BfdIfIpv6ChecksumUsageEnum(Enum):
     """
-    BfdIfIpv6ChecksumUsage_Enum
+    BfdIfIpv6ChecksumUsageEnum
 
     Bfd if ipv6 checksum usage
 
-    """
+    .. data:: DISABLE = 0
+
+    	Disable IPv6 checksum
+
+    .. data:: ENABLE = 1
+
+    	Enable IPv6 checksum
 
     """
 
-    Disable IPv6 checksum
-
-    """
     DISABLE = 0
 
-    """
-
-    Enable IPv6 checksum
-
-    """
     ENABLE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_bfd_cfg as meta
-        return meta._meta_table['BfdIfIpv6ChecksumUsage_Enum']
+        return meta._meta_table['BfdIfIpv6ChecksumUsageEnum']
 
 
 
@@ -277,7 +268,7 @@ class Bfd(object):
             .. attribute:: bob_blb
             
             	Coexistence mode for BoB and BLB feature
-            	**type**\: :py:class:`BfdBundleCoexistenceBobBlb_Enum <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.BfdBundleCoexistenceBobBlb_Enum>`
+            	**type**\: :py:class:`BfdBundleCoexistenceBobBlbEnum <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.BfdBundleCoexistenceBobBlbEnum>`
             
             
 
@@ -302,15 +293,9 @@ class Bfd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.bob_blb is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -330,18 +315,9 @@ class Bfd(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.coexistence is not None and self.coexistence._has_data():
                 return True
 
-            if self.coexistence is not None and self.coexistence.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -420,8 +396,6 @@ class Bfd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.latency_detect_count is not None:
                     return True
 
@@ -431,10 +405,6 @@ class Bfd(object):
                 if self.latency_detect_percentage is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -454,18 +424,9 @@ class Bfd(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.detect is not None and self.detect._has_data():
                 return True
 
-            if self.detect is not None and self.detect.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -481,7 +442,7 @@ class Bfd(object):
         .. attribute:: validate
         
         	BFD echo validation prior to session bringup
-        	**type**\: :py:class:`BfdEchoStartupValidate_Enum <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.BfdEchoStartupValidate_Enum>`
+        	**type**\: :py:class:`BfdEchoStartupValidateEnum <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.BfdEchoStartupValidateEnum>`
         
         
 
@@ -506,15 +467,9 @@ class Bfd(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.validate is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -640,8 +595,6 @@ class Bfd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.initial_delay is not None:
                     return True
 
@@ -654,10 +607,6 @@ class Bfd(object):
                 if self.secondary_delay is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -698,15 +647,9 @@ class Bfd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.down_monitor is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -726,18 +669,10 @@ class Bfd(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.bundle_member is not None and self.bundle_member._has_data():
                 return True
 
-            if self.bundle_member is not None and self.bundle_member.is_presence():
-                return True
-
             if self.extensions is not None and self.extensions._has_data():
-                return True
-
-            if self.extensions is not None and self.extensions.is_presence():
                 return True
 
             if self.initial_delay is not None:
@@ -752,10 +687,6 @@ class Bfd(object):
             if self.threshold is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -801,7 +732,7 @@ class Bfd(object):
             .. attribute:: interface_echo_usage
             
             	Echo usage for this interface
-            	**type**\: :py:class:`BfdIfEchoUsage_Enum <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.BfdIfEchoUsage_Enum>`
+            	**type**\: :py:class:`BfdIfEchoUsageEnum <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.BfdIfEchoUsageEnum>`
             
             .. attribute:: interface_ipv4_echo_source
             
@@ -811,7 +742,7 @@ class Bfd(object):
             .. attribute:: ipv6_checksum
             
             	IPv6 checksum usage for this interface \- Interface config will always take precedence over global config
-            	**type**\: :py:class:`BfdIfIpv6ChecksumUsage_Enum <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.BfdIfIpv6ChecksumUsage_Enum>`
+            	**type**\: :py:class:`BfdIfIpv6ChecksumUsageEnum <ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg.BfdIfIpv6ChecksumUsageEnum>`
             
             
 
@@ -841,8 +772,6 @@ class Bfd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface_name is not None:
                     return True
 
@@ -855,10 +784,6 @@ class Bfd(object):
                 if self.ipv6_checksum is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -878,17 +803,11 @@ class Bfd(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -956,15 +875,9 @@ class Bfd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.location is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -984,17 +897,11 @@ class Bfd(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.multi_path_include is not None:
                 for child_ref in self.multi_path_include:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1014,30 +921,16 @@ class Bfd(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.bundle is not None and self.bundle._has_data():
-            return True
-
-        if self.bundle is not None and self.bundle.is_presence():
             return True
 
         if self.echo_latency is not None and self.echo_latency._has_data():
             return True
 
-        if self.echo_latency is not None and self.echo_latency.is_presence():
-            return True
-
         if self.echo_startup is not None and self.echo_startup._has_data():
             return True
 
-        if self.echo_startup is not None and self.echo_startup.is_presence():
-            return True
-
         if self.flap_damp is not None and self.flap_damp._has_data():
-            return True
-
-        if self.flap_damp is not None and self.flap_damp.is_presence():
             return True
 
         if self.global_echo_min_interval is not None:
@@ -1052,16 +945,10 @@ class Bfd(object):
         if self.interfaces is not None and self.interfaces._has_data():
             return True
 
-        if self.interfaces is not None and self.interfaces.is_presence():
-            return True
-
         if self.ipv6_checksum_disable is not None:
             return True
 
         if self.multi_path_includes is not None and self.multi_path_includes._has_data():
-            return True
-
-        if self.multi_path_includes is not None and self.multi_path_includes.is_presence():
             return True
 
         if self.single_hop_trap is not None:
@@ -1070,10 +957,6 @@ class Bfd(object):
         if self.ttl_drop_threshold is not None:
             return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

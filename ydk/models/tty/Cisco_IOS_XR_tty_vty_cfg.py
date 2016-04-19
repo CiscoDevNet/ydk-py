@@ -133,8 +133,6 @@ class Vty(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.pool_name is not None:
                     return True
 
@@ -150,10 +148,6 @@ class Vty(object):
                 if self.none is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -173,17 +167,11 @@ class Vty(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.vty_pool is not None:
                 for child_ref in self.vty_pool:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -203,18 +191,9 @@ class Vty(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.vty_pools is not None and self.vty_pools._has_data():
             return True
 
-        if self.vty_pools is not None and self.vty_pools.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

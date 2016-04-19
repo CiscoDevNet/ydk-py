@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'LogSeverity_Enum' : _MetaInfoEnum('LogSeverity_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
+    'LogSeverityEnum' : _MetaInfoEnum('LogSeverityEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
         {
             'emergency':'EMERGENCY',
             'alert':'ALERT',
@@ -25,7 +25,7 @@ _meta_table = {
             'informational':'INFORMATIONAL',
             'debug':'DEBUG',
         }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'Facility_Enum' : _MetaInfoEnum('Facility_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
+    'FacilityEnum' : _MetaInfoEnum('FacilityEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
         {
             'kern':'KERN',
             'user':'USER',
@@ -54,12 +54,12 @@ _meta_table = {
             'sys13':'SYS13',
             'sys14':'SYS14',
         }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'LogCollectFrequency_Enum' : _MetaInfoEnum('LogCollectFrequency_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
+    'LogCollectFrequencyEnum' : _MetaInfoEnum('LogCollectFrequencyEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
         {
             'weekly':'WEEKLY',
             'daily':'DAILY',
         }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'LoggingPrecedenceValue_Enum' : _MetaInfoEnum('LoggingPrecedenceValue_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
+    'LoggingPrecedenceValueEnum' : _MetaInfoEnum('LoggingPrecedenceValueEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
         {
             'routine':'ROUTINE',
             'priority':'PRIORITY',
@@ -70,12 +70,12 @@ _meta_table = {
             'internet':'INTERNET',
             'network':'NETWORK',
         }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'LoggingTos_Enum' : _MetaInfoEnum('LoggingTos_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
+    'LoggingTosEnum' : _MetaInfoEnum('LoggingTosEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
         {
             'precedence':'PRECEDENCE',
             'dscp':'DSCP',
         }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'LoggingLevels_Enum' : _MetaInfoEnum('LoggingLevels_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
+    'LoggingLevelsEnum' : _MetaInfoEnum('LoggingLevelsEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
         {
             'emergency':'EMERGENCY',
             'alert':'ALERT',
@@ -87,11 +87,11 @@ _meta_table = {
             'debug':'DEBUG',
             'disable':'DISABLE',
         }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'LoggingPrecedence_Enum' : _MetaInfoEnum('LoggingPrecedence_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
+    'LoggingPrecedenceEnum' : _MetaInfoEnum('LoggingPrecedenceEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
         {
             'precedence':'PRECEDENCE',
         }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'LoggingDscpValue_Enum' : _MetaInfoEnum('LoggingDscpValue_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
+    'LoggingDscpValueEnum' : _MetaInfoEnum('LoggingDscpValueEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
         {
             'default':'DEFAULT',
             'af11':'AF11',
@@ -115,7 +115,7 @@ _meta_table = {
             'cs6':'CS6',
             'cs7':'CS7',
         }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'LogMessageSeverity_Enum' : _MetaInfoEnum('LogMessageSeverity_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
+    'LogMessageSeverityEnum' : _MetaInfoEnum('LogMessageSeverityEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
         {
             'emergency':'EMERGENCY',
             'alert':'ALERT',
@@ -126,12 +126,12 @@ _meta_table = {
             'informational':'INFORMATIONAL',
             'debug':'DEBUG',
         }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'TimeInfo_Enum' : _MetaInfoEnum('TimeInfo_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
+    'TimeInfoEnum' : _MetaInfoEnum('TimeInfoEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
         {
             'disable':'DISABLE',
             'enable':'ENABLE',
         }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'LoggingDscp_Enum' : _MetaInfoEnum('LoggingDscp_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
+    'LoggingDscpEnum' : _MetaInfoEnum('LoggingDscpEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg',
         {
             'dscp':'DSCP',
         }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
@@ -145,7 +145,7 @@ _meta_table = {
                 ''',
                 'buffer_size',
                 'Cisco-IOS-XR-infra-alarm-logger-cfg', False),
-            _MetaInfoClassMember('severity-level', REFERENCE_ENUM_CLASS, 'AlarmLoggerSeverityLevel_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_datatypes', 'AlarmLoggerSeverityLevel_Enum', 
+            _MetaInfoClassMember('severity-level', REFERENCE_ENUM_CLASS, 'AlarmLoggerSeverityLevelEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_datatypes', 'AlarmLoggerSeverityLevelEnum', 
                 [], [], 
                 '''                Log all events with equal or higher (lower
                 level) severity than this
@@ -187,7 +187,7 @@ _meta_table = {
                 ''',
                 'file_size',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('frequency', REFERENCE_ENUM_CLASS, 'LogCollectFrequency_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LogCollectFrequency_Enum', 
+            _MetaInfoClassMember('frequency', REFERENCE_ENUM_CLASS, 'LogCollectFrequencyEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LogCollectFrequencyEnum', 
                 [], [], 
                 '''                The collection interval for logs
                 ''',
@@ -199,7 +199,7 @@ _meta_table = {
                 ''',
                 'length',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'LogMessageSeverity_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LogMessageSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'LogMessageSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LogMessageSeverityEnum', 
                 [], [], 
                 '''                The minimum severity of log messages to archive
                 ''',
@@ -288,7 +288,7 @@ _meta_table = {
                 ''',
                 'buffered_discriminator',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('logging-level', REFERENCE_ENUM_CLASS, 'LoggingLevels_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingLevels_Enum', 
+            _MetaInfoClassMember('logging-level', REFERENCE_ENUM_CLASS, 'LoggingLevelsEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingLevelsEnum', 
                 [], [], 
                 '''                Logging level for Buffered logging
                 ''',
@@ -358,7 +358,7 @@ _meta_table = {
                 ''',
                 'console_discriminator',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('logging-level', REFERENCE_ENUM_CLASS, 'LoggingLevels_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingLevels_Enum', 
+            _MetaInfoClassMember('logging-level', REFERENCE_ENUM_CLASS, 'LoggingLevelsEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingLevelsEnum', 
                 [], [], 
                 '''                Console logging level
                 ''',
@@ -503,7 +503,7 @@ _meta_table = {
                 ''',
                 'history_size',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('logging-level', REFERENCE_ENUM_CLASS, 'LoggingLevels_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingLevels_Enum', 
+            _MetaInfoClassMember('logging-level', REFERENCE_ENUM_CLASS, 'LoggingLevelsEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingLevelsEnum', 
                 [], [], 
                 '''                History logging level
                 ''',
@@ -570,7 +570,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity',
             False, 
             [
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'LogSeverity_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LogSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'LogSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LogSeverityEnum', 
                 [], [], 
                 '''                Severity for the logging host
                 ''',
@@ -675,8 +675,8 @@ _meta_table = {
         'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg'
         ),
     },
-    'Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4Discriminator' : {
-        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4Discriminator',
+    'Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator' : {
+        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator',
             False, 
             [
             _MetaInfoClassMember('match1', ATTRIBUTE, 'str' , None, None, 
@@ -722,11 +722,11 @@ _meta_table = {
         'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg'
         ),
     },
-    'Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel' : {
-        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel',
+    'Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel' : {
+        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel',
             False, 
             [
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'LogSeverity_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LogSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'LogSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LogSeverityEnum', 
                 [], [], 
                 '''                Severity for the logging host
                 ''',
@@ -739,11 +739,11 @@ _meta_table = {
         'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg'
         ),
     },
-    'Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels' : {
-        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels',
+    'Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels' : {
+        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels',
             False, 
             [
-            _MetaInfoClassMember('ipv4-severity-level', REFERENCE_LIST, 'Ipv4SeverityLevel' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel', 
+            _MetaInfoClassMember('ipv4-severity-level', REFERENCE_LIST, 'Ipv4SeverityLevel' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel', 
                 [], [], 
                 '''                Severity for the logging host
                 ''',
@@ -756,8 +756,8 @@ _meta_table = {
         'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg'
         ),
     },
-    'Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityPort' : {
-        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityPort',
+    'Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort' : {
+        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort',
             False, 
             [
             _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
@@ -779,8 +779,8 @@ _meta_table = {
         'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg'
         ),
     },
-    'Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4' : {
-        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4',
+    'Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4' : {
+        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
@@ -789,19 +789,19 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-infra-syslog-cfg', True),
-            _MetaInfoClassMember('ipv4-discriminator', REFERENCE_CLASS, 'Ipv4Discriminator' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4Discriminator', 
+            _MetaInfoClassMember('ipv4-discriminator', REFERENCE_CLASS, 'Ipv4Discriminator' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator', 
                 [], [], 
                 '''                Set IPv4 logging discriminators
                 ''',
                 'ipv4_discriminator',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('ipv4-severity-levels', REFERENCE_CLASS, 'Ipv4SeverityLevels' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels', 
+            _MetaInfoClassMember('ipv4-severity-levels', REFERENCE_CLASS, 'Ipv4SeverityLevels' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels', 
                 [], [], 
                 '''                Severity container of the logging host
                 ''',
                 'ipv4_severity_levels',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('ipv4-severity-port', REFERENCE_CLASS, 'Ipv4SeverityPort' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityPort', 
+            _MetaInfoClassMember('ipv4-severity-port', REFERENCE_CLASS, 'Ipv4SeverityPort' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort', 
                 [], [], 
                 '''                Severity/Port for the logging host
                 ''',
@@ -814,11 +814,11 @@ _meta_table = {
         'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg'
         ),
     },
-    'Syslog.HostServer.Vrfs.Vrf.Ipv4s' : {
-        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv4s',
+    'Syslog.HostServer.Vrfs.Vrf.Ipv4S' : {
+        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv4S',
             False, 
             [
-            _MetaInfoClassMember('ipv4', REFERENCE_LIST, 'Ipv4' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4', 
+            _MetaInfoClassMember('ipv4', REFERENCE_LIST, 'Ipv4' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4', 
                 [], [], 
                 '''                IPv4 address of the logging host
                 ''',
@@ -831,8 +831,8 @@ _meta_table = {
         'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg'
         ),
     },
-    'Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6Discriminator' : {
-        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6Discriminator',
+    'Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator' : {
+        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator',
             False, 
             [
             _MetaInfoClassMember('match1', ATTRIBUTE, 'str' , None, None, 
@@ -878,11 +878,11 @@ _meta_table = {
         'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg'
         ),
     },
-    'Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel' : {
-        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel',
+    'Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel' : {
+        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel',
             False, 
             [
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'LogSeverity_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LogSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'LogSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LogSeverityEnum', 
                 [], [], 
                 '''                Severity for the logging host
                 ''',
@@ -895,11 +895,11 @@ _meta_table = {
         'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg'
         ),
     },
-    'Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels' : {
-        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels',
+    'Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels' : {
+        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels',
             False, 
             [
-            _MetaInfoClassMember('ipv6-severity-level', REFERENCE_LIST, 'Ipv6SeverityLevel' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel', 
+            _MetaInfoClassMember('ipv6-severity-level', REFERENCE_LIST, 'Ipv6SeverityLevel' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel', 
                 [], [], 
                 '''                Severity for the logging host
                 ''',
@@ -912,8 +912,8 @@ _meta_table = {
         'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg'
         ),
     },
-    'Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityPort' : {
-        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityPort',
+    'Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort' : {
+        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort',
             False, 
             [
             _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
@@ -935,8 +935,8 @@ _meta_table = {
         'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg'
         ),
     },
-    'Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6' : {
-        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6',
+    'Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6' : {
+        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
@@ -945,19 +945,19 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-infra-syslog-cfg', True),
-            _MetaInfoClassMember('ipv6-discriminator', REFERENCE_CLASS, 'Ipv6Discriminator' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6Discriminator', 
+            _MetaInfoClassMember('ipv6-discriminator', REFERENCE_CLASS, 'Ipv6Discriminator' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator', 
                 [], [], 
                 '''                Set IPv6 logging discriminators
                 ''',
                 'ipv6_discriminator',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('ipv6-severity-levels', REFERENCE_CLASS, 'Ipv6SeverityLevels' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels', 
+            _MetaInfoClassMember('ipv6-severity-levels', REFERENCE_CLASS, 'Ipv6SeverityLevels' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels', 
                 [], [], 
                 '''                Severity container of the logging host
                 ''',
                 'ipv6_severity_levels',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('ipv6-severity-port', REFERENCE_CLASS, 'Ipv6SeverityPort' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityPort', 
+            _MetaInfoClassMember('ipv6-severity-port', REFERENCE_CLASS, 'Ipv6SeverityPort' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort', 
                 [], [], 
                 '''                Severity/Port for the logging host
                 ''',
@@ -970,11 +970,11 @@ _meta_table = {
         'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg'
         ),
     },
-    'Syslog.HostServer.Vrfs.Vrf.Ipv6s' : {
-        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv6s',
+    'Syslog.HostServer.Vrfs.Vrf.Ipv6S' : {
+        'meta_info' : _MetaInfoClass('Syslog.HostServer.Vrfs.Vrf.Ipv6S',
             False, 
             [
-            _MetaInfoClassMember('ipv6', REFERENCE_LIST, 'Ipv6' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6', 
+            _MetaInfoClassMember('ipv6', REFERENCE_LIST, 'Ipv6' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6', 
                 [], [], 
                 '''                IPv6 address of the logging host
                 ''',
@@ -1003,13 +1003,13 @@ _meta_table = {
                 ''',
                 'hosts',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('ipv4s', REFERENCE_CLASS, 'Ipv4s' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv4s', 
+            _MetaInfoClassMember('ipv4s', REFERENCE_CLASS, 'Ipv4S' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv4S', 
                 [], [], 
                 '''                List of the IPv4 logging host
                 ''',
                 'ipv4s',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('ipv6s', REFERENCE_CLASS, 'Ipv6s' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6s', 
+            _MetaInfoClassMember('ipv6s', REFERENCE_CLASS, 'Ipv6S' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.HostServer.Vrfs.Vrf.Ipv6S', 
                 [], [], 
                 '''                List of the IPv6 logging host
                 ''',
@@ -1060,7 +1060,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.Ipv4.Dscp',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoggingDscp_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingDscp_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoggingDscpEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingDscpEnum', 
                 [], [], 
                 '''                Logging TOS type DSCP
                 ''',
@@ -1072,7 +1072,7 @@ _meta_table = {
                 ''',
                 'unused',
                 'Cisco-IOS-XR-infra-syslog-cfg', False, [
-                    _MetaInfoClassMember('unused', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValue_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValue_Enum', 
+                    _MetaInfoClassMember('unused', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValueEnum', 
                         [], [], 
                         '''                        Unused
                         ''',
@@ -1091,7 +1091,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-infra-syslog-cfg', False, [
-                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'LoggingDscpValue_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingDscpValue_Enum', 
+                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'LoggingDscpValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingDscpValueEnum', 
                         [], [], 
                         '''                        Logging DSCP value
                         ''',
@@ -1115,7 +1115,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.Ipv4.Precedence',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoggingPrecedence_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedence_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceEnum', 
                 [], [], 
                 '''                Logging TOS type precedence
                 ''',
@@ -1127,7 +1127,7 @@ _meta_table = {
                 ''',
                 'unused',
                 'Cisco-IOS-XR-infra-syslog-cfg', False, [
-                    _MetaInfoClassMember('unused', REFERENCE_ENUM_CLASS, 'LoggingDscpValue_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingDscpValue_Enum', 
+                    _MetaInfoClassMember('unused', REFERENCE_ENUM_CLASS, 'LoggingDscpValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingDscpValueEnum', 
                         [], [], 
                         '''                        Unused
                         ''',
@@ -1146,7 +1146,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-infra-syslog-cfg', False, [
-                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValue_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValue_Enum', 
+                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValueEnum', 
                         [], [], 
                         '''                        Logging precedence value
                         ''',
@@ -1176,7 +1176,7 @@ _meta_table = {
                 ''',
                 'dscp',
                 'Cisco-IOS-XR-infra-syslog-cfg', False, [
-                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'LoggingDscpValue_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingDscpValue_Enum', 
+                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'LoggingDscpValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingDscpValueEnum', 
                         [], [], 
                         '''                        Logging DSCP value
                         ''',
@@ -1195,7 +1195,7 @@ _meta_table = {
                 ''',
                 'precedence',
                 'Cisco-IOS-XR-infra-syslog-cfg', False, [
-                    _MetaInfoClassMember('precedence', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValue_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValue_Enum', 
+                    _MetaInfoClassMember('precedence', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValueEnum', 
                         [], [], 
                         '''                        Logging precedence value
                         ''',
@@ -1208,7 +1208,7 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-infra-syslog-cfg', False),
                 ]),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoggingTos_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingTos_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoggingTosEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingTosEnum', 
                 [], [], 
                 '''                Logging TOS type DSCP or precedence
                 ''',
@@ -1254,7 +1254,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.Ipv6.Dscp',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoggingDscp_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingDscp_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoggingDscpEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingDscpEnum', 
                 [], [], 
                 '''                Logging TOS type DSCP
                 ''',
@@ -1266,7 +1266,7 @@ _meta_table = {
                 ''',
                 'unused',
                 'Cisco-IOS-XR-infra-syslog-cfg', False, [
-                    _MetaInfoClassMember('unused', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValue_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValue_Enum', 
+                    _MetaInfoClassMember('unused', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValueEnum', 
                         [], [], 
                         '''                        Unused
                         ''',
@@ -1285,7 +1285,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-infra-syslog-cfg', False, [
-                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'LoggingDscpValue_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingDscpValue_Enum', 
+                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'LoggingDscpValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingDscpValueEnum', 
                         [], [], 
                         '''                        Logging DSCP value
                         ''',
@@ -1309,7 +1309,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.Ipv6.Precedence',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoggingPrecedence_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedence_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceEnum', 
                 [], [], 
                 '''                Logging TOS type precedence
                 ''',
@@ -1321,7 +1321,7 @@ _meta_table = {
                 ''',
                 'unused',
                 'Cisco-IOS-XR-infra-syslog-cfg', False, [
-                    _MetaInfoClassMember('unused', REFERENCE_ENUM_CLASS, 'LoggingDscpValue_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingDscpValue_Enum', 
+                    _MetaInfoClassMember('unused', REFERENCE_ENUM_CLASS, 'LoggingDscpValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingDscpValueEnum', 
                         [], [], 
                         '''                        Unused
                         ''',
@@ -1340,7 +1340,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-infra-syslog-cfg', False, [
-                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValue_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValue_Enum', 
+                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValueEnum', 
                         [], [], 
                         '''                        Logging precedence value
                         ''',
@@ -1370,7 +1370,7 @@ _meta_table = {
                 ''',
                 'dscp',
                 'Cisco-IOS-XR-infra-syslog-cfg', False, [
-                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'LoggingDscpValue_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingDscpValue_Enum', 
+                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'LoggingDscpValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingDscpValueEnum', 
                         [], [], 
                         '''                        Logging DSCP value
                         ''',
@@ -1389,7 +1389,7 @@ _meta_table = {
                 ''',
                 'precedence',
                 'Cisco-IOS-XR-infra-syslog-cfg', False, [
-                    _MetaInfoClassMember('precedence', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValue_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValue_Enum', 
+                    _MetaInfoClassMember('precedence', REFERENCE_ENUM_CLASS, 'LoggingPrecedenceValueEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingPrecedenceValueEnum', 
                         [], [], 
                         '''                        Logging precedence value
                         ''',
@@ -1402,7 +1402,7 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-infra-syslog-cfg', False),
                 ]),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoggingTos_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingTos_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'LoggingTosEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingTosEnum', 
                 [], [], 
                 '''                Logging TOS type DSCP or precedence
                 ''',
@@ -1448,7 +1448,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.LoggingFacilities',
             False, 
             [
-            _MetaInfoClassMember('facility-level', REFERENCE_ENUM_CLASS, 'Facility_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'Facility_Enum', 
+            _MetaInfoClassMember('facility-level', REFERENCE_ENUM_CLASS, 'FacilityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'FacilityEnum', 
                 [], [], 
                 '''                Facility from which logging is done
                 ''',
@@ -1512,7 +1512,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.MonitorLogging',
             False, 
             [
-            _MetaInfoClassMember('logging-level', REFERENCE_ENUM_CLASS, 'LoggingLevels_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingLevels_Enum', 
+            _MetaInfoClassMember('logging-level', REFERENCE_ENUM_CLASS, 'LoggingLevelsEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingLevelsEnum', 
                 [], [], 
                 '''                Monitor Logging Level
                 ''',
@@ -1627,7 +1627,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Syslog.TrapLogging',
             False, 
             [
-            _MetaInfoClassMember('logging-level', REFERENCE_ENUM_CLASS, 'LoggingLevels_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingLevels_Enum', 
+            _MetaInfoClassMember('logging-level', REFERENCE_ENUM_CLASS, 'LoggingLevelsEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'LoggingLevelsEnum', 
                 [], [], 
                 '''                Trap logging level
                 ''',
@@ -1757,25 +1757,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue',
             False, 
             [
-            _MetaInfoClassMember('msec', REFERENCE_ENUM_CLASS, 'TimeInfo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfo_Enum', 
+            _MetaInfoClassMember('msec', REFERENCE_ENUM_CLASS, 'TimeInfoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfoEnum', 
                 [], [], 
                 '''                Seconds
                 ''',
                 'msec',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('time-stamp-value', REFERENCE_ENUM_CLASS, 'TimeInfo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfo_Enum', 
+            _MetaInfoClassMember('time-stamp-value', REFERENCE_ENUM_CLASS, 'TimeInfoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfoEnum', 
                 [], [], 
                 '''                Time
                 ''',
                 'time_stamp_value',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('time-zone', REFERENCE_ENUM_CLASS, 'TimeInfo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfo_Enum', 
+            _MetaInfoClassMember('time-zone', REFERENCE_ENUM_CLASS, 'TimeInfoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfoEnum', 
                 [], [], 
                 '''                Timezone
                 ''',
                 'time_zone',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('year', REFERENCE_ENUM_CLASS, 'TimeInfo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfo_Enum', 
+            _MetaInfoClassMember('year', REFERENCE_ENUM_CLASS, 'TimeInfoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfoEnum', 
                 [], [], 
                 '''                Year
                 ''',
@@ -1838,25 +1838,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue',
             False, 
             [
-            _MetaInfoClassMember('msec', REFERENCE_ENUM_CLASS, 'TimeInfo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfo_Enum', 
+            _MetaInfoClassMember('msec', REFERENCE_ENUM_CLASS, 'TimeInfoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfoEnum', 
                 [], [], 
                 '''                Seconds
                 ''',
                 'msec',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('time-stamp-value', REFERENCE_ENUM_CLASS, 'TimeInfo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfo_Enum', 
+            _MetaInfoClassMember('time-stamp-value', REFERENCE_ENUM_CLASS, 'TimeInfoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfoEnum', 
                 [], [], 
                 '''                Time
                 ''',
                 'time_stamp_value',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('time-zone', REFERENCE_ENUM_CLASS, 'TimeInfo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfo_Enum', 
+            _MetaInfoClassMember('time-zone', REFERENCE_ENUM_CLASS, 'TimeInfoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfoEnum', 
                 [], [], 
                 '''                Timezone
                 ''',
                 'time_zone',
                 'Cisco-IOS-XR-infra-syslog-cfg', False),
-            _MetaInfoClassMember('year', REFERENCE_ENUM_CLASS, 'TimeInfo_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfo_Enum', 
+            _MetaInfoClassMember('year', REFERENCE_ENUM_CLASS, 'TimeInfoEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_cfg', 'TimeInfoEnum', 
                 [], [], 
                 '''                Year
                 ''',
@@ -1972,19 +1972,19 @@ _meta_table['Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameDiscriminator']['meta
 _meta_table['Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Hosts.Host']['meta_info']
 _meta_table['Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Hosts.Host']['meta_info']
 _meta_table['Syslog.HostServer.Vrfs.Vrf.Hosts.Host']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Hosts']['meta_info']
-_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels']['meta_info']
-_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4Discriminator']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4']['meta_info']
-_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4']['meta_info']
-_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityPort']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4']['meta_info']
-_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s']['meta_info']
-_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels']['meta_info']
-_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6Discriminator']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6']['meta_info']
-_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6']['meta_info']
-_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityPort']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6']['meta_info']
-_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s']['meta_info']
+_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels']['meta_info']
+_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4Discriminator']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4']['meta_info']
+_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityLevels']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4']['meta_info']
+_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4.Ipv4SeverityPort']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4']['meta_info']
+_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S.Ipv4']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S']['meta_info']
+_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels']['meta_info']
+_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6Discriminator']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6']['meta_info']
+_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityLevels']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6']['meta_info']
+_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6.Ipv6SeverityPort']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6']['meta_info']
+_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S.Ipv6']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S']['meta_info']
 _meta_table['Syslog.HostServer.Vrfs.Vrf.Hosts']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf']['meta_info']
-_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4s']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf']['meta_info']
-_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6s']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf']['meta_info']
+_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv4S']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf']['meta_info']
+_meta_table['Syslog.HostServer.Vrfs.Vrf.Ipv6S']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs.Vrf']['meta_info']
 _meta_table['Syslog.HostServer.Vrfs.Vrf']['meta_info'].parent =_meta_table['Syslog.HostServer.Vrfs']['meta_info']
 _meta_table['Syslog.HostServer.Vrfs']['meta_info'].parent =_meta_table['Syslog.HostServer']['meta_info']
 _meta_table['Syslog.Ipv4.Dscp']['meta_info'].parent =_meta_table['Syslog.Ipv4']['meta_info']

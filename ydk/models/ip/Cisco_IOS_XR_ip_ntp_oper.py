@@ -24,289 +24,259 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class ClockUpdateNode_Enum(Enum):
+class ClockUpdateNodeEnum(Enum):
     """
-    ClockUpdateNode_Enum
+    ClockUpdateNodeEnum
 
     Mode of Clock Update
 
-    """
+    .. data:: CLK_NEVER_UPDATED = 0
+
+    	 clock is never updated
+
+    .. data:: CLK_UPDATED = 1
+
+    	 clock is updated
+
+    .. data:: CLK_NO_UPDATE_INFO = 2
+
+    	 clock has no update info
 
     """
 
-     clock is never updated
-
-    """
     CLK_NEVER_UPDATED = 0
 
-    """
-
-     clock is updated
-
-    """
     CLK_UPDATED = 1
 
-    """
-
-     clock has no update info
-
-    """
     CLK_NO_UPDATE_INFO = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
-        return meta._meta_table['ClockUpdateNode_Enum']
+        return meta._meta_table['ClockUpdateNodeEnum']
 
 
-class NtpLeap_Enum(Enum):
+class NtpLeapEnum(Enum):
     """
-    NtpLeap_Enum
+    NtpLeapEnum
 
     Type of leap
 
-    """
+    .. data:: NTP_LEAP_NO_WARNING = 0
+
+    	Normal, no leap second warning
+
+    .. data:: NTP_LEAP_ADDSE_COND = 1
+
+    	Last minute of day has 61 seconds
+
+    .. data:: NTP_LEAP_DELSE_COND = 2
+
+    	Last minute of day has 59 seconds
+
+    .. data:: NTP_LEAP_NOT_IN_SYNC = 3
+
+    	Overload, clock is free running
 
     """
 
-    Normal, no leap second warning
-
-    """
     NTP_LEAP_NO_WARNING = 0
 
-    """
-
-    Last minute of day has 61 seconds
-
-    """
     NTP_LEAP_ADDSE_COND = 1
 
-    """
-
-    Last minute of day has 59 seconds
-
-    """
     NTP_LEAP_DELSE_COND = 2
 
-    """
-
-    Overload, clock is free running
-
-    """
     NTP_LEAP_NOT_IN_SYNC = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
-        return meta._meta_table['NtpLeap_Enum']
+        return meta._meta_table['NtpLeapEnum']
 
 
-class NtpLoopFilterState_Enum(Enum):
+class NtpLoopFilterStateEnum(Enum):
     """
-    NtpLoopFilterState_Enum
+    NtpLoopFilterStateEnum
 
     Loop filter state
 
-    """
+    .. data:: NTP_LOOP_FLT_N_SET = 0
+
+    	 never set
+
+    .. data:: NTP_LOOP_FLT_F_SET = 1
+
+    	 drift set from file
+
+    .. data:: NTP_LOOP_FLT_SPIK = 2
+
+    	 spike
+
+    .. data:: NTP_LOOP_FLT_FREQ = 3
+
+    	 drift being measured
+
+    .. data:: NTP_LOOP_FLT_SYNC = 4
+
+    	 normal controlled loop
+
+    .. data:: NTP_LOOP_FLT_UNKN = 5
+
+    	 unknown
 
     """
 
-     never set
-
-    """
     NTP_LOOP_FLT_N_SET = 0
 
-    """
-
-     drift set from file
-
-    """
     NTP_LOOP_FLT_F_SET = 1
 
-    """
-
-     spike
-
-    """
     NTP_LOOP_FLT_SPIK = 2
 
-    """
-
-     drift being measured
-
-    """
     NTP_LOOP_FLT_FREQ = 3
 
-    """
-
-     normal controlled loop
-
-    """
     NTP_LOOP_FLT_SYNC = 4
 
-    """
-
-     unknown
-
-    """
     NTP_LOOP_FLT_UNKN = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
-        return meta._meta_table['NtpLoopFilterState_Enum']
+        return meta._meta_table['NtpLoopFilterStateEnum']
 
 
-class NtpMode_Enum(Enum):
+class NtpModeEnum(Enum):
     """
-    NtpMode_Enum
+    NtpModeEnum
 
     Type of mode
 
-    """
+    .. data:: NTP_MODE_UNSPEC = 0
+
+    	Unspecified probably old NTP version
+
+    .. data:: NTP_MODE_SYMETRIC_ACTIVE = 1
+
+    	Symmetric active
+
+    .. data:: NTP_MODE_SYMETRIC_PASSIVE = 2
+
+    	Symmetric passive
+
+    .. data:: NTP_MODE_CLIENT = 3
+
+    	Client mode
+
+    .. data:: NTP_MODE_SERVER = 4
+
+    	Server mode
+
+    .. data:: NTP_MODE_XCAST_SERVER = 5
+
+    	Broadcast mode
+
+    .. data:: NTP_MODE_CONTROL = 6
+
+    	Control mode packet
+
+    .. data:: NTP_MODE_PRIVATE = 7
+
+    	Implementation defined function
+
+    .. data:: NTP_MODE_XCAST_CLIENT = 8
+
+    	A broadcast client mode
 
     """
 
-    Unspecified probably old NTP version
-
-    """
     NTP_MODE_UNSPEC = 0
 
-    """
-
-    Symmetric active
-
-    """
     NTP_MODE_SYMETRIC_ACTIVE = 1
 
-    """
-
-    Symmetric passive
-
-    """
     NTP_MODE_SYMETRIC_PASSIVE = 2
 
-    """
-
-    Client mode
-
-    """
     NTP_MODE_CLIENT = 3
 
-    """
-
-    Server mode
-
-    """
     NTP_MODE_SERVER = 4
 
-    """
-
-    Broadcast mode
-
-    """
     NTP_MODE_XCAST_SERVER = 5
 
-    """
-
-    Control mode packet
-
-    """
     NTP_MODE_CONTROL = 6
 
-    """
-
-    Implementation defined function
-
-    """
     NTP_MODE_PRIVATE = 7
 
-    """
-
-    A broadcast client mode
-
-    """
     NTP_MODE_XCAST_CLIENT = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
-        return meta._meta_table['NtpMode_Enum']
+        return meta._meta_table['NtpModeEnum']
 
 
-class NtpPeerStatus_Enum(Enum):
+class NtpPeerStatusEnum(Enum):
     """
-    NtpPeerStatus_Enum
+    NtpPeerStatusEnum
 
     Type of peer status
 
-    """
+    .. data:: NTP_CTL_PST_SEL_REJECT = 0
+
+    	   reject
+
+    .. data:: NTP_CTL_PST_SEL_SANE = 1
+
+    	 x falsetick
+
+    .. data:: NTP_CTL_PST_SEL_CORRECT = 2
+
+    	 . excess 
+
+    .. data:: NTP_CTL_PST_SEL_SELCAND = 3
+
+    	 - outlyer
+
+    .. data:: NTP_CTL_PST_SEL_SYNC_CAND = 4
+
+    	 + candidate
+
+    .. data:: NTP_CTL_PST_SEL_DISTSYS_PEER = 5
+
+    	 # selected
+
+    .. data:: NTP_CTL_PST_SEL_SYS_PEER = 6
+
+    	 * sys peer
+
+    .. data:: NTP_CTL_PST_SEL_PPS = 7
+
+    	 o pps peer
 
     """
 
-       reject
-
-    """
     NTP_CTL_PST_SEL_REJECT = 0
 
-    """
-
-     x falsetick
-
-    """
     NTP_CTL_PST_SEL_SANE = 1
 
-    """
-
-     . excess 
-
-    """
     NTP_CTL_PST_SEL_CORRECT = 2
 
-    """
-
-     \- outlyer
-
-    """
     NTP_CTL_PST_SEL_SELCAND = 3
 
-    """
-
-     + candidate
-
-    """
     NTP_CTL_PST_SEL_SYNC_CAND = 4
 
-    """
-
-     # selected
-
-    """
     NTP_CTL_PST_SEL_DISTSYS_PEER = 5
 
-    """
-
-     \* sys peer
-
-    """
     NTP_CTL_PST_SEL_SYS_PEER = 6
 
-    """
-
-     o pps peer
-
-    """
     NTP_CTL_PST_SEL_PPS = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
-        return meta._meta_table['NtpPeerStatus_Enum']
+        return meta._meta_table['NtpPeerStatusEnum']
 
 
 
@@ -415,7 +385,7 @@ class Ntp(object):
                 .. attribute:: sys_leap
                 
                 	Leap
-                	**type**\: :py:class:`NtpLeap_Enum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpLeap_Enum>`
+                	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpLeapEnum>`
                 
                 
 
@@ -485,7 +455,7 @@ class Ntp(object):
                         .. attribute:: host_mode
                         
                         	Association mode with this peer
-                        	**type**\: :py:class:`NtpMode_Enum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpMode_Enum>`
+                        	**type**\: :py:class:`NtpModeEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpModeEnum>`
                         
                         .. attribute:: host_poll
                         
@@ -526,7 +496,7 @@ class Ntp(object):
                         .. attribute:: status
                         
                         	Peer status
-                        	**type**\: :py:class:`NtpPeerStatus_Enum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpPeerStatus_Enum>`
+                        	**type**\: :py:class:`NtpPeerStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpPeerStatusEnum>`
                         
                         .. attribute:: stratum
                         
@@ -571,8 +541,6 @@ class Ntp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
@@ -611,10 +579,6 @@ class Ntp(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_oper as meta
@@ -634,21 +598,12 @@ class Ntp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.peer_info_common is not None and self.peer_info_common._has_data():
-                            return True
-
-                        if self.peer_info_common is not None and self.peer_info_common.is_presence():
                             return True
 
                         if self.time_since is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -670,8 +625,6 @@ class Ntp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.is_ntp_enabled is not None:
                         return True
 
@@ -683,10 +636,6 @@ class Ntp(object):
                     if self.sys_leap is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -712,7 +661,7 @@ class Ntp(object):
                 .. attribute:: sys_leap
                 
                 	Leap
-                	**type**\: :py:class:`NtpLeap_Enum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpLeap_Enum>`
+                	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpLeapEnum>`
                 
                 
 
@@ -759,7 +708,7 @@ class Ntp(object):
                     .. attribute:: leap
                     
                     	Leap
-                    	**type**\: :py:class:`NtpLeap_Enum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpLeap_Enum>`
+                    	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpLeapEnum>`
                     
                     .. attribute:: originate_time
                     
@@ -774,7 +723,7 @@ class Ntp(object):
                     .. attribute:: peer_mode
                     
                     	Peer's association mode
-                    	**type**\: :py:class:`NtpMode_Enum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpMode_Enum>`
+                    	**type**\: :py:class:`NtpModeEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpModeEnum>`
                     
                     .. attribute:: poll_interval
                     
@@ -908,8 +857,6 @@ class Ntp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.filter_delay is not None:
                                 return True
 
@@ -919,10 +866,6 @@ class Ntp(object):
                             if self.filter_offset is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -996,15 +939,9 @@ class Ntp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.frac is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1049,15 +986,9 @@ class Ntp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.int is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1079,24 +1010,12 @@ class Ntp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.frac_secs is not None and self.frac_secs._has_data():
-                                return True
-
-                            if self.frac_secs is not None and self.frac_secs.is_presence():
                                 return True
 
                             if self.sec is not None and self.sec._has_data():
                                 return True
 
-                            if self.sec is not None and self.sec.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1127,7 +1046,7 @@ class Ntp(object):
                         .. attribute:: host_mode
                         
                         	Association mode with this peer
-                        	**type**\: :py:class:`NtpMode_Enum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpMode_Enum>`
+                        	**type**\: :py:class:`NtpModeEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpModeEnum>`
                         
                         .. attribute:: host_poll
                         
@@ -1168,7 +1087,7 @@ class Ntp(object):
                         .. attribute:: status
                         
                         	Peer status
-                        	**type**\: :py:class:`NtpPeerStatus_Enum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpPeerStatus_Enum>`
+                        	**type**\: :py:class:`NtpPeerStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpPeerStatusEnum>`
                         
                         .. attribute:: stratum
                         
@@ -1213,8 +1132,6 @@ class Ntp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
@@ -1251,10 +1168,6 @@ class Ntp(object):
                             if self.stratum is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1328,15 +1241,9 @@ class Ntp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.frac is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1381,15 +1288,9 @@ class Ntp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.int is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1411,24 +1312,12 @@ class Ntp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.frac_secs is not None and self.frac_secs._has_data():
-                                return True
-
-                            if self.frac_secs is not None and self.frac_secs.is_presence():
                                 return True
 
                             if self.sec is not None and self.sec._has_data():
                                 return True
 
-                            if self.sec is not None and self.sec.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1502,15 +1391,9 @@ class Ntp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.frac is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1555,15 +1438,9 @@ class Ntp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.int is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1585,24 +1462,12 @@ class Ntp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.frac_secs is not None and self.frac_secs._has_data():
-                                return True
-
-                            if self.frac_secs is not None and self.frac_secs.is_presence():
                                 return True
 
                             if self.sec is not None and self.sec._has_data():
                                 return True
 
-                            if self.sec is not None and self.sec.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1676,15 +1541,9 @@ class Ntp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.frac is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1729,15 +1588,9 @@ class Ntp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.int is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1759,24 +1612,12 @@ class Ntp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.frac_secs is not None and self.frac_secs._has_data():
-                                return True
-
-                            if self.frac_secs is not None and self.frac_secs.is_presence():
                                 return True
 
                             if self.sec is not None and self.sec._has_data():
                                 return True
 
-                            if self.sec is not None and self.sec.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1798,8 +1639,6 @@ class Ntp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.filter_detail is not None:
                             for child_ref in self.filter_detail:
                                 if child_ref._has_data():
@@ -1820,13 +1659,7 @@ class Ntp(object):
                         if self.originate_time is not None and self.originate_time._has_data():
                             return True
 
-                        if self.originate_time is not None and self.originate_time.is_presence():
-                            return True
-
                         if self.peer_info_common is not None and self.peer_info_common._has_data():
-                            return True
-
-                        if self.peer_info_common is not None and self.peer_info_common.is_presence():
                             return True
 
                         if self.peer_mode is not None:
@@ -1841,13 +1674,7 @@ class Ntp(object):
                         if self.receive_time is not None and self.receive_time._has_data():
                             return True
 
-                        if self.receive_time is not None and self.receive_time.is_presence():
-                            return True
-
                         if self.ref_time is not None and self.ref_time._has_data():
-                            return True
-
-                        if self.ref_time is not None and self.ref_time.is_presence():
                             return True
 
                         if self.root_delay is not None:
@@ -1862,16 +1689,9 @@ class Ntp(object):
                         if self.transmit_time is not None and self.transmit_time._has_data():
                             return True
 
-                        if self.transmit_time is not None and self.transmit_time.is_presence():
-                            return True
-
                         if self.version is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1893,8 +1713,6 @@ class Ntp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.is_ntp_enabled is not None:
                         return True
 
@@ -1906,10 +1724,6 @@ class Ntp(object):
                     if self.sys_leap is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1937,7 +1751,7 @@ class Ntp(object):
                 .. attribute:: is_updated
                 
                 	Is clock updated
-                	**type**\: :py:class:`ClockUpdateNode_Enum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.ClockUpdateNode_Enum>`
+                	**type**\: :py:class:`ClockUpdateNodeEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.ClockUpdateNodeEnum>`
                 
                 .. attribute:: last_update
                 
@@ -1949,7 +1763,7 @@ class Ntp(object):
                 .. attribute:: loop_filter_state
                 
                 	Loop Filter State
-                	**type**\: :py:class:`NtpLoopFilterState_Enum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpLoopFilterState_Enum>`
+                	**type**\: :py:class:`NtpLoopFilterStateEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpLoopFilterStateEnum>`
                 
                 .. attribute:: poll_interval
                 
@@ -1971,7 +1785,7 @@ class Ntp(object):
                 .. attribute:: sys_leap
                 
                 	leap
-                	**type**\: :py:class:`NtpLeap_Enum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpLeap_Enum>`
+                	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_oper.NtpLeapEnum>`
                 
                 .. attribute:: sys_offset
                 
@@ -2108,15 +1922,9 @@ class Ntp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.frac is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2161,15 +1969,9 @@ class Ntp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.int is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2191,24 +1993,12 @@ class Ntp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.frac_secs is not None and self.frac_secs._has_data():
-                            return True
-
-                        if self.frac_secs is not None and self.frac_secs.is_presence():
                             return True
 
                         if self.sec is not None and self.sec._has_data():
                             return True
 
-                        if self.sec is not None and self.sec.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2282,15 +2072,9 @@ class Ntp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.frac is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2335,15 +2119,9 @@ class Ntp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.int is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2365,24 +2143,12 @@ class Ntp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.frac_secs is not None and self.frac_secs._has_data():
-                            return True
-
-                        if self.frac_secs is not None and self.frac_secs.is_presence():
                             return True
 
                         if self.sec is not None and self.sec._has_data():
                             return True
 
-                        if self.sec is not None and self.sec.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2404,8 +2170,6 @@ class Ntp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.clock_period is not None:
                         return True
 
@@ -2430,9 +2194,6 @@ class Ntp(object):
                     if self.sys_drift is not None and self.sys_drift._has_data():
                         return True
 
-                    if self.sys_drift is not None and self.sys_drift.is_presence():
-                        return True
-
                     if self.sys_leap is not None:
                         return True
 
@@ -2448,9 +2209,6 @@ class Ntp(object):
                     if self.sys_ref_time is not None and self.sys_ref_time._has_data():
                         return True
 
-                    if self.sys_ref_time is not None and self.sys_ref_time.is_presence():
-                        return True
-
                     if self.sys_root_delay is not None:
                         return True
 
@@ -2460,10 +2218,6 @@ class Ntp(object):
                     if self.sys_stratum is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2485,33 +2239,18 @@ class Ntp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node is not None:
                     return True
 
                 if self.associations is not None and self.associations._has_data():
                     return True
 
-                if self.associations is not None and self.associations.is_presence():
-                    return True
-
                 if self.associations_detail is not None and self.associations_detail._has_data():
-                    return True
-
-                if self.associations_detail is not None and self.associations_detail.is_presence():
                     return True
 
                 if self.status is not None and self.status._has_data():
                     return True
 
-                if self.status is not None and self.status.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2531,17 +2270,11 @@ class Ntp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2561,18 +2294,9 @@ class Ntp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

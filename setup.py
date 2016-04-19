@@ -38,7 +38,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.3.0',
+    version='0.4.0',
 
     description='YDK Python SDK',
     long_description=long_description,
@@ -90,8 +90,9 @@ setup(
     # your project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['ecdsa>=0.13', 'enum>=0.4.4', 
-                      'lxml>=3.4.4', 
+    install_requires=['ecdsa>=0.13',
+                      'enum34>=1.1.3',
+                      'lxml>=3.4.4',
                       'paramiko>=1.15.2',
                       'pycrypto>=2.6.1',
                       'ncclient>=0.4.7'],

@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'MessageTypeIcmpv6_Enum' : _MetaInfoEnum('MessageTypeIcmpv6_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
+    'MessageTypeIcmpv6Enum' : _MetaInfoEnum('MessageTypeIcmpv6Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
         {
             'destination-unreachable':'DESTINATION_UNREACHABLE',
             'packet-too-big':'PACKET_TOO_BIG',
@@ -48,14 +48,14 @@ _meta_table = {
             'multicast-router-termination':'MULTICAST_ROUTER_TERMINATION',
             'fmipv6-messages':'FMIPV6_MESSAGES',
         }, 'Cisco-IOS-XR-ip-tcp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-tcp-oper']),
-    'Show_Enum' : _MetaInfoEnum('Show_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
+    'ShowEnum' : _MetaInfoEnum('ShowEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
         {
             'all':'ALL',
             'static-policy':'STATIC_POLICY',
             'interface-filter':'INTERFACE_FILTER',
             'packet-filter':'PACKET_FILTER',
         }, 'Cisco-IOS-XR-ip-tcp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-tcp-oper']),
-    'MessageTypeIgmp_Enum' : _MetaInfoEnum('MessageTypeIgmp_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
+    'MessageTypeIgmpEnum' : _MetaInfoEnum('MessageTypeIgmpEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
         {
             'membership-query':'MEMBERSHIP_QUERY',
             'v1-membership-report':'V1_MEMBERSHIP_REPORT',
@@ -71,7 +71,7 @@ _meta_table = {
             'multicast-router-solicitation':'MULTICAST_ROUTER_SOLICITATION',
             'multicast-router-termination':'MULTICAST_ROUTER_TERMINATION',
         }, 'Cisco-IOS-XR-ip-tcp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-tcp-oper']),
-    'TcpConnState_Enum' : _MetaInfoEnum('TcpConnState_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
+    'TcpConnStateEnum' : _MetaInfoEnum('TcpConnStateEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
         {
             'closed':'CLOSED',
             'listen':'LISTEN',
@@ -85,7 +85,7 @@ _meta_table = {
             'fin-wait2':'FIN_WAIT2',
             'time-wait':'TIME_WAIT',
         }, 'Cisco-IOS-XR-ip-tcp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-tcp-oper']),
-    'PakPrio_Enum' : _MetaInfoEnum('PakPrio_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
+    'PakPrioEnum' : _MetaInfoEnum('PakPrioEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
         {
             'unspecified-packet':'UNSPECIFIED_PACKET',
             'normal-packet':'NORMAL_PACKET',
@@ -93,7 +93,7 @@ _meta_table = {
             'high-packet':'HIGH_PACKET',
             'crucial-packet':'CRUCIAL_PACKET',
         }, 'Cisco-IOS-XR-ip-tcp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-tcp-oper']),
-    'MessageTypeIcmp_Enum' : _MetaInfoEnum('MessageTypeIcmp_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
+    'MessageTypeIcmpEnum' : _MetaInfoEnum('MessageTypeIcmpEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
         {
             'echo-reply':'ECHO_REPLY',
             'destination-unreachable':'DESTINATION_UNREACHABLE',
@@ -120,7 +120,7 @@ _meta_table = {
             'mobile-registration-reply':'MOBILE_REGISTRATION_REPLY',
             'domain-name-request':'DOMAIN_NAME_REQUEST',
         }, 'Cisco-IOS-XR-ip-tcp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-tcp-oper']),
-    'MessageTypeIgmp_Enum' : _MetaInfoEnum('MessageTypeIgmp_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
+    'MessageTypeIgmpEnum' : _MetaInfoEnum('MessageTypeIgmpEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
         {
             'membership-query':'MEMBERSHIP_QUERY',
             'v1-membership-report':'V1_MEMBERSHIP_REPORT',
@@ -136,14 +136,14 @@ _meta_table = {
             'multicast-router-solicitation':'MULTICAST_ROUTER_SOLICITATION',
             'multicast-router-termination':'MULTICAST_ROUTER_TERMINATION',
         }, 'Cisco-IOS-XR-ip-tcp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-tcp-oper']),
-    'Packet_Enum' : _MetaInfoEnum('Packet_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
+    'PacketEnum' : _MetaInfoEnum('PacketEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
         {
             'icmp':'ICMP',
             'icm-pv6':'ICM_PV6',
             'igmp':'IGMP',
             'unknown':'UNKNOWN',
         }, 'Cisco-IOS-XR-ip-tcp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-tcp-oper']),
-    'MessageTypeIcmp_Enum' : _MetaInfoEnum('MessageTypeIcmp_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
+    'MessageTypeIcmpEnum' : _MetaInfoEnum('MessageTypeIcmpEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
         {
             'echo-reply':'ECHO_REPLY',
             'destination-unreachable':'DESTINATION_UNREACHABLE',
@@ -170,18 +170,18 @@ _meta_table = {
             'mobile-registration-reply':'MOBILE_REGISTRATION_REPLY',
             'domain-name-request':'DOMAIN_NAME_REQUEST',
         }, 'Cisco-IOS-XR-ip-tcp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-tcp-oper']),
-    'AddrFamily_Enum' : _MetaInfoEnum('AddrFamily_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
+    'AddrFamilyEnum' : _MetaInfoEnum('AddrFamilyEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
         {
             'internetwork':'INTERNETWORK',
             'ip-version6':'IP_VERSION6',
         }, 'Cisco-IOS-XR-ip-tcp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-tcp-oper']),
-    'NsrStatus_Enum' : _MetaInfoEnum('NsrStatus_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
+    'NsrStatusEnum' : _MetaInfoEnum('NsrStatusEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
         {
             'down':'DOWN',
             'up':'UP',
             'na':'NA',
         }, 'Cisco-IOS-XR-ip-tcp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-tcp-oper']),
-    'MessageTypeIcmpv6_Enum' : _MetaInfoEnum('MessageTypeIcmpv6_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
+    'MessageTypeIcmpv6Enum' : _MetaInfoEnum('MessageTypeIcmpv6Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
         {
             'destination-unreachable':'DESTINATION_UNREACHABLE',
             'packet-too-big':'PACKET_TOO_BIG',
@@ -215,7 +215,7 @@ _meta_table = {
             'multicast-router-termination':'MULTICAST_ROUTER_TERMINATION',
             'fmipv6-messages':'FMIPV6_MESSAGES',
         }, 'Cisco-IOS-XR-ip-tcp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-tcp-oper']),
-    'NsrDownReason_Enum' : _MetaInfoEnum('NsrDownReason_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
+    'NsrDownReasonEnum' : _MetaInfoEnum('NsrDownReasonEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
         {
             'none':'NONE',
             'init-sync-aborted':'INIT_SYNC_ABORTED',
@@ -234,7 +234,7 @@ _meta_table = {
             'standby-rxpath-frozen':'STANDBY_RXPATH_FROZEN',
             'partner-deleted':'PARTNER_DELETED',
         }, 'Cisco-IOS-XR-ip-tcp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-tcp-oper']),
-    'TcpTimer_Enum' : _MetaInfoEnum('TcpTimer_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
+    'TcpTimerEnum' : _MetaInfoEnum('TcpTimerEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper',
         {
             'retransmission-timer':'RETRANSMISSION_TIMER',
             'window-probe-timer':'WINDOW_PROBE_TIMER',
@@ -417,13 +417,13 @@ _meta_table = {
                 ''',
                 'pcb_id',
                 'Cisco-IOS-XR-ip-tcp-oper', True),
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'address_family',
                 'Cisco-IOS-XR-ip-tcp-oper', False),
-            _MetaInfoClassMember('connection-state', REFERENCE_ENUM_CLASS, 'TcpConnState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'TcpConnState_Enum', 
+            _MetaInfoClassMember('connection-state', REFERENCE_ENUM_CLASS, 'TcpConnStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'TcpConnStateEnum', 
                 [], [], 
                 '''                Connection state
                 ''',
@@ -1123,7 +1123,7 @@ _meta_table = {
                 ''',
                 'timer_next_activation',
                 'Cisco-IOS-XR-ip-tcp-oper', False),
-            _MetaInfoClassMember('timer-type', REFERENCE_ENUM_CLASS, 'TcpTimer_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'TcpTimer_Enum', 
+            _MetaInfoClassMember('timer-type', REFERENCE_ENUM_CLASS, 'TcpTimerEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'TcpTimerEnum', 
                 [], [], 
                 '''                Timer Type
                 ''',
@@ -1153,7 +1153,7 @@ _meta_table = {
                 ''',
                 'ack_hold_time',
                 'Cisco-IOS-XR-ip-tcp-oper', False),
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -1171,7 +1171,7 @@ _meta_table = {
                 ''',
                 'connect_retry_interval',
                 'Cisco-IOS-XR-ip-tcp-oper', False),
-            _MetaInfoClassMember('connection-state', REFERENCE_ENUM_CLASS, 'TcpConnState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'TcpConnState_Enum', 
+            _MetaInfoClassMember('connection-state', REFERENCE_ENUM_CLASS, 'TcpConnStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'TcpConnStateEnum', 
                 [], [], 
                 '''                Connection state
                 ''',
@@ -1351,7 +1351,7 @@ _meta_table = {
                 ''',
                 'output_ifhandle',
                 'Cisco-IOS-XR-ip-tcp-oper', False),
-            _MetaInfoClassMember('packet-priority', REFERENCE_ENUM_CLASS, 'PakPrio_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'PakPrio_Enum', 
+            _MetaInfoClassMember('packet-priority', REFERENCE_ENUM_CLASS, 'PakPrioEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'PakPrioEnum', 
                 [], [], 
                 '''                Priority given to packets on this socket
                 ''',
@@ -1715,7 +1715,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -1744,19 +1744,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType',
             False, 
             [
-            _MetaInfoClassMember('icm-pv6-message-type', REFERENCE_ENUM_CLASS, 'MessageTypeIcmpv6_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'MessageTypeIcmpv6_Enum', 
+            _MetaInfoClassMember('icm-pv6-message-type', REFERENCE_ENUM_CLASS, 'MessageTypeIcmpv6Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'MessageTypeIcmpv6Enum', 
                 [], [], 
                 '''                ICMPv6 message type
                 ''',
                 'icm_pv6_message_type',
                 'Cisco-IOS-XR-ip-tcp-oper', False),
-            _MetaInfoClassMember('icmp-message-type', REFERENCE_ENUM_CLASS, 'MessageTypeIcmp_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'MessageTypeIcmp_Enum', 
+            _MetaInfoClassMember('icmp-message-type', REFERENCE_ENUM_CLASS, 'MessageTypeIcmpEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'MessageTypeIcmpEnum', 
                 [], [], 
                 '''                ICMP message type
                 ''',
                 'icmp_message_type',
                 'Cisco-IOS-XR-ip-tcp-oper', False),
-            _MetaInfoClassMember('igmp-message-type', REFERENCE_ENUM_CLASS, 'MessageTypeIgmp_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'MessageTypeIgmp_Enum', 
+            _MetaInfoClassMember('igmp-message-type', REFERENCE_ENUM_CLASS, 'MessageTypeIgmpEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'MessageTypeIgmpEnum', 
                 [], [], 
                 '''                IGMP message type
                 ''',
@@ -1768,7 +1768,7 @@ _meta_table = {
                 ''',
                 'message_id',
                 'Cisco-IOS-XR-ip-tcp-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'Packet_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'Packet_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'PacketEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'PacketEnum', 
                 [], [], 
                 '''                Type
                 ''',
@@ -1785,7 +1785,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -1990,7 +1990,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -2013,7 +2013,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -2042,7 +2042,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -2126,7 +2126,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType',
             False, 
             [
-            _MetaInfoClassMember('disp-type', REFERENCE_ENUM_CLASS, 'Show_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'Show_Enum', 
+            _MetaInfoClassMember('disp-type', REFERENCE_ENUM_CLASS, 'ShowEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'ShowEnum', 
                 [], [], 
                 '''                Specifying display type
                 ''',
@@ -3401,7 +3401,7 @@ _meta_table = {
                 ''',
                 'id',
                 'Cisco-IOS-XR-ip-tcp-oper', True),
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
@@ -3425,7 +3425,7 @@ _meta_table = {
                 ''',
                 'is_admin_configured_up',
                 'Cisco-IOS-XR-ip-tcp-oper', False),
-            _MetaInfoClassMember('is-ds-operational-up', REFERENCE_ENUM_CLASS, 'NsrStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'NsrStatus_Enum', 
+            _MetaInfoClassMember('is-ds-operational-up', REFERENCE_ENUM_CLASS, 'NsrStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'NsrStatusEnum', 
                 [], [], 
                 '''                Is Downstream NSR operational?
                 ''',
@@ -3437,7 +3437,7 @@ _meta_table = {
                 ''',
                 'is_only_receive_path_replication',
                 'Cisco-IOS-XR-ip-tcp-oper', False),
-            _MetaInfoClassMember('is-us-operational-up', REFERENCE_ENUM_CLASS, 'NsrStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'NsrStatus_Enum', 
+            _MetaInfoClassMember('is-us-operational-up', REFERENCE_ENUM_CLASS, 'NsrStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'NsrStatusEnum', 
                 [], [], 
                 '''                Is Upstream NSR operational?
                 ''',
@@ -3559,7 +3559,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                Address Family of the sessions in this set
                 ''',
@@ -3689,7 +3689,7 @@ _meta_table = {
                 ''',
                 'id',
                 'Cisco-IOS-XR-ip-tcp-oper', True),
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
@@ -3805,7 +3805,7 @@ _meta_table = {
                 ''',
                 'is_admin_configured_up',
                 'Cisco-IOS-XR-ip-tcp-oper', False),
-            _MetaInfoClassMember('is-ds-operational-up', REFERENCE_ENUM_CLASS, 'NsrStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'NsrStatus_Enum', 
+            _MetaInfoClassMember('is-ds-operational-up', REFERENCE_ENUM_CLASS, 'NsrStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'NsrStatusEnum', 
                 [], [], 
                 '''                Is Downstream NSR operational?
                 ''',
@@ -3848,7 +3848,7 @@ _meta_table = {
                 ''',
                 'is_session_synced',
                 'Cisco-IOS-XR-ip-tcp-oper', False),
-            _MetaInfoClassMember('is-us-operational-up', REFERENCE_ENUM_CLASS, 'NsrStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'NsrStatus_Enum', 
+            _MetaInfoClassMember('is-us-operational-up', REFERENCE_ENUM_CLASS, 'NsrStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'NsrStatusEnum', 
                 [], [], 
                 '''                Is Upstream NSR operational?
                 ''',
@@ -3890,20 +3890,20 @@ _meta_table = {
                 ''',
                 'max_number_of_held_packet_reach_time',
                 'Cisco-IOS-XR-ip-tcp-oper', False),
-            _MetaInfoClassMember('nsr-down-reason', REFERENCE_ENUM_CLASS, 'NsrDownReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'NsrDownReason_Enum', 
+            _MetaInfoClassMember('nsr-down-reason', REFERENCE_ENUM_CLASS, 'NsrDownReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'NsrDownReasonEnum', 
                 [], [], 
                 '''                If NSR is not up, the reason for it.
                 ''',
                 'nsr_down_reason',
                 'Cisco-IOS-XR-ip-tcp-oper', False),
-            _MetaInfoClassMember('nsr-down-reason-down-stream', REFERENCE_ENUM_CLASS, 'NsrDownReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'NsrDownReason_Enum', 
+            _MetaInfoClassMember('nsr-down-reason-down-stream', REFERENCE_ENUM_CLASS, 'NsrDownReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'NsrDownReasonEnum', 
                 [], [], 
                 '''                The reason NSR is not up towards the upstream
                 partner
                 ''',
                 'nsr_down_reason_down_stream',
                 'Cisco-IOS-XR-ip-tcp-oper', False),
-            _MetaInfoClassMember('nsr-down-reason-up-stream', REFERENCE_ENUM_CLASS, 'NsrDownReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'NsrDownReason_Enum', 
+            _MetaInfoClassMember('nsr-down-reason-up-stream', REFERENCE_ENUM_CLASS, 'NsrDownReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'NsrDownReasonEnum', 
                 [], [], 
                 '''                The reason NSR is not up towards the upstream
                 partner
@@ -4046,7 +4046,7 @@ _meta_table = {
                 ''',
                 'id',
                 'Cisco-IOS-XR-ip-tcp-oper', True),
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                Address Family of the sessions in this set
                 ''',
@@ -4193,7 +4193,7 @@ _meta_table = {
                 ''',
                 'id',
                 'Cisco-IOS-XR-ip-tcp-oper', True),
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'AddrFamily_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamily_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'AddrFamilyEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_tcp_oper', 'AddrFamilyEnum', 
                 [], [], 
                 '''                Address Family of the sessions in this set
                 ''',

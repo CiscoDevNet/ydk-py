@@ -134,17 +134,11 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.task_id is not None:
                 for child in self.task_id:
                     if child is not None:
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -205,8 +199,6 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.authenmethod is not None:
                 return True
 
@@ -223,10 +215,6 @@ class Aaa(object):
                     if child is not None:
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -287,8 +275,6 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.authenmethod is not None:
                 return True
 
@@ -305,10 +291,6 @@ class Aaa(object):
                     if child is not None:
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -369,8 +351,6 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.authenmethod is not None:
                 return True
 
@@ -387,10 +367,6 @@ class Aaa(object):
                     if child is not None:
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -482,8 +458,6 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.accounting_nas_id is not None:
                     return True
 
@@ -496,10 +470,6 @@ class Aaa(object):
                 if self.unknown_authentication_response is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1247,8 +1217,6 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.aborts is not None:
                         return True
 
@@ -1515,10 +1483,6 @@ class Aaa(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
@@ -1536,17 +1500,11 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.server is not None:
                     for child_ref in self.server:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1566,24 +1524,12 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.global_ is not None and self.global_._has_data():
-                return True
-
-            if self.global_ is not None and self.global_.is_presence():
                 return True
 
             if self.servers is not None and self.servers._has_data():
                 return True
 
-            if self.servers is not None and self.servers.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1644,8 +1590,6 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.authenmethod is not None:
                 return True
 
@@ -1662,10 +1606,6 @@ class Aaa(object):
                     if child is not None:
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1819,8 +1759,6 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.debug is not None:
                             return True
 
@@ -1836,10 +1774,6 @@ class Aaa(object):
                         if self.write is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1861,17 +1795,11 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.tasks is not None:
                         for child_ref in self.tasks:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1961,8 +1889,6 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.debug is not None:
                             return True
 
@@ -1978,10 +1904,6 @@ class Aaa(object):
                         if self.write is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2003,17 +1925,11 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.tasks is not None:
                         for child_ref in self.tasks:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2035,15 +1951,10 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
                 if self.included_task_ids is not None and self.included_task_ids._has_data():
-                    return True
-
-                if self.included_task_ids is not None and self.included_task_ids.is_presence():
                     return True
 
                 if self.name_xr is not None:
@@ -2052,13 +1963,6 @@ class Aaa(object):
                 if self.task_map is not None and self.task_map._has_data():
                     return True
 
-                if self.task_map is not None and self.task_map.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2078,17 +1982,11 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.taskgroup is not None:
                 for child_ref in self.taskgroup:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2243,8 +2141,6 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.debug is not None:
                             return True
 
@@ -2260,10 +2156,6 @@ class Aaa(object):
                         if self.write is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2285,17 +2177,11 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.tasks is not None:
                         for child_ref in self.tasks:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2420,8 +2306,6 @@ class Aaa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.debug is not None:
                                 return True
 
@@ -2437,10 +2321,6 @@ class Aaa(object):
                             if self.write is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2462,17 +2342,11 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.tasks is not None:
                             for child_ref in self.tasks:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2562,8 +2436,6 @@ class Aaa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.debug is not None:
                                 return True
 
@@ -2579,10 +2451,6 @@ class Aaa(object):
                             if self.write is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2604,17 +2472,11 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.tasks is not None:
                             for child_ref in self.tasks:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2636,12 +2498,7 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.included_task_ids is not None and self.included_task_ids._has_data():
-                        return True
-
-                    if self.included_task_ids is not None and self.included_task_ids.is_presence():
                         return True
 
                     if self.name_xr is not None:
@@ -2650,13 +2507,6 @@ class Aaa(object):
                     if self.task_map is not None and self.task_map._has_data():
                         return True
 
-                    if self.task_map is not None and self.task_map.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2678,8 +2528,6 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
@@ -2689,18 +2537,11 @@ class Aaa(object):
                 if self.task_map is not None and self.task_map._has_data():
                     return True
 
-                if self.task_map is not None and self.task_map.is_presence():
-                    return True
-
                 if self.taskgroup is not None:
                     for child_ref in self.taskgroup:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2720,17 +2561,11 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.usergroup is not None:
                 for child_ref in self.usergroup:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2895,8 +2730,6 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.debug is not None:
                             return True
 
@@ -2912,10 +2745,6 @@ class Aaa(object):
                         if self.write is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2937,17 +2766,11 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.tasks is not None:
                         for child_ref in self.tasks:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2969,8 +2792,6 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
@@ -2986,18 +2807,11 @@ class Aaa(object):
                 if self.task_map is not None and self.task_map._has_data():
                     return True
 
-                if self.task_map is not None and self.task_map.is_presence():
-                    return True
-
                 if self.usergroup is not None:
                     for child in self.usergroup:
                         if child is not None:
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3017,17 +2831,11 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.user is not None:
                 for child_ref in self.user:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3047,66 +2855,33 @@ class Aaa(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.all_tasks is not None and self.all_tasks._has_data():
-            return True
-
-        if self.all_tasks is not None and self.all_tasks.is_presence():
             return True
 
         if self.authen_method is not None and self.authen_method._has_data():
             return True
 
-        if self.authen_method is not None and self.authen_method.is_presence():
-            return True
-
         if self.current_usergroup is not None and self.current_usergroup._has_data():
-            return True
-
-        if self.current_usergroup is not None and self.current_usergroup.is_presence():
             return True
 
         if self.currentuser_detail is not None and self.currentuser_detail._has_data():
             return True
 
-        if self.currentuser_detail is not None and self.currentuser_detail.is_presence():
-            return True
-
         if self.radius is not None and self.radius._has_data():
-            return True
-
-        if self.radius is not None and self.radius.is_presence():
             return True
 
         if self.task_map is not None and self.task_map._has_data():
             return True
 
-        if self.task_map is not None and self.task_map.is_presence():
-            return True
-
         if self.taskgroups is not None and self.taskgroups._has_data():
-            return True
-
-        if self.taskgroups is not None and self.taskgroups.is_presence():
             return True
 
         if self.usergroups is not None and self.usergroups._has_data():
             return True
 
-        if self.usergroups is not None and self.usergroups.is_presence():
-            return True
-
         if self.users is not None and self.users._has_data():
             return True
 
-        if self.users is not None and self.users.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

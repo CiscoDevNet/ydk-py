@@ -24,247 +24,223 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class MgmtMplsStaticLabelMode_Enum(Enum):
+class MgmtMplsStaticLabelModeEnum(Enum):
     """
-    MgmtMplsStaticLabelMode_Enum
+    MgmtMplsStaticLabelModeEnum
 
     Mgmt mpls static label mode
 
-    """
+    .. data:: NONE = 0
+
+    	No Label Mode
+
+    .. data:: PER_PREFIX = 1
+
+    	Per-prefix Label
+
+    .. data:: PER_VRF = 2
+
+    	Per-VRF label
+
+    .. data:: CROSS_CONNECT = 3
+
+    	Label with crossconnect
 
     """
 
-    No Label Mode
-
-    """
     NONE = 0
 
-    """
-
-    Per\-prefix Label
-
-    """
     PER_PREFIX = 1
 
-    """
-
-    Per\-VRF label
-
-    """
     PER_VRF = 2
 
-    """
-
-    Label with crossconnect
-
-    """
     CROSS_CONNECT = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_static_oper as meta
-        return meta._meta_table['MgmtMplsStaticLabelMode_Enum']
+        return meta._meta_table['MgmtMplsStaticLabelModeEnum']
 
 
-class MgmtMplsStaticLabelStatus_Enum(Enum):
+class MgmtMplsStaticLabelStatusEnum(Enum):
     """
-    MgmtMplsStaticLabelStatus_Enum
+    MgmtMplsStaticLabelStatusEnum
 
     Mgmt mpls static label status
 
-    """
+    .. data:: NOT_CREATED = 0
+
+    	Label Not Created
+
+    .. data:: VRF_DOWN = 1
+
+    	Label without active VRF
+
+    .. data:: REWRITE_VRF_DOWN = 2
+
+    	Rewrite without active VRF
+
+    .. data:: LSD_DISCONNECTED = 3
+
+    	LSD is disconnected
+
+    .. data:: LSD_FAILED = 4
+
+    	LSD operation failed
+
+    .. data:: WAIT_FOR_LSD_REPLY = 5
+
+    	Waiting for LSD operation
+
+    .. data:: LABEL_CREATED = 6
+
+    	Label Created
+
+    .. data:: LABEL_CREATE_FAILED = 7
+
+    	Label Creation Failed
+
+    .. data:: LABEL_REWRITE_FAILED = 8
+
+    	Rewrite Creation Failed
+
+    .. data:: REWRITE_NEXT_HOP_INTERFACE_MISSING = 9
+
+    	Rewrite NextHop Missing 
+
+    .. data:: LABEL_DISCREPANCY = 10
+
+    	Label Discrepancy 
+
+    .. data:: REWRITE_DISCREPANCY = 11
+
+    	Rewrite Discrepancy 
+
+    .. data:: LABEL_STATUS_UNKNOWN = 12
+
+    	Label Status Unknown
 
     """
 
-    Label Not Created
-
-    """
     NOT_CREATED = 0
 
-    """
-
-    Label without active VRF
-
-    """
     VRF_DOWN = 1
 
-    """
-
-    Rewrite without active VRF
-
-    """
     REWRITE_VRF_DOWN = 2
 
-    """
-
-    LSD is disconnected
-
-    """
     LSD_DISCONNECTED = 3
 
-    """
-
-    LSD operation failed
-
-    """
     LSD_FAILED = 4
 
-    """
-
-    Waiting for LSD operation
-
-    """
     WAIT_FOR_LSD_REPLY = 5
 
-    """
-
-    Label Created
-
-    """
     LABEL_CREATED = 6
 
-    """
-
-    Label Creation Failed
-
-    """
     LABEL_CREATE_FAILED = 7
 
-    """
-
-    Rewrite Creation Failed
-
-    """
     LABEL_REWRITE_FAILED = 8
 
-    """
-
-    Rewrite NextHop Missing 
-
-    """
     REWRITE_NEXT_HOP_INTERFACE_MISSING = 9
 
-    """
-
-    Label Discrepancy 
-
-    """
     LABEL_DISCREPANCY = 10
 
-    """
-
-    Rewrite Discrepancy 
-
-    """
     REWRITE_DISCREPANCY = 11
 
-    """
-
-    Label Status Unknown
-
-    """
     LABEL_STATUS_UNKNOWN = 12
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_static_oper as meta
-        return meta._meta_table['MgmtMplsStaticLabelStatus_Enum']
+        return meta._meta_table['MgmtMplsStaticLabelStatusEnum']
 
 
-class MgmtStaticAddr_Enum(Enum):
+class MgmtStaticAddrEnum(Enum):
     """
-    MgmtStaticAddr_Enum
+    MgmtStaticAddrEnum
 
     Mgmt static addr
 
-    """
+    .. data:: IPV4 = 0
+
+    	IPv4
+
+    .. data:: IPV6 = 1
+
+    	IPv6
 
     """
 
-    IPv4
-
-    """
     IPV4 = 0
 
-    """
-
-    IPv6
-
-    """
     IPV6 = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_static_oper as meta
-        return meta._meta_table['MgmtStaticAddr_Enum']
+        return meta._meta_table['MgmtStaticAddrEnum']
 
 
-class MgmtStaticNhLbl_Enum(Enum):
+class MgmtStaticNhLblEnum(Enum):
     """
-    MgmtStaticNhLbl_Enum
+    MgmtStaticNhLblEnum
 
     Mgmt static nh lbl
 
-    """
+    .. data:: OUT_LABEL = 0
+
+    	Next-Hop Label
+
+    .. data:: OUT_POP = 1
+
+    	Next-Hop Pop
+
+    .. data:: OUT_EXPLICIT_NULL = 2
+
+    	Next-Hop Explicit-Null
 
     """
 
-    Next\-Hop Label
-
-    """
     OUT_LABEL = 0
 
-    """
-
-    Next\-Hop Pop
-
-    """
     OUT_POP = 1
 
-    """
-
-    Next\-Hop Explicit\-Null
-
-    """
     OUT_EXPLICIT_NULL = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_static_oper as meta
-        return meta._meta_table['MgmtStaticNhLbl_Enum']
+        return meta._meta_table['MgmtStaticNhLblEnum']
 
 
-class MgmtStaticPath_Enum(Enum):
+class MgmtStaticPathEnum(Enum):
     """
-    MgmtStaticPath_Enum
+    MgmtStaticPathEnum
 
     Mgmt static path
 
-    """
+    .. data:: CROSS_CONNECT_PATH = 0
+
+    	Crossconnect Path
+
+    .. data:: POP_LOOKUP_PATH = 1
+
+    	Pop and Lookup Path
 
     """
 
-    Crossconnect Path
-
-    """
     CROSS_CONNECT_PATH = 0
 
-    """
-
-    Pop and Lookup Path
-
-    """
     POP_LOOKUP_PATH = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_static_oper as meta
-        return meta._meta_table['MgmtStaticPath_Enum']
+        return meta._meta_table['MgmtStaticPathEnum']
 
 
 
@@ -347,12 +323,12 @@ class MplsStatic(object):
             .. attribute:: label_mode
             
             	Label Mode
-            	**type**\: :py:class:`MgmtMplsStaticLabelMode_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelMode_Enum>`
+            	**type**\: :py:class:`MgmtMplsStaticLabelModeEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelModeEnum>`
             
             .. attribute:: label_status
             
             	Label Status
-            	**type**\: :py:class:`MgmtMplsStaticLabelStatus_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelStatus_Enum>`
+            	**type**\: :py:class:`MgmtMplsStaticLabelStatusEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelStatusEnum>`
             
             .. attribute:: path_info
             
@@ -421,7 +397,7 @@ class MplsStatic(object):
                 .. attribute:: next_hop_label_type
                 
                 	Next\-Hop Label Type
-                	**type**\: :py:class:`MgmtStaticNhLbl_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtStaticNhLbl_Enum>`
+                	**type**\: :py:class:`MgmtStaticNhLblEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtStaticNhLblEnum>`
                 
                 .. attribute:: path
                 
@@ -433,7 +409,7 @@ class MplsStatic(object):
                 .. attribute:: type
                 
                 	Path Type
-                	**type**\: :py:class:`MgmtStaticPath_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPath_Enum>`
+                	**type**\: :py:class:`MgmtStaticPathEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPathEnum>`
                 
                 
 
@@ -466,8 +442,6 @@ class MplsStatic(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.next_hop_interface_name is not None:
                         return True
 
@@ -489,10 +463,6 @@ class MplsStatic(object):
                     if self.type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -538,7 +508,7 @@ class MplsStatic(object):
                     .. attribute:: af_name
                     
                     	AFName
-                    	**type**\: :py:class:`MgmtStaticAddr_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr_Enum>`
+                    	**type**\: :py:class:`MgmtStaticAddrEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddrEnum>`
                     
                     .. attribute:: ipv4_prefix
                     
@@ -581,8 +551,6 @@ class MplsStatic(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.af_name is not None:
                             return True
 
@@ -592,10 +560,6 @@ class MplsStatic(object):
                         if self.ipv6_prefix is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -617,21 +581,12 @@ class MplsStatic(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.prefix is not None and self.prefix._has_data():
-                        return True
-
-                    if self.prefix is not None and self.prefix.is_presence():
                         return True
 
                     if self.prefix_length is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -653,8 +608,6 @@ class MplsStatic(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.local_label_id is not None:
                     return True
 
@@ -675,16 +628,9 @@ class MplsStatic(object):
                 if self.prefix is not None and self.prefix._has_data():
                     return True
 
-                if self.prefix is not None and self.prefix.is_presence():
-                    return True
-
                 if self.vrf_name is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -704,17 +650,11 @@ class MplsStatic(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.local_label is not None:
                 for child_ref in self.local_label:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -831,8 +771,6 @@ class MplsStatic(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.active_vrf_count is not None:
                 return True
 
@@ -866,10 +804,6 @@ class MplsStatic(object):
             if self.vrf_count is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -975,12 +909,12 @@ class MplsStatic(object):
                     .. attribute:: label_mode
                     
                     	Label Mode
-                    	**type**\: :py:class:`MgmtMplsStaticLabelMode_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelMode_Enum>`
+                    	**type**\: :py:class:`MgmtMplsStaticLabelModeEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelModeEnum>`
                     
                     .. attribute:: label_status
                     
                     	Label Status
-                    	**type**\: :py:class:`MgmtMplsStaticLabelStatus_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelStatus_Enum>`
+                    	**type**\: :py:class:`MgmtMplsStaticLabelStatusEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelStatusEnum>`
                     
                     .. attribute:: path_info
                     
@@ -1049,7 +983,7 @@ class MplsStatic(object):
                         .. attribute:: next_hop_label_type
                         
                         	Next\-Hop Label Type
-                        	**type**\: :py:class:`MgmtStaticNhLbl_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtStaticNhLbl_Enum>`
+                        	**type**\: :py:class:`MgmtStaticNhLblEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtStaticNhLblEnum>`
                         
                         .. attribute:: path
                         
@@ -1061,7 +995,7 @@ class MplsStatic(object):
                         .. attribute:: type
                         
                         	Path Type
-                        	**type**\: :py:class:`MgmtStaticPath_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPath_Enum>`
+                        	**type**\: :py:class:`MgmtStaticPathEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPathEnum>`
                         
                         
 
@@ -1094,8 +1028,6 @@ class MplsStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.next_hop_interface_name is not None:
                                 return True
 
@@ -1117,10 +1049,6 @@ class MplsStatic(object):
                             if self.type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1166,7 +1094,7 @@ class MplsStatic(object):
                             .. attribute:: af_name
                             
                             	AFName
-                            	**type**\: :py:class:`MgmtStaticAddr_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr_Enum>`
+                            	**type**\: :py:class:`MgmtStaticAddrEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddrEnum>`
                             
                             .. attribute:: ipv4_prefix
                             
@@ -1209,8 +1137,6 @@ class MplsStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_name is not None:
                                     return True
 
@@ -1220,10 +1146,6 @@ class MplsStatic(object):
                                 if self.ipv6_prefix is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1245,21 +1167,12 @@ class MplsStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.prefix is not None and self.prefix._has_data():
-                                return True
-
-                            if self.prefix is not None and self.prefix.is_presence():
                                 return True
 
                             if self.prefix_length is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1283,8 +1196,6 @@ class MplsStatic(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.local_label_id is not None:
                             return True
 
@@ -1305,16 +1216,9 @@ class MplsStatic(object):
                         if self.prefix is not None and self.prefix._has_data():
                             return True
 
-                        if self.prefix is not None and self.prefix.is_presence():
-                            return True
-
                         if self.vrf_name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1336,17 +1240,11 @@ class MplsStatic(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.local_label is not None:
                         for child_ref in self.local_label:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1368,21 +1266,12 @@ class MplsStatic(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.vrf_name is not None:
                     return True
 
                 if self.local_labels is not None and self.local_labels._has_data():
                     return True
 
-                if self.local_labels is not None and self.local_labels.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1402,17 +1291,11 @@ class MplsStatic(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1432,30 +1315,15 @@ class MplsStatic(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.local_labels is not None and self.local_labels._has_data():
-            return True
-
-        if self.local_labels is not None and self.local_labels.is_presence():
             return True
 
         if self.summary is not None and self.summary._has_data():
             return True
 
-        if self.summary is not None and self.summary.is_presence():
-            return True
-
         if self.vrfs is not None and self.vrfs._has_data():
             return True
 
-        if self.vrfs is not None and self.vrfs.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

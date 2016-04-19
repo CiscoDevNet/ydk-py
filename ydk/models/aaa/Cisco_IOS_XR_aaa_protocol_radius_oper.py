@@ -367,8 +367,6 @@ class Radius(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.acct_incorrect_responses is not None:
                                 return True
 
@@ -419,10 +417,6 @@ class Radius(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
@@ -442,12 +436,7 @@ class Radius(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.accounting is not None and self.accounting._has_data():
-                            return True
-
-                        if self.accounting is not None and self.accounting.is_presence():
                             return True
 
                         if self.family is not None:
@@ -462,10 +451,6 @@ class Radius(object):
                         if self.server_address is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -487,17 +472,11 @@ class Radius(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.accounting_group is not None:
                         for child_ref in self.accounting_group:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -751,8 +730,6 @@ class Radius(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.access_accepts is not None:
                                 return True
 
@@ -809,10 +786,6 @@ class Radius(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
@@ -832,12 +805,7 @@ class Radius(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.authentication is not None and self.authentication._has_data():
-                            return True
-
-                        if self.authentication is not None and self.authentication.is_presence():
                             return True
 
                         if self.family is not None:
@@ -852,10 +820,6 @@ class Radius(object):
                         if self.server_address is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -877,17 +841,11 @@ class Radius(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.authentication_group is not None:
                         for child_ref in self.authentication_group:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -946,8 +904,6 @@ class Radius(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.authentication_nas_id is not None:
                         return True
 
@@ -957,10 +913,6 @@ class Radius(object):
                     if self.unknown_authentication_responses is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1107,18 +1059,12 @@ class Radius(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.is_computed is not None:
                                     return True
 
                                 if self.value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1169,18 +1115,12 @@ class Radius(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.is_computed is not None:
                                     return True
 
                                 if self.value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1202,8 +1142,6 @@ class Radius(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.acct_port_number is not None:
                                 return True
 
@@ -1216,19 +1154,9 @@ class Radius(object):
                             if self.time is not None and self.time._has_data():
                                 return True
 
-                            if self.time is not None and self.time.is_presence():
-                                return True
-
                             if self.tries is not None and self.tries._has_data():
                                 return True
 
-                            if self.tries is not None and self.tries.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1250,17 +1178,11 @@ class Radius(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.host is not None:
                             for child_ref in self.host:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1282,18 +1204,9 @@ class Radius(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.hosts is not None and self.hosts._has_data():
                         return True
 
-                    if self.hosts is not None and self.hosts.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1346,18 +1259,12 @@ class Radius(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.disconnected_invalid_requests is not None:
                         return True
 
                     if self.invalid_coa_requests is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1684,8 +1591,6 @@ class Radius(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.acct_incorrect_responses is not None:
                                     return True
 
@@ -1734,10 +1639,6 @@ class Radius(object):
                                 if self.unknown_packet_types is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1918,8 +1819,6 @@ class Radius(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.access_accepts is not None:
                                     return True
 
@@ -1974,10 +1873,6 @@ class Radius(object):
                                 if self.unknown_access_types is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2078,8 +1973,6 @@ class Radius(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.author_incorrect_responses is not None:
                                     return True
 
@@ -2106,10 +1999,6 @@ class Radius(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
@@ -2129,12 +2018,7 @@ class Radius(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.accounting is not None and self.accounting._has_data():
-                                return True
-
-                            if self.accounting is not None and self.accounting.is_presence():
                                 return True
 
                             if self.accounting_port is not None:
@@ -2143,16 +2027,10 @@ class Radius(object):
                             if self.authentication is not None and self.authentication._has_data():
                                 return True
 
-                            if self.authentication is not None and self.authentication.is_presence():
-                                return True
-
                             if self.authentication_port is not None:
                                 return True
 
                             if self.authorization is not None and self.authorization._has_data():
-                                return True
-
-                            if self.authorization is not None and self.authorization.is_presence():
                                 return True
 
                             if self.family is not None:
@@ -2167,10 +2045,6 @@ class Radius(object):
                             if self.server_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2194,8 +2068,6 @@ class Radius(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.server_group_name is not None:
                             return True
 
@@ -2218,10 +2090,6 @@ class Radius(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
@@ -2241,17 +2109,11 @@ class Radius(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.server_group is not None:
                         for child_ref in self.server_group:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2273,51 +2135,27 @@ class Radius(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.accounting is not None and self.accounting._has_data():
                     return True
 
-                if self.accounting is not None and self.accounting.is_presence():
-                    return True
-
                 if self.authentication is not None and self.authentication._has_data():
-                    return True
-
-                if self.authentication is not None and self.authentication.is_presence():
                     return True
 
                 if self.client is not None and self.client._has_data():
                     return True
 
-                if self.client is not None and self.client.is_presence():
-                    return True
-
                 if self.dead_criteria is not None and self.dead_criteria._has_data():
-                    return True
-
-                if self.dead_criteria is not None and self.dead_criteria.is_presence():
                     return True
 
                 if self.dynamic_authorization is not None and self.dynamic_authorization._has_data():
                     return True
 
-                if self.dynamic_authorization is not None and self.dynamic_authorization.is_presence():
-                    return True
-
                 if self.server_groups is not None and self.server_groups._has_data():
                     return True
 
-                if self.server_groups is not None and self.server_groups.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2337,17 +2175,11 @@ class Radius(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2367,18 +2199,9 @@ class Radius(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'HwModuleSliceStatus_Enum' : _MetaInfoEnum('HwModuleSliceStatus_Enum', 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper',
+    'HwModuleSliceStatusEnum' : _MetaInfoEnum('HwModuleSliceStatusEnum', 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper',
         {
             'not-provisioned':'NOT_PROVISIONED',
             'provisioning-in-progress':'PROVISIONING_IN_PROGRESS',
@@ -90,7 +90,7 @@ _meta_table = {
                 ''',
                 'dp_fpg_ver',
                 'Cisco-IOS-XR-ncs1k-mxp-oper', False),
-            _MetaInfoClassMember('hardware-status', REFERENCE_ENUM_CLASS, 'HwModuleSliceStatus_Enum' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper', 'HwModuleSliceStatus_Enum', 
+            _MetaInfoClassMember('hardware-status', REFERENCE_ENUM_CLASS, 'HwModuleSliceStatusEnum' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper', 'HwModuleSliceStatusEnum', 
                 [], [], 
                 '''                HardwareStatus
                 ''',
@@ -200,7 +200,7 @@ _meta_table = {
                 ''',
                 'dp_fpg_ver',
                 'Cisco-IOS-XR-ncs1k-mxp-oper', False),
-            _MetaInfoClassMember('hardware-status', REFERENCE_ENUM_CLASS, 'HwModuleSliceStatus_Enum' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper', 'HwModuleSliceStatus_Enum', 
+            _MetaInfoClassMember('hardware-status', REFERENCE_ENUM_CLASS, 'HwModuleSliceStatusEnum' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_oper', 'HwModuleSliceStatusEnum', 
                 [], [], 
                 '''                HardwareStatus
                 ''',

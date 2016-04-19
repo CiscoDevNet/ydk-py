@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -25,7 +25,7 @@ _meta_table = {
         'ydk.models.ietf.ietf_interfaces'
         ),
     },
-    'Interfaces.Interface.LinkUpDownTrapEnable_Enum' : _MetaInfoEnum('LinkUpDownTrapEnable_Enum', 'ydk.models.ietf.ietf_interfaces',
+    'Interfaces.Interface.LinkUpDownTrapEnableEnum' : _MetaInfoEnum('LinkUpDownTrapEnableEnum', 'ydk.models.ietf.ietf_interfaces',
         {
             'enabled':'ENABLED',
             'disabled':'DISABLED',
@@ -116,7 +116,7 @@ _meta_table = {
                 ''',
                 'enabled',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('link-up-down-trap-enable', REFERENCE_ENUM_CLASS, 'LinkUpDownTrapEnable_Enum' , 'ydk.models.ietf.ietf_interfaces', 'Interfaces.Interface.LinkUpDownTrapEnable_Enum', 
+            _MetaInfoClassMember('link-up-down-trap-enable', REFERENCE_ENUM_CLASS, 'LinkUpDownTrapEnableEnum' , 'ydk.models.ietf.ietf_interfaces', 'Interfaces.Interface.LinkUpDownTrapEnableEnum', 
                 [], [], 
                 '''                Controls whether linkUp/linkDown SNMP notifications
                 should be generated for this interface.
@@ -430,13 +430,13 @@ _meta_table = {
         'ydk.models.ietf.ietf_interfaces'
         ),
     },
-    'InterfacesState.Interface.AdminStatus_Enum' : _MetaInfoEnum('AdminStatus_Enum', 'ydk.models.ietf.ietf_interfaces',
+    'InterfacesState.Interface.AdminStatusEnum' : _MetaInfoEnum('AdminStatusEnum', 'ydk.models.ietf.ietf_interfaces',
         {
             'up':'UP',
             'down':'DOWN',
             'testing':'TESTING',
         }, 'ietf-interfaces', _yang_ns._namespaces['ietf-interfaces']),
-    'InterfacesState.Interface.OperStatus_Enum' : _MetaInfoEnum('OperStatus_Enum', 'ydk.models.ietf.ietf_interfaces',
+    'InterfacesState.Interface.OperStatusEnum' : _MetaInfoEnum('OperStatusEnum', 'ydk.models.ietf.ietf_interfaces',
         {
             'up':'UP',
             'down':'DOWN',
@@ -462,7 +462,7 @@ _meta_table = {
                 ''',
                 'name',
                 'ietf-interfaces', True),
-            _MetaInfoClassMember('admin-status', REFERENCE_ENUM_CLASS, 'AdminStatus_Enum' , 'ydk.models.ietf.ietf_interfaces', 'InterfacesState.Interface.AdminStatus_Enum', 
+            _MetaInfoClassMember('admin-status', REFERENCE_ENUM_CLASS, 'AdminStatusEnum' , 'ydk.models.ietf.ietf_interfaces', 'InterfacesState.Interface.AdminStatusEnum', 
                 [], [], 
                 '''                The desired state of the interface.
                 
@@ -506,7 +506,7 @@ _meta_table = {
                 ''',
                 'lower_layer_if',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('oper-status', REFERENCE_ENUM_CLASS, 'OperStatus_Enum' , 'ydk.models.ietf.ietf_interfaces', 'InterfacesState.Interface.OperStatus_Enum', 
+            _MetaInfoClassMember('oper-status', REFERENCE_ENUM_CLASS, 'OperStatusEnum' , 'ydk.models.ietf.ietf_interfaces', 'InterfacesState.Interface.OperStatusEnum', 
                 [], [], 
                 '''                The current operational state of the interface.
                 

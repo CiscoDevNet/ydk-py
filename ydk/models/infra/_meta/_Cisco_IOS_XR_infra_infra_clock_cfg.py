@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'ClockMonth_Enum' : _MetaInfoEnum('ClockMonth_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg',
+    'ClockMonthEnum' : _MetaInfoEnum('ClockMonthEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg',
         {
             'january':'JANUARY',
             'february':'FEBRUARY',
@@ -29,7 +29,7 @@ _meta_table = {
             'november':'NOVEMBER',
             'december':'DECEMBER',
         }, 'Cisco-IOS-XR-infra-infra-clock-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-infra-clock-cfg']),
-    'ClockSummerTimeMode_Enum' : _MetaInfoEnum('ClockSummerTimeMode_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg',
+    'ClockSummerTimeModeEnum' : _MetaInfoEnum('ClockSummerTimeModeEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg',
         {
             'recurring':'RECURRING',
             'date':'DATE',
@@ -50,7 +50,7 @@ _meta_table = {
                 ''',
                 'end_minute',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
-            _MetaInfoClassMember('end-month', REFERENCE_ENUM_CLASS, 'ClockMonth_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg', 'ClockMonth_Enum', 
+            _MetaInfoClassMember('end-month', REFERENCE_ENUM_CLASS, 'ClockMonthEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg', 'ClockMonthEnum', 
                 [], [], 
                 '''                 Month to end 
                 ''',
@@ -73,7 +73,7 @@ _meta_table = {
                 ''',
                 'end_weekday_or_end_year',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'ClockSummerTimeMode_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg', 'ClockSummerTimeMode_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'ClockSummerTimeModeEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg', 'ClockSummerTimeModeEnum', 
                 [], [], 
                 '''                Summer time mode
                 ''',
@@ -97,7 +97,7 @@ _meta_table = {
                 ''',
                 'start_minute',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
-            _MetaInfoClassMember('start-month', REFERENCE_ENUM_CLASS, 'ClockMonth_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg', 'ClockMonth_Enum', 
+            _MetaInfoClassMember('start-month', REFERENCE_ENUM_CLASS, 'ClockMonthEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_infra_clock_cfg', 'ClockMonthEnum', 
                 [], [], 
                 '''                 Month to start 
                 ''',

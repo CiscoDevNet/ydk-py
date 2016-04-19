@@ -16,99 +16,100 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class MplsLabel_Enum(Enum):
+class MplsLabelEnum(Enum):
     """
-    MplsLabel_Enum
+    MplsLabelEnum
 
     type for MPLS label value encoding
 
-    """
+    .. data:: IPV4_EXPLICIT_NULL = 0
+
+    	valid at the bottom of the label stack,
+
+    	indicates that stack must be popped and packet forwarded
+
+    	based on IPv4 header
+
+    .. data:: ROUTER_ALERT = 1
+
+    	allowed anywhere in the label stack except
+
+    	the bottom, local router delivers packet to the local CPU
+
+    	when this label is at the top of the stack
+
+    .. data:: IPV6_EXPLICIT_NULL = 2
+
+    	valid at the bottom of the label stack,
+
+    	indicates that stack must be popped and packet forwarded
+
+    	based on IPv6 header
+
+    .. data:: IMPLICIT_NULL = 3
+
+    	assigned by local LSR but not carried in
+
+    	packets
+
+    .. data:: ENTROPY_LABEL_INDICATOR = 7
+
+    	Entropy label indicator, to allow an LSR
+
+    	to distinguish between entropy label and applicaiton
+
+    	labels RFC 6790
 
     """
 
-    valid at the bottom of the label stack,
-    indicates that stack must be popped and packet forwarded
-    based on IPv4 header
-
-    """
     IPV4_EXPLICIT_NULL = 0
 
-    """
-
-    allowed anywhere in the label stack except
-    the bottom, local router delivers packet to the local CPU
-    when this label is at the top of the stack
-
-    """
     ROUTER_ALERT = 1
 
-    """
-
-    valid at the bottom of the label stack,
-    indicates that stack must be popped and packet forwarded
-    based on IPv6 header
-
-    """
     IPV6_EXPLICIT_NULL = 2
 
-    """
-
-    assigned by local LSR but not carried in
-    packets
-
-    """
     IMPLICIT_NULL = 3
 
-    """
-
-    Entropy label indicator, to allow an LSR
-    to distinguish between entropy label and applicaiton
-    labels RFC 6790
-
-    """
     ENTROPY_LABEL_INDICATOR = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['MplsLabel_Enum']
+        return meta._meta_table['MplsLabelEnum']
 
 
-class TunnelType_Enum(Enum):
+class TunnelTypeEnum(Enum):
     """
-    TunnelType_Enum
+    TunnelTypeEnum
 
     defines the tunnel type for the LSP
 
-    """
+    .. data:: P2P = 0
+
+    	point-to-point label-switched-path
+
+    .. data:: P2MP = 1
+
+    	point-to-multipoint label-switched-path
+
+    .. data:: MP2MP = 2
+
+    	multipoint-to-multipoint label-switched-path
 
     """
 
-    point\-to\-point label\-switched\-path
-
-    """
     P2P = 0
 
-    """
-
-    point\-to\-multipoint label\-switched\-path
-
-    """
     P2MP = 1
 
-    """
-
-    multipoint\-to\-multipoint label\-switched\-path
-
-    """
     MP2MP = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['TunnelType_Enum']
+        return meta._meta_table['TunnelTypeEnum']
 
 
 
@@ -256,7 +257,7 @@ class TunnelType_Identity(object):
         return meta._meta_table['TunnelType_Identity']['meta_info']
 
 
-class ADMIN_DOWN_Identity(TunnelAdminStatus_Identity):
+class Admin_Down_Identity(TunnelAdminStatus_Identity):
     """
     LSP is administratively down
     
@@ -269,15 +270,14 @@ class ADMIN_DOWN_Identity(TunnelAdminStatus_Identity):
 
     def __init__(self):
         TunnelAdminStatus_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['ADMIN_DOWN_Identity']['meta_info']
+        return meta._meta_table['Admin_Down_Identity']['meta_info']
 
 
-class ADMIN_UP_Identity(TunnelAdminStatus_Identity):
+class Admin_Up_Identity(TunnelAdminStatus_Identity):
     """
     LSP is administratively up
     
@@ -290,15 +290,14 @@ class ADMIN_UP_Identity(TunnelAdminStatus_Identity):
 
     def __init__(self):
         TunnelAdminStatus_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['ADMIN_UP_Identity']['meta_info']
+        return meta._meta_table['Admin_Up_Identity']['meta_info']
 
 
-class DOWN_Identity(LspOperStatus_Identity):
+class Down_Identity(LspOperStatus_Identity):
     """
     LSP is operationally down or out of service
     
@@ -311,15 +310,14 @@ class DOWN_Identity(LspOperStatus_Identity):
 
     def __init__(self):
         LspOperStatus_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['DOWN_Identity']['meta_info']
+        return meta._meta_table['Down_Identity']['meta_info']
 
 
-class EGRESS_Identity(LspRole_Identity):
+class Egress_Identity(LspRole_Identity):
     """
     Label switched path is an egress (tailend)
     LSP
@@ -333,15 +331,14 @@ class EGRESS_Identity(LspRole_Identity):
 
     def __init__(self):
         LspRole_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['EGRESS_Identity']['meta_info']
+        return meta._meta_table['Egress_Identity']['meta_info']
 
 
-class EXPLICIT_Identity(NullLabelType_Identity):
+class Explicit_Identity(NullLabelType_Identity):
     """
     Explicit null label is used.
     
@@ -354,15 +351,14 @@ class EXPLICIT_Identity(NullLabelType_Identity):
 
     def __init__(self):
         NullLabelType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['EXPLICIT_Identity']['meta_info']
+        return meta._meta_table['Explicit_Identity']['meta_info']
 
 
-class IMPLICIT_Identity(NullLabelType_Identity):
+class Implicit_Identity(NullLabelType_Identity):
     """
     Implicit null label is used.
     
@@ -375,15 +371,14 @@ class IMPLICIT_Identity(NullLabelType_Identity):
 
     def __init__(self):
         NullLabelType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['IMPLICIT_Identity']['meta_info']
+        return meta._meta_table['Implicit_Identity']['meta_info']
 
 
-class INGRESS_Identity(LspRole_Identity):
+class Ingress_Identity(LspRole_Identity):
     """
     Label switched path is an ingress (headend)
     LSP
@@ -397,12 +392,11 @@ class INGRESS_Identity(LspRole_Identity):
 
     def __init__(self):
         LspRole_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['INGRESS_Identity']['meta_info']
+        return meta._meta_table['Ingress_Identity']['meta_info']
 
 
 class LinkNodeProtectionRequested_Identity(ProtectionType_Identity):
@@ -418,7 +412,6 @@ class LinkNodeProtectionRequested_Identity(ProtectionType_Identity):
 
     def __init__(self):
         ProtectionType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -439,7 +432,6 @@ class LinkProtectionRequested_Identity(ProtectionType_Identity):
 
     def __init__(self):
         ProtectionType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -447,7 +439,7 @@ class LinkProtectionRequested_Identity(ProtectionType_Identity):
         return meta._meta_table['LinkProtectionRequested_Identity']['meta_info']
 
 
-class P2MP_Identity(TunnelType_Identity):
+class P2Mp_Identity(TunnelType_Identity):
     """
     TE point\-to\-multipoint tunnel type.
     
@@ -460,12 +452,11 @@ class P2MP_Identity(TunnelType_Identity):
 
     def __init__(self):
         TunnelType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['P2MP_Identity']['meta_info']
+        return meta._meta_table['P2Mp_Identity']['meta_info']
 
 
 class P2P_Identity(TunnelType_Identity):
@@ -481,7 +472,6 @@ class P2P_Identity(TunnelType_Identity):
 
     def __init__(self):
         TunnelType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -502,7 +492,6 @@ class PathSetupLdp_Identity(PathSetupProtocol_Identity):
 
     def __init__(self):
         PathSetupProtocol_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -523,7 +512,6 @@ class PathSetupRsvp_Identity(PathSetupProtocol_Identity):
 
     def __init__(self):
         PathSetupProtocol_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -544,7 +532,6 @@ class PathSetupSr_Identity(PathSetupProtocol_Identity):
 
     def __init__(self):
         PathSetupProtocol_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -552,7 +539,7 @@ class PathSetupSr_Identity(PathSetupProtocol_Identity):
         return meta._meta_table['PathSetupSr_Identity']['meta_info']
 
 
-class TRANSIT_Identity(LspRole_Identity):
+class Transit_Identity(LspRole_Identity):
     """
     Label switched path is a transit LSP
     
@@ -565,34 +552,11 @@ class TRANSIT_Identity(LspRole_Identity):
 
     def __init__(self):
         LspRole_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['TRANSIT_Identity']['meta_info']
-
-
-class UP_Identity(LspOperStatus_Identity):
-    """
-    LSP is operationally active and available
-    for traffic.
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        LspOperStatus_Identity.__init__(self)
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['UP_Identity']['meta_info']
+        return meta._meta_table['Transit_Identity']['meta_info']
 
 
 class Unprotected_Identity(ProtectionType_Identity):
@@ -608,11 +572,31 @@ class Unprotected_Identity(ProtectionType_Identity):
 
     def __init__(self):
         ProtectionType_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
         return meta._meta_table['Unprotected_Identity']['meta_info']
+
+
+class Up_Identity(LspOperStatus_Identity):
+    """
+    LSP is operationally active and available
+    for traffic.
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        LspOperStatus_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
+        return meta._meta_table['Up_Identity']['meta_info']
 
 

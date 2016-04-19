@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'ImStateEnum_Enum' : _MetaInfoEnum('ImStateEnum_Enum', 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper',
+    'ImStateEnumEnum' : _MetaInfoEnum('ImStateEnumEnum', 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper',
         {
             'im-state-not-ready':'IM_STATE_NOT_READY',
             'im-state-admin-down':'IM_STATE_ADMIN_DOWN',
@@ -64,7 +64,7 @@ _meta_table = {
                 ''',
                 'seconds_remaining',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Underlying state of the node
                 ''',
@@ -128,7 +128,7 @@ _meta_table = {
                 ''',
                 'seconds_remaining',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Underlying state of the node
                 ''',
@@ -281,7 +281,7 @@ _meta_table = {
                 ''',
                 'seconds_remaining',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Underlying state of the node
                 ''',
@@ -345,7 +345,7 @@ _meta_table = {
                 ''',
                 'seconds_remaining',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Underlying state of the node
                 ''',
@@ -480,7 +480,7 @@ _meta_table = {
                 ''',
                 'seconds_remaining',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Underlying state of the node
                 ''',
@@ -544,7 +544,7 @@ _meta_table = {
                 ''',
                 'seconds_remaining',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Underlying state of the node
                 ''',
@@ -768,14 +768,14 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ifmgr-oper', True),
-            _MetaInfoClassMember('actual-line-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('actual-line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Line protocol state with no translation of error
                 disable or shutdown
                 ''',
                 'actual_line_state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('actual-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('actual-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Operational state with no translation of error
                 disable or shutdown
@@ -812,7 +812,7 @@ _meta_table = {
                 ''',
                 'l2_transport',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Line protocol state
                 ''',
@@ -830,7 +830,7 @@ _meta_table = {
                 ''',
                 'parent_interface',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Operational state
                 ''',
@@ -925,14 +925,14 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ifmgr-oper', True),
-            _MetaInfoClassMember('actual-line-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('actual-line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Line protocol state with no translation of error
                 disable or shutdown
                 ''',
                 'actual_line_state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('actual-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('actual-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Operational state with no translation of error
                 disable or shutdown
@@ -969,7 +969,7 @@ _meta_table = {
                 ''',
                 'l2_transport',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Line protocol state
                 ''',
@@ -987,7 +987,7 @@ _meta_table = {
                 ''',
                 'parent_interface',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Operational state
                 ''',
@@ -1083,14 +1083,14 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ifmgr-oper', True),
-            _MetaInfoClassMember('actual-line-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('actual-line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Line protocol state with no translation of error
                 disable or shutdown
                 ''',
                 'actual_line_state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('actual-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('actual-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Operational state with no translation of error
                 disable or shutdown
@@ -1127,7 +1127,7 @@ _meta_table = {
                 ''',
                 'l2_transport',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Line protocol state
                 ''',
@@ -1145,7 +1145,7 @@ _meta_table = {
                 ''',
                 'parent_interface',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Operational state
                 ''',

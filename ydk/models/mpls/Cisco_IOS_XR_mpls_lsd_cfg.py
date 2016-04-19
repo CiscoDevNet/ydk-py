@@ -24,42 +24,41 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class MplsIpTtlPropagateDisable_Enum(Enum):
+class MplsIpTtlPropagateDisableEnum(Enum):
     """
-    MplsIpTtlPropagateDisable_Enum
+    MplsIpTtlPropagateDisableEnum
 
     Mpls ip ttl propagate disable
 
-    """
+    .. data:: ALL = 0
+
+    	Disable IP TTL propagation for all MPLS packets
+
+    .. data:: FORWARD = 1
+
+    	Disable IP TTL propagation for only forwarded
+
+    	MPLS packets
+
+    .. data:: LOCAL = 2
+
+    	Disable IP TTL propagation for only locally
+
+    	generated MPLS packets
 
     """
 
-    Disable IP TTL propagation for all MPLS packets
-
-    """
     ALL = 0
 
-    """
-
-    Disable IP TTL propagation for only forwarded
-    MPLS packets
-
-    """
     FORWARD = 1
 
-    """
-
-    Disable IP TTL propagation for only locally
-    generated MPLS packets
-
-    """
     LOCAL = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_lsd_cfg as meta
-        return meta._meta_table['MplsIpTtlPropagateDisable_Enum']
+        return meta._meta_table['MplsIpTtlPropagateDisableEnum']
 
 
 
@@ -92,7 +91,7 @@ class MplsLsd(object):
     .. attribute:: mpls_ip_ttl_propagate_disable
     
     	Disable Propagation of IP TTL onto the label stack
-    	**type**\: :py:class:`MplsIpTtlPropagateDisable_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_lsd_cfg.MplsIpTtlPropagateDisable_Enum>`
+    	**type**\: :py:class:`MplsIpTtlPropagateDisableEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_lsd_cfg.MplsIpTtlPropagateDisableEnum>`
     
     
 
@@ -223,8 +222,6 @@ class MplsLsd(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.max_static_value is not None:
                         return True
 
@@ -237,10 +234,6 @@ class MplsLsd(object):
                     if self.minvalue is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -262,21 +255,12 @@ class MplsLsd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.label_database_id is not None:
                     return True
 
                 if self.label_range is not None and self.label_range._has_data():
                     return True
 
-                if self.label_range is not None and self.label_range.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -296,17 +280,11 @@ class MplsLsd(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.label_database is not None:
                 for child_ref in self.label_database:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -326,15 +304,10 @@ class MplsLsd(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.app_reg_delay_disable is not None:
             return True
 
         if self.label_databases is not None and self.label_databases._has_data():
-            return True
-
-        if self.label_databases is not None and self.label_databases.is_presence():
             return True
 
         if self.mpls_entropy_label is not None:
@@ -346,10 +319,6 @@ class MplsLsd(object):
         if self.mpls_ip_ttl_propagate_disable is not None:
             return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

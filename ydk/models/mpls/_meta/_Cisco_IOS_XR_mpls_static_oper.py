@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'MgmtMplsStaticLabelStatus_Enum' : _MetaInfoEnum('MgmtMplsStaticLabelStatus_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper',
+    'MgmtMplsStaticLabelStatusEnum' : _MetaInfoEnum('MgmtMplsStaticLabelStatusEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper',
         {
             'not-created':'NOT_CREATED',
             'vrf-down':'VRF_DOWN',
@@ -30,23 +30,23 @@ _meta_table = {
             'rewrite-discrepancy':'REWRITE_DISCREPANCY',
             'label-status-unknown':'LABEL_STATUS_UNKNOWN',
         }, 'Cisco-IOS-XR-mpls-static-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-oper']),
-    'MgmtStaticPath_Enum' : _MetaInfoEnum('MgmtStaticPath_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper',
+    'MgmtStaticPathEnum' : _MetaInfoEnum('MgmtStaticPathEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper',
         {
             'cross-connect-path':'CROSS_CONNECT_PATH',
             'pop-lookup-path':'POP_LOOKUP_PATH',
         }, 'Cisco-IOS-XR-mpls-static-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-oper']),
-    'MgmtStaticNhLbl_Enum' : _MetaInfoEnum('MgmtStaticNhLbl_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper',
+    'MgmtStaticNhLblEnum' : _MetaInfoEnum('MgmtStaticNhLblEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper',
         {
             'out-label':'OUT_LABEL',
             'out-pop':'OUT_POP',
             'out-explicit-null':'OUT_EXPLICIT_NULL',
         }, 'Cisco-IOS-XR-mpls-static-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-oper']),
-    'MgmtStaticAddr_Enum' : _MetaInfoEnum('MgmtStaticAddr_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper',
+    'MgmtStaticAddrEnum' : _MetaInfoEnum('MgmtStaticAddrEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper',
         {
             'ipv4':'IPV4',
             'ipv6':'IPV6',
         }, 'Cisco-IOS-XR-mpls-static-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-oper']),
-    'MgmtMplsStaticLabelMode_Enum' : _MetaInfoEnum('MgmtMplsStaticLabelMode_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper',
+    'MgmtMplsStaticLabelModeEnum' : _MetaInfoEnum('MgmtMplsStaticLabelModeEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper',
         {
             'none':'NONE',
             'per-prefix':'PER_PREFIX',
@@ -81,7 +81,7 @@ _meta_table = {
                 ''',
                 'next_hop_label',
                 'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('next-hop-label-type', REFERENCE_ENUM_CLASS, 'MgmtStaticNhLbl_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticNhLbl_Enum', 
+            _MetaInfoClassMember('next-hop-label-type', REFERENCE_ENUM_CLASS, 'MgmtStaticNhLblEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticNhLblEnum', 
                 [], [], 
                 '''                Next-Hop Label Type
                 ''',
@@ -93,7 +93,7 @@ _meta_table = {
                 ''',
                 'path',
                 'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'MgmtStaticPath_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticPath_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'MgmtStaticPathEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticPathEnum', 
                 [], [], 
                 '''                Path Type
                 ''',
@@ -110,7 +110,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MgmtStaticAddr_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MgmtStaticAddrEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddrEnum', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -174,13 +174,13 @@ _meta_table = {
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('label-mode', REFERENCE_ENUM_CLASS, 'MgmtMplsStaticLabelMode_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticLabelMode_Enum', 
+            _MetaInfoClassMember('label-mode', REFERENCE_ENUM_CLASS, 'MgmtMplsStaticLabelModeEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticLabelModeEnum', 
                 [], [], 
                 '''                Label Mode
                 ''',
                 'label_mode',
                 'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('label-status', REFERENCE_ENUM_CLASS, 'MgmtMplsStaticLabelStatus_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticLabelStatus_Enum', 
+            _MetaInfoClassMember('label-status', REFERENCE_ENUM_CLASS, 'MgmtMplsStaticLabelStatusEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticLabelStatusEnum', 
                 [], [], 
                 '''                Label Status
                 ''',
@@ -333,7 +333,7 @@ _meta_table = {
                 ''',
                 'next_hop_label',
                 'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('next-hop-label-type', REFERENCE_ENUM_CLASS, 'MgmtStaticNhLbl_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticNhLbl_Enum', 
+            _MetaInfoClassMember('next-hop-label-type', REFERENCE_ENUM_CLASS, 'MgmtStaticNhLblEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticNhLblEnum', 
                 [], [], 
                 '''                Next-Hop Label Type
                 ''',
@@ -345,7 +345,7 @@ _meta_table = {
                 ''',
                 'path',
                 'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'MgmtStaticPath_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticPath_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'MgmtStaticPathEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticPathEnum', 
                 [], [], 
                 '''                Path Type
                 ''',
@@ -362,7 +362,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MgmtStaticAddr_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MgmtStaticAddrEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddrEnum', 
                 [], [], 
                 '''                AFName
                 ''',
@@ -426,13 +426,13 @@ _meta_table = {
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('label-mode', REFERENCE_ENUM_CLASS, 'MgmtMplsStaticLabelMode_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticLabelMode_Enum', 
+            _MetaInfoClassMember('label-mode', REFERENCE_ENUM_CLASS, 'MgmtMplsStaticLabelModeEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticLabelModeEnum', 
                 [], [], 
                 '''                Label Mode
                 ''',
                 'label_mode',
                 'Cisco-IOS-XR-mpls-static-oper', False),
-            _MetaInfoClassMember('label-status', REFERENCE_ENUM_CLASS, 'MgmtMplsStaticLabelStatus_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticLabelStatus_Enum', 
+            _MetaInfoClassMember('label-status', REFERENCE_ENUM_CLASS, 'MgmtMplsStaticLabelStatusEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticLabelStatusEnum', 
                 [], [], 
                 '''                Label Status
                 ''',

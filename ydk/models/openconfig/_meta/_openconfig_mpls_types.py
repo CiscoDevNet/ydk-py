@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,13 +14,13 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'TunnelType_Enum' : _MetaInfoEnum('TunnelType_Enum', 'ydk.models.openconfig.openconfig_mpls_types',
+    'TunnelTypeEnum' : _MetaInfoEnum('TunnelTypeEnum', 'ydk.models.openconfig.openconfig_mpls_types',
         {
             'P2P':'P2P',
             'P2MP':'P2MP',
             'MP2MP':'MP2MP',
         }, 'openconfig-mpls-types', _yang_ns._namespaces['openconfig-mpls-types']),
-    'MplsLabel_Enum' : _MetaInfoEnum('MplsLabel_Enum', 'ydk.models.openconfig.openconfig_mpls_types',
+    'MplsLabelEnum' : _MetaInfoEnum('MplsLabelEnum', 'ydk.models.openconfig.openconfig_mpls_types',
         {
             'IPV4_EXPLICIT_NULL':'IPV4_EXPLICIT_NULL',
             'ROUTER_ALERT':'ROUTER_ALERT',
@@ -105,8 +105,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'ADMIN_DOWN_Identity' : {
-        'meta_info' : _MetaInfoClass('ADMIN_DOWN_Identity',
+    'Admin_Down_Identity' : {
+        'meta_info' : _MetaInfoClass('Admin_Down_Identity',
             False, 
             [
             ],
@@ -116,8 +116,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'ADMIN_UP_Identity' : {
-        'meta_info' : _MetaInfoClass('ADMIN_UP_Identity',
+    'Admin_Up_Identity' : {
+        'meta_info' : _MetaInfoClass('Admin_Up_Identity',
             False, 
             [
             ],
@@ -127,8 +127,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'DOWN_Identity' : {
-        'meta_info' : _MetaInfoClass('DOWN_Identity',
+    'Down_Identity' : {
+        'meta_info' : _MetaInfoClass('Down_Identity',
             False, 
             [
             ],
@@ -138,8 +138,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'EGRESS_Identity' : {
-        'meta_info' : _MetaInfoClass('EGRESS_Identity',
+    'Egress_Identity' : {
+        'meta_info' : _MetaInfoClass('Egress_Identity',
             False, 
             [
             ],
@@ -149,8 +149,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'EXPLICIT_Identity' : {
-        'meta_info' : _MetaInfoClass('EXPLICIT_Identity',
+    'Explicit_Identity' : {
+        'meta_info' : _MetaInfoClass('Explicit_Identity',
             False, 
             [
             ],
@@ -160,8 +160,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'IMPLICIT_Identity' : {
-        'meta_info' : _MetaInfoClass('IMPLICIT_Identity',
+    'Implicit_Identity' : {
+        'meta_info' : _MetaInfoClass('Implicit_Identity',
             False, 
             [
             ],
@@ -171,8 +171,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'INGRESS_Identity' : {
-        'meta_info' : _MetaInfoClass('INGRESS_Identity',
+    'Ingress_Identity' : {
+        'meta_info' : _MetaInfoClass('Ingress_Identity',
             False, 
             [
             ],
@@ -204,8 +204,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'P2MP_Identity' : {
-        'meta_info' : _MetaInfoClass('P2MP_Identity',
+    'P2Mp_Identity' : {
+        'meta_info' : _MetaInfoClass('P2Mp_Identity',
             False, 
             [
             ],
@@ -259,24 +259,13 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
     },
-    'TRANSIT_Identity' : {
-        'meta_info' : _MetaInfoClass('TRANSIT_Identity',
+    'Transit_Identity' : {
+        'meta_info' : _MetaInfoClass('Transit_Identity',
             False, 
             [
             ],
             'openconfig-mpls-types',
             'TRANSIT',
-            _yang_ns._namespaces['openconfig-mpls-types'],
-        'ydk.models.openconfig.openconfig_mpls_types'
-        ),
-    },
-    'UP_Identity' : {
-        'meta_info' : _MetaInfoClass('UP_Identity',
-            False, 
-            [
-            ],
-            'openconfig-mpls-types',
-            'UP',
             _yang_ns._namespaces['openconfig-mpls-types'],
         'ydk.models.openconfig.openconfig_mpls_types'
         ),
@@ -288,6 +277,17 @@ _meta_table = {
             ],
             'openconfig-mpls-types',
             'unprotected',
+            _yang_ns._namespaces['openconfig-mpls-types'],
+        'ydk.models.openconfig.openconfig_mpls_types'
+        ),
+    },
+    'Up_Identity' : {
+        'meta_info' : _MetaInfoClass('Up_Identity',
+            False, 
+            [
+            ],
+            'openconfig-mpls-types',
+            'UP',
             _yang_ns._namespaces['openconfig-mpls-types'],
         'ydk.models.openconfig.openconfig_mpls_types'
         ),

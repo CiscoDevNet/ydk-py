@@ -20,41 +20,39 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class EncryptionType_Enum(Enum):
+class EncryptionTypeEnum(Enum):
     """
-    EncryptionType_Enum
+    EncryptionTypeEnum
 
     The type of encryption used on a password string.
 
-    """
+    .. data:: NONE = 0
+
+    	The password string is clear text.
+
+    .. data:: MD5 = 1
+
+    	The password is encrypted to an MD5 digest.
+
+    .. data:: PROPRIETARY = 2
+
+    	The password is encrypted using Cisco type 7 
+
+    	password encryption.
 
     """
 
-    The password string is clear text.
-
-    """
     NONE = 0
 
-    """
-
-    The password is encrypted to an MD5 digest.
-
-    """
     MD5 = 1
 
-    """
-
-    The password is encrypted using Cisco type 7 
-    password encryption.
-
-    """
     PROPRIETARY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.types._meta import _Cisco_IOS_XR_types as meta
-        return meta._meta_table['EncryptionType_Enum']
+        return meta._meta_table['EncryptionTypeEnum']
 
 
 

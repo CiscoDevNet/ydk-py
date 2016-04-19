@@ -54,10 +54,20 @@ class Clock(object):
         	Area File in zoneinfo package
         	**type**\: str
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: time_zone_name
         
         	Name of time zone
         	**type**\: str
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -85,8 +95,6 @@ class Clock(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.area_name is not None:
                 return True
 
@@ -94,10 +102,6 @@ class Clock(object):
                 return True
 
             return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
 
         @staticmethod
         def _meta_info():
@@ -116,18 +120,9 @@ class Clock(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.time_zone is not None and self.time_zone._has_data():
             return True
 
-        if self.time_zone is not None and self.time_zone.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

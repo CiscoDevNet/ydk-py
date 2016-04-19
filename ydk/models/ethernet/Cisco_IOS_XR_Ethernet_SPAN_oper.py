@@ -23,354 +23,315 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes import SpanSessionClass_Enum
+from ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes import SpanSessionClassEnum
 
-class DestinationClass_Enum(Enum):
+class DestinationClassEnum(Enum):
     """
-    DestinationClass_Enum
+    DestinationClassEnum
 
     Destination class
 
-    """
+    .. data:: INTERFACE_CLASS = 0
+
+    	Destination is an interface
+
+    .. data:: PSEUDOWIRE_CLASS = 1
+
+    	Destination is a pseudowire
+
+    .. data:: NEXT_HOP_IPV4_CLASS = 2
+
+    	Destination is a next-hop IPv4 address
+
+    .. data:: NEXT_HOP_IPV6_CLASS = 3
+
+    	Destination is a next-hop IPv6 address
+
+    .. data:: INVALID_CLASS = 255
+
+    	Destination is not specified
 
     """
 
-    Destination is an interface
-
-    """
     INTERFACE_CLASS = 0
 
-    """
-
-    Destination is a pseudowire
-
-    """
     PSEUDOWIRE_CLASS = 1
 
-    """
-
-    Destination is a next\-hop IPv4 address
-
-    """
     NEXT_HOP_IPV4_CLASS = 2
 
-    """
-
-    Destination is a next\-hop IPv6 address
-
-    """
     NEXT_HOP_IPV6_CLASS = 3
 
-    """
-
-    Destination is not specified
-
-    """
     INVALID_CLASS = 255
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-        return meta._meta_table['DestinationClass_Enum']
+        return meta._meta_table['DestinationClassEnum']
 
 
-class ImStateEnum_Enum(Enum):
+class ImStateEnumEnum(Enum):
     """
-    ImStateEnum_Enum
+    ImStateEnumEnum
 
     Im state enum
 
-    """
+    .. data:: IM_STATE_NOT_READY = 0
+
+    	im state not ready
+
+    .. data:: IM_STATE_ADMIN_DOWN = 1
+
+    	im state admin down
+
+    .. data:: IM_STATE_DOWN = 2
+
+    	im state down
+
+    .. data:: IM_STATE_UP = 3
+
+    	im state up
+
+    .. data:: IM_STATE_SHUTDOWN = 4
+
+    	im state shutdown
+
+    .. data:: IM_STATE_ERR_DISABLE = 5
+
+    	im state err disable
+
+    .. data:: IM_STATE_DOWN_IMMEDIATE = 6
+
+    	im state down immediate
+
+    .. data:: IM_STATE_DOWN_IMMEDIATE_ADMIN = 7
+
+    	im state down immediate admin
+
+    .. data:: IM_STATE_DOWN_GRACEFUL = 8
+
+    	im state down graceful
+
+    .. data:: IM_STATE_BEGIN_SHUTDOWN = 9
+
+    	im state begin shutdown
+
+    .. data:: IM_STATE_END_SHUTDOWN = 10
+
+    	im state end shutdown
+
+    .. data:: IM_STATE_BEGIN_ERROR_DISABLE = 11
+
+    	im state begin error disable
+
+    .. data:: IM_STATE_END_ERROR_DISABLE = 12
+
+    	im state end error disable
+
+    .. data:: IM_STATE_BEGIN_DOWN_GRACEFUL = 13
+
+    	im state begin down graceful
+
+    .. data:: IM_STATE_RESET = 14
+
+    	im state reset
+
+    .. data:: IM_STATE_OPERATIONAL = 15
+
+    	im state operational
+
+    .. data:: IM_STATE_NOT_OPERATIONAL = 16
+
+    	im state not operational
+
+    .. data:: IM_STATE_UNKNOWN = 17
+
+    	im state unknown
+
+    .. data:: IM_STATE_LAST = 18
+
+    	im state last
 
     """
 
-    im state not ready
-
-    """
     IM_STATE_NOT_READY = 0
 
-    """
-
-    im state admin down
-
-    """
     IM_STATE_ADMIN_DOWN = 1
 
-    """
-
-    im state down
-
-    """
     IM_STATE_DOWN = 2
 
-    """
-
-    im state up
-
-    """
     IM_STATE_UP = 3
 
-    """
-
-    im state shutdown
-
-    """
     IM_STATE_SHUTDOWN = 4
 
-    """
-
-    im state err disable
-
-    """
     IM_STATE_ERR_DISABLE = 5
 
-    """
-
-    im state down immediate
-
-    """
     IM_STATE_DOWN_IMMEDIATE = 6
 
-    """
-
-    im state down immediate admin
-
-    """
     IM_STATE_DOWN_IMMEDIATE_ADMIN = 7
 
-    """
-
-    im state down graceful
-
-    """
     IM_STATE_DOWN_GRACEFUL = 8
 
-    """
-
-    im state begin shutdown
-
-    """
     IM_STATE_BEGIN_SHUTDOWN = 9
 
-    """
-
-    im state end shutdown
-
-    """
     IM_STATE_END_SHUTDOWN = 10
 
-    """
-
-    im state begin error disable
-
-    """
     IM_STATE_BEGIN_ERROR_DISABLE = 11
 
-    """
-
-    im state end error disable
-
-    """
     IM_STATE_END_ERROR_DISABLE = 12
 
-    """
-
-    im state begin down graceful
-
-    """
     IM_STATE_BEGIN_DOWN_GRACEFUL = 13
 
-    """
-
-    im state reset
-
-    """
     IM_STATE_RESET = 14
 
-    """
-
-    im state operational
-
-    """
     IM_STATE_OPERATIONAL = 15
 
-    """
-
-    im state not operational
-
-    """
     IM_STATE_NOT_OPERATIONAL = 16
 
-    """
-
-    im state unknown
-
-    """
     IM_STATE_UNKNOWN = 17
 
-    """
-
-    im state last
-
-    """
     IM_STATE_LAST = 18
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-        return meta._meta_table['ImStateEnum_Enum']
+        return meta._meta_table['ImStateEnumEnum']
 
 
-class MirrorInterval_Enum(Enum):
+class MirrorIntervalEnum(Enum):
     """
-    MirrorInterval_Enum
+    MirrorIntervalEnum
 
     Monitor\-session mirror intervals
 
-    """
+    .. data:: MIRROR_INTERVAL_ALL = 0
+
+    	Mirror all packets
+
+    .. data:: MIRROR_INTERVAL512 = 1
+
+    	Mirror Interval 512
+
+    .. data:: MIRROR_INTERVAL1K = 2
+
+    	Mirror Interval 1K
+
+    .. data:: MIRROR_INTERVAL2K = 3
+
+    	Mirror Interval 2K
+
+    .. data:: MIRROR_INTERVAL4K = 4
+
+    	Mirror Interval 4K
+
+    .. data:: MIRROR_INTERVAL8K = 5
+
+    	Mirror Interval 8K
+
+    .. data:: MIRROR_INTERVAL16K = 6
+
+    	Mirror Interval 16K
 
     """
 
-    Mirror all packets
-
-    """
     MIRROR_INTERVAL_ALL = 0
 
-    """
-
-    Mirror Interval 512
-
-    """
     MIRROR_INTERVAL512 = 1
 
-    """
-
-    Mirror Interval 1K
-
-    """
     MIRROR_INTERVAL1K = 2
 
-    """
-
-    Mirror Interval 2K
-
-    """
     MIRROR_INTERVAL2K = 3
 
-    """
-
-    Mirror Interval 4K
-
-    """
     MIRROR_INTERVAL4K = 4
 
-    """
-
-    Mirror Interval 8K
-
-    """
     MIRROR_INTERVAL8K = 5
 
-    """
-
-    Mirror Interval 16K
-
-    """
     MIRROR_INTERVAL16K = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-        return meta._meta_table['MirrorInterval_Enum']
+        return meta._meta_table['MirrorIntervalEnum']
 
 
-class SessionClass_Enum(Enum):
+class SessionClassEnum(Enum):
     """
-    SessionClass_Enum
+    SessionClassEnum
 
     Session class
 
-    """
+    .. data:: ETHERNET_CLASS = 0
+
+    	Ethernet mirroring session
+
+    .. data:: IPV4_CLASS = 1
+
+    	IPv4 mirroring session
+
+    .. data:: IPV6_CLASS = 2
+
+    	IPv6 mirroring session
+
+    .. data:: INVALID_CLASS = 65535
+
+    	Invalid session class
 
     """
 
-    Ethernet mirroring session
-
-    """
     ETHERNET_CLASS = 0
 
-    """
-
-    IPv4 mirroring session
-
-    """
     IPV4_CLASS = 1
 
-    """
-
-    IPv6 mirroring session
-
-    """
     IPV6_CLASS = 2
 
-    """
-
-    Invalid session class
-
-    """
     INVALID_CLASS = 65535
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-        return meta._meta_table['SessionClass_Enum']
+        return meta._meta_table['SessionClassEnum']
 
 
-class TrafficDirection_Enum(Enum):
+class TrafficDirectionEnum(Enum):
     """
-    TrafficDirection_Enum
+    TrafficDirectionEnum
 
     Monitor\-session traffic directions
 
-    """
+    .. data:: INVALID = 0
+
+    	Invalid
+
+    .. data:: RX_ONLY = 1
+
+    	Received
+
+    .. data:: TX_ONLY = 2
+
+    	Transmitted
+
+    .. data:: BOTH = 3
+
+    	Both
 
     """
 
-    Invalid
-
-    """
     INVALID = 0
 
-    """
-
-    Received
-
-    """
     RX_ONLY = 1
 
-    """
-
-    Transmitted
-
-    """
     TX_ONLY = 2
 
-    """
-
-    Both
-
-    """
     BOTH = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-        return meta._meta_table['TrafficDirection_Enum']
+        return meta._meta_table['TrafficDirectionEnum']
 
 
 
@@ -510,7 +471,7 @@ class SpanMonitorSession(object):
                 .. attribute:: session_class
                 
                 	Session class
-                	**type**\: :py:class:`SessionClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass_Enum>`
+                	**type**\: :py:class:`SessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
                 
                 
 
@@ -542,7 +503,7 @@ class SpanMonitorSession(object):
                     .. attribute:: destination_class
                     
                     	DestinationClass
-                    	**type**\: :py:class:`DestinationClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass_Enum>`
+                    	**type**\: :py:class:`DestinationClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
                     
                     .. attribute:: interface_data
                     
@@ -604,7 +565,7 @@ class SpanMonitorSession(object):
                         .. attribute:: interface_state
                         
                         	Interface State
-                        	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnum_Enum>`
+                        	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnumEnum>`
                         
                         
 
@@ -632,18 +593,12 @@ class SpanMonitorSession(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface_name is not None:
                                 return True
 
                             if self.interface_state is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -700,8 +655,6 @@ class SpanMonitorSession(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address_is_reachable is not None:
                                 return True
 
@@ -711,10 +664,6 @@ class SpanMonitorSession(object):
                             if self.vrf_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -771,8 +720,6 @@ class SpanMonitorSession(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address_is_reachable is not None:
                                 return True
 
@@ -782,10 +729,6 @@ class SpanMonitorSession(object):
                             if self.vrf_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -834,18 +777,12 @@ class SpanMonitorSession(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.pseudowire_is_up is not None:
                                 return True
 
                             if self.pseudowire_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -867,15 +804,10 @@ class SpanMonitorSession(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.destination_class is not None:
                             return True
 
                         if self.interface_data is not None and self.interface_data._has_data():
-                            return True
-
-                        if self.interface_data is not None and self.interface_data.is_presence():
                             return True
 
                         if self.invalid_value is not None:
@@ -884,25 +816,12 @@ class SpanMonitorSession(object):
                         if self.next_hop_ipv4_data is not None and self.next_hop_ipv4_data._has_data():
                             return True
 
-                        if self.next_hop_ipv4_data is not None and self.next_hop_ipv4_data.is_presence():
-                            return True
-
                         if self.next_hop_ipv6_data is not None and self.next_hop_ipv6_data._has_data():
-                            return True
-
-                        if self.next_hop_ipv6_data is not None and self.next_hop_ipv6_data.is_presence():
                             return True
 
                         if self.pseudowire_data is not None and self.pseudowire_data._has_data():
                             return True
 
-                        if self.pseudowire_data is not None and self.pseudowire_data.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -918,7 +837,7 @@ class SpanMonitorSession(object):
                     .. attribute:: destination_class
                     
                     	DestinationClass
-                    	**type**\: :py:class:`DestinationClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass_Enum>`
+                    	**type**\: :py:class:`DestinationClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
                     
                     .. attribute:: interface
                     
@@ -1012,18 +931,12 @@ class SpanMonitorSession(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ipv4_address is not None:
                                 return True
 
                             if self.vrf_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1074,18 +987,12 @@ class SpanMonitorSession(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ipv6_address is not None:
                                 return True
 
                             if self.vrf_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1107,8 +1014,6 @@ class SpanMonitorSession(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.destination_class is not None:
                             return True
 
@@ -1121,22 +1026,12 @@ class SpanMonitorSession(object):
                         if self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf._has_data():
                             return True
 
-                        if self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf.is_presence():
-                            return True
-
                         if self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf._has_data():
-                            return True
-
-                        if self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf.is_presence():
                             return True
 
                         if self.pseudowire_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1158,24 +1053,16 @@ class SpanMonitorSession(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.session is not None:
                         return True
 
                     if self.destination_data is not None and self.destination_data._has_data():
                         return True
 
-                    if self.destination_data is not None and self.destination_data.is_presence():
-                        return True
-
                     if self.destination_error is not None:
                         return True
 
                     if self.destination_id is not None and self.destination_id._has_data():
-                        return True
-
-                    if self.destination_id is not None and self.destination_id.is_presence():
                         return True
 
                     if self.destination_interface_handle is not None:
@@ -1198,10 +1085,6 @@ class SpanMonitorSession(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ethernet._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
@@ -1219,17 +1102,11 @@ class SpanMonitorSession(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.global_session is not None:
                     for child_ref in self.global_session:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1249,18 +1126,9 @@ class SpanMonitorSession(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.global_sessions is not None and self.global_sessions._has_data():
                 return True
 
-            if self.global_sessions is not None and self.global_sessions.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1400,7 +1268,7 @@ class SpanMonitorSession(object):
                     .. attribute:: global_class
                     
                     	Global session class
-                    	**type**\: :py:class:`SessionClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass_Enum>`
+                    	**type**\: :py:class:`SessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
                     
                     .. attribute:: id
                     
@@ -1412,7 +1280,7 @@ class SpanMonitorSession(object):
                     .. attribute:: local_class
                     
                     	Local attachment class
-                    	**type**\: :py:class:`SessionClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass_Enum>`
+                    	**type**\: :py:class:`SessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
                     
                     .. attribute:: name
                     
@@ -1441,12 +1309,12 @@ class SpanMonitorSession(object):
                     .. attribute:: source_interface_state
                     
                     	Source interface state
-                    	**type**\: :py:class:`ImStateEnum_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnum_Enum>`
+                    	**type**\: :py:class:`ImStateEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnumEnum>`
                     
                     .. attribute:: traffic_direction
                     
                     	Traffic mirroring direction (deprecated by TrafficParameters)
-                    	**type**\: :py:class:`TrafficDirection_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection_Enum>`
+                    	**type**\: :py:class:`TrafficDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
                     
                     .. attribute:: traffic_parameters
                     
@@ -1488,7 +1356,7 @@ class SpanMonitorSession(object):
                         .. attribute:: destination_class
                         
                         	DestinationClass
-                        	**type**\: :py:class:`DestinationClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass_Enum>`
+                        	**type**\: :py:class:`DestinationClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
                         
                         .. attribute:: interface
                         
@@ -1582,18 +1450,12 @@ class SpanMonitorSession(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ipv4_address is not None:
                                     return True
 
                                 if self.vrf_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1644,18 +1506,12 @@ class SpanMonitorSession(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ipv6_address is not None:
                                     return True
 
                                 if self.vrf_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1677,8 +1533,6 @@ class SpanMonitorSession(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.destination_class is not None:
                                 return True
 
@@ -1691,22 +1545,12 @@ class SpanMonitorSession(object):
                             if self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf._has_data():
                                 return True
 
-                            if self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf.is_presence():
-                                return True
-
                             if self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf._has_data():
-                                return True
-
-                            if self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf.is_presence():
                                 return True
 
                             if self.pseudowire_id is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1734,7 +1578,7 @@ class SpanMonitorSession(object):
                         .. attribute:: mirror_interval
                         
                         	Interval between mirrored packets
-                        	**type**\: :py:class:`MirrorInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval_Enum>`
+                        	**type**\: :py:class:`MirrorIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorIntervalEnum>`
                         
                         .. attribute:: port_level
                         
@@ -1744,7 +1588,7 @@ class SpanMonitorSession(object):
                         .. attribute:: traffic_direction
                         
                         	Direction
-                        	**type**\: :py:class:`TrafficDirection_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection_Enum>`
+                        	**type**\: :py:class:`TrafficDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
                         
                         
 
@@ -1775,8 +1619,6 @@ class SpanMonitorSession(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.is_acl_enabled is not None:
                                 return True
 
@@ -1792,10 +1634,6 @@ class SpanMonitorSession(object):
                             if self.traffic_direction is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1821,8 +1659,6 @@ class SpanMonitorSession(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface is not None:
                             return True
 
@@ -1833,9 +1669,6 @@ class SpanMonitorSession(object):
                             return True
 
                         if self.destination_id is not None and self.destination_id._has_data():
-                            return True
-
-                        if self.destination_id is not None and self.destination_id.is_presence():
                             return True
 
                         if self.destination_interface is not None:
@@ -1871,13 +1704,6 @@ class SpanMonitorSession(object):
                         if self.traffic_parameters is not None and self.traffic_parameters._has_data():
                             return True
 
-                        if self.traffic_parameters is not None and self.traffic_parameters.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1899,17 +1725,11 @@ class SpanMonitorSession(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.attachment is not None:
                         for child_ref in self.attachment:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1984,12 +1804,12 @@ class SpanMonitorSession(object):
                     .. attribute:: session_class
                     
                     	Sesssion class
-                    	**type**\: :py:class:`SpanSessionClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass_Enum>`
+                    	**type**\: :py:class:`SpanSessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
                     
                     .. attribute:: session_class_xr
                     
                     	Session class
-                    	**type**\: :py:class:`SessionClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass_Enum>`
+                    	**type**\: :py:class:`SessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
                     
                     .. attribute:: session_id
                     
@@ -2025,7 +1845,7 @@ class SpanMonitorSession(object):
                         .. attribute:: destination_class
                         
                         	DestinationClass
-                        	**type**\: :py:class:`DestinationClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass_Enum>`
+                        	**type**\: :py:class:`DestinationClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
                         
                         .. attribute:: interface
                         
@@ -2119,18 +1939,12 @@ class SpanMonitorSession(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ipv4_address is not None:
                                     return True
 
                                 if self.vrf_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2181,18 +1995,12 @@ class SpanMonitorSession(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ipv6_address is not None:
                                     return True
 
                                 if self.vrf_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2214,8 +2022,6 @@ class SpanMonitorSession(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.destination_class is not None:
                                 return True
 
@@ -2228,22 +2034,12 @@ class SpanMonitorSession(object):
                             if self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf._has_data():
                                 return True
 
-                            if self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf.is_presence():
-                                return True
-
                             if self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf._has_data():
-                                return True
-
-                            if self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf.is_presence():
                                 return True
 
                             if self.pseudowire_id is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2265,12 +2061,7 @@ class SpanMonitorSession(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.destination_id is not None and self.destination_id._has_data():
-                            return True
-
-                        if self.destination_id is not None and self.destination_id.is_presence():
                             return True
 
                         if self.destination_interface is not None:
@@ -2296,10 +2087,6 @@ class SpanMonitorSession(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ethernet._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
@@ -2319,17 +2106,11 @@ class SpanMonitorSession(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.hardware_session is not None:
                         for child_ref in self.hardware_session:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2410,7 +2191,7 @@ class SpanMonitorSession(object):
                     .. attribute:: traffic_direction
                     
                     	Traffic mirroring direction (deprecated by Attachment)
-                    	**type**\: :py:class:`TrafficDirection_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection_Enum>`
+                    	**type**\: :py:class:`TrafficDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
                     
                     .. attribute:: traffic_mirroring_parameters
                     
@@ -2447,7 +2228,7 @@ class SpanMonitorSession(object):
                         .. attribute:: class_
                         
                         	Attachment class
-                        	**type**\: :py:class:`SessionClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass_Enum>`
+                        	**type**\: :py:class:`SessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
                         
                         .. attribute:: destination_id
                         
@@ -2482,7 +2263,7 @@ class SpanMonitorSession(object):
                             .. attribute:: destination_class
                             
                             	DestinationClass
-                            	**type**\: :py:class:`DestinationClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass_Enum>`
+                            	**type**\: :py:class:`DestinationClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
                             
                             .. attribute:: interface
                             
@@ -2576,18 +2357,12 @@ class SpanMonitorSession(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ipv4_address is not None:
                                         return True
 
                                     if self.vrf_name is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2638,18 +2413,12 @@ class SpanMonitorSession(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ipv6_address is not None:
                                         return True
 
                                     if self.vrf_name is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2671,8 +2440,6 @@ class SpanMonitorSession(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.destination_class is not None:
                                     return True
 
@@ -2685,22 +2452,12 @@ class SpanMonitorSession(object):
                                 if self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf._has_data():
                                     return True
 
-                                if self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf.is_presence():
-                                    return True
-
                                 if self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf._has_data():
-                                    return True
-
-                                if self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf.is_presence():
                                     return True
 
                                 if self.pseudowire_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2728,7 +2485,7 @@ class SpanMonitorSession(object):
                             .. attribute:: mirror_interval
                             
                             	Interval between mirrored packets
-                            	**type**\: :py:class:`MirrorInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval_Enum>`
+                            	**type**\: :py:class:`MirrorIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorIntervalEnum>`
                             
                             .. attribute:: port_level
                             
@@ -2738,7 +2495,7 @@ class SpanMonitorSession(object):
                             .. attribute:: traffic_direction
                             
                             	Direction
-                            	**type**\: :py:class:`TrafficDirection_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection_Enum>`
+                            	**type**\: :py:class:`TrafficDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
                             
                             
 
@@ -2769,8 +2526,6 @@ class SpanMonitorSession(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.is_acl_enabled is not None:
                                     return True
 
@@ -2786,10 +2541,6 @@ class SpanMonitorSession(object):
                                 if self.traffic_direction is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2811,27 +2562,15 @@ class SpanMonitorSession(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.class_ is not None:
                                 return True
 
                             if self.destination_id is not None and self.destination_id._has_data():
                                 return True
 
-                            if self.destination_id is not None and self.destination_id.is_presence():
-                                return True
-
                             if self.traffic_mirroring_parameters is not None and self.traffic_mirroring_parameters._has_data():
                                 return True
 
-                            if self.traffic_mirroring_parameters is not None and self.traffic_mirroring_parameters.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2847,7 +2586,7 @@ class SpanMonitorSession(object):
                         .. attribute:: destination_class
                         
                         	DestinationClass
-                        	**type**\: :py:class:`DestinationClass_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass_Enum>`
+                        	**type**\: :py:class:`DestinationClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
                         
                         .. attribute:: interface
                         
@@ -2941,18 +2680,12 @@ class SpanMonitorSession(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ipv4_address is not None:
                                     return True
 
                                 if self.vrf_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3003,18 +2736,12 @@ class SpanMonitorSession(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ipv6_address is not None:
                                     return True
 
                                 if self.vrf_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3036,8 +2763,6 @@ class SpanMonitorSession(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.destination_class is not None:
                                 return True
 
@@ -3050,22 +2775,12 @@ class SpanMonitorSession(object):
                             if self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf._has_data():
                                 return True
 
-                            if self.ipv4_address_and_vrf is not None and self.ipv4_address_and_vrf.is_presence():
-                                return True
-
                             if self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf._has_data():
-                                return True
-
-                            if self.ipv6_address_and_vrf is not None and self.ipv6_address_and_vrf.is_presence():
                                 return True
 
                             if self.pseudowire_id is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3094,7 +2809,7 @@ class SpanMonitorSession(object):
                         .. attribute:: mirror_interval
                         
                         	Interval between mirrored packets
-                        	**type**\: :py:class:`MirrorInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval_Enum>`
+                        	**type**\: :py:class:`MirrorIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorIntervalEnum>`
                         
                         .. attribute:: port_level
                         
@@ -3104,7 +2819,7 @@ class SpanMonitorSession(object):
                         .. attribute:: traffic_direction
                         
                         	Direction
-                        	**type**\: :py:class:`TrafficDirection_Enum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection_Enum>`
+                        	**type**\: :py:class:`TrafficDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
                         
                         
 
@@ -3135,8 +2850,6 @@ class SpanMonitorSession(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.is_acl_enabled is not None:
                                 return True
 
@@ -3152,10 +2865,6 @@ class SpanMonitorSession(object):
                             if self.traffic_direction is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3179,8 +2888,6 @@ class SpanMonitorSession(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface is not None:
                             return True
 
@@ -3190,9 +2897,6 @@ class SpanMonitorSession(object):
                                     return True
 
                         if self.destination_id is not None and self.destination_id._has_data():
-                            return True
-
-                        if self.destination_id is not None and self.destination_id.is_presence():
                             return True
 
                         if self.destination_interface is not None:
@@ -3210,13 +2914,6 @@ class SpanMonitorSession(object):
                         if self.traffic_mirroring_parameters is not None and self.traffic_mirroring_parameters._has_data():
                             return True
 
-                        if self.traffic_mirroring_parameters is not None and self.traffic_mirroring_parameters.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3238,17 +2935,11 @@ class SpanMonitorSession(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3270,33 +2961,18 @@ class SpanMonitorSession(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node is not None:
                     return True
 
                 if self.attachments is not None and self.attachments._has_data():
                     return True
 
-                if self.attachments is not None and self.attachments.is_presence():
-                    return True
-
                 if self.hardware_sessions is not None and self.hardware_sessions._has_data():
-                    return True
-
-                if self.hardware_sessions is not None and self.hardware_sessions.is_presence():
                     return True
 
                 if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
-                if self.interfaces is not None and self.interfaces.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3316,17 +2992,11 @@ class SpanMonitorSession(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3346,24 +3016,12 @@ class SpanMonitorSession(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.global_ is not None and self.global_._has_data():
-            return True
-
-        if self.global_ is not None and self.global_.is_presence():
             return True
 
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

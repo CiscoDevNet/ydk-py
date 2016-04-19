@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'MplsIpTtlPropagateDisable_Enum' : _MetaInfoEnum('MplsIpTtlPropagateDisable_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_lsd_cfg',
+    'MplsIpTtlPropagateDisableEnum' : _MetaInfoEnum('MplsIpTtlPropagateDisableEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_lsd_cfg',
         {
             'all':'ALL',
             'forward':'FORWARD',
@@ -123,7 +123,7 @@ _meta_table = {
                 ''',
                 'mpls_ip_ttl_expiration_pop',
                 'Cisco-IOS-XR-mpls-lsd-cfg', False),
-            _MetaInfoClassMember('mpls-ip-ttl-propagate-disable', REFERENCE_ENUM_CLASS, 'MplsIpTtlPropagateDisable_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_lsd_cfg', 'MplsIpTtlPropagateDisable_Enum', 
+            _MetaInfoClassMember('mpls-ip-ttl-propagate-disable', REFERENCE_ENUM_CLASS, 'MplsIpTtlPropagateDisableEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_lsd_cfg', 'MplsIpTtlPropagateDisableEnum', 
                 [], [], 
                 '''                Disable Propagation of IP TTL onto the label
                 stack

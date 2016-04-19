@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,19 +14,19 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'MplsLdpOperAfName_Enum' : _MetaInfoEnum('MplsLdpOperAfName_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
+    'MplsLdpOperAfNameEnum' : _MetaInfoEnum('MplsLdpOperAfNameEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
         {
             'ipv4':'IPV4',
             'ipv6':'IPV6',
         }, 'Cisco-IOS-XR-mpls-ldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-oper']),
-    'LdpAf_Enum' : _MetaInfoEnum('LdpAf_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
+    'LdpAfEnum' : _MetaInfoEnum('LdpAfEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
         {
             'ldp-show-af-none':'LDP_SHOW_AF_NONE',
             'ldp-show-af-ipv4':'LDP_SHOW_AF_IPV4',
             'ldp-show-af-ipv6':'LDP_SHOW_AF_IPV6',
             'ldp-show-af-ipv4-ipv6':'LDP_SHOW_AF_IPV4_IPV6',
         }, 'Cisco-IOS-XR-mpls-ldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-oper']),
-    'LdpIgpSyncDownReason_Enum' : _MetaInfoEnum('LdpIgpSyncDownReason_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
+    'LdpIgpSyncDownReasonEnum' : _MetaInfoEnum('LdpIgpSyncDownReasonEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
         {
             'igp-sync-down-reason-not-applicable':'IGP_SYNC_DOWN_REASON_NOT_APPLICABLE',
             'no-hello-adjacency':'NO_HELLO_ADJACENCY',
@@ -35,7 +35,7 @@ _meta_table = {
             'initial-update-from-peer-not-received':'INITIAL_UPDATE_FROM_PEER_NOT_RECEIVED',
             'internal-reason':'INTERNAL_REASON',
         }, 'Cisco-IOS-XR-mpls-ldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-oper']),
-    'MgmtLdpNsrPeerSyncErr_Enum' : _MetaInfoEnum('MgmtLdpNsrPeerSyncErr_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
+    'MgmtLdpNsrPeerSyncErrEnum' : _MetaInfoEnum('MgmtLdpNsrPeerSyncErrEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
         {
             'mgmt-ldp-nsr-peer-sync-err-none':'MGMT_LDP_NSR_PEER_SYNC_ERR_NONE',
             'mgmt-ldp-nsr-peer-sync-err-ldp-sync-nack':'MGMT_LDP_NSR_PEER_SYNC_ERR_LDP_SYNC_NACK',
@@ -48,25 +48,25 @@ _meta_table = {
             'mgmt-ldp-nsr-peer-sync-err-sync-tcp-phase1':'MGMT_LDP_NSR_PEER_SYNC_ERR_SYNC_TCP_PHASE1',
             'mgmt-ldp-nsr-peer-sync-err-sync-tcp-phase2':'MGMT_LDP_NSR_PEER_SYNC_ERR_SYNC_TCP_PHASE2',
         }, 'Cisco-IOS-XR-mpls-ldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-oper']),
-    'LabelValue_Enum' : _MetaInfoEnum('LabelValue_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
+    'LabelValueEnum' : _MetaInfoEnum('LabelValueEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
         {
             'mpls-label':'MPLS_LABEL',
             'un-labelled':'UN_LABELLED',
             'unknown':'UNKNOWN',
         }, 'Cisco-IOS-XR-mpls-ldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-oper']),
-    'LdpRoutePathLblOwner_Enum' : _MetaInfoEnum('LdpRoutePathLblOwner_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
+    'LdpRoutePathLblOwnerEnum' : _MetaInfoEnum('LdpRoutePathLblOwnerEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
         {
             'ip-path-lbl-owner-none':'IP_PATH_LBL_OWNER_NONE',
             'ip-path-lbl-owner-ldp':'IP_PATH_LBL_OWNER_LDP',
             'ip-path-lbl-owner-bgp':'IP_PATH_LBL_OWNER_BGP',
         }, 'Cisco-IOS-XR-mpls-ldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-oper']),
-    'MgmtLdpNbrBgpAdvtState_Enum' : _MetaInfoEnum('MgmtLdpNbrBgpAdvtState_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
+    'MgmtLdpNbrBgpAdvtStateEnum' : _MetaInfoEnum('MgmtLdpNbrBgpAdvtStateEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
         {
             'not-applicable':'NOT_APPLICABLE',
             'permit':'PERMIT',
             'deny':'DENY',
         }, 'Cisco-IOS-XR-mpls-ldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-oper']),
-    'MgmtLdpNsrPeerSyncState_Enum' : _MetaInfoEnum('MgmtLdpNsrPeerSyncState_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
+    'MgmtLdpNsrPeerSyncStateEnum' : _MetaInfoEnum('MgmtLdpNsrPeerSyncStateEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
         {
             'mgmt-ldp-nsr-peer-sync-st-none':'MGMT_LDP_NSR_PEER_SYNC_ST_NONE',
             'mgmt-ldp-nsr-peer-sync-st-wait':'MGMT_LDP_NSR_PEER_SYNC_ST_WAIT',
@@ -77,13 +77,13 @@ _meta_table = {
             'mgmt-ldp-nsr-peer-sync-st-tcp-phase1':'MGMT_LDP_NSR_PEER_SYNC_ST_TCP_PHASE1',
             'mgmt-ldp-nsr-peer-sync-st-tcp-phase2':'MGMT_LDP_NSR_PEER_SYNC_ST_TCP_PHASE2',
         }, 'Cisco-IOS-XR-mpls-ldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-oper']),
-    'LocalLabelState_Enum' : _MetaInfoEnum('LocalLabelState_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
+    'LocalLabelStateEnum' : _MetaInfoEnum('LocalLabelStateEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
         {
             'local-label-state-none':'LOCAL_LABEL_STATE_NONE',
             'local-label-state-assigned':'LOCAL_LABEL_STATE_ASSIGNED',
             'local-label-state-withdrawn':'LOCAL_LABEL_STATE_WITHDRAWN',
         }, 'Cisco-IOS-XR-mpls-ldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-oper']),
-    'LdpRoutePathFlags_Enum' : _MetaInfoEnum('LdpRoutePathFlags_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
+    'LdpRoutePathFlagsEnum' : _MetaInfoEnum('LdpRoutePathFlagsEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
         {
             'ip-path-no-flag':'IP_PATH_NO_FLAG',
             'ip-path-protected':'IP_PATH_PROTECTED',
@@ -91,24 +91,24 @@ _meta_table = {
             'ip-path-backup-remote':'IP_PATH_BACKUP_REMOTE',
             'ip-path-bgp-backup':'IP_PATH_BGP_BACKUP',
         }, 'Cisco-IOS-XR-mpls-ldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-oper']),
-    'LdpAfId_Enum' : _MetaInfoEnum('LdpAfId_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
+    'LdpAfIdEnum' : _MetaInfoEnum('LdpAfIdEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
         {
             'ldp-af-id-none':'LDP_AF_ID_NONE',
             'ldp-af-id-ipv4':'LDP_AF_ID_IPV4',
             'ldp-af-id-ipv6':'LDP_AF_ID_IPV6',
         }, 'Cisco-IOS-XR-mpls-ldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-oper']),
-    'LdpAdjUnionDiscrim_Enum' : _MetaInfoEnum('LdpAdjUnionDiscrim_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
+    'LdpAdjUnionDiscrimEnum' : _MetaInfoEnum('LdpAdjUnionDiscrimEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
         {
             'link-hello':'LINK_HELLO',
             'targeted-hello':'TARGETED_HELLO',
         }, 'Cisco-IOS-XR-mpls-ldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-oper']),
-    'LdpIgpSyncState_Enum' : _MetaInfoEnum('LdpIgpSyncState_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
+    'LdpIgpSyncStateEnum' : _MetaInfoEnum('LdpIgpSyncStateEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
         {
             'isync-ready':'ISYNC_READY',
             'isync-not-ready':'ISYNC_NOT_READY',
             'isync-deferred':'ISYNC_DEFERRED',
         }, 'Cisco-IOS-XR-mpls-ldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-oper']),
-    'MgmtLdpNsrPeerLdpSyncNackRsn_Enum' : _MetaInfoEnum('MgmtLdpNsrPeerLdpSyncNackRsn_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
+    'MgmtLdpNsrPeerLdpSyncNackRsnEnum' : _MetaInfoEnum('MgmtLdpNsrPeerLdpSyncNackRsnEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
         {
             'mgmt-ldp-nsr-peer-ldp-sync-nack-rsn-none':'MGMT_LDP_NSR_PEER_LDP_SYNC_NACK_RSN_NONE',
             'mgmt-ldp-nsr-peer-ldp-sync-nack-rsn-tbl-id-mismatch':'MGMT_LDP_NSR_PEER_LDP_SYNC_NACK_RSN_TBL_ID_MISMATCH',
@@ -138,14 +138,14 @@ _meta_table = {
             'mgmt-ldp-nsr-peer-ldp-sync-nack-rsn-err-tcp-struct-create':'MGMT_LDP_NSR_PEER_LDP_SYNC_NACK_RSN_ERR_TCP_STRUCT_CREATE',
             'mgmt-ldp-nsr-peer-ldp-sync-nack-rsn-no-ctx':'MGMT_LDP_NSR_PEER_LDP_SYNC_NACK_RSN_NO_CTX',
         }, 'Cisco-IOS-XR-mpls-ldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-oper']),
-    'DhcbState_Enum' : _MetaInfoEnum('DhcbState_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
+    'DhcbStateEnum' : _MetaInfoEnum('DhcbStateEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
         {
             'none':'NONE',
             'dhcb-active':'DHCB_ACTIVE',
             'dhcb-passive':'DHCB_PASSIVE',
             'dhcb-active-passive':'DHCB_ACTIVE_PASSIVE',
         }, 'Cisco-IOS-XR-mpls-ldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-oper']),
-    'ShowNsrState_Enum' : _MetaInfoEnum('ShowNsrState_Enum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
+    'ShowNsrStateEnum' : _MetaInfoEnum('ShowNsrStateEnum', 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper',
         {
             'nsr-ready':'NSR_READY',
             'nsr-not-ready':'NSR_NOT_READY',
@@ -155,7 +155,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.BindingsSummaryAll.BindAf',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Binding Summary Address Family
                 ''',
@@ -225,7 +225,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.BindingsSummaryAll',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -367,7 +367,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.Bindings.Binding.PrefixXr',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -550,7 +550,7 @@ _meta_table = {
                 ''',
                 'le_local_binding_revision',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('le-local-label-state', REFERENCE_ENUM_CLASS, 'LocalLabelState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LocalLabelState_Enum', 
+            _MetaInfoClassMember('le-local-label-state', REFERENCE_ENUM_CLASS, 'LocalLabelStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LocalLabelStateEnum', 
                 [], [], 
                 '''                Local label state
                 ''',
@@ -701,7 +701,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.BindingsSummary.BindAf',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Binding Summary Address Family
                 ''',
@@ -771,7 +771,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.BindingsSummary',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -855,7 +855,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.BindingsSummaryAll.BindAf',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Binding Summary Address Family
                 ''',
@@ -925,7 +925,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.BindingsSummaryAll',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -1067,13 +1067,13 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-mpls-ldp-oper', True),
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Discovery Brief Address Family
                 ''',
                 'address_family',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('address-family-set', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family-set', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Discovery Brief Address Family Set
                 ''',
@@ -1131,7 +1131,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.Discovery.Brief.TargetedHelloBriefs.TargetedHelloBrief.DhcbTargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -1218,7 +1218,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.Discovery.Brief.TargetedHelloBriefs.TargetedHelloBrief',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Targeted Discovery Address Family
                 ''',
@@ -1331,7 +1331,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.DiscoveryLinkAf.LocalSrcAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -1366,7 +1366,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.DiscoveryLinkAf.LocalTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -1430,7 +1430,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.NeighborSrcAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -1465,7 +1465,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.NeighborTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -1500,7 +1500,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.Target',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -1879,7 +1879,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.Discovery.TargetedHellos.TargetedHello.DhcbLocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -1914,7 +1914,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.Discovery.TargetedHellos.TargetedHello.DhcbTargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -2028,7 +2028,7 @@ _meta_table = {
                 ''',
                 'quick_start_disabled',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                Targeted hello state
                 ''',
@@ -2460,13 +2460,13 @@ _meta_table = {
                 ''',
                 'out_label',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwner_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwner_Enum', 
+            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwnerEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwnerEnum', 
                 [], [], 
                 '''                Outgoing label owner
                 ''',
                 'out_label_owner',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValue_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValue_Enum', 
+            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValueEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValueEnum', 
                 [], [], 
                 '''                Outgoing Label Type
                 ''',
@@ -2536,13 +2536,13 @@ _meta_table = {
                 ''',
                 'out_label',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwner_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwner_Enum', 
+            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwnerEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwnerEnum', 
                 [], [], 
                 '''                Outgoing label owner
                 ''',
                 'out_label_owner',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValue_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValue_Enum', 
+            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValueEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValueEnum', 
                 [], [], 
                 '''                Outgoing Label Type
                 ''',
@@ -2622,7 +2622,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.NextHop',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -2657,7 +2657,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.RemoteLfa.RemotePNodeId',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -2692,7 +2692,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.RemoteLfa.RemoteQNodeId',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -2822,7 +2822,7 @@ _meta_table = {
                 ''',
                 'nh_is_overriden',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('path-flags', REFERENCE_ENUM_CLASS, 'LdpRoutePathFlags_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathFlags_Enum', 
+            _MetaInfoClassMember('path-flags', REFERENCE_ENUM_CLASS, 'LdpRoutePathFlagsEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathFlagsEnum', 
                 [], [], 
                 '''                Routing path flags decoded
                 ''',
@@ -2874,7 +2874,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af.Forwardings.Forwarding.PrefixXr',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -3274,13 +3274,13 @@ _meta_table = {
                 ''',
                 'igp_sync_delay',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('igp-sync-down-reason', REFERENCE_ENUM_CLASS, 'LdpIgpSyncDownReason_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncDownReason_Enum', 
+            _MetaInfoClassMember('igp-sync-down-reason', REFERENCE_ENUM_CLASS, 'LdpIgpSyncDownReasonEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncDownReasonEnum', 
                 [], [], 
                 '''                Reason IGP Sync Not Achieved
                 ''',
                 'igp_sync_down_reason',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('igp-sync-state', REFERENCE_ENUM_CLASS, 'LdpIgpSyncState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncState_Enum', 
+            _MetaInfoClassMember('igp-sync-state', REFERENCE_ENUM_CLASS, 'LdpIgpSyncStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncStateEnum', 
                 [], [], 
                 '''                IGP Sync state
                 ''',
@@ -3579,7 +3579,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpOperAfName_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdpOperAfName_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpOperAfNameEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdpOperAfNameEnum', 
                 [], [], 
                 '''                Address Family name
                 ''',
@@ -3846,7 +3846,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.GracefulRestart.GracefulRestartableNeighbor.DownNbrAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -3881,7 +3881,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.GracefulRestart.GracefulRestartableNeighbor.DownNbrInterface',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                Interface adj Address Family
                 ''',
@@ -4629,7 +4629,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.NeighborBriefs.NeighborBrief.NbrBrAfInfo',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Neighbor Brief Address Family
                 ''',
@@ -4724,7 +4724,7 @@ _meta_table = {
                 ''',
                 'nbr_br_af_info',
                 'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
-            _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrState_Enum', 
+            _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrStateEnum', 
                 [], [], 
                 '''                NSR readiness state
                 ''',
@@ -5016,7 +5016,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Neighbors.Neighbor.DetailedInformation.Ipv4DuplicateAddress.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -5068,7 +5068,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Neighbors.Neighbor.DetailedInformation.Ipv6DuplicateAddress.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -5127,7 +5127,7 @@ _meta_table = {
                 ''',
                 'advertise_bgp_prefixes',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('bgp-advertisement-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNbrBgpAdvtState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNbrBgpAdvtState_Enum', 
+            _MetaInfoClassMember('bgp-advertisement-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNbrBgpAdvtStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNbrBgpAdvtStateEnum', 
                 [], [], 
                 '''                BGP labelled prefixes advertisement state
                 ''',
@@ -5205,19 +5205,19 @@ _meta_table = {
                 ''',
                 'keep_alive_interval',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-last-sync-error', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncErr_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncErr_Enum', 
+            _MetaInfoClassMember('nsr-last-sync-error', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncErrEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncErrEnum', 
                 [], [], 
                 '''                Last NSR sync error
                 ''',
                 'nsr_last_sync_error',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-last-sync-nack-reason', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerLdpSyncNackRsn_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerLdpSyncNackRsn_Enum', 
+            _MetaInfoClassMember('nsr-last-sync-nack-reason', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerLdpSyncNackRsnEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerLdpSyncNackRsnEnum', 
                 [], [], 
                 '''                Last NSR sync NACK reaston
                 ''',
                 'nsr_last_sync_nack_reason',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-sync-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncState_Enum', 
+            _MetaInfoClassMember('nsr-sync-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncStateEnum', 
                 [], [], 
                 '''                NSR Sync State
                 ''',
@@ -5302,7 +5302,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Neighbors.Neighbor.LdpNbrBoundIpv4AddressInfo.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -5354,7 +5354,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Neighbors.Neighbor.LdpNbrBoundIpv6AddressInfo.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -5429,7 +5429,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup.TargetHelloData.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -5464,7 +5464,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup.TargetHelloData.TargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -5505,7 +5505,7 @@ _meta_table = {
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -5528,7 +5528,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup',
             False, 
             [
-            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrim_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrim_Enum', 
+            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrimEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrimEnum', 
                 [], [], 
                 '''                HelloType
                 ''',
@@ -5597,7 +5597,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup.TargetHelloData.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -5632,7 +5632,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup.TargetHelloData.TargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -5673,7 +5673,7 @@ _meta_table = {
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -5696,7 +5696,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup',
             False, 
             [
-            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrim_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrim_Enum', 
+            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrimEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrimEnum', 
                 [], [], 
                 '''                HelloType
                 ''',
@@ -5825,7 +5825,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Neighbors.Neighbor.TcpInformation.ForeignHost',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -5860,7 +5860,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Neighbors.Neighbor.TcpInformation.LocalHost',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -6780,7 +6780,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Parameters.AddressFamilyParameter.DiscoveryTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -6815,7 +6815,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Parameters.AddressFamilyParameter',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -7337,7 +7337,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.DefaultVrf.Summary.Common',
             False, 
             [
-            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Families enabled
                 ''',
@@ -8107,7 +8107,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Summary.Common',
             False, 
             [
-            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Families enabled
                 ''',
@@ -8476,7 +8476,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.Bindings.Binding.PrefixXr',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -8659,7 +8659,7 @@ _meta_table = {
                 ''',
                 'le_local_binding_revision',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('le-local-label-state', REFERENCE_ENUM_CLASS, 'LocalLabelState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LocalLabelState_Enum', 
+            _MetaInfoClassMember('le-local-label-state', REFERENCE_ENUM_CLASS, 'LocalLabelStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LocalLabelStateEnum', 
                 [], [], 
                 '''                Local label state
                 ''',
@@ -8810,7 +8810,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.BindingsSummary.BindAf',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Binding Summary Address Family
                 ''',
@@ -8880,7 +8880,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.BindingsSummary',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -8964,7 +8964,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.BindingsSummaryAll.BindAf',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Binding Summary Address Family
                 ''',
@@ -9034,7 +9034,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.BindingsSummaryAll',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -9176,13 +9176,13 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-mpls-ldp-oper', True),
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Discovery Brief Address Family
                 ''',
                 'address_family',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('address-family-set', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family-set', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Discovery Brief Address Family Set
                 ''',
@@ -9240,7 +9240,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.Discovery.Brief.TargetedHelloBriefs.TargetedHelloBrief.DhcbTargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -9327,7 +9327,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.Discovery.Brief.TargetedHelloBriefs.TargetedHelloBrief',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Targeted Discovery Address Family
                 ''',
@@ -9440,7 +9440,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.DiscoveryLinkAf.LocalSrcAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -9475,7 +9475,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.DiscoveryLinkAf.LocalTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -9539,7 +9539,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.NeighborSrcAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -9574,7 +9574,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.NeighborTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -9609,7 +9609,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.Target',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -9988,7 +9988,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.Discovery.TargetedHellos.TargetedHello.DhcbLocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -10023,7 +10023,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.Discovery.TargetedHellos.TargetedHello.DhcbTargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -10137,7 +10137,7 @@ _meta_table = {
                 ''',
                 'quick_start_disabled',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                Targeted hello state
                 ''',
@@ -10569,13 +10569,13 @@ _meta_table = {
                 ''',
                 'out_label',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwner_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwner_Enum', 
+            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwnerEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwnerEnum', 
                 [], [], 
                 '''                Outgoing label owner
                 ''',
                 'out_label_owner',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValue_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValue_Enum', 
+            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValueEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValueEnum', 
                 [], [], 
                 '''                Outgoing Label Type
                 ''',
@@ -10645,13 +10645,13 @@ _meta_table = {
                 ''',
                 'out_label',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwner_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwner_Enum', 
+            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwnerEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwnerEnum', 
                 [], [], 
                 '''                Outgoing label owner
                 ''',
                 'out_label_owner',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValue_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValue_Enum', 
+            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValueEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValueEnum', 
                 [], [], 
                 '''                Outgoing Label Type
                 ''',
@@ -10731,7 +10731,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.NextHop',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -10766,7 +10766,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.RemoteLfa.RemotePNodeId',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -10801,7 +10801,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.RemoteLfa.RemoteQNodeId',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -10931,7 +10931,7 @@ _meta_table = {
                 ''',
                 'nh_is_overriden',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('path-flags', REFERENCE_ENUM_CLASS, 'LdpRoutePathFlags_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathFlags_Enum', 
+            _MetaInfoClassMember('path-flags', REFERENCE_ENUM_CLASS, 'LdpRoutePathFlagsEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathFlagsEnum', 
                 [], [], 
                 '''                Routing path flags decoded
                 ''',
@@ -10983,7 +10983,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af.Forwardings.Forwarding.PrefixXr',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -11383,13 +11383,13 @@ _meta_table = {
                 ''',
                 'igp_sync_delay',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('igp-sync-down-reason', REFERENCE_ENUM_CLASS, 'LdpIgpSyncDownReason_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncDownReason_Enum', 
+            _MetaInfoClassMember('igp-sync-down-reason', REFERENCE_ENUM_CLASS, 'LdpIgpSyncDownReasonEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncDownReasonEnum', 
                 [], [], 
                 '''                Reason IGP Sync Not Achieved
                 ''',
                 'igp_sync_down_reason',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('igp-sync-state', REFERENCE_ENUM_CLASS, 'LdpIgpSyncState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncState_Enum', 
+            _MetaInfoClassMember('igp-sync-state', REFERENCE_ENUM_CLASS, 'LdpIgpSyncStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncStateEnum', 
                 [], [], 
                 '''                IGP Sync state
                 ''',
@@ -11688,7 +11688,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpOperAfName_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdpOperAfName_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpOperAfNameEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdpOperAfNameEnum', 
                 [], [], 
                 '''                Address Family name
                 ''',
@@ -11955,7 +11955,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.GracefulRestart.GracefulRestartableNeighbor.DownNbrAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -11990,7 +11990,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.GracefulRestart.GracefulRestartableNeighbor.DownNbrInterface',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                Interface adj Address Family
                 ''',
@@ -12738,7 +12738,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.NeighborBriefs.NeighborBrief.NbrBrAfInfo',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Neighbor Brief Address Family
                 ''',
@@ -12833,7 +12833,7 @@ _meta_table = {
                 ''',
                 'nbr_br_af_info',
                 'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
-            _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrState_Enum', 
+            _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrStateEnum', 
                 [], [], 
                 '''                NSR readiness state
                 ''',
@@ -13125,7 +13125,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Neighbors.Neighbor.DetailedInformation.Ipv4DuplicateAddress.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -13177,7 +13177,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Neighbors.Neighbor.DetailedInformation.Ipv6DuplicateAddress.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -13236,7 +13236,7 @@ _meta_table = {
                 ''',
                 'advertise_bgp_prefixes',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('bgp-advertisement-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNbrBgpAdvtState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNbrBgpAdvtState_Enum', 
+            _MetaInfoClassMember('bgp-advertisement-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNbrBgpAdvtStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNbrBgpAdvtStateEnum', 
                 [], [], 
                 '''                BGP labelled prefixes advertisement state
                 ''',
@@ -13314,19 +13314,19 @@ _meta_table = {
                 ''',
                 'keep_alive_interval',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-last-sync-error', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncErr_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncErr_Enum', 
+            _MetaInfoClassMember('nsr-last-sync-error', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncErrEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncErrEnum', 
                 [], [], 
                 '''                Last NSR sync error
                 ''',
                 'nsr_last_sync_error',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-last-sync-nack-reason', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerLdpSyncNackRsn_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerLdpSyncNackRsn_Enum', 
+            _MetaInfoClassMember('nsr-last-sync-nack-reason', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerLdpSyncNackRsnEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerLdpSyncNackRsnEnum', 
                 [], [], 
                 '''                Last NSR sync NACK reaston
                 ''',
                 'nsr_last_sync_nack_reason',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-sync-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncState_Enum', 
+            _MetaInfoClassMember('nsr-sync-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncStateEnum', 
                 [], [], 
                 '''                NSR Sync State
                 ''',
@@ -13411,7 +13411,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrBoundIpv4AddressInfo.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -13463,7 +13463,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrBoundIpv6AddressInfo.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -13538,7 +13538,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup.TargetHelloData.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -13573,7 +13573,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup.TargetHelloData.TargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -13614,7 +13614,7 @@ _meta_table = {
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -13637,7 +13637,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup',
             False, 
             [
-            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrim_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrim_Enum', 
+            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrimEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrimEnum', 
                 [], [], 
                 '''                HelloType
                 ''',
@@ -13706,7 +13706,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup.TargetHelloData.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -13741,7 +13741,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup.TargetHelloData.TargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -13782,7 +13782,7 @@ _meta_table = {
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -13805,7 +13805,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup',
             False, 
             [
-            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrim_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrim_Enum', 
+            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrimEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrimEnum', 
                 [], [], 
                 '''                HelloType
                 ''',
@@ -13934,7 +13934,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Neighbors.Neighbor.TcpInformation.ForeignHost',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -13969,7 +13969,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Neighbors.Neighbor.TcpInformation.LocalHost',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -14889,7 +14889,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Parameters.AddressFamilyParameter.DiscoveryTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -14924,7 +14924,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Parameters.AddressFamilyParameter',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -15446,7 +15446,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Active.Vrfs.Vrf.Summary.Common',
             False, 
             [
-            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Families enabled
                 ''',
@@ -15808,7 +15808,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.BindingsSummaryAll.BindAf',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Binding Summary Address Family
                 ''',
@@ -15878,7 +15878,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.BindingsSummaryAll',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -16020,7 +16020,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.Bindings.Binding.PrefixXr',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -16203,7 +16203,7 @@ _meta_table = {
                 ''',
                 'le_local_binding_revision',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('le-local-label-state', REFERENCE_ENUM_CLASS, 'LocalLabelState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LocalLabelState_Enum', 
+            _MetaInfoClassMember('le-local-label-state', REFERENCE_ENUM_CLASS, 'LocalLabelStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LocalLabelStateEnum', 
                 [], [], 
                 '''                Local label state
                 ''',
@@ -16354,7 +16354,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.BindingsSummary.BindAf',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Binding Summary Address Family
                 ''',
@@ -16424,7 +16424,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.BindingsSummary',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -16508,7 +16508,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.BindingsSummaryAll.BindAf',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Binding Summary Address Family
                 ''',
@@ -16578,7 +16578,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.BindingsSummaryAll',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -16720,13 +16720,13 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-mpls-ldp-oper', True),
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Discovery Brief Address Family
                 ''',
                 'address_family',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('address-family-set', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family-set', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Discovery Brief Address Family Set
                 ''',
@@ -16784,7 +16784,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.Discovery.Brief.TargetedHelloBriefs.TargetedHelloBrief.DhcbTargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -16871,7 +16871,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.Discovery.Brief.TargetedHelloBriefs.TargetedHelloBrief',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Targeted Discovery Address Family
                 ''',
@@ -16984,7 +16984,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.DiscoveryLinkAf.LocalSrcAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -17019,7 +17019,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.DiscoveryLinkAf.LocalTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -17083,7 +17083,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.NeighborSrcAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -17118,7 +17118,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.NeighborTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -17153,7 +17153,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.Target',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -17532,7 +17532,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.Discovery.TargetedHellos.TargetedHello.DhcbLocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -17567,7 +17567,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.Discovery.TargetedHellos.TargetedHello.DhcbTargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -17681,7 +17681,7 @@ _meta_table = {
                 ''',
                 'quick_start_disabled',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                Targeted hello state
                 ''',
@@ -18113,13 +18113,13 @@ _meta_table = {
                 ''',
                 'out_label',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwner_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwner_Enum', 
+            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwnerEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwnerEnum', 
                 [], [], 
                 '''                Outgoing label owner
                 ''',
                 'out_label_owner',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValue_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValue_Enum', 
+            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValueEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValueEnum', 
                 [], [], 
                 '''                Outgoing Label Type
                 ''',
@@ -18189,13 +18189,13 @@ _meta_table = {
                 ''',
                 'out_label',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwner_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwner_Enum', 
+            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwnerEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwnerEnum', 
                 [], [], 
                 '''                Outgoing label owner
                 ''',
                 'out_label_owner',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValue_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValue_Enum', 
+            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValueEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValueEnum', 
                 [], [], 
                 '''                Outgoing Label Type
                 ''',
@@ -18275,7 +18275,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.NextHop',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -18310,7 +18310,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.RemoteLfa.RemotePNodeId',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -18345,7 +18345,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.RemoteLfa.RemoteQNodeId',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -18475,7 +18475,7 @@ _meta_table = {
                 ''',
                 'nh_is_overriden',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('path-flags', REFERENCE_ENUM_CLASS, 'LdpRoutePathFlags_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathFlags_Enum', 
+            _MetaInfoClassMember('path-flags', REFERENCE_ENUM_CLASS, 'LdpRoutePathFlagsEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathFlagsEnum', 
                 [], [], 
                 '''                Routing path flags decoded
                 ''',
@@ -18527,7 +18527,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af.Forwardings.Forwarding.PrefixXr',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -18927,13 +18927,13 @@ _meta_table = {
                 ''',
                 'igp_sync_delay',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('igp-sync-down-reason', REFERENCE_ENUM_CLASS, 'LdpIgpSyncDownReason_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncDownReason_Enum', 
+            _MetaInfoClassMember('igp-sync-down-reason', REFERENCE_ENUM_CLASS, 'LdpIgpSyncDownReasonEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncDownReasonEnum', 
                 [], [], 
                 '''                Reason IGP Sync Not Achieved
                 ''',
                 'igp_sync_down_reason',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('igp-sync-state', REFERENCE_ENUM_CLASS, 'LdpIgpSyncState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncState_Enum', 
+            _MetaInfoClassMember('igp-sync-state', REFERENCE_ENUM_CLASS, 'LdpIgpSyncStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncStateEnum', 
                 [], [], 
                 '''                IGP Sync state
                 ''',
@@ -19232,7 +19232,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpOperAfName_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdpOperAfName_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpOperAfNameEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdpOperAfNameEnum', 
                 [], [], 
                 '''                Address Family name
                 ''',
@@ -19499,7 +19499,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.GracefulRestart.GracefulRestartableNeighbor.DownNbrAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -19534,7 +19534,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.GracefulRestart.GracefulRestartableNeighbor.DownNbrInterface',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                Interface adj Address Family
                 ''',
@@ -20282,7 +20282,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.NeighborBriefs.NeighborBrief.NbrBrAfInfo',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Neighbor Brief Address Family
                 ''',
@@ -20377,7 +20377,7 @@ _meta_table = {
                 ''',
                 'nbr_br_af_info',
                 'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
-            _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrState_Enum', 
+            _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrStateEnum', 
                 [], [], 
                 '''                NSR readiness state
                 ''',
@@ -20669,7 +20669,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Neighbors.Neighbor.DetailedInformation.Ipv4DuplicateAddress.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -20721,7 +20721,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Neighbors.Neighbor.DetailedInformation.Ipv6DuplicateAddress.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -20780,7 +20780,7 @@ _meta_table = {
                 ''',
                 'advertise_bgp_prefixes',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('bgp-advertisement-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNbrBgpAdvtState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNbrBgpAdvtState_Enum', 
+            _MetaInfoClassMember('bgp-advertisement-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNbrBgpAdvtStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNbrBgpAdvtStateEnum', 
                 [], [], 
                 '''                BGP labelled prefixes advertisement state
                 ''',
@@ -20858,19 +20858,19 @@ _meta_table = {
                 ''',
                 'keep_alive_interval',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-last-sync-error', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncErr_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncErr_Enum', 
+            _MetaInfoClassMember('nsr-last-sync-error', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncErrEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncErrEnum', 
                 [], [], 
                 '''                Last NSR sync error
                 ''',
                 'nsr_last_sync_error',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-last-sync-nack-reason', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerLdpSyncNackRsn_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerLdpSyncNackRsn_Enum', 
+            _MetaInfoClassMember('nsr-last-sync-nack-reason', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerLdpSyncNackRsnEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerLdpSyncNackRsnEnum', 
                 [], [], 
                 '''                Last NSR sync NACK reaston
                 ''',
                 'nsr_last_sync_nack_reason',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-sync-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncState_Enum', 
+            _MetaInfoClassMember('nsr-sync-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncStateEnum', 
                 [], [], 
                 '''                NSR Sync State
                 ''',
@@ -20955,7 +20955,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Neighbors.Neighbor.LdpNbrBoundIpv4AddressInfo.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -21007,7 +21007,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Neighbors.Neighbor.LdpNbrBoundIpv6AddressInfo.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -21082,7 +21082,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup.TargetHelloData.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -21117,7 +21117,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup.TargetHelloData.TargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -21158,7 +21158,7 @@ _meta_table = {
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -21181,7 +21181,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup',
             False, 
             [
-            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrim_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrim_Enum', 
+            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrimEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrimEnum', 
                 [], [], 
                 '''                HelloType
                 ''',
@@ -21250,7 +21250,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup.TargetHelloData.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -21285,7 +21285,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup.TargetHelloData.TargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -21326,7 +21326,7 @@ _meta_table = {
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -21349,7 +21349,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup',
             False, 
             [
-            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrim_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrim_Enum', 
+            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrimEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrimEnum', 
                 [], [], 
                 '''                HelloType
                 ''',
@@ -21478,7 +21478,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Neighbors.Neighbor.TcpInformation.ForeignHost',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -21513,7 +21513,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Neighbors.Neighbor.TcpInformation.LocalHost',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -22433,7 +22433,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Parameters.AddressFamilyParameter.DiscoveryTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -22468,7 +22468,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Parameters.AddressFamilyParameter',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -22990,7 +22990,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.DefaultVrf.Summary.Common',
             False, 
             [
-            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Families enabled
                 ''',
@@ -23760,7 +23760,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Summary.Common',
             False, 
             [
-            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Families enabled
                 ''',
@@ -24129,7 +24129,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.Bindings.Binding.PrefixXr',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -24312,7 +24312,7 @@ _meta_table = {
                 ''',
                 'le_local_binding_revision',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('le-local-label-state', REFERENCE_ENUM_CLASS, 'LocalLabelState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LocalLabelState_Enum', 
+            _MetaInfoClassMember('le-local-label-state', REFERENCE_ENUM_CLASS, 'LocalLabelStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LocalLabelStateEnum', 
                 [], [], 
                 '''                Local label state
                 ''',
@@ -24463,7 +24463,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.BindingsSummary.BindAf',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Binding Summary Address Family
                 ''',
@@ -24533,7 +24533,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.BindingsSummary',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -24617,7 +24617,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.BindingsSummaryAll.BindAf',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Binding Summary Address Family
                 ''',
@@ -24687,7 +24687,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.BindingsSummaryAll',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -24829,13 +24829,13 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-mpls-ldp-oper', True),
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Discovery Brief Address Family
                 ''',
                 'address_family',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('address-family-set', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family-set', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Discovery Brief Address Family Set
                 ''',
@@ -24893,7 +24893,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.Discovery.Brief.TargetedHelloBriefs.TargetedHelloBrief.DhcbTargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -24980,7 +24980,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.Discovery.Brief.TargetedHelloBriefs.TargetedHelloBrief',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Targeted Discovery Address Family
                 ''',
@@ -25093,7 +25093,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.DiscoveryLinkAf.LocalSrcAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -25128,7 +25128,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.DiscoveryLinkAf.LocalTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -25192,7 +25192,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.NeighborSrcAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -25227,7 +25227,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.NeighborTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -25262,7 +25262,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.Target',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -25641,7 +25641,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.Discovery.TargetedHellos.TargetedHello.DhcbLocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -25676,7 +25676,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.Discovery.TargetedHellos.TargetedHello.DhcbTargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -25790,7 +25790,7 @@ _meta_table = {
                 ''',
                 'quick_start_disabled',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                Targeted hello state
                 ''',
@@ -26222,13 +26222,13 @@ _meta_table = {
                 ''',
                 'out_label',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwner_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwner_Enum', 
+            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwnerEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwnerEnum', 
                 [], [], 
                 '''                Outgoing label owner
                 ''',
                 'out_label_owner',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValue_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValue_Enum', 
+            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValueEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValueEnum', 
                 [], [], 
                 '''                Outgoing Label Type
                 ''',
@@ -26298,13 +26298,13 @@ _meta_table = {
                 ''',
                 'out_label',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwner_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwner_Enum', 
+            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwnerEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwnerEnum', 
                 [], [], 
                 '''                Outgoing label owner
                 ''',
                 'out_label_owner',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValue_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValue_Enum', 
+            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValueEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValueEnum', 
                 [], [], 
                 '''                Outgoing Label Type
                 ''',
@@ -26384,7 +26384,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.NextHop',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -26419,7 +26419,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.RemoteLfa.RemotePNodeId',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -26454,7 +26454,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.RemoteLfa.RemoteQNodeId',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -26584,7 +26584,7 @@ _meta_table = {
                 ''',
                 'nh_is_overriden',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('path-flags', REFERENCE_ENUM_CLASS, 'LdpRoutePathFlags_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathFlags_Enum', 
+            _MetaInfoClassMember('path-flags', REFERENCE_ENUM_CLASS, 'LdpRoutePathFlagsEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathFlagsEnum', 
                 [], [], 
                 '''                Routing path flags decoded
                 ''',
@@ -26636,7 +26636,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af.Forwardings.Forwarding.PrefixXr',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -27036,13 +27036,13 @@ _meta_table = {
                 ''',
                 'igp_sync_delay',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('igp-sync-down-reason', REFERENCE_ENUM_CLASS, 'LdpIgpSyncDownReason_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncDownReason_Enum', 
+            _MetaInfoClassMember('igp-sync-down-reason', REFERENCE_ENUM_CLASS, 'LdpIgpSyncDownReasonEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncDownReasonEnum', 
                 [], [], 
                 '''                Reason IGP Sync Not Achieved
                 ''',
                 'igp_sync_down_reason',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('igp-sync-state', REFERENCE_ENUM_CLASS, 'LdpIgpSyncState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncState_Enum', 
+            _MetaInfoClassMember('igp-sync-state', REFERENCE_ENUM_CLASS, 'LdpIgpSyncStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncStateEnum', 
                 [], [], 
                 '''                IGP Sync state
                 ''',
@@ -27341,7 +27341,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpOperAfName_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdpOperAfName_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpOperAfNameEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdpOperAfNameEnum', 
                 [], [], 
                 '''                Address Family name
                 ''',
@@ -27608,7 +27608,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.GracefulRestart.GracefulRestartableNeighbor.DownNbrAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -27643,7 +27643,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.GracefulRestart.GracefulRestartableNeighbor.DownNbrInterface',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                Interface adj Address Family
                 ''',
@@ -28391,7 +28391,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.NeighborBriefs.NeighborBrief.NbrBrAfInfo',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Neighbor Brief Address Family
                 ''',
@@ -28486,7 +28486,7 @@ _meta_table = {
                 ''',
                 'nbr_br_af_info',
                 'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
-            _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrState_Enum', 
+            _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrStateEnum', 
                 [], [], 
                 '''                NSR readiness state
                 ''',
@@ -28778,7 +28778,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Neighbors.Neighbor.DetailedInformation.Ipv4DuplicateAddress.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -28830,7 +28830,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Neighbors.Neighbor.DetailedInformation.Ipv6DuplicateAddress.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -28889,7 +28889,7 @@ _meta_table = {
                 ''',
                 'advertise_bgp_prefixes',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('bgp-advertisement-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNbrBgpAdvtState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNbrBgpAdvtState_Enum', 
+            _MetaInfoClassMember('bgp-advertisement-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNbrBgpAdvtStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNbrBgpAdvtStateEnum', 
                 [], [], 
                 '''                BGP labelled prefixes advertisement state
                 ''',
@@ -28967,19 +28967,19 @@ _meta_table = {
                 ''',
                 'keep_alive_interval',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-last-sync-error', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncErr_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncErr_Enum', 
+            _MetaInfoClassMember('nsr-last-sync-error', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncErrEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncErrEnum', 
                 [], [], 
                 '''                Last NSR sync error
                 ''',
                 'nsr_last_sync_error',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-last-sync-nack-reason', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerLdpSyncNackRsn_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerLdpSyncNackRsn_Enum', 
+            _MetaInfoClassMember('nsr-last-sync-nack-reason', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerLdpSyncNackRsnEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerLdpSyncNackRsnEnum', 
                 [], [], 
                 '''                Last NSR sync NACK reaston
                 ''',
                 'nsr_last_sync_nack_reason',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-sync-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncState_Enum', 
+            _MetaInfoClassMember('nsr-sync-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncStateEnum', 
                 [], [], 
                 '''                NSR Sync State
                 ''',
@@ -29064,7 +29064,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrBoundIpv4AddressInfo.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -29116,7 +29116,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrBoundIpv6AddressInfo.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -29191,7 +29191,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup.TargetHelloData.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -29226,7 +29226,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup.TargetHelloData.TargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -29267,7 +29267,7 @@ _meta_table = {
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -29290,7 +29290,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup',
             False, 
             [
-            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrim_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrim_Enum', 
+            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrimEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrimEnum', 
                 [], [], 
                 '''                HelloType
                 ''',
@@ -29359,7 +29359,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup.TargetHelloData.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -29394,7 +29394,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup.TargetHelloData.TargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -29435,7 +29435,7 @@ _meta_table = {
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -29458,7 +29458,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup',
             False, 
             [
-            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrim_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrim_Enum', 
+            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrimEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrimEnum', 
                 [], [], 
                 '''                HelloType
                 ''',
@@ -29587,7 +29587,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Neighbors.Neighbor.TcpInformation.ForeignHost',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -29622,7 +29622,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Neighbors.Neighbor.TcpInformation.LocalHost',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -30542,7 +30542,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Parameters.AddressFamilyParameter.DiscoveryTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -30577,7 +30577,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Parameters.AddressFamilyParameter',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -31099,7 +31099,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global.Standby.Vrfs.Vrf.Summary.Common',
             False, 
             [
-            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Families enabled
                 ''',
@@ -31484,7 +31484,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.BindingsSummaryAll.BindAf',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Binding Summary Address Family
                 ''',
@@ -31554,7 +31554,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.BindingsSummaryAll',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -31696,7 +31696,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.Bindings.Binding.PrefixXr',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -31879,7 +31879,7 @@ _meta_table = {
                 ''',
                 'le_local_binding_revision',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('le-local-label-state', REFERENCE_ENUM_CLASS, 'LocalLabelState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LocalLabelState_Enum', 
+            _MetaInfoClassMember('le-local-label-state', REFERENCE_ENUM_CLASS, 'LocalLabelStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LocalLabelStateEnum', 
                 [], [], 
                 '''                Local label state
                 ''',
@@ -32030,7 +32030,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.BindingsSummary.BindAf',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Binding Summary Address Family
                 ''',
@@ -32100,7 +32100,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.BindingsSummary',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -32184,7 +32184,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.BindingsSummaryAll.BindAf',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Binding Summary Address Family
                 ''',
@@ -32254,7 +32254,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.BindingsSummaryAll',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -32396,13 +32396,13 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-mpls-ldp-oper', True),
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Discovery Brief Address Family
                 ''',
                 'address_family',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('address-family-set', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family-set', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Discovery Brief Address Family Set
                 ''',
@@ -32460,7 +32460,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.Discovery.Brief.TargetedHelloBriefs.TargetedHelloBrief.DhcbTargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -32547,7 +32547,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.Discovery.Brief.TargetedHelloBriefs.TargetedHelloBrief',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Targeted Discovery Address Family
                 ''',
@@ -32660,7 +32660,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.DiscoveryLinkAf.LocalSrcAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -32695,7 +32695,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.DiscoveryLinkAf.LocalTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -32759,7 +32759,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.NeighborSrcAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -32794,7 +32794,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.NeighborTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -32829,7 +32829,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.Target',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -33208,7 +33208,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.Discovery.TargetedHellos.TargetedHello.DhcbLocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -33243,7 +33243,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.Discovery.TargetedHellos.TargetedHello.DhcbTargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -33357,7 +33357,7 @@ _meta_table = {
                 ''',
                 'quick_start_disabled',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                Targeted hello state
                 ''',
@@ -33789,13 +33789,13 @@ _meta_table = {
                 ''',
                 'out_label',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwner_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwner_Enum', 
+            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwnerEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwnerEnum', 
                 [], [], 
                 '''                Outgoing label owner
                 ''',
                 'out_label_owner',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValue_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValue_Enum', 
+            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValueEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValueEnum', 
                 [], [], 
                 '''                Outgoing Label Type
                 ''',
@@ -33865,13 +33865,13 @@ _meta_table = {
                 ''',
                 'out_label',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwner_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwner_Enum', 
+            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwnerEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwnerEnum', 
                 [], [], 
                 '''                Outgoing label owner
                 ''',
                 'out_label_owner',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValue_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValue_Enum', 
+            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValueEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValueEnum', 
                 [], [], 
                 '''                Outgoing Label Type
                 ''',
@@ -33951,7 +33951,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.NextHop',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -33986,7 +33986,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.RemoteLfa.RemotePNodeId',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -34021,7 +34021,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.RemoteLfa.RemoteQNodeId',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -34151,7 +34151,7 @@ _meta_table = {
                 ''',
                 'nh_is_overriden',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('path-flags', REFERENCE_ENUM_CLASS, 'LdpRoutePathFlags_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathFlags_Enum', 
+            _MetaInfoClassMember('path-flags', REFERENCE_ENUM_CLASS, 'LdpRoutePathFlagsEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathFlagsEnum', 
                 [], [], 
                 '''                Routing path flags decoded
                 ''',
@@ -34203,7 +34203,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af.Forwardings.Forwarding.PrefixXr',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -34603,13 +34603,13 @@ _meta_table = {
                 ''',
                 'igp_sync_delay',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('igp-sync-down-reason', REFERENCE_ENUM_CLASS, 'LdpIgpSyncDownReason_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncDownReason_Enum', 
+            _MetaInfoClassMember('igp-sync-down-reason', REFERENCE_ENUM_CLASS, 'LdpIgpSyncDownReasonEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncDownReasonEnum', 
                 [], [], 
                 '''                Reason IGP Sync Not Achieved
                 ''',
                 'igp_sync_down_reason',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('igp-sync-state', REFERENCE_ENUM_CLASS, 'LdpIgpSyncState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncState_Enum', 
+            _MetaInfoClassMember('igp-sync-state', REFERENCE_ENUM_CLASS, 'LdpIgpSyncStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncStateEnum', 
                 [], [], 
                 '''                IGP Sync state
                 ''',
@@ -34908,7 +34908,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpOperAfName_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdpOperAfName_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpOperAfNameEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdpOperAfNameEnum', 
                 [], [], 
                 '''                Address Family name
                 ''',
@@ -35175,7 +35175,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.GracefulRestart.GracefulRestartableNeighbor.DownNbrAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -35210,7 +35210,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.GracefulRestart.GracefulRestartableNeighbor.DownNbrInterface',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                Interface adj Address Family
                 ''',
@@ -35958,7 +35958,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.NeighborBriefs.NeighborBrief.NbrBrAfInfo',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Neighbor Brief Address Family
                 ''',
@@ -36053,7 +36053,7 @@ _meta_table = {
                 ''',
                 'nbr_br_af_info',
                 'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
-            _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrState_Enum', 
+            _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrStateEnum', 
                 [], [], 
                 '''                NSR readiness state
                 ''',
@@ -36345,7 +36345,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Neighbors.Neighbor.DetailedInformation.Ipv4DuplicateAddress.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -36397,7 +36397,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Neighbors.Neighbor.DetailedInformation.Ipv6DuplicateAddress.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -36456,7 +36456,7 @@ _meta_table = {
                 ''',
                 'advertise_bgp_prefixes',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('bgp-advertisement-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNbrBgpAdvtState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNbrBgpAdvtState_Enum', 
+            _MetaInfoClassMember('bgp-advertisement-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNbrBgpAdvtStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNbrBgpAdvtStateEnum', 
                 [], [], 
                 '''                BGP labelled prefixes advertisement state
                 ''',
@@ -36534,19 +36534,19 @@ _meta_table = {
                 ''',
                 'keep_alive_interval',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-last-sync-error', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncErr_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncErr_Enum', 
+            _MetaInfoClassMember('nsr-last-sync-error', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncErrEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncErrEnum', 
                 [], [], 
                 '''                Last NSR sync error
                 ''',
                 'nsr_last_sync_error',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-last-sync-nack-reason', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerLdpSyncNackRsn_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerLdpSyncNackRsn_Enum', 
+            _MetaInfoClassMember('nsr-last-sync-nack-reason', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerLdpSyncNackRsnEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerLdpSyncNackRsnEnum', 
                 [], [], 
                 '''                Last NSR sync NACK reaston
                 ''',
                 'nsr_last_sync_nack_reason',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-sync-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncState_Enum', 
+            _MetaInfoClassMember('nsr-sync-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncStateEnum', 
                 [], [], 
                 '''                NSR Sync State
                 ''',
@@ -36631,7 +36631,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Neighbors.Neighbor.LdpNbrBoundIpv4AddressInfo.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -36683,7 +36683,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Neighbors.Neighbor.LdpNbrBoundIpv6AddressInfo.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -36758,7 +36758,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup.TargetHelloData.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -36793,7 +36793,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup.TargetHelloData.TargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -36834,7 +36834,7 @@ _meta_table = {
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -36857,7 +36857,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup',
             False, 
             [
-            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrim_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrim_Enum', 
+            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrimEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrimEnum', 
                 [], [], 
                 '''                HelloType
                 ''',
@@ -36926,7 +36926,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup.TargetHelloData.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -36961,7 +36961,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup.TargetHelloData.TargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -37002,7 +37002,7 @@ _meta_table = {
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -37025,7 +37025,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup',
             False, 
             [
-            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrim_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrim_Enum', 
+            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrimEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrimEnum', 
                 [], [], 
                 '''                HelloType
                 ''',
@@ -37154,7 +37154,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Neighbors.Neighbor.TcpInformation.ForeignHost',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -37189,7 +37189,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Neighbors.Neighbor.TcpInformation.LocalHost',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -38109,7 +38109,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Parameters.AddressFamilyParameter.DiscoveryTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -38144,7 +38144,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Parameters.AddressFamilyParameter',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -38666,7 +38666,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.DefaultVrf.Summary.Common',
             False, 
             [
-            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Families enabled
                 ''',
@@ -39436,7 +39436,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Summary.Common',
             False, 
             [
-            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Families enabled
                 ''',
@@ -39805,7 +39805,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.Bindings.Binding.PrefixXr',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -39988,7 +39988,7 @@ _meta_table = {
                 ''',
                 'le_local_binding_revision',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('le-local-label-state', REFERENCE_ENUM_CLASS, 'LocalLabelState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LocalLabelState_Enum', 
+            _MetaInfoClassMember('le-local-label-state', REFERENCE_ENUM_CLASS, 'LocalLabelStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LocalLabelStateEnum', 
                 [], [], 
                 '''                Local label state
                 ''',
@@ -40139,7 +40139,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.BindingsSummary.BindAf',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Binding Summary Address Family
                 ''',
@@ -40209,7 +40209,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.BindingsSummary',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -40293,7 +40293,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.BindingsSummaryAll.BindAf',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Binding Summary Address Family
                 ''',
@@ -40363,7 +40363,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.BindingsSummaryAll',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -40505,13 +40505,13 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-mpls-ldp-oper', True),
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Discovery Brief Address Family
                 ''',
                 'address_family',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('address-family-set', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family-set', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Discovery Brief Address Family Set
                 ''',
@@ -40569,7 +40569,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.Discovery.Brief.TargetedHelloBriefs.TargetedHelloBrief.DhcbTargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -40656,7 +40656,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.Discovery.Brief.TargetedHelloBriefs.TargetedHelloBrief',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Targeted Discovery Address Family
                 ''',
@@ -40769,7 +40769,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.DiscoveryLinkAf.LocalSrcAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -40804,7 +40804,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.DiscoveryLinkAf.LocalTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -40868,7 +40868,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.NeighborSrcAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -40903,7 +40903,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.NeighborTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -40938,7 +40938,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.Discovery.LinkHellos.LinkHello.HelloInformation.Target',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -41317,7 +41317,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.Discovery.TargetedHellos.TargetedHello.DhcbLocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -41352,7 +41352,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.Discovery.TargetedHellos.TargetedHello.DhcbTargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -41466,7 +41466,7 @@ _meta_table = {
                 ''',
                 'quick_start_disabled',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                Targeted hello state
                 ''',
@@ -41898,13 +41898,13 @@ _meta_table = {
                 ''',
                 'out_label',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwner_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwner_Enum', 
+            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwnerEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwnerEnum', 
                 [], [], 
                 '''                Outgoing label owner
                 ''',
                 'out_label_owner',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValue_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValue_Enum', 
+            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValueEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValueEnum', 
                 [], [], 
                 '''                Outgoing Label Type
                 ''',
@@ -41974,13 +41974,13 @@ _meta_table = {
                 ''',
                 'out_label',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwner_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwner_Enum', 
+            _MetaInfoClassMember('out-label-owner', REFERENCE_ENUM_CLASS, 'LdpRoutePathLblOwnerEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathLblOwnerEnum', 
                 [], [], 
                 '''                Outgoing label owner
                 ''',
                 'out_label_owner',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValue_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValue_Enum', 
+            _MetaInfoClassMember('out-label-type', REFERENCE_ENUM_CLASS, 'LabelValueEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LabelValueEnum', 
                 [], [], 
                 '''                Outgoing Label Type
                 ''',
@@ -42060,7 +42060,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.NextHop',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -42095,7 +42095,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.RemoteLfa.RemotePNodeId',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -42130,7 +42130,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.Forwardings.Forwarding.Paths.Routing.RemoteLfa.RemoteQNodeId',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -42260,7 +42260,7 @@ _meta_table = {
                 ''',
                 'nh_is_overriden',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('path-flags', REFERENCE_ENUM_CLASS, 'LdpRoutePathFlags_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathFlags_Enum', 
+            _MetaInfoClassMember('path-flags', REFERENCE_ENUM_CLASS, 'LdpRoutePathFlagsEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpRoutePathFlagsEnum', 
                 [], [], 
                 '''                Routing path flags decoded
                 ''',
@@ -42312,7 +42312,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af.Forwardings.Forwarding.PrefixXr',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -42712,13 +42712,13 @@ _meta_table = {
                 ''',
                 'igp_sync_delay',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('igp-sync-down-reason', REFERENCE_ENUM_CLASS, 'LdpIgpSyncDownReason_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncDownReason_Enum', 
+            _MetaInfoClassMember('igp-sync-down-reason', REFERENCE_ENUM_CLASS, 'LdpIgpSyncDownReasonEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncDownReasonEnum', 
                 [], [], 
                 '''                Reason IGP Sync Not Achieved
                 ''',
                 'igp_sync_down_reason',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('igp-sync-state', REFERENCE_ENUM_CLASS, 'LdpIgpSyncState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncState_Enum', 
+            _MetaInfoClassMember('igp-sync-state', REFERENCE_ENUM_CLASS, 'LdpIgpSyncStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpIgpSyncStateEnum', 
                 [], [], 
                 '''                IGP Sync state
                 ''',
@@ -43017,7 +43017,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Afs.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpOperAfName_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdpOperAfName_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpOperAfNameEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MplsLdpOperAfNameEnum', 
                 [], [], 
                 '''                Address Family name
                 ''',
@@ -43284,7 +43284,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.GracefulRestart.GracefulRestartableNeighbor.DownNbrAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -43319,7 +43319,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.GracefulRestart.GracefulRestartableNeighbor.DownNbrInterface',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                Interface adj Address Family
                 ''',
@@ -44067,7 +44067,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.NeighborBriefs.NeighborBrief.NbrBrAfInfo',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Neighbor Brief Address Family
                 ''',
@@ -44162,7 +44162,7 @@ _meta_table = {
                 ''',
                 'nbr_br_af_info',
                 'Cisco-IOS-XR-mpls-ldp-oper', False, max_elements=2),
-            _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrState_Enum', 
+            _MetaInfoClassMember('nsr-state', REFERENCE_ENUM_CLASS, 'ShowNsrStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'ShowNsrStateEnum', 
                 [], [], 
                 '''                NSR readiness state
                 ''',
@@ -44454,7 +44454,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Neighbors.Neighbor.DetailedInformation.Ipv4DuplicateAddress.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -44506,7 +44506,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Neighbors.Neighbor.DetailedInformation.Ipv6DuplicateAddress.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -44565,7 +44565,7 @@ _meta_table = {
                 ''',
                 'advertise_bgp_prefixes',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('bgp-advertisement-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNbrBgpAdvtState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNbrBgpAdvtState_Enum', 
+            _MetaInfoClassMember('bgp-advertisement-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNbrBgpAdvtStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNbrBgpAdvtStateEnum', 
                 [], [], 
                 '''                BGP labelled prefixes advertisement state
                 ''',
@@ -44643,19 +44643,19 @@ _meta_table = {
                 ''',
                 'keep_alive_interval',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-last-sync-error', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncErr_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncErr_Enum', 
+            _MetaInfoClassMember('nsr-last-sync-error', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncErrEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncErrEnum', 
                 [], [], 
                 '''                Last NSR sync error
                 ''',
                 'nsr_last_sync_error',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-last-sync-nack-reason', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerLdpSyncNackRsn_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerLdpSyncNackRsn_Enum', 
+            _MetaInfoClassMember('nsr-last-sync-nack-reason', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerLdpSyncNackRsnEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerLdpSyncNackRsnEnum', 
                 [], [], 
                 '''                Last NSR sync NACK reaston
                 ''',
                 'nsr_last_sync_nack_reason',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('nsr-sync-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncState_Enum', 
+            _MetaInfoClassMember('nsr-sync-state', REFERENCE_ENUM_CLASS, 'MgmtLdpNsrPeerSyncStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'MgmtLdpNsrPeerSyncStateEnum', 
                 [], [], 
                 '''                NSR Sync State
                 ''',
@@ -44740,7 +44740,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrBoundIpv4AddressInfo.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -44792,7 +44792,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrBoundIpv6AddressInfo.Address',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -44867,7 +44867,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup.TargetHelloData.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -44902,7 +44902,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup.TargetHelloData.TargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -44943,7 +44943,7 @@ _meta_table = {
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -44966,7 +44966,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv4AdjInfo.AdjacencyGroup',
             False, 
             [
-            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrim_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrim_Enum', 
+            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrimEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrimEnum', 
                 [], [], 
                 '''                HelloType
                 ''',
@@ -45035,7 +45035,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup.TargetHelloData.LocalAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -45070,7 +45070,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup.TargetHelloData.TargetAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -45111,7 +45111,7 @@ _meta_table = {
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-mpls-ldp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbState_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'DhcbStateEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'DhcbStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -45134,7 +45134,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Neighbors.Neighbor.LdpNbrIpv6AdjInfo.AdjacencyGroup',
             False, 
             [
-            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrim_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrim_Enum', 
+            _MetaInfoClassMember('hello-type', REFERENCE_ENUM_CLASS, 'LdpAdjUnionDiscrimEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAdjUnionDiscrimEnum', 
                 [], [], 
                 '''                HelloType
                 ''',
@@ -45263,7 +45263,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Neighbors.Neighbor.TcpInformation.ForeignHost',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -45298,7 +45298,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Neighbors.Neighbor.TcpInformation.LocalHost',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -46218,7 +46218,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Parameters.AddressFamilyParameter.DiscoveryTransportAddress',
             False, 
             [
-            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfId_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfId_Enum', 
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'LdpAfIdEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfIdEnum', 
                 [], [], 
                 '''                AFI
                 ''',
@@ -46253,7 +46253,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Parameters.AddressFamilyParameter',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Family
                 ''',
@@ -46775,7 +46775,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Nodes.Node.Vrfs.Vrf.Summary.Common',
             False, 
             [
-            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAf_Enum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAf_Enum', 
+            _MetaInfoClassMember('address-families', REFERENCE_ENUM_CLASS, 'LdpAfEnum' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_ldp_oper', 'LdpAfEnum', 
                 [], [], 
                 '''                Address Families enabled
                 ''',

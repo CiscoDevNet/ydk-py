@@ -24,33 +24,31 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class ServerDomainLkup_Enum(Enum):
+class ServerDomainLkupEnum(Enum):
     """
-    ServerDomainLkup_Enum
+    ServerDomainLkupEnum
 
     Domain look up
 
-    """
+    .. data:: STATIC_MAPPING = 0
+
+    	Static mapping
+
+    .. data:: DOMAIN_SERVICE = 1
+
+    	Domain service
 
     """
 
-    Static mapping
-
-    """
     STATIC_MAPPING = 0
 
-    """
-
-    Domain service
-
-    """
     DOMAIN_SERVICE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-        return meta._meta_table['ServerDomainLkup_Enum']
+        return meta._meta_table['ServerDomainLkupEnum']
 
 
 
@@ -279,8 +277,6 @@ class IpDomain(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af_name is not None:
                                 return True
 
@@ -290,10 +286,6 @@ class IpDomain(object):
                             if self.ipv6_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -338,17 +330,11 @@ class IpDomain(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.host_alias is not None:
                                 for child in self.host_alias:
                                     if child is not None:
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -372,8 +358,6 @@ class IpDomain(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.host_name is not None:
                             return True
 
@@ -391,13 +375,6 @@ class IpDomain(object):
                         if self.host_alias_list is not None and self.host_alias_list._has_data():
                             return True
 
-                        if self.host_alias_list is not None and self.host_alias_list.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -419,17 +396,11 @@ class IpDomain(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.host is not None:
                         for child_ref in self.host:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -452,7 +423,7 @@ class IpDomain(object):
                 .. attribute:: domain_lookup
                 
                 	Domain lookup
-                	**type**\: :py:class:`ServerDomainLkup_Enum <ydk.models.ip.Cisco_IOS_XR_ip_domain_oper.ServerDomainLkup_Enum>`
+                	**type**\: :py:class:`ServerDomainLkupEnum <ydk.models.ip.Cisco_IOS_XR_ip_domain_oper.ServerDomainLkupEnum>`
                 
                 .. attribute:: domain_name
                 
@@ -533,8 +504,6 @@ class IpDomain(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.af_name is not None:
                             return True
 
@@ -544,10 +513,6 @@ class IpDomain(object):
                         if self.ipv6_address is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -569,8 +534,6 @@ class IpDomain(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.domain is not None:
                         for child in self.domain:
                             if child is not None:
@@ -587,10 +550,6 @@ class IpDomain(object):
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -612,27 +571,15 @@ class IpDomain(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.vrf_name is not None:
                     return True
 
                 if self.hosts is not None and self.hosts._has_data():
                     return True
 
-                if self.hosts is not None and self.hosts.is_presence():
-                    return True
-
                 if self.server is not None and self.server._has_data():
                     return True
 
-                if self.server is not None and self.server.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -652,17 +599,11 @@ class IpDomain(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -682,18 +623,9 @@ class IpDomain(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.vrfs is not None and self.vrfs._has_data():
             return True
 
-        if self.vrfs is not None and self.vrfs.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -715,7 +647,6 @@ class Ipv4_Identity(HostAddressBase_Identity):
 
     def __init__(self):
         HostAddressBase_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
@@ -736,7 +667,6 @@ class Ipv6_Identity(HostAddressBase_Identity):
 
     def __init__(self):
         HostAddressBase_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():

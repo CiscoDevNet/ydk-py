@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'Ospfv3Lsa_Enum' : _MetaInfoEnum('Ospfv3Lsa_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'Ospfv3LsaEnum' : _MetaInfoEnum('Ospfv3LsaEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'link-lsa':'LINK_LSA',
             'grace-lsa':'GRACE_LSA',
@@ -29,12 +29,12 @@ _meta_table = {
             'opaque-area':'OPAQUE_AREA',
             'opaque-as':'OPAQUE_AS',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'Ospfv3PrefixLsaRef_Enum' : _MetaInfoEnum('Ospfv3PrefixLsaRef_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'Ospfv3PrefixLsaRefEnum' : _MetaInfoEnum('Ospfv3PrefixLsaRefEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'router':'ROUTER',
             'network':'NETWORK',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'Ospfv3GracefulShutdownState_Enum' : _MetaInfoEnum('Ospfv3GracefulShutdownState_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'Ospfv3GracefulShutdownStateEnum' : _MetaInfoEnum('Ospfv3GracefulShutdownStateEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'init':'INIT',
             'normal':'NORMAL',
@@ -42,7 +42,7 @@ _meta_table = {
             'empty-hellos':'EMPTY_HELLOS',
             'quiet':'QUIET',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'ImStateEnum_Enum' : _MetaInfoEnum('ImStateEnum_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'ImStateEnumEnum' : _MetaInfoEnum('ImStateEnumEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'im-state-not-ready':'IM_STATE_NOT_READY',
             'im-state-admin-down':'IM_STATE_ADMIN_DOWN',
@@ -64,7 +64,7 @@ _meta_table = {
             'im-state-unknown':'IM_STATE_UNKNOWN',
             'im-state-last':'IM_STATE_LAST',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'IpfrrTbrkr_Enum' : _MetaInfoEnum('IpfrrTbrkr_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'IpfrrTbrkrEnum' : _MetaInfoEnum('IpfrrTbrkrEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'downstream':'DOWNSTREAM',
             'line-card-disjoint':'LINE_CARD_DISJOINT',
@@ -75,7 +75,7 @@ _meta_table = {
             'srlg-disjoint':'SRLG_DISJOINT',
             'tunnel':'TUNNEL',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'Ospfv3Interface_Enum' : _MetaInfoEnum('Ospfv3Interface_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'Ospfv3InterfaceEnum' : _MetaInfoEnum('Ospfv3InterfaceEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'none':'NONE',
             'broadcast':'BROADCAST',
@@ -88,7 +88,7 @@ _meta_table = {
             'mpls-traffic-engineering':'MPLS_TRAFFIC_ENGINEERING',
             'sham-link':'SHAM_LINK',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'StubRouterTrigger_Enum' : _MetaInfoEnum('StubRouterTrigger_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'StubRouterTriggerEnum' : _MetaInfoEnum('StubRouterTriggerEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'on-proc-migration':'ON_PROC_MIGRATION',
             'on-proc-restart':'ON_PROC_RESTART',
@@ -97,7 +97,7 @@ _meta_table = {
             'always':'ALWAYS',
             'none':'NONE',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'Ospfv3InterfaceState_Enum' : _MetaInfoEnum('Ospfv3InterfaceState_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'Ospfv3InterfaceStateEnum' : _MetaInfoEnum('Ospfv3InterfaceStateEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'down':'DOWN',
             'loopback':'LOOPBACK',
@@ -108,20 +108,20 @@ _meta_table = {
             'backup-designated-router':'BACKUP_DESIGNATED_ROUTER',
             'other-designated-router':'OTHER_DESIGNATED_ROUTER',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'OspfLsaSyncState_Enum' : _MetaInfoEnum('OspfLsaSyncState_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'OspfLsaSyncStateEnum' : _MetaInfoEnum('OspfLsaSyncStateEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'none':'NONE',
             'out-of-sync':'OUT_OF_SYNC',
             'in-sync':'IN_SYNC',
             'nsr-ack-pending':'NSR_ACK_PENDING',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'Ospfv3DefaultMetric_Enum' : _MetaInfoEnum('Ospfv3DefaultMetric_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'Ospfv3DefaultMetricEnum' : _MetaInfoEnum('Ospfv3DefaultMetricEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'type-none':'TYPE_NONE',
             'type1':'TYPE1',
             'type2':'TYPE2',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'Ospfv3NeighborState_Enum' : _MetaInfoEnum('Ospfv3NeighborState_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'Ospfv3NeighborStateEnum' : _MetaInfoEnum('Ospfv3NeighborStateEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'neigbhor-down':'NEIGBHOR_DOWN',
             'attempt':'ATTEMPT',
@@ -133,14 +133,14 @@ _meta_table = {
             'full':'FULL',
             'sc-virtual':'SC_VIRTUAL',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'PrefixPriority_Enum' : _MetaInfoEnum('PrefixPriority_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'PrefixPriorityEnum' : _MetaInfoEnum('PrefixPriorityEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'critical':'CRITICAL',
             'high':'HIGH',
             'medium':'MEDIUM',
             'low':'LOW',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'StubRouterExitReason_Enum' : _MetaInfoEnum('StubRouterExitReason_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'StubRouterExitReasonEnum' : _MetaInfoEnum('StubRouterExitReasonEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'none':'NONE',
             'bgp':'BGP',
@@ -149,7 +149,7 @@ _meta_table = {
             'cleared':'CLEARED',
             'override':'OVERRIDE',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'Ospfv3Lsa1_Enum' : _MetaInfoEnum('Ospfv3Lsa1_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'Ospfv3Lsa1Enum' : _MetaInfoEnum('Ospfv3Lsa1Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'link':'LINK',
             'grace':'GRACE',
@@ -166,14 +166,14 @@ _meta_table = {
             'unknown-as':'UNKNOWN_AS',
             'unknown-type':'UNKNOWN_TYPE',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'Ospfv3GracefulRestartReason_Enum' : _MetaInfoEnum('Ospfv3GracefulRestartReason_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'Ospfv3GracefulRestartReasonEnum' : _MetaInfoEnum('Ospfv3GracefulRestartReasonEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'grace-reason-unknown':'GRACE_REASON_UNKNOWN',
             'grace-reason-software-restart':'GRACE_REASON_SOFTWARE_RESTART',
             'grace-reason-software-upgrade':'GRACE_REASON_SOFTWARE_UPGRADE',
             'grace-reason-switchover':'GRACE_REASON_SWITCHOVER',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'StubRouterAbrOffReason_Enum' : _MetaInfoEnum('StubRouterAbrOffReason_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'StubRouterAbrOffReasonEnum' : _MetaInfoEnum('StubRouterAbrOffReasonEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'init-delay':'INIT_DELAY',
             'no-neighbor':'NO_NEIGHBOR',
@@ -181,25 +181,25 @@ _meta_table = {
             'new-neighbor':'NEW_NEIGHBOR',
             'full-neighbor':'FULL_NEIGHBOR',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'Ospfv3AreaRangeStatus_Enum' : _MetaInfoEnum('Ospfv3AreaRangeStatus_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'Ospfv3AreaRangeStatusEnum' : _MetaInfoEnum('Ospfv3AreaRangeStatusEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'advertise':'ADVERTISE',
             'do-not-advertise':'DO_NOT_ADVERTISE',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'StubRouterMode_Enum' : _MetaInfoEnum('StubRouterMode_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'StubRouterModeEnum' : _MetaInfoEnum('StubRouterModeEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'rbit':'RBIT',
             'v6bit':'V6BIT',
             'max-metric':'MAX_METRIC',
             'none':'NONE',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'Ospfv3Link_Enum' : _MetaInfoEnum('Ospfv3Link_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'Ospfv3LinkEnum' : _MetaInfoEnum('Ospfv3LinkEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'link-router':'LINK_ROUTER',
             'link-trans-net':'LINK_TRANS_NET',
             'link-virtual-link':'LINK_VIRTUAL_LINK',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'Ospfv3BorderRoute_Enum' : _MetaInfoEnum('Ospfv3BorderRoute_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'Ospfv3BorderRouteEnum' : _MetaInfoEnum('Ospfv3BorderRouteEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'abr':'ABR',
             'asbr':'ASBR',
@@ -233,7 +233,7 @@ _meta_table = {
                 ''',
                 'range_prefix_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'Ospfv3AreaRangeStatus_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3AreaRangeStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'Ospfv3AreaRangeStatusEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3AreaRangeStatusEnum', 
                 [], [], 
                 '''                Area range status 
                 ''',
@@ -428,7 +428,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -469,7 +469,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -510,7 +510,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -627,13 +627,13 @@ _meta_table = {
                 ''',
                 'interface_neighbors',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Ospfv3Interface_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Interface_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
                 [], [], 
                 '''                Network type
                 ''',
                 'network_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -1015,7 +1015,7 @@ _meta_table = {
                 ''',
                 'interface_router_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -1082,7 +1082,7 @@ _meta_table = {
                 ''',
                 'network_lsa_flush_timer',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Ospfv3Interface_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Interface_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
                 [], [], 
                 '''                Network type
                 ''',
@@ -1094,7 +1094,7 @@ _meta_table = {
                 ''',
                 'next_hello_time',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceStateEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -1314,7 +1314,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail',
             False, 
             [
-            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3Interface_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Interface_Enum', 
+            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
                 [], [], 
                 '''                Interface type
                 ''',
@@ -1473,7 +1473,7 @@ _meta_table = {
                 ''',
                 'neighbor_sham_link_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborStateEnum', 
                 [], [], 
                 '''                Neighbor's state
                 ''',
@@ -1694,7 +1694,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborTable.Neighbor.NeighborDetail',
             False, 
             [
-            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3Interface_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Interface_Enum', 
+            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
                 [], [], 
                 '''                Interface type
                 ''',
@@ -1853,7 +1853,7 @@ _meta_table = {
                 ''',
                 'neighbor_sham_link_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborStateEnum', 
                 [], [], 
                 '''                Neighbor's state
                 ''',
@@ -1918,7 +1918,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -2035,7 +2035,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -2076,7 +2076,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -2117,7 +2117,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -2419,7 +2419,7 @@ _meta_table = {
                 ''',
                 'border_router_route_metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('border-router-type', REFERENCE_ENUM_CLASS, 'Ospfv3BorderRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3BorderRoute_Enum', 
+            _MetaInfoClassMember('border-router-type', REFERENCE_ENUM_CLASS, 'Ospfv3BorderRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3BorderRouteEnum', 
                 [], [], 
                 '''                Border router type 
                 ''',
@@ -2776,7 +2776,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -2897,7 +2897,7 @@ _meta_table = {
                 ''',
                 'grace_period',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('grace-reason', REFERENCE_ENUM_CLASS, 'Ospfv3GracefulRestartReason_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3GracefulRestartReason_Enum', 
+            _MetaInfoClassMember('grace-reason', REFERENCE_ENUM_CLASS, 'Ospfv3GracefulRestartReasonEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3GracefulRestartReasonEnum', 
                 [], [], 
                 '''                Reason for router restart
                 ''',
@@ -2921,7 +2921,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -3049,7 +3049,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -3170,7 +3170,7 @@ _meta_table = {
                 ''',
                 'grace_period',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('grace-reason', REFERENCE_ENUM_CLASS, 'Ospfv3GracefulRestartReason_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3GracefulRestartReason_Enum', 
+            _MetaInfoClassMember('grace-reason', REFERENCE_ENUM_CLASS, 'Ospfv3GracefulRestartReasonEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3GracefulRestartReasonEnum', 
                 [], [], 
                 '''                Reason for router restart
                 ''',
@@ -3194,7 +3194,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -3322,7 +3322,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -3454,7 +3454,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -3484,7 +3484,7 @@ _meta_table = {
                 ''',
                 'prefix_xr',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -3613,7 +3613,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -3757,7 +3757,7 @@ _meta_table = {
                 ''',
                 'lsa_router_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -3886,7 +3886,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -4018,7 +4018,7 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -4089,7 +4089,7 @@ _meta_table = {
                 ''',
                 'lsa_link_local',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -4241,7 +4241,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -4373,7 +4373,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -4507,7 +4507,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -4657,13 +4657,13 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
                 'lsa_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetricEnum', 
                 [], [], 
                 '''                Metric type 
                 ''',
@@ -4681,7 +4681,7 @@ _meta_table = {
                 ''',
                 'prefix_xr',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -4815,7 +4815,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -4947,7 +4947,7 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -4988,7 +4988,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -5012,13 +5012,13 @@ _meta_table = {
                 ''',
                 'reference_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('reference-type', REFERENCE_ENUM_CLASS, 'Ospfv3PrefixLsaRef_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3PrefixLsaRef_Enum', 
+            _MetaInfoClassMember('reference-type', REFERENCE_ENUM_CLASS, 'Ospfv3PrefixLsaRefEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3PrefixLsaRefEnum', 
                 [], [], 
                 '''                Reference type
                 ''',
                 'reference_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('reference-type-xr', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('reference-type-xr', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                Reference type 
                 ''',
@@ -5076,7 +5076,7 @@ _meta_table = {
                 ''',
                 'link_neighbor_router_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'Ospfv3Link_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Link_Enum', 
+            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'Ospfv3LinkEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LinkEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -5187,7 +5187,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -5348,7 +5348,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -5488,7 +5488,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -5778,7 +5778,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -6075,7 +6075,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -6365,7 +6365,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -6497,7 +6497,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -6527,7 +6527,7 @@ _meta_table = {
                 ''',
                 'prefix_xr',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -6655,7 +6655,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -6799,7 +6799,7 @@ _meta_table = {
                 ''',
                 'lsa_router_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -6927,7 +6927,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -7059,7 +7059,7 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -7130,7 +7130,7 @@ _meta_table = {
                 ''',
                 'lsa_link_local',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -7282,7 +7282,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -7444,7 +7444,7 @@ _meta_table = {
                 ''',
                 'lsa_router_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -7614,7 +7614,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -7746,7 +7746,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -7880,7 +7880,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -8030,13 +8030,13 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
                 'lsa_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetricEnum', 
                 [], [], 
                 '''                Metric type 
                 ''',
@@ -8054,7 +8054,7 @@ _meta_table = {
                 ''',
                 'prefix_xr',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -8188,7 +8188,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -8320,7 +8320,7 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -8361,7 +8361,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -8385,13 +8385,13 @@ _meta_table = {
                 ''',
                 'reference_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('reference-type', REFERENCE_ENUM_CLASS, 'Ospfv3PrefixLsaRef_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3PrefixLsaRef_Enum', 
+            _MetaInfoClassMember('reference-type', REFERENCE_ENUM_CLASS, 'Ospfv3PrefixLsaRefEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3PrefixLsaRefEnum', 
                 [], [], 
                 '''                Reference type
                 ''',
                 'reference_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('reference-type-xr', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('reference-type-xr', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                Reference type 
                 ''',
@@ -8449,7 +8449,7 @@ _meta_table = {
                 ''',
                 'link_neighbor_router_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'Ospfv3Link_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Link_Enum', 
+            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'Ospfv3LinkEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LinkEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -8560,7 +8560,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -8721,7 +8721,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -8861,7 +8861,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -9151,7 +9151,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -9447,7 +9447,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -9909,7 +9909,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -10059,13 +10059,13 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
                 'lsa_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetricEnum', 
                 [], [], 
                 '''                Metric type 
                 ''',
@@ -10095,7 +10095,7 @@ _meta_table = {
                 ''',
                 'prefix_xr',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -10229,7 +10229,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -10379,13 +10379,13 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
                 'lsa_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetricEnum', 
                 [], [], 
                 '''                Metric type 
                 ''',
@@ -10415,7 +10415,7 @@ _meta_table = {
                 ''',
                 'prefix_xr',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -10549,7 +10549,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -11152,7 +11152,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -11724,7 +11724,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -11765,7 +11765,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -11806,7 +11806,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -11923,13 +11923,13 @@ _meta_table = {
                 ''',
                 'interface_neighbors',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Ospfv3Interface_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Interface_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
                 [], [], 
                 '''                Network type
                 ''',
                 'network_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -12311,7 +12311,7 @@ _meta_table = {
                 ''',
                 'interface_router_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -12378,7 +12378,7 @@ _meta_table = {
                 ''',
                 'network_lsa_flush_timer',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Ospfv3Interface_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Interface_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
                 [], [], 
                 '''                Network type
                 ''',
@@ -12390,7 +12390,7 @@ _meta_table = {
                 ''',
                 'next_hello_time',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceStateEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -12838,7 +12838,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail',
             False, 
             [
-            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3Interface_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Interface_Enum', 
+            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
                 [], [], 
                 '''                Interface type
                 ''',
@@ -12997,7 +12997,7 @@ _meta_table = {
                 ''',
                 'neighbor_sham_link_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborStateEnum', 
                 [], [], 
                 '''                Neighbor's state
                 ''',
@@ -13218,7 +13218,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.NeighborProcessTable.Neighbor.NeighborDetail',
             False, 
             [
-            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3Interface_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Interface_Enum', 
+            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
                 [], [], 
                 '''                Interface type
                 ''',
@@ -13377,7 +13377,7 @@ _meta_table = {
                 ''',
                 'neighbor_sham_link_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborStateEnum', 
                 [], [], 
                 '''                Neighbor's state
                 ''',
@@ -13606,7 +13606,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -13723,7 +13723,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -13764,7 +13764,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -13805,7 +13805,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -14163,7 +14163,7 @@ _meta_table = {
                 ''',
                 'sham_link_retransmission',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('sham-link-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborState_Enum', 
+            _MetaInfoClassMember('sham-link-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborStateEnum', 
                 [], [], 
                 '''                Adjacency state
                 ''',
@@ -14336,7 +14336,7 @@ _meta_table = {
                 ''',
                 'sham_link_source_address',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('sham-link-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceState_Enum', 
+            _MetaInfoClassMember('sham-link-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceStateEnum', 
                 [], [], 
                 '''                OSPF interface state for the sham link
                 ''',
@@ -14446,7 +14446,7 @@ _meta_table = {
                 ''',
                 'tiebreaker_index',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('tiebreaker-type', REFERENCE_ENUM_CLASS, 'IpfrrTbrkr_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'IpfrrTbrkr_Enum', 
+            _MetaInfoClassMember('tiebreaker-type', REFERENCE_ENUM_CLASS, 'IpfrrTbrkrEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'IpfrrTbrkrEnum', 
                 [], [], 
                 '''                Tiebreaker Type
                 ''',
@@ -14568,13 +14568,13 @@ _meta_table = {
                 ''',
                 'time',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('trigger', REFERENCE_ENUM_CLASS, 'StubRouterTrigger_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterTrigger_Enum', 
+            _MetaInfoClassMember('trigger', REFERENCE_ENUM_CLASS, 'StubRouterTriggerEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterTriggerEnum', 
                 [], [], 
                 '''                Stub Router Trigger type
                 ''',
                 'trigger',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('unset-reason', REFERENCE_ENUM_CLASS, 'StubRouterExitReason_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterExitReason_Enum', 
+            _MetaInfoClassMember('unset-reason', REFERENCE_ENUM_CLASS, 'StubRouterExitReasonEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterExitReasonEnum', 
                 [], [], 
                 '''                Reason for clearing stub router condition
                 ''',
@@ -14628,7 +14628,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter',
             False, 
             [
-            _MetaInfoClassMember('abr-off-reason', REFERENCE_ENUM_CLASS, 'StubRouterAbrOffReason_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterAbrOffReason_Enum', 
+            _MetaInfoClassMember('abr-off-reason', REFERENCE_ENUM_CLASS, 'StubRouterAbrOffReasonEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterAbrOffReasonEnum', 
                 [], [], 
                 '''                Reason for being in ABR off mode
                 ''',
@@ -14659,7 +14659,7 @@ _meta_table = {
                 ''',
                 'include_stub_links',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'StubRouterMode_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterMode_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'StubRouterModeEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterModeEnum', 
                 [], [], 
                 '''                Stub router mode
                 ''',
@@ -14671,7 +14671,7 @@ _meta_table = {
                 ''',
                 'remaining_time',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('set-reason', REFERENCE_ENUM_CLASS, 'StubRouterTrigger_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterTrigger_Enum', 
+            _MetaInfoClassMember('set-reason', REFERENCE_ENUM_CLASS, 'StubRouterTriggerEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterTriggerEnum', 
                 [], [], 
                 '''                Reason for entering stub router mode
                 ''',
@@ -14696,7 +14696,7 @@ _meta_table = {
                 ''',
                 'trigger',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('unset-reason', REFERENCE_ENUM_CLASS, 'StubRouterExitReason_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterExitReason_Enum', 
+            _MetaInfoClassMember('unset-reason', REFERENCE_ENUM_CLASS, 'StubRouterExitReasonEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterExitReasonEnum', 
                 [], [], 
                 '''                Reason for clearing stub router condition
                 ''',
@@ -14764,7 +14764,7 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('default-metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetric_Enum', 
+            _MetaInfoClassMember('default-metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetricEnum', 
                 [], [], 
                 '''                Default metric type 
                 ''',
@@ -14794,7 +14794,7 @@ _meta_table = {
                 ''',
                 'grace_resync_time',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('graceful-shutdown-state', REFERENCE_ENUM_CLASS, 'Ospfv3GracefulShutdownState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3GracefulShutdownState_Enum', 
+            _MetaInfoClassMember('graceful-shutdown-state', REFERENCE_ENUM_CLASS, 'Ospfv3GracefulShutdownStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3GracefulShutdownStateEnum', 
                 [], [], 
                 '''                Graceful shutdown state
                 ''',
@@ -15219,7 +15219,7 @@ _meta_table = {
                 ''',
                 'prefix_metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('prefix-metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetric_Enum', 
+            _MetaInfoClassMember('prefix-metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetricEnum', 
                 [], [], 
                 '''                Prefix metric type
                 ''',
@@ -15422,7 +15422,7 @@ _meta_table = {
                 ''',
                 'virtual_link_retransmission',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('virtual-link-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceState_Enum', 
+            _MetaInfoClassMember('virtual-link-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceStateEnum', 
                 [], [], 
                 '''                OSPF interface state for the virtual link
                 ''',
@@ -15578,7 +15578,7 @@ _meta_table = {
                 ''',
                 'virtual_link_retransmission_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('virtual-link-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceState_Enum', 
+            _MetaInfoClassMember('virtual-link-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceStateEnum', 
                 [], [], 
                 '''                OSPF interface state for the virtual link
                 ''',
@@ -15819,7 +15819,7 @@ _meta_table = {
                 ''',
                 'range_prefix_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'Ospfv3AreaRangeStatus_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3AreaRangeStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'Ospfv3AreaRangeStatusEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3AreaRangeStatusEnum', 
                 [], [], 
                 '''                Area range status 
                 ''',
@@ -16014,7 +16014,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -16055,7 +16055,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -16096,7 +16096,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -16213,13 +16213,13 @@ _meta_table = {
                 ''',
                 'interface_neighbors',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Ospfv3Interface_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Interface_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
                 [], [], 
                 '''                Network type
                 ''',
                 'network_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -16601,7 +16601,7 @@ _meta_table = {
                 ''',
                 'interface_router_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -16668,7 +16668,7 @@ _meta_table = {
                 ''',
                 'network_lsa_flush_timer',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Ospfv3Interface_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Interface_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
                 [], [], 
                 '''                Network type
                 ''',
@@ -16680,7 +16680,7 @@ _meta_table = {
                 ''',
                 'next_hello_time',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceStateEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -16900,7 +16900,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail',
             False, 
             [
-            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3Interface_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Interface_Enum', 
+            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
                 [], [], 
                 '''                Interface type
                 ''',
@@ -17059,7 +17059,7 @@ _meta_table = {
                 ''',
                 'neighbor_sham_link_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborStateEnum', 
                 [], [], 
                 '''                Neighbor's state
                 ''',
@@ -17280,7 +17280,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborTable.Neighbor.NeighborDetail',
             False, 
             [
-            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3Interface_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Interface_Enum', 
+            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
                 [], [], 
                 '''                Interface type
                 ''',
@@ -17439,7 +17439,7 @@ _meta_table = {
                 ''',
                 'neighbor_sham_link_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborStateEnum', 
                 [], [], 
                 '''                Neighbor's state
                 ''',
@@ -17504,7 +17504,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -17621,7 +17621,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -17662,7 +17662,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -17703,7 +17703,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -18005,7 +18005,7 @@ _meta_table = {
                 ''',
                 'border_router_route_metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('border-router-type', REFERENCE_ENUM_CLASS, 'Ospfv3BorderRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3BorderRoute_Enum', 
+            _MetaInfoClassMember('border-router-type', REFERENCE_ENUM_CLASS, 'Ospfv3BorderRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3BorderRouteEnum', 
                 [], [], 
                 '''                Border router type 
                 ''',
@@ -18362,7 +18362,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -18483,7 +18483,7 @@ _meta_table = {
                 ''',
                 'grace_period',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('grace-reason', REFERENCE_ENUM_CLASS, 'Ospfv3GracefulRestartReason_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3GracefulRestartReason_Enum', 
+            _MetaInfoClassMember('grace-reason', REFERENCE_ENUM_CLASS, 'Ospfv3GracefulRestartReasonEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3GracefulRestartReasonEnum', 
                 [], [], 
                 '''                Reason for router restart
                 ''',
@@ -18507,7 +18507,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -18635,7 +18635,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -18756,7 +18756,7 @@ _meta_table = {
                 ''',
                 'grace_period',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('grace-reason', REFERENCE_ENUM_CLASS, 'Ospfv3GracefulRestartReason_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3GracefulRestartReason_Enum', 
+            _MetaInfoClassMember('grace-reason', REFERENCE_ENUM_CLASS, 'Ospfv3GracefulRestartReasonEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3GracefulRestartReasonEnum', 
                 [], [], 
                 '''                Reason for router restart
                 ''',
@@ -18780,7 +18780,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -18908,7 +18908,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -19040,7 +19040,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -19070,7 +19070,7 @@ _meta_table = {
                 ''',
                 'prefix_xr',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -19199,7 +19199,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -19343,7 +19343,7 @@ _meta_table = {
                 ''',
                 'lsa_router_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -19472,7 +19472,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -19604,7 +19604,7 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -19675,7 +19675,7 @@ _meta_table = {
                 ''',
                 'lsa_link_local',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -19827,7 +19827,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -19959,7 +19959,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -20093,7 +20093,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -20243,13 +20243,13 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
                 'lsa_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetricEnum', 
                 [], [], 
                 '''                Metric type 
                 ''',
@@ -20267,7 +20267,7 @@ _meta_table = {
                 ''',
                 'prefix_xr',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -20401,7 +20401,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -20533,7 +20533,7 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -20574,7 +20574,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -20598,13 +20598,13 @@ _meta_table = {
                 ''',
                 'reference_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('reference-type', REFERENCE_ENUM_CLASS, 'Ospfv3PrefixLsaRef_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3PrefixLsaRef_Enum', 
+            _MetaInfoClassMember('reference-type', REFERENCE_ENUM_CLASS, 'Ospfv3PrefixLsaRefEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3PrefixLsaRefEnum', 
                 [], [], 
                 '''                Reference type
                 ''',
                 'reference_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('reference-type-xr', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('reference-type-xr', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                Reference type 
                 ''',
@@ -20662,7 +20662,7 @@ _meta_table = {
                 ''',
                 'link_neighbor_router_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'Ospfv3Link_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Link_Enum', 
+            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'Ospfv3LinkEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LinkEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -20773,7 +20773,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -20934,7 +20934,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -21074,7 +21074,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -21364,7 +21364,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -21661,7 +21661,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -21951,7 +21951,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -22083,7 +22083,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -22113,7 +22113,7 @@ _meta_table = {
                 ''',
                 'prefix_xr',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -22241,7 +22241,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -22385,7 +22385,7 @@ _meta_table = {
                 ''',
                 'lsa_router_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -22513,7 +22513,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -22645,7 +22645,7 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -22716,7 +22716,7 @@ _meta_table = {
                 ''',
                 'lsa_link_local',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -22868,7 +22868,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -23030,7 +23030,7 @@ _meta_table = {
                 ''',
                 'lsa_router_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -23200,7 +23200,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -23332,7 +23332,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -23466,7 +23466,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -23616,13 +23616,13 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
                 'lsa_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetricEnum', 
                 [], [], 
                 '''                Metric type 
                 ''',
@@ -23640,7 +23640,7 @@ _meta_table = {
                 ''',
                 'prefix_xr',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -23774,7 +23774,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -23906,7 +23906,7 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -23947,7 +23947,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -23971,13 +23971,13 @@ _meta_table = {
                 ''',
                 'reference_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('reference-type', REFERENCE_ENUM_CLASS, 'Ospfv3PrefixLsaRef_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3PrefixLsaRef_Enum', 
+            _MetaInfoClassMember('reference-type', REFERENCE_ENUM_CLASS, 'Ospfv3PrefixLsaRefEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3PrefixLsaRefEnum', 
                 [], [], 
                 '''                Reference type
                 ''',
                 'reference_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('reference-type-xr', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('reference-type-xr', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                Reference type 
                 ''',
@@ -24035,7 +24035,7 @@ _meta_table = {
                 ''',
                 'link_neighbor_router_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'Ospfv3Link_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Link_Enum', 
+            _MetaInfoClassMember('link-type', REFERENCE_ENUM_CLASS, 'Ospfv3LinkEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LinkEnum', 
                 [], [], 
                 '''                Type of link
                 ''',
@@ -24146,7 +24146,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -24307,7 +24307,7 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -24447,7 +24447,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -24737,7 +24737,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -25033,7 +25033,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -25495,7 +25495,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -25645,13 +25645,13 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
                 'lsa_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetricEnum', 
                 [], [], 
                 '''                Metric type 
                 ''',
@@ -25681,7 +25681,7 @@ _meta_table = {
                 ''',
                 'prefix_xr',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -25815,7 +25815,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -25965,13 +25965,13 @@ _meta_table = {
                 ''',
                 'lsa_header',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa_Enum', 
+            _MetaInfoClassMember('lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3LsaEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3LsaEnum', 
                 [], [], 
                 '''                LSA type
                 ''',
                 'lsa_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetricEnum', 
                 [], [], 
                 '''                Metric type 
                 ''',
@@ -26001,7 +26001,7 @@ _meta_table = {
                 ''',
                 'prefix_xr',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'PrefixPriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'PrefixPriorityEnum', 
                 [], [], 
                 '''                Prefix priority
                 ''',
@@ -26135,7 +26135,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -26738,7 +26738,7 @@ _meta_table = {
                 ''',
                 'lsa_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncState_Enum', 
+            _MetaInfoClassMember('lsa-sync-state', REFERENCE_ENUM_CLASS, 'OspfLsaSyncStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfLsaSyncStateEnum', 
                 [], [], 
                 '''                State of LSA sync with active
                 ''',
@@ -27310,7 +27310,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -27351,7 +27351,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -27392,7 +27392,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -27509,13 +27509,13 @@ _meta_table = {
                 ''',
                 'interface_neighbors',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Ospfv3Interface_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Interface_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
                 [], [], 
                 '''                Network type
                 ''',
                 'network_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceStateEnum', 
                 [], [], 
                 '''                Interface OSPF state
                 ''',
@@ -27897,7 +27897,7 @@ _meta_table = {
                 ''',
                 'interface_router_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -27964,7 +27964,7 @@ _meta_table = {
                 ''',
                 'network_lsa_flush_timer',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Ospfv3Interface_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Interface_Enum', 
+            _MetaInfoClassMember('network-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
                 [], [], 
                 '''                Network type
                 ''',
@@ -27976,7 +27976,7 @@ _meta_table = {
                 ''',
                 'next_hello_time',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceState_Enum', 
+            _MetaInfoClassMember('ospf-interface-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceStateEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -28424,7 +28424,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail',
             False, 
             [
-            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3Interface_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Interface_Enum', 
+            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
                 [], [], 
                 '''                Interface type
                 ''',
@@ -28583,7 +28583,7 @@ _meta_table = {
                 ''',
                 'neighbor_sham_link_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborStateEnum', 
                 [], [], 
                 '''                Neighbor's state
                 ''',
@@ -28804,7 +28804,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.NeighborProcessTable.Neighbor.NeighborDetail',
             False, 
             [
-            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3Interface_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Interface_Enum', 
+            _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
                 [], [], 
                 '''                Interface type
                 ''',
@@ -28963,7 +28963,7 @@ _meta_table = {
                 ''',
                 'neighbor_sham_link_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborState_Enum', 
+            _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborStateEnum', 
                 [], [], 
                 '''                Neighbor's state
                 ''',
@@ -29192,7 +29192,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -29309,7 +29309,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -29350,7 +29350,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -29391,7 +29391,7 @@ _meta_table = {
                 ''',
                 'header_lsa_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1_Enum', 
+            _MetaInfoClassMember('header-lsa-type', REFERENCE_ENUM_CLASS, 'Ospfv3Lsa1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3Lsa1Enum', 
                 [], [], 
                 '''                LSA type
                 ''',
@@ -29749,7 +29749,7 @@ _meta_table = {
                 ''',
                 'sham_link_retransmission',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('sham-link-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborState_Enum', 
+            _MetaInfoClassMember('sham-link-state', REFERENCE_ENUM_CLASS, 'Ospfv3NeighborStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3NeighborStateEnum', 
                 [], [], 
                 '''                Adjacency state
                 ''',
@@ -29922,7 +29922,7 @@ _meta_table = {
                 ''',
                 'sham_link_source_address',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('sham-link-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceState_Enum', 
+            _MetaInfoClassMember('sham-link-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceStateEnum', 
                 [], [], 
                 '''                OSPF interface state for the sham link
                 ''',
@@ -30032,7 +30032,7 @@ _meta_table = {
                 ''',
                 'tiebreaker_index',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('tiebreaker-type', REFERENCE_ENUM_CLASS, 'IpfrrTbrkr_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'IpfrrTbrkr_Enum', 
+            _MetaInfoClassMember('tiebreaker-type', REFERENCE_ENUM_CLASS, 'IpfrrTbrkrEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'IpfrrTbrkrEnum', 
                 [], [], 
                 '''                Tiebreaker Type
                 ''',
@@ -30154,13 +30154,13 @@ _meta_table = {
                 ''',
                 'time',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('trigger', REFERENCE_ENUM_CLASS, 'StubRouterTrigger_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterTrigger_Enum', 
+            _MetaInfoClassMember('trigger', REFERENCE_ENUM_CLASS, 'StubRouterTriggerEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterTriggerEnum', 
                 [], [], 
                 '''                Stub Router Trigger type
                 ''',
                 'trigger',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('unset-reason', REFERENCE_ENUM_CLASS, 'StubRouterExitReason_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterExitReason_Enum', 
+            _MetaInfoClassMember('unset-reason', REFERENCE_ENUM_CLASS, 'StubRouterExitReasonEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterExitReasonEnum', 
                 [], [], 
                 '''                Reason for clearing stub router condition
                 ''',
@@ -30214,7 +30214,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter',
             False, 
             [
-            _MetaInfoClassMember('abr-off-reason', REFERENCE_ENUM_CLASS, 'StubRouterAbrOffReason_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterAbrOffReason_Enum', 
+            _MetaInfoClassMember('abr-off-reason', REFERENCE_ENUM_CLASS, 'StubRouterAbrOffReasonEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterAbrOffReasonEnum', 
                 [], [], 
                 '''                Reason for being in ABR off mode
                 ''',
@@ -30245,7 +30245,7 @@ _meta_table = {
                 ''',
                 'include_stub_links',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'StubRouterMode_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterMode_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'StubRouterModeEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterModeEnum', 
                 [], [], 
                 '''                Stub router mode
                 ''',
@@ -30257,7 +30257,7 @@ _meta_table = {
                 ''',
                 'remaining_time',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('set-reason', REFERENCE_ENUM_CLASS, 'StubRouterTrigger_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterTrigger_Enum', 
+            _MetaInfoClassMember('set-reason', REFERENCE_ENUM_CLASS, 'StubRouterTriggerEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterTriggerEnum', 
                 [], [], 
                 '''                Reason for entering stub router mode
                 ''',
@@ -30282,7 +30282,7 @@ _meta_table = {
                 ''',
                 'trigger',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('unset-reason', REFERENCE_ENUM_CLASS, 'StubRouterExitReason_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterExitReason_Enum', 
+            _MetaInfoClassMember('unset-reason', REFERENCE_ENUM_CLASS, 'StubRouterExitReasonEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterExitReasonEnum', 
                 [], [], 
                 '''                Reason for clearing stub router condition
                 ''',
@@ -30350,7 +30350,7 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('default-metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetric_Enum', 
+            _MetaInfoClassMember('default-metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetricEnum', 
                 [], [], 
                 '''                Default metric type 
                 ''',
@@ -30380,7 +30380,7 @@ _meta_table = {
                 ''',
                 'grace_resync_time',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('graceful-shutdown-state', REFERENCE_ENUM_CLASS, 'Ospfv3GracefulShutdownState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3GracefulShutdownState_Enum', 
+            _MetaInfoClassMember('graceful-shutdown-state', REFERENCE_ENUM_CLASS, 'Ospfv3GracefulShutdownStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3GracefulShutdownStateEnum', 
                 [], [], 
                 '''                Graceful shutdown state
                 ''',
@@ -30805,7 +30805,7 @@ _meta_table = {
                 ''',
                 'prefix_metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('prefix-metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetric_Enum', 
+            _MetaInfoClassMember('prefix-metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3DefaultMetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3DefaultMetricEnum', 
                 [], [], 
                 '''                Prefix metric type
                 ''',
@@ -31008,7 +31008,7 @@ _meta_table = {
                 ''',
                 'virtual_link_retransmission',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('virtual-link-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceState_Enum', 
+            _MetaInfoClassMember('virtual-link-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceStateEnum', 
                 [], [], 
                 '''                OSPF interface state for the virtual link
                 ''',
@@ -31164,7 +31164,7 @@ _meta_table = {
                 ''',
                 'virtual_link_retransmission_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('virtual-link-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceState_Enum', 
+            _MetaInfoClassMember('virtual-link-state', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceStateEnum', 
                 [], [], 
                 '''                OSPF interface state for the virtual link
                 ''',

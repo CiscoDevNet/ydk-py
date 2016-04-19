@@ -24,33 +24,31 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class PolicyState_Enum(Enum):
+class PolicyStateEnum(Enum):
     """
-    PolicyState_Enum
+    PolicyStateEnum
 
     Different Interface states
 
-    """
+    .. data:: ACTIVE = 0
+
+    	active
+
+    .. data:: SUSPENDED = 1
+
+    	suspended
 
     """
 
-    active
-
-    """
     ACTIVE = 0
 
-    """
-
-    suspended
-
-    """
     SUSPENDED = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.pbr._meta import _Cisco_IOS_XR_pbr_oper as meta
-        return meta._meta_table['PolicyState_Enum']
+        return meta._meta_table['PolicyStateEnum']
 
 
 
@@ -251,7 +249,7 @@ class Pbr(object):
                                 .. attribute:: state
                                 
                                 	State
-                                	**type**\: :py:class:`PolicyState_Enum <ydk.models.pbr.Cisco_IOS_XR_pbr_oper.PolicyState_Enum>`
+                                	**type**\: :py:class:`PolicyStateEnum <ydk.models.pbr.Cisco_IOS_XR_pbr_oper.PolicyStateEnum>`
                                 
                                 .. attribute:: state_description
                                 
@@ -431,8 +429,6 @@ class Pbr(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.match_data_rate is not None:
                                                 return True
 
@@ -460,10 +456,6 @@ class Pbr(object):
                                             if self.transmit_packets is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -548,8 +540,6 @@ class Pbr(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.drop_bytes is not None:
                                                 return True
 
@@ -568,10 +558,6 @@ class Pbr(object):
                                             if self.rqst_rcvd_packets is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -593,8 +579,6 @@ class Pbr(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.class_id is not None:
                                             return True
 
@@ -607,19 +591,9 @@ class Pbr(object):
                                         if self.general_stats is not None and self.general_stats._has_data():
                                             return True
 
-                                        if self.general_stats is not None and self.general_stats.is_presence():
-                                            return True
-
                                         if self.httpr_stats is not None and self.httpr_stats._has_data():
                                             return True
 
-                                        if self.httpr_stats is not None and self.httpr_stats.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -641,8 +615,6 @@ class Pbr(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.class_stat is not None:
                                         for child_ref in self.class_stat:
                                             if child_ref._has_data():
@@ -660,10 +632,6 @@ class Pbr(object):
                                     if self.state_description is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -685,18 +653,9 @@ class Pbr(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.input is not None and self.input._has_data():
                                     return True
 
-                                if self.input is not None and self.input.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -720,21 +679,12 @@ class Pbr(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface_name is not None:
                                 return True
 
                             if self.direction is not None and self.direction._has_data():
                                 return True
 
-                            if self.direction is not None and self.direction.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -756,17 +706,11 @@ class Pbr(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -788,18 +732,9 @@ class Pbr(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interfaces is not None and self.interfaces._has_data():
                         return True
 
-                    if self.interfaces is not None and self.interfaces.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -821,21 +756,12 @@ class Pbr(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.policy_map is not None and self.policy_map._has_data():
                     return True
 
-                if self.policy_map is not None and self.policy_map.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -855,17 +781,11 @@ class Pbr(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -885,18 +805,9 @@ class Pbr(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

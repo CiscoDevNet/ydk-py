@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'EthernetMedia_Enum' : _MetaInfoEnum('EthernetMedia_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EthernetMediaEnum' : _MetaInfoEnum('EthernetMediaEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'ethernet-other':'ETHERNET_OTHER',
             'ethernet-unknown':'ETHERNET_UNKNOWN',
@@ -341,12 +341,12 @@ _meta_table = {
             'ethernet-40gbase-sr-bd':'ETHERNET_40GBASE_SR_BD',
             'ethernet-base-max':'ETHERNET_BASE_MAX',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EthernetIpg_Enum' : _MetaInfoEnum('EthernetIpg_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EthernetIpgEnum' : _MetaInfoEnum('EthernetIpgEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'standard':'STANDARD',
             'non-standard':'NON_STANDARD',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EthernetDev_Enum' : _MetaInfoEnum('EthernetDev_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EthernetDevEnum' : _MetaInfoEnum('EthernetDevEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'no-device':'NO_DEVICE',
             'pma-pmd':'PMA_PMD',
@@ -356,31 +356,31 @@ _meta_table = {
             'dte-xs':'DTE_XS',
             'ethernet-num-dev':'ETHERNET_NUM_DEV',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EthCtrlrAlarmState_Enum' : _MetaInfoEnum('EthCtrlrAlarmState_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EthCtrlrAlarmStateEnum' : _MetaInfoEnum('EthCtrlrAlarmStateEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'alarm-not-supported':'ALARM_NOT_SUPPORTED',
             'alarm-set':'ALARM_SET',
             'alarm-not-set':'ALARM_NOT_SET',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EthernetDuplex_Enum' : _MetaInfoEnum('EthernetDuplex_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EthernetDuplexEnum' : _MetaInfoEnum('EthernetDuplexEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'ethernet-duplex-invalid':'ETHERNET_DUPLEX_INVALID',
             'half-duplex':'HALF_DUPLEX',
             'full-duplex':'FULL_DUPLEX',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EtherAinsStatus_Enum' : _MetaInfoEnum('EtherAinsStatus_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EtherAinsStatusEnum' : _MetaInfoEnum('EtherAinsStatusEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'ains-soak-status-none':'AINS_SOAK_STATUS_NONE',
             'ains-soak-status-pending':'AINS_SOAK_STATUS_PENDING',
             'ains-soak-status-running':'AINS_SOAK_STATUS_RUNNING',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EtherPhyPresent_Enum' : _MetaInfoEnum('EtherPhyPresent_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EtherPhyPresentEnum' : _MetaInfoEnum('EtherPhyPresentEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'phy-not-present':'PHY_NOT_PRESENT',
             'phy-present':'PHY_PRESENT',
             'no-information':'NO_INFORMATION',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EthernetBertPattern_Enum' : _MetaInfoEnum('EthernetBertPattern_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EthernetBertPatternEnum' : _MetaInfoEnum('EthernetBertPatternEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'no-test-pattern':'NO_TEST_PATTERN',
             'high-frequency':'HIGH_FREQUENCY',
@@ -397,14 +397,14 @@ _meta_table = {
             'pseudorandom':'PSEUDORANDOM',
             'ethernet-bert-pattern-types':'ETHERNET_BERT_PATTERN_TYPES',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EthernetLoopback_Enum' : _MetaInfoEnum('EthernetLoopback_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EthernetLoopbackEnum' : _MetaInfoEnum('EthernetLoopbackEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'no-loopback':'NO_LOOPBACK',
             'internal':'INTERNAL',
             'line':'LINE',
             'external':'EXTERNAL',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EthernetSpeed_Enum' : _MetaInfoEnum('EthernetSpeed_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EthernetSpeedEnum' : _MetaInfoEnum('EthernetSpeedEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'ethernet-speed-invalid':'ETHERNET_SPEED_INVALID',
             'ten-mbps':'TEN_MBPS',
@@ -415,7 +415,7 @@ _meta_table = {
             'hundred-gbps':'HUNDRED_GBPS',
             'ethernet-speed-types-count':'ETHERNET_SPEED_TYPES_COUNT',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EtherLinkState_Enum' : _MetaInfoEnum('EtherLinkState_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EtherLinkStateEnum' : _MetaInfoEnum('EtherLinkStateEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'state-undefined':'STATE_UNDEFINED',
             'unknown-state':'UNKNOWN_STATE',
@@ -446,7 +446,7 @@ _meta_table = {
             'wan-framing-error':'WAN_FRAMING_ERROR',
             'otn-framing-error':'OTN_FRAMING_ERROR',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EtherLedState_Enum' : _MetaInfoEnum('EtherLedState_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EtherLedStateEnum' : _MetaInfoEnum('EtherLedStateEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'led-state-unknown':'LED_STATE_UNKNOWN',
             'led-off':'LED_OFF',
@@ -457,14 +457,14 @@ _meta_table = {
             'red-on':'RED_ON',
             'red-flashing':'RED_FLASHING',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EthernetDevIf_Enum' : _MetaInfoEnum('EthernetDevIf_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EthernetDevIfEnum' : _MetaInfoEnum('EthernetDevIfEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'no-interface':'NO_INTERFACE',
             'xgmii':'XGMII',
             'xaui':'XAUI',
             'ethernet-num-dev-if':'ETHERNET_NUM_DEV_IF',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EtherDomAlarm_Enum' : _MetaInfoEnum('EtherDomAlarm_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EtherDomAlarmEnum' : _MetaInfoEnum('EtherDomAlarmEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'no-information':'NO_INFORMATION',
             'alarm-high':'ALARM_HIGH',
@@ -473,20 +473,20 @@ _meta_table = {
             'warning-low':'WARNING_LOW',
             'alarm-low':'ALARM_LOW',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EthernetPortEnable_Enum' : _MetaInfoEnum('EthernetPortEnable_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EthernetPortEnableEnum' : _MetaInfoEnum('EthernetPortEnableEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'disabled':'DISABLED',
             'rx-enabled':'RX_ENABLED',
             'tx-enabled':'TX_ENABLED',
             'enabled':'ENABLED',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EthernetFec_Enum' : _MetaInfoEnum('EthernetFec_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EthernetFecEnum' : _MetaInfoEnum('EthernetFecEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'not-configured':'NOT_CONFIGURED',
             'standard':'STANDARD',
             'disabled':'DISABLED',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EthernetBertErrCnt_Enum' : _MetaInfoEnum('EthernetBertErrCnt_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EthernetBertErrCntEnum' : _MetaInfoEnum('EthernetBertErrCntEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'no-count-type':'NO_COUNT_TYPE',
             'bit-error-count':'BIT_ERROR_COUNT',
@@ -494,7 +494,7 @@ _meta_table = {
             'block-error-count':'BLOCK_ERROR_COUNT',
             'ethernet-bert-err-cnt-types':'ETHERNET_BERT_ERR_CNT_TYPES',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EtherFlowcontrol_Enum' : _MetaInfoEnum('EtherFlowcontrol_Enum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
+    'EtherFlowcontrolEnum' : _MetaInfoEnum('EtherFlowcontrolEnum', 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper',
         {
             'no-flowcontrol':'NO_FLOWCONTROL',
             'egress':'EGRESS',
@@ -517,19 +517,19 @@ _meta_table = {
                 ''',
                 'data_availability',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('device-under-test', REFERENCE_ENUM_CLASS, 'EthernetDev_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDev_Enum', 
+            _MetaInfoClassMember('device-under-test', REFERENCE_ENUM_CLASS, 'EthernetDevEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDevEnum', 
                 [], [], 
                 '''                Device being tested
                 ''',
                 'device_under_test',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('error-type', REFERENCE_ENUM_CLASS, 'EthernetBertErrCnt_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetBertErrCnt_Enum', 
+            _MetaInfoClassMember('error-type', REFERENCE_ENUM_CLASS, 'EthernetBertErrCntEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetBertErrCntEnum', 
                 [], [], 
                 '''                Bit, block or frame error
                 ''',
                 'error_type',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('interface-device', REFERENCE_ENUM_CLASS, 'EthernetDevIf_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDevIf_Enum', 
+            _MetaInfoClassMember('interface-device', REFERENCE_ENUM_CLASS, 'EthernetDevIfEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDevIfEnum', 
                 [], [], 
                 '''                Interface being tested
                 ''',
@@ -547,7 +547,7 @@ _meta_table = {
                 ''',
                 'receive_errors',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('test-pattern', REFERENCE_ENUM_CLASS, 'EthernetBertPattern_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetBertPattern_Enum', 
+            _MetaInfoClassMember('test-pattern', REFERENCE_ENUM_CLASS, 'EthernetBertPatternEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetBertPatternEnum', 
                 [], [], 
                 '''                Test pattern
                 ''',
@@ -636,14 +636,14 @@ _meta_table = {
                 ''',
                 'config_override',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'EthernetDuplex_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDuplex_Enum', 
+            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'EthernetDuplexEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDuplexEnum', 
                 [], [], 
                 '''                Restricted duplex (if relevant bit is set in
                 mask)
                 ''',
                 'duplex',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('flowcontrol', REFERENCE_ENUM_CLASS, 'EtherFlowcontrol_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherFlowcontrol_Enum', 
+            _MetaInfoClassMember('flowcontrol', REFERENCE_ENUM_CLASS, 'EtherFlowcontrolEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherFlowcontrolEnum', 
                 [], [], 
                 '''                Restricted flowcontrol (if relevant bit is set
                 in mask)
@@ -657,7 +657,7 @@ _meta_table = {
                 ''',
                 'mask',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'EthernetSpeed_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'EthernetSpeedEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetSpeedEnum', 
                 [], [], 
                 '''                Restricted speed (if relevant bit is set in
                 mask)
@@ -739,55 +739,55 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms',
             False, 
             [
-            _MetaInfoClassMember('hi-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('hi-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                Hi BER
                 ''',
                 'hi_ber_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('local-fault-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('local-fault-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                Local Fault
                 ''',
                 'local_fault_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('loss-of-synchronization-data-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('loss-of-synchronization-data-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                Loss of Synchronization Data
                 ''',
                 'loss_of_synchronization_data_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('pcs-loss-of-block-lock-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('pcs-loss-of-block-lock-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                PCS Loss of Block Lock
                 ''',
                 'pcs_loss_of_block_lock_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-loss-of-signal-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('received-loss-of-signal-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                Received Loss of Signal
                 ''',
                 'received_loss_of_signal_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('remote-fault-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('remote-fault-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                Remote Fault
                 ''',
                 'remote_fault_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('sd-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('sd-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                SD BER
                 ''',
                 'sd_ber_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('sf-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('sf-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                SF BER
                 ''',
                 'sf_ber_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('squelch-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('squelch-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                Squelch
                 ''',
@@ -827,55 +827,55 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms',
             False, 
             [
-            _MetaInfoClassMember('hi-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('hi-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                Hi BER
                 ''',
                 'hi_ber_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('local-fault-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('local-fault-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                Local Fault
                 ''',
                 'local_fault_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('loss-of-synchronization-data-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('loss-of-synchronization-data-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                Loss of Synchronization Data
                 ''',
                 'loss_of_synchronization_data_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('pcs-loss-of-block-lock-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('pcs-loss-of-block-lock-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                PCS Loss of Block Lock
                 ''',
                 'pcs_loss_of_block_lock_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-loss-of-signal-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('received-loss-of-signal-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                Received Loss of Signal
                 ''',
                 'received_loss_of_signal_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('remote-fault-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('remote-fault-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                Remote Fault
                 ''',
                 'remote_fault_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('sd-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('sd-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                SD BER
                 ''',
                 'sd_ber_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('sf-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('sf-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                SF BER
                 ''',
                 'sf_ber_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('squelch-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState_Enum', 
+            _MetaInfoClassMember('squelch-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                Squelch
                 ''',
@@ -916,7 +916,7 @@ _meta_table = {
                 ''',
                 'current_alarms',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'EthernetDuplex_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDuplex_Enum', 
+            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'EthernetDuplexEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDuplexEnum', 
                 [], [], 
                 '''                Port operational duplexity
                 ''',
@@ -928,13 +928,13 @@ _meta_table = {
                 ''',
                 'error_counts',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('flowcontrol', REFERENCE_ENUM_CLASS, 'EtherFlowcontrol_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherFlowcontrol_Enum', 
+            _MetaInfoClassMember('flowcontrol', REFERENCE_ENUM_CLASS, 'EtherFlowcontrolEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherFlowcontrolEnum', 
                 [], [], 
                 '''                Port operational flow control
                 ''',
                 'flowcontrol',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('ipg', REFERENCE_ENUM_CLASS, 'EthernetIpg_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetIpg_Enum', 
+            _MetaInfoClassMember('ipg', REFERENCE_ENUM_CLASS, 'EthernetIpgEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetIpgEnum', 
                 [], [], 
                 '''                Port operational inter-packet-gap
                 ''',
@@ -946,13 +946,13 @@ _meta_table = {
                 ''',
                 'laser_squelch_enabled',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('led-state', REFERENCE_ENUM_CLASS, 'EtherLedState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherLedState_Enum', 
+            _MetaInfoClassMember('led-state', REFERENCE_ENUM_CLASS, 'EtherLedStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherLedStateEnum', 
                 [], [], 
                 '''                State of the LED
                 ''',
                 'led_state',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('link-state', REFERENCE_ENUM_CLASS, 'EtherLinkState_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherLinkState_Enum', 
+            _MetaInfoClassMember('link-state', REFERENCE_ENUM_CLASS, 'EtherLinkStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherLinkStateEnum', 
                 [], [], 
                 '''                Link state
                 ''',
@@ -964,7 +964,7 @@ _meta_table = {
                 ''',
                 'previous_alarms',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'EthernetSpeed_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetSpeed_Enum', 
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'EthernetSpeedEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetSpeedEnum', 
                 [], [], 
                 '''                Port operational speed
                 ''',
@@ -1100,7 +1100,7 @@ _meta_table = {
                 ''',
                 'corrected_codeword_count',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('fec', REFERENCE_ENUM_CLASS, 'EthernetFec_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetFec_Enum', 
+            _MetaInfoClassMember('fec', REFERENCE_ENUM_CLASS, 'EthernetFecEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetFecEnum', 
                 [], [], 
                 '''                Port operational FEC type
                 ''',
@@ -1308,31 +1308,31 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms',
             False, 
             [
-            _MetaInfoClassMember('laser-bias-current', REFERENCE_ENUM_CLASS, 'EtherDomAlarm_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarm_Enum', 
+            _MetaInfoClassMember('laser-bias-current', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
                 [], [], 
                 '''                Laser Bias Current Alarm
                 ''',
                 'laser_bias_current',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-laser-power', REFERENCE_ENUM_CLASS, 'EtherDomAlarm_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarm_Enum', 
+            _MetaInfoClassMember('received-laser-power', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
                 [], [], 
                 '''                Received Optical Power Alarm
                 ''',
                 'received_laser_power',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transceiver-temperature', REFERENCE_ENUM_CLASS, 'EtherDomAlarm_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarm_Enum', 
+            _MetaInfoClassMember('transceiver-temperature', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
                 [], [], 
                 '''                Transceiver Temperature Alarm
                 ''',
                 'transceiver_temperature',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transceiver-voltage', REFERENCE_ENUM_CLASS, 'EtherDomAlarm_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarm_Enum', 
+            _MetaInfoClassMember('transceiver-voltage', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
                 [], [], 
                 '''                Transceiver Voltage Alarm
                 ''',
                 'transceiver_voltage',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmit-laser-power', REFERENCE_ENUM_CLASS, 'EtherDomAlarm_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarm_Enum', 
+            _MetaInfoClassMember('transmit-laser-power', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
                 [], [], 
                 '''                Transmit Laser Power Alarm
                 ''',
@@ -1349,19 +1349,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm',
             False, 
             [
-            _MetaInfoClassMember('laser-bias-current', REFERENCE_ENUM_CLASS, 'EtherDomAlarm_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarm_Enum', 
+            _MetaInfoClassMember('laser-bias-current', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
                 [], [], 
                 '''                Laser Bias Current Alarm
                 ''',
                 'laser_bias_current',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-laser-power', REFERENCE_ENUM_CLASS, 'EtherDomAlarm_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarm_Enum', 
+            _MetaInfoClassMember('received-laser-power', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
                 [], [], 
                 '''                Received Optical Power Alarm
                 ''',
                 'received_laser_power',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmit-laser-power', REFERENCE_ENUM_CLASS, 'EtherDomAlarm_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarm_Enum', 
+            _MetaInfoClassMember('transmit-laser-power', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
                 [], [], 
                 '''                Transmit Laser Power Alarm
                 ''',
@@ -1533,13 +1533,13 @@ _meta_table = {
                 ''',
                 'fec_details',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('loopback', REFERENCE_ENUM_CLASS, 'EthernetLoopback_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetLoopback_Enum', 
+            _MetaInfoClassMember('loopback', REFERENCE_ENUM_CLASS, 'EthernetLoopbackEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetLoopbackEnum', 
                 [], [], 
                 '''                Port operational loopback
                 ''',
                 'loopback',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('media-type', REFERENCE_ENUM_CLASS, 'EthernetMedia_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetMedia_Enum', 
+            _MetaInfoClassMember('media-type', REFERENCE_ENUM_CLASS, 'EthernetMediaEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetMediaEnum', 
                 [], [], 
                 '''                Port media type
                 ''',
@@ -1551,7 +1551,7 @@ _meta_table = {
                 ''',
                 'phy_details',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('phy-present', REFERENCE_ENUM_CLASS, 'EtherPhyPresent_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherPhyPresent_Enum', 
+            _MetaInfoClassMember('phy-present', REFERENCE_ENUM_CLASS, 'EtherPhyPresentEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherPhyPresentEnum', 
                 [], [], 
                 '''                Presence of PHY
                 ''',
@@ -1568,7 +1568,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.TransportInfo',
             False, 
             [
-            _MetaInfoClassMember('ains-status', REFERENCE_ENUM_CLASS, 'EtherAinsStatus_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherAinsStatus_Enum', 
+            _MetaInfoClassMember('ains-status', REFERENCE_ENUM_CLASS, 'EtherAinsStatusEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherAinsStatusEnum', 
                 [], [], 
                 '''                AINS Soak status
                 ''',
@@ -1609,7 +1609,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-drivers-media-eth-oper', True),
-            _MetaInfoClassMember('admin-state', REFERENCE_ENUM_CLASS, 'EthernetPortEnable_Enum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetPortEnable_Enum', 
+            _MetaInfoClassMember('admin-state', REFERENCE_ENUM_CLASS, 'EthernetPortEnableEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetPortEnableEnum', 
                 [], [], 
                 '''                Port Administrative State
                 ''',

@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,88 +14,88 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'BgpOrf_Enum' : _MetaInfoEnum('BgpOrf_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpOrfEnum' : _MetaInfoEnum('BgpOrfEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'none':'NONE',
             'receive':'RECEIVE',
             'send':'SEND',
             'both':'BOTH',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpFlowspecValidationCfg_Enum' : _MetaInfoEnum('BgpFlowspecValidationCfg_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpFlowspecValidationCfgEnum' : _MetaInfoEnum('BgpFlowspecValidationCfgEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'enable':'ENABLE',
             'disable':'DISABLE',
             'redirect-nexhop-disable':'REDIRECT_NEXHOP_DISABLE',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpSignal_Enum' : _MetaInfoEnum('BgpSignal_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpSignalEnum' : _MetaInfoEnum('BgpSignalEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'bgp-disable':'BGP_DISABLE',
             'ldp-disable':'LDP_DISABLE',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpBfdEnableMode_Enum' : _MetaInfoEnum('BgpBfdEnableMode_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpBfdEnableModeEnum' : _MetaInfoEnum('BgpBfdEnableModeEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'disable':'DISABLE',
             'default':'DEFAULT',
             'strict':'STRICT',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpVrfRouteTarget_Enum' : _MetaInfoEnum('BgpVrfRouteTarget_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpVrfRouteTargetEnum' : _MetaInfoEnum('BgpVrfRouteTargetEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'as':'AS',
             'ipv4-address':'IPV4_ADDRESS',
             'four-byte-as':'FOUR_BYTE_AS',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpClusterId_Enum' : _MetaInfoEnum('BgpClusterId_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpClusterIdEnum' : _MetaInfoEnum('BgpClusterIdEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'number':'NUMBER',
             'ipv4-address':'IPV4_ADDRESS',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpRpkiTransport_Enum' : _MetaInfoEnum('BgpRpkiTransport_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpRpkiTransportEnum' : _MetaInfoEnum('BgpRpkiTransportEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'tcp':'TCP',
             'ssh':'SSH',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpSiteOfOrigin_Enum' : _MetaInfoEnum('BgpSiteOfOrigin_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpSiteOfOriginEnum' : _MetaInfoEnum('BgpSiteOfOriginEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'as':'AS',
             'ipv4-address':'IPV4_ADDRESS',
             'four-byte-as':'FOUR_BYTE_AS',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpRouteDistinguisher_Enum' : _MetaInfoEnum('BgpRouteDistinguisher_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpRouteDistinguisherEnum' : _MetaInfoEnum('BgpRouteDistinguisherEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'auto':'AUTO',
             'as':'AS',
             'four-byte-as':'FOUR_BYTE_AS',
             'ipv4-address':'IPV4_ADDRESS',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpMvpnSfsSelect_Enum' : _MetaInfoEnum('BgpMvpnSfsSelect_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpMvpnSfsSelectEnum' : _MetaInfoEnum('BgpMvpnSfsSelectEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'all-paths':'ALL_PATHS',
             'highest-ip-address':'HIGHEST_IP_ADDRESS',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpSendMcastAttrCfg_Enum' : _MetaInfoEnum('BgpSendMcastAttrCfg_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpSendMcastAttrCfgEnum' : _MetaInfoEnum('BgpSendMcastAttrCfgEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'enable':'ENABLE',
             'disable':'DISABLE',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpTcpMode_Enum' : _MetaInfoEnum('BgpTcpMode_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpTcpModeEnum' : _MetaInfoEnum('BgpTcpModeEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'either':'EITHER',
             'active-only':'ACTIVE_ONLY',
             'passive-only':'PASSIVE_ONLY',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpReorgOpt_Enum' : _MetaInfoEnum('BgpReorgOpt_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpReorgOptEnum' : _MetaInfoEnum('BgpReorgOptEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'bgp-cfg-adv':'BGP_CFG_ADV',
             'bgp-cfg-adv-reorg':'BGP_CFG_ADV_REORG',
             'bgp-cfg-adv-disable':'BGP_CFG_ADV_DISABLE',
             'bgp-cfg-adv-local':'BGP_CFG_ADV_LOCAL',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpAigpCfgPoi_Enum' : _MetaInfoEnum('BgpAigpCfgPoi_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpAigpCfgPoiEnum' : _MetaInfoEnum('BgpAigpCfgPoiEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'pre-best-path':'PRE_BEST_PATH',
             'igp-cost':'IGP_COST',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpAigpCfg_Enum' : _MetaInfoEnum('BgpAigpCfg_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpAigpCfgEnum' : _MetaInfoEnum('BgpAigpCfgEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'enable':'ENABLE',
             'disable':'DISABLE',
@@ -104,13 +104,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -127,13 +127,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -150,13 +150,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -173,13 +173,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -196,13 +196,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -225,7 +225,7 @@ _meta_table = {
                 ''',
                 'cost_community_id',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('cost-community-poi-type', REFERENCE_ENUM_CLASS, 'BgpAigpCfgPoi_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgPoi_Enum', 
+            _MetaInfoClassMember('cost-community-poi-type', REFERENCE_ENUM_CLASS, 'BgpAigpCfgPoiEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgPoiEnum', 
                 [], [], 
                 '''                Cost Community POI
                 ''',
@@ -465,7 +465,7 @@ _meta_table = {
                 ''',
                 'as_xx',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpSiteOfOrigin_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSiteOfOrigin_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpSiteOfOriginEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSiteOfOriginEnum', 
                 [], [], 
                 '''                Type of Extended community
                 ''',
@@ -507,7 +507,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                BGP AF group address family
                 ''',
@@ -549,7 +549,7 @@ _meta_table = {
                 ''',
                 'advertise_local_v6',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-orf', REFERENCE_ENUM_CLASS, 'BgpOrf_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpOrf_Enum', 
+            _MetaInfoClassMember('advertise-orf', REFERENCE_ENUM_CLASS, 'BgpOrfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpOrfEnum', 
                 [], [], 
                 '''                Advertise ORF capability to the peer
                 ''',
@@ -580,7 +580,7 @@ _meta_table = {
                 ''',
                 'af_group',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp', REFERENCE_ENUM_CLASS, 'BgpAigpCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg_Enum', 
+            _MetaInfoClassMember('aigp', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
                 [], [], 
                 '''                Enable Accumulated IGP Metric for this neighbor.
                 ''',
@@ -592,7 +592,7 @@ _meta_table = {
                 ''',
                 'aigp_cost_community',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp-send-med', REFERENCE_ENUM_CLASS, 'BgpAigpCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg_Enum', 
+            _MetaInfoClassMember('aigp-send-med', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
                 [], [], 
                 '''                Enable/Disable sending AIGP in MED 
                 ''',
@@ -634,7 +634,7 @@ _meta_table = {
                 ''',
                 'default_weight',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('flowspec-validation', REFERENCE_ENUM_CLASS, 'BgpFlowspecValidationCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpFlowspecValidationCfg_Enum', 
+            _MetaInfoClassMember('flowspec-validation', REFERENCE_ENUM_CLASS, 'BgpFlowspecValidationCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpFlowspecValidationCfgEnum', 
                 [], [], 
                 '''                Config Flowspec validation for this neighbor
                 ''',
@@ -647,7 +647,7 @@ _meta_table = {
                 ''',
                 'import_',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('l2vpn-signalling', REFERENCE_ENUM_CLASS, 'BgpSignal_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSignal_Enum', 
+            _MetaInfoClassMember('l2vpn-signalling', REFERENCE_ENUM_CLASS, 'BgpSignalEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSignalEnum', 
                 [], [], 
                 '''                Disable signalling type on the peer
                 ''',
@@ -781,7 +781,7 @@ _meta_table = {
                 ''',
                 'send_ext_community_ebgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-multicast-attr', REFERENCE_ENUM_CLASS, 'BgpSendMcastAttrCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSendMcastAttrCfg_Enum', 
+            _MetaInfoClassMember('send-multicast-attr', REFERENCE_ENUM_CLASS, 'BgpSendMcastAttrCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSendMcastAttrCfgEnum', 
                 [], [], 
                 '''                Config send multicast attribute for this
                 neighbor
@@ -1232,13 +1232,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -1255,13 +1255,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -1278,13 +1278,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -1301,13 +1301,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -1324,13 +1324,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -1353,7 +1353,7 @@ _meta_table = {
                 ''',
                 'cost_community_id',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('cost-community-poi-type', REFERENCE_ENUM_CLASS, 'BgpAigpCfgPoi_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgPoi_Enum', 
+            _MetaInfoClassMember('cost-community-poi-type', REFERENCE_ENUM_CLASS, 'BgpAigpCfgPoiEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgPoiEnum', 
                 [], [], 
                 '''                Cost Community POI
                 ''',
@@ -1593,7 +1593,7 @@ _meta_table = {
                 ''',
                 'as_xx',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpSiteOfOrigin_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSiteOfOrigin_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpSiteOfOriginEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSiteOfOriginEnum', 
                 [], [], 
                 '''                Type of Extended community
                 ''',
@@ -1635,7 +1635,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                BGP neighbor group address family
                 ''',
@@ -1687,7 +1687,7 @@ _meta_table = {
                 ''',
                 'advertise_local_v6',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-orf', REFERENCE_ENUM_CLASS, 'BgpOrf_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpOrf_Enum', 
+            _MetaInfoClassMember('advertise-orf', REFERENCE_ENUM_CLASS, 'BgpOrfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpOrfEnum', 
                 [], [], 
                 '''                Advertise ORF capability to the peer
                 ''',
@@ -1718,7 +1718,7 @@ _meta_table = {
                 ''',
                 'af_group',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp', REFERENCE_ENUM_CLASS, 'BgpAigpCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg_Enum', 
+            _MetaInfoClassMember('aigp', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
                 [], [], 
                 '''                Enable Accumulated IGP Metric for this neighbor.
                 ''',
@@ -1730,7 +1730,7 @@ _meta_table = {
                 ''',
                 'aigp_cost_community',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp-send-med', REFERENCE_ENUM_CLASS, 'BgpAigpCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg_Enum', 
+            _MetaInfoClassMember('aigp-send-med', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
                 [], [], 
                 '''                Enable/Disable sending AIGP in MED 
                 ''',
@@ -1763,7 +1763,7 @@ _meta_table = {
                 ''',
                 'default_weight',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('flowspec-validation', REFERENCE_ENUM_CLASS, 'BgpFlowspecValidationCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpFlowspecValidationCfg_Enum', 
+            _MetaInfoClassMember('flowspec-validation', REFERENCE_ENUM_CLASS, 'BgpFlowspecValidationCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpFlowspecValidationCfgEnum', 
                 [], [], 
                 '''                Config Flowspec validation for this neighbor
                 ''',
@@ -1776,7 +1776,7 @@ _meta_table = {
                 ''',
                 'import_',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('l2vpn-signalling', REFERENCE_ENUM_CLASS, 'BgpSignal_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSignal_Enum', 
+            _MetaInfoClassMember('l2vpn-signalling', REFERENCE_ENUM_CLASS, 'BgpSignalEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSignalEnum', 
                 [], [], 
                 '''                Disable signalling type on the peer
                 ''',
@@ -1910,7 +1910,7 @@ _meta_table = {
                 ''',
                 'send_ext_community_ebgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-multicast-attr', REFERENCE_ENUM_CLASS, 'BgpSendMcastAttrCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSendMcastAttrCfg_Enum', 
+            _MetaInfoClassMember('send-multicast-attr', REFERENCE_ENUM_CLASS, 'BgpSendMcastAttrCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSendMcastAttrCfgEnum', 
                 [], [], 
                 '''                Config send multicast attribute for this
                 neighbor
@@ -2109,7 +2109,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpTos_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpTos_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpTosEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpTosEnum', 
                 [], [], 
                 '''                Set type of service
                 ''',
@@ -2121,7 +2121,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False, [
-                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'BgpPrecedenceDscp_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpPrecedenceDscp_Enum', 
+                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'BgpPrecedenceDscpEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpPrecedenceDscpEnum', 
                         [], [], 
                         '''                        TOS value to set
                         ''',
@@ -2211,13 +2211,13 @@ _meta_table = {
                 ''',
                 'neighbor_group_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfg_Enum', 
+            _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
                 '''                Advertise additional paths Receive capability
                 ''',
                 'additional_paths_receive_capability',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-send-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfg_Enum', 
+            _MetaInfoClassMember('additional-paths-send-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
                 '''                Advertise additional paths Send capability
                 ''',
@@ -2230,7 +2230,7 @@ _meta_table = {
                 ''',
                 'advertisement_interval',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd-enable-modes', REFERENCE_ENUM_CLASS, 'BgpBfdEnableMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpBfdEnableMode_Enum', 
+            _MetaInfoClassMember('bfd-enable-modes', REFERENCE_ENUM_CLASS, 'BgpBfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpBfdEnableModeEnum', 
                 [], [], 
                 '''                Strict mode, Default mode or Disable to prevent
                 inheritance from a parent
@@ -2437,7 +2437,7 @@ _meta_table = {
                 ''',
                 'session_group_add_member',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('session-open-mode', REFERENCE_ENUM_CLASS, 'BgpTcpMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpTcpMode_Enum', 
+            _MetaInfoClassMember('session-open-mode', REFERENCE_ENUM_CLASS, 'BgpTcpModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpTcpModeEnum', 
                 [], [], 
                 '''                TCP mode to be used to establish BGP session
                 ''',
@@ -2863,13 +2863,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -2886,13 +2886,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -2909,13 +2909,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -2932,13 +2932,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -2955,13 +2955,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -2984,7 +2984,7 @@ _meta_table = {
                 ''',
                 'cost_community_id',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('cost-community-poi-type', REFERENCE_ENUM_CLASS, 'BgpAigpCfgPoi_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgPoi_Enum', 
+            _MetaInfoClassMember('cost-community-poi-type', REFERENCE_ENUM_CLASS, 'BgpAigpCfgPoiEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgPoiEnum', 
                 [], [], 
                 '''                Cost Community POI
                 ''',
@@ -3219,7 +3219,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                BGP neighbor address family
                 ''',
@@ -3271,7 +3271,7 @@ _meta_table = {
                 ''',
                 'advertise_local_v6',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-orf', REFERENCE_ENUM_CLASS, 'BgpOrf_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpOrf_Enum', 
+            _MetaInfoClassMember('advertise-orf', REFERENCE_ENUM_CLASS, 'BgpOrfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpOrfEnum', 
                 [], [], 
                 '''                Advertise ORF capability to the peer
                 ''',
@@ -3302,7 +3302,7 @@ _meta_table = {
                 ''',
                 'af_group',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp', REFERENCE_ENUM_CLASS, 'BgpAigpCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg_Enum', 
+            _MetaInfoClassMember('aigp', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
                 [], [], 
                 '''                Enable Accumulated IGP Metric for this neighbor.
                 ''',
@@ -3314,7 +3314,7 @@ _meta_table = {
                 ''',
                 'aigp_cost_community',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp-send-med', REFERENCE_ENUM_CLASS, 'BgpAigpCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg_Enum', 
+            _MetaInfoClassMember('aigp-send-med', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
                 [], [], 
                 '''                Enable/Disable sending AIGP in MED 
                 ''',
@@ -3347,7 +3347,7 @@ _meta_table = {
                 ''',
                 'default_weight',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('flowspec-validation', REFERENCE_ENUM_CLASS, 'BgpFlowspecValidationCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpFlowspecValidationCfg_Enum', 
+            _MetaInfoClassMember('flowspec-validation', REFERENCE_ENUM_CLASS, 'BgpFlowspecValidationCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpFlowspecValidationCfgEnum', 
                 [], [], 
                 '''                Config Flowspec validation for this neighbor
                 ''',
@@ -3360,7 +3360,7 @@ _meta_table = {
                 ''',
                 'import_',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('l2vpn-signalling', REFERENCE_ENUM_CLASS, 'BgpSignal_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSignal_Enum', 
+            _MetaInfoClassMember('l2vpn-signalling', REFERENCE_ENUM_CLASS, 'BgpSignalEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSignalEnum', 
                 [], [], 
                 '''                Disable signalling type on the peer
                 ''',
@@ -3494,7 +3494,7 @@ _meta_table = {
                 ''',
                 'send_ext_community_ebgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-multicast-attr', REFERENCE_ENUM_CLASS, 'BgpSendMcastAttrCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSendMcastAttrCfg_Enum', 
+            _MetaInfoClassMember('send-multicast-attr', REFERENCE_ENUM_CLASS, 'BgpSendMcastAttrCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSendMcastAttrCfgEnum', 
                 [], [], 
                 '''                Config send multicast attribute for this
                 neighbor
@@ -3710,7 +3710,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpTos_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpTos_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpTosEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpTosEnum', 
                 [], [], 
                 '''                Set type of service
                 ''',
@@ -3722,7 +3722,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False, [
-                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'BgpPrecedenceDscp_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpPrecedenceDscp_Enum', 
+                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'BgpPrecedenceDscpEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpPrecedenceDscpEnum', 
                         [], [], 
                         '''                        TOS value to set
                         ''',
@@ -3825,13 +3825,13 @@ _meta_table = {
                         'neighbor_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                 ]),
-            _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfg_Enum', 
+            _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
                 '''                Advertise additional paths Receive capability
                 ''',
                 'additional_paths_receive_capability',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-send-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfg_Enum', 
+            _MetaInfoClassMember('additional-paths-send-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
                 '''                Advertise additional paths Send capability
                 ''',
@@ -3844,7 +3844,7 @@ _meta_table = {
                 ''',
                 'advertisement_interval',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd-enable-modes', REFERENCE_ENUM_CLASS, 'BgpBfdEnableMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpBfdEnableMode_Enum', 
+            _MetaInfoClassMember('bfd-enable-modes', REFERENCE_ENUM_CLASS, 'BgpBfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpBfdEnableModeEnum', 
                 [], [], 
                 '''                Strict mode, Default mode or Disable to prevent
                 inheritance from a parent
@@ -4041,7 +4041,7 @@ _meta_table = {
                 ''',
                 'session_group_add_member',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('session-open-mode', REFERENCE_ENUM_CLASS, 'BgpTcpMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpTcpMode_Enum', 
+            _MetaInfoClassMember('session-open-mode', REFERENCE_ENUM_CLASS, 'BgpTcpModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpTcpModeEnum', 
                 [], [], 
                 '''                TCP mode to be used to establish BGP session
                 ''',
@@ -4641,7 +4641,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpTos_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpTos_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpTosEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpTosEnum', 
                 [], [], 
                 '''                Set type of service
                 ''',
@@ -4653,7 +4653,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False, [
-                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'BgpPrecedenceDscp_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpPrecedenceDscp_Enum', 
+                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'BgpPrecedenceDscpEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpPrecedenceDscpEnum', 
                         [], [], 
                         '''                        TOS value to set
                         ''',
@@ -4743,13 +4743,13 @@ _meta_table = {
                 ''',
                 'session_group_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfg_Enum', 
+            _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
                 '''                Advertise additional paths Receive capability
                 ''',
                 'additional_paths_receive_capability',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-send-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfg_Enum', 
+            _MetaInfoClassMember('additional-paths-send-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
                 '''                Advertise additional paths Send capability
                 ''',
@@ -4762,7 +4762,7 @@ _meta_table = {
                 ''',
                 'advertisement_interval',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd-enable-modes', REFERENCE_ENUM_CLASS, 'BgpBfdEnableMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpBfdEnableMode_Enum', 
+            _MetaInfoClassMember('bfd-enable-modes', REFERENCE_ENUM_CLASS, 'BgpBfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpBfdEnableModeEnum', 
                 [], [], 
                 '''                Strict mode, Default mode or Disable to prevent
                 inheritance from a parent
@@ -4956,7 +4956,7 @@ _meta_table = {
                 ''',
                 'session_group_add_member',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('session-open-mode', REFERENCE_ENUM_CLASS, 'BgpTcpMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpTcpMode_Enum', 
+            _MetaInfoClassMember('session-open-mode', REFERENCE_ENUM_CLASS, 'BgpTcpModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpTcpModeEnum', 
                 [], [], 
                 '''                TCP mode to be used to establish BGP session
                 ''',
@@ -5154,7 +5154,7 @@ _meta_table = {
                 ''',
                 'attribute_start',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('filter-action', REFERENCE_ENUM_CLASS, 'BgpUpdateFilterAction_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpUpdateFilterAction_Enum', 
+            _MetaInfoClassMember('filter-action', REFERENCE_ENUM_CLASS, 'BgpUpdateFilterActionEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpUpdateFilterActionEnum', 
                 [], [], 
                 '''                Filtering action
                 ''',
@@ -5352,7 +5352,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('selection', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfg_Enum', 
+            _MetaInfoClassMember('selection', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
                 [], [], 
                 '''                Enable/disable selection 
                 ''',
@@ -5653,7 +5653,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr',
             False, 
             [
-            _MetaInfoClassMember('cluster-type', REFERENCE_ENUM_CLASS, 'BgpClusterId_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpClusterId_Enum', 
+            _MetaInfoClassMember('cluster-type', REFERENCE_ENUM_CLASS, 'BgpClusterIdEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpClusterIdEnum', 
                 [], [], 
                 '''                Type of cluster-id
                 ''',
@@ -6386,13 +6386,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('additional-paths-receive', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfg_Enum', 
+            _MetaInfoClassMember('additional-paths-receive', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
                 [], [], 
                 '''                Advertise additional paths Receive capability
                 ''',
@@ -6404,7 +6404,7 @@ _meta_table = {
                 ''',
                 'additional_paths_selection',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-send', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfg_Enum', 
+            _MetaInfoClassMember('additional-paths-send', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
                 [], [], 
                 '''                Advertise additional paths Send capability
                 ''',
@@ -6916,7 +6916,7 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('transport', REFERENCE_ENUM_CLASS, 'BgpRpkiTransport_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpRpkiTransport_Enum', 
+            _MetaInfoClassMember('transport', REFERENCE_ENUM_CLASS, 'BgpRpkiTransportEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpRpkiTransportEnum', 
                 [], [], 
                 '''                RPKI server transport
                 ''',
@@ -7759,7 +7759,7 @@ _meta_table = {
                 ''',
                 'as_xx',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpRouteDistinguisher_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpRouteDistinguisher_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpRouteDistinguisherEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpRouteDistinguisherEnum', 
                 [], [], 
                 '''                Type of RD
                 ''',
@@ -7805,7 +7805,7 @@ _meta_table = {
                 ''',
                 'route_policy_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('selection', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfg_Enum', 
+            _MetaInfoClassMember('selection', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
                 [], [], 
                 '''                Enable/disable selection 
                 ''',
@@ -8270,7 +8270,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn',
             False, 
             [
-            _MetaInfoClassMember('single-forwarder-selection', REFERENCE_ENUM_CLASS, 'BgpMvpnSfsSelect_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpMvpnSfsSelect_Enum', 
+            _MetaInfoClassMember('single-forwarder-selection', REFERENCE_ENUM_CLASS, 'BgpMvpnSfsSelectEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpMvpnSfsSelectEnum', 
                 [], [], 
                 '''                Select MVPN single forwarder selection
                 ''',
@@ -8497,13 +8497,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('additional-paths-receive', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfg_Enum', 
+            _MetaInfoClassMember('additional-paths-receive', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
                 [], [], 
                 '''                Advertise additional paths Receive capability
                 ''',
@@ -8515,7 +8515,7 @@ _meta_table = {
                 ''',
                 'additional_paths_selection',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-send', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfg_Enum', 
+            _MetaInfoClassMember('additional-paths-send', REFERENCE_ENUM_CLASS, 'BgpafAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpafAdditionalPathsCfgEnum', 
                 [], [], 
                 '''                Advertise additional paths Send capability
                 ''',
@@ -9440,7 +9440,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpTos_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpTos_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpTosEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpTosEnum', 
                 [], [], 
                 '''                Set type of service
                 ''',
@@ -9452,7 +9452,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False, [
-                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'BgpPrecedenceDscp_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpPrecedenceDscp_Enum', 
+                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'BgpPrecedenceDscpEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpPrecedenceDscpEnum', 
                         [], [], 
                         '''                        TOS value to set
                         ''',
@@ -9536,13 +9536,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -9559,13 +9559,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -9582,13 +9582,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -9605,13 +9605,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -9628,13 +9628,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                Address family
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOpt_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOpt_Enum', 
+            _MetaInfoClassMember('reorg-option', REFERENCE_ENUM_CLASS, 'BgpReorgOptEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpReorgOptEnum', 
                 [], [], 
                 '''                Reorigination option
                 ''',
@@ -9657,7 +9657,7 @@ _meta_table = {
                 ''',
                 'cost_community_id',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('cost-community-poi-type', REFERENCE_ENUM_CLASS, 'BgpAigpCfgPoi_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgPoi_Enum', 
+            _MetaInfoClassMember('cost-community-poi-type', REFERENCE_ENUM_CLASS, 'BgpAigpCfgPoiEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgPoiEnum', 
                 [], [], 
                 '''                Cost Community POI
                 ''',
@@ -9897,7 +9897,7 @@ _meta_table = {
                 ''',
                 'as_xx',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpSiteOfOrigin_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSiteOfOrigin_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpSiteOfOriginEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpSiteOfOriginEnum', 
                 [], [], 
                 '''                Type of Extended community
                 ''',
@@ -9939,7 +9939,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamily_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
                 [], [], 
                 '''                BGP neighbor address family
                 ''',
@@ -9991,7 +9991,7 @@ _meta_table = {
                 ''',
                 'advertise_local_v6',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('advertise-orf', REFERENCE_ENUM_CLASS, 'BgpOrf_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpOrf_Enum', 
+            _MetaInfoClassMember('advertise-orf', REFERENCE_ENUM_CLASS, 'BgpOrfEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpOrfEnum', 
                 [], [], 
                 '''                Advertise ORF capability to the peer
                 ''',
@@ -10022,7 +10022,7 @@ _meta_table = {
                 ''',
                 'af_group',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp', REFERENCE_ENUM_CLASS, 'BgpAigpCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg_Enum', 
+            _MetaInfoClassMember('aigp', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
                 [], [], 
                 '''                Enable Accumulated IGP Metric for this neighbor.
                 ''',
@@ -10034,7 +10034,7 @@ _meta_table = {
                 ''',
                 'aigp_cost_community',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aigp-send-med', REFERENCE_ENUM_CLASS, 'BgpAigpCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfg_Enum', 
+            _MetaInfoClassMember('aigp-send-med', REFERENCE_ENUM_CLASS, 'BgpAigpCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpAigpCfgEnum', 
                 [], [], 
                 '''                Enable/Disable sending AIGP in MED 
                 ''',
@@ -10067,7 +10067,7 @@ _meta_table = {
                 ''',
                 'default_weight',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('flowspec-validation', REFERENCE_ENUM_CLASS, 'BgpFlowspecValidationCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpFlowspecValidationCfg_Enum', 
+            _MetaInfoClassMember('flowspec-validation', REFERENCE_ENUM_CLASS, 'BgpFlowspecValidationCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpFlowspecValidationCfgEnum', 
                 [], [], 
                 '''                Config Flowspec validation for this neighbor
                 ''',
@@ -10257,13 +10257,13 @@ _meta_table = {
                         'neighbor_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                 ]),
-            _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfg_Enum', 
+            _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
                 '''                Advertise additional paths Receive capability
                 ''',
                 'additional_paths_receive_capability',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-send-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfg_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfg_Enum', 
+            _MetaInfoClassMember('additional-paths-send-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
                 '''                Advertise additional paths Send capability
                 ''',
@@ -10276,7 +10276,7 @@ _meta_table = {
                 ''',
                 'advertisement_interval',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd-enable-modes', REFERENCE_ENUM_CLASS, 'BgpBfdEnableMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpBfdEnableMode_Enum', 
+            _MetaInfoClassMember('bfd-enable-modes', REFERENCE_ENUM_CLASS, 'BgpBfdEnableModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpBfdEnableModeEnum', 
                 [], [], 
                 '''                Strict mode, Default mode or Disable to prevent
                 inheritance from a parent
@@ -10455,7 +10455,7 @@ _meta_table = {
                 ''',
                 'session_group_add_member',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('session-open-mode', REFERENCE_ENUM_CLASS, 'BgpTcpMode_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpTcpMode_Enum', 
+            _MetaInfoClassMember('session-open-mode', REFERENCE_ENUM_CLASS, 'BgpTcpModeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpTcpModeEnum', 
                 [], [], 
                 '''                TCP mode to be used to establish BGP session
                 ''',
@@ -10746,7 +10746,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('BmpServers.BmpServer.Tos',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpTos_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpTos_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BgpTosEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpTosEnum', 
                 [], [], 
                 '''                Set type of service
                 ''',
@@ -10758,7 +10758,7 @@ _meta_table = {
                 ''',
                 'value',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False, [
-                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'BgpPrecedenceDscp_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpPrecedenceDscp_Enum', 
+                    _MetaInfoClassMember('value', REFERENCE_ENUM_CLASS, 'BgpPrecedenceDscpEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpPrecedenceDscpEnum', 
                         [], [], 
                         '''                        TOS value to set
                         ''',

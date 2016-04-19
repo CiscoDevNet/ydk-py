@@ -30,76 +30,70 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class ArpEncap_Enum(Enum):
+class ArpEncapEnum(Enum):
     """
-    ArpEncap_Enum
+    ArpEncapEnum
 
     Arp encap
 
-    """
+    .. data:: ARPA = 1
+
+    	Encapsulation type ARPA
+
+    .. data:: SRP = 4
+
+    	Encapsulation type SRP
+
+    .. data:: SRPA = 5
+
+    	Encapsulation type SRPA
+
+    .. data:: SRPB = 6
+
+    	Encapsulation type SRPB
 
     """
 
-    Encapsulation type ARPA
-
-    """
     ARPA = 1
 
-    """
-
-    Encapsulation type SRP
-
-    """
     SRP = 4
 
-    """
-
-    Encapsulation type SRPA
-
-    """
     SRPA = 5
 
-    """
-
-    Encapsulation type SRPB
-
-    """
     SRPB = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
-        return meta._meta_table['ArpEncap_Enum']
+        return meta._meta_table['ArpEncapEnum']
 
 
-class ArpEntry_Enum(Enum):
+class ArpEntryEnum(Enum):
     """
-    ArpEntry_Enum
+    ArpEntryEnum
 
     Arp entry
 
-    """
+    .. data:: STATIC = 0
+
+    	Static ARP entry type
+
+    .. data:: ALIAS = 1
+
+    	Alias ARP entry type
 
     """
 
-    Static ARP entry type
-
-    """
     STATIC = 0
 
-    """
-
-    Alias ARP entry type
-
-    """
     ALIAS = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
-        return meta._meta_table['ArpEntry_Enum']
+        return meta._meta_table['ArpEntryEnum']
 
 
 
@@ -144,18 +138,12 @@ class Arp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.inner_cos is not None:
             return True
 
         if self.outer_cos is not None:
             return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -193,10 +181,20 @@ class ArpRedundancy(object):
         	Enable Configure parameter for ARP Geo redundancy. Deletion of this object also causes deletion of all associated objects under ArpRedundancy
         	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: groups
         
         	Table of Group
         	**type**\: :py:class:`Groups <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups>`
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -290,10 +288,20 @@ class ArpRedundancy(object):
                     	Enable List of Interfaces for this Group. Deletion of this object also causes deletion of all associated objects under InterfaceList
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: interfaces
                     
                     	Table of Interface
                     	**type**\: :py:class:`Interfaces <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -380,18 +388,12 @@ class ArpRedundancy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interface_name is not None:
                                     return True
 
                                 if self.interface_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -413,17 +415,11 @@ class ArpRedundancy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface is not None:
                                 for child_ref in self.interface:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -445,22 +441,13 @@ class ArpRedundancy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.enable is not None:
                             return True
 
                         if self.interfaces is not None and self.interfaces._has_data():
                             return True
 
-                        if self.interfaces is not None and self.interfaces.is_presence():
-                            return True
-
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -527,15 +514,9 @@ class ArpRedundancy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.prefix_string is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -557,17 +538,11 @@ class ArpRedundancy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.peer is not None:
                             for child_ref in self.peer:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -589,30 +564,18 @@ class ArpRedundancy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.group_id is not None:
                         return True
 
                     if self.interface_list is not None and self.interface_list._has_data():
                         return True
 
-                    if self.interface_list is not None and self.interface_list.is_presence():
-                        return True
-
                     if self.peers is not None and self.peers._has_data():
-                        return True
-
-                    if self.peers is not None and self.peers.is_presence():
                         return True
 
                     if self.source_interface is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -632,17 +595,11 @@ class ArpRedundancy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.group is not None:
                     for child_ref in self.group:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -662,22 +619,13 @@ class ArpRedundancy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.enable is not None:
                 return True
 
             if self.groups is not None and self.groups._has_data():
                 return True
 
-            if self.groups is not None and self.groups.is_presence():
-                return True
-
             return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
 
         @staticmethod
         def _meta_info():
@@ -696,18 +644,9 @@ class ArpRedundancy(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.redundancy is not None and self.redundancy._has_data():
             return True
 
-        if self.redundancy is not None and self.redundancy.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -806,12 +745,12 @@ class Arpgmp(object):
                 .. attribute:: encapsulation
                 
                 	Encapsulation type
-                	**type**\: :py:class:`ArpEncap_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpEncap_Enum>`
+                	**type**\: :py:class:`ArpEncapEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpEncapEnum>`
                 
                 .. attribute:: entry_type
                 
                 	Entry type
-                	**type**\: :py:class:`ArpEntry_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpEntry_Enum>`
+                	**type**\: :py:class:`ArpEntryEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpEntryEnum>`
                 
                 .. attribute:: mac_address
                 
@@ -850,8 +789,6 @@ class Arpgmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.address is not None:
                         return True
 
@@ -864,10 +801,6 @@ class Arpgmp(object):
                     if self.mac_address is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -889,17 +822,11 @@ class Arpgmp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.entry is not None:
                     for child_ref in self.entry:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -921,21 +848,12 @@ class Arpgmp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.vrf_name is not None:
                 return True
 
             if self.entries is not None and self.entries._has_data():
                 return True
 
-            if self.entries is not None and self.entries.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -955,17 +873,11 @@ class Arpgmp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.vrf is not None:
             for child_ref in self.vrf:
                 if child_ref._has_data():
                     return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

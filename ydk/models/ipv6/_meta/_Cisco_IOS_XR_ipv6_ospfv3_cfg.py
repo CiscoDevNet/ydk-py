@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,14 +14,14 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'Ospfv3DomainId_Enum' : _MetaInfoEnum('Ospfv3DomainId_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3DomainIdEnum' : _MetaInfoEnum('Ospfv3DomainIdEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'type0005':'TYPE0005',
             'type0105':'TYPE0105',
             'type0205':'TYPE0205',
             'type8005':'TYPE8005',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3Network_Enum' : _MetaInfoEnum('Ospfv3Network_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3NetworkEnum' : _MetaInfoEnum('Ospfv3NetworkEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'broadcast':'BROADCAST',
             'non-broadcast':'NON_BROADCAST',
@@ -29,66 +29,66 @@ _meta_table = {
             'point-to-multipoint':'POINT_TO_MULTIPOINT',
             'non-broadcast-point-to-multipoint':'NON_BROADCAST_POINT_TO_MULTIPOINT',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3Metric_Enum' : _MetaInfoEnum('Ospfv3Metric_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3MetricEnum' : _MetaInfoEnum('Ospfv3MetricEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'type1':'TYPE1',
             'type2':'TYPE2',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3AuthenticationType2_Enum' : _MetaInfoEnum('Ospfv3AuthenticationType2_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3AuthenticationType2Enum' : _MetaInfoEnum('Ospfv3AuthenticationType2Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'null':'NULL',
             'md5':'MD5',
             'sha1':'SHA1',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3FastReroutePriority_Enum' : _MetaInfoEnum('Ospfv3FastReroutePriority_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3FastReroutePriorityEnum' : _MetaInfoEnum('Ospfv3FastReroutePriorityEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'critical':'CRITICAL',
             'high':'HIGH',
             'medium':'MEDIUM',
             'low':'LOW',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3bfdEnableMode_Enum' : _MetaInfoEnum('Ospfv3bfdEnableMode_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3BfdEnableModeEnum' : _MetaInfoEnum('Ospfv3BfdEnableModeEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'disable':'DISABLE',
             'default':'DEFAULT',
             'strict':'STRICT',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3LogAdj_Enum' : _MetaInfoEnum('Ospfv3LogAdj_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3LogAdjEnum' : _MetaInfoEnum('Ospfv3LogAdjEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'suppress':'SUPPRESS',
             'brief':'BRIEF',
             'detail':'DETAIL',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3FastReroute_Enum' : _MetaInfoEnum('Ospfv3FastReroute_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3FastRerouteEnum' : _MetaInfoEnum('Ospfv3FastRerouteEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'none':'NONE',
             'per-link':'PER_LINK',
             'per-prefix':'PER_PREFIX',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3isisRoute_Enum' : _MetaInfoEnum('Ospfv3isisRoute_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3IsisRouteEnum' : _MetaInfoEnum('Ospfv3IsisRouteEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'level1':'LEVEL1',
             'level2':'LEVEL2',
             'level1-and2':'LEVEL1_AND2',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3nssaExternalRoute_Enum' : _MetaInfoEnum('Ospfv3nssaExternalRoute_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3NssaExternalRouteEnum' : _MetaInfoEnum('Ospfv3NssaExternalRouteEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'external1':'EXTERNAL1',
             'external2':'EXTERNAL2',
             'external':'EXTERNAL',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3ExternalRoute_Enum' : _MetaInfoEnum('Ospfv3ExternalRoute_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3ExternalRouteEnum' : _MetaInfoEnum('Ospfv3ExternalRouteEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'external1':'EXTERNAL1',
             'external2':'EXTERNAL2',
             'external':'EXTERNAL',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3nsr_Enum' : _MetaInfoEnum('Ospfv3nsr_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3NsrEnum' : _MetaInfoEnum('Ospfv3NsrEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'true':'TRUE',
             'false':'FALSE',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'TraceBufSize_Enum' : _MetaInfoEnum('TraceBufSize_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'TraceBufSizeEnum' : _MetaInfoEnum('TraceBufSizeEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'disable':'DISABLE',
             'one':'ONE',
@@ -101,11 +101,11 @@ _meta_table = {
             'eight':'EIGHT',
             'nine':'NINE',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3AddressFamily_Enum' : _MetaInfoEnum('Ospfv3AddressFamily_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3AddressFamilyEnum' : _MetaInfoEnum('Ospfv3AddressFamilyEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'ipv6':'IPV6',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3Protocol_Enum' : _MetaInfoEnum('Ospfv3Protocol_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3ProtocolEnum' : _MetaInfoEnum('Ospfv3ProtocolEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'all':'ALL',
             'connected':'CONNECTED',
@@ -115,7 +115,7 @@ _meta_table = {
             'ospfv3':'OSPFV3',
             'eigrp':'EIGRP',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3EncryptionAlgorithm_Enum' : _MetaInfoEnum('Ospfv3EncryptionAlgorithm_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3EncryptionAlgorithmEnum' : _MetaInfoEnum('Ospfv3EncryptionAlgorithmEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'null':'NULL',
             'des':'DES',
@@ -124,7 +124,7 @@ _meta_table = {
             'aes192':'AES192',
             'aes256':'AES256',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3ProtocolType2_Enum' : _MetaInfoEnum('Ospfv3ProtocolType2_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3ProtocolType2Enum' : _MetaInfoEnum('Ospfv3ProtocolType2Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'connected':'CONNECTED',
             'static':'STATIC',
@@ -136,16 +136,16 @@ _meta_table = {
             'application':'APPLICATION',
             'mobile':'MOBILE',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3SubsequentAddressFamily_Enum' : _MetaInfoEnum('Ospfv3SubsequentAddressFamily_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3SubsequentAddressFamilyEnum' : _MetaInfoEnum('Ospfv3SubsequentAddressFamilyEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'unicast':'UNICAST',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3EigrpRoute_Enum' : _MetaInfoEnum('Ospfv3EigrpRoute_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3EigrpRouteEnum' : _MetaInfoEnum('Ospfv3EigrpRouteEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'internal':'INTERNAL',
             'external':'EXTERNAL',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3FastRerouteTiebreakers_Enum' : _MetaInfoEnum('Ospfv3FastRerouteTiebreakers_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3FastRerouteTiebreakersEnum' : _MetaInfoEnum('Ospfv3FastRerouteTiebreakersEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'downstream':'DOWNSTREAM',
             'line-card-disjoint':'LINE_CARD_DISJOINT',
@@ -155,12 +155,12 @@ _meta_table = {
             'secondary-path':'SECONDARY_PATH',
             'srlg-disjoint':'SRLG_DISJOINT',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3Authentication_Enum' : _MetaInfoEnum('Ospfv3Authentication_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3AuthenticationEnum' : _MetaInfoEnum('Ospfv3AuthenticationEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'md5':'MD5',
             'sha1':'SHA1',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3InternalRoute_Enum' : _MetaInfoEnum('Ospfv3InternalRoute_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+    'Ospfv3InternalRouteEnum' : _MetaInfoEnum('Ospfv3InternalRouteEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'internal':'INTERNAL',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
@@ -168,13 +168,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Af',
             False, 
             [
-            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'Ospfv3AddressFamily_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AddressFamily_Enum', 
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'Ospfv3AddressFamilyEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AddressFamilyEnum', 
                 [], [], 
                 '''                Address Family (AF) identifier
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'Ospfv3SubsequentAddressFamily_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3SubsequentAddressFamily_Enum', 
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'Ospfv3SubsequentAddressFamilyEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3SubsequentAddressFamilyEnum', 
                 [], [], 
                 '''                Subsequent Address Family (SAF) identifier
                 ''',
@@ -391,7 +391,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastRerouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -438,7 +438,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -480,7 +480,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3bfdEnableMode_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3bfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3BfdEnableModeEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3BfdEnableModeEnum', 
                 [], [], 
                 '''                Enable or disable BFD fast detection
                 ''',
@@ -571,7 +571,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -589,7 +589,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -619,7 +619,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -661,7 +661,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3bfdEnableMode_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3bfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3BfdEnableModeEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3BfdEnableModeEnum', 
                 [], [], 
                 '''                Enable or disable BFD fast detection
                 ''',
@@ -753,7 +753,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -771,7 +771,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -1001,7 +1001,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastRerouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -1203,7 +1203,7 @@ _meta_table = {
                 ''',
                 'neighbors',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3Network_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Network_Enum', 
+            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3NetworkEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NetworkEnum', 
                 [], [], 
                 '''                Specify network type
                 ''',
@@ -1280,7 +1280,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3Metric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Metric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3MetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3MetricEnum', 
                 [], [], 
                 '''                Only valid with DefaultInfoOriginate
                 ''',
@@ -1362,7 +1362,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -1398,7 +1398,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -1416,7 +1416,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -1529,7 +1529,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -1565,7 +1565,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -1583,7 +1583,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -1800,7 +1800,7 @@ _meta_table = {
                 ''',
                 'mtu_ignore',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3Network_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Network_Enum', 
+            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3NetworkEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NetworkEnum', 
                 [], [], 
                 '''                Specify network type
                 ''',
@@ -2079,7 +2079,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastRerouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -2126,7 +2126,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -2168,7 +2168,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3bfdEnableMode_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3bfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3BfdEnableModeEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3BfdEnableModeEnum', 
                 [], [], 
                 '''                Enable or disable BFD fast detection
                 ''',
@@ -2259,7 +2259,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -2277,7 +2277,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -2307,7 +2307,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -2349,7 +2349,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3bfdEnableMode_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3bfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3BfdEnableModeEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3BfdEnableModeEnum', 
                 [], [], 
                 '''                Enable or disable BFD fast detection
                 ''',
@@ -2441,7 +2441,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -2459,7 +2459,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -2689,7 +2689,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastRerouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -2891,7 +2891,7 @@ _meta_table = {
                 ''',
                 'neighbors',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3Network_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Network_Enum', 
+            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3NetworkEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NetworkEnum', 
                 [], [], 
                 '''                Specify network type
                 ''',
@@ -2968,7 +2968,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3Metric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Metric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3MetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3MetricEnum', 
                 [], [], 
                 '''                Only valid with DefaultInfoOriginate
                 ''',
@@ -3050,7 +3050,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -3086,7 +3086,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -3104,7 +3104,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -3217,7 +3217,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -3253,7 +3253,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -3271,7 +3271,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -3488,7 +3488,7 @@ _meta_table = {
                 ''',
                 'mtu_ignore',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3Network_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Network_Enum', 
+            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3NetworkEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NetworkEnum', 
                 [], [], 
                 '''                Specify network type
                 ''',
@@ -3590,7 +3590,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -3657,7 +3657,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3bfdEnableMode_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3bfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3BfdEnableModeEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3BfdEnableModeEnum', 
                 [], [], 
                 '''                Enable or disable BFD fast detection
                 ''',
@@ -3897,7 +3897,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut',
             False, 
             [
-            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'Ospfv3Protocol_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Protocol_Enum', 
+            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'Ospfv3ProtocolEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ProtocolEnum', 
                 [], [], 
                 '''                none
                 ''',
@@ -3954,7 +3954,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -3972,7 +3972,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -4002,7 +4002,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerLink',
             False, 
             [
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroutePriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroutePriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroutePriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroutePriorityEnum', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix priority-limit
                 command
@@ -4020,7 +4020,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker',
             False, 
             [
-            _MetaInfoClassMember('tiebreaker-type', REFERENCE_ENUM_CLASS, 'Ospfv3FastRerouteTiebreakers_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastRerouteTiebreakers_Enum', 
+            _MetaInfoClassMember('tiebreaker-type', REFERENCE_ENUM_CLASS, 'Ospfv3FastRerouteTiebreakersEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastRerouteTiebreakersEnum', 
                 [], [], 
                 '''                Tiebreaker type
                 ''',
@@ -4066,7 +4066,7 @@ _meta_table = {
                 ''',
                 'load_sharing_disable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroutePriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroutePriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroutePriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroutePriorityEnum', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix priority-limit
                 command
@@ -4453,7 +4453,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastRerouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -4521,38 +4521,38 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3EigrpRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRoute_Enum', 
+            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3EigrpRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
                 ''',
                 'eigrp_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3ExternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ExternalRoute_Enum', 
+            _MetaInfoClassMember('external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3ExternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ExternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 external routes
                 ''',
                 'external_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('internal-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3InternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3InternalRoute_Enum', 
+            _MetaInfoClassMember('internal-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3InternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3InternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 routes
                 ''',
                 'internal_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('isis-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3isisRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3isisRoute_Enum', 
+            _MetaInfoClassMember('isis-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3IsisRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3IsisRouteEnum', 
                 [], [], 
                 '''                ISIS route type
                 ''',
                 'isis_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3Metric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Metric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3MetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3MetricEnum', 
                 [], [], 
                 '''                OSPFv3 exterior metric type for redistributed
                 routes
                 ''',
                 'metric_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('nssa-external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3nssaExternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3nssaExternalRoute_Enum', 
+            _MetaInfoClassMember('nssa-external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3NssaExternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NssaExternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 NSSA external routes
                 ''',
@@ -4607,38 +4607,38 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3EigrpRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRoute_Enum', 
+            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3EigrpRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
                 ''',
                 'eigrp_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3ExternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ExternalRoute_Enum', 
+            _MetaInfoClassMember('external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3ExternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ExternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 external routes
                 ''',
                 'external_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('internal-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3InternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3InternalRoute_Enum', 
+            _MetaInfoClassMember('internal-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3InternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3InternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 routes
                 ''',
                 'internal_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('isis-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3isisRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3isisRoute_Enum', 
+            _MetaInfoClassMember('isis-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3IsisRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3IsisRouteEnum', 
                 [], [], 
                 '''                ISIS route type
                 ''',
                 'isis_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3Metric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Metric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3MetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3MetricEnum', 
                 [], [], 
                 '''                OSPFv3 exterior metric type for redistributed
                 routes
                 ''',
                 'metric_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('nssa-external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3nssaExternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3nssaExternalRoute_Enum', 
+            _MetaInfoClassMember('nssa-external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3NssaExternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NssaExternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 NSSA external routes
                 ''',
@@ -4700,38 +4700,38 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3EigrpRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRoute_Enum', 
+            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3EigrpRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
                 ''',
                 'eigrp_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3ExternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ExternalRoute_Enum', 
+            _MetaInfoClassMember('external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3ExternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ExternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 external routes
                 ''',
                 'external_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('internal-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3InternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3InternalRoute_Enum', 
+            _MetaInfoClassMember('internal-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3InternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3InternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 routes
                 ''',
                 'internal_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('isis-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3isisRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3isisRoute_Enum', 
+            _MetaInfoClassMember('isis-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3IsisRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3IsisRouteEnum', 
                 [], [], 
                 '''                ISIS route type
                 ''',
                 'isis_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3Metric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Metric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3MetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3MetricEnum', 
                 [], [], 
                 '''                OSPFv3 exterior metric type for redistributed
                 routes
                 ''',
                 'metric_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('nssa-external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3nssaExternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3nssaExternalRoute_Enum', 
+            _MetaInfoClassMember('nssa-external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3NssaExternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NssaExternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 NSSA external routes
                 ''',
@@ -4793,38 +4793,38 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3EigrpRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRoute_Enum', 
+            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3EigrpRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
                 ''',
                 'eigrp_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3ExternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ExternalRoute_Enum', 
+            _MetaInfoClassMember('external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3ExternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ExternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 external routes
                 ''',
                 'external_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('internal-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3InternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3InternalRoute_Enum', 
+            _MetaInfoClassMember('internal-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3InternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3InternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 routes
                 ''',
                 'internal_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('isis-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3isisRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3isisRoute_Enum', 
+            _MetaInfoClassMember('isis-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3IsisRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3IsisRouteEnum', 
                 [], [], 
                 '''                ISIS route type
                 ''',
                 'isis_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3Metric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Metric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3MetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3MetricEnum', 
                 [], [], 
                 '''                OSPFv3 exterior metric type for redistributed
                 routes
                 ''',
                 'metric_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('nssa-external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3nssaExternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3nssaExternalRoute_Enum', 
+            _MetaInfoClassMember('nssa-external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3NssaExternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NssaExternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 NSSA external routes
                 ''',
@@ -4873,7 +4873,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute',
             False, 
             [
-            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'Ospfv3ProtocolType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ProtocolType2_Enum', 
+            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'Ospfv3ProtocolType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ProtocolType2Enum', 
                 [], [], 
                 '''                Protocol
                 ''',
@@ -5168,8 +5168,8 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit.OnStartup' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit.OnStartup',
+    'Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit.OnStartup' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit.OnStartup',
             False, 
             [
             _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
@@ -5193,8 +5193,8 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit',
+    'Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit',
             False, 
             [
             _MetaInfoClassMember('always', ATTRIBUTE, 'Empty' , None, None, 
@@ -5238,7 +5238,7 @@ _meta_table = {
                 ''',
                 'on_proc_restart',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('on-startup', REFERENCE_CLASS, 'OnStartup' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit.OnStartup', 
+            _MetaInfoClassMember('on-startup', REFERENCE_CLASS, 'OnStartup' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit.OnStartup', 
                 [], [], 
                 '''                Enter stub router operational state on startup
                 ''',
@@ -5281,7 +5281,7 @@ _meta_table = {
                 ''',
                 'rbit',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('v6bit', REFERENCE_CLASS, 'V6bit' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit', 
+            _MetaInfoClassMember('v6bit', REFERENCE_CLASS, 'V6Bit' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit', 
                 [], [], 
                 '''                Stub router V6-bit configuration
                 ''',
@@ -5643,7 +5643,7 @@ _meta_table = {
                 ''',
                 'ldp_sync',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('log-adjacency-changes', REFERENCE_ENUM_CLASS, 'Ospfv3LogAdj_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3LogAdj_Enum', 
+            _MetaInfoClassMember('log-adjacency-changes', REFERENCE_ENUM_CLASS, 'Ospfv3LogAdjEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3LogAdjEnum', 
                 [], [], 
                 '''                Log changes in adjacency state
                 ''',
@@ -5661,7 +5661,7 @@ _meta_table = {
                 ''',
                 'mtu_ignore',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3Network_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Network_Enum', 
+            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3NetworkEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NetworkEnum', 
                 [], [], 
                 '''                Specify network type
                 ''',
@@ -5771,7 +5771,7 @@ _meta_table = {
                 ''',
                 'trace_buf_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
-            _MetaInfoClassMember('bufsize', REFERENCE_ENUM_CLASS, 'TraceBufSize_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'TraceBufSize_Enum', 
+            _MetaInfoClassMember('bufsize', REFERENCE_ENUM_CLASS, 'TraceBufSizeEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'TraceBufSizeEnum', 
                 [], [], 
                 '''                Buffer size
                 ''',
@@ -6006,7 +6006,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastRerouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -6053,7 +6053,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -6095,7 +6095,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3bfdEnableMode_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3bfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3BfdEnableModeEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3BfdEnableModeEnum', 
                 [], [], 
                 '''                Enable or disable BFD fast detection
                 ''',
@@ -6186,7 +6186,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -6204,7 +6204,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -6234,7 +6234,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -6276,7 +6276,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3bfdEnableMode_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3bfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3BfdEnableModeEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3BfdEnableModeEnum', 
                 [], [], 
                 '''                Enable or disable BFD fast detection
                 ''',
@@ -6368,7 +6368,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -6386,7 +6386,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -6616,7 +6616,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastRerouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -6818,7 +6818,7 @@ _meta_table = {
                 ''',
                 'neighbors',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3Network_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Network_Enum', 
+            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3NetworkEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NetworkEnum', 
                 [], [], 
                 '''                Specify network type
                 ''',
@@ -6895,7 +6895,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3Metric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Metric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3MetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3MetricEnum', 
                 [], [], 
                 '''                Only valid with DefaultInfoOriginate
                 ''',
@@ -6977,7 +6977,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -7013,7 +7013,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -7031,7 +7031,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -7144,7 +7144,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -7180,7 +7180,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -7198,7 +7198,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -7415,7 +7415,7 @@ _meta_table = {
                 ''',
                 'mtu_ignore',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3Network_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Network_Enum', 
+            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3NetworkEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NetworkEnum', 
                 [], [], 
                 '''                Specify network type
                 ''',
@@ -7694,7 +7694,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastRerouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -7741,7 +7741,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -7783,7 +7783,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3bfdEnableMode_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3bfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3BfdEnableModeEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3BfdEnableModeEnum', 
                 [], [], 
                 '''                Enable or disable BFD fast detection
                 ''',
@@ -7874,7 +7874,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -7892,7 +7892,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -7922,7 +7922,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -7964,7 +7964,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3bfdEnableMode_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3bfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3BfdEnableModeEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3BfdEnableModeEnum', 
                 [], [], 
                 '''                Enable or disable BFD fast detection
                 ''',
@@ -8056,7 +8056,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -8074,7 +8074,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -8304,7 +8304,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastRerouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -8506,7 +8506,7 @@ _meta_table = {
                 ''',
                 'neighbors',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3Network_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Network_Enum', 
+            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3NetworkEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NetworkEnum', 
                 [], [], 
                 '''                Specify network type
                 ''',
@@ -8583,7 +8583,7 @@ _meta_table = {
                 ''',
                 'metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3Metric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Metric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3MetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3MetricEnum', 
                 [], [], 
                 '''                Only valid with DefaultInfoOriginate
                 ''',
@@ -8665,7 +8665,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -8701,7 +8701,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -8719,7 +8719,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -8832,7 +8832,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -8868,7 +8868,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -8886,7 +8886,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -9103,7 +9103,7 @@ _meta_table = {
                 ''',
                 'mtu_ignore',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3Network_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Network_Enum', 
+            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3NetworkEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NetworkEnum', 
                 [], [], 
                 '''                Specify network type
                 ''',
@@ -9205,7 +9205,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Authentication',
             False, 
             [
-            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3Authentication_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Authentication_Enum', 
+            _MetaInfoClassMember('algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationEnum', 
                 [], [], 
                 '''                Use the MD5 or SHA1 algorithm
                 ''',
@@ -9272,7 +9272,7 @@ _meta_table = {
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3bfdEnableMode_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3bfdEnableMode_Enum', 
+            _MetaInfoClassMember('fast-detect-mode', REFERENCE_ENUM_CLASS, 'Ospfv3BfdEnableModeEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3BfdEnableModeEnum', 
                 [], [], 
                 '''                Enable or disable BFD fast detection
                 ''',
@@ -9529,7 +9529,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut',
             False, 
             [
-            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'Ospfv3Protocol_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Protocol_Enum', 
+            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'Ospfv3ProtocolEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ProtocolEnum', 
                 [], [], 
                 '''                none
                 ''',
@@ -9592,7 +9592,7 @@ _meta_table = {
                 ''',
                 'domain_id_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('domain-id-type', REFERENCE_ENUM_CLASS, 'Ospfv3DomainId_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3DomainId_Enum', 
+            _MetaInfoClassMember('domain-id-type', REFERENCE_ENUM_CLASS, 'Ospfv3DomainIdEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3DomainIdEnum', 
                 [], [], 
                 '''                Primary domain ID type
                 ''',
@@ -9615,7 +9615,7 @@ _meta_table = {
                 ''',
                 'domain_id_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
-            _MetaInfoClassMember('domain-id-type', REFERENCE_ENUM_CLASS, 'Ospfv3DomainId_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3DomainId_Enum', 
+            _MetaInfoClassMember('domain-id-type', REFERENCE_ENUM_CLASS, 'Ospfv3DomainIdEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3DomainIdEnum', 
                 [], [], 
                 '''                Secondary domain ID type
                 ''',
@@ -9672,7 +9672,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Encryption',
             False, 
             [
-            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2_Enum', 
+            _MetaInfoClassMember('authentication-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3AuthenticationType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3AuthenticationType2Enum', 
                 [], [], 
                 '''                Use the NULL, MD5 or SHA1 algorithm
                 ''',
@@ -9690,7 +9690,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithm_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithm_Enum', 
+            _MetaInfoClassMember('encryption-algorithm', REFERENCE_ENUM_CLASS, 'Ospfv3EncryptionAlgorithmEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EncryptionAlgorithmEnum', 
                 [], [], 
                 '''                Specify the encryption algorithm
                 ''',
@@ -9720,7 +9720,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerLink',
             False, 
             [
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroutePriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroutePriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroutePriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroutePriorityEnum', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix priority-limit
                 command
@@ -9738,7 +9738,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker',
             False, 
             [
-            _MetaInfoClassMember('tiebreaker-type', REFERENCE_ENUM_CLASS, 'Ospfv3FastRerouteTiebreakers_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastRerouteTiebreakers_Enum', 
+            _MetaInfoClassMember('tiebreaker-type', REFERENCE_ENUM_CLASS, 'Ospfv3FastRerouteTiebreakersEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastRerouteTiebreakersEnum', 
                 [], [], 
                 '''                Tiebreaker type
                 ''',
@@ -9784,7 +9784,7 @@ _meta_table = {
                 ''',
                 'load_sharing_disable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroutePriority_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroutePriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroutePriorityEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroutePriorityEnum', 
                 [], [], 
                 '''                Fast-reroute per-link/per-prefix priority-limit
                 command
@@ -10171,7 +10171,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute',
             False, 
             [
-            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastReroute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastReroute_Enum', 
+            _MetaInfoClassMember('fast-reroute-enable', REFERENCE_ENUM_CLASS, 'Ospfv3FastRerouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3FastRerouteEnum', 
                 [], [], 
                 '''                Enable/Disable Fast-reroute per-link or
                 per-prefix
@@ -10239,38 +10239,38 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3EigrpRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRoute_Enum', 
+            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3EigrpRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
                 ''',
                 'eigrp_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3ExternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ExternalRoute_Enum', 
+            _MetaInfoClassMember('external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3ExternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ExternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 external routes
                 ''',
                 'external_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('internal-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3InternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3InternalRoute_Enum', 
+            _MetaInfoClassMember('internal-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3InternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3InternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 routes
                 ''',
                 'internal_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('isis-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3isisRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3isisRoute_Enum', 
+            _MetaInfoClassMember('isis-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3IsisRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3IsisRouteEnum', 
                 [], [], 
                 '''                ISIS route type
                 ''',
                 'isis_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3Metric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Metric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3MetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3MetricEnum', 
                 [], [], 
                 '''                OSPFv3 exterior metric type for redistributed
                 routes
                 ''',
                 'metric_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('nssa-external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3nssaExternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3nssaExternalRoute_Enum', 
+            _MetaInfoClassMember('nssa-external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3NssaExternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NssaExternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 NSSA external routes
                 ''',
@@ -10325,38 +10325,38 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3EigrpRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRoute_Enum', 
+            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3EigrpRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
                 ''',
                 'eigrp_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3ExternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ExternalRoute_Enum', 
+            _MetaInfoClassMember('external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3ExternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ExternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 external routes
                 ''',
                 'external_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('internal-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3InternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3InternalRoute_Enum', 
+            _MetaInfoClassMember('internal-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3InternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3InternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 routes
                 ''',
                 'internal_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('isis-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3isisRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3isisRoute_Enum', 
+            _MetaInfoClassMember('isis-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3IsisRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3IsisRouteEnum', 
                 [], [], 
                 '''                ISIS route type
                 ''',
                 'isis_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3Metric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Metric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3MetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3MetricEnum', 
                 [], [], 
                 '''                OSPFv3 exterior metric type for redistributed
                 routes
                 ''',
                 'metric_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('nssa-external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3nssaExternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3nssaExternalRoute_Enum', 
+            _MetaInfoClassMember('nssa-external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3NssaExternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NssaExternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 NSSA external routes
                 ''',
@@ -10418,38 +10418,38 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3EigrpRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRoute_Enum', 
+            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3EigrpRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
                 ''',
                 'eigrp_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3ExternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ExternalRoute_Enum', 
+            _MetaInfoClassMember('external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3ExternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ExternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 external routes
                 ''',
                 'external_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('internal-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3InternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3InternalRoute_Enum', 
+            _MetaInfoClassMember('internal-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3InternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3InternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 routes
                 ''',
                 'internal_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('isis-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3isisRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3isisRoute_Enum', 
+            _MetaInfoClassMember('isis-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3IsisRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3IsisRouteEnum', 
                 [], [], 
                 '''                ISIS route type
                 ''',
                 'isis_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3Metric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Metric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3MetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3MetricEnum', 
                 [], [], 
                 '''                OSPFv3 exterior metric type for redistributed
                 routes
                 ''',
                 'metric_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('nssa-external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3nssaExternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3nssaExternalRoute_Enum', 
+            _MetaInfoClassMember('nssa-external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3NssaExternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NssaExternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 NSSA external routes
                 ''',
@@ -10511,38 +10511,38 @@ _meta_table = {
                 ''',
                 'default_metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3EigrpRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRoute_Enum', 
+            _MetaInfoClassMember('eigrp-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3EigrpRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3EigrpRouteEnum', 
                 [], [], 
                 '''                EIGRP route type
                 ''',
                 'eigrp_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3ExternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ExternalRoute_Enum', 
+            _MetaInfoClassMember('external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3ExternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ExternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 external routes
                 ''',
                 'external_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('internal-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3InternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3InternalRoute_Enum', 
+            _MetaInfoClassMember('internal-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3InternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3InternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 routes
                 ''',
                 'internal_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('isis-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3isisRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3isisRoute_Enum', 
+            _MetaInfoClassMember('isis-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3IsisRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3IsisRouteEnum', 
                 [], [], 
                 '''                ISIS route type
                 ''',
                 'isis_route_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3Metric_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Metric_Enum', 
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'Ospfv3MetricEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3MetricEnum', 
                 [], [], 
                 '''                OSPFv3 exterior metric type for redistributed
                 routes
                 ''',
                 'metric_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('nssa-external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3nssaExternalRoute_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3nssaExternalRoute_Enum', 
+            _MetaInfoClassMember('nssa-external-route-type', REFERENCE_ENUM_CLASS, 'Ospfv3NssaExternalRouteEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NssaExternalRouteEnum', 
                 [], [], 
                 '''                Redistribute OSPFv3 NSSA external routes
                 ''',
@@ -10591,7 +10591,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute',
             False, 
             [
-            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'Ospfv3ProtocolType2_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ProtocolType2_Enum', 
+            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'Ospfv3ProtocolType2Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3ProtocolType2Enum', 
                 [], [], 
                 '''                Protocol
                 ''',
@@ -10886,8 +10886,8 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit.OnStartup' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit.OnStartup',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit.OnStartup' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit.OnStartup',
             False, 
             [
             _MetaInfoClassMember('wait-for-bgp', ATTRIBUTE, 'bool' , None, None, 
@@ -10911,8 +10911,8 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit',
             False, 
             [
             _MetaInfoClassMember('always', ATTRIBUTE, 'Empty' , None, None, 
@@ -10956,7 +10956,7 @@ _meta_table = {
                 ''',
                 'on_proc_restart',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('on-startup', REFERENCE_CLASS, 'OnStartup' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit.OnStartup', 
+            _MetaInfoClassMember('on-startup', REFERENCE_CLASS, 'OnStartup' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit.OnStartup', 
                 [], [], 
                 '''                Enter stub router operational state on startup
                 ''',
@@ -10999,7 +10999,7 @@ _meta_table = {
                 ''',
                 'rbit',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('v6bit', REFERENCE_CLASS, 'V6bit' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit', 
+            _MetaInfoClassMember('v6bit', REFERENCE_CLASS, 'V6Bit' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit', 
                 [], [], 
                 '''                Stub router V6-bit configuration
                 ''',
@@ -11379,7 +11379,7 @@ _meta_table = {
                 ''',
                 'instance',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('log-adjacency-changes', REFERENCE_ENUM_CLASS, 'Ospfv3LogAdj_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3LogAdj_Enum', 
+            _MetaInfoClassMember('log-adjacency-changes', REFERENCE_ENUM_CLASS, 'Ospfv3LogAdjEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3LogAdjEnum', 
                 [], [], 
                 '''                Log changes in adjacency state
                 ''',
@@ -11397,7 +11397,7 @@ _meta_table = {
                 ''',
                 'mtu_ignore',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3Network_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3Network_Enum', 
+            _MetaInfoClassMember('network', REFERENCE_ENUM_CLASS, 'Ospfv3NetworkEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NetworkEnum', 
                 [], [], 
                 '''                Specify network type
                 ''',
@@ -11542,7 +11542,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('nsr', REFERENCE_ENUM_CLASS, 'Ospfv3nsr_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3nsr_Enum', 
+            _MetaInfoClassMember('nsr', REFERENCE_ENUM_CLASS, 'Ospfv3NsrEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3NsrEnum', 
                 [], [], 
                 '''                Enable non-stop routing
                 ''',
@@ -11752,10 +11752,10 @@ _meta_table['Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute']['m
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Snmp.TrapRateLimit']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Snmp']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric.OnStartup']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit.OnStartup']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit.OnStartup']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit.OnStartup']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6bit']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefix']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Lsa']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Spf']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle']['meta_info']
@@ -11924,10 +11924,10 @@ _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute']['met
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Snmp.TrapRateLimit']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Snmp']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric.OnStartup']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit.OnStartup']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit.OnStartup']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit.OnStartup']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6bit']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefix']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Lsa']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Spf']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle']['meta_info']

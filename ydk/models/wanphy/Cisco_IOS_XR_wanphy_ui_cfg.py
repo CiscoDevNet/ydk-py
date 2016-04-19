@@ -24,48 +24,46 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class WanphyLanMode_Enum(Enum):
+class WanphyLanModeEnum(Enum):
     """
-    WanphyLanMode_Enum
+    WanphyLanModeEnum
 
     Wanphy lan mode
 
-    """
+    .. data:: ON = 1
+
+    	LanMode
 
     """
 
-    LanMode
-
-    """
     ON = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.wanphy._meta import _Cisco_IOS_XR_wanphy_ui_cfg as meta
-        return meta._meta_table['WanphyLanMode_Enum']
+        return meta._meta_table['WanphyLanModeEnum']
 
 
-class WanphyWanMode_Enum(Enum):
+class WanphyWanModeEnum(Enum):
     """
-    WanphyWanMode_Enum
+    WanphyWanModeEnum
 
     Wanphy wan mode
 
-    """
+    .. data:: ON = 1
+
+    	WAN Mode
 
     """
 
-    WAN Mode
-
-    """
     ON = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.wanphy._meta import _Cisco_IOS_XR_wanphy_ui_cfg as meta
-        return meta._meta_table['WanphyWanMode_Enum']
+        return meta._meta_table['WanphyWanModeEnum']
 
 
 

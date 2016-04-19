@@ -20,280 +20,260 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class EthertypeMatch_Enum(Enum):
+class EthertypeMatchEnum(Enum):
     """
-    EthertypeMatch_Enum
+    EthertypeMatchEnum
 
     Ethertype match
 
-    """
+    .. data:: PPP_OVER_ETHERNET = 34915
+
+    	PPP over Ethernet
 
     """
 
-    PPP over Ethernet
-
-    """
     PPP_OVER_ETHERNET = 34915
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
-        return meta._meta_table['EthertypeMatch_Enum']
+        return meta._meta_table['EthertypeMatchEnum']
 
 
-class Match_Enum(Enum):
+class MatchEnum(Enum):
     """
-    Match_Enum
+    MatchEnum
 
     Match
 
-    """
+    .. data:: MATCH_DEFAULT = 1
+
+    	All otherwise unmatched packets
+
+    .. data:: MATCH_UNTAGGED = 2
+
+    	Untagged packets
+
+    .. data:: MATCH_DOT1Q = 3
+
+    	Match Dot1Q tags
+
+    .. data:: MATCH_DOT1AD = 4
+
+    	Match Dot1ad tags
+
+    .. data:: MATCH_DOT1Q_PRIORITY = 5
+
+    	Match Dot1Q priority-tagged packets
+
+    .. data:: MATCH_DOT1AD_PRIORITY = 6
+
+    	Match Dot1ad priority-tagged packets
 
     """
 
-    All otherwise unmatched packets
-
-    """
     MATCH_DEFAULT = 1
 
-    """
-
-    Untagged packets
-
-    """
     MATCH_UNTAGGED = 2
 
-    """
-
-    Match Dot1Q tags
-
-    """
     MATCH_DOT1Q = 3
 
-    """
-
-    Match Dot1ad tags
-
-    """
     MATCH_DOT1AD = 4
 
-    """
-
-    Match Dot1Q priority\-tagged packets
-
-    """
     MATCH_DOT1Q_PRIORITY = 5
 
-    """
-
-    Match Dot1ad priority\-tagged packets
-
-    """
     MATCH_DOT1AD_PRIORITY = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
-        return meta._meta_table['Match_Enum']
+        return meta._meta_table['MatchEnum']
 
 
-class Rewrite_Enum(Enum):
+class RewriteEnum(Enum):
     """
-    Rewrite_Enum
+    RewriteEnum
 
     Rewrite
 
-    """
+    .. data:: POP1 = 1
+
+    	Pop 1 tag
+
+    .. data:: POP2 = 2
+
+    	Pop 2 tags
+
+    .. data:: PUSH1 = 3
+
+    	Push 1 tag
+
+    .. data:: PUSH2 = 4
+
+    	Push 2 tags
+
+    .. data:: TRANSLATE1TO1 = 5
+
+    	Translate 1-to-1
+
+    .. data:: TRANSLATE1TO2 = 6
+
+    	Translate 1-to-2
+
+    .. data:: TRANSLATE2TO1 = 7
+
+    	Translate 2-to-1
+
+    .. data:: TRANSLATE2TO2 = 8
+
+    	Translate 2-to-2
 
     """
 
-    Pop 1 tag
-
-    """
     POP1 = 1
 
-    """
-
-    Pop 2 tags
-
-    """
     POP2 = 2
 
-    """
-
-    Push 1 tag
-
-    """
     PUSH1 = 3
 
-    """
-
-    Push 2 tags
-
-    """
     PUSH2 = 4
 
-    """
-
-    Translate 1\-to\-1
-
-    """
     TRANSLATE1TO1 = 5
 
-    """
-
-    Translate 1\-to\-2
-
-    """
     TRANSLATE1TO2 = 6
 
-    """
-
-    Translate 2\-to\-1
-
-    """
     TRANSLATE2TO1 = 7
 
-    """
-
-    Translate 2\-to\-2
-
-    """
     TRANSLATE2TO2 = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
-        return meta._meta_table['Rewrite_Enum']
+        return meta._meta_table['RewriteEnum']
 
 
-class VlanTagOrAny_Enum(Enum):
+class VlanEnum(Enum):
     """
-    VlanTagOrAny_Enum
-
-    Vlan tag or any
-
-    """
-
-    """
-
-    Match any VLAN tag value
-
-    """
-    ANY = 4096
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
-        return meta._meta_table['VlanTagOrAny_Enum']
-
-
-class VlanTagOrCvp_Enum(Enum):
-    """
-    VlanTagOrCvp_Enum
-
-    Vlan tag or cvp
-
-    """
-
-    """
-
-    This is the Native VLAN and C\-VLAN
-    preservation is enabled
-
-    """
-    NATIVE_WITH_CVLAN_PRESERVATION = 65534
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
-        return meta._meta_table['VlanTagOrCvp_Enum']
-
-
-class VlanTagOrNative_Enum(Enum):
-    """
-    VlanTagOrNative_Enum
-
-    Vlan tag or native
-
-    """
-
-    """
-
-    This is the Native VLAN
-
-    """
-    NATIVE = 65535
-
-    """
-
-    This is the Native VLAN and C\-VLAN
-    preservation is enabled
-
-    """
-    NATIVE_WITH_CVLAN_PRESERVATION = 65534
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
-        return meta._meta_table['VlanTagOrNative_Enum']
-
-
-class VlanTagOrNull_Enum(Enum):
-    """
-    VlanTagOrNull_Enum
-
-    Vlan tag or null
-
-    """
-
-    """
-
-    Match any inner VLAN tag value
-
-    """
-    ANY = 0
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
-        return meta._meta_table['VlanTagOrNull_Enum']
-
-
-class Vlan_Enum(Enum):
-    """
-    Vlan_Enum
+    VlanEnum
 
     Vlan
 
-    """
+    .. data:: VLAN_TYPE_DOT1AD = 1
+
+    	An 802.1ad VLAN
+
+    .. data:: VLAN_TYPE_DOT1Q = 2
+
+    	An 802.1q VLAN
 
     """
 
-    An 802.1ad VLAN
-
-    """
     VLAN_TYPE_DOT1AD = 1
 
-    """
-
-    An 802.1q VLAN
-
-    """
     VLAN_TYPE_DOT1Q = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
-        return meta._meta_table['Vlan_Enum']
+        return meta._meta_table['VlanEnum']
+
+
+class VlanTagOrAnyEnum(Enum):
+    """
+    VlanTagOrAnyEnum
+
+    Vlan tag or any
+
+    .. data:: ANY = 4096
+
+    	Match any VLAN tag value
+
+    """
+
+    ANY = 4096
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
+        return meta._meta_table['VlanTagOrAnyEnum']
+
+
+class VlanTagOrCvpEnum(Enum):
+    """
+    VlanTagOrCvpEnum
+
+    Vlan tag or cvp
+
+    .. data:: NATIVE_WITH_CVLAN_PRESERVATION = 65534
+
+    	This is the Native VLAN and C-VLAN
+
+    	preservation is enabled
+
+    """
+
+    NATIVE_WITH_CVLAN_PRESERVATION = 65534
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
+        return meta._meta_table['VlanTagOrCvpEnum']
+
+
+class VlanTagOrNativeEnum(Enum):
+    """
+    VlanTagOrNativeEnum
+
+    Vlan tag or native
+
+    .. data:: NATIVE = 65535
+
+    	This is the Native VLAN
+
+    .. data:: NATIVE_WITH_CVLAN_PRESERVATION = 65534
+
+    	This is the Native VLAN and C-VLAN
+
+    	preservation is enabled
+
+    """
+
+    NATIVE = 65535
+
+    NATIVE_WITH_CVLAN_PRESERVATION = 65534
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
+        return meta._meta_table['VlanTagOrNativeEnum']
+
+
+class VlanTagOrNullEnum(Enum):
+    """
+    VlanTagOrNullEnum
+
+    Vlan tag or null
+
+    .. data:: ANY = 0
+
+    	Match any inner VLAN tag value
+
+    """
+
+    ANY = 0
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_datatypes as meta
+        return meta._meta_table['VlanTagOrNullEnum']
 
 
 

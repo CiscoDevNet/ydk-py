@@ -24,386 +24,351 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class Action_Enum(Enum):
+class ActionEnum(Enum):
     """
-    Action_Enum
+    ActionEnum
 
     Actions supported by an OAM interface
 
-    """
+    .. data:: NO_ACTION = 1
+
+    	Disabled (do nothing)
+
+    .. data:: DISABLE_INTERFACE = 2
+
+    	Disable the interface
+
+    .. data:: LOG = 3
+
+    	Log the event and do nothing else
+
+    .. data:: EFD = 4
+
+    	EFD the interface
 
     """
 
-    Disabled (do nothing)
-
-    """
     NO_ACTION = 1
 
-    """
-
-    Disable the interface
-
-    """
     DISABLE_INTERFACE = 2
 
-    """
-
-    Log the event and do nothing else
-
-    """
     LOG = 3
 
-    """
-
-    EFD the interface
-
-    """
     EFD = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
-        return meta._meta_table['Action_Enum']
+        return meta._meta_table['ActionEnum']
 
 
-class LogLocation_Enum(Enum):
+class LogEnum(Enum):
     """
-    LogLocation_Enum
-
-    The location of the event that caused a log entry
-
-    """
-
-    """
-
-    A local event
-
-    """
-    LOG_LOCATION_LOCAL = 1
-
-    """
-
-    A remote event
-
-    """
-    LOG_LOCATION_REMOTE = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
-        return meta._meta_table['LogLocation_Enum']
-
-
-class Log_Enum(Enum):
-    """
-    Log_Enum
+    LogEnum
 
     The type of a log entry
 
-    """
+    .. data:: LOG_TYPE_SYMBOL_EVENT = 1
+
+    	Log entry for an errored symbol event
+
+    .. data:: LOG_TYPE_PERIOD_EVENT = 2
+
+    	Log entry for an errored frame period event
+
+    .. data:: LOG_TYPE_FRAME_EVENT = 3
+
+    	Log entry for an errored frame event
+
+    .. data:: LOG_TYPE_SECS_EVENT = 4
+
+    	Log entry for an errored frame seconds summary
+
+    	event
+
+    .. data:: LOG_TYPE_LINK_FAULT = 256
+
+    	Log entry for a link fault
+
+    .. data:: LOG_TYPE_DYING_GASP = 257
+
+    	Log entry for a dying gasp
+
+    .. data:: LOG_TYPE_CRITICAL_EVENT = 258
+
+    	Log entry for a critical event
 
     """
 
-    Log entry for an errored symbol event
-
-    """
     LOG_TYPE_SYMBOL_EVENT = 1
 
-    """
-
-    Log entry for an errored frame period event
-
-    """
     LOG_TYPE_PERIOD_EVENT = 2
 
-    """
-
-    Log entry for an errored frame event
-
-    """
     LOG_TYPE_FRAME_EVENT = 3
 
-    """
-
-    Log entry for an errored frame seconds summary
-    event
-
-    """
     LOG_TYPE_SECS_EVENT = 4
 
-    """
-
-    Log entry for a link fault
-
-    """
     LOG_TYPE_LINK_FAULT = 256
 
-    """
-
-    Log entry for a dying gasp
-
-    """
     LOG_TYPE_DYING_GASP = 257
 
-    """
-
-    Log entry for a critical event
-
-    """
     LOG_TYPE_CRITICAL_EVENT = 258
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
-        return meta._meta_table['Log_Enum']
+        return meta._meta_table['LogEnum']
 
 
-class LoopbackStatus_Enum(Enum):
+class LogLocationEnum(Enum):
     """
-    LoopbackStatus_Enum
+    LogLocationEnum
+
+    The location of the event that caused a log entry
+
+    .. data:: LOG_LOCATION_LOCAL = 1
+
+    	A local event
+
+    .. data:: LOG_LOCATION_REMOTE = 2
+
+    	A remote event
+
+    """
+
+    LOG_LOCATION_LOCAL = 1
+
+    LOG_LOCATION_REMOTE = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+        return meta._meta_table['LogLocationEnum']
+
+
+class LoopbackStatusEnum(Enum):
+    """
+    LoopbackStatusEnum
 
     The loopback mode of an OAM interface
 
-    """
+    .. data:: NONE = 1
+
+    	Loopback is not being performed
+
+    .. data:: INITIATING = 2
+
+    	Initiating master loopback
+
+    .. data:: MASTER_LOOPBACK = 3
+
+    	In master loopback mode
+
+    .. data:: TERMINATING = 4
+
+    	Terminating master loopback mode
+
+    .. data:: LOCAL_LOOPBACK = 5
+
+    	In slave loopback mode
+
+    .. data:: UNKNOWN = 6
+
+    	Parser and multiplexer combination unexpected
 
     """
 
-    Loopback is not being performed
-
-    """
     NONE = 1
 
-    """
-
-    Initiating master loopback
-
-    """
     INITIATING = 2
 
-    """
-
-    In master loopback mode
-
-    """
     MASTER_LOOPBACK = 3
 
-    """
-
-    Terminating master loopback mode
-
-    """
     TERMINATING = 4
 
-    """
-
-    In slave loopback mode
-
-    """
     LOCAL_LOOPBACK = 5
 
-    """
-
-    Parser and multiplexer combination unexpected
-
-    """
     UNKNOWN = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
-        return meta._meta_table['LoopbackStatus_Enum']
+        return meta._meta_table['LoopbackStatusEnum']
 
 
-class Mode_Enum(Enum):
+class ModeEnum(Enum):
     """
-    Mode_Enum
+    ModeEnum
 
     Mode of an OAM interface
 
-    """
+    .. data:: PASSIVE = 0
+
+    	Passive mode
+
+    .. data:: ACTIVE = 1
+
+    	Active mode
+
+    .. data:: DONT_CARE = 2
+
+    	Don't care what the mode is
 
     """
 
-    Passive mode
-
-    """
     PASSIVE = 0
 
-    """
-
-    Active mode
-
-    """
     ACTIVE = 1
 
-    """
-
-    Don't care what the mode is
-
-    """
     DONT_CARE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
-        return meta._meta_table['Mode_Enum']
+        return meta._meta_table['ModeEnum']
 
 
-class OperationalState_Enum(Enum):
+class OperationalStateEnum(Enum):
     """
-    OperationalState_Enum
+    OperationalStateEnum
 
     Operational state of an interface
 
-    """
+    .. data:: DISABLED = 1
+
+    	802.3 OAM is disabled
+
+    .. data:: LINK_FAULT = 2
+
+    	802.3 OAM has encountered a link fault
+
+    .. data:: PASSIVE_WAIT = 3
+
+    	Passive OAM entity waiting to see if peer is
+
+    	OAM capable
+
+    .. data:: ACTIVE_SEND_LOCAL = 4
+
+    	Active OAM entity trying to determine if peer
+
+    	is OAM capable
+
+    .. data:: SEND_LOCAL_AND_REMOTE = 5
+
+    	OAM discovered peer but still to accept or
+
+    	reject peer config
+
+    .. data:: SEND_LOCAL_AND_REMOTE_OK = 6
+
+    	OAM peering is allowed by local device
+
+    .. data:: PEERING_LOCALLY_REJECTED = 7
+
+    	OAM peering rejected by local device
+
+    .. data:: PEERING_REMOTELY_REJECTED = 8
+
+    	OAM peering rejected by remote device
+
+    .. data:: OPERATIONAL = 9
+
+    	802.3 OAM is operational
+
+    .. data:: OPERATIONAL_HALF_DUPLEX = 10
+
+    	802.3 OAM is operating in half-duplex mode
 
     """
 
-    802.3 OAM is disabled
-
-    """
     DISABLED = 1
 
-    """
-
-    802.3 OAM has encountered a link fault
-
-    """
     LINK_FAULT = 2
 
-    """
-
-    Passive OAM entity waiting to see if peer is
-    OAM capable
-
-    """
     PASSIVE_WAIT = 3
 
-    """
-
-    Active OAM entity trying to determine if peer
-    is OAM capable
-
-    """
     ACTIVE_SEND_LOCAL = 4
 
-    """
-
-    OAM discovered peer but still to accept or
-    reject peer config
-
-    """
     SEND_LOCAL_AND_REMOTE = 5
 
-    """
-
-    OAM peering is allowed by local device
-
-    """
     SEND_LOCAL_AND_REMOTE_OK = 6
 
-    """
-
-    OAM peering rejected by local device
-
-    """
     PEERING_LOCALLY_REJECTED = 7
 
-    """
-
-    OAM peering rejected by remote device
-
-    """
     PEERING_REMOTELY_REJECTED = 8
 
-    """
-
-    802.3 OAM is operational
-
-    """
     OPERATIONAL = 9
 
-    """
-
-    802.3 OAM is operating in half\-duplex mode
-
-    """
     OPERATIONAL_HALF_DUPLEX = 10
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
-        return meta._meta_table['OperationalState_Enum']
+        return meta._meta_table['OperationalStateEnum']
 
 
-class ProtocolState_Enum(Enum):
+class ProtocolStateEnum(Enum):
     """
-    ProtocolState_Enum
+    ProtocolStateEnum
 
     The state the protocol is in
 
-    """
+    .. data:: PROTOCOL_STATE_INACTIVE = 0
+
+    	The protocol is in the INACTIVE state
+
+    .. data:: PROTOCOL_STATE_FAULT = 1
+
+    	The protocol is in the FAULT state
+
+    .. data:: PROTOCOL_STATE_ACTIVE_SEND_LOCAL = 2
+
+    	The protocol is in the ACTIVE_SEND_LOCAL state
+
+    .. data:: PROTOCOL_STATE_PASSIVE_WAIT = 3
+
+    	The protocol is in the SEND_LOCAL_REMOTE state
+
+    .. data:: PROTOCOL_STATE_SEND_LOCAL_REMOTE = 4
+
+    	The protocol is in the LOCAL_REMOTE state
+
+    .. data:: PROTOCOL_STATE_SEND_LOCAL_REMOTE_OK = 5
+
+    	The protocol is in the LOCAL_REMOTE_OK state
+
+    .. data:: PROTOCOL_STATE_SEND_ANY = 6
+
+    	The protocol is in the SEND_ANY state
 
     """
 
-    The protocol is in the INACTIVE state
-
-    """
     PROTOCOL_STATE_INACTIVE = 0
 
-    """
-
-    The protocol is in the FAULT state
-
-    """
     PROTOCOL_STATE_FAULT = 1
 
-    """
-
-    The protocol is in the ACTIVE\_SEND\_LOCAL state
-
-    """
     PROTOCOL_STATE_ACTIVE_SEND_LOCAL = 2
 
-    """
-
-    The protocol is in the SEND\_LOCAL\_REMOTE state
-
-    """
     PROTOCOL_STATE_PASSIVE_WAIT = 3
 
-    """
-
-    The protocol is in the LOCAL\_REMOTE state
-
-    """
     PROTOCOL_STATE_SEND_LOCAL_REMOTE = 4
 
-    """
-
-    The protocol is in the LOCAL\_REMOTE\_OK state
-
-    """
     PROTOCOL_STATE_SEND_LOCAL_REMOTE_OK = 5
 
-    """
-
-    The protocol is in the SEND\_ANY state
-
-    """
     PROTOCOL_STATE_SEND_ANY = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
-        return meta._meta_table['ProtocolState_Enum']
+        return meta._meta_table['ProtocolStateEnum']
 
 
 
@@ -547,7 +512,7 @@ class EtherLinkOam(object):
             .. attribute:: local_mode
             
             	Local Mode (passive/active)
-            	**type**\: :py:class:`Mode_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.Mode_Enum>`
+            	**type**\: :py:class:`ModeEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
             
             .. attribute:: local_mode_valid
             
@@ -598,7 +563,7 @@ class EtherLinkOam(object):
             .. attribute:: loopback_mode
             
             	The loopback mode the interface is in
-            	**type**\: :py:class:`LoopbackStatus_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.LoopbackStatus_Enum>`
+            	**type**\: :py:class:`LoopbackStatusEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.LoopbackStatusEnum>`
             
             .. attribute:: loopback_mode_valid
             
@@ -623,7 +588,7 @@ class EtherLinkOam(object):
             .. attribute:: operational_status
             
             	Operational status
-            	**type**\: :py:class:`OperationalState_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.OperationalState_Enum>`
+            	**type**\: :py:class:`OperationalStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.OperationalStateEnum>`
             
             .. attribute:: operational_status_valid
             
@@ -665,7 +630,7 @@ class EtherLinkOam(object):
             .. attribute:: remote_mode
             
             	Remote Mode (passive/active)
-            	**type**\: :py:class:`Mode_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.Mode_Enum>`
+            	**type**\: :py:class:`ModeEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
             
             .. attribute:: remote_mode_valid
             
@@ -824,8 +789,6 @@ class EtherLinkOam(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.member_interface is not None:
                     return True
 
@@ -972,10 +935,6 @@ class EtherLinkOam(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
@@ -993,17 +952,11 @@ class EtherLinkOam(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.discovery_info_interface is not None:
                 for child_ref in self.discovery_info_interface:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1106,7 +1059,7 @@ class EtherLinkOam(object):
                     .. attribute:: action_taken
                     
                     	Local action taken (If applicable)
-                    	**type**\: :py:class:`Action_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.Action_Enum>`
+                    	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
                     
                     .. attribute:: event_total
                     
@@ -1139,7 +1092,7 @@ class EtherLinkOam(object):
                     .. attribute:: location
                     
                     	Where the event occurred
-                    	**type**\: :py:class:`LogLocation_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.LogLocation_Enum>`
+                    	**type**\: :py:class:`LogLocationEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.LogLocationEnum>`
                     
                     .. attribute:: oui
                     
@@ -1172,7 +1125,7 @@ class EtherLinkOam(object):
                     .. attribute:: type
                     
                     	Type of event that this entry describes
-                    	**type**\: :py:class:`Log_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.Log_Enum>`
+                    	**type**\: :py:class:`LogEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.LogEnum>`
                     
                     .. attribute:: value
                     
@@ -1228,8 +1181,6 @@ class EtherLinkOam(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.event_log_entry_index is not None:
                             return True
 
@@ -1274,10 +1225,6 @@ class EtherLinkOam(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
@@ -1297,17 +1244,11 @@ class EtherLinkOam(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.event_log_entry_index is not None:
                         for child_ref in self.event_log_entry_index:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1329,21 +1270,12 @@ class EtherLinkOam(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.member_interface is not None:
                     return True
 
                 if self.event_log_entry_indexes is not None and self.event_log_entry_indexes._has_data():
                     return True
 
-                if self.event_log_entry_indexes is not None and self.event_log_entry_indexes.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1363,17 +1295,11 @@ class EtherLinkOam(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.event_log_entry_interface is not None:
                 for child_ref in self.event_log_entry_interface:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1438,7 +1364,7 @@ class EtherLinkOam(object):
             .. attribute:: protocol_code
             
             	The state the protocol is in
-            	**type**\: :py:class:`ProtocolState_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ProtocolState_Enum>`
+            	**type**\: :py:class:`ProtocolStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ProtocolStateEnum>`
             
             .. attribute:: remote_mwd_key
             
@@ -1536,8 +1462,6 @@ class EtherLinkOam(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.capabilities_conflict is not None:
                         return True
 
@@ -1553,10 +1477,6 @@ class EtherLinkOam(object):
                     if self.wiring_conflict is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1663,8 +1583,6 @@ class EtherLinkOam(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.caps_add_error_code is not None:
                         return True
 
@@ -1697,10 +1615,6 @@ class EtherLinkOam(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
@@ -1720,21 +1634,13 @@ class EtherLinkOam(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.member_interface is not None:
                     return True
 
                 if self.efd_triggers is not None and self.efd_triggers._has_data():
                     return True
 
-                if self.efd_triggers is not None and self.efd_triggers.is_presence():
-                    return True
-
                 if self.errors is not None and self.errors._has_data():
-                    return True
-
-                if self.errors is not None and self.errors.is_presence():
                     return True
 
                 if self.local_mwd_key is not None:
@@ -1754,10 +1660,6 @@ class EtherLinkOam(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
@@ -1775,17 +1677,11 @@ class EtherLinkOam(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.interface_state_interface is not None:
                 for child_ref in self.interface_state_interface:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2052,8 +1948,6 @@ class EtherLinkOam(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.active_send is not None:
                         return True
 
@@ -2122,10 +2016,6 @@ class EtherLinkOam(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
@@ -2145,21 +2035,12 @@ class EtherLinkOam(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.summary is not None and self.summary._has_data():
                     return True
 
-                if self.summary is not None and self.summary.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2179,17 +2060,11 @@ class EtherLinkOam(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2237,7 +2112,7 @@ class EtherLinkOam(object):
             .. attribute:: capabilities_conflict_action
             
             	Action to perform when a capabilities conflict occurs
-            	**type**\: :py:class:`Action_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.Action_Enum>`
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: capabilities_conflict_action_overridden
             
@@ -2259,7 +2134,7 @@ class EtherLinkOam(object):
             .. attribute:: critical_event_action
             
             	Action to perform when a critical event occurs
-            	**type**\: :py:class:`Action_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.Action_Enum>`
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: critical_event_action_overridden
             
@@ -2269,7 +2144,7 @@ class EtherLinkOam(object):
             .. attribute:: discovery_timeout_action
             
             	Action to perform when a discovery timeout occurs
-            	**type**\: :py:class:`Action_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.Action_Enum>`
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: discovery_timeout_action_overridden
             
@@ -2279,7 +2154,7 @@ class EtherLinkOam(object):
             .. attribute:: dying_gasp_action
             
             	Action to perform when a dying gasp occurs
-            	**type**\: :py:class:`Action_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.Action_Enum>`
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: dying_gasp_action_overridden
             
@@ -2407,7 +2282,7 @@ class EtherLinkOam(object):
             .. attribute:: high_threshold_action
             
             	Action to perform when a high threshold is breached
-            	**type**\: :py:class:`Action_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.Action_Enum>`
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: high_threshold_action_overridden
             
@@ -2417,7 +2292,7 @@ class EtherLinkOam(object):
             .. attribute:: link_fault_action
             
             	Action to perform when a link fault occurs
-            	**type**\: :py:class:`Action_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.Action_Enum>`
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: link_fault_action_overridden
             
@@ -2447,7 +2322,7 @@ class EtherLinkOam(object):
             .. attribute:: mode
             
             	Configured mode
-            	**type**\: :py:class:`Mode_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.Mode_Enum>`
+            	**type**\: :py:class:`ModeEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
             
             .. attribute:: mode_overridden
             
@@ -2457,7 +2332,7 @@ class EtherLinkOam(object):
             .. attribute:: remote_loopback_action
             
             	Action to perform when a session enters or exits remote loopback
-            	**type**\: :py:class:`Action_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.Action_Enum>`
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: remote_loopback_action_overridden
             
@@ -2512,12 +2387,12 @@ class EtherLinkOam(object):
             .. attribute:: require_remote_mode
             
             	The mode that is required of the remote peer
-            	**type**\: :py:class:`Mode_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.Mode_Enum>`
+            	**type**\: :py:class:`ModeEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
             
             .. attribute:: session_down_action
             
             	Action to perform when a session comes down
-            	**type**\: :py:class:`Action_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.Action_Enum>`
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: session_down_action_overridden
             
@@ -2527,7 +2402,7 @@ class EtherLinkOam(object):
             .. attribute:: session_up_action
             
             	Action to perform when a session comes up
-            	**type**\: :py:class:`Action_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.Action_Enum>`
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: session_up_action_overridden
             
@@ -2583,7 +2458,7 @@ class EtherLinkOam(object):
             .. attribute:: wiring_conflict_action
             
             	Action to perform when a wiring conflict occurs
-            	**type**\: :py:class:`Action_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.Action_Enum>`
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: wiring_conflict_action_overridden
             
@@ -2681,8 +2556,6 @@ class EtherLinkOam(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.member_interface is not None:
                     return True
 
@@ -2886,10 +2759,6 @@ class EtherLinkOam(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
@@ -2907,17 +2776,11 @@ class EtherLinkOam(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.running_config_interface is not None:
                 for child_ref in self.running_config_interface:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3194,8 +3057,6 @@ class EtherLinkOam(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.member_interface is not None:
                     return True
 
@@ -3279,10 +3140,6 @@ class EtherLinkOam(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
@@ -3300,17 +3157,11 @@ class EtherLinkOam(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.stats_interface is not None:
                 for child_ref in self.stats_interface:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3330,48 +3181,24 @@ class EtherLinkOam(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.discovery_info_interfaces is not None and self.discovery_info_interfaces._has_data():
-            return True
-
-        if self.discovery_info_interfaces is not None and self.discovery_info_interfaces.is_presence():
             return True
 
         if self.event_log_entry_interfaces is not None and self.event_log_entry_interfaces._has_data():
             return True
 
-        if self.event_log_entry_interfaces is not None and self.event_log_entry_interfaces.is_presence():
-            return True
-
         if self.interface_state_interfaces is not None and self.interface_state_interfaces._has_data():
-            return True
-
-        if self.interface_state_interfaces is not None and self.interface_state_interfaces.is_presence():
             return True
 
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
         if self.running_config_interfaces is not None and self.running_config_interfaces._has_data():
-            return True
-
-        if self.running_config_interfaces is not None and self.running_config_interfaces.is_presence():
             return True
 
         if self.stats_interfaces is not None and self.stats_interfaces._has_data():
             return True
 
-        if self.stats_interfaces is not None and self.stats_interfaces.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

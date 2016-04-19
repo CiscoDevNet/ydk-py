@@ -25,1496 +25,1334 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class AddrFamily_Enum(Enum):
+class AddrFamilyEnum(Enum):
     """
-    AddrFamily_Enum
+    AddrFamilyEnum
 
     Address Family Types
 
-    """
+    .. data:: UNSPECIFIED = 0
+
+    	Unspecified
+
+    .. data:: LOCAL = 1
+
+    	Local to host (pipes, portals)
+
+    .. data:: INET = 2
+
+    	Internetwork: UDP, TCP, etc.
+
+    .. data:: IMPLINK = 3
+
+    	arpanet imp addresses
+
+    .. data:: PUP = 4
+
+    	Pup protocols: e.g. BSP
+
+    .. data:: CHAOS = 5
+
+    	mit CHAOS protocols
+
+    .. data:: NS = 6
+
+    	XEROX NS protocols
+
+    .. data:: ISO = 7
+
+    	ISO protocols
+
+    .. data:: ECMA = 8
+
+    	European computer manufacturers
+
+    .. data:: DATA_KIT = 9
+
+    	Datakit protocols
+
+    .. data:: CCITT = 10
+
+    	CCITT protocols, X.25 etc
+
+    .. data:: SNA = 11
+
+    	IBM SNA
+
+    .. data:: DE_CNET = 12
+
+    	DECnet
+
+    .. data:: DLI = 13
+
+    	DEC Direct data link interface
+
+    .. data:: LAT = 14
+
+    	LAT
+
+    .. data:: HYLINK = 15
+
+    	NSC Hyperchannel
+
+    .. data:: APPLETALK = 16
+
+    	Apple Talk
+
+    .. data:: ROUTE = 17
+
+    	Internal Routing Protocol
+
+    .. data:: LINK = 18
+
+    	Link layer interface
+
+    .. data:: PSEUDO_XTP = 19
+
+    	eXpress Transfer Protocol (no AF)
+
+    .. data:: COIP = 20
+
+    	Connection-oriented IP, aka ST II
+
+    .. data:: CNT = 21
+
+    	Computer Network Technology
+
+    .. data:: PSEUDO_RTIP = 22
+
+    	Help Identify RTIP packets
+
+    .. data:: IPX = 23
+
+    	Novell Internet Protocol
+
+    .. data:: SIP = 24
+
+    	Simple Internet Protocol
+
+    .. data:: PSEUDO_PIP = 25
+
+    	Help Identify PIP packets
+
+    .. data:: INET6 = 26
+
+    	IP version 6
+
+    .. data:: SNAP = 27
+
+    	802.2 SNAP sockets
+
+    .. data:: CLNL = 28
+
+    	SAP_CLNS + nlpid encaps
+
+    .. data:: CHDLC = 29
+
+    	cisco HDLC on serial
+
+    .. data:: PPP = 30
+
+    	PPP sockets
+
+    .. data:: HOST_CAS = 31
+
+    	Host-based CAS signaling
+
+    .. data:: DSP = 32
+
+    	DSP messaging
+
+    .. data:: SAP = 33
+
+    	SAP Sockets
+
+    .. data:: ATM = 34
+
+    	ATM Sockets
+
+    .. data:: FR = 35
+
+    	Frame Relay sockets
+
+    .. data:: MSO = 36
+
+    	Voice Media Stream Sockets
+
+    .. data:: DCHAN = 37
+
+    	ISDN D Channel Sockets
+
+    .. data:: CAS = 38
+
+    	Trunk Framer media IF Sockets
+
+    .. data:: NAT = 39
+
+    	Network Address Translation Sockets
+
+    .. data:: ETHER = 40
+
+    	Generic Ethernet Sockets
+
+    .. data:: SRP = 41
+
+    	Spatial Reuse Protocol Sockets
 
     """
 
-    Unspecified
-
-    """
     UNSPECIFIED = 0
 
-    """
-
-    Local to host (pipes, portals)
-
-    """
     LOCAL = 1
 
-    """
-
-    Internetwork\: UDP, TCP, etc.
-
-    """
     INET = 2
 
-    """
-
-    arpanet imp addresses
-
-    """
     IMPLINK = 3
 
-    """
-
-    Pup protocols\: e.g. BSP
-
-    """
     PUP = 4
 
-    """
-
-    mit CHAOS protocols
-
-    """
     CHAOS = 5
 
-    """
-
-    XEROX NS protocols
-
-    """
     NS = 6
 
-    """
-
-    ISO protocols
-
-    """
     ISO = 7
 
-    """
-
-    European computer manufacturers
-
-    """
     ECMA = 8
 
-    """
-
-    Datakit protocols
-
-    """
     DATA_KIT = 9
 
-    """
-
-    CCITT protocols, X.25 etc
-
-    """
     CCITT = 10
 
-    """
-
-    IBM SNA
-
-    """
     SNA = 11
 
-    """
-
-    DECnet
-
-    """
     DE_CNET = 12
 
-    """
-
-    DEC Direct data link interface
-
-    """
     DLI = 13
 
-    """
-
-    LAT
-
-    """
     LAT = 14
 
-    """
-
-    NSC Hyperchannel
-
-    """
     HYLINK = 15
 
-    """
-
-    Apple Talk
-
-    """
     APPLETALK = 16
 
-    """
-
-    Internal Routing Protocol
-
-    """
     ROUTE = 17
 
-    """
-
-    Link layer interface
-
-    """
     LINK = 18
 
-    """
-
-    eXpress Transfer Protocol (no AF)
-
-    """
     PSEUDO_XTP = 19
 
-    """
-
-    Connection\-oriented IP, aka ST II
-
-    """
     COIP = 20
 
-    """
-
-    Computer Network Technology
-
-    """
     CNT = 21
 
-    """
-
-    Help Identify RTIP packets
-
-    """
     PSEUDO_RTIP = 22
 
-    """
-
-    Novell Internet Protocol
-
-    """
     IPX = 23
 
-    """
-
-    Simple Internet Protocol
-
-    """
     SIP = 24
 
-    """
-
-    Help Identify PIP packets
-
-    """
     PSEUDO_PIP = 25
 
-    """
-
-    IP version 6
-
-    """
     INET6 = 26
 
-    """
-
-    802.2 SNAP sockets
-
-    """
     SNAP = 27
 
-    """
-
-    SAP\_CLNS + nlpid encaps
-
-    """
     CLNL = 28
 
-    """
-
-    cisco HDLC on serial
-
-    """
     CHDLC = 29
 
-    """
-
-    PPP sockets
-
-    """
     PPP = 30
 
-    """
-
-    Host\-based CAS signaling
-
-    """
     HOST_CAS = 31
 
-    """
-
-    DSP messaging
-
-    """
     DSP = 32
 
-    """
-
-    SAP Sockets
-
-    """
     SAP = 33
 
-    """
-
-    ATM Sockets
-
-    """
     ATM = 34
 
-    """
-
-    Frame Relay sockets
-
-    """
     FR = 35
 
-    """
-
-    Voice Media Stream Sockets
-
-    """
     MSO = 36
 
-    """
-
-    ISDN D Channel Sockets
-
-    """
     DCHAN = 37
 
-    """
-
-    Trunk Framer media IF Sockets
-
-    """
     CAS = 38
 
-    """
-
-    Network Address Translation Sockets
-
-    """
     NAT = 39
 
-    """
-
-    Generic Ethernet Sockets
-
-    """
     ETHER = 40
 
-    """
-
-    Spatial Reuse Protocol Sockets
-
-    """
     SRP = 41
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['AddrFamily_Enum']
+        return meta._meta_table['AddrFamilyEnum']
 
 
-class LptsPcbQuery_Enum(Enum):
+class LptsPcbQueryEnum(Enum):
     """
-    LptsPcbQuery_Enum
+    LptsPcbQueryEnum
 
     Lpts pcb query
 
-    """
+    .. data:: ALL = 0
+
+    	No filter
+
+    .. data:: STATIC_POLICY = 1
+
+    	Static policy filter
+
+    .. data:: INTERFACE = 2
+
+    	Interface filter
+
+    .. data:: PACKET = 3
+
+    	Packet type filter
 
     """
 
-    No filter
-
-    """
     ALL = 0
 
-    """
-
-    Static policy filter
-
-    """
     STATIC_POLICY = 1
 
-    """
-
-    Interface filter
-
-    """
     INTERFACE = 2
 
-    """
-
-    Packet type filter
-
-    """
     PACKET = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['LptsPcbQuery_Enum']
+        return meta._meta_table['LptsPcbQueryEnum']
 
 
-class MessageTypeIcmp_Enum(Enum):
+class MessageTypeIcmpEnum(Enum):
     """
-    MessageTypeIcmp_Enum
+    MessageTypeIcmpEnum
 
     LPTS ICMP message types
 
-    """
+    .. data:: ECHO_REPLY = 0
+
+    	ICMP Packet type: Echo reply
+
+    .. data:: DESTINATION_UNREACHABLE = 3
+
+    	ICMP Packet type: Destination unreachable
+
+    .. data:: SOURCE_QUENCH = 4
+
+    	ICMP Packet type: Source quench
+
+    .. data:: REDIRECT = 5
+
+    	ICMP Packet type: Redirect
+
+    .. data:: ALTERNATE_HOST_ADDRESS = 6
+
+    	ICMP Packet type: Alternate host address
+
+    .. data:: ECHO = 8
+
+    	ICMP Packet type: Echo
+
+    .. data:: ROUTER_ADVERTISEMENT = 9
+
+    	ICMP Packet type: Router advertisement
+
+    .. data:: ROUTER_SELECTION = 10
+
+    	ICMP Packet type: Router selection
+
+    .. data:: TIME_EXCEEDED = 11
+
+    	ICMP Packet type: Time exceeded
+
+    .. data:: PARAMETER_PROBLEM = 12
+
+    	ICMP Packet type: Parameter problem
+
+    .. data:: TIME_STAMP = 13
+
+    	ICMP Packet type: Time stamp
+
+    .. data:: TIME_STAMP_REPLY = 14
+
+    	ICMP Packet type: Time stamp reply
+
+    .. data:: INFORMATION_REQUEST = 15
+
+    	ICMP Packet type: Information request
+
+    .. data:: INFORMATION_REPLY = 16
+
+    	ICMP Packet type: Information reply
+
+    .. data:: ADDRESS_MASK_REQUEST = 17
+
+    	ICMP Packet type: Address mask request
+
+    .. data:: ADDRESS_MASK_REPLY = 18
+
+    	ICMP Packet type: Address mask reply
+
+    .. data:: TRACE_ROUTE = 30
+
+    	ICMP Packet type: Trace route
+
+    .. data:: DATAGRAM_CONVERSION_ERROR = 31
+
+    	ICMP Packet type: Datagram Conversion error
+
+    .. data:: MOBILE_HOST_REDIRECT = 32
+
+    	ICMP Packet type: Mobile host redirect
+
+    .. data:: WHERE_ARE_YOU = 33
+
+    	ICMP Packet type: IPv6 where-are-you
+
+    .. data:: IAM_HERE = 34
+
+    	ICMP Packet type: IPv6 i-am-here
+
+    .. data:: MOBILE_REGISTRATION_REQUEST = 35
+
+    	ICMP Packet type: Mobile registration request
+
+    .. data:: MOBILE_REGISTRATION_REPLY = 36
+
+    	ICMP Packet type: Mobile registration reply
+
+    .. data:: DOMAIN_NAME_REQUEST = 37
+
+    	ICMP Packet type: Domain name request
 
     """
 
-    ICMP Packet type\: Echo reply
-
-    """
     ECHO_REPLY = 0
 
-    """
-
-    ICMP Packet type\: Destination unreachable
-
-    """
     DESTINATION_UNREACHABLE = 3
 
-    """
-
-    ICMP Packet type\: Source quench
-
-    """
     SOURCE_QUENCH = 4
 
-    """
-
-    ICMP Packet type\: Redirect
-
-    """
     REDIRECT = 5
 
-    """
-
-    ICMP Packet type\: Alternate host address
-
-    """
     ALTERNATE_HOST_ADDRESS = 6
 
-    """
-
-    ICMP Packet type\: Echo
-
-    """
     ECHO = 8
 
-    """
-
-    ICMP Packet type\: Router advertisement
-
-    """
     ROUTER_ADVERTISEMENT = 9
 
-    """
-
-    ICMP Packet type\: Router selection
-
-    """
     ROUTER_SELECTION = 10
 
-    """
-
-    ICMP Packet type\: Time exceeded
-
-    """
     TIME_EXCEEDED = 11
 
-    """
-
-    ICMP Packet type\: Parameter problem
-
-    """
     PARAMETER_PROBLEM = 12
 
-    """
-
-    ICMP Packet type\: Time stamp
-
-    """
     TIME_STAMP = 13
 
-    """
-
-    ICMP Packet type\: Time stamp reply
-
-    """
     TIME_STAMP_REPLY = 14
 
-    """
-
-    ICMP Packet type\: Information request
-
-    """
     INFORMATION_REQUEST = 15
 
-    """
-
-    ICMP Packet type\: Information reply
-
-    """
     INFORMATION_REPLY = 16
 
-    """
-
-    ICMP Packet type\: Address mask request
-
-    """
     ADDRESS_MASK_REQUEST = 17
 
-    """
-
-    ICMP Packet type\: Address mask reply
-
-    """
     ADDRESS_MASK_REPLY = 18
 
-    """
-
-    ICMP Packet type\: Trace route
-
-    """
     TRACE_ROUTE = 30
 
-    """
-
-    ICMP Packet type\: Datagram Conversion error
-
-    """
     DATAGRAM_CONVERSION_ERROR = 31
 
-    """
-
-    ICMP Packet type\: Mobile host redirect
-
-    """
     MOBILE_HOST_REDIRECT = 32
 
-    """
-
-    ICMP Packet type\: IPv6 where\-are\-you
-
-    """
     WHERE_ARE_YOU = 33
 
-    """
-
-    ICMP Packet type\: IPv6 i\-am\-here
-
-    """
     IAM_HERE = 34
 
-    """
-
-    ICMP Packet type\: Mobile registration request
-
-    """
     MOBILE_REGISTRATION_REQUEST = 35
 
-    """
-
-    ICMP Packet type\: Mobile registration reply
-
-    """
     MOBILE_REGISTRATION_REPLY = 36
 
-    """
-
-    ICMP Packet type\: Domain name request
-
-    """
     DOMAIN_NAME_REQUEST = 37
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['MessageTypeIcmp_Enum']
+        return meta._meta_table['MessageTypeIcmpEnum']
 
 
-class MessageTypeIcmp_Enum(Enum):
+class MessageTypeIcmpEnum(Enum):
     """
-    MessageTypeIcmp_Enum
+    MessageTypeIcmpEnum
 
     LPTS ICMP message types
 
-    """
+    .. data:: ECHO_REPLY = 0
+
+    	ICMP Packet type: Echo reply
+
+    .. data:: DESTINATION_UNREACHABLE = 3
+
+    	ICMP Packet type: Destination unreachable
+
+    .. data:: SOURCE_QUENCH = 4
+
+    	ICMP Packet type: Source quench
+
+    .. data:: REDIRECT = 5
+
+    	ICMP Packet type: Redirect
+
+    .. data:: ALTERNATE_HOST_ADDRESS = 6
+
+    	ICMP Packet type: Alternate host address
+
+    .. data:: ECHO = 8
+
+    	ICMP Packet type: Echo
+
+    .. data:: ROUTER_ADVERTISEMENT = 9
+
+    	ICMP Packet type: Router advertisement
+
+    .. data:: ROUTER_SELECTION = 10
+
+    	ICMP Packet type: Router selection
+
+    .. data:: TIME_EXCEEDED = 11
+
+    	ICMP Packet type: Time exceeded
+
+    .. data:: PARAMETER_PROBLEM = 12
+
+    	ICMP Packet type: Parameter problem
+
+    .. data:: TIME_STAMP = 13
+
+    	ICMP Packet type: Time stamp
+
+    .. data:: TIME_STAMP_REPLY = 14
+
+    	ICMP Packet type: Time stamp reply
+
+    .. data:: INFORMATION_REQUEST = 15
+
+    	ICMP Packet type: Information request
+
+    .. data:: INFORMATION_REPLY = 16
+
+    	ICMP Packet type: Information reply
+
+    .. data:: ADDRESS_MASK_REQUEST = 17
+
+    	ICMP Packet type: Address mask request
+
+    .. data:: ADDRESS_MASK_REPLY = 18
+
+    	ICMP Packet type: Address mask reply
+
+    .. data:: TRACE_ROUTE = 30
+
+    	ICMP Packet type: Trace route
+
+    .. data:: DATAGRAM_CONVERSION_ERROR = 31
+
+    	ICMP Packet type: Datagram Conversion error
+
+    .. data:: MOBILE_HOST_REDIRECT = 32
+
+    	ICMP Packet type: Mobile host redirect
+
+    .. data:: WHERE_ARE_YOU = 33
+
+    	ICMP Packet type: IPv6 where-are-you
+
+    .. data:: IAM_HERE = 34
+
+    	ICMP Packet type: IPv6 i-am-here
+
+    .. data:: MOBILE_REGISTRATION_REQUEST = 35
+
+    	ICMP Packet type: Mobile registration request
+
+    .. data:: MOBILE_REGISTRATION_REPLY = 36
+
+    	ICMP Packet type: Mobile registration reply
+
+    .. data:: DOMAIN_NAME_REQUEST = 37
+
+    	ICMP Packet type: Domain name request
 
     """
 
-    ICMP Packet type\: Echo reply
-
-    """
     ECHO_REPLY = 0
 
-    """
-
-    ICMP Packet type\: Destination unreachable
-
-    """
     DESTINATION_UNREACHABLE = 3
 
-    """
-
-    ICMP Packet type\: Source quench
-
-    """
     SOURCE_QUENCH = 4
 
-    """
-
-    ICMP Packet type\: Redirect
-
-    """
     REDIRECT = 5
 
-    """
-
-    ICMP Packet type\: Alternate host address
-
-    """
     ALTERNATE_HOST_ADDRESS = 6
 
-    """
-
-    ICMP Packet type\: Echo
-
-    """
     ECHO = 8
 
-    """
-
-    ICMP Packet type\: Router advertisement
-
-    """
     ROUTER_ADVERTISEMENT = 9
 
-    """
-
-    ICMP Packet type\: Router selection
-
-    """
     ROUTER_SELECTION = 10
 
-    """
-
-    ICMP Packet type\: Time exceeded
-
-    """
     TIME_EXCEEDED = 11
 
-    """
-
-    ICMP Packet type\: Parameter problem
-
-    """
     PARAMETER_PROBLEM = 12
 
-    """
-
-    ICMP Packet type\: Time stamp
-
-    """
     TIME_STAMP = 13
 
-    """
-
-    ICMP Packet type\: Time stamp reply
-
-    """
     TIME_STAMP_REPLY = 14
 
-    """
-
-    ICMP Packet type\: Information request
-
-    """
     INFORMATION_REQUEST = 15
 
-    """
-
-    ICMP Packet type\: Information reply
-
-    """
     INFORMATION_REPLY = 16
 
-    """
-
-    ICMP Packet type\: Address mask request
-
-    """
     ADDRESS_MASK_REQUEST = 17
 
-    """
-
-    ICMP Packet type\: Address mask reply
-
-    """
     ADDRESS_MASK_REPLY = 18
 
-    """
-
-    ICMP Packet type\: Trace route
-
-    """
     TRACE_ROUTE = 30
 
-    """
-
-    ICMP Packet type\: Datagram Conversion error
-
-    """
     DATAGRAM_CONVERSION_ERROR = 31
 
-    """
-
-    ICMP Packet type\: Mobile host redirect
-
-    """
     MOBILE_HOST_REDIRECT = 32
 
-    """
-
-    ICMP Packet type\: IPv6 where\-are\-you
-
-    """
     WHERE_ARE_YOU = 33
 
-    """
-
-    ICMP Packet type\: IPv6 i\-am\-here
-
-    """
     IAM_HERE = 34
 
-    """
-
-    ICMP Packet type\: Mobile registration request
-
-    """
     MOBILE_REGISTRATION_REQUEST = 35
 
-    """
-
-    ICMP Packet type\: Mobile registration reply
-
-    """
     MOBILE_REGISTRATION_REPLY = 36
 
-    """
-
-    ICMP Packet type\: Domain name request
-
-    """
     DOMAIN_NAME_REQUEST = 37
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['MessageTypeIcmp_Enum']
+        return meta._meta_table['MessageTypeIcmpEnum']
 
 
-class MessageTypeIcmpv6_Enum(Enum):
+class MessageTypeIcmpv6Enum(Enum):
     """
-    MessageTypeIcmpv6_Enum
+    MessageTypeIcmpv6Enum
 
     LPTS ICMPv6 message types
 
-    """
+    .. data:: DESTINATION_UNREACHABLE = 1
+
+    	ICMPv6 Packet type: Destination unreachable
+
+    .. data:: PACKET_TOO_BIG = 2
+
+    	ICMPv6 Packet type: packet too big
+
+    .. data:: TIME_EXCEEDED = 3
+
+    	ICMPv6 Packet type: Time exceeded
+
+    .. data:: PARAMETER_PROBLEM = 4
+
+    	ICMPv6 Packet type: Parameter problem
+
+    .. data:: ECHO_REQUEST = 128
+
+    	ICMPv6 Packet type: Echo request
+
+    .. data:: ECHO_REPLY = 129
+
+    	ICMPv6 Packet type: Echo reply
+
+    .. data:: MULTICAST_LISTENER_QUERY = 130
+
+    	ICMPv6 Packet type: Multicast listener query
+
+    .. data:: MULTICAST_LISTENER_REPORT = 131
+
+    	ICMPv6 Packet type: Multicast listener report
+
+    .. data:: MULTICAST_LISTENER_DONE = 132
+
+    	ICMPv6 Packet type: Multicast listener done
+
+    .. data:: ROUTER_SOLICITATION = 133
+
+    	ICMPv6 Packet type: Router solicitation
+
+    .. data:: ROUTER_ADVERTISEMENT = 134
+
+    	ICMPv6 Packet type: Router advertisement
+
+    .. data:: NEIGHBOR_SOLICITATION = 135
+
+    	ICMPv6 Packet type: Neighbor solicitation
+
+    .. data:: NEIGHBOR_ADVERTISEMENT = 136
+
+    	ICMPv6 Packet type: Neighbor advertisement
+
+    .. data:: REDIRECT_MESSAGE = 137
+
+    	ICMPv6 Packet type: Redirect message
+
+    .. data:: ROUTER_RENUMBERING = 138
+
+    	ICMPv6 Packet type: Router renumbering
+
+    .. data:: NODE_INFORMATION_QUERY = 139
+
+    	ICMPv6 Packet type: Node information query
+
+    .. data:: NODE_INFORMATION_REPLY = 140
+
+    	ICMPv6 Packet type: Node information reply
+
+    .. data:: INVERSE_NEIGHBOR_DISCOVERY_SOLICITAION = 141
+
+    	ICMPv6 Packet type: Inverse neighbor discovery
+
+    	solicitation message
+
+    .. data:: INVERSE_NEIGHBOR_DISCOVER_ADVERTISEMENT = 142
+
+    	ICMPv6 Packet type: Inverse neighbor discovery
+
+    	advertisement message
+
+    .. data:: V2_MULTICAST_LISTENER_REPORT = 143
+
+    	ICMPv6 Packet type: Version 2 multicast
+
+    	listener report
+
+    .. data:: HOME_AGENT_ADDRESS_DISCOVERY_REQUEST = 144
+
+    	ICMPv6 Packet type: Home agent address
+
+    	discovery request message
+
+    .. data:: HOME_AGENT_ADDRESS_DISCOVERY_REPLY = 145
+
+    	ICMPv6 Packet type: Home agent address
+
+    	discovery reply message
+
+    .. data:: MOBILE_PREFIX_SOLICITATION = 146
+
+    	ICMPv6 Packet type: Mobile prefix solicitation
+
+    .. data:: MOBILE_PREFIX_ADVERTISEMENT = 147
+
+    	ICMPv6 Packet type: Mobile prefix advertisement
+
+    .. data:: CERTIFICATION_PATH_SOLICITATION_MESSAGE = 148
+
+    	ICMPv6 Packet type: Certification path
+
+    	solicitation message
+
+    .. data:: CERTIFICATION_PATH_ADVERTISEMENT_MESSAGE = 149
+
+    	ICMPv6 Packet type: Certification path
+
+    	advertisement message
+
+    .. data:: EXPERIMENTAL_MOBILITY_PROTOCOLS = 150
+
+    	ICMPv6 Packet type: ICMP messages utilized by
+
+    	experimental mobility  protocols such as
+
+    	seamoby
+
+    .. data:: MULTICAST_ROUTER_ADVERTISEMENT = 151
+
+    	ICMPv6 Packet type: Multicast router
+
+    	advertisement
+
+    .. data:: MULTICAST_ROUTER_SOLICITATION = 152
+
+    	ICMPv6 Packet type: Multicast router
+
+    	solicitation
+
+    .. data:: MULTICAST_ROUTER_TERMINATION = 153
+
+    	ICMPv6 Packet type: Multicast router
+
+    	termination
+
+    .. data:: FMIPV6_MESSAGES = 154
+
+    	ICMPv6 Packet type: FMIPv6 messages
 
     """
 
-    ICMPv6 Packet type\: Destination unreachable
-
-    """
     DESTINATION_UNREACHABLE = 1
 
-    """
-
-    ICMPv6 Packet type\: packet too big
-
-    """
     PACKET_TOO_BIG = 2
 
-    """
-
-    ICMPv6 Packet type\: Time exceeded
-
-    """
     TIME_EXCEEDED = 3
 
-    """
-
-    ICMPv6 Packet type\: Parameter problem
-
-    """
     PARAMETER_PROBLEM = 4
 
-    """
-
-    ICMPv6 Packet type\: Echo request
-
-    """
     ECHO_REQUEST = 128
 
-    """
-
-    ICMPv6 Packet type\: Echo reply
-
-    """
     ECHO_REPLY = 129
 
-    """
-
-    ICMPv6 Packet type\: Multicast listener query
-
-    """
     MULTICAST_LISTENER_QUERY = 130
 
-    """
-
-    ICMPv6 Packet type\: Multicast listener report
-
-    """
     MULTICAST_LISTENER_REPORT = 131
 
-    """
-
-    ICMPv6 Packet type\: Multicast listener done
-
-    """
     MULTICAST_LISTENER_DONE = 132
 
-    """
-
-    ICMPv6 Packet type\: Router solicitation
-
-    """
     ROUTER_SOLICITATION = 133
 
-    """
-
-    ICMPv6 Packet type\: Router advertisement
-
-    """
     ROUTER_ADVERTISEMENT = 134
 
-    """
-
-    ICMPv6 Packet type\: Neighbor solicitation
-
-    """
     NEIGHBOR_SOLICITATION = 135
 
-    """
-
-    ICMPv6 Packet type\: Neighbor advertisement
-
-    """
     NEIGHBOR_ADVERTISEMENT = 136
 
-    """
-
-    ICMPv6 Packet type\: Redirect message
-
-    """
     REDIRECT_MESSAGE = 137
 
-    """
-
-    ICMPv6 Packet type\: Router renumbering
-
-    """
     ROUTER_RENUMBERING = 138
 
-    """
-
-    ICMPv6 Packet type\: Node information query
-
-    """
     NODE_INFORMATION_QUERY = 139
 
-    """
-
-    ICMPv6 Packet type\: Node information reply
-
-    """
     NODE_INFORMATION_REPLY = 140
 
-    """
-
-    ICMPv6 Packet type\: Inverse neighbor discovery
-    solicitation message
-
-    """
     INVERSE_NEIGHBOR_DISCOVERY_SOLICITAION = 141
 
-    """
-
-    ICMPv6 Packet type\: Inverse neighbor discovery
-    advertisement message
-
-    """
     INVERSE_NEIGHBOR_DISCOVER_ADVERTISEMENT = 142
 
-    """
-
-    ICMPv6 Packet type\: Version 2 multicast
-    listener report
-
-    """
     V2_MULTICAST_LISTENER_REPORT = 143
 
-    """
-
-    ICMPv6 Packet type\: Home agent address
-    discovery request message
-
-    """
     HOME_AGENT_ADDRESS_DISCOVERY_REQUEST = 144
 
-    """
-
-    ICMPv6 Packet type\: Home agent address
-    discovery reply message
-
-    """
     HOME_AGENT_ADDRESS_DISCOVERY_REPLY = 145
 
-    """
-
-    ICMPv6 Packet type\: Mobile prefix solicitation
-
-    """
     MOBILE_PREFIX_SOLICITATION = 146
 
-    """
-
-    ICMPv6 Packet type\: Mobile prefix advertisement
-
-    """
     MOBILE_PREFIX_ADVERTISEMENT = 147
 
-    """
-
-    ICMPv6 Packet type\: Certification path
-    solicitation message
-
-    """
     CERTIFICATION_PATH_SOLICITATION_MESSAGE = 148
 
-    """
-
-    ICMPv6 Packet type\: Certification path
-    advertisement message
-
-    """
     CERTIFICATION_PATH_ADVERTISEMENT_MESSAGE = 149
 
-    """
-
-    ICMPv6 Packet type\: ICMP messages utilized by
-    experimental mobility  protocols such as
-    seamoby
-
-    """
     EXPERIMENTAL_MOBILITY_PROTOCOLS = 150
 
-    """
-
-    ICMPv6 Packet type\: Multicast router
-    advertisement
-
-    """
     MULTICAST_ROUTER_ADVERTISEMENT = 151
 
-    """
-
-    ICMPv6 Packet type\: Multicast router
-    solicitation
-
-    """
     MULTICAST_ROUTER_SOLICITATION = 152
 
-    """
-
-    ICMPv6 Packet type\: Multicast router
-    termination
-
-    """
     MULTICAST_ROUTER_TERMINATION = 153
 
-    """
-
-    ICMPv6 Packet type\: FMIPv6 messages
-
-    """
     FMIPV6_MESSAGES = 154
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['MessageTypeIcmpv6_Enum']
+        return meta._meta_table['MessageTypeIcmpv6Enum']
 
 
-class MessageTypeIcmpv6_Enum(Enum):
+class MessageTypeIcmpv6Enum(Enum):
     """
-    MessageTypeIcmpv6_Enum
+    MessageTypeIcmpv6Enum
 
     LPTS ICMPv6 message types
 
-    """
+    .. data:: DESTINATION_UNREACHABLE = 1
+
+    	ICMPv6 Packet type: Destination unreachable
+
+    .. data:: PACKET_TOO_BIG = 2
+
+    	ICMPv6 Packet type: packet too big
+
+    .. data:: TIME_EXCEEDED = 3
+
+    	ICMPv6 Packet type: Time exceeded
+
+    .. data:: PARAMETER_PROBLEM = 4
+
+    	ICMPv6 Packet type: Parameter problem
+
+    .. data:: ECHO_REQUEST = 128
+
+    	ICMPv6 Packet type: Echo request
+
+    .. data:: ECHO_REPLY = 129
+
+    	ICMPv6 Packet type: Echo reply
+
+    .. data:: MULTICAST_LISTENER_QUERY = 130
+
+    	ICMPv6 Packet type: Multicast listener query
+
+    .. data:: MULTICAST_LISTENER_REPORT = 131
+
+    	ICMPv6 Packet type: Multicast listener report
+
+    .. data:: MULTICAST_LISTENER_DONE = 132
+
+    	ICMPv6 Packet type: Multicast listener done
+
+    .. data:: ROUTER_SOLICITATION = 133
+
+    	ICMPv6 Packet type: Router solicitation
+
+    .. data:: ROUTER_ADVERTISEMENT = 134
+
+    	ICMPv6 Packet type: Router advertisement
+
+    .. data:: NEIGHBOR_SOLICITATION = 135
+
+    	ICMPv6 Packet type: Neighbor solicitation
+
+    .. data:: NEIGHBOR_ADVERTISEMENT = 136
+
+    	ICMPv6 Packet type: Neighbor advertisement
+
+    .. data:: REDIRECT_MESSAGE = 137
+
+    	ICMPv6 Packet type: Redirect message
+
+    .. data:: ROUTER_RENUMBERING = 138
+
+    	ICMPv6 Packet type: Router renumbering
+
+    .. data:: NODE_INFORMATION_QUERY = 139
+
+    	ICMPv6 Packet type: Node information query
+
+    .. data:: NODE_INFORMATION_REPLY = 140
+
+    	ICMPv6 Packet type: Node information reply
+
+    .. data:: INVERSE_NEIGHBOR_DISCOVERY_SOLICITAION = 141
+
+    	ICMPv6 Packet type: Inverse neighbor discovery
+
+    	solicitation message
+
+    .. data:: INVERSE_NEIGHBOR_DISCOVER_ADVERTISEMENT = 142
+
+    	ICMPv6 Packet type: Inverse neighbor discovery
+
+    	advertisement message
+
+    .. data:: V2_MULTICAST_LISTENER_REPORT = 143
+
+    	ICMPv6 Packet type: Version 2 multicast
+
+    	listener report
+
+    .. data:: HOME_AGENT_ADDRESS_DISCOVERY_REQUEST = 144
+
+    	ICMPv6 Packet type: Home agent address
+
+    	discovery request message
+
+    .. data:: HOME_AGENT_ADDRESS_DISCOVERY_REPLY = 145
+
+    	ICMPv6 Packet type: Home agent address
+
+    	discovery reply message
+
+    .. data:: MOBILE_PREFIX_SOLICITATION = 146
+
+    	ICMPv6 Packet type: Mobile prefix solicitation
+
+    .. data:: MOBILE_PREFIX_ADVERTISEMENT = 147
+
+    	ICMPv6 Packet type: Mobile prefix advertisement
+
+    .. data:: CERTIFICATION_PATH_SOLICITATION_MESSAGE = 148
+
+    	ICMPv6 Packet type: Certification path
+
+    	solicitation message
+
+    .. data:: CERTIFICATION_PATH_ADVERTISEMENT_MESSAGE = 149
+
+    	ICMPv6 Packet type: Certification path
+
+    	advertisement message
+
+    .. data:: EXPERIMENTAL_MOBILITY_PROTOCOLS = 150
+
+    	ICMPv6 Packet type: ICMP messages utilized by
+
+    	experimental mobility  protocols such as
+
+    	seamoby
+
+    .. data:: MULTICAST_ROUTER_ADVERTISEMENT = 151
+
+    	ICMPv6 Packet type: Multicast router
+
+    	advertisement
+
+    .. data:: MULTICAST_ROUTER_SOLICITATION = 152
+
+    	ICMPv6 Packet type: Multicast router
+
+    	solicitation
+
+    .. data:: MULTICAST_ROUTER_TERMINATION = 153
+
+    	ICMPv6 Packet type: Multicast router
+
+    	termination
+
+    .. data:: FMIPV6_MESSAGES = 154
+
+    	ICMPv6 Packet type: FMIPv6 messages
 
     """
 
-    ICMPv6 Packet type\: Destination unreachable
-
-    """
     DESTINATION_UNREACHABLE = 1
 
-    """
-
-    ICMPv6 Packet type\: packet too big
-
-    """
     PACKET_TOO_BIG = 2
 
-    """
-
-    ICMPv6 Packet type\: Time exceeded
-
-    """
     TIME_EXCEEDED = 3
 
-    """
-
-    ICMPv6 Packet type\: Parameter problem
-
-    """
     PARAMETER_PROBLEM = 4
 
-    """
-
-    ICMPv6 Packet type\: Echo request
-
-    """
     ECHO_REQUEST = 128
 
-    """
-
-    ICMPv6 Packet type\: Echo reply
-
-    """
     ECHO_REPLY = 129
 
-    """
-
-    ICMPv6 Packet type\: Multicast listener query
-
-    """
     MULTICAST_LISTENER_QUERY = 130
 
-    """
-
-    ICMPv6 Packet type\: Multicast listener report
-
-    """
     MULTICAST_LISTENER_REPORT = 131
 
-    """
-
-    ICMPv6 Packet type\: Multicast listener done
-
-    """
     MULTICAST_LISTENER_DONE = 132
 
-    """
-
-    ICMPv6 Packet type\: Router solicitation
-
-    """
     ROUTER_SOLICITATION = 133
 
-    """
-
-    ICMPv6 Packet type\: Router advertisement
-
-    """
     ROUTER_ADVERTISEMENT = 134
 
-    """
-
-    ICMPv6 Packet type\: Neighbor solicitation
-
-    """
     NEIGHBOR_SOLICITATION = 135
 
-    """
-
-    ICMPv6 Packet type\: Neighbor advertisement
-
-    """
     NEIGHBOR_ADVERTISEMENT = 136
 
-    """
-
-    ICMPv6 Packet type\: Redirect message
-
-    """
     REDIRECT_MESSAGE = 137
 
-    """
-
-    ICMPv6 Packet type\: Router renumbering
-
-    """
     ROUTER_RENUMBERING = 138
 
-    """
-
-    ICMPv6 Packet type\: Node information query
-
-    """
     NODE_INFORMATION_QUERY = 139
 
-    """
-
-    ICMPv6 Packet type\: Node information reply
-
-    """
     NODE_INFORMATION_REPLY = 140
 
-    """
-
-    ICMPv6 Packet type\: Inverse neighbor discovery
-    solicitation message
-
-    """
     INVERSE_NEIGHBOR_DISCOVERY_SOLICITAION = 141
 
-    """
-
-    ICMPv6 Packet type\: Inverse neighbor discovery
-    advertisement message
-
-    """
     INVERSE_NEIGHBOR_DISCOVER_ADVERTISEMENT = 142
 
-    """
-
-    ICMPv6 Packet type\: Version 2 multicast
-    listener report
-
-    """
     V2_MULTICAST_LISTENER_REPORT = 143
 
-    """
-
-    ICMPv6 Packet type\: Home agent address
-    discovery request message
-
-    """
     HOME_AGENT_ADDRESS_DISCOVERY_REQUEST = 144
 
-    """
-
-    ICMPv6 Packet type\: Home agent address
-    discovery reply message
-
-    """
     HOME_AGENT_ADDRESS_DISCOVERY_REPLY = 145
 
-    """
-
-    ICMPv6 Packet type\: Mobile prefix solicitation
-
-    """
     MOBILE_PREFIX_SOLICITATION = 146
 
-    """
-
-    ICMPv6 Packet type\: Mobile prefix advertisement
-
-    """
     MOBILE_PREFIX_ADVERTISEMENT = 147
 
-    """
-
-    ICMPv6 Packet type\: Certification path
-    solicitation message
-
-    """
     CERTIFICATION_PATH_SOLICITATION_MESSAGE = 148
 
-    """
-
-    ICMPv6 Packet type\: Certification path
-    advertisement message
-
-    """
     CERTIFICATION_PATH_ADVERTISEMENT_MESSAGE = 149
 
-    """
-
-    ICMPv6 Packet type\: ICMP messages utilized by
-    experimental mobility  protocols such as
-    seamoby
-
-    """
     EXPERIMENTAL_MOBILITY_PROTOCOLS = 150
 
-    """
-
-    ICMPv6 Packet type\: Multicast router
-    advertisement
-
-    """
     MULTICAST_ROUTER_ADVERTISEMENT = 151
 
-    """
-
-    ICMPv6 Packet type\: Multicast router
-    solicitation
-
-    """
     MULTICAST_ROUTER_SOLICITATION = 152
 
-    """
-
-    ICMPv6 Packet type\: Multicast router
-    termination
-
-    """
     MULTICAST_ROUTER_TERMINATION = 153
 
-    """
-
-    ICMPv6 Packet type\: FMIPv6 messages
-
-    """
     FMIPV6_MESSAGES = 154
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['MessageTypeIcmpv6_Enum']
+        return meta._meta_table['MessageTypeIcmpv6Enum']
 
 
-class MessageTypeIgmp_Enum(Enum):
+class MessageTypeIgmpEnum(Enum):
     """
-    MessageTypeIgmp_Enum
+    MessageTypeIgmpEnum
 
     LPTS IGMP message types
 
-    """
+    .. data:: MEMBERSHIP_QUERY = 17
+
+    	IGMP Packet type: Membership query
+
+    .. data:: V1_MEMBERSHIP_REPORT = 18
+
+    	IGMP Packet type: V1 membership report
+
+    .. data:: DVMRP = 19
+
+    	IGMP Packet type: DVMRP
+
+    .. data:: PI_MV1 = 20
+
+    	IGMP Packet type: PIM version 1
+
+    .. data:: CISCO_TRACE_MESSAGES = 21
+
+    	IGMP Packet type: Cisco Trace Messages
+
+    .. data:: V2_MEMBERSHIP_REPORT = 22
+
+    	IGMP Packet type: V2 membership report
+
+    .. data:: V2_LEAVE_GROUP = 23
+
+    	IGMP Packet type: V2 leave group
+
+    .. data:: MULTICAST_TRACEROUTE_RESPONSE = 30
+
+    	IGMP Packet type: Multicast traceroute response
+
+    .. data:: MULTICAST_TRACEROUTE = 31
+
+    	IGMP Packet type: MulticastTraceroute
+
+    .. data:: V3_MEMBERSHIP_REPORT = 34
+
+    	IGMP Packet type: V3 membership report
+
+    .. data:: MULTICAST_ROUTER_ADVERTISEMENT = 48
+
+    	IGMP Packet type: Multicast router
+
+    	advertisement
+
+    .. data:: MULTICAST_ROUTER_SOLICITATION = 49
+
+    	IGMP Packet type: Multicast router solicitation
+
+    .. data:: MULTICAST_ROUTER_TERMINATION = 50
+
+    	IGMP Packet type: Multicast router termination
 
     """
 
-    IGMP Packet type\: Membership query
-
-    """
     MEMBERSHIP_QUERY = 17
 
-    """
-
-    IGMP Packet type\: V1 membership report
-
-    """
     V1_MEMBERSHIP_REPORT = 18
 
-    """
-
-    IGMP Packet type\: DVMRP
-
-    """
     DVMRP = 19
 
-    """
-
-    IGMP Packet type\: PIM version 1
-
-    """
     PI_MV1 = 20
 
-    """
-
-    IGMP Packet type\: Cisco Trace Messages
-
-    """
     CISCO_TRACE_MESSAGES = 21
 
-    """
-
-    IGMP Packet type\: V2 membership report
-
-    """
     V2_MEMBERSHIP_REPORT = 22
 
-    """
-
-    IGMP Packet type\: V2 leave group
-
-    """
     V2_LEAVE_GROUP = 23
 
-    """
-
-    IGMP Packet type\: Multicast traceroute response
-
-    """
     MULTICAST_TRACEROUTE_RESPONSE = 30
 
-    """
-
-    IGMP Packet type\: MulticastTraceroute
-
-    """
     MULTICAST_TRACEROUTE = 31
 
-    """
-
-    IGMP Packet type\: V3 membership report
-
-    """
     V3_MEMBERSHIP_REPORT = 34
 
-    """
-
-    IGMP Packet type\: Multicast router
-    advertisement
-
-    """
     MULTICAST_ROUTER_ADVERTISEMENT = 48
 
-    """
-
-    IGMP Packet type\: Multicast router solicitation
-
-    """
     MULTICAST_ROUTER_SOLICITATION = 49
 
-    """
-
-    IGMP Packet type\: Multicast router termination
-
-    """
     MULTICAST_ROUTER_TERMINATION = 50
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['MessageTypeIgmp_Enum']
+        return meta._meta_table['MessageTypeIgmpEnum']
 
 
-class MessageTypeIgmp_Enum(Enum):
+class MessageTypeIgmpEnum(Enum):
     """
-    MessageTypeIgmp_Enum
+    MessageTypeIgmpEnum
 
     LPTS IGMP message types
 
-    """
+    .. data:: MEMBERSHIP_QUERY = 17
+
+    	IGMP Packet type: Membership query
+
+    .. data:: V1_MEMBERSHIP_REPORT = 18
+
+    	IGMP Packet type: V1 membership report
+
+    .. data:: DVMRP = 19
+
+    	IGMP Packet type: DVMRP
+
+    .. data:: PI_MV1 = 20
+
+    	IGMP Packet type: PIM version 1
+
+    .. data:: CISCO_TRACE_MESSAGES = 21
+
+    	IGMP Packet type: Cisco Trace Messages
+
+    .. data:: V2_MEMBERSHIP_REPORT = 22
+
+    	IGMP Packet type: V2 membership report
+
+    .. data:: V2_LEAVE_GROUP = 23
+
+    	IGMP Packet type: V2 leave group
+
+    .. data:: MULTICAST_TRACEROUTE_RESPONSE = 30
+
+    	IGMP Packet type: Multicast traceroute response
+
+    .. data:: MULTICAST_TRACEROUTE = 31
+
+    	IGMP Packet type: MulticastTraceroute
+
+    .. data:: V3_MEMBERSHIP_REPORT = 34
+
+    	IGMP Packet type: V3 membership report
+
+    .. data:: MULTICAST_ROUTER_ADVERTISEMENT = 48
+
+    	IGMP Packet type: Multicast router
+
+    	advertisement
+
+    .. data:: MULTICAST_ROUTER_SOLICITATION = 49
+
+    	IGMP Packet type: Multicast router solicitation
+
+    .. data:: MULTICAST_ROUTER_TERMINATION = 50
+
+    	IGMP Packet type: Multicast router termination
 
     """
 
-    IGMP Packet type\: Membership query
-
-    """
     MEMBERSHIP_QUERY = 17
 
-    """
-
-    IGMP Packet type\: V1 membership report
-
-    """
     V1_MEMBERSHIP_REPORT = 18
 
-    """
-
-    IGMP Packet type\: DVMRP
-
-    """
     DVMRP = 19
 
-    """
-
-    IGMP Packet type\: PIM version 1
-
-    """
     PI_MV1 = 20
 
-    """
-
-    IGMP Packet type\: Cisco Trace Messages
-
-    """
     CISCO_TRACE_MESSAGES = 21
 
-    """
-
-    IGMP Packet type\: V2 membership report
-
-    """
     V2_MEMBERSHIP_REPORT = 22
 
-    """
-
-    IGMP Packet type\: V2 leave group
-
-    """
     V2_LEAVE_GROUP = 23
 
-    """
-
-    IGMP Packet type\: Multicast traceroute response
-
-    """
     MULTICAST_TRACEROUTE_RESPONSE = 30
 
-    """
-
-    IGMP Packet type\: MulticastTraceroute
-
-    """
     MULTICAST_TRACEROUTE = 31
 
-    """
-
-    IGMP Packet type\: V3 membership report
-
-    """
     V3_MEMBERSHIP_REPORT = 34
 
-    """
-
-    IGMP Packet type\: Multicast router
-    advertisement
-
-    """
     MULTICAST_ROUTER_ADVERTISEMENT = 48
 
-    """
-
-    IGMP Packet type\: Multicast router solicitation
-
-    """
     MULTICAST_ROUTER_SOLICITATION = 49
 
-    """
-
-    IGMP Packet type\: Multicast router termination
-
-    """
     MULTICAST_ROUTER_TERMINATION = 50
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['MessageTypeIgmp_Enum']
+        return meta._meta_table['MessageTypeIgmpEnum']
 
 
-class Packet_Enum(Enum):
+class PacketEnum(Enum):
     """
-    Packet_Enum
+    PacketEnum
 
     Packet type
 
-    """
+    .. data:: ICMP = 0
+
+    	ICMP packet type
+
+    .. data:: ICM_PV6 = 1
+
+    	ICMPv6 packet type
+
+    .. data:: IGMP = 2
+
+    	IGMP packet type
+
+    .. data:: UNKNOWN = 3
+
+    	Packet type unknown
 
     """
 
-    ICMP packet type
-
-    """
     ICMP = 0
 
-    """
-
-    ICMPv6 packet type
-
-    """
     ICM_PV6 = 1
 
-    """
-
-    IGMP packet type
-
-    """
     IGMP = 2
 
-    """
-
-    Packet type unknown
-
-    """
     UNKNOWN = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['Packet_Enum']
+        return meta._meta_table['PacketEnum']
 
 
-class UdpAddressFamily_Enum(Enum):
+class UdpAddressFamilyEnum(Enum):
     """
-    UdpAddressFamily_Enum
+    UdpAddressFamilyEnum
 
     Address Family Type
 
-    """
+    .. data:: IPV4 = 2
+
+    	IPv4
+
+    .. data:: IPV6 = 26
+
+    	IPv6
 
     """
 
-    IPv4
-
-    """
     IPV4 = 2
 
-    """
-
-    IPv6
-
-    """
     IPV6 = 26
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['UdpAddressFamily_Enum']
+        return meta._meta_table['UdpAddressFamilyEnum']
 
 
 
@@ -1697,8 +1535,6 @@ class Udp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.udp_bad_length_packets is not None:
                             return True
 
@@ -1717,10 +1553,6 @@ class Udp(object):
                         if self.udp_output_packets is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1805,8 +1637,6 @@ class Udp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.udp_bad_length_packets is not None:
                             return True
 
@@ -1825,10 +1655,6 @@ class Udp(object):
                         if self.udp_output_packets is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1850,24 +1676,12 @@ class Udp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ipv4_traffic is not None and self.ipv4_traffic._has_data():
-                        return True
-
-                    if self.ipv4_traffic is not None and self.ipv4_traffic.is_presence():
                         return True
 
                     if self.ipv6_traffic is not None and self.ipv6_traffic._has_data():
                         return True
 
-                    if self.ipv6_traffic is not None and self.ipv6_traffic.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1889,21 +1703,12 @@ class Udp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.statistics is not None and self.statistics._has_data():
                     return True
 
-                if self.statistics is not None and self.statistics.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1923,17 +1728,11 @@ class Udp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1953,18 +1752,9 @@ class Udp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -2120,7 +1910,7 @@ class UdpConnection(object):
                         .. attribute:: query_name
                         
                         	Query option
-                        	**type**\: :py:class:`LptsPcbQuery_Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.LptsPcbQuery_Enum>`
+                        	**type**\: :py:class:`LptsPcbQueryEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.LptsPcbQueryEnum>`
                         
                         .. attribute:: pcbs
                         
@@ -2239,7 +2029,7 @@ class UdpConnection(object):
                                     .. attribute:: af_name
                                     
                                     	Address Family
-                                    	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.AddrFamily_Enum>`
+                                    	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
                                     
                                     .. attribute:: lpts_pcb
                                     
@@ -2384,8 +2174,6 @@ class UdpConnection(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.is_interface is not None:
                                                     return True
 
@@ -2404,10 +2192,6 @@ class UdpConnection(object):
                                                 if self.is_remote_port is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -2523,7 +2307,7 @@ class UdpConnection(object):
                                                 .. attribute:: af_name
                                                 
                                                 	AFName
-                                                	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.AddrFamily_Enum>`
+                                                	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
                                                 
                                                 .. attribute:: ipv4_address
                                                 
@@ -2566,8 +2350,6 @@ class UdpConnection(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.af_name is not None:
                                                         return True
 
@@ -2577,10 +2359,6 @@ class UdpConnection(object):
                                                     if self.ipv6_address is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -2596,17 +2374,17 @@ class UdpConnection(object):
                                                 .. attribute:: icm_pv6_message_type
                                                 
                                                 	ICMPv6 message type
-                                                	**type**\: :py:class:`MessageTypeIcmpv6_Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpv6_Enum>`
+                                                	**type**\: :py:class:`MessageTypeIcmpv6Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpv6Enum>`
                                                 
                                                 .. attribute:: icmp_message_type
                                                 
                                                 	ICMP message type
-                                                	**type**\: :py:class:`MessageTypeIcmp_Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmp_Enum>`
+                                                	**type**\: :py:class:`MessageTypeIcmpEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpEnum>`
                                                 
                                                 .. attribute:: igmp_message_type
                                                 
                                                 	IGMP message type
-                                                	**type**\: :py:class:`MessageTypeIgmp_Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.MessageTypeIgmp_Enum>`
+                                                	**type**\: :py:class:`MessageTypeIgmpEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.MessageTypeIgmpEnum>`
                                                 
                                                 .. attribute:: message_id
                                                 
@@ -2618,7 +2396,7 @@ class UdpConnection(object):
                                                 .. attribute:: type
                                                 
                                                 	Type
-                                                	**type**\: :py:class:`Packet_Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.Packet_Enum>`
+                                                	**type**\: :py:class:`PacketEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.PacketEnum>`
                                                 
                                                 
 
@@ -2649,8 +2427,6 @@ class UdpConnection(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.icm_pv6_message_type is not None:
                                                         return True
 
@@ -2668,10 +2444,6 @@ class UdpConnection(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_udp_oper as meta
@@ -2685,7 +2457,7 @@ class UdpConnection(object):
                                                 .. attribute:: af_name
                                                 
                                                 	AFName
-                                                	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.AddrFamily_Enum>`
+                                                	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
                                                 
                                                 .. attribute:: ipv4_address
                                                 
@@ -2728,8 +2500,6 @@ class UdpConnection(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.af_name is not None:
                                                         return True
 
@@ -2739,10 +2509,6 @@ class UdpConnection(object):
                                                     if self.ipv6_address is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -2764,8 +2530,6 @@ class UdpConnection(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.flow_types_info is not None:
                                                     return True
 
@@ -2775,16 +2539,10 @@ class UdpConnection(object):
                                                 if self.local_address is not None and self.local_address._has_data():
                                                     return True
 
-                                                if self.local_address is not None and self.local_address.is_presence():
-                                                    return True
-
                                                 if self.local_length is not None:
                                                     return True
 
                                                 if self.packet_type is not None and self.packet_type._has_data():
-                                                    return True
-
-                                                if self.packet_type is not None and self.packet_type.is_presence():
                                                     return True
 
                                                 if self.priority is not None:
@@ -2799,19 +2557,12 @@ class UdpConnection(object):
                                                 if self.remote_address is not None and self.remote_address._has_data():
                                                     return True
 
-                                                if self.remote_address is not None and self.remote_address.is_presence():
-                                                    return True
-
                                                 if self.remote_length is not None:
                                                     return True
 
                                                 if self.ttl is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -2866,8 +2617,6 @@ class UdpConnection(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.is_ignore_vrf_filter is not None:
                                                     return True
 
@@ -2877,10 +2626,6 @@ class UdpConnection(object):
                                                 if self.is_pcb_bound is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -2929,18 +2674,12 @@ class UdpConnection(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.is_ip_sla is not None:
                                                     return True
 
                                                 if self.is_receive_filter is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -2962,12 +2701,7 @@ class UdpConnection(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.accept_mask is not None and self.accept_mask._has_data():
-                                                return True
-
-                                            if self.accept_mask is not None and self.accept_mask.is_presence():
                                                 return True
 
                                             if self.filter is not None:
@@ -2981,22 +2715,12 @@ class UdpConnection(object):
                                             if self.lpts_flags is not None and self.lpts_flags._has_data():
                                                 return True
 
-                                            if self.lpts_flags is not None and self.lpts_flags.is_presence():
-                                                return True
-
                                             if self.options is not None and self.options._has_data():
-                                                return True
-
-                                            if self.options is not None and self.options.is_presence():
                                                 return True
 
                                             if self.ttl is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3018,21 +2742,12 @@ class UdpConnection(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.af_name is not None:
                                             return True
 
                                         if self.lpts_pcb is not None and self.lpts_pcb._has_data():
                                             return True
 
-                                        if self.lpts_pcb is not None and self.lpts_pcb.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3048,7 +2763,7 @@ class UdpConnection(object):
                                     .. attribute:: af_name
                                     
                                     	AFName
-                                    	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.AddrFamily_Enum>`
+                                    	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
                                     
                                     .. attribute:: ipv4_address
                                     
@@ -3091,8 +2806,6 @@ class UdpConnection(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.af_name is not None:
                                             return True
 
@@ -3102,10 +2815,6 @@ class UdpConnection(object):
                                         if self.ipv6_address is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3121,7 +2830,7 @@ class UdpConnection(object):
                                     .. attribute:: af_name
                                     
                                     	AFName
-                                    	**type**\: :py:class:`AddrFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.AddrFamily_Enum>`
+                                    	**type**\: :py:class:`AddrFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
                                     
                                     .. attribute:: ipv4_address
                                     
@@ -3164,8 +2873,6 @@ class UdpConnection(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.af_name is not None:
                                             return True
 
@@ -3175,10 +2882,6 @@ class UdpConnection(object):
                                         if self.ipv6_address is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3202,21 +2905,13 @@ class UdpConnection(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.pcb_address is not None:
                                         return True
 
                                     if self.common is not None and self.common._has_data():
                                         return True
 
-                                    if self.common is not None and self.common.is_presence():
-                                        return True
-
                                     if self.foreign_address is not None and self.foreign_address._has_data():
-                                        return True
-
-                                    if self.foreign_address is not None and self.foreign_address.is_presence():
                                         return True
 
                                     if self.foreign_port is not None:
@@ -3228,16 +2923,9 @@ class UdpConnection(object):
                                     if self.local_address is not None and self.local_address._has_data():
                                         return True
 
-                                    if self.local_address is not None and self.local_address.is_presence():
-                                        return True
-
                                     if self.local_port is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3259,17 +2947,11 @@ class UdpConnection(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.pcb is not None:
                                     for child_ref in self.pcb:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3293,21 +2975,12 @@ class UdpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.query_name is not None:
                                 return True
 
                             if self.pcbs is not None and self.pcbs._has_data():
                                 return True
 
-                            if self.pcbs is not None and self.pcbs.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3329,17 +3002,11 @@ class UdpConnection(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.query is not None:
                             for child_ref in self.query:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3361,18 +3028,9 @@ class UdpConnection(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.queries is not None and self.queries._has_data():
                         return True
 
-                    if self.queries is not None and self.queries.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3418,7 +3076,7 @@ class UdpConnection(object):
                     .. attribute:: af_name
                     
                     	Address family
-                    	**type**\: :py:class:`UdpAddressFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily_Enum>`
+                    	**type**\: :py:class:`UdpAddressFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
                     
                     .. attribute:: foreign_address
                     
@@ -3486,7 +3144,7 @@ class UdpConnection(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\: :py:class:`UdpAddressFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily_Enum>`
+                        	**type**\: :py:class:`UdpAddressFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
                         
                         .. attribute:: ipv4_address
                         
@@ -3529,8 +3187,6 @@ class UdpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af_name is not None:
                                 return True
 
@@ -3540,10 +3196,6 @@ class UdpConnection(object):
                             if self.ipv6_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3559,7 +3211,7 @@ class UdpConnection(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\: :py:class:`UdpAddressFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily_Enum>`
+                        	**type**\: :py:class:`UdpAddressFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
                         
                         .. attribute:: ipv4_address
                         
@@ -3602,8 +3254,6 @@ class UdpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af_name is not None:
                                 return True
 
@@ -3613,10 +3263,6 @@ class UdpConnection(object):
                             if self.ipv6_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3640,8 +3286,6 @@ class UdpConnection(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.pcb_address is not None:
                             return True
 
@@ -3651,16 +3295,10 @@ class UdpConnection(object):
                         if self.foreign_address is not None and self.foreign_address._has_data():
                             return True
 
-                        if self.foreign_address is not None and self.foreign_address.is_presence():
-                            return True
-
                         if self.foreign_port is not None:
                             return True
 
                         if self.local_address is not None and self.local_address._has_data():
-                            return True
-
-                        if self.local_address is not None and self.local_address.is_presence():
                             return True
 
                         if self.local_port is not None:
@@ -3672,10 +3310,6 @@ class UdpConnection(object):
                         if self.send_queue is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3697,17 +3331,11 @@ class UdpConnection(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.pcb_brief is not None:
                         for child_ref in self.pcb_brief:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3754,7 +3382,7 @@ class UdpConnection(object):
                     .. attribute:: af_name
                     
                     	Address family
-                    	**type**\: :py:class:`UdpAddressFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily_Enum>`
+                    	**type**\: :py:class:`UdpAddressFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
                     
                     .. attribute:: foreign_address
                     
@@ -3830,7 +3458,7 @@ class UdpConnection(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\: :py:class:`UdpAddressFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily_Enum>`
+                        	**type**\: :py:class:`UdpAddressFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
                         
                         .. attribute:: ipv4_address
                         
@@ -3873,8 +3501,6 @@ class UdpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af_name is not None:
                                 return True
 
@@ -3884,10 +3510,6 @@ class UdpConnection(object):
                             if self.ipv6_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3903,7 +3525,7 @@ class UdpConnection(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\: :py:class:`UdpAddressFamily_Enum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily_Enum>`
+                        	**type**\: :py:class:`UdpAddressFamilyEnum <ydk.models.ip.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
                         
                         .. attribute:: ipv4_address
                         
@@ -3946,8 +3568,6 @@ class UdpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af_name is not None:
                                 return True
 
@@ -3957,10 +3577,6 @@ class UdpConnection(object):
                             if self.ipv6_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3984,8 +3600,6 @@ class UdpConnection(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.pcb_address is not None:
                             return True
 
@@ -3995,16 +3609,10 @@ class UdpConnection(object):
                         if self.foreign_address is not None and self.foreign_address._has_data():
                             return True
 
-                        if self.foreign_address is not None and self.foreign_address.is_presence():
-                            return True
-
                         if self.foreign_port is not None:
                             return True
 
                         if self.local_address is not None and self.local_address._has_data():
-                            return True
-
-                        if self.local_address is not None and self.local_address.is_presence():
                             return True
 
                         if self.local_port is not None:
@@ -4019,10 +3627,6 @@ class UdpConnection(object):
                         if self.send_queue is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4044,17 +3648,11 @@ class UdpConnection(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.pcb_detail is not None:
                         for child_ref in self.pcb_detail:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4208,8 +3806,6 @@ class UdpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.client_id is not None:
                                 return True
 
@@ -4233,10 +3829,6 @@ class UdpConnection(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_udp_oper as meta
@@ -4256,17 +3848,11 @@ class UdpConnection(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.client is not None:
                             for child_ref in self.client:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4410,8 +3996,6 @@ class UdpConnection(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.failed_queued_application_packets is not None:
                                     return True
 
@@ -4427,10 +4011,6 @@ class UdpConnection(object):
                                 if self.received_network_packets is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4515,8 +4095,6 @@ class UdpConnection(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.failed_queued_net_io_packets is not None:
                                     return True
 
@@ -4535,10 +4113,6 @@ class UdpConnection(object):
                                 if self.sent_network_packets is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4562,8 +4136,6 @@ class UdpConnection(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.pcb_address is not None:
                                 return True
 
@@ -4573,19 +4145,9 @@ class UdpConnection(object):
                             if self.receive is not None and self.receive._has_data():
                                 return True
 
-                            if self.receive is not None and self.receive.is_presence():
-                                return True
-
                             if self.send is not None and self.send._has_data():
                                 return True
 
-                            if self.send is not None and self.send.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4607,17 +4169,11 @@ class UdpConnection(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.pcb_statistic is not None:
                             for child_ref in self.pcb_statistic:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4734,8 +4290,6 @@ class UdpConnection(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.cloned_packets is not None:
                             return True
 
@@ -4768,10 +4322,6 @@ class UdpConnection(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_udp_oper as meta
@@ -4791,30 +4341,15 @@ class UdpConnection(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.clients is not None and self.clients._has_data():
-                        return True
-
-                    if self.clients is not None and self.clients.is_presence():
                         return True
 
                     if self.pcb_statistics is not None and self.pcb_statistics._has_data():
                         return True
 
-                    if self.pcb_statistics is not None and self.pcb_statistics.is_presence():
-                        return True
-
                     if self.summary is not None and self.summary._has_data():
                         return True
 
-                    if self.summary is not None and self.summary.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4836,39 +4371,21 @@ class UdpConnection(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.lpts is not None and self.lpts._has_data():
                     return True
 
-                if self.lpts is not None and self.lpts.is_presence():
-                    return True
-
                 if self.pcb_briefs is not None and self.pcb_briefs._has_data():
-                    return True
-
-                if self.pcb_briefs is not None and self.pcb_briefs.is_presence():
                     return True
 
                 if self.pcb_details is not None and self.pcb_details._has_data():
                     return True
 
-                if self.pcb_details is not None and self.pcb_details.is_presence():
-                    return True
-
                 if self.statistics is not None and self.statistics._has_data():
                     return True
 
-                if self.statistics is not None and self.statistics.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4888,17 +4405,11 @@ class UdpConnection(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -4918,18 +4429,9 @@ class UdpConnection(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

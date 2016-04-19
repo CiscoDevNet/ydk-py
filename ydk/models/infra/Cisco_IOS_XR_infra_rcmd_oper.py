@@ -25,1156 +25,1045 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class RcmdBagEnableDisable_Enum(Enum):
+class RcmdBagEnableDisableEnum(Enum):
     """
-    RcmdBagEnableDisable_Enum
+    RcmdBagEnableDisableEnum
 
     status enum
 
-    """
+    .. data:: DISABLE = 0
+
+    	Disabled
+
+    .. data:: ENABLE = 1
+
+    	Enabled
 
     """
 
-    Disabled
-
-    """
     DISABLE = 0
 
-    """
-
-    Enabled
-
-    """
     ENABLE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdBagEnableDisable_Enum']
+        return meta._meta_table['RcmdBagEnableDisableEnum']
 
 
-class RcmdBagEnblDsbl_Enum(Enum):
+class RcmdBagEnblDsblEnum(Enum):
     """
-    RcmdBagEnblDsbl_Enum
+    RcmdBagEnblDsblEnum
 
     status enum
 
-    """
+    .. data:: DSBL = 0
+
+    	Disabled
+
+    .. data:: ENBL = 1
+
+    	Enabled
 
     """
 
-    Disabled
-
-    """
     DSBL = 0
 
-    """
-
-    Enabled
-
-    """
     ENBL = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdBagEnblDsbl_Enum']
+        return meta._meta_table['RcmdBagEnblDsblEnum']
 
 
-class RcmdBoolYesNo_Enum(Enum):
+class RcmdBoolYesNoEnum(Enum):
     """
-    RcmdBoolYesNo_Enum
+    RcmdBoolYesNoEnum
 
     Boolean enum
 
-    """
+    .. data:: NO = 0
+
+    	No
+
+    .. data:: YES = 1
+
+    	Yes
 
     """
 
-    No
-
-    """
     NO = 0
 
-    """
-
-    Yes
-
-    """
     YES = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdBoolYesNo_Enum']
+        return meta._meta_table['RcmdBoolYesNoEnum']
 
 
-class RcmdChange_Enum(Enum):
+class RcmdChangeEnum(Enum):
     """
-    RcmdChange_Enum
+    RcmdChangeEnum
 
     Type of change
 
-    """
+    .. data:: NONE = 0
+
+    	Invalid
+
+    .. data:: ADD = 1
+
+    	Added
+
+    .. data:: DELETE = 2
+
+    	Deleted
+
+    .. data:: MODIFY = 3
+
+    	Modified
+
+    .. data:: NO_CHANGE = 4
+
+    	No Change
 
     """
 
-    Invalid
-
-    """
     NONE = 0
 
-    """
-
-    Added
-
-    """
     ADD = 1
 
-    """
-
-    Deleted
-
-    """
     DELETE = 2
 
-    """
-
-    Modified
-
-    """
     MODIFY = 3
 
-    """
-
-    No Change
-
-    """
     NO_CHANGE = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdChange_Enum']
+        return meta._meta_table['RcmdChangeEnum']
 
 
-class RcmdIsisLvl_Enum(Enum):
+class RcmdIsisLvlEnum(Enum):
     """
-    RcmdIsisLvl_Enum
+    RcmdIsisLvlEnum
 
     Type of an ISIS Level
 
-    """
+    .. data:: L1 = 0
+
+    	Level 1
+
+    .. data:: L2 = 1
+
+    	Level 2
 
     """
 
-    Level 1
-
-    """
     L1 = 0
 
-    """
-
-    Level 2
-
-    """
     L2 = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdIsisLvl_Enum']
+        return meta._meta_table['RcmdIsisLvlEnum']
 
 
-class RcmdIsisSpf_Enum(Enum):
+class RcmdIsisSpfEnum(Enum):
     """
-    RcmdIsisSpf_Enum
+    RcmdIsisSpfEnum
 
     Type of an ISIS SPF run
 
-    """
+    .. data:: FULL = 0
+
+    	Full
+
+    .. data:: INCREMENTAL = 1
+
+    	Incremental
+
+    .. data:: NEXT_HOP = 2
+
+    	Next hop calculation
+
+    .. data:: PARTIAL_ROUTE = 3
+
+    	Partial route calculation
 
     """
 
-    Full
-
-    """
     FULL = 0
 
-    """
-
-    Incremental
-
-    """
     INCREMENTAL = 1
 
-    """
-
-    Next hop calculation
-
-    """
     NEXT_HOP = 2
 
-    """
-
-    Partial route calculation
-
-    """
     PARTIAL_ROUTE = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdIsisSpf_Enum']
+        return meta._meta_table['RcmdIsisSpfEnum']
 
 
-class RcmdLdpEvent_Enum(Enum):
+class RcmdLdpEventEnum(Enum):
     """
-    RcmdLdpEvent_Enum
+    RcmdLdpEventEnum
 
     Type of LDP Event
 
-    """
+    .. data:: NEIGHBOR = 1
+
+    	Neighbor Event
+
+    .. data:: ADJACENCY = 2
+
+    	Adjacency Event
 
     """
 
-    Neighbor Event
-
-    """
     NEIGHBOR = 1
 
-    """
-
-    Adjacency Event
-
-    """
     ADJACENCY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdLdpEvent_Enum']
+        return meta._meta_table['RcmdLdpEventEnum']
 
 
-class RcmdLinecardSpeed_Enum(Enum):
+class RcmdLinecardSpeedEnum(Enum):
     """
-    RcmdLinecardSpeed_Enum
+    RcmdLinecardSpeedEnum
 
     Comparative speed of programming on linecard
 
-    """
+    .. data:: OTHER = 0
+
+    	Other linecard
+
+    .. data:: FASTEST = 1
+
+    	Fastest linecard
+
+    .. data:: SLOWEST = 2
+
+    	Slowest linecard
 
     """
 
-    Other linecard
-
-    """
     OTHER = 0
 
-    """
-
-    Fastest linecard
-
-    """
     FASTEST = 1
 
-    """
-
-    Slowest linecard
-
-    """
     SLOWEST = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdLinecardSpeed_Enum']
+        return meta._meta_table['RcmdLinecardSpeedEnum']
 
 
-class RcmdLsChange_Enum(Enum):
+class RcmdLsChangeEnum(Enum):
     """
-    RcmdLsChange_Enum
+    RcmdLsChangeEnum
 
     Type of change
 
-    """
+    .. data:: NEW = 0
+
+    	Added
+
+    .. data:: DELETE = 1
+
+    	Deleted
+
+    .. data:: MODIFY = 2
+
+    	Modified
+
+    .. data:: NOOP = 3
+
+    	No operation
 
     """
 
-    Added
-
-    """
     NEW = 0
 
-    """
-
-    Deleted
-
-    """
     DELETE = 1
 
-    """
-
-    Modified
-
-    """
     MODIFY = 2
 
-    """
-
-    No operation
-
-    """
     NOOP = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdLsChange_Enum']
+        return meta._meta_table['RcmdLsChangeEnum']
 
 
-class RcmdLsa_Enum(Enum):
+class RcmdLsaEnum(Enum):
     """
-    RcmdLsa_Enum
+    RcmdLsaEnum
 
     Type of LSA
 
-    """
+    .. data:: UNKNOWN = 0
+
+    	Invalid LSA
+
+    .. data:: ROUTER = 1
+
+    	Router LSA
+
+    .. data:: NETWORK = 2
+
+    	Network LSA
+
+    .. data:: SUMMARY = 3
+
+    	Summary LSA
+
+    .. data:: ASBR = 4
+
+    	ASBR LSA
+
+    .. data:: EXTERNAL = 5
+
+    	External LSA
+
+    .. data:: MULTICAST = 6
+
+    	Multicast LSA
+
+    .. data:: NSSA = 7
+
+    	NSSA LSA
 
     """
 
-    Invalid LSA
-
-    """
     UNKNOWN = 0
 
-    """
-
-    Router LSA
-
-    """
     ROUTER = 1
 
-    """
-
-    Network LSA
-
-    """
     NETWORK = 2
 
-    """
-
-    Summary LSA
-
-    """
     SUMMARY = 3
 
-    """
-
-    ASBR LSA
-
-    """
     ASBR = 4
 
-    """
-
-    External LSA
-
-    """
     EXTERNAL = 5
 
-    """
-
-    Multicast LSA
-
-    """
     MULTICAST = 6
 
-    """
-
-    NSSA LSA
-
-    """
     NSSA = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdLsa_Enum']
+        return meta._meta_table['RcmdLsaEnum']
 
 
-class RcmdPriorityLevel_Enum(Enum):
+class RcmdPriorityLevelEnum(Enum):
     """
-    RcmdPriorityLevel_Enum
+    RcmdPriorityLevelEnum
 
     Level of priority
 
-    """
+    .. data:: CRITICAL = 0
+
+    	Critical
+
+    .. data:: HIGH = 1
+
+    	High
+
+    .. data:: MEDIUM = 2
+
+    	Medium
+
+    .. data:: LOW = 3
+
+    	Low
 
     """
 
-    Critical
-
-    """
     CRITICAL = 0
 
-    """
-
-    High
-
-    """
     HIGH = 1
 
-    """
-
-    Medium
-
-    """
     MEDIUM = 2
 
-    """
-
-    Low
-
-    """
     LOW = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdPriorityLevel_Enum']
+        return meta._meta_table['RcmdPriorityLevelEnum']
 
 
-class RcmdProtocolId_Enum(Enum):
+class RcmdProtocolIdEnum(Enum):
     """
-    RcmdProtocolId_Enum
+    RcmdProtocolIdEnum
 
     Protocol Info
 
-    """
+    .. data:: OSPF = 0
+
+    	OSPF protocol
+
+    .. data:: ISIS = 1
+
+    	ISIS Prrotocol
+
+    .. data:: NA = 2
+
+    	Max NA
 
     """
 
-    OSPF protocol
-
-    """
     OSPF = 0
 
-    """
-
-    ISIS Prrotocol
-
-    """
     ISIS = 1
 
-    """
-
-    Max NA
-
-    """
     NA = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdProtocolId_Enum']
+        return meta._meta_table['RcmdProtocolIdEnum']
 
 
-class RcmdShowCompId_Enum(Enum):
+class RcmdShowCompIdEnum(Enum):
     """
-    RcmdShowCompId_Enum
+    RcmdShowCompIdEnum
 
     Component Info
 
-    """
+    .. data:: OSPF = 0
+
+    	OSPF component
+
+    .. data:: ISIS = 1
+
+    	ISIS component
+
+    .. data:: UN_KNOWN = 2
+
+    	Max NA
 
     """
 
-    OSPF component
-
-    """
     OSPF = 0
 
-    """
-
-    ISIS component
-
-    """
     ISIS = 1
 
-    """
-
-    Max NA
-
-    """
     UN_KNOWN = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdShowCompId_Enum']
+        return meta._meta_table['RcmdShowCompIdEnum']
 
 
-class RcmdShowInstState_Enum(Enum):
+class RcmdShowInstStateEnum(Enum):
     """
-    RcmdShowInstState_Enum
+    RcmdShowInstStateEnum
 
     instance state
 
-    """
+    .. data:: UNKNOWN = 0
+
+    	Unknown state
+
+    .. data:: ACTIVE = 1
+
+    	Active state
+
+    .. data:: IN_ACTIVE = 2
+
+    	InActive state
+
+    .. data:: NA = 3
+
+    	Max state
 
     """
 
-    Unknown state
-
-    """
     UNKNOWN = 0
 
-    """
-
-    Active state
-
-    """
     ACTIVE = 1
 
-    """
-
-    InActive state
-
-    """
     IN_ACTIVE = 2
 
-    """
-
-    Max state
-
-    """
     NA = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdShowInstState_Enum']
+        return meta._meta_table['RcmdShowInstStateEnum']
 
 
-class RcmdShowIntfEvent_Enum(Enum):
+class RcmdShowIntfEventEnum(Enum):
     """
-    RcmdShowIntfEvent_Enum
+    RcmdShowIntfEventEnum
 
     Rcmd show intf event
 
-    """
+    .. data:: CREATE = 1
+
+    	Create
+
+    .. data:: DELETE = 2
+
+    	Delete
+
+    .. data:: LINK_UP = 3
+
+    	LinkUp
+
+    .. data:: LINK_DOWN = 4
+
+    	LinkDown
+
+    .. data:: PRIMARY_ADDRESS = 5
+
+    	PrimaryAddress
+
+    .. data:: SECONDARY_ADDRESS = 6
+
+    	SecondaryAddress
+
+    .. data:: IPV6_LINK_LOCAL_ADDRESS = 7
+
+    	Ipv6LinkLocalAddress
+
+    .. data:: IPV6_GLOBAL_ADDRESS = 8
+
+    	Ipv6GlobalAddress
+
+    .. data:: MTU = 9
+
+    	MTU
+
+    .. data:: BAND_WIDTH = 10
+
+    	BandWidth
+
+    .. data:: LDP_SYNC = 11
+
+    	LDPSync
+
+    .. data:: FORWARD_REFERENCE = 12
+
+    	ForwardReference
+
+    .. data:: LDP_NO_SYNC = 13
+
+    	LDPNoSync
 
     """
 
-    Create
-
-    """
     CREATE = 1
 
-    """
-
-    Delete
-
-    """
     DELETE = 2
 
-    """
-
-    LinkUp
-
-    """
     LINK_UP = 3
 
-    """
-
-    LinkDown
-
-    """
     LINK_DOWN = 4
 
-    """
-
-    PrimaryAddress
-
-    """
     PRIMARY_ADDRESS = 5
 
-    """
-
-    SecondaryAddress
-
-    """
     SECONDARY_ADDRESS = 6
 
-    """
-
-    Ipv6LinkLocalAddress
-
-    """
     IPV6_LINK_LOCAL_ADDRESS = 7
 
-    """
-
-    Ipv6GlobalAddress
-
-    """
     IPV6_GLOBAL_ADDRESS = 8
 
-    """
-
-    MTU
-
-    """
     MTU = 9
 
-    """
-
-    BandWidth
-
-    """
     BAND_WIDTH = 10
 
-    """
-
-    LDPSync
-
-    """
     LDP_SYNC = 11
 
-    """
-
-    ForwardReference
-
-    """
     FORWARD_REFERENCE = 12
 
-    """
-
-    LDPNoSync
-
-    """
     LDP_NO_SYNC = 13
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdShowIntfEvent_Enum']
+        return meta._meta_table['RcmdShowIntfEventEnum']
 
 
-class RcmdShowIpfrrLfa_Enum(Enum):
+class RcmdShowIpfrrLfaEnum(Enum):
     """
-    RcmdShowIpfrrLfa_Enum
+    RcmdShowIpfrrLfaEnum
 
     IP Frr LFA Types
 
-    """
+    .. data:: NONE = 0
+
+    	No IP Frr LFA Type 
+
+    .. data:: LOCAL = 1
+
+    	IP Frr Local LFA
+
+    .. data:: REMOTE = 2
+
+    	IP Frr Remote LFA
 
     """
 
-    No IP Frr LFA Type 
-
-    """
     NONE = 0
 
-    """
-
-    IP Frr Local LFA
-
-    """
     LOCAL = 1
 
-    """
-
-    IP Frr Remote LFA
-
-    """
     REMOTE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdShowIpfrrLfa_Enum']
+        return meta._meta_table['RcmdShowIpfrrLfaEnum']
 
 
-class RcmdShowLdpConvState_Enum(Enum):
+class RcmdShowLdpConvStateEnum(Enum):
     """
-    RcmdShowLdpConvState_Enum
+    RcmdShowLdpConvStateEnum
 
     LDP Convergence States
 
-    """
+    .. data:: NOT_FULL = 0
+
+    	Not Fully Covered
+
+    .. data:: FULLY_COVERED = 1
+
+    	Fully Covered
+
+    .. data:: COVERAGE_ABOVE_THRESHOLD = 2
+
+    	Backup Coverage Above Threshold
+
+    .. data:: COVERAGE_BELOW_THRESHOLD = 3
+
+    	Backup Coverage Below Threshold
+
+    .. data:: COVERAGE_FLAPPING = 4
+
+    	Backup Coverage is Flappping
 
     """
 
-    Not Fully Covered
-
-    """
     NOT_FULL = 0
 
-    """
-
-    Fully Covered
-
-    """
     FULLY_COVERED = 1
 
-    """
-
-    Backup Coverage Above Threshold
-
-    """
     COVERAGE_ABOVE_THRESHOLD = 2
 
-    """
-
-    Backup Coverage Below Threshold
-
-    """
     COVERAGE_BELOW_THRESHOLD = 3
 
-    """
-
-    Backup Coverage is Flappping
-
-    """
     COVERAGE_FLAPPING = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdShowLdpConvState_Enum']
+        return meta._meta_table['RcmdShowLdpConvStateEnum']
 
 
-class RcmdShowLdpNeighbourStatus_Enum(Enum):
+class RcmdShowLdpNeighbourStatusEnum(Enum):
     """
-    RcmdShowLdpNeighbourStatus_Enum
+    RcmdShowLdpNeighbourStatusEnum
 
     LDP Adjacency Session Status
 
-    """
+    .. data:: DOWN = 0
+
+    	Down State
+
+    .. data:: UP = 1
+
+    	Up State
 
     """
 
-    Down State
-
-    """
     DOWN = 0
 
-    """
-
-    Up State
-
-    """
     UP = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdShowLdpNeighbourStatus_Enum']
+        return meta._meta_table['RcmdShowLdpNeighbourStatusEnum']
 
 
-class RcmdShowLdpSessionState_Enum(Enum):
+class RcmdShowLdpSessionStateEnum(Enum):
     """
-    RcmdShowLdpSessionState_Enum
+    RcmdShowLdpSessionStateEnum
 
     LDP Session State
 
-    """
+    .. data:: GR_DOWN = 0
+
+    	GR Down State
+
+    .. data:: GR_CONVERGING = 1
+
+    	GR Converging State
+
+    .. data:: ESTABLISHING = 2
+
+    	Establishing State
+
+    .. data:: CONVERGING = 3
+
+    	Converging State
+
+    .. data:: CONVERGED = 4
+
+    	Converged State
+
+    .. data:: RETRYING = 5
+
+    	Retrying State
+
+    .. data:: TOTAL = 6
+
+    	Cumulative Coverage for all the States
 
     """
 
-    GR Down State
-
-    """
     GR_DOWN = 0
 
-    """
-
-    GR Converging State
-
-    """
     GR_CONVERGING = 1
 
-    """
-
-    Establishing State
-
-    """
     ESTABLISHING = 2
 
-    """
-
-    Converging State
-
-    """
     CONVERGING = 3
 
-    """
-
-    Converged State
-
-    """
     CONVERGED = 4
 
-    """
-
-    Retrying State
-
-    """
     RETRYING = 5
 
-    """
-
-    Cumulative Coverage for all the States
-
-    """
     TOTAL = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdShowLdpSessionState_Enum']
+        return meta._meta_table['RcmdShowLdpSessionStateEnum']
 
 
-class RcmdShowMem_Enum(Enum):
+class RcmdShowMemEnum(Enum):
     """
-    RcmdShowMem_Enum
+    RcmdShowMemEnum
 
     RCMD Memory Manager type
 
-    """
+    .. data:: STANDARD = 0
+
+    	Standard type
+
+    .. data:: CHUNK = 1
+
+    	Chunk type
+
+    .. data:: EDM = 2
+
+    	EDM type
+
+    .. data:: STRING = 3
+
+    	String type
+
+    .. data:: STATIC = 4
+
+    	Static type
+
+    .. data:: UNKNOWN = 5
+
+    	Unknown type
 
     """
 
-    Standard type
-
-    """
     STANDARD = 0
 
-    """
-
-    Chunk type
-
-    """
     CHUNK = 1
 
-    """
-
-    EDM type
-
-    """
     EDM = 2
 
-    """
-
-    String type
-
-    """
     STRING = 3
 
-    """
-
-    Static type
-
-    """
     STATIC = 4
 
-    """
-
-    Unknown type
-
-    """
     UNKNOWN = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdShowMem_Enum']
+        return meta._meta_table['RcmdShowMemEnum']
 
 
-class RcmdShowNode_Enum(Enum):
+class RcmdShowNodeEnum(Enum):
     """
-    RcmdShowNode_Enum
+    RcmdShowNodeEnum
 
     Type of Node
 
-    """
+    .. data:: UNKNOWN = 0
+
+    	Unknown Type
+
+    .. data:: LC = 1
+
+    	LC Type
+
+    .. data:: RP = 2
+
+    	RP Type
 
     """
 
-    Unknown Type
-
-    """
     UNKNOWN = 0
 
-    """
-
-    LC Type
-
-    """
     LC = 1
 
-    """
-
-    RP Type
-
-    """
     RP = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdShowNode_Enum']
+        return meta._meta_table['RcmdShowNodeEnum']
 
 
-class RcmdShowPrcsState_Enum(Enum):
+class RcmdShowPrcsStateEnum(Enum):
     """
-    RcmdShowPrcsState_Enum
+    RcmdShowPrcsStateEnum
 
     Post Processing Info
 
-    """
+    .. data:: SUCCESS = 0
+
+    	Success
+
+    .. data:: CPU = 1
+
+    	Cpu overload
+
+    .. data:: MEMORY = 2
+
+    	Memory overload
 
     """
 
-    Success
-
-    """
     SUCCESS = 0
 
-    """
-
-    Cpu overload
-
-    """
     CPU = 1
 
-    """
-
-    Memory overload
-
-    """
     MEMORY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdShowPrcsState_Enum']
+        return meta._meta_table['RcmdShowPrcsStateEnum']
 
 
-class RcmdShowRoutePathChange_Enum(Enum):
+class RcmdShowRouteEnum(Enum):
     """
-    RcmdShowRoutePathChange_Enum
-
-    Type of route change
-
-    """
-
-    """
-
-    Primary path is changed
-
-    """
-    PRIMARY = 0
-
-    """
-
-    Backup path is changed
-
-    """
-    BACKUP = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdShowRoutePathChange_Enum']
-
-
-class RcmdShowRoute_Enum(Enum):
-    """
-    RcmdShowRoute_Enum
+    RcmdShowRouteEnum
 
     Route Types
 
-    """
+    .. data:: OSPF = 0
+
+    	OSPF route init
+
+    .. data:: INTRA = 1
+
+    	OSPF Intra route
+
+    .. data:: INTER = 2
+
+    	OSPF Inter route
+
+    .. data:: EXT_1 = 3
+
+    	OSPF External Type-1 Route
+
+    .. data:: EXT_2 = 4
+
+    	OSPF External Type-2 Route
+
+    .. data:: NSSA_1 = 5
+
+    	OSPF NSSA Type-1 Route
+
+    .. data:: NSSA_2 = 6
+
+    	OSPF NSSA Type-2 Route
+
+    .. data:: ISIS = 7
+
+    	ISIS route init
+
+    .. data:: L1_SUMMARY = 8
+
+    	ISIS L1 Summary
+
+    .. data:: L1 = 9
+
+    	ISIS L1
+
+    .. data:: L2_SUMMARY = 10
+
+    	ISIS L2 Summary
+
+    .. data:: L2 = 11
+
+    	ISIS L2
+
+    .. data:: INTER_AREA_SUMMARY = 12
+
+    	ISIS Inter Area Summary
+
+    .. data:: INTER_AREA = 13
+
+    	ISIS Inter Area
+
+    .. data:: DEFAULT_ATTACHED = 14
+
+    	ISIS Default Route Attached
 
     """
 
-    OSPF route init
-
-    """
     OSPF = 0
 
-    """
-
-    OSPF Intra route
-
-    """
     INTRA = 1
 
-    """
-
-    OSPF Inter route
-
-    """
     INTER = 2
 
-    """
-
-    OSPF External Type\-1 Route
-
-    """
     EXT_1 = 3
 
-    """
-
-    OSPF External Type\-2 Route
-
-    """
     EXT_2 = 4
 
-    """
-
-    OSPF NSSA Type\-1 Route
-
-    """
     NSSA_1 = 5
 
-    """
-
-    OSPF NSSA Type\-2 Route
-
-    """
     NSSA_2 = 6
 
-    """
-
-    ISIS route init
-
-    """
     ISIS = 7
 
-    """
-
-    ISIS L1 Summary
-
-    """
     L1_SUMMARY = 8
 
-    """
-
-    ISIS L1
-
-    """
     L1 = 9
 
-    """
-
-    ISIS L2 Summary
-
-    """
     L2_SUMMARY = 10
 
-    """
-
-    ISIS L2
-
-    """
     L2 = 11
 
-    """
-
-    ISIS Inter Area Summary
-
-    """
     INTER_AREA_SUMMARY = 12
 
-    """
-
-    ISIS Inter Area
-
-    """
     INTER_AREA = 13
 
-    """
-
-    ISIS Default Route Attached
-
-    """
     DEFAULT_ATTACHED = 14
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdShowRoute_Enum']
+        return meta._meta_table['RcmdShowRouteEnum']
 
 
-class RcmdSpfState_Enum(Enum):
+class RcmdShowRoutePathChangeEnum(Enum):
     """
-    RcmdSpfState_Enum
+    RcmdShowRoutePathChangeEnum
+
+    Type of route change
+
+    .. data:: PRIMARY = 0
+
+    	Primary path is changed
+
+    .. data:: BACKUP = 1
+
+    	Backup path is changed
+
+    """
+
+    PRIMARY = 0
+
+    BACKUP = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
+        return meta._meta_table['RcmdShowRoutePathChangeEnum']
+
+
+class RcmdSpfStateEnum(Enum):
+    """
+    RcmdSpfStateEnum
 
     Type of an ISIS Level
 
-    """
+    .. data:: COMPLETE = 0
+
+    	Complete
+
+    .. data:: IN_COMPLETE = 1
+
+    	InComplete
+
+    .. data:: COLLECTING = 2
+
+    	Collecting data
+
+    .. data:: NO_ROUTE_CHANGE = 3
+
+    	No Route Change
 
     """
 
-    Complete
-
-    """
     COMPLETE = 0
 
-    """
-
-    InComplete
-
-    """
     IN_COMPLETE = 1
 
-    """
-
-    Collecting data
-
-    """
     COLLECTING = 2
 
-    """
-
-    No Route Change
-
-    """
     NO_ROUTE_CHANGE = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-        return meta._meta_table['RcmdSpfState_Enum']
+        return meta._meta_table['RcmdSpfStateEnum']
 
 
 
@@ -1308,7 +1197,7 @@ class Rcmd(object):
                 .. attribute:: component
                 
                 	Component info
-                	**type**\: :py:class:`RcmdShowCompId_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowCompId_Enum>`
+                	**type**\: :py:class:`RcmdShowCompIdEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowCompIdEnum>`
                 
                 .. attribute:: event_time
                 
@@ -1318,7 +1207,7 @@ class Rcmd(object):
                 .. attribute:: event_type
                 
                 	Event Info
-                	**type**\: :py:class:`RcmdShowIntfEvent_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIntfEvent_Enum>`
+                	**type**\: :py:class:`RcmdShowIntfEventEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIntfEventEnum>`
                 
                 .. attribute:: interface_name
                 
@@ -1370,8 +1259,6 @@ class Rcmd(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.event_no is not None:
                         return True
 
@@ -1395,10 +1282,6 @@ class Rcmd(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -1416,17 +1299,11 @@ class Rcmd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.event is not None:
                     for child_ref in self.event:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1446,18 +1323,9 @@ class Rcmd(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.events is not None and self.events._has_data():
                 return True
 
-            if self.events is not None and self.events.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1769,7 +1637,7 @@ class Rcmd(object):
                             .. attribute:: priority
                             
                             	Priority
-                            	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                            	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                             
                             .. attribute:: remote_lfa_coverage
                             
@@ -1815,8 +1683,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.below_threshold is not None:
                                     return True
 
@@ -1841,10 +1707,6 @@ class Rcmd(object):
                                 if self.total_routes is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1954,18 +1816,12 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
                                     if self.neighbour_address is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1987,8 +1843,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.in_use_time is not None:
                                     return True
 
@@ -2009,10 +1863,6 @@ class Rcmd(object):
                                 if self.remote_node_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2036,8 +1886,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.event_id is not None:
                                 return True
 
@@ -2086,10 +1934,6 @@ class Rcmd(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -2109,17 +1953,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ipfrr_event_offline is not None:
                             for child_ref in self.ipfrr_event_offline:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2306,7 +2144,7 @@ class Rcmd(object):
                             .. attribute:: priority
                             
                             	Priority
-                            	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                            	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                             
                             .. attribute:: remote_lfa_coverage
                             
@@ -2352,8 +2190,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.below_threshold is not None:
                                     return True
 
@@ -2378,10 +2214,6 @@ class Rcmd(object):
                                 if self.total_routes is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2491,18 +2323,12 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
                                     if self.neighbour_address is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2524,8 +2350,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.in_use_time is not None:
                                     return True
 
@@ -2546,10 +2370,6 @@ class Rcmd(object):
                                 if self.remote_node_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2573,8 +2393,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.event_id is not None:
                                 return True
 
@@ -2623,10 +2441,6 @@ class Rcmd(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -2646,17 +2460,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ipfrr_event_summary is not None:
                             for child_ref in self.ipfrr_event_summary:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2702,7 +2510,7 @@ class Rcmd(object):
                         .. attribute:: isis_level
                         
                         	ISIS Level
-                        	**type**\: :py:class:`RcmdIsisLvl_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvl_Enum>`
+                        	**type**\: :py:class:`RcmdIsisLvlEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvlEnum>`
                         
                         .. attribute:: lsp_id
                         
@@ -2774,8 +2582,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.serial_number is not None:
                                 return True
 
@@ -2802,10 +2608,6 @@ class Rcmd(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -2825,17 +2627,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.lsp_regenerated is not None:
                             for child_ref in self.lsp_regenerated:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2882,7 +2678,7 @@ class Rcmd(object):
                         .. attribute:: change_type
                         
                         	Event Add/Delete
-                        	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                        	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                         
                         .. attribute:: cost
                         
@@ -2935,17 +2731,17 @@ class Rcmd(object):
                         .. attribute:: priority
                         
                         	Event processed priority
-                        	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                        	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                         
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
-                        	**type**\: :py:class:`RcmdShowRoutePathChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChange_Enum>`
+                        	**type**\: :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
-                        	**type**\: :py:class:`RcmdShowRoute_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoute_Enum>`
+                        	**type**\: :py:class:`RcmdShowRouteEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
                         
                         .. attribute:: spf_run_no
                         
@@ -3065,8 +2861,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -3079,10 +2873,6 @@ class Rcmd(object):
                                 if self.slowest_node_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3098,7 +2888,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                            	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -3110,7 +2900,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\: :py:class:`RcmdLsa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa_Enum>`
+                            	**type**\: :py:class:`RcmdLsaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -3159,8 +2949,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -3179,10 +2967,6 @@ class Rcmd(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3243,8 +3027,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -3257,10 +3039,6 @@ class Rcmd(object):
                                 if self.slowest_node_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3276,7 +3054,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Event Add/Delete
-                            	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                            	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                             
                             .. attribute:: interface_name
                             
@@ -3327,7 +3105,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
-                                	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                                	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                                 
                                 .. attribute:: interface_name
                                 
@@ -3337,7 +3115,7 @@ class Rcmd(object):
                                 .. attribute:: lfa_type
                                 
                                 	Type of LFA
-                                	**type**\: :py:class:`RcmdShowIpfrrLfa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfa_Enum>`
+                                	**type**\: :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -3390,8 +3168,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.change_type is not None:
                                         return True
 
@@ -3410,10 +3186,6 @@ class Rcmd(object):
                                     if self.remote_node_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3435,8 +3207,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -3454,10 +3224,6 @@ class Rcmd(object):
                                 if self.path_metric is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3563,7 +3329,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -3592,8 +3358,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fib_complete is not None:
                                         return True
 
@@ -3603,10 +3367,6 @@ class Rcmd(object):
                                     if self.speed is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3633,7 +3393,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -3662,8 +3422,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fib_complete is not None:
                                         return True
 
@@ -3673,10 +3431,6 @@ class Rcmd(object):
                                     if self.speed is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3698,8 +3452,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.lc_ip is not None:
                                     for child_ref in self.lc_ip:
                                         if child_ref._has_data():
@@ -3736,10 +3488,6 @@ class Rcmd(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -3753,7 +3501,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                            	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -3765,7 +3513,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\: :py:class:`RcmdLsa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa_Enum>`
+                            	**type**\: :py:class:`RcmdLsaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -3814,8 +3562,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -3834,10 +3580,6 @@ class Rcmd(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3861,8 +3603,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.event_id is not None:
                                 return True
 
@@ -3875,9 +3615,6 @@ class Rcmd(object):
                             if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
                                 return True
 
-                            if self.ip_convergence_time is not None and self.ip_convergence_time.is_presence():
-                                return True
-
                             if self.ipfrr_event_id is not None:
                                 return True
 
@@ -3887,9 +3624,6 @@ class Rcmd(object):
                                         return True
 
                             if self.mpls_convergence_time is not None and self.mpls_convergence_time._has_data():
-                                return True
-
-                            if self.mpls_convergence_time is not None and self.mpls_convergence_time.is_presence():
                                 return True
 
                             if self.path is not None:
@@ -3933,10 +3667,6 @@ class Rcmd(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -3956,17 +3686,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.prefix_event_offline is not None:
                             for child_ref in self.prefix_event_offline:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4038,7 +3762,7 @@ class Rcmd(object):
                         .. attribute:: last_change_type
                         
                         	Last event Add/Delete
-                        	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                        	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                         
                         .. attribute:: last_cost
                         
@@ -4055,12 +3779,12 @@ class Rcmd(object):
                         .. attribute:: last_priority
                         
                         	Last event processed priority
-                        	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                        	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                         
                         .. attribute:: last_route_type
                         
                         	Last event Route Type
-                        	**type**\: :py:class:`RcmdShowRoute_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoute_Enum>`
+                        	**type**\: :py:class:`RcmdShowRouteEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
                         
                         .. attribute:: low_priority
                         
@@ -4146,8 +3870,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.prefix_info is not None:
                                 return True
 
@@ -4198,10 +3920,6 @@ class Rcmd(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -4221,17 +3939,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.prefix_event_statistic is not None:
                             for child_ref in self.prefix_event_statistic:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4277,7 +3989,7 @@ class Rcmd(object):
                         .. attribute:: change_type
                         
                         	Event Add/Delete
-                        	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                        	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                         
                         .. attribute:: cost
                         
@@ -4330,17 +4042,17 @@ class Rcmd(object):
                         .. attribute:: priority
                         
                         	Event processed priority
-                        	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                        	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                         
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
-                        	**type**\: :py:class:`RcmdShowRoutePathChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChange_Enum>`
+                        	**type**\: :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
-                        	**type**\: :py:class:`RcmdShowRoute_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoute_Enum>`
+                        	**type**\: :py:class:`RcmdShowRouteEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
                         
                         .. attribute:: spf_run_no
                         
@@ -4460,8 +4172,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -4474,10 +4184,6 @@ class Rcmd(object):
                                 if self.slowest_node_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4493,7 +4199,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                            	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -4505,7 +4211,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\: :py:class:`RcmdLsa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa_Enum>`
+                            	**type**\: :py:class:`RcmdLsaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -4554,8 +4260,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -4574,10 +4278,6 @@ class Rcmd(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4638,8 +4338,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -4652,10 +4350,6 @@ class Rcmd(object):
                                 if self.slowest_node_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4671,7 +4365,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Event Add/Delete
-                            	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                            	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                             
                             .. attribute:: interface_name
                             
@@ -4722,7 +4416,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
-                                	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                                	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                                 
                                 .. attribute:: interface_name
                                 
@@ -4732,7 +4426,7 @@ class Rcmd(object):
                                 .. attribute:: lfa_type
                                 
                                 	Type of LFA
-                                	**type**\: :py:class:`RcmdShowIpfrrLfa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfa_Enum>`
+                                	**type**\: :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -4785,8 +4479,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.change_type is not None:
                                         return True
 
@@ -4805,10 +4497,6 @@ class Rcmd(object):
                                     if self.remote_node_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4830,8 +4518,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -4849,10 +4535,6 @@ class Rcmd(object):
                                 if self.path_metric is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4958,7 +4640,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -4987,8 +4669,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fib_complete is not None:
                                         return True
 
@@ -4998,10 +4678,6 @@ class Rcmd(object):
                                     if self.speed is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5028,7 +4704,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -5057,8 +4733,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fib_complete is not None:
                                         return True
 
@@ -5068,10 +4742,6 @@ class Rcmd(object):
                                     if self.speed is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5093,8 +4763,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.lc_ip is not None:
                                     for child_ref in self.lc_ip:
                                         if child_ref._has_data():
@@ -5131,10 +4799,6 @@ class Rcmd(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -5148,7 +4812,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                            	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -5160,7 +4824,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\: :py:class:`RcmdLsa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa_Enum>`
+                            	**type**\: :py:class:`RcmdLsaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -5209,8 +4873,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -5229,10 +4891,6 @@ class Rcmd(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5256,8 +4914,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.event_id is not None:
                                 return True
 
@@ -5270,9 +4926,6 @@ class Rcmd(object):
                             if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
                                 return True
 
-                            if self.ip_convergence_time is not None and self.ip_convergence_time.is_presence():
-                                return True
-
                             if self.ipfrr_event_id is not None:
                                 return True
 
@@ -5282,9 +4935,6 @@ class Rcmd(object):
                                         return True
 
                             if self.mpls_convergence_time is not None and self.mpls_convergence_time._has_data():
-                                return True
-
-                            if self.mpls_convergence_time is not None and self.mpls_convergence_time.is_presence():
                                 return True
 
                             if self.path is not None:
@@ -5328,10 +4978,6 @@ class Rcmd(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -5351,17 +4997,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.prefix_event_summary is not None:
                             for child_ref in self.prefix_event_summary:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5490,7 +5130,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                            	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsp_id
                             
@@ -5537,8 +5177,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -5551,10 +5189,6 @@ class Rcmd(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5570,7 +5204,7 @@ class Rcmd(object):
                             .. attribute:: isis_level
                             
                             	ISIS Level
-                            	**type**\: :py:class:`RcmdIsisLvl_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvl_Enum>`
+                            	**type**\: :py:class:`RcmdIsisLvlEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvlEnum>`
                             
                             .. attribute:: lsp_id
                             
@@ -5639,8 +5273,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.isis_level is not None:
                                     return True
 
@@ -5662,10 +5294,6 @@ class Rcmd(object):
                                 if self.spf_run_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5750,8 +5378,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.adds is not None:
                                     return True
 
@@ -5770,10 +5396,6 @@ class Rcmd(object):
                                 if self.unreachables is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5933,7 +5555,7 @@ class Rcmd(object):
                                     .. attribute:: speed
                                     
                                     	Relative convergence speed
-                                    	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                    	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                     
                                     
 
@@ -5996,8 +5618,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -6007,10 +5627,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6032,12 +5648,7 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fib_complete is not None and self.fib_complete._has_data():
-                                            return True
-
-                                        if self.fib_complete is not None and self.fib_complete.is_presence():
                                             return True
 
                                         if self.node_name is not None:
@@ -6046,10 +5657,6 @@ class Rcmd(object):
                                         if self.speed is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6076,7 +5683,7 @@ class Rcmd(object):
                                     .. attribute:: speed
                                     
                                     	Relative convergence speed
-                                    	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                    	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                     
                                     
 
@@ -6139,8 +5746,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -6150,10 +5755,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6175,12 +5776,7 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fib_complete is not None and self.fib_complete._has_data():
-                                            return True
-
-                                        if self.fib_complete is not None and self.fib_complete.is_presence():
                                             return True
 
                                         if self.node_name is not None:
@@ -6189,10 +5785,6 @@ class Rcmd(object):
                                         if self.speed is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6247,8 +5839,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.duration is not None:
                                             return True
 
@@ -6258,10 +5848,6 @@ class Rcmd(object):
                                         if self.start_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6316,8 +5902,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.duration is not None:
                                             return True
 
@@ -6327,10 +5911,6 @@ class Rcmd(object):
                                         if self.start_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6385,8 +5965,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.duration is not None:
                                             return True
 
@@ -6396,10 +5974,6 @@ class Rcmd(object):
                                         if self.start_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6454,8 +6028,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.duration is not None:
                                             return True
 
@@ -6465,10 +6037,6 @@ class Rcmd(object):
                                         if self.start_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6523,8 +6091,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.duration is not None:
                                             return True
 
@@ -6534,10 +6100,6 @@ class Rcmd(object):
                                         if self.start_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6592,8 +6154,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.duration is not None:
                                             return True
 
@@ -6603,10 +6163,6 @@ class Rcmd(object):
                                         if self.start_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6661,8 +6217,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.duration is not None:
                                             return True
 
@@ -6672,10 +6226,6 @@ class Rcmd(object):
                                         if self.start_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6730,8 +6280,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.duration is not None:
                                             return True
 
@@ -6741,10 +6289,6 @@ class Rcmd(object):
                                         if self.start_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6766,8 +6310,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.lc_ip is not None:
                                         for child_ref in self.lc_ip:
                                             if child_ref._has_data():
@@ -6781,55 +6323,27 @@ class Rcmd(object):
                                     if self.ldp_enter is not None and self.ldp_enter._has_data():
                                         return True
 
-                                    if self.ldp_enter is not None and self.ldp_enter.is_presence():
-                                        return True
-
                                     if self.ldp_exit is not None and self.ldp_exit._has_data():
-                                        return True
-
-                                    if self.ldp_exit is not None and self.ldp_exit.is_presence():
                                         return True
 
                                     if self.lsd_enter is not None and self.lsd_enter._has_data():
                                         return True
 
-                                    if self.lsd_enter is not None and self.lsd_enter.is_presence():
-                                        return True
-
                                     if self.lsd_exit is not None and self.lsd_exit._has_data():
-                                        return True
-
-                                    if self.lsd_exit is not None and self.lsd_exit.is_presence():
                                         return True
 
                                     if self.ri_bv4_enter is not None and self.ri_bv4_enter._has_data():
                                         return True
 
-                                    if self.ri_bv4_enter is not None and self.ri_bv4_enter.is_presence():
-                                        return True
-
                                     if self.ri_bv4_exit is not None and self.ri_bv4_exit._has_data():
-                                        return True
-
-                                    if self.ri_bv4_exit is not None and self.ri_bv4_exit.is_presence():
                                         return True
 
                                     if self.ri_bv4_redistribute is not None and self.ri_bv4_redistribute._has_data():
                                         return True
 
-                                    if self.ri_bv4_redistribute is not None and self.ri_bv4_redistribute.is_presence():
-                                        return True
-
                                     if self.route_origin is not None and self.route_origin._has_data():
                                         return True
 
-                                    if self.route_origin is not None and self.route_origin.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6882,18 +6396,12 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
                                     if self.net_mask is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6946,18 +6454,12 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
                                     if self.net_mask is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6983,7 +6485,7 @@ class Rcmd(object):
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
-                                	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                                	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                 
                                 .. attribute:: mpls_convergence_time
                                 
@@ -7080,8 +6582,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.coverage is not None:
                                             return True
 
@@ -7094,10 +6594,6 @@ class Rcmd(object):
                                         if self.total_routes is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7158,8 +6654,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -7172,10 +6666,6 @@ class Rcmd(object):
                                         if self.slowest_node_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7236,8 +6726,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -7250,10 +6738,6 @@ class Rcmd(object):
                                         if self.slowest_node_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7338,8 +6822,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.adds is not None:
                                             return True
 
@@ -7358,10 +6840,6 @@ class Rcmd(object):
                                         if self.unreachables is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7383,8 +6861,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.frr_statistic is not None:
                                         for child_ref in self.frr_statistic:
                                             if child_ref._has_data():
@@ -7393,31 +6869,18 @@ class Rcmd(object):
                                     if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
                                         return True
 
-                                    if self.ip_convergence_time is not None and self.ip_convergence_time.is_presence():
-                                        return True
-
                                     if self.level is not None:
                                         return True
 
                                     if self.mpls_convergence_time is not None and self.mpls_convergence_time._has_data():
                                         return True
 
-                                    if self.mpls_convergence_time is not None and self.mpls_convergence_time.is_presence():
-                                        return True
-
                                     if self.route_statistics is not None and self.route_statistics._has_data():
-                                        return True
-
-                                    if self.route_statistics is not None and self.route_statistics.is_presence():
                                         return True
 
                                     if self.threshold_exceeded is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7439,8 +6902,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.convergence_timeline is not None:
                                     for child_ref in self.convergence_timeline:
                                         if child_ref._has_data():
@@ -7459,13 +6920,6 @@ class Rcmd(object):
                                 if self.priority_summary is not None and self.priority_summary._has_data():
                                     return True
 
-                                if self.priority_summary is not None and self.priority_summary.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7491,7 +6945,7 @@ class Rcmd(object):
                             .. attribute:: isis_level
                             
                             	ISIS Level
-                            	**type**\: :py:class:`RcmdIsisLvl_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvl_Enum>`
+                            	**type**\: :py:class:`RcmdIsisLvlEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvlEnum>`
                             
                             .. attribute:: priority_summary
                             
@@ -7501,7 +6955,7 @@ class Rcmd(object):
                             .. attribute:: state
                             
                             	SPF state
-                            	**type**\: :py:class:`RcmdSpfState_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfState_Enum>`
+                            	**type**\: :py:class:`RcmdSpfStateEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfStateEnum>`
                             
                             .. attribute:: threshold_exceeded
                             
@@ -7530,7 +6984,7 @@ class Rcmd(object):
                             .. attribute:: type
                             
                             	Type of SPF
-                            	**type**\: :py:class:`RcmdIsisSpf_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisSpf_Enum>`
+                            	**type**\: :py:class:`RcmdIsisSpfEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisSpfEnum>`
                             
                             
 
@@ -7573,7 +7027,7 @@ class Rcmd(object):
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
-                                	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                                	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                 
                                 .. attribute:: mpls_convergence_time
                                 
@@ -7670,8 +7124,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.coverage is not None:
                                             return True
 
@@ -7684,10 +7136,6 @@ class Rcmd(object):
                                         if self.total_routes is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7748,8 +7196,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -7762,10 +7208,6 @@ class Rcmd(object):
                                         if self.slowest_node_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7826,8 +7268,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -7840,10 +7280,6 @@ class Rcmd(object):
                                         if self.slowest_node_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7928,8 +7364,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.adds is not None:
                                             return True
 
@@ -7948,10 +7382,6 @@ class Rcmd(object):
                                         if self.unreachables is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7973,8 +7403,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.frr_statistic is not None:
                                         for child_ref in self.frr_statistic:
                                             if child_ref._has_data():
@@ -7983,31 +7411,18 @@ class Rcmd(object):
                                     if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
                                         return True
 
-                                    if self.ip_convergence_time is not None and self.ip_convergence_time.is_presence():
-                                        return True
-
                                     if self.level is not None:
                                         return True
 
                                     if self.mpls_convergence_time is not None and self.mpls_convergence_time._has_data():
                                         return True
 
-                                    if self.mpls_convergence_time is not None and self.mpls_convergence_time.is_presence():
-                                        return True
-
                                     if self.route_statistics is not None and self.route_statistics._has_data():
-                                        return True
-
-                                    if self.route_statistics is not None and self.route_statistics.is_presence():
                                         return True
 
                                     if self.threshold_exceeded is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8029,8 +7444,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.duration is not None:
                                     return True
 
@@ -8065,10 +7478,6 @@ class Rcmd(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -8082,7 +7491,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                            	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsp_id
                             
@@ -8129,8 +7538,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -8143,10 +7550,6 @@ class Rcmd(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8170,8 +7573,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.spf_run_number is not None:
                                 return True
 
@@ -8188,9 +7589,6 @@ class Rcmd(object):
                             if self.node_statistics is not None and self.node_statistics._has_data():
                                 return True
 
-                            if self.node_statistics is not None and self.node_statistics.is_presence():
-                                return True
-
                             if self.priority is not None:
                                 for child_ref in self.priority:
                                     if child_ref._has_data():
@@ -8200,9 +7598,6 @@ class Rcmd(object):
                                 return True
 
                             if self.spf_summary is not None and self.spf_summary._has_data():
-                                return True
-
-                            if self.spf_summary is not None and self.spf_summary.is_presence():
                                 return True
 
                             if self.start_time is not None:
@@ -8216,10 +7611,6 @@ class Rcmd(object):
                             if self.wait_time is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8241,17 +7632,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.spf_run_offline is not None:
                             for child_ref in self.spf_run_offline:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8379,7 +7764,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                            	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsp_id
                             
@@ -8426,8 +7811,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -8440,10 +7823,6 @@ class Rcmd(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8459,7 +7838,7 @@ class Rcmd(object):
                             .. attribute:: isis_level
                             
                             	ISIS Level
-                            	**type**\: :py:class:`RcmdIsisLvl_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvl_Enum>`
+                            	**type**\: :py:class:`RcmdIsisLvlEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvlEnum>`
                             
                             .. attribute:: lsp_id
                             
@@ -8528,8 +7907,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.isis_level is not None:
                                     return True
 
@@ -8551,10 +7928,6 @@ class Rcmd(object):
                                 if self.spf_run_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8639,8 +8012,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.adds is not None:
                                     return True
 
@@ -8659,10 +8030,6 @@ class Rcmd(object):
                                 if self.unreachables is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8822,7 +8189,7 @@ class Rcmd(object):
                                     .. attribute:: speed
                                     
                                     	Relative convergence speed
-                                    	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                    	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                     
                                     
 
@@ -8885,8 +8252,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -8896,10 +8261,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -8921,12 +8282,7 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fib_complete is not None and self.fib_complete._has_data():
-                                            return True
-
-                                        if self.fib_complete is not None and self.fib_complete.is_presence():
                                             return True
 
                                         if self.node_name is not None:
@@ -8935,10 +8291,6 @@ class Rcmd(object):
                                         if self.speed is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8965,7 +8317,7 @@ class Rcmd(object):
                                     .. attribute:: speed
                                     
                                     	Relative convergence speed
-                                    	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                    	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                     
                                     
 
@@ -9028,8 +8380,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -9039,10 +8389,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -9064,12 +8410,7 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fib_complete is not None and self.fib_complete._has_data():
-                                            return True
-
-                                        if self.fib_complete is not None and self.fib_complete.is_presence():
                                             return True
 
                                         if self.node_name is not None:
@@ -9078,10 +8419,6 @@ class Rcmd(object):
                                         if self.speed is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9136,8 +8473,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.duration is not None:
                                             return True
 
@@ -9147,10 +8482,6 @@ class Rcmd(object):
                                         if self.start_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9205,8 +8536,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.duration is not None:
                                             return True
 
@@ -9216,10 +8545,6 @@ class Rcmd(object):
                                         if self.start_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9274,8 +8599,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.duration is not None:
                                             return True
 
@@ -9285,10 +8608,6 @@ class Rcmd(object):
                                         if self.start_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9343,8 +8662,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.duration is not None:
                                             return True
 
@@ -9354,10 +8671,6 @@ class Rcmd(object):
                                         if self.start_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9412,8 +8725,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.duration is not None:
                                             return True
 
@@ -9423,10 +8734,6 @@ class Rcmd(object):
                                         if self.start_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9481,8 +8788,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.duration is not None:
                                             return True
 
@@ -9492,10 +8797,6 @@ class Rcmd(object):
                                         if self.start_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9550,8 +8851,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.duration is not None:
                                             return True
 
@@ -9561,10 +8860,6 @@ class Rcmd(object):
                                         if self.start_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9619,8 +8914,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.duration is not None:
                                             return True
 
@@ -9630,10 +8923,6 @@ class Rcmd(object):
                                         if self.start_time is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9655,8 +8944,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.lc_ip is not None:
                                         for child_ref in self.lc_ip:
                                             if child_ref._has_data():
@@ -9670,55 +8957,27 @@ class Rcmd(object):
                                     if self.ldp_enter is not None and self.ldp_enter._has_data():
                                         return True
 
-                                    if self.ldp_enter is not None and self.ldp_enter.is_presence():
-                                        return True
-
                                     if self.ldp_exit is not None and self.ldp_exit._has_data():
-                                        return True
-
-                                    if self.ldp_exit is not None and self.ldp_exit.is_presence():
                                         return True
 
                                     if self.lsd_enter is not None and self.lsd_enter._has_data():
                                         return True
 
-                                    if self.lsd_enter is not None and self.lsd_enter.is_presence():
-                                        return True
-
                                     if self.lsd_exit is not None and self.lsd_exit._has_data():
-                                        return True
-
-                                    if self.lsd_exit is not None and self.lsd_exit.is_presence():
                                         return True
 
                                     if self.ri_bv4_enter is not None and self.ri_bv4_enter._has_data():
                                         return True
 
-                                    if self.ri_bv4_enter is not None and self.ri_bv4_enter.is_presence():
-                                        return True
-
                                     if self.ri_bv4_exit is not None and self.ri_bv4_exit._has_data():
-                                        return True
-
-                                    if self.ri_bv4_exit is not None and self.ri_bv4_exit.is_presence():
                                         return True
 
                                     if self.ri_bv4_redistribute is not None and self.ri_bv4_redistribute._has_data():
                                         return True
 
-                                    if self.ri_bv4_redistribute is not None and self.ri_bv4_redistribute.is_presence():
-                                        return True
-
                                     if self.route_origin is not None and self.route_origin._has_data():
                                         return True
 
-                                    if self.route_origin is not None and self.route_origin.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9771,18 +9030,12 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
                                     if self.net_mask is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9835,18 +9088,12 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
                                     if self.net_mask is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9872,7 +9119,7 @@ class Rcmd(object):
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
-                                	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                                	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                 
                                 .. attribute:: mpls_convergence_time
                                 
@@ -9969,8 +9216,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.coverage is not None:
                                             return True
 
@@ -9983,10 +9228,6 @@ class Rcmd(object):
                                         if self.total_routes is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10047,8 +9288,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -10061,10 +9300,6 @@ class Rcmd(object):
                                         if self.slowest_node_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10125,8 +9360,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -10139,10 +9372,6 @@ class Rcmd(object):
                                         if self.slowest_node_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10227,8 +9456,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.adds is not None:
                                             return True
 
@@ -10247,10 +9474,6 @@ class Rcmd(object):
                                         if self.unreachables is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10272,8 +9495,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.frr_statistic is not None:
                                         for child_ref in self.frr_statistic:
                                             if child_ref._has_data():
@@ -10282,31 +9503,18 @@ class Rcmd(object):
                                     if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
                                         return True
 
-                                    if self.ip_convergence_time is not None and self.ip_convergence_time.is_presence():
-                                        return True
-
                                     if self.level is not None:
                                         return True
 
                                     if self.mpls_convergence_time is not None and self.mpls_convergence_time._has_data():
                                         return True
 
-                                    if self.mpls_convergence_time is not None and self.mpls_convergence_time.is_presence():
-                                        return True
-
                                     if self.route_statistics is not None and self.route_statistics._has_data():
-                                        return True
-
-                                    if self.route_statistics is not None and self.route_statistics.is_presence():
                                         return True
 
                                     if self.threshold_exceeded is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -10328,8 +9536,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.convergence_timeline is not None:
                                     for child_ref in self.convergence_timeline:
                                         if child_ref._has_data():
@@ -10348,13 +9554,6 @@ class Rcmd(object):
                                 if self.priority_summary is not None and self.priority_summary._has_data():
                                     return True
 
-                                if self.priority_summary is not None and self.priority_summary.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10380,7 +9579,7 @@ class Rcmd(object):
                             .. attribute:: isis_level
                             
                             	ISIS Level
-                            	**type**\: :py:class:`RcmdIsisLvl_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvl_Enum>`
+                            	**type**\: :py:class:`RcmdIsisLvlEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvlEnum>`
                             
                             .. attribute:: priority_summary
                             
@@ -10390,7 +9589,7 @@ class Rcmd(object):
                             .. attribute:: state
                             
                             	SPF state
-                            	**type**\: :py:class:`RcmdSpfState_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfState_Enum>`
+                            	**type**\: :py:class:`RcmdSpfStateEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfStateEnum>`
                             
                             .. attribute:: threshold_exceeded
                             
@@ -10419,7 +9618,7 @@ class Rcmd(object):
                             .. attribute:: type
                             
                             	Type of SPF
-                            	**type**\: :py:class:`RcmdIsisSpf_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisSpf_Enum>`
+                            	**type**\: :py:class:`RcmdIsisSpfEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisSpfEnum>`
                             
                             
 
@@ -10462,7 +9661,7 @@ class Rcmd(object):
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
-                                	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                                	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                 
                                 .. attribute:: mpls_convergence_time
                                 
@@ -10559,8 +9758,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.coverage is not None:
                                             return True
 
@@ -10573,10 +9770,6 @@ class Rcmd(object):
                                         if self.total_routes is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10637,8 +9830,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -10651,10 +9842,6 @@ class Rcmd(object):
                                         if self.slowest_node_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10715,8 +9902,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -10729,10 +9914,6 @@ class Rcmd(object):
                                         if self.slowest_node_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10817,8 +9998,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.adds is not None:
                                             return True
 
@@ -10837,10 +10016,6 @@ class Rcmd(object):
                                         if self.unreachables is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -10862,8 +10037,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.frr_statistic is not None:
                                         for child_ref in self.frr_statistic:
                                             if child_ref._has_data():
@@ -10872,31 +10045,18 @@ class Rcmd(object):
                                     if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
                                         return True
 
-                                    if self.ip_convergence_time is not None and self.ip_convergence_time.is_presence():
-                                        return True
-
                                     if self.level is not None:
                                         return True
 
                                     if self.mpls_convergence_time is not None and self.mpls_convergence_time._has_data():
                                         return True
 
-                                    if self.mpls_convergence_time is not None and self.mpls_convergence_time.is_presence():
-                                        return True
-
                                     if self.route_statistics is not None and self.route_statistics._has_data():
-                                        return True
-
-                                    if self.route_statistics is not None and self.route_statistics.is_presence():
                                         return True
 
                                     if self.threshold_exceeded is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -10918,8 +10078,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.duration is not None:
                                     return True
 
@@ -10954,10 +10112,6 @@ class Rcmd(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -10971,7 +10125,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                            	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsp_id
                             
@@ -11018,8 +10172,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -11032,10 +10184,6 @@ class Rcmd(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11059,8 +10207,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.spf_run_number is not None:
                                 return True
 
@@ -11077,9 +10223,6 @@ class Rcmd(object):
                             if self.node_statistics is not None and self.node_statistics._has_data():
                                 return True
 
-                            if self.node_statistics is not None and self.node_statistics.is_presence():
-                                return True
-
                             if self.priority is not None:
                                 for child_ref in self.priority:
                                     if child_ref._has_data():
@@ -11089,9 +10232,6 @@ class Rcmd(object):
                                 return True
 
                             if self.spf_summary is not None and self.spf_summary._has_data():
-                                return True
-
-                            if self.spf_summary is not None and self.spf_summary.is_presence():
                                 return True
 
                             if self.start_time is not None:
@@ -11105,10 +10245,6 @@ class Rcmd(object):
                             if self.wait_time is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11130,17 +10266,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.spf_run_summary is not None:
                             for child_ref in self.spf_run_summary:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11162,63 +10292,33 @@ class Rcmd(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.instance_name is not None:
                         return True
 
                     if self.ipfrr_event_offlines is not None and self.ipfrr_event_offlines._has_data():
                         return True
 
-                    if self.ipfrr_event_offlines is not None and self.ipfrr_event_offlines.is_presence():
-                        return True
-
                     if self.ipfrr_event_summaries is not None and self.ipfrr_event_summaries._has_data():
-                        return True
-
-                    if self.ipfrr_event_summaries is not None and self.ipfrr_event_summaries.is_presence():
                         return True
 
                     if self.lsp_regenerateds is not None and self.lsp_regenerateds._has_data():
                         return True
 
-                    if self.lsp_regenerateds is not None and self.lsp_regenerateds.is_presence():
-                        return True
-
                     if self.prefix_event_offlines is not None and self.prefix_event_offlines._has_data():
-                        return True
-
-                    if self.prefix_event_offlines is not None and self.prefix_event_offlines.is_presence():
                         return True
 
                     if self.prefix_event_statistics is not None and self.prefix_event_statistics._has_data():
                         return True
 
-                    if self.prefix_event_statistics is not None and self.prefix_event_statistics.is_presence():
-                        return True
-
                     if self.prefix_event_summaries is not None and self.prefix_event_summaries._has_data():
-                        return True
-
-                    if self.prefix_event_summaries is not None and self.prefix_event_summaries.is_presence():
                         return True
 
                     if self.spf_run_offlines is not None and self.spf_run_offlines._has_data():
                         return True
 
-                    if self.spf_run_offlines is not None and self.spf_run_offlines.is_presence():
-                        return True
-
                     if self.spf_run_summaries is not None and self.spf_run_summaries._has_data():
                         return True
 
-                    if self.spf_run_summaries is not None and self.spf_run_summaries.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11238,17 +10338,11 @@ class Rcmd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.instance is not None:
                     for child_ref in self.instance:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -11268,18 +10362,9 @@ class Rcmd(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.instances is not None and self.instances._has_data():
                 return True
 
-            if self.instances is not None and self.instances.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -11378,7 +10463,7 @@ class Rcmd(object):
                 .. attribute:: igp_protocol
                 
                 	IGP Protocol
-                	**type**\: :py:class:`RcmdProtocolId_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolId_Enum>`
+                	**type**\: :py:class:`RcmdProtocolIdEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolIdEnum>`
                 
                 .. attribute:: ipfrr_event_id
                 
@@ -11441,7 +10526,7 @@ class Rcmd(object):
                     .. attribute:: label_coverage_state
                     
                     	Label Coverage State
-                    	**type**\: :py:class:`RcmdShowLdpConvState_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpConvState_Enum>`
+                    	**type**\: :py:class:`RcmdShowLdpConvStateEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpConvStateEnum>`
                     
                     .. attribute:: log_time
                     
@@ -11490,8 +10575,6 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.label_coverage_state is not None:
                             return True
 
@@ -11504,10 +10587,6 @@ class Rcmd(object):
                         if self.route_count is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11577,7 +10656,7 @@ class Rcmd(object):
                     .. attribute:: session_state
                     
                     	Session State
-                    	**type**\: :py:class:`RcmdShowLdpSessionState_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionState_Enum>`
+                    	**type**\: :py:class:`RcmdShowLdpSessionStateEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionStateEnum>`
                     
                     .. attribute:: transport_address
                     
@@ -11620,8 +10699,6 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.in_use_time is not None:
                             return True
 
@@ -11652,10 +10729,6 @@ class Rcmd(object):
                         if self.transport_address is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11713,7 +10786,7 @@ class Rcmd(object):
                     .. attribute:: session_state
                     
                     	Session State
-                    	**type**\: :py:class:`RcmdShowLdpSessionState_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionState_Enum>`
+                    	**type**\: :py:class:`RcmdShowLdpSessionStateEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionStateEnum>`
                     
                     
 
@@ -11746,8 +10819,6 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.path_count is not None:
                             return True
 
@@ -11771,10 +10842,6 @@ class Rcmd(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -11794,8 +10861,6 @@ class Rcmd(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.event_id is not None:
                         return True
 
@@ -11834,10 +10899,6 @@ class Rcmd(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -11855,17 +10916,11 @@ class Rcmd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.remote_lfa is not None:
                     for child_ref in self.remote_lfa:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -11928,7 +10983,7 @@ class Rcmd(object):
                 .. attribute:: igp_protocol
                 
                 	IGP Protocol
-                	**type**\: :py:class:`RcmdProtocolId_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolId_Enum>`
+                	**type**\: :py:class:`RcmdProtocolIdEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolIdEnum>`
                 
                 .. attribute:: ipfrr_event_id
                 
@@ -11991,7 +11046,7 @@ class Rcmd(object):
                     .. attribute:: label_coverage_state
                     
                     	Label Coverage State
-                    	**type**\: :py:class:`RcmdShowLdpConvState_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpConvState_Enum>`
+                    	**type**\: :py:class:`RcmdShowLdpConvStateEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpConvStateEnum>`
                     
                     .. attribute:: log_time
                     
@@ -12040,8 +11095,6 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.label_coverage_state is not None:
                             return True
 
@@ -12054,10 +11107,6 @@ class Rcmd(object):
                         if self.route_count is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12127,7 +11176,7 @@ class Rcmd(object):
                     .. attribute:: session_state
                     
                     	Session State
-                    	**type**\: :py:class:`RcmdShowLdpSessionState_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionState_Enum>`
+                    	**type**\: :py:class:`RcmdShowLdpSessionStateEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionStateEnum>`
                     
                     .. attribute:: transport_address
                     
@@ -12170,8 +11219,6 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.in_use_time is not None:
                             return True
 
@@ -12202,10 +11249,6 @@ class Rcmd(object):
                         if self.transport_address is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12263,7 +11306,7 @@ class Rcmd(object):
                     .. attribute:: session_state
                     
                     	Session State
-                    	**type**\: :py:class:`RcmdShowLdpSessionState_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionState_Enum>`
+                    	**type**\: :py:class:`RcmdShowLdpSessionStateEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionStateEnum>`
                     
                     
 
@@ -12296,8 +11339,6 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.path_count is not None:
                             return True
 
@@ -12321,10 +11362,6 @@ class Rcmd(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -12344,8 +11381,6 @@ class Rcmd(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.event_id is not None:
                         return True
 
@@ -12384,10 +11419,6 @@ class Rcmd(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -12405,17 +11436,11 @@ class Rcmd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.remote_lfa_summary is not None:
                     for child_ref in self.remote_lfa_summary:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -12480,7 +11505,7 @@ class Rcmd(object):
                 .. attribute:: event_type
                 
                 	Type of event
-                	**type**\: :py:class:`RcmdLdpEvent_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLdpEvent_Enum>`
+                	**type**\: :py:class:`RcmdLdpEventEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLdpEventEnum>`
                 
                 .. attribute:: interface_name
                 
@@ -12497,7 +11522,7 @@ class Rcmd(object):
                 .. attribute:: state
                 
                 	Adjacency Session Status
-                	**type**\: :py:class:`RcmdShowLdpNeighbourStatus_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpNeighbourStatus_Enum>`
+                	**type**\: :py:class:`RcmdShowLdpNeighbourStatusEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpNeighbourStatusEnum>`
                 
                 
 
@@ -12531,8 +11556,6 @@ class Rcmd(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.event_id is not None:
                         return True
 
@@ -12559,10 +11582,6 @@ class Rcmd(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -12580,17 +11599,11 @@ class Rcmd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.session is not None:
                     for child_ref in self.session:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -12610,30 +11623,15 @@ class Rcmd(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.remote_lfa_s is not None and self.remote_lfa_s._has_data():
-                return True
-
-            if self.remote_lfa_s is not None and self.remote_lfa_s.is_presence():
                 return True
 
             if self.remote_lfa_summaries is not None and self.remote_lfa_summaries._has_data():
                 return True
 
-            if self.remote_lfa_summaries is not None and self.remote_lfa_summaries.is_presence():
-                return True
-
             if self.sessions is not None and self.sessions._has_data():
                 return True
 
-            if self.sessions is not None and self.sessions.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -12739,8 +11737,6 @@ class Rcmd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.failure is not None:
                     return True
 
@@ -12753,10 +11749,6 @@ class Rcmd(object):
                 if self.total is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -12800,7 +11792,7 @@ class Rcmd(object):
             .. attribute:: memory_type
             
             	Memory Type
-            	**type**\: :py:class:`RcmdShowMem_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowMem_Enum>`
+            	**type**\: :py:class:`RcmdShowMemEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowMemEnum>`
             
             .. attribute:: size
             
@@ -12843,8 +11835,6 @@ class Rcmd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.alloc_count is not None:
                     return True
 
@@ -12866,10 +11856,6 @@ class Rcmd(object):
                 if self.structure_name is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -12936,8 +11922,6 @@ class Rcmd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.failure is not None:
                     return True
 
@@ -12950,10 +11934,6 @@ class Rcmd(object):
                 if self.total is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -12973,8 +11953,6 @@ class Rcmd(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.edm_memory_info is not None:
                 for child_ref in self.edm_memory_info:
                     if child_ref._has_data():
@@ -12990,10 +11968,6 @@ class Rcmd(object):
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -13046,7 +12020,7 @@ class Rcmd(object):
             .. attribute:: fwd_referenced
             
             	Forward Referenced
-            	**type**\: :py:class:`RcmdBoolYesNo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo_Enum>`
+            	**type**\: :py:class:`RcmdBoolYesNoEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
             
             .. attribute:: last_update_time
             
@@ -13068,12 +12042,12 @@ class Rcmd(object):
             .. attribute:: node_state
             
             	Node State
-            	**type**\: :py:class:`RcmdBoolYesNo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo_Enum>`
+            	**type**\: :py:class:`RcmdBoolYesNoEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
             
             .. attribute:: node_type
             
             	Node Type
-            	**type**\: :py:class:`RcmdShowNode_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowNode_Enum>`
+            	**type**\: :py:class:`RcmdShowNodeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowNodeEnum>`
             
             .. attribute:: rack_id
             
@@ -13099,7 +12073,7 @@ class Rcmd(object):
             .. attribute:: status
             
             	Status
-            	**type**\: :py:class:`RcmdBagEnblDsbl_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBagEnblDsbl_Enum>`
+            	**type**\: :py:class:`RcmdBagEnblDsblEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBagEnblDsblEnum>`
             
             
 
@@ -13135,8 +12109,6 @@ class Rcmd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.card_state is not None:
                     return True
 
@@ -13175,10 +12147,6 @@ class Rcmd(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -13196,17 +12164,11 @@ class Rcmd(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node_information is not None:
                 for child_ref in self.node_information:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -13532,7 +12494,7 @@ class Rcmd(object):
                             .. attribute:: priority
                             
                             	Priority
-                            	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                            	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                             
                             .. attribute:: remote_lfa_coverage
                             
@@ -13578,8 +12540,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.below_threshold is not None:
                                     return True
 
@@ -13604,10 +12564,6 @@ class Rcmd(object):
                                 if self.total_routes is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -13717,18 +12673,12 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
                                     if self.neighbour_address is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -13750,8 +12700,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.in_use_time is not None:
                                     return True
 
@@ -13772,10 +12720,6 @@ class Rcmd(object):
                                 if self.remote_node_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -13799,8 +12743,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.event_id is not None:
                                 return True
 
@@ -13849,10 +12791,6 @@ class Rcmd(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -13872,17 +12810,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ipfrr_event_offline is not None:
                             for child_ref in self.ipfrr_event_offline:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14069,7 +13001,7 @@ class Rcmd(object):
                             .. attribute:: priority
                             
                             	Priority
-                            	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                            	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                             
                             .. attribute:: remote_lfa_coverage
                             
@@ -14115,8 +13047,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.below_threshold is not None:
                                     return True
 
@@ -14141,10 +13071,6 @@ class Rcmd(object):
                                 if self.total_routes is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14254,18 +13180,12 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
                                     if self.neighbour_address is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -14287,8 +13207,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.in_use_time is not None:
                                     return True
 
@@ -14309,10 +13227,6 @@ class Rcmd(object):
                                 if self.remote_node_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14336,8 +13250,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.event_id is not None:
                                 return True
 
@@ -14386,10 +13298,6 @@ class Rcmd(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -14409,17 +13317,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ipfrr_event_summary is not None:
                             for child_ref in self.ipfrr_event_summary:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14466,7 +13368,7 @@ class Rcmd(object):
                         .. attribute:: change_type
                         
                         	Event Add/Delete
-                        	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                        	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                         
                         .. attribute:: cost
                         
@@ -14519,17 +13421,17 @@ class Rcmd(object):
                         .. attribute:: priority
                         
                         	Event processed priority
-                        	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                        	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                         
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
-                        	**type**\: :py:class:`RcmdShowRoutePathChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChange_Enum>`
+                        	**type**\: :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
-                        	**type**\: :py:class:`RcmdShowRoute_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoute_Enum>`
+                        	**type**\: :py:class:`RcmdShowRouteEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
                         
                         .. attribute:: spf_run_no
                         
@@ -14649,8 +13551,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -14663,10 +13563,6 @@ class Rcmd(object):
                                 if self.slowest_node_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14682,7 +13578,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                            	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -14694,7 +13590,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\: :py:class:`RcmdLsa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa_Enum>`
+                            	**type**\: :py:class:`RcmdLsaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -14743,8 +13639,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -14763,10 +13657,6 @@ class Rcmd(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14827,8 +13717,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -14841,10 +13729,6 @@ class Rcmd(object):
                                 if self.slowest_node_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14860,7 +13744,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Event Add/Delete
-                            	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                            	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                             
                             .. attribute:: interface_name
                             
@@ -14911,7 +13795,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
-                                	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                                	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                                 
                                 .. attribute:: interface_name
                                 
@@ -14921,7 +13805,7 @@ class Rcmd(object):
                                 .. attribute:: lfa_type
                                 
                                 	Type of LFA
-                                	**type**\: :py:class:`RcmdShowIpfrrLfa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfa_Enum>`
+                                	**type**\: :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -14974,8 +13858,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.change_type is not None:
                                         return True
 
@@ -14994,10 +13876,6 @@ class Rcmd(object):
                                     if self.remote_node_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -15019,8 +13897,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -15038,10 +13914,6 @@ class Rcmd(object):
                                 if self.path_metric is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -15147,7 +14019,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -15176,8 +14048,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fib_complete is not None:
                                         return True
 
@@ -15187,10 +14057,6 @@ class Rcmd(object):
                                     if self.speed is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -15217,7 +14083,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -15246,8 +14112,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fib_complete is not None:
                                         return True
 
@@ -15257,10 +14121,6 @@ class Rcmd(object):
                                     if self.speed is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -15282,8 +14142,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.lc_ip is not None:
                                     for child_ref in self.lc_ip:
                                         if child_ref._has_data():
@@ -15320,10 +14178,6 @@ class Rcmd(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -15337,7 +14191,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                            	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -15349,7 +14203,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\: :py:class:`RcmdLsa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa_Enum>`
+                            	**type**\: :py:class:`RcmdLsaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -15398,8 +14252,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -15418,10 +14270,6 @@ class Rcmd(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -15445,8 +14293,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.event_id is not None:
                                 return True
 
@@ -15459,9 +14305,6 @@ class Rcmd(object):
                             if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
                                 return True
 
-                            if self.ip_convergence_time is not None and self.ip_convergence_time.is_presence():
-                                return True
-
                             if self.ipfrr_event_id is not None:
                                 return True
 
@@ -15471,9 +14314,6 @@ class Rcmd(object):
                                         return True
 
                             if self.mpls_convergence_time is not None and self.mpls_convergence_time._has_data():
-                                return True
-
-                            if self.mpls_convergence_time is not None and self.mpls_convergence_time.is_presence():
                                 return True
 
                             if self.path is not None:
@@ -15517,10 +14357,6 @@ class Rcmd(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -15540,17 +14376,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.prefix_event_offline is not None:
                             for child_ref in self.prefix_event_offline:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15622,7 +14452,7 @@ class Rcmd(object):
                         .. attribute:: last_change_type
                         
                         	Last event Add/Delete
-                        	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                        	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                         
                         .. attribute:: last_cost
                         
@@ -15639,12 +14469,12 @@ class Rcmd(object):
                         .. attribute:: last_priority
                         
                         	Last event processed priority
-                        	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                        	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                         
                         .. attribute:: last_route_type
                         
                         	Last event Route Type
-                        	**type**\: :py:class:`RcmdShowRoute_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoute_Enum>`
+                        	**type**\: :py:class:`RcmdShowRouteEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
                         
                         .. attribute:: low_priority
                         
@@ -15730,8 +14560,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.prefix_info is not None:
                                 return True
 
@@ -15782,10 +14610,6 @@ class Rcmd(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -15805,17 +14629,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.prefix_event_statistic is not None:
                             for child_ref in self.prefix_event_statistic:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15861,7 +14679,7 @@ class Rcmd(object):
                         .. attribute:: change_type
                         
                         	Event Add/Delete
-                        	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                        	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                         
                         .. attribute:: cost
                         
@@ -15914,17 +14732,17 @@ class Rcmd(object):
                         .. attribute:: priority
                         
                         	Event processed priority
-                        	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                        	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                         
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
-                        	**type**\: :py:class:`RcmdShowRoutePathChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChange_Enum>`
+                        	**type**\: :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
-                        	**type**\: :py:class:`RcmdShowRoute_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoute_Enum>`
+                        	**type**\: :py:class:`RcmdShowRouteEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
                         
                         .. attribute:: spf_run_no
                         
@@ -16044,8 +14862,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -16058,10 +14874,6 @@ class Rcmd(object):
                                 if self.slowest_node_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16077,7 +14889,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                            	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -16089,7 +14901,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\: :py:class:`RcmdLsa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa_Enum>`
+                            	**type**\: :py:class:`RcmdLsaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -16138,8 +14950,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -16158,10 +14968,6 @@ class Rcmd(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16222,8 +15028,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -16236,10 +15040,6 @@ class Rcmd(object):
                                 if self.slowest_node_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16255,7 +15055,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Event Add/Delete
-                            	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                            	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                             
                             .. attribute:: interface_name
                             
@@ -16306,7 +15106,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
-                                	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                                	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                                 
                                 .. attribute:: interface_name
                                 
@@ -16316,7 +15116,7 @@ class Rcmd(object):
                                 .. attribute:: lfa_type
                                 
                                 	Type of LFA
-                                	**type**\: :py:class:`RcmdShowIpfrrLfa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfa_Enum>`
+                                	**type**\: :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -16369,8 +15169,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.change_type is not None:
                                         return True
 
@@ -16389,10 +15187,6 @@ class Rcmd(object):
                                     if self.remote_node_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -16414,8 +15208,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -16433,10 +15225,6 @@ class Rcmd(object):
                                 if self.path_metric is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16542,7 +15330,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -16571,8 +15359,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fib_complete is not None:
                                         return True
 
@@ -16582,10 +15368,6 @@ class Rcmd(object):
                                     if self.speed is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -16612,7 +15394,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -16641,8 +15423,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fib_complete is not None:
                                         return True
 
@@ -16652,10 +15432,6 @@ class Rcmd(object):
                                     if self.speed is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -16677,8 +15453,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.lc_ip is not None:
                                     for child_ref in self.lc_ip:
                                         if child_ref._has_data():
@@ -16715,10 +15489,6 @@ class Rcmd(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -16732,7 +15502,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                            	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -16744,7 +15514,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\: :py:class:`RcmdLsa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa_Enum>`
+                            	**type**\: :py:class:`RcmdLsaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -16793,8 +15563,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -16813,10 +15581,6 @@ class Rcmd(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16840,8 +15604,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.event_id is not None:
                                 return True
 
@@ -16854,9 +15616,6 @@ class Rcmd(object):
                             if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
                                 return True
 
-                            if self.ip_convergence_time is not None and self.ip_convergence_time.is_presence():
-                                return True
-
                             if self.ipfrr_event_id is not None:
                                 return True
 
@@ -16866,9 +15625,6 @@ class Rcmd(object):
                                         return True
 
                             if self.mpls_convergence_time is not None and self.mpls_convergence_time._has_data():
-                                return True
-
-                            if self.mpls_convergence_time is not None and self.mpls_convergence_time.is_presence():
                                 return True
 
                             if self.path is not None:
@@ -16912,10 +15668,6 @@ class Rcmd(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -16935,17 +15687,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.prefix_event_summary is not None:
                             for child_ref in self.prefix_event_summary:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -17118,7 +15864,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Add, Delete, Modify
-                                	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                                	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                                 
                                 .. attribute:: lsa_id
                                 
@@ -17130,7 +15876,7 @@ class Rcmd(object):
                                 .. attribute:: lsa_type
                                 
                                 	LSA type
-                                	**type**\: :py:class:`RcmdLsa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa_Enum>`
+                                	**type**\: :py:class:`RcmdLsaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                                 
                                 .. attribute:: origin_router_id
                                 
@@ -17179,8 +15925,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.change_type is not None:
                                         return True
 
@@ -17199,10 +15943,6 @@ class Rcmd(object):
                                     if self.sequence_number is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17362,7 +16102,7 @@ class Rcmd(object):
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
-                                        	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                        	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                         
                                         
 
@@ -17425,8 +16165,6 @@ class Rcmd(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.duration is not None:
                                                     return True
 
@@ -17436,10 +16174,6 @@ class Rcmd(object):
                                                 if self.start_time is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -17461,12 +16195,7 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fib_complete is not None and self.fib_complete._has_data():
-                                                return True
-
-                                            if self.fib_complete is not None and self.fib_complete.is_presence():
                                                 return True
 
                                             if self.node_name is not None:
@@ -17475,10 +16204,6 @@ class Rcmd(object):
                                             if self.speed is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -17505,7 +16230,7 @@ class Rcmd(object):
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
-                                        	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                        	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                         
                                         
 
@@ -17568,8 +16293,6 @@ class Rcmd(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.duration is not None:
                                                     return True
 
@@ -17579,10 +16302,6 @@ class Rcmd(object):
                                                 if self.start_time is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -17604,12 +16323,7 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fib_complete is not None and self.fib_complete._has_data():
-                                                return True
-
-                                            if self.fib_complete is not None and self.fib_complete.is_presence():
                                                 return True
 
                                             if self.node_name is not None:
@@ -17618,10 +16332,6 @@ class Rcmd(object):
                                             if self.speed is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -17676,8 +16386,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -17687,10 +16395,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -17745,8 +16449,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -17756,10 +16458,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -17814,8 +16512,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -17825,10 +16521,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -17883,8 +16575,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -17894,10 +16584,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -17952,8 +16638,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -17963,10 +16647,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -18021,8 +16701,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -18032,10 +16710,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -18090,8 +16764,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -18101,10 +16773,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -18159,8 +16827,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -18170,10 +16836,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -18195,8 +16857,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.lc_ip is not None:
                                             for child_ref in self.lc_ip:
                                                 if child_ref._has_data():
@@ -18210,55 +16870,27 @@ class Rcmd(object):
                                         if self.ldp_enter is not None and self.ldp_enter._has_data():
                                             return True
 
-                                        if self.ldp_enter is not None and self.ldp_enter.is_presence():
-                                            return True
-
                                         if self.ldp_exit is not None and self.ldp_exit._has_data():
-                                            return True
-
-                                        if self.ldp_exit is not None and self.ldp_exit.is_presence():
                                             return True
 
                                         if self.lsd_enter is not None and self.lsd_enter._has_data():
                                             return True
 
-                                        if self.lsd_enter is not None and self.lsd_enter.is_presence():
-                                            return True
-
                                         if self.lsd_exit is not None and self.lsd_exit._has_data():
-                                            return True
-
-                                        if self.lsd_exit is not None and self.lsd_exit.is_presence():
                                             return True
 
                                         if self.ri_bv4_enter is not None and self.ri_bv4_enter._has_data():
                                             return True
 
-                                        if self.ri_bv4_enter is not None and self.ri_bv4_enter.is_presence():
-                                            return True
-
                                         if self.ri_bv4_exit is not None and self.ri_bv4_exit._has_data():
-                                            return True
-
-                                        if self.ri_bv4_exit is not None and self.ri_bv4_exit.is_presence():
                                             return True
 
                                         if self.ri_bv4_redistribute is not None and self.ri_bv4_redistribute._has_data():
                                             return True
 
-                                        if self.ri_bv4_redistribute is not None and self.ri_bv4_redistribute.is_presence():
-                                            return True
-
                                         if self.route_origin is not None and self.route_origin._has_data():
                                             return True
 
-                                        if self.route_origin is not None and self.route_origin.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -18311,18 +16943,12 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
                                         if self.net_mask is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -18375,18 +17001,12 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
                                         if self.net_mask is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -18412,7 +17032,7 @@ class Rcmd(object):
                                     .. attribute:: level
                                     
                                     	Critical, High, Medium or Low
-                                    	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                                    	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                     
                                     .. attribute:: mpls_convergence_time
                                     
@@ -18509,8 +17129,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.coverage is not None:
                                                 return True
 
@@ -18523,10 +17141,6 @@ class Rcmd(object):
                                             if self.total_routes is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -18587,8 +17201,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fastest_node_name is not None:
                                                 return True
 
@@ -18601,10 +17213,6 @@ class Rcmd(object):
                                             if self.slowest_node_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -18665,8 +17273,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fastest_node_name is not None:
                                                 return True
 
@@ -18679,10 +17285,6 @@ class Rcmd(object):
                                             if self.slowest_node_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -18767,8 +17369,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.adds is not None:
                                                 return True
 
@@ -18787,10 +17387,6 @@ class Rcmd(object):
                                             if self.unreachables is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -18812,8 +17408,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.frr_statistic is not None:
                                             for child_ref in self.frr_statistic:
                                                 if child_ref._has_data():
@@ -18822,31 +17416,18 @@ class Rcmd(object):
                                         if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
                                             return True
 
-                                        if self.ip_convergence_time is not None and self.ip_convergence_time.is_presence():
-                                            return True
-
                                         if self.level is not None:
                                             return True
 
                                         if self.mpls_convergence_time is not None and self.mpls_convergence_time._has_data():
                                             return True
 
-                                        if self.mpls_convergence_time is not None and self.mpls_convergence_time.is_presence():
-                                            return True
-
                                         if self.route_statistics is not None and self.route_statistics._has_data():
-                                            return True
-
-                                        if self.route_statistics is not None and self.route_statistics.is_presence():
                                             return True
 
                                         if self.threshold_exceeded is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -18868,8 +17449,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.convergence_timeline is not None:
                                         for child_ref in self.convergence_timeline:
                                             if child_ref._has_data():
@@ -18888,13 +17467,6 @@ class Rcmd(object):
                                     if self.priority_summary is not None and self.priority_summary._has_data():
                                         return True
 
-                                    if self.priority_summary is not None and self.priority_summary.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -18910,7 +17482,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Add, Delete, Modify
-                                	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                                	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                                 
                                 .. attribute:: lsa_id
                                 
@@ -18922,7 +17494,7 @@ class Rcmd(object):
                                 .. attribute:: lsa_type
                                 
                                 	LSA type
-                                	**type**\: :py:class:`RcmdLsa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa_Enum>`
+                                	**type**\: :py:class:`RcmdLsaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                                 
                                 .. attribute:: origin_router_id
                                 
@@ -18971,8 +17543,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.change_type is not None:
                                         return True
 
@@ -18991,10 +17561,6 @@ class Rcmd(object):
                                     if self.sequence_number is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -19016,8 +17582,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.area_id is not None:
                                     return True
 
@@ -19054,10 +17618,6 @@ class Rcmd(object):
                                 if self.wait_time is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -19240,7 +17800,7 @@ class Rcmd(object):
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
-                                        	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                        	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                         
                                         
 
@@ -19303,8 +17863,6 @@ class Rcmd(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.duration is not None:
                                                     return True
 
@@ -19314,10 +17872,6 @@ class Rcmd(object):
                                                 if self.start_time is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -19339,12 +17893,7 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fib_complete is not None and self.fib_complete._has_data():
-                                                return True
-
-                                            if self.fib_complete is not None and self.fib_complete.is_presence():
                                                 return True
 
                                             if self.node_name is not None:
@@ -19353,10 +17902,6 @@ class Rcmd(object):
                                             if self.speed is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19383,7 +17928,7 @@ class Rcmd(object):
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
-                                        	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                        	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                         
                                         
 
@@ -19446,8 +17991,6 @@ class Rcmd(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.duration is not None:
                                                     return True
 
@@ -19457,10 +18000,6 @@ class Rcmd(object):
                                                 if self.start_time is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -19482,12 +18021,7 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fib_complete is not None and self.fib_complete._has_data():
-                                                return True
-
-                                            if self.fib_complete is not None and self.fib_complete.is_presence():
                                                 return True
 
                                             if self.node_name is not None:
@@ -19496,10 +18030,6 @@ class Rcmd(object):
                                             if self.speed is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19554,8 +18084,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -19565,10 +18093,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19623,8 +18147,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -19634,10 +18156,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19692,8 +18210,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -19703,10 +18219,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19761,8 +18273,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -19772,10 +18282,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19830,8 +18336,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -19841,10 +18345,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19899,8 +18399,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -19910,10 +18408,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19968,8 +18462,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -19979,10 +18471,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -20037,8 +18525,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -20048,10 +18534,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -20073,8 +18555,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.lc_ip is not None:
                                             for child_ref in self.lc_ip:
                                                 if child_ref._has_data():
@@ -20088,55 +18568,27 @@ class Rcmd(object):
                                         if self.ldp_enter is not None and self.ldp_enter._has_data():
                                             return True
 
-                                        if self.ldp_enter is not None and self.ldp_enter.is_presence():
-                                            return True
-
                                         if self.ldp_exit is not None and self.ldp_exit._has_data():
-                                            return True
-
-                                        if self.ldp_exit is not None and self.ldp_exit.is_presence():
                                             return True
 
                                         if self.lsd_enter is not None and self.lsd_enter._has_data():
                                             return True
 
-                                        if self.lsd_enter is not None and self.lsd_enter.is_presence():
-                                            return True
-
                                         if self.lsd_exit is not None and self.lsd_exit._has_data():
-                                            return True
-
-                                        if self.lsd_exit is not None and self.lsd_exit.is_presence():
                                             return True
 
                                         if self.ri_bv4_enter is not None and self.ri_bv4_enter._has_data():
                                             return True
 
-                                        if self.ri_bv4_enter is not None and self.ri_bv4_enter.is_presence():
-                                            return True
-
                                         if self.ri_bv4_exit is not None and self.ri_bv4_exit._has_data():
-                                            return True
-
-                                        if self.ri_bv4_exit is not None and self.ri_bv4_exit.is_presence():
                                             return True
 
                                         if self.ri_bv4_redistribute is not None and self.ri_bv4_redistribute._has_data():
                                             return True
 
-                                        if self.ri_bv4_redistribute is not None and self.ri_bv4_redistribute.is_presence():
-                                            return True
-
                                         if self.route_origin is not None and self.route_origin._has_data():
                                             return True
 
-                                        if self.route_origin is not None and self.route_origin.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -20189,18 +18641,12 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
                                         if self.net_mask is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -20253,18 +18699,12 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
                                         if self.net_mask is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -20285,7 +18725,7 @@ class Rcmd(object):
                                     .. attribute:: level
                                     
                                     	Critical, High, Medium or Low
-                                    	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                                    	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                     
                                     .. attribute:: mpls_convergence_time
                                     
@@ -20397,8 +18837,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fastest_node_name is not None:
                                                 return True
 
@@ -20411,10 +18849,6 @@ class Rcmd(object):
                                             if self.slowest_node_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -20475,8 +18909,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fastest_node_name is not None:
                                                 return True
 
@@ -20489,10 +18921,6 @@ class Rcmd(object):
                                             if self.slowest_node_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -20577,8 +19005,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.adds is not None:
                                                 return True
 
@@ -20597,10 +19023,6 @@ class Rcmd(object):
                                             if self.unreachables is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -20622,12 +19044,7 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
-                                            return True
-
-                                        if self.ip_convergence_time is not None and self.ip_convergence_time.is_presence():
                                             return True
 
                                         if self.level is not None:
@@ -20636,13 +19053,7 @@ class Rcmd(object):
                                         if self.mpls_convergence_time is not None and self.mpls_convergence_time._has_data():
                                             return True
 
-                                        if self.mpls_convergence_time is not None and self.mpls_convergence_time.is_presence():
-                                            return True
-
                                         if self.route_statistics is not None and self.route_statistics._has_data():
-                                            return True
-
-                                        if self.route_statistics is not None and self.route_statistics.is_presence():
                                             return True
 
                                         if self.threshold_exceeded is not None:
@@ -20657,10 +19068,6 @@ class Rcmd(object):
                                         if self.type57ls_as is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -20682,8 +19089,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.convergence_timeline is not None:
                                         for child_ref in self.convergence_timeline:
                                             if child_ref._has_data():
@@ -20702,13 +19107,6 @@ class Rcmd(object):
                                     if self.priority_summary is not None and self.priority_summary._has_data():
                                         return True
 
-                                    if self.priority_summary is not None and self.priority_summary.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -20730,17 +19128,11 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.priority is not None:
                                     for child_ref in self.priority:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -20776,7 +19168,7 @@ class Rcmd(object):
                             .. attribute:: state
                             
                             	SPF state
-                            	**type**\: :py:class:`RcmdSpfState_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfState_Enum>`
+                            	**type**\: :py:class:`RcmdSpfStateEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfStateEnum>`
                             
                             .. attribute:: threshold_exceeded
                             
@@ -20858,7 +19250,7 @@ class Rcmd(object):
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
-                                	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                                	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                 
                                 .. attribute:: mpls_convergence_time
                                 
@@ -20955,8 +19347,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.coverage is not None:
                                             return True
 
@@ -20969,10 +19359,6 @@ class Rcmd(object):
                                         if self.total_routes is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21033,8 +19419,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -21047,10 +19431,6 @@ class Rcmd(object):
                                         if self.slowest_node_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21111,8 +19491,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -21125,10 +19503,6 @@ class Rcmd(object):
                                         if self.slowest_node_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21213,8 +19587,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.adds is not None:
                                             return True
 
@@ -21233,10 +19605,6 @@ class Rcmd(object):
                                         if self.unreachables is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21258,8 +19626,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.frr_statistic is not None:
                                         for child_ref in self.frr_statistic:
                                             if child_ref._has_data():
@@ -21268,31 +19634,18 @@ class Rcmd(object):
                                     if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
                                         return True
 
-                                    if self.ip_convergence_time is not None and self.ip_convergence_time.is_presence():
-                                        return True
-
                                     if self.level is not None:
                                         return True
 
                                     if self.mpls_convergence_time is not None and self.mpls_convergence_time._has_data():
                                         return True
 
-                                    if self.mpls_convergence_time is not None and self.mpls_convergence_time.is_presence():
-                                        return True
-
                                     if self.route_statistics is not None and self.route_statistics._has_data():
-                                        return True
-
-                                    if self.route_statistics is not None and self.route_statistics.is_presence():
                                         return True
 
                                     if self.threshold_exceeded is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -21314,8 +19667,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.duration is not None:
                                     return True
 
@@ -21353,10 +19704,6 @@ class Rcmd(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -21378,8 +19725,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.spf_run_number is not None:
                                 return True
 
@@ -21396,13 +19741,6 @@ class Rcmd(object):
                             if self.spf_summary is not None and self.spf_summary._has_data():
                                 return True
 
-                            if self.spf_summary is not None and self.spf_summary.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -21424,17 +19762,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.spf_run_offline is not None:
                             for child_ref in self.spf_run_offline:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -21606,7 +19938,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Add, Delete, Modify
-                                	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                                	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                                 
                                 .. attribute:: lsa_id
                                 
@@ -21618,7 +19950,7 @@ class Rcmd(object):
                                 .. attribute:: lsa_type
                                 
                                 	LSA type
-                                	**type**\: :py:class:`RcmdLsa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa_Enum>`
+                                	**type**\: :py:class:`RcmdLsaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                                 
                                 .. attribute:: origin_router_id
                                 
@@ -21667,8 +19999,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.change_type is not None:
                                         return True
 
@@ -21687,10 +20017,6 @@ class Rcmd(object):
                                     if self.sequence_number is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -21850,7 +20176,7 @@ class Rcmd(object):
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
-                                        	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                        	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                         
                                         
 
@@ -21913,8 +20239,6 @@ class Rcmd(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.duration is not None:
                                                     return True
 
@@ -21924,10 +20248,6 @@ class Rcmd(object):
                                                 if self.start_time is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -21949,12 +20269,7 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fib_complete is not None and self.fib_complete._has_data():
-                                                return True
-
-                                            if self.fib_complete is not None and self.fib_complete.is_presence():
                                                 return True
 
                                             if self.node_name is not None:
@@ -21963,10 +20278,6 @@ class Rcmd(object):
                                             if self.speed is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -21993,7 +20304,7 @@ class Rcmd(object):
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
-                                        	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                        	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                         
                                         
 
@@ -22056,8 +20367,6 @@ class Rcmd(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.duration is not None:
                                                     return True
 
@@ -22067,10 +20376,6 @@ class Rcmd(object):
                                                 if self.start_time is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22092,12 +20397,7 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fib_complete is not None and self.fib_complete._has_data():
-                                                return True
-
-                                            if self.fib_complete is not None and self.fib_complete.is_presence():
                                                 return True
 
                                             if self.node_name is not None:
@@ -22106,10 +20406,6 @@ class Rcmd(object):
                                             if self.speed is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -22164,8 +20460,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -22175,10 +20469,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -22233,8 +20523,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -22244,10 +20532,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -22302,8 +20586,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -22313,10 +20595,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -22371,8 +20649,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -22382,10 +20658,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -22440,8 +20712,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -22451,10 +20721,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -22509,8 +20775,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -22520,10 +20784,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -22578,8 +20838,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -22589,10 +20847,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -22647,8 +20901,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -22658,10 +20910,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -22683,8 +20931,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.lc_ip is not None:
                                             for child_ref in self.lc_ip:
                                                 if child_ref._has_data():
@@ -22698,55 +20944,27 @@ class Rcmd(object):
                                         if self.ldp_enter is not None and self.ldp_enter._has_data():
                                             return True
 
-                                        if self.ldp_enter is not None and self.ldp_enter.is_presence():
-                                            return True
-
                                         if self.ldp_exit is not None and self.ldp_exit._has_data():
-                                            return True
-
-                                        if self.ldp_exit is not None and self.ldp_exit.is_presence():
                                             return True
 
                                         if self.lsd_enter is not None and self.lsd_enter._has_data():
                                             return True
 
-                                        if self.lsd_enter is not None and self.lsd_enter.is_presence():
-                                            return True
-
                                         if self.lsd_exit is not None and self.lsd_exit._has_data():
-                                            return True
-
-                                        if self.lsd_exit is not None and self.lsd_exit.is_presence():
                                             return True
 
                                         if self.ri_bv4_enter is not None and self.ri_bv4_enter._has_data():
                                             return True
 
-                                        if self.ri_bv4_enter is not None and self.ri_bv4_enter.is_presence():
-                                            return True
-
                                         if self.ri_bv4_exit is not None and self.ri_bv4_exit._has_data():
-                                            return True
-
-                                        if self.ri_bv4_exit is not None and self.ri_bv4_exit.is_presence():
                                             return True
 
                                         if self.ri_bv4_redistribute is not None and self.ri_bv4_redistribute._has_data():
                                             return True
 
-                                        if self.ri_bv4_redistribute is not None and self.ri_bv4_redistribute.is_presence():
-                                            return True
-
                                         if self.route_origin is not None and self.route_origin._has_data():
                                             return True
 
-                                        if self.route_origin is not None and self.route_origin.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -22799,18 +21017,12 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
                                         if self.net_mask is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -22863,18 +21075,12 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
                                         if self.net_mask is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -22900,7 +21106,7 @@ class Rcmd(object):
                                     .. attribute:: level
                                     
                                     	Critical, High, Medium or Low
-                                    	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                                    	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                     
                                     .. attribute:: mpls_convergence_time
                                     
@@ -22997,8 +21203,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.coverage is not None:
                                                 return True
 
@@ -23011,10 +21215,6 @@ class Rcmd(object):
                                             if self.total_routes is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -23075,8 +21275,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fastest_node_name is not None:
                                                 return True
 
@@ -23089,10 +21287,6 @@ class Rcmd(object):
                                             if self.slowest_node_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -23153,8 +21347,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fastest_node_name is not None:
                                                 return True
 
@@ -23167,10 +21359,6 @@ class Rcmd(object):
                                             if self.slowest_node_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -23255,8 +21443,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.adds is not None:
                                                 return True
 
@@ -23275,10 +21461,6 @@ class Rcmd(object):
                                             if self.unreachables is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -23300,8 +21482,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.frr_statistic is not None:
                                             for child_ref in self.frr_statistic:
                                                 if child_ref._has_data():
@@ -23310,31 +21490,18 @@ class Rcmd(object):
                                         if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
                                             return True
 
-                                        if self.ip_convergence_time is not None and self.ip_convergence_time.is_presence():
-                                            return True
-
                                         if self.level is not None:
                                             return True
 
                                         if self.mpls_convergence_time is not None and self.mpls_convergence_time._has_data():
                                             return True
 
-                                        if self.mpls_convergence_time is not None and self.mpls_convergence_time.is_presence():
-                                            return True
-
                                         if self.route_statistics is not None and self.route_statistics._has_data():
-                                            return True
-
-                                        if self.route_statistics is not None and self.route_statistics.is_presence():
                                             return True
 
                                         if self.threshold_exceeded is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -23356,8 +21523,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.convergence_timeline is not None:
                                         for child_ref in self.convergence_timeline:
                                             if child_ref._has_data():
@@ -23376,13 +21541,6 @@ class Rcmd(object):
                                     if self.priority_summary is not None and self.priority_summary._has_data():
                                         return True
 
-                                    if self.priority_summary is not None and self.priority_summary.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -23398,7 +21556,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Add, Delete, Modify
-                                	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                                	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                                 
                                 .. attribute:: lsa_id
                                 
@@ -23410,7 +21568,7 @@ class Rcmd(object):
                                 .. attribute:: lsa_type
                                 
                                 	LSA type
-                                	**type**\: :py:class:`RcmdLsa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa_Enum>`
+                                	**type**\: :py:class:`RcmdLsaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                                 
                                 .. attribute:: origin_router_id
                                 
@@ -23459,8 +21617,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.change_type is not None:
                                         return True
 
@@ -23479,10 +21635,6 @@ class Rcmd(object):
                                     if self.sequence_number is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -23504,8 +21656,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.area_id is not None:
                                     return True
 
@@ -23542,10 +21692,6 @@ class Rcmd(object):
                                 if self.wait_time is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -23728,7 +21874,7 @@ class Rcmd(object):
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
-                                        	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                        	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                         
                                         
 
@@ -23791,8 +21937,6 @@ class Rcmd(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.duration is not None:
                                                     return True
 
@@ -23802,10 +21946,6 @@ class Rcmd(object):
                                                 if self.start_time is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -23827,12 +21967,7 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fib_complete is not None and self.fib_complete._has_data():
-                                                return True
-
-                                            if self.fib_complete is not None and self.fib_complete.is_presence():
                                                 return True
 
                                             if self.node_name is not None:
@@ -23841,10 +21976,6 @@ class Rcmd(object):
                                             if self.speed is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -23871,7 +22002,7 @@ class Rcmd(object):
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
-                                        	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                        	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                         
                                         
 
@@ -23934,8 +22065,6 @@ class Rcmd(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.duration is not None:
                                                     return True
 
@@ -23945,10 +22074,6 @@ class Rcmd(object):
                                                 if self.start_time is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -23970,12 +22095,7 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fib_complete is not None and self.fib_complete._has_data():
-                                                return True
-
-                                            if self.fib_complete is not None and self.fib_complete.is_presence():
                                                 return True
 
                                             if self.node_name is not None:
@@ -23984,10 +22104,6 @@ class Rcmd(object):
                                             if self.speed is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -24042,8 +22158,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -24053,10 +22167,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -24111,8 +22221,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -24122,10 +22230,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -24180,8 +22284,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -24191,10 +22293,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -24249,8 +22347,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -24260,10 +22356,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -24318,8 +22410,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -24329,10 +22419,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -24387,8 +22473,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -24398,10 +22482,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -24456,8 +22536,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -24467,10 +22545,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -24525,8 +22599,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.duration is not None:
                                                 return True
 
@@ -24536,10 +22608,6 @@ class Rcmd(object):
                                             if self.start_time is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -24561,8 +22629,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.lc_ip is not None:
                                             for child_ref in self.lc_ip:
                                                 if child_ref._has_data():
@@ -24576,55 +22642,27 @@ class Rcmd(object):
                                         if self.ldp_enter is not None and self.ldp_enter._has_data():
                                             return True
 
-                                        if self.ldp_enter is not None and self.ldp_enter.is_presence():
-                                            return True
-
                                         if self.ldp_exit is not None and self.ldp_exit._has_data():
-                                            return True
-
-                                        if self.ldp_exit is not None and self.ldp_exit.is_presence():
                                             return True
 
                                         if self.lsd_enter is not None and self.lsd_enter._has_data():
                                             return True
 
-                                        if self.lsd_enter is not None and self.lsd_enter.is_presence():
-                                            return True
-
                                         if self.lsd_exit is not None and self.lsd_exit._has_data():
-                                            return True
-
-                                        if self.lsd_exit is not None and self.lsd_exit.is_presence():
                                             return True
 
                                         if self.ri_bv4_enter is not None and self.ri_bv4_enter._has_data():
                                             return True
 
-                                        if self.ri_bv4_enter is not None and self.ri_bv4_enter.is_presence():
-                                            return True
-
                                         if self.ri_bv4_exit is not None and self.ri_bv4_exit._has_data():
-                                            return True
-
-                                        if self.ri_bv4_exit is not None and self.ri_bv4_exit.is_presence():
                                             return True
 
                                         if self.ri_bv4_redistribute is not None and self.ri_bv4_redistribute._has_data():
                                             return True
 
-                                        if self.ri_bv4_redistribute is not None and self.ri_bv4_redistribute.is_presence():
-                                            return True
-
                                         if self.route_origin is not None and self.route_origin._has_data():
                                             return True
 
-                                        if self.route_origin is not None and self.route_origin.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -24677,18 +22715,12 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
                                         if self.net_mask is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -24741,18 +22773,12 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
                                         if self.net_mask is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -24773,7 +22799,7 @@ class Rcmd(object):
                                     .. attribute:: level
                                     
                                     	Critical, High, Medium or Low
-                                    	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                                    	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                     
                                     .. attribute:: mpls_convergence_time
                                     
@@ -24885,8 +22911,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fastest_node_name is not None:
                                                 return True
 
@@ -24899,10 +22923,6 @@ class Rcmd(object):
                                             if self.slowest_node_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -24963,8 +22983,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fastest_node_name is not None:
                                                 return True
 
@@ -24977,10 +22995,6 @@ class Rcmd(object):
                                             if self.slowest_node_name is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -25065,8 +23079,6 @@ class Rcmd(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.adds is not None:
                                                 return True
 
@@ -25085,10 +23097,6 @@ class Rcmd(object):
                                             if self.unreachables is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -25110,12 +23118,7 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
-                                            return True
-
-                                        if self.ip_convergence_time is not None and self.ip_convergence_time.is_presence():
                                             return True
 
                                         if self.level is not None:
@@ -25124,13 +23127,7 @@ class Rcmd(object):
                                         if self.mpls_convergence_time is not None and self.mpls_convergence_time._has_data():
                                             return True
 
-                                        if self.mpls_convergence_time is not None and self.mpls_convergence_time.is_presence():
-                                            return True
-
                                         if self.route_statistics is not None and self.route_statistics._has_data():
-                                            return True
-
-                                        if self.route_statistics is not None and self.route_statistics.is_presence():
                                             return True
 
                                         if self.threshold_exceeded is not None:
@@ -25145,10 +23142,6 @@ class Rcmd(object):
                                         if self.type57ls_as is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -25170,8 +23163,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.convergence_timeline is not None:
                                         for child_ref in self.convergence_timeline:
                                             if child_ref._has_data():
@@ -25190,13 +23181,6 @@ class Rcmd(object):
                                     if self.priority_summary is not None and self.priority_summary._has_data():
                                         return True
 
-                                    if self.priority_summary is not None and self.priority_summary.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -25218,17 +23202,11 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.priority is not None:
                                     for child_ref in self.priority:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -25264,7 +23242,7 @@ class Rcmd(object):
                             .. attribute:: state
                             
                             	SPF state
-                            	**type**\: :py:class:`RcmdSpfState_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfState_Enum>`
+                            	**type**\: :py:class:`RcmdSpfStateEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfStateEnum>`
                             
                             .. attribute:: threshold_exceeded
                             
@@ -25346,7 +23324,7 @@ class Rcmd(object):
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
-                                	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                                	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                 
                                 .. attribute:: mpls_convergence_time
                                 
@@ -25443,8 +23421,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.coverage is not None:
                                             return True
 
@@ -25457,10 +23433,6 @@ class Rcmd(object):
                                         if self.total_routes is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -25521,8 +23493,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -25535,10 +23505,6 @@ class Rcmd(object):
                                         if self.slowest_node_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -25599,8 +23565,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -25613,10 +23577,6 @@ class Rcmd(object):
                                         if self.slowest_node_name is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -25701,8 +23661,6 @@ class Rcmd(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.adds is not None:
                                             return True
 
@@ -25721,10 +23679,6 @@ class Rcmd(object):
                                         if self.unreachables is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -25746,8 +23700,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.frr_statistic is not None:
                                         for child_ref in self.frr_statistic:
                                             if child_ref._has_data():
@@ -25756,31 +23708,18 @@ class Rcmd(object):
                                     if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
                                         return True
 
-                                    if self.ip_convergence_time is not None and self.ip_convergence_time.is_presence():
-                                        return True
-
                                     if self.level is not None:
                                         return True
 
                                     if self.mpls_convergence_time is not None and self.mpls_convergence_time._has_data():
                                         return True
 
-                                    if self.mpls_convergence_time is not None and self.mpls_convergence_time.is_presence():
-                                        return True
-
                                     if self.route_statistics is not None and self.route_statistics._has_data():
-                                        return True
-
-                                    if self.route_statistics is not None and self.route_statistics.is_presence():
                                         return True
 
                                     if self.threshold_exceeded is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -25802,8 +23741,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.duration is not None:
                                     return True
 
@@ -25841,10 +23778,6 @@ class Rcmd(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -25866,8 +23799,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.spf_run_number is not None:
                                 return True
 
@@ -25884,13 +23815,6 @@ class Rcmd(object):
                             if self.spf_summary is not None and self.spf_summary._has_data():
                                 return True
 
-                            if self.spf_summary is not None and self.spf_summary.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -25912,17 +23836,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.spf_run_summary is not None:
                             for child_ref in self.spf_run_summary:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -25970,7 +23888,7 @@ class Rcmd(object):
                         .. attribute:: change_type
                         
                         	Event Add/Delete
-                        	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                        	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                         
                         .. attribute:: cost
                         
@@ -26023,17 +23941,17 @@ class Rcmd(object):
                         .. attribute:: priority
                         
                         	Event processed priority
-                        	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                        	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                         
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
-                        	**type**\: :py:class:`RcmdShowRoutePathChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChange_Enum>`
+                        	**type**\: :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
-                        	**type**\: :py:class:`RcmdShowRoute_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoute_Enum>`
+                        	**type**\: :py:class:`RcmdShowRouteEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
                         
                         .. attribute:: spf_run_no
                         
@@ -26153,8 +24071,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -26167,10 +24083,6 @@ class Rcmd(object):
                                 if self.slowest_node_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -26186,7 +24098,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                            	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -26198,7 +24110,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\: :py:class:`RcmdLsa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa_Enum>`
+                            	**type**\: :py:class:`RcmdLsaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -26247,8 +24159,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -26267,10 +24177,6 @@ class Rcmd(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -26331,8 +24237,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -26345,10 +24249,6 @@ class Rcmd(object):
                                 if self.slowest_node_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -26364,7 +24264,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Event Add/Delete
-                            	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                            	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                             
                             .. attribute:: interface_name
                             
@@ -26415,7 +24315,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
-                                	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                                	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                                 
                                 .. attribute:: interface_name
                                 
@@ -26425,7 +24325,7 @@ class Rcmd(object):
                                 .. attribute:: lfa_type
                                 
                                 	Type of LFA
-                                	**type**\: :py:class:`RcmdShowIpfrrLfa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfa_Enum>`
+                                	**type**\: :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -26478,8 +24378,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.change_type is not None:
                                         return True
 
@@ -26498,10 +24396,6 @@ class Rcmd(object):
                                     if self.remote_node_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -26523,8 +24417,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -26542,10 +24434,6 @@ class Rcmd(object):
                                 if self.path_metric is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -26651,7 +24539,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -26680,8 +24568,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fib_complete is not None:
                                         return True
 
@@ -26691,10 +24577,6 @@ class Rcmd(object):
                                     if self.speed is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -26721,7 +24603,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -26750,8 +24632,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fib_complete is not None:
                                         return True
 
@@ -26761,10 +24641,6 @@ class Rcmd(object):
                                     if self.speed is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -26786,8 +24662,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.lc_ip is not None:
                                     for child_ref in self.lc_ip:
                                         if child_ref._has_data():
@@ -26824,10 +24698,6 @@ class Rcmd(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -26841,7 +24711,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                            	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -26853,7 +24723,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\: :py:class:`RcmdLsa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa_Enum>`
+                            	**type**\: :py:class:`RcmdLsaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -26902,8 +24772,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -26922,10 +24790,6 @@ class Rcmd(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -26949,8 +24813,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.event_id is not None:
                                 return True
 
@@ -26963,9 +24825,6 @@ class Rcmd(object):
                             if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
                                 return True
 
-                            if self.ip_convergence_time is not None and self.ip_convergence_time.is_presence():
-                                return True
-
                             if self.ipfrr_event_id is not None:
                                 return True
 
@@ -26975,9 +24834,6 @@ class Rcmd(object):
                                         return True
 
                             if self.mpls_convergence_time is not None and self.mpls_convergence_time._has_data():
-                                return True
-
-                            if self.mpls_convergence_time is not None and self.mpls_convergence_time.is_presence():
                                 return True
 
                             if self.path is not None:
@@ -27021,10 +24877,6 @@ class Rcmd(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -27044,17 +24896,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.summary_external_event_offline is not None:
                             for child_ref in self.summary_external_event_offline:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -27219,8 +25065,6 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.external_added is not None:
                             return True
 
@@ -27271,10 +25115,6 @@ class Rcmd(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -27319,7 +25159,7 @@ class Rcmd(object):
                         .. attribute:: change_type
                         
                         	Event Add/Delete
-                        	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                        	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                         
                         .. attribute:: cost
                         
@@ -27372,17 +25212,17 @@ class Rcmd(object):
                         .. attribute:: priority
                         
                         	Event processed priority
-                        	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                        	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                         
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
-                        	**type**\: :py:class:`RcmdShowRoutePathChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChange_Enum>`
+                        	**type**\: :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
-                        	**type**\: :py:class:`RcmdShowRoute_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoute_Enum>`
+                        	**type**\: :py:class:`RcmdShowRouteEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
                         
                         .. attribute:: spf_run_no
                         
@@ -27502,8 +25342,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -27516,10 +25354,6 @@ class Rcmd(object):
                                 if self.slowest_node_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -27535,7 +25369,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                            	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -27547,7 +25381,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\: :py:class:`RcmdLsa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa_Enum>`
+                            	**type**\: :py:class:`RcmdLsaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -27596,8 +25430,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -27616,10 +25448,6 @@ class Rcmd(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -27680,8 +25508,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -27694,10 +25520,6 @@ class Rcmd(object):
                                 if self.slowest_node_name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -27713,7 +25535,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Event Add/Delete
-                            	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                            	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                             
                             .. attribute:: interface_name
                             
@@ -27764,7 +25586,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
-                                	**type**\: :py:class:`RcmdChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange_Enum>`
+                                	**type**\: :py:class:`RcmdChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                                 
                                 .. attribute:: interface_name
                                 
@@ -27774,7 +25596,7 @@ class Rcmd(object):
                                 .. attribute:: lfa_type
                                 
                                 	Type of LFA
-                                	**type**\: :py:class:`RcmdShowIpfrrLfa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfa_Enum>`
+                                	**type**\: :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -27827,8 +25649,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.change_type is not None:
                                         return True
 
@@ -27847,10 +25667,6 @@ class Rcmd(object):
                                     if self.remote_node_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -27872,8 +25688,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -27891,10 +25705,6 @@ class Rcmd(object):
                                 if self.path_metric is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -28000,7 +25810,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -28029,8 +25839,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fib_complete is not None:
                                         return True
 
@@ -28040,10 +25848,6 @@ class Rcmd(object):
                                     if self.speed is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -28070,7 +25874,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\: :py:class:`RcmdLinecardSpeed_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed_Enum>`
+                                	**type**\: :py:class:`RcmdLinecardSpeedEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -28099,8 +25903,6 @@ class Rcmd(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fib_complete is not None:
                                         return True
 
@@ -28110,10 +25912,6 @@ class Rcmd(object):
                                     if self.speed is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -28135,8 +25933,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.lc_ip is not None:
                                     for child_ref in self.lc_ip:
                                         if child_ref._has_data():
@@ -28173,10 +25969,6 @@ class Rcmd(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -28190,7 +25982,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\: :py:class:`RcmdLsChange_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange_Enum>`
+                            	**type**\: :py:class:`RcmdLsChangeEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -28202,7 +25994,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\: :py:class:`RcmdLsa_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa_Enum>`
+                            	**type**\: :py:class:`RcmdLsaEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -28251,8 +26043,6 @@ class Rcmd(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.change_type is not None:
                                     return True
 
@@ -28271,10 +26061,6 @@ class Rcmd(object):
                                 if self.sequence_number is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -28298,8 +26084,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.event_id is not None:
                                 return True
 
@@ -28312,9 +26096,6 @@ class Rcmd(object):
                             if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
                                 return True
 
-                            if self.ip_convergence_time is not None and self.ip_convergence_time.is_presence():
-                                return True
-
                             if self.ipfrr_event_id is not None:
                                 return True
 
@@ -28324,9 +26105,6 @@ class Rcmd(object):
                                         return True
 
                             if self.mpls_convergence_time is not None and self.mpls_convergence_time._has_data():
-                                return True
-
-                            if self.mpls_convergence_time is not None and self.mpls_convergence_time.is_presence():
                                 return True
 
                             if self.path is not None:
@@ -28370,10 +26148,6 @@ class Rcmd(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -28393,17 +26167,11 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.summary_external_event_summary is not None:
                             for child_ref in self.summary_external_event_summary:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -28425,75 +26193,39 @@ class Rcmd(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.instance_name is not None:
                         return True
 
                     if self.ipfrr_event_offlines is not None and self.ipfrr_event_offlines._has_data():
                         return True
 
-                    if self.ipfrr_event_offlines is not None and self.ipfrr_event_offlines.is_presence():
-                        return True
-
                     if self.ipfrr_event_summaries is not None and self.ipfrr_event_summaries._has_data():
-                        return True
-
-                    if self.ipfrr_event_summaries is not None and self.ipfrr_event_summaries.is_presence():
                         return True
 
                     if self.prefix_event_offlines is not None and self.prefix_event_offlines._has_data():
                         return True
 
-                    if self.prefix_event_offlines is not None and self.prefix_event_offlines.is_presence():
-                        return True
-
                     if self.prefix_event_statistics is not None and self.prefix_event_statistics._has_data():
-                        return True
-
-                    if self.prefix_event_statistics is not None and self.prefix_event_statistics.is_presence():
                         return True
 
                     if self.prefix_event_summaries is not None and self.prefix_event_summaries._has_data():
                         return True
 
-                    if self.prefix_event_summaries is not None and self.prefix_event_summaries.is_presence():
-                        return True
-
                     if self.spf_run_offlines is not None and self.spf_run_offlines._has_data():
-                        return True
-
-                    if self.spf_run_offlines is not None and self.spf_run_offlines.is_presence():
                         return True
 
                     if self.spf_run_summaries is not None and self.spf_run_summaries._has_data():
                         return True
 
-                    if self.spf_run_summaries is not None and self.spf_run_summaries.is_presence():
-                        return True
-
                     if self.summary_external_event_offlines is not None and self.summary_external_event_offlines._has_data():
-                        return True
-
-                    if self.summary_external_event_offlines is not None and self.summary_external_event_offlines.is_presence():
                         return True
 
                     if self.summary_external_event_statistics is not None and self.summary_external_event_statistics._has_data():
                         return True
 
-                    if self.summary_external_event_statistics is not None and self.summary_external_event_statistics.is_presence():
-                        return True
-
                     if self.summary_external_event_summaries is not None and self.summary_external_event_summaries._has_data():
                         return True
 
-                    if self.summary_external_event_summaries is not None and self.summary_external_event_summaries.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -28513,17 +26245,11 @@ class Rcmd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.instance is not None:
                     for child_ref in self.instance:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -28543,18 +26269,9 @@ class Rcmd(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.instances is not None and self.instances._has_data():
                 return True
 
-            if self.instances is not None and self.instances.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -28639,7 +26356,7 @@ class Rcmd(object):
                 .. attribute:: protocol_id
                 
                 	Protocol id
-                	**type**\: :py:class:`RcmdProtocolId_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolId_Enum>`
+                	**type**\: :py:class:`RcmdProtocolIdEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolIdEnum>`
                 
                 
 
@@ -28770,12 +26487,12 @@ class Rcmd(object):
                         .. attribute:: fwd_referenced
                         
                         	Forward Referenced
-                        	**type**\: :py:class:`RcmdBoolYesNo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo_Enum>`
+                        	**type**\: :py:class:`RcmdBoolYesNoEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
                         
                         .. attribute:: instance_deleted
                         
                         	Instance Deleted
-                        	**type**\: :py:class:`RcmdBoolYesNo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo_Enum>`
+                        	**type**\: :py:class:`RcmdBoolYesNoEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
                         
                         .. attribute:: instance_id
                         
@@ -28787,7 +26504,7 @@ class Rcmd(object):
                         .. attribute:: instance_state
                         
                         	Instance State
-                        	**type**\: :py:class:`RcmdShowInstState_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowInstState_Enum>`
+                        	**type**\: :py:class:`RcmdShowInstStateEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowInstStateEnum>`
                         
                         .. attribute:: last_update_time
                         
@@ -28878,8 +26595,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.arch_spf_run is not None:
                                 return True
 
@@ -28921,10 +26636,6 @@ class Rcmd(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -28942,8 +26653,6 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.arch_lsp_regeneration is not None:
                             return True
 
@@ -28981,10 +26690,6 @@ class Rcmd(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -29002,8 +26707,6 @@ class Rcmd(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.instance_name is not None:
                         for child_ref in self.instance_name:
                             if child_ref._has_data():
@@ -29015,10 +26718,6 @@ class Rcmd(object):
                     if self.protocol_id is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -29038,17 +26737,11 @@ class Rcmd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.process is not None:
                     for child_ref in self.process:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -29097,7 +26790,7 @@ class Rcmd(object):
                 .. attribute:: protocol_id
                 
                 	Protocol id
-                	**type**\: :py:class:`RcmdProtocolId_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolId_Enum>`
+                	**type**\: :py:class:`RcmdProtocolIdEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolIdEnum>`
                 
                 
 
@@ -29228,12 +26921,12 @@ class Rcmd(object):
                         .. attribute:: fwd_referenced
                         
                         	Forward Referenced
-                        	**type**\: :py:class:`RcmdBoolYesNo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo_Enum>`
+                        	**type**\: :py:class:`RcmdBoolYesNoEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
                         
                         .. attribute:: instance_deleted
                         
                         	Instance Deleted
-                        	**type**\: :py:class:`RcmdBoolYesNo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo_Enum>`
+                        	**type**\: :py:class:`RcmdBoolYesNoEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
                         
                         .. attribute:: instance_id
                         
@@ -29245,7 +26938,7 @@ class Rcmd(object):
                         .. attribute:: instance_state
                         
                         	Instance State
-                        	**type**\: :py:class:`RcmdShowInstState_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowInstState_Enum>`
+                        	**type**\: :py:class:`RcmdShowInstStateEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowInstStateEnum>`
                         
                         .. attribute:: last_update_time
                         
@@ -29336,8 +27029,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.arch_spf_run is not None:
                                 return True
 
@@ -29379,10 +27070,6 @@ class Rcmd(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -29400,8 +27087,6 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.arch_lsp_regeneration is not None:
                             return True
 
@@ -29439,10 +27124,6 @@ class Rcmd(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -29460,8 +27141,6 @@ class Rcmd(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.instance_name is not None:
                         for child_ref in self.instance_name:
                             if child_ref._has_data():
@@ -29473,10 +27152,6 @@ class Rcmd(object):
                     if self.protocol_id is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -29496,17 +27171,11 @@ class Rcmd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.process is not None:
                     for child_ref in self.process:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -29555,7 +27224,7 @@ class Rcmd(object):
                 .. attribute:: protocol_id
                 
                 	Protocol id
-                	**type**\: :py:class:`RcmdProtocolId_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolId_Enum>`
+                	**type**\: :py:class:`RcmdProtocolIdEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolIdEnum>`
                 
                 
 
@@ -29686,12 +27355,12 @@ class Rcmd(object):
                         .. attribute:: fwd_referenced
                         
                         	Forward Referenced
-                        	**type**\: :py:class:`RcmdBoolYesNo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo_Enum>`
+                        	**type**\: :py:class:`RcmdBoolYesNoEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
                         
                         .. attribute:: instance_deleted
                         
                         	Instance Deleted
-                        	**type**\: :py:class:`RcmdBoolYesNo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo_Enum>`
+                        	**type**\: :py:class:`RcmdBoolYesNoEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
                         
                         .. attribute:: instance_id
                         
@@ -29703,7 +27372,7 @@ class Rcmd(object):
                         .. attribute:: instance_state
                         
                         	Instance State
-                        	**type**\: :py:class:`RcmdShowInstState_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowInstState_Enum>`
+                        	**type**\: :py:class:`RcmdShowInstStateEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowInstStateEnum>`
                         
                         .. attribute:: last_update_time
                         
@@ -29794,8 +27463,6 @@ class Rcmd(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.arch_spf_run is not None:
                                 return True
 
@@ -29837,10 +27504,6 @@ class Rcmd(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -29858,8 +27521,6 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.arch_lsp_regeneration is not None:
                             return True
 
@@ -29897,10 +27558,6 @@ class Rcmd(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -29918,8 +27575,6 @@ class Rcmd(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.instance_name is not None:
                         for child_ref in self.instance_name:
                             if child_ref._has_data():
@@ -29931,10 +27586,6 @@ class Rcmd(object):
                     if self.protocol_id is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -29954,17 +27605,11 @@ class Rcmd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.process is not None:
                     for child_ref in self.process:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -29984,30 +27629,15 @@ class Rcmd(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.isis is not None and self.isis._has_data():
-                return True
-
-            if self.isis is not None and self.isis.is_presence():
                 return True
 
             if self.ldp is not None and self.ldp._has_data():
                 return True
 
-            if self.ldp is not None and self.ldp.is_presence():
-                return True
-
             if self.ospf is not None and self.ospf._has_data():
                 return True
 
-            if self.ospf is not None and self.ospf.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -30134,7 +27764,7 @@ class Rcmd(object):
             .. attribute:: last_process_state
             
             	Process state
-            	**type**\: :py:class:`RcmdShowPrcsState_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowPrcsState_Enum>`
+            	**type**\: :py:class:`RcmdShowPrcsStateEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowPrcsStateEnum>`
             
             .. attribute:: max_events
             
@@ -30215,7 +27845,7 @@ class Rcmd(object):
             .. attribute:: status
             
             	Server Status
-            	**type**\: :py:class:`RcmdBagEnableDisable_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBagEnableDisable_Enum>`
+            	**type**\: :py:class:`RcmdBagEnableDisableEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBagEnableDisableEnum>`
             
             
 
@@ -30296,12 +27926,12 @@ class Rcmd(object):
                     .. attribute:: disable
                     
                     	Enable/Disable cfg
-                    	**type**\: :py:class:`RcmdBoolYesNo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo_Enum>`
+                    	**type**\: :py:class:`RcmdBoolYesNoEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
                     
                     .. attribute:: priority_name
                     
                     	Priority Level
-                    	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                    	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                     
                     .. attribute:: threshold
                     
@@ -30335,8 +27965,6 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.disable is not None:
                             return True
 
@@ -30346,10 +27974,6 @@ class Rcmd(object):
                         if self.threshold is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -30369,8 +27993,6 @@ class Rcmd(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.priority is not None:
                         for child_ref in self.priority:
                             if child_ref._has_data():
@@ -30379,10 +28001,6 @@ class Rcmd(object):
                     if self.protocol_name is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -30486,8 +28104,6 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.error_stats is not None:
                             return True
 
@@ -30500,10 +28116,6 @@ class Rcmd(object):
                         if self.trace_name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -30523,8 +28135,6 @@ class Rcmd(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.memory_suspend is not None:
                         return True
 
@@ -30536,10 +28146,6 @@ class Rcmd(object):
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -30559,8 +28165,6 @@ class Rcmd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.archive_count is not None:
                     return True
 
@@ -30649,10 +28253,6 @@ class Rcmd(object):
                 if self.status is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -30750,7 +28350,7 @@ class Rcmd(object):
             .. attribute:: last_process_state
             
             	Process state
-            	**type**\: :py:class:`RcmdShowPrcsState_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowPrcsState_Enum>`
+            	**type**\: :py:class:`RcmdShowPrcsStateEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowPrcsStateEnum>`
             
             .. attribute:: max_events
             
@@ -30831,7 +28431,7 @@ class Rcmd(object):
             .. attribute:: status
             
             	Server Status
-            	**type**\: :py:class:`RcmdBagEnableDisable_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBagEnableDisable_Enum>`
+            	**type**\: :py:class:`RcmdBagEnableDisableEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBagEnableDisableEnum>`
             
             
 
@@ -30912,12 +28512,12 @@ class Rcmd(object):
                     .. attribute:: disable
                     
                     	Enable/Disable cfg
-                    	**type**\: :py:class:`RcmdBoolYesNo_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo_Enum>`
+                    	**type**\: :py:class:`RcmdBoolYesNoEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
                     
                     .. attribute:: priority_name
                     
                     	Priority Level
-                    	**type**\: :py:class:`RcmdPriorityLevel_Enum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel_Enum>`
+                    	**type**\: :py:class:`RcmdPriorityLevelEnum <ydk.models.infra.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                     
                     .. attribute:: threshold
                     
@@ -30951,8 +28551,6 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.disable is not None:
                             return True
 
@@ -30962,10 +28560,6 @@ class Rcmd(object):
                         if self.threshold is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -30985,8 +28579,6 @@ class Rcmd(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.priority is not None:
                         for child_ref in self.priority:
                             if child_ref._has_data():
@@ -30995,10 +28587,6 @@ class Rcmd(object):
                     if self.protocol_name is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -31102,8 +28690,6 @@ class Rcmd(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.error_stats is not None:
                             return True
 
@@ -31116,10 +28702,6 @@ class Rcmd(object):
                         if self.trace_name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -31139,8 +28721,6 @@ class Rcmd(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.memory_suspend is not None:
                         return True
 
@@ -31152,10 +28732,6 @@ class Rcmd(object):
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -31175,8 +28751,6 @@ class Rcmd(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.archive_count is not None:
                     return True
 
@@ -31267,10 +28841,6 @@ class Rcmd(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
@@ -31288,24 +28858,12 @@ class Rcmd(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.detail is not None and self.detail._has_data():
-                return True
-
-            if self.detail is not None and self.detail.is_presence():
                 return True
 
             if self.normal is not None and self.normal._has_data():
                 return True
 
-            if self.normal is not None and self.normal.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -31325,60 +28883,30 @@ class Rcmd(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.intf is not None and self.intf._has_data():
-            return True
-
-        if self.intf is not None and self.intf.is_presence():
             return True
 
         if self.isis is not None and self.isis._has_data():
             return True
 
-        if self.isis is not None and self.isis.is_presence():
-            return True
-
         if self.ldp is not None and self.ldp._has_data():
-            return True
-
-        if self.ldp is not None and self.ldp.is_presence():
             return True
 
         if self.memory is not None and self.memory._has_data():
             return True
 
-        if self.memory is not None and self.memory.is_presence():
-            return True
-
         if self.node is not None and self.node._has_data():
-            return True
-
-        if self.node is not None and self.node.is_presence():
             return True
 
         if self.ospf is not None and self.ospf._has_data():
             return True
 
-        if self.ospf is not None and self.ospf.is_presence():
-            return True
-
         if self.process is not None and self.process._has_data():
-            return True
-
-        if self.process is not None and self.process.is_presence():
             return True
 
         if self.server is not None and self.server._has_data():
             return True
 
-        if self.server is not None and self.server.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

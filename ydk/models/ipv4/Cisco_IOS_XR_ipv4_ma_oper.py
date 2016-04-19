@@ -24,76 +24,70 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class Ipv4MaOperLineState_Enum(Enum):
+class Ipv4MaOperLineStateEnum(Enum):
     """
-    Ipv4MaOperLineState_Enum
+    Ipv4MaOperLineStateEnum
 
     Interface line states
 
-    """
+    .. data:: UNKNOWN = 0
+
+    	Interface state is unknown
+
+    .. data:: SHUTDOWN = 1
+
+    	Interface has been shutdown
+
+    .. data:: DOWN = 2
+
+    	Interface state is down
+
+    .. data:: UP = 3
+
+    	Interface state is up
 
     """
 
-    Interface state is unknown
-
-    """
     UNKNOWN = 0
 
-    """
-
-    Interface has been shutdown
-
-    """
     SHUTDOWN = 1
 
-    """
-
-    Interface state is down
-
-    """
     DOWN = 2
 
-    """
-
-    Interface state is up
-
-    """
     UP = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ma_oper as meta
-        return meta._meta_table['Ipv4MaOperLineState_Enum']
+        return meta._meta_table['Ipv4MaOperLineStateEnum']
 
 
-class RpfMode_Enum(Enum):
+class RpfModeEnum(Enum):
     """
-    RpfMode_Enum
+    RpfModeEnum
 
     Interface line states
 
-    """
+    .. data:: STRICT = 0
+
+    	Strict RPF
+
+    .. data:: LOOSE = 1
+
+    	Loose RPF
 
     """
 
-    Strict RPF
-
-    """
     STRICT = 0
 
-    """
-
-    Loose RPF
-
-    """
     LOOSE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ma_oper as meta
-        return meta._meta_table['RpfMode_Enum']
+        return meta._meta_table['RpfModeEnum']
 
 
 

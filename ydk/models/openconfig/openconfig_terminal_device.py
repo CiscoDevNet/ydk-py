@@ -259,18 +259,12 @@ class TerminalDevice(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.description is not None:
                         return True
 
                     if self.name is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -398,8 +392,6 @@ class TerminalDevice(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.allocation is not None:
                                 return True
 
@@ -412,10 +404,6 @@ class TerminalDevice(object):
                             if self.logical_channel is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -483,8 +471,6 @@ class TerminalDevice(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.allocation is not None:
                                 return True
 
@@ -497,10 +483,6 @@ class TerminalDevice(object):
                             if self.logical_channel is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -524,27 +506,15 @@ class TerminalDevice(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.index is not None:
                             return True
 
                         if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.config is not None and self.config.is_presence():
-                            return True
-
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -566,17 +536,11 @@ class TerminalDevice(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.assignment is not None:
                         for child_ref in self.assignment:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -695,8 +659,6 @@ class TerminalDevice(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.description is not None:
                                 return True
 
@@ -706,10 +668,6 @@ class TerminalDevice(object):
                             if self.tx_laser is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -782,8 +740,6 @@ class TerminalDevice(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.description is not None:
                                 return True
 
@@ -799,10 +755,6 @@ class TerminalDevice(object):
                             if self.tx_laser is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -826,27 +778,15 @@ class TerminalDevice(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.index is not None:
                             return True
 
                         if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.config is not None and self.config.is_presence():
-                            return True
-
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -868,17 +808,11 @@ class TerminalDevice(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.channel is not None:
                         for child_ref in self.channel:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -961,8 +895,6 @@ class TerminalDevice(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.description is not None:
                         return True
 
@@ -984,10 +916,6 @@ class TerminalDevice(object):
                     if self.sonet_sdh_compliance_code is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1059,15 +987,9 @@ class TerminalDevice(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.enabled is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1117,7 +1039,7 @@ class TerminalDevice(object):
                     .. attribute:: present
                     
                     	Indicates whether a transceiver is present in the specified client port
-                    	**type**\: :py:class:`Present_Enum <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.ClientPorts.Port.Transceiver.State.Present_Enum>`
+                    	**type**\: :py:class:`PresentEnum <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.ClientPorts.Port.Transceiver.State.PresentEnum>`
                     
                     .. attribute:: serial_no
                     
@@ -1168,34 +1090,33 @@ class TerminalDevice(object):
                         self.vendor_part = None
                         self.vendor_rev = None
 
-                    class Present_Enum(Enum):
+                    class PresentEnum(Enum):
                         """
-                        Present_Enum
+                        PresentEnum
 
                         Indicates whether a transceiver is present in
+
                         the specified client port.
 
-                        """
+                        .. data:: PRESENT = 0
+
+                        	Transceiver is present on the port
+
+                        .. data:: NOT_PRESENT = 1
+
+                        	Transceiver is not present on the port
 
                         """
 
-                        Transceiver is present on the port
-
-                        """
                         PRESENT = 0
 
-                        """
-
-                        Transceiver is not present on the port
-
-                        """
                         NOT_PRESENT = 1
 
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_terminal_device as meta
-                            return meta._meta_table['TerminalDevice.ClientPorts.Port.Transceiver.State.Present_Enum']
+                            return meta._meta_table['TerminalDevice.ClientPorts.Port.Transceiver.State.PresentEnum']
 
 
                     @property
@@ -1212,8 +1133,6 @@ class TerminalDevice(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.connector_type is not None:
                             return True
 
@@ -1249,10 +1168,6 @@ class TerminalDevice(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_terminal_device as meta
@@ -1272,24 +1187,12 @@ class TerminalDevice(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.config is not None and self.config._has_data():
-                        return True
-
-                    if self.config is not None and self.config.is_presence():
                         return True
 
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1311,45 +1214,24 @@ class TerminalDevice(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
                 if self.config is not None and self.config._has_data():
                     return True
 
-                if self.config is not None and self.config.is_presence():
-                    return True
-
                 if self.logical_channel_assignments is not None and self.logical_channel_assignments._has_data():
-                    return True
-
-                if self.logical_channel_assignments is not None and self.logical_channel_assignments.is_presence():
                     return True
 
                 if self.physical_channels is not None and self.physical_channels._has_data():
                     return True
 
-                if self.physical_channels is not None and self.physical_channels.is_presence():
-                    return True
-
                 if self.state is not None and self.state._has_data():
-                    return True
-
-                if self.state is not None and self.state.is_presence():
                     return True
 
                 if self.transceiver is not None and self.transceiver._has_data():
                     return True
 
-                if self.transceiver is not None and self.transceiver.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1369,17 +1251,11 @@ class TerminalDevice(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.port is not None:
                 for child_ref in self.port:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1401,7 +1277,6 @@ class TerminalDevice(object):
 
         def __init__(self):
             self.parent = None
-            pass
 
         @property
         def _common_path(self):
@@ -1415,12 +1290,6 @@ class TerminalDevice(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1529,18 +1398,12 @@ class TerminalDevice(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.name is not None:
                         return True
 
                     if self.output_power is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1591,18 +1454,12 @@ class TerminalDevice(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.name is not None:
                         return True
 
                     if self.output_power is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1624,27 +1481,15 @@ class TerminalDevice(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
                 if self.config is not None and self.config._has_data():
                     return True
 
-                if self.config is not None and self.config.is_presence():
-                    return True
-
                 if self.state is not None and self.state._has_data():
                     return True
 
-                if self.state is not None and self.state.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1664,17 +1509,11 @@ class TerminalDevice(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.port is not None:
                 for child_ref in self.port:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1810,8 +1649,6 @@ class TerminalDevice(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.description is not None:
                         return True
 
@@ -1827,10 +1664,6 @@ class TerminalDevice(object):
                     if self.trib_rate_class is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1983,8 +1816,6 @@ class TerminalDevice(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.allocation is not None:
                                 return True
 
@@ -2000,10 +1831,6 @@ class TerminalDevice(object):
                             if self.optical_channel is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2078,8 +1905,6 @@ class TerminalDevice(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.allocation is not None:
                                 return True
 
@@ -2095,10 +1920,6 @@ class TerminalDevice(object):
                             if self.optical_channel is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2122,27 +1943,15 @@ class TerminalDevice(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.index is not None:
                             return True
 
                         if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.config is not None and self.config.is_presence():
-                            return True
-
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2164,17 +1973,11 @@ class TerminalDevice(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.assignment is not None:
                         for child_ref in self.assignment:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2207,7 +2010,7 @@ class TerminalDevice(object):
                 .. attribute:: link_state
                 
                 	Link\-state of the Ethernet protocol on the logical channel, SONET / SDH framed signal, etc
-                	**type**\: :py:class:`LinkState_Enum <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.State.LinkState_Enum>`
+                	**type**\: :py:class:`LinkStateEnum <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.State.LinkStateEnum>`
                 
                 .. attribute:: otn
                 
@@ -2249,34 +2052,33 @@ class TerminalDevice(object):
                     self.trib_protocol = None
                     self.trib_rate_class = None
 
-                class LinkState_Enum(Enum):
+                class LinkStateEnum(Enum):
                     """
-                    LinkState_Enum
+                    LinkStateEnum
 
                     Link\-state of the Ethernet protocol on the logical channel,
+
                     SONET / SDH framed signal, etc.
 
-                    """
+                    .. data:: UP = 0
+
+                    	Logical channel is operationally up
+
+                    .. data:: DOWN = 1
+
+                    	Logical channel is operationally down
 
                     """
 
-                    Logical channel is operationally up
-
-                    """
                     UP = 0
 
-                    """
-
-                    Logical channel is operationally down
-
-                    """
                     DOWN = 1
 
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_terminal_device as meta
-                        return meta._meta_table['TerminalDevice.LogicalChannels.Channel.State.LinkState_Enum']
+                        return meta._meta_table['TerminalDevice.LogicalChannels.Channel.State.LinkStateEnum']
 
 
 
@@ -2388,8 +2190,6 @@ class TerminalDevice(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.in_8021q_frames is not None:
                             return True
 
@@ -2420,10 +2220,6 @@ class TerminalDevice(object):
                         if self.out_mac_pause_frames is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2526,8 +2322,6 @@ class TerminalDevice(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.avg is not None:
                                 return True
 
@@ -2537,10 +2331,6 @@ class TerminalDevice(object):
                             if self.min is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2602,8 +2392,6 @@ class TerminalDevice(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.avg is not None:
                                 return True
 
@@ -2613,10 +2401,6 @@ class TerminalDevice(object):
                             if self.min is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2638,18 +2422,10 @@ class TerminalDevice(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.post_fec_ber is not None and self.post_fec_ber._has_data():
                             return True
 
-                        if self.post_fec_ber is not None and self.post_fec_ber.is_presence():
-                            return True
-
                         if self.pre_fec_ber is not None and self.pre_fec_ber._has_data():
-                            return True
-
-                        if self.pre_fec_ber is not None and self.pre_fec_ber.is_presence():
                             return True
 
                         if self.rdi_msg is not None:
@@ -2658,10 +2434,6 @@ class TerminalDevice(object):
                         if self.tti_msg is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2683,15 +2455,10 @@ class TerminalDevice(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.description is not None:
                         return True
 
                     if self.ethernet is not None and self.ethernet._has_data():
-                        return True
-
-                    if self.ethernet is not None and self.ethernet.is_presence():
                         return True
 
                     if self.index is not None:
@@ -2703,9 +2470,6 @@ class TerminalDevice(object):
                     if self.otn is not None and self.otn._has_data():
                         return True
 
-                    if self.otn is not None and self.otn.is_presence():
-                        return True
-
                     if self.protocol_type is not None:
                         return True
 
@@ -2715,10 +2479,6 @@ class TerminalDevice(object):
                     if self.trib_rate_class is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2740,33 +2500,18 @@ class TerminalDevice(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.index is not None:
                     return True
 
                 if self.config is not None and self.config._has_data():
                     return True
 
-                if self.config is not None and self.config.is_presence():
-                    return True
-
                 if self.logical_channel_assignments is not None and self.logical_channel_assignments._has_data():
-                    return True
-
-                if self.logical_channel_assignments is not None and self.logical_channel_assignments.is_presence():
                     return True
 
                 if self.state is not None and self.state._has_data():
                     return True
 
-                if self.state is not None and self.state.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2786,17 +2531,11 @@ class TerminalDevice(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.channel is not None:
                 for child_ref in self.channel:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2851,7 +2590,6 @@ class TerminalDevice(object):
 
             def __init__(self):
                 self.parent = None
-                pass
 
             @property
             def _common_path(self):
@@ -2865,12 +2603,6 @@ class TerminalDevice(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2951,8 +2683,6 @@ class TerminalDevice(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.mode_id is not None:
                         return True
 
@@ -2962,10 +2692,6 @@ class TerminalDevice(object):
                     if self.vendor_id is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2985,17 +2711,11 @@ class TerminalDevice(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.supported_modes is not None:
                     for child_ref in self.supported_modes:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3015,24 +2735,12 @@ class TerminalDevice(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.config is not None and self.config._has_data():
-                return True
-
-            if self.config is not None and self.config.is_presence():
                 return True
 
             if self.state is not None and self.state._has_data():
                 return True
 
-            if self.state is not None and self.state.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3167,8 +2875,6 @@ class TerminalDevice(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.frequency is not None:
                         return True
 
@@ -3184,10 +2890,6 @@ class TerminalDevice(object):
                     if self.power is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3262,8 +2964,6 @@ class TerminalDevice(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.frequency is not None:
                         return True
 
@@ -3279,10 +2979,6 @@ class TerminalDevice(object):
                     if self.power is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3304,27 +3000,15 @@ class TerminalDevice(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.index is not None:
                     return True
 
                 if self.config is not None and self.config._has_data():
                     return True
 
-                if self.config is not None and self.config.is_presence():
-                    return True
-
                 if self.state is not None and self.state._has_data():
                     return True
 
-                if self.state is not None and self.state.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3344,17 +3028,11 @@ class TerminalDevice(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.optical_channel is not None:
                 for child_ref in self.optical_channel:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3376,7 +3054,6 @@ class TerminalDevice(object):
 
         def __init__(self):
             self.parent = None
-            pass
 
         @property
         def _common_path(self):
@@ -3390,12 +3067,6 @@ class TerminalDevice(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3415,54 +3086,27 @@ class TerminalDevice(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.client_ports is not None and self.client_ports._has_data():
-            return True
-
-        if self.client_ports is not None and self.client_ports.is_presence():
             return True
 
         if self.config is not None and self.config._has_data():
             return True
 
-        if self.config is not None and self.config.is_presence():
-            return True
-
         if self.line_ports is not None and self.line_ports._has_data():
-            return True
-
-        if self.line_ports is not None and self.line_ports.is_presence():
             return True
 
         if self.logical_channels is not None and self.logical_channels._has_data():
             return True
 
-        if self.logical_channels is not None and self.logical_channels.is_presence():
-            return True
-
         if self.operational_modes is not None and self.operational_modes._has_data():
-            return True
-
-        if self.operational_modes is not None and self.operational_modes.is_presence():
             return True
 
         if self.optical_channels is not None and self.optical_channels._has_data():
             return True
 
-        if self.optical_channels is not None and self.optical_channels.is_presence():
-            return True
-
         if self.state is not None and self.state._has_data():
             return True
 
-        if self.state is not None and self.state.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

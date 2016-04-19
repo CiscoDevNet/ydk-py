@@ -563,8 +563,6 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.rx_8b_10b_code_errors is not None:
                                                         return True
 
@@ -607,10 +605,6 @@ class Fia(object):
                                                     if self.tx_data_cell_counter is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -711,8 +705,6 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.error_token_count is not None:
                                                         return True
 
@@ -737,10 +729,6 @@ class Fia(object):
                                                     if self.link_tokens_error is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -889,8 +877,6 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.rx_8b_10b_code_errors is not None:
                                                         return True
 
@@ -935,10 +921,6 @@ class Fia(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.dnx._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
@@ -958,30 +940,15 @@ class Fia(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.link_counters is not None and self.link_counters._has_data():
-                                                    return True
-
-                                                if self.link_counters is not None and self.link_counters.is_presence():
                                                     return True
 
                                                 if self.link_error_status is not None and self.link_error_status._has_data():
                                                     return True
 
-                                                if self.link_error_status is not None and self.link_error_status.is_presence():
-                                                    return True
-
                                                 if self.ovf_status is not None and self.ovf_status._has_data():
                                                     return True
 
-                                                if self.ovf_status is not None and self.ovf_status.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1166,8 +1133,6 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.rx_8b_10b_code_errors is not None:
                                                         return True
 
@@ -1210,10 +1175,6 @@ class Fia(object):
                                                     if self.tx_data_cell_counter is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -1314,8 +1275,6 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.error_token_count is not None:
                                                         return True
 
@@ -1340,10 +1299,6 @@ class Fia(object):
                                                     if self.link_tokens_error is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -1492,8 +1447,6 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.rx_8b_10b_code_errors is not None:
                                                         return True
 
@@ -1538,10 +1491,6 @@ class Fia(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.dnx._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
@@ -1561,30 +1510,15 @@ class Fia(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.link_counters is not None and self.link_counters._has_data():
-                                                    return True
-
-                                                if self.link_counters is not None and self.link_counters.is_presence():
                                                     return True
 
                                                 if self.link_error_status is not None and self.link_error_status._has_data():
                                                     return True
 
-                                                if self.link_error_status is not None and self.link_error_status.is_presence():
-                                                    return True
-
                                                 if self.ovf_status is not None and self.ovf_status._has_data():
                                                     return True
 
-                                                if self.ovf_status is not None and self.ovf_status.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1608,24 +1542,16 @@ class Fia(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.asic is not None:
                                                 return True
 
                                             if self.aggr_stats is not None and self.aggr_stats._has_data():
                                                 return True
 
-                                            if self.aggr_stats is not None and self.aggr_stats.is_presence():
-                                                return True
-
                                             if self.asic_instance is not None:
                                                 return True
 
                                             if self.incr_stats is not None and self.incr_stats._has_data():
-                                                return True
-
-                                            if self.incr_stats is not None and self.incr_stats.is_presence():
                                                 return True
 
                                             if self.link_no is not None:
@@ -1643,10 +1569,6 @@ class Fia(object):
                                             if self.valid is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -1670,8 +1592,6 @@ class Fia(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.link is not None:
                                             return True
 
@@ -1680,10 +1600,6 @@ class Fia(object):
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1705,17 +1621,11 @@ class Fia(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fmac_link is not None:
                                         for child_ref in self.fmac_link:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1737,18 +1647,9 @@ class Fia(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fmac_links is not None and self.fmac_links._has_data():
                                     return True
 
-                                if self.fmac_links is not None and self.fmac_links.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1959,8 +1860,6 @@ class Fia(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.field_name is not None:
                                                     return True
 
@@ -1970,10 +1869,6 @@ class Fia(object):
                                                 if self.is_ovf is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1995,8 +1890,6 @@ class Fia(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.block_name is not None:
                                                 return True
 
@@ -2008,10 +1901,6 @@ class Fia(object):
                                             if self.num_fields is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -2033,8 +1922,6 @@ class Fia(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.block_info is not None:
                                             for child_ref in self.block_info:
                                                 if child_ref._has_data():
@@ -2043,10 +1930,6 @@ class Fia(object):
                                         if self.num_blocks is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2068,8 +1951,6 @@ class Fia(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.asic_instance is not None:
                                         return True
 
@@ -2085,16 +1966,9 @@ class Fia(object):
                                     if self.stats_info is not None and self.stats_info._has_data():
                                         return True
 
-                                    if self.stats_info is not None and self.stats_info.is_presence():
-                                        return True
-
                                     if self.valid is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2116,18 +1990,9 @@ class Fia(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.pbc_stats is not None and self.pbc_stats._has_data():
                                     return True
 
-                                if self.pbc_stats is not None and self.pbc_stats.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2151,27 +2016,15 @@ class Fia(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.instance is not None:
                                 return True
 
                             if self.fmac_statistics is not None and self.fmac_statistics._has_data():
                                 return True
 
-                            if self.fmac_statistics is not None and self.fmac_statistics.is_presence():
-                                return True
-
                             if self.pbc_statistics is not None and self.pbc_statistics._has_data():
                                 return True
 
-                            if self.pbc_statistics is not None and self.pbc_statistics.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2193,17 +2046,11 @@ class Fia(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.statistics_asic_instance is not None:
                             for child_ref in self.statistics_asic_instance:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2225,18 +2072,9 @@ class Fia(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.statistics_asic_instances is not None and self.statistics_asic_instances._has_data():
                         return True
 
-                    if self.statistics_asic_instances is not None and self.statistics_asic_instances.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2337,18 +2175,12 @@ class Fia(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.asic_instance is not None:
                                 return True
 
                             if self.instance is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2370,17 +2202,11 @@ class Fia(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.asic_instance is not None:
                             for child_ref in self.asic_instance:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2402,18 +2228,9 @@ class Fia(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.asic_instances is not None and self.asic_instances._has_data():
                         return True
 
-                    if self.asic_instances is not None and self.asic_instances.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2593,18 +2410,12 @@ class Fia(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.output is not None:
                                             return True
 
                                         if self.output_xr is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2628,8 +2439,6 @@ class Fia(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.cmd is not None:
                                         return True
 
@@ -2638,10 +2447,6 @@ class Fia(object):
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2663,17 +2468,11 @@ class Fia(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.command is not None:
                                     for child_ref in self.command:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2697,21 +2496,12 @@ class Fia(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.unit is not None:
                                 return True
 
                             if self.commands is not None and self.commands._has_data():
                                 return True
 
-                            if self.commands is not None and self.commands.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2733,17 +2523,11 @@ class Fia(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.diag_shell_unit is not None:
                             for child_ref in self.diag_shell_unit:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2765,18 +2549,9 @@ class Fia(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.diag_shell_units is not None and self.diag_shell_units._has_data():
                         return True
 
-                    if self.diag_shell_units is not None and self.diag_shell_units.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3397,8 +3172,6 @@ class Fia(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.card_flag is not None:
                                     return True
 
@@ -3422,10 +3195,6 @@ class Fia(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.dnx._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
@@ -3445,8 +3214,6 @@ class Fia(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.count is not None:
                                 return True
 
@@ -3461,10 +3228,6 @@ class Fia(object):
                             if self.start is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3486,8 +3249,6 @@ class Fia(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.card_flag is not None:
                             return True
 
@@ -3530,19 +3291,12 @@ class Fia(object):
                         if self.oir_circular_buffer is not None and self.oir_circular_buffer._has_data():
                             return True
 
-                        if self.oir_circular_buffer is not None and self.oir_circular_buffer.is_presence():
-                            return True
-
                         if self.reg_flag is not None:
                             return True
 
                         if self.slot_no is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3743,8 +3497,6 @@ class Fia(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.asic_instance is not None:
                                 return True
 
@@ -3760,10 +3512,6 @@ class Fia(object):
                             if self.slot_num is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3785,15 +3533,10 @@ class Fia(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.admin_state is not None:
                             return True
 
                         if self.asic_id is not None and self.asic_id._has_data():
-                            return True
-
-                        if self.asic_id is not None and self.asic_id.is_presence():
                             return True
 
                         if self.asic_state is not None:
@@ -3834,10 +3577,6 @@ class Fia(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.dnx._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
@@ -3857,8 +3596,6 @@ class Fia(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.asic_avail_mask is not None:
                         return True
 
@@ -3998,10 +3735,6 @@ class Fia(object):
                     if self.ucmc_ratio is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4728,8 +4461,6 @@ class Fia(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.card_flag is not None:
                                                     return True
 
@@ -4753,10 +4484,6 @@ class Fia(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.dnx._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
@@ -4776,8 +4503,6 @@ class Fia(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.count is not None:
                                                 return True
 
@@ -4792,10 +4517,6 @@ class Fia(object):
                                             if self.start is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -4817,8 +4538,6 @@ class Fia(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.card_flag is not None:
                                             return True
 
@@ -4861,19 +4580,12 @@ class Fia(object):
                                         if self.oir_circular_buffer is not None and self.oir_circular_buffer._has_data():
                                             return True
 
-                                        if self.oir_circular_buffer is not None and self.oir_circular_buffer.is_presence():
-                                            return True
-
                                         if self.reg_flag is not None:
                                             return True
 
                                         if self.slot_no is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5074,8 +4786,6 @@ class Fia(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.asic_instance is not None:
                                                 return True
 
@@ -5091,10 +4801,6 @@ class Fia(object):
                                             if self.slot_num is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -5116,15 +4822,10 @@ class Fia(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.admin_state is not None:
                                             return True
 
                                         if self.asic_id is not None and self.asic_id._has_data():
-                                            return True
-
-                                        if self.asic_id is not None and self.asic_id.is_presence():
                                             return True
 
                                         if self.asic_state is not None:
@@ -5165,10 +4866,6 @@ class Fia(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.dnx._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
@@ -5190,8 +4887,6 @@ class Fia(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.slot is not None:
                                         return True
 
@@ -5336,10 +5031,6 @@ class Fia(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.dnx._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
@@ -5359,17 +5050,11 @@ class Fia(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.slot is not None:
                                     for child_ref in self.slot:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5393,21 +5078,12 @@ class Fia(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.flag is not None:
                                 return True
 
                             if self.slots is not None and self.slots._has_data():
                                 return True
 
-                            if self.slots is not None and self.slots.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5429,17 +5105,11 @@ class Fia(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.flag is not None:
                             for child_ref in self.flag:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5461,18 +5131,9 @@ class Fia(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.flags is not None and self.flags._has_data():
                         return True
 
-                    if self.flags is not None and self.flags.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5570,18 +5231,12 @@ class Fia(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.unit is not None:
                                 return True
 
                             if self.output is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5603,17 +5258,11 @@ class Fia(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.register_dump_unit is not None:
                             for child_ref in self.register_dump_unit:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5635,18 +5284,9 @@ class Fia(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.register_dump_units is not None and self.register_dump_units._has_data():
                         return True
 
-                    if self.register_dump_units is not None and self.register_dump_units.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6100,8 +5740,6 @@ class Fia(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.asic_instance is not None:
                                                             return True
 
@@ -6117,10 +5755,6 @@ class Fia(object):
                                                         if self.slot_num is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -6142,12 +5776,7 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.asic_id is not None and self.asic_id._has_data():
-                                                        return True
-
-                                                    if self.asic_id is not None and self.asic_id.is_presence():
                                                         return True
 
                                                     if self.link_num is not None:
@@ -6162,10 +5791,6 @@ class Fia(object):
                                                     if self.phy_link_num is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -6296,8 +5921,6 @@ class Fia(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.asic_instance is not None:
                                                             return True
 
@@ -6313,10 +5936,6 @@ class Fia(object):
                                                         if self.slot_num is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -6338,12 +5957,7 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.asic_id is not None and self.asic_id._has_data():
-                                                        return True
-
-                                                    if self.asic_id is not None and self.asic_id.is_presence():
                                                         return True
 
                                                     if self.link_num is not None:
@@ -6358,10 +5972,6 @@ class Fia(object):
                                                     if self.phy_link_num is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -6475,8 +6085,6 @@ class Fia(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.admin_state is not None:
                                                             return True
 
@@ -6492,10 +6100,6 @@ class Fia(object):
                                                         if self.timestamp is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -6517,8 +6121,6 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.hist is not None:
                                                         for child_ref in self.hist:
                                                             if child_ref._has_data():
@@ -6530,10 +6132,6 @@ class Fia(object):
                                                     if self.start_index is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -6664,8 +6262,6 @@ class Fia(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.asic_instance is not None:
                                                             return True
 
@@ -6681,10 +6277,6 @@ class Fia(object):
                                                         if self.slot_num is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -6706,12 +6298,7 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.asic_id is not None and self.asic_id._has_data():
-                                                        return True
-
-                                                    if self.asic_id is not None and self.asic_id.is_presence():
                                                         return True
 
                                                     if self.link_num is not None:
@@ -6726,10 +6313,6 @@ class Fia(object):
                                                     if self.phy_link_num is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -6753,8 +6336,6 @@ class Fia(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.link is not None:
                                                     return True
 
@@ -6767,13 +6348,7 @@ class Fia(object):
                                                 if self.far_end_link is not None and self.far_end_link._has_data():
                                                     return True
 
-                                                if self.far_end_link is not None and self.far_end_link.is_presence():
-                                                    return True
-
                                                 if self.far_end_link_in_hw is not None and self.far_end_link_in_hw._has_data():
-                                                    return True
-
-                                                if self.far_end_link_in_hw is not None and self.far_end_link_in_hw.is_presence():
                                                     return True
 
                                                 if self.flags is not None:
@@ -6783,9 +6358,6 @@ class Fia(object):
                                                     return True
 
                                                 if self.history is not None and self.history._has_data():
-                                                    return True
-
-                                                if self.history is not None and self.history.is_presence():
                                                     return True
 
                                                 if self.is_conf_pending is not None:
@@ -6809,13 +6381,6 @@ class Fia(object):
                                                 if self.this_link is not None and self.this_link._has_data():
                                                     return True
 
-                                                if self.this_link is not None and self.this_link.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -6837,8 +6402,6 @@ class Fia(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.end_number is not None:
                                                 return True
 
@@ -6853,10 +6416,6 @@ class Fia(object):
                                             if self.status_option is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6878,17 +6437,11 @@ class Fia(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.rx_link is not None:
                                             for child_ref in self.rx_link:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6912,21 +6465,12 @@ class Fia(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.instance is not None:
                                         return True
 
                                     if self.rx_links is not None and self.rx_links._has_data():
                                         return True
 
-                                    if self.rx_links is not None and self.rx_links.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6948,17 +6492,11 @@ class Fia(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.rx_asic_instance is not None:
                                     for child_ref in self.rx_asic_instance:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6982,21 +6520,12 @@ class Fia(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.option is not None:
                                 return True
 
                             if self.rx_asic_instances is not None and self.rx_asic_instances._has_data():
                                 return True
 
-                            if self.rx_asic_instances is not None and self.rx_asic_instances.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7018,17 +6547,11 @@ class Fia(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.link_option is not None:
                             for child_ref in self.link_option:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7050,18 +6573,9 @@ class Fia(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.link_options is not None and self.link_options._has_data():
                         return True
 
-                    if self.link_options is not None and self.link_options.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7506,8 +7020,6 @@ class Fia(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.asic_instance is not None:
                                                             return True
 
@@ -7523,10 +7035,6 @@ class Fia(object):
                                                         if self.slot_num is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -7548,12 +7056,7 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.asic_id is not None and self.asic_id._has_data():
-                                                        return True
-
-                                                    if self.asic_id is not None and self.asic_id.is_presence():
                                                         return True
 
                                                     if self.link_num is not None:
@@ -7568,10 +7071,6 @@ class Fia(object):
                                                     if self.phy_link_num is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -7685,8 +7184,6 @@ class Fia(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.admin_state is not None:
                                                             return True
 
@@ -7702,10 +7199,6 @@ class Fia(object):
                                                         if self.timestamp is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -7727,8 +7220,6 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.hist is not None:
                                                         for child_ref in self.hist:
                                                             if child_ref._has_data():
@@ -7740,10 +7231,6 @@ class Fia(object):
                                                     if self.start_index is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -7788,15 +7275,9 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.dummy is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -7927,8 +7408,6 @@ class Fia(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.asic_instance is not None:
                                                             return True
 
@@ -7944,10 +7423,6 @@ class Fia(object):
                                                         if self.slot_num is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -7969,12 +7444,7 @@ class Fia(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.asic_id is not None and self.asic_id._has_data():
-                                                        return True
-
-                                                    if self.asic_id is not None and self.asic_id.is_presence():
                                                         return True
 
                                                     if self.link_num is not None:
@@ -7989,10 +7459,6 @@ class Fia(object):
                                                     if self.phy_link_num is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -8016,8 +7482,6 @@ class Fia(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.link is not None:
                                                     return True
 
@@ -8036,13 +7500,7 @@ class Fia(object):
                                                 if self.far_end_link is not None and self.far_end_link._has_data():
                                                     return True
 
-                                                if self.far_end_link is not None and self.far_end_link.is_presence():
-                                                    return True
-
                                                 if self.history is not None and self.history._has_data():
-                                                    return True
-
-                                                if self.history is not None and self.history.is_presence():
                                                     return True
 
                                                 if self.is_conf_pending is not None:
@@ -8069,19 +7527,9 @@ class Fia(object):
                                                 if self.stats is not None and self.stats._has_data():
                                                     return True
 
-                                                if self.stats is not None and self.stats.is_presence():
-                                                    return True
-
                                                 if self.this_link is not None and self.this_link._has_data():
                                                     return True
 
-                                                if self.this_link is not None and self.this_link.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -8103,8 +7551,6 @@ class Fia(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.end_number is not None:
                                                 return True
 
@@ -8116,10 +7562,6 @@ class Fia(object):
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -8141,17 +7583,11 @@ class Fia(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.tx_link is not None:
                                             for child_ref in self.tx_link:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8175,21 +7611,12 @@ class Fia(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.instance is not None:
                                         return True
 
                                     if self.tx_links is not None and self.tx_links._has_data():
                                         return True
 
-                                    if self.tx_links is not None and self.tx_links.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8211,17 +7638,11 @@ class Fia(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.tx_asic_instance is not None:
                                     for child_ref in self.tx_asic_instance:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8243,18 +7664,9 @@ class Fia(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.tx_asic_instances is not None and self.tx_asic_instances._has_data():
                                 return True
 
-                            if self.tx_asic_instances is not None and self.tx_asic_instances.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8276,18 +7688,9 @@ class Fia(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.tx_status_option is not None and self.tx_status_option._has_data():
                             return True
 
-                        if self.tx_status_option is not None and self.tx_status_option.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8309,18 +7712,9 @@ class Fia(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.tx_status_option_table is not None and self.tx_status_option_table._has_data():
                         return True
 
-                    if self.tx_status_option_table is not None and self.tx_status_option_table.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8342,63 +7736,33 @@ class Fia(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.asic_statistics is not None and self.asic_statistics._has_data():
                     return True
 
-                if self.asic_statistics is not None and self.asic_statistics.is_presence():
-                    return True
-
                 if self.clear_statistics is not None and self.clear_statistics._has_data():
-                    return True
-
-                if self.clear_statistics is not None and self.clear_statistics.is_presence():
                     return True
 
                 if self.diag_shell is not None and self.diag_shell._has_data():
                     return True
 
-                if self.diag_shell is not None and self.diag_shell.is_presence():
-                    return True
-
                 if self.driver_information is not None and self.driver_information._has_data():
-                    return True
-
-                if self.driver_information is not None and self.driver_information.is_presence():
                     return True
 
                 if self.oir_history is not None and self.oir_history._has_data():
                     return True
 
-                if self.oir_history is not None and self.oir_history.is_presence():
-                    return True
-
                 if self.register_dump is not None and self.register_dump._has_data():
-                    return True
-
-                if self.register_dump is not None and self.register_dump.is_presence():
                     return True
 
                 if self.rx_link_information is not None and self.rx_link_information._has_data():
                     return True
 
-                if self.rx_link_information is not None and self.rx_link_information.is_presence():
-                    return True
-
                 if self.tx_link_information is not None and self.tx_link_information._has_data():
                     return True
 
-                if self.tx_link_information is not None and self.tx_link_information.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8418,17 +7782,11 @@ class Fia(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -8448,18 +7806,9 @@ class Fia(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

@@ -25,26 +25,25 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class IccpMode_Enum(Enum):
+class IccpModeEnum(Enum):
     """
-    IccpMode_Enum
+    IccpModeEnum
 
     Iccp mode
 
-    """
+    .. data:: SINGLETON = 1
+
+    	Run the ICCP group in Singleton mode
 
     """
 
-    Run the ICCP group in Singleton mode
-
-    """
     SINGLETON = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.rgmgr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
-        return meta._meta_table['IccpMode_Enum']
+        return meta._meta_table['IccpModeEnum']
 
 
 
@@ -153,18 +152,12 @@ class RedundancyGroupManager(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.backup_interface_name is not None:
                     return True
 
                 if self.next_hop_address is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -303,8 +296,6 @@ class RedundancyGroupManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.controller_name is not None:
                                 return True
 
@@ -314,10 +305,6 @@ class RedundancyGroupManager(object):
                             if self.next_hop_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -339,17 +326,11 @@ class RedundancyGroupManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.controller is not None:
                             for child_ref in self.controller:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -371,21 +352,12 @@ class RedundancyGroupManager(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.group_id is not None:
                         return True
 
                     if self.controllers is not None and self.controllers._has_data():
                         return True
 
-                    if self.controllers is not None and self.controllers.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -405,17 +377,11 @@ class RedundancyGroupManager(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.group is not None:
                     for child_ref in self.group:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -435,24 +401,12 @@ class RedundancyGroupManager(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.default_redundancy_group is not None and self.default_redundancy_group._has_data():
-                return True
-
-            if self.default_redundancy_group is not None and self.default_redundancy_group.is_presence():
                 return True
 
             if self.groups is not None and self.groups._has_data():
                 return True
 
-            if self.groups is not None and self.groups.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -537,7 +491,7 @@ class RedundancyGroupManager(object):
                 .. attribute:: mode
                 
                 	ICCP mode
-                	**type**\: :py:class:`IccpMode_Enum <ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg.IccpMode_Enum>`
+                	**type**\: :py:class:`IccpModeEnum <ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg.IccpModeEnum>`
                 
                 .. attribute:: nv_satellite
                 
@@ -625,15 +579,9 @@ class RedundancyGroupManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.backbone_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -655,17 +603,11 @@ class RedundancyGroupManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.backbone is not None:
                             for child_ref in self.backbone:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -735,15 +677,9 @@ class RedundancyGroupManager(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.neighbor_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -765,17 +701,11 @@ class RedundancyGroupManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.member is not None:
                             for child_ref in self.member:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -820,15 +750,9 @@ class RedundancyGroupManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.system_mac is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -850,15 +774,10 @@ class RedundancyGroupManager(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.group_number is not None:
                         return True
 
                     if self.backbones is not None and self.backbones._has_data():
-                        return True
-
-                    if self.backbones is not None and self.backbones.is_presence():
                         return True
 
                     if self.isolation_recovery_delay is not None:
@@ -867,22 +786,12 @@ class RedundancyGroupManager(object):
                     if self.members is not None and self.members._has_data():
                         return True
 
-                    if self.members is not None and self.members.is_presence():
-                        return True
-
                     if self.mode is not None:
                         return True
 
                     if self.nv_satellite is not None and self.nv_satellite._has_data():
                         return True
 
-                    if self.nv_satellite is not None and self.nv_satellite.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -902,17 +811,11 @@ class RedundancyGroupManager(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.iccp_group is not None:
                     for child_ref in self.iccp_group:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -932,18 +835,9 @@ class RedundancyGroupManager(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.iccp_groups is not None and self.iccp_groups._has_data():
                 return True
 
-            if self.iccp_groups is not None and self.iccp_groups.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -963,12 +857,7 @@ class RedundancyGroupManager(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.aps is not None and self.aps._has_data():
-            return True
-
-        if self.aps is not None and self.aps.is_presence():
             return True
 
         if self.enable is not None:
@@ -977,13 +866,6 @@ class RedundancyGroupManager(object):
         if self.iccp is not None and self.iccp._has_data():
             return True
 
-        if self.iccp is not None and self.iccp.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

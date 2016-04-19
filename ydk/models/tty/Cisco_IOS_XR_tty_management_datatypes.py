@@ -20,177 +20,163 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class TtyEscapeChar_Enum(Enum):
+class TtyEscapeCharEnum(Enum):
     """
-    TtyEscapeChar_Enum
+    TtyEscapeCharEnum
 
     Tty escape char
 
-    """
+    .. data:: BREAK = 257
+
+    	Cause escape on BREAK
+
+    .. data:: DEFAULT = 30
+
+    	Use default escape character
+
+    .. data:: NONE = 256
+
+    	Disable escape entirely
 
     """
 
-    Cause escape on BREAK
-
-    """
     BREAK = 257
 
-    """
-
-    Use default escape character
-
-    """
     DEFAULT = 30
 
-    """
-
-    Disable escape entirely
-
-    """
     NONE = 256
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.tty._meta import _Cisco_IOS_XR_tty_management_datatypes as meta
-        return meta._meta_table['TtyEscapeChar_Enum']
+        return meta._meta_table['TtyEscapeCharEnum']
 
 
-class TtyPager_Enum(Enum):
+class TtyPagerEnum(Enum):
     """
-    TtyPager_Enum
+    TtyPagerEnum
 
     Tty pager
 
-    """
+    .. data:: MORE = 1
+
+    	More paging Utility
+
+    .. data:: LESS = 2
+
+    	Less paging Utility
+
+    .. data:: NONE = 3
+
+    	No Paging Utility
 
     """
 
-    More paging Utility
-
-    """
     MORE = 1
 
-    """
-
-    Less paging Utility
-
-    """
     LESS = 2
 
-    """
-
-    No Paging Utility
-
-    """
     NONE = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.tty._meta import _Cisco_IOS_XR_tty_management_datatypes as meta
-        return meta._meta_table['TtyPager_Enum']
+        return meta._meta_table['TtyPagerEnum']
 
 
-class TtySessionTimeoutDirection_Enum(Enum):
+class TtySessionTimeoutDirectionEnum(Enum):
     """
-    TtySessionTimeoutDirection_Enum
+    TtySessionTimeoutDirectionEnum
 
     Tty session timeout direction
 
-    """
+    .. data:: IN = 1
+
+    	Input traffic
+
+    .. data:: IN_OUT = 3
+
+    	In & Output traffic
 
     """
 
-    Input traffic
-
-    """
     IN = 1
 
-    """
-
-    In & Output traffic
-
-    """
     IN_OUT = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.tty._meta import _Cisco_IOS_XR_tty_management_datatypes as meta
-        return meta._meta_table['TtySessionTimeoutDirection_Enum']
+        return meta._meta_table['TtySessionTimeoutDirectionEnum']
 
 
-class TtyTransportProtocolSelect_Enum(Enum):
+class TtyTransportProtocolEnum(Enum):
     """
-    TtyTransportProtocolSelect_Enum
-
-    Tty transport protocol select
-
-    """
-
-    """
-
-    No protocols
-
-    """
-    NONE = 0
-
-    """
-
-    All protocols
-
-    """
-    ALL = 1
-
-    """
-
-    Some Protocol
-
-    """
-    SOME = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.tty._meta import _Cisco_IOS_XR_tty_management_datatypes as meta
-        return meta._meta_table['TtyTransportProtocolSelect_Enum']
-
-
-class TtyTransportProtocol_Enum(Enum):
-    """
-    TtyTransportProtocol_Enum
+    TtyTransportProtocolEnum
 
     Tty transport protocol
 
-    """
+    .. data:: NONE = 0
+
+    	No protocols
+
+    .. data:: TELNET = 1
+
+    	TCP/IP Telnet protocol
+
+    .. data:: SSH = 3
+
+    	Unix ssh protocol
 
     """
 
-    No protocols
-
-    """
     NONE = 0
 
-    """
-
-    TCP/IP Telnet protocol
-
-    """
     TELNET = 1
 
-    """
-
-    Unix ssh protocol
-
-    """
     SSH = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.tty._meta import _Cisco_IOS_XR_tty_management_datatypes as meta
-        return meta._meta_table['TtyTransportProtocol_Enum']
+        return meta._meta_table['TtyTransportProtocolEnum']
+
+
+class TtyTransportProtocolSelectEnum(Enum):
+    """
+    TtyTransportProtocolSelectEnum
+
+    Tty transport protocol select
+
+    .. data:: NONE = 0
+
+    	No protocols
+
+    .. data:: ALL = 1
+
+    	All protocols
+
+    .. data:: SOME = 2
+
+    	Some Protocol
+
+    """
+
+    NONE = 0
+
+    ALL = 1
+
+    SOME = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.tty._meta import _Cisco_IOS_XR_tty_management_datatypes as meta
+        return meta._meta_table['TtyTransportProtocolSelectEnum']
 
 
 

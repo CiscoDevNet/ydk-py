@@ -491,8 +491,6 @@ class Ipv6Io(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.checksum_error_messages is not None:
                                 return True
 
@@ -607,10 +605,6 @@ class Ipv6Io(object):
                             if self.unknown_error_type_messages is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -895,8 +889,6 @@ class Ipv6Io(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bad_header_packets is not None:
                                 return True
 
@@ -990,10 +982,6 @@ class Ipv6Io(object):
                             if self.unknown_protocol_packets is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1110,8 +1098,6 @@ class Ipv6Io(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.received_neighbor_advertisement_messages is not None:
                                 return True
 
@@ -1144,10 +1130,6 @@ class Ipv6Io(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_io_oper as meta
@@ -1167,30 +1149,15 @@ class Ipv6Io(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.icmp is not None and self.icmp._has_data():
-                            return True
-
-                        if self.icmp is not None and self.icmp.is_presence():
                             return True
 
                         if self.ipv6 is not None and self.ipv6._has_data():
                             return True
 
-                        if self.ipv6 is not None and self.ipv6.is_presence():
-                            return True
-
                         if self.ipv6_node_discovery is not None and self.ipv6_node_discovery._has_data():
                             return True
 
-                        if self.ipv6_node_discovery is not None and self.ipv6_node_discovery.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1212,18 +1179,9 @@ class Ipv6Io(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.traffic is not None and self.traffic._has_data():
                         return True
 
-                    if self.traffic is not None and self.traffic.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1245,21 +1203,12 @@ class Ipv6Io(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.statistics is not None and self.statistics._has_data():
                     return True
 
-                if self.statistics is not None and self.statistics.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1279,17 +1228,11 @@ class Ipv6Io(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1309,18 +1252,9 @@ class Ipv6Io(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

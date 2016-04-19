@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'DefaultPolicyType_Enum' : _MetaInfoEnum('DefaultPolicyType_Enum', 'ydk.models.routing.routing_policy',
+    'DefaultPolicyTypeEnum' : _MetaInfoEnum('DefaultPolicyTypeEnum', 'ydk.models.routing.routing_policy',
         {
             'ACCEPT-ROUTE':'ACCEPT_ROUTE',
             'REJECT-ROUTE':'REJECT_ROUTE',
@@ -363,7 +363,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet',
             False, 
             [
-            _MetaInfoClassMember('match-set-options', REFERENCE_ENUM_CLASS, 'MatchSetOptionsRestrictedType_Enum' , 'ydk.models.policy.policy_types', 'MatchSetOptionsRestrictedType_Enum', 
+            _MetaInfoClassMember('match-set-options', REFERENCE_ENUM_CLASS, 'MatchSetOptionsRestrictedTypeEnum' , 'ydk.models.policy.policy_types', 'MatchSetOptionsRestrictedTypeEnum', 
                 [], [], 
                 '''                Optional parameter that governs the behaviour of the
                 match operation.  This leaf only supports matching on ANY
@@ -389,7 +389,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet',
             False, 
             [
-            _MetaInfoClassMember('match-set-options', REFERENCE_ENUM_CLASS, 'MatchSetOptionsRestrictedType_Enum' , 'ydk.models.policy.policy_types', 'MatchSetOptionsRestrictedType_Enum', 
+            _MetaInfoClassMember('match-set-options', REFERENCE_ENUM_CLASS, 'MatchSetOptionsRestrictedTypeEnum' , 'ydk.models.policy.policy_types', 'MatchSetOptionsRestrictedTypeEnum', 
                 [], [], 
                 '''                Optional parameter that governs the behaviour of the
                 match operation.  This leaf only supports matching on ANY
@@ -415,7 +415,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet',
             False, 
             [
-            _MetaInfoClassMember('match-set-options', REFERENCE_ENUM_CLASS, 'MatchSetOptionsRestrictedType_Enum' , 'ydk.models.policy.policy_types', 'MatchSetOptionsRestrictedType_Enum', 
+            _MetaInfoClassMember('match-set-options', REFERENCE_ENUM_CLASS, 'MatchSetOptionsRestrictedTypeEnum' , 'ydk.models.policy.policy_types', 'MatchSetOptionsRestrictedTypeEnum', 
                 [], [], 
                 '''                Optional parameter that governs the behaviour of the
                 match operation.  This leaf only supports matching on ANY

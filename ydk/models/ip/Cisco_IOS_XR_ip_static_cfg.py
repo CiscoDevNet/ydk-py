@@ -465,8 +465,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -503,10 +501,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -637,8 +631,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -675,10 +667,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -817,8 +805,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -858,10 +844,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -990,8 +972,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.next_hop_address is not None:
                                                     return True
 
@@ -1028,10 +1008,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1170,8 +1146,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -1213,10 +1187,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -1236,8 +1206,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.vrf_next_hop_explicit_path_name is not None:
                                                 for child_ref in self.vrf_next_hop_explicit_path_name:
                                                     if child_ref._has_data():
@@ -1263,10 +1231,6 @@ class RouterStatic(object):
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -1453,8 +1417,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -1491,10 +1453,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1625,8 +1583,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -1663,10 +1619,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1805,8 +1757,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -1846,10 +1796,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1978,8 +1924,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.next_hop_address is not None:
                                                     return True
 
@@ -2016,10 +1960,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -2158,8 +2098,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -2201,10 +2139,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -2224,8 +2158,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.vrf_next_hop_explicit_path_name is not None:
                                                 for child_ref in self.vrf_next_hop_explicit_path_name:
                                                     if child_ref._has_data():
@@ -2253,10 +2185,6 @@ class RouterStatic(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -2276,24 +2204,12 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                            return True
-
-                                        if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                             return True
 
                                         if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                             return True
 
-                                        if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2317,8 +2233,6 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.prefix is not None:
                                         return True
 
@@ -2328,13 +2242,6 @@ class RouterStatic(object):
                                     if self.vrf_route is not None and self.vrf_route._has_data():
                                         return True
 
-                                    if self.vrf_route is not None and self.vrf_route.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2354,17 +2261,11 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vrf_prefix_topology is not None:
                                     for child_ref in self.vrf_prefix_topology:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2384,18 +2285,9 @@ class RouterStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies._has_data():
                                 return True
 
-                            if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2723,8 +2615,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -2761,10 +2651,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -2895,8 +2781,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -2933,10 +2817,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -3075,8 +2955,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -3116,10 +2994,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -3248,8 +3122,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.next_hop_address is not None:
                                                         return True
 
@@ -3286,10 +3158,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -3428,8 +3296,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -3471,10 +3337,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -3494,8 +3356,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.vrf_next_hop_explicit_path_name is not None:
                                                     for child_ref in self.vrf_next_hop_explicit_path_name:
                                                         if child_ref._has_data():
@@ -3521,10 +3381,6 @@ class RouterStatic(object):
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -3711,8 +3567,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -3749,10 +3603,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -3883,8 +3733,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -3921,10 +3769,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -4063,8 +3907,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -4104,10 +3946,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -4236,8 +4074,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.next_hop_address is not None:
                                                         return True
 
@@ -4274,10 +4110,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -4416,8 +4248,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -4459,10 +4289,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -4482,8 +4308,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.vrf_next_hop_explicit_path_name is not None:
                                                     for child_ref in self.vrf_next_hop_explicit_path_name:
                                                         if child_ref._has_data():
@@ -4511,10 +4335,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -4534,24 +4354,12 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                                return True
-
-                                            if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                                 return True
 
                                             if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                                 return True
 
-                                            if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -4577,8 +4385,6 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.prefix is not None:
                                             return True
 
@@ -4588,13 +4394,6 @@ class RouterStatic(object):
                                         if self.vrf_route is not None and self.vrf_route._has_data():
                                             return True
 
-                                        if self.vrf_route is not None and self.vrf_route.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4616,17 +4415,11 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.vrf_prefix_topology is not None:
                                         for child_ref in self.vrf_prefix_topology:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4648,21 +4441,12 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.topology_name is not None:
                                     return True
 
                                 if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies._has_data():
                                     return True
 
-                                if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4682,17 +4466,11 @@ class RouterStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.topology is not None:
                                 for child_ref in self.topology:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4967,8 +4745,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_path_name is not None:
                                                 return True
 
@@ -5005,10 +4781,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -5139,8 +4911,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
@@ -5177,10 +4947,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -5319,8 +5085,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
@@ -5360,10 +5124,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -5492,8 +5252,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.next_hop_address is not None:
                                                 return True
 
@@ -5530,10 +5288,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -5672,8 +5426,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_path_name is not None:
                                                 return True
 
@@ -5715,10 +5467,6 @@ class RouterStatic(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -5738,8 +5486,6 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vrf_next_hop_explicit_path_name is not None:
                                             for child_ref in self.vrf_next_hop_explicit_path_name:
                                                 if child_ref._has_data():
@@ -5765,10 +5511,6 @@ class RouterStatic(object):
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5955,8 +5697,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_path_name is not None:
                                                 return True
 
@@ -5993,10 +5733,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6127,8 +5863,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
@@ -6165,10 +5899,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6307,8 +6037,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
@@ -6348,10 +6076,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6480,8 +6204,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.next_hop_address is not None:
                                                 return True
 
@@ -6518,10 +6240,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6660,8 +6378,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_path_name is not None:
                                                 return True
 
@@ -6703,10 +6419,6 @@ class RouterStatic(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -6726,8 +6438,6 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vrf_next_hop_explicit_path_name is not None:
                                             for child_ref in self.vrf_next_hop_explicit_path_name:
                                                 if child_ref._has_data():
@@ -6755,10 +6465,6 @@ class RouterStatic(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -6778,24 +6484,12 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                        return True
-
-                                    if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                         return True
 
                                     if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                         return True
 
-                                    if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6819,8 +6513,6 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.prefix is not None:
                                     return True
 
@@ -6830,13 +6522,6 @@ class RouterStatic(object):
                                 if self.vrf_route is not None and self.vrf_route._has_data():
                                     return True
 
-                                if self.vrf_route is not None and self.vrf_route.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6856,17 +6541,11 @@ class RouterStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf_prefix is not None:
                                 for child_ref in self.vrf_prefix:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6886,30 +6565,15 @@ class RouterStatic(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.default_topology is not None and self.default_topology._has_data():
-                            return True
-
-                        if self.default_topology is not None and self.default_topology.is_presence():
                             return True
 
                         if self.topologies is not None and self.topologies._has_data():
                             return True
 
-                        if self.topologies is not None and self.topologies.is_presence():
-                            return True
-
                         if self.vrf_prefixes is not None and self.vrf_prefixes._has_data():
                             return True
 
-                        if self.vrf_prefixes is not None and self.vrf_prefixes.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7242,8 +6906,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -7280,10 +6942,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7414,8 +7072,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -7452,10 +7108,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7594,8 +7246,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -7635,10 +7285,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7767,8 +7413,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.next_hop_address is not None:
                                                     return True
 
@@ -7805,10 +7449,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7947,8 +7587,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -7990,10 +7628,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -8013,8 +7647,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.vrf_next_hop_explicit_path_name is not None:
                                                 for child_ref in self.vrf_next_hop_explicit_path_name:
                                                     if child_ref._has_data():
@@ -8040,10 +7672,6 @@ class RouterStatic(object):
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -8230,8 +7858,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -8268,10 +7894,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -8402,8 +8024,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -8440,10 +8060,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -8582,8 +8198,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -8623,10 +8237,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -8755,8 +8365,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.next_hop_address is not None:
                                                     return True
 
@@ -8793,10 +8401,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -8935,8 +8539,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -8978,10 +8580,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -9001,8 +8599,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.vrf_next_hop_explicit_path_name is not None:
                                                 for child_ref in self.vrf_next_hop_explicit_path_name:
                                                     if child_ref._has_data():
@@ -9030,10 +8626,6 @@ class RouterStatic(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -9053,24 +8645,12 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                            return True
-
-                                        if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                             return True
 
                                         if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                             return True
 
-                                        if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -9094,8 +8674,6 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.prefix is not None:
                                         return True
 
@@ -9105,13 +8683,6 @@ class RouterStatic(object):
                                     if self.vrf_route is not None and self.vrf_route._has_data():
                                         return True
 
-                                    if self.vrf_route is not None and self.vrf_route.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9131,17 +8702,11 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vrf_prefix_topology is not None:
                                     for child_ref in self.vrf_prefix_topology:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9161,18 +8726,9 @@ class RouterStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies._has_data():
                                 return True
 
-                            if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9500,8 +9056,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -9538,10 +9092,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -9672,8 +9222,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -9710,10 +9258,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -9852,8 +9396,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -9893,10 +9435,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -10025,8 +9563,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.next_hop_address is not None:
                                                         return True
 
@@ -10063,10 +9599,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -10205,8 +9737,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -10248,10 +9778,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -10271,8 +9797,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.vrf_next_hop_explicit_path_name is not None:
                                                     for child_ref in self.vrf_next_hop_explicit_path_name:
                                                         if child_ref._has_data():
@@ -10298,10 +9822,6 @@ class RouterStatic(object):
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -10488,8 +10008,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -10526,10 +10044,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -10660,8 +10174,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -10698,10 +10210,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -10840,8 +10348,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -10881,10 +10387,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -11013,8 +10515,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.next_hop_address is not None:
                                                         return True
 
@@ -11051,10 +10551,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -11193,8 +10689,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -11236,10 +10730,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -11259,8 +10749,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.vrf_next_hop_explicit_path_name is not None:
                                                     for child_ref in self.vrf_next_hop_explicit_path_name:
                                                         if child_ref._has_data():
@@ -11288,10 +10776,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -11311,24 +10795,12 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                                return True
-
-                                            if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                                 return True
 
                                             if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                                 return True
 
-                                            if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -11354,8 +10826,6 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.prefix is not None:
                                             return True
 
@@ -11365,13 +10835,6 @@ class RouterStatic(object):
                                         if self.vrf_route is not None and self.vrf_route._has_data():
                                             return True
 
-                                        if self.vrf_route is not None and self.vrf_route.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -11393,17 +10856,11 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.vrf_prefix_topology is not None:
                                         for child_ref in self.vrf_prefix_topology:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -11425,21 +10882,12 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.topology_name is not None:
                                     return True
 
                                 if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies._has_data():
                                     return True
 
-                                if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11459,17 +10907,11 @@ class RouterStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.topology is not None:
                                 for child_ref in self.topology:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11744,8 +11186,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_path_name is not None:
                                                 return True
 
@@ -11782,10 +11222,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -11916,8 +11352,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
@@ -11954,10 +11388,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -12096,8 +11526,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
@@ -12137,10 +11565,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -12269,8 +11693,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.next_hop_address is not None:
                                                 return True
 
@@ -12307,10 +11729,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -12449,8 +11867,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_path_name is not None:
                                                 return True
 
@@ -12492,10 +11908,6 @@ class RouterStatic(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -12515,8 +11927,6 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vrf_next_hop_explicit_path_name is not None:
                                             for child_ref in self.vrf_next_hop_explicit_path_name:
                                                 if child_ref._has_data():
@@ -12542,10 +11952,6 @@ class RouterStatic(object):
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -12732,8 +12138,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_path_name is not None:
                                                 return True
 
@@ -12770,10 +12174,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -12904,8 +12304,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
@@ -12942,10 +12340,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13084,8 +12478,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
@@ -13125,10 +12517,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13257,8 +12645,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.next_hop_address is not None:
                                                 return True
 
@@ -13295,10 +12681,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -13437,8 +12819,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_path_name is not None:
                                                 return True
 
@@ -13480,10 +12860,6 @@ class RouterStatic(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -13503,8 +12879,6 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vrf_next_hop_explicit_path_name is not None:
                                             for child_ref in self.vrf_next_hop_explicit_path_name:
                                                 if child_ref._has_data():
@@ -13532,10 +12906,6 @@ class RouterStatic(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -13555,24 +12925,12 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                        return True
-
-                                    if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                         return True
 
                                     if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                         return True
 
-                                    if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -13596,8 +12954,6 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.prefix is not None:
                                     return True
 
@@ -13607,13 +12963,6 @@ class RouterStatic(object):
                                 if self.vrf_route is not None and self.vrf_route._has_data():
                                     return True
 
-                                if self.vrf_route is not None and self.vrf_route.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -13633,17 +12982,11 @@ class RouterStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf_prefix is not None:
                                 for child_ref in self.vrf_prefix:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -13663,30 +13006,15 @@ class RouterStatic(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.default_topology is not None and self.default_topology._has_data():
-                            return True
-
-                        if self.default_topology is not None and self.default_topology.is_presence():
                             return True
 
                         if self.topologies is not None and self.topologies._has_data():
                             return True
 
-                        if self.topologies is not None and self.topologies.is_presence():
-                            return True
-
                         if self.vrf_prefixes is not None and self.vrf_prefixes._has_data():
                             return True
 
-                        if self.vrf_prefixes is not None and self.vrf_prefixes.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -13706,24 +13034,12 @@ class RouterStatic(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vrf_multicast is not None and self.vrf_multicast._has_data():
-                        return True
-
-                    if self.vrf_multicast is not None and self.vrf_multicast.is_presence():
                         return True
 
                     if self.vrf_unicast is not None and self.vrf_unicast._has_data():
                         return True
 
-                    if self.vrf_unicast is not None and self.vrf_unicast.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -14085,8 +13401,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -14123,10 +13437,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -14257,8 +13567,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -14295,10 +13603,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -14437,8 +13741,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -14478,10 +13780,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -14610,8 +13908,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.next_hop_address is not None:
                                                     return True
 
@@ -14648,10 +13944,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -14790,8 +14082,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -14833,10 +14123,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -14856,8 +14142,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.vrf_next_hop_explicit_path_name is not None:
                                                 for child_ref in self.vrf_next_hop_explicit_path_name:
                                                     if child_ref._has_data():
@@ -14883,10 +14167,6 @@ class RouterStatic(object):
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -15073,8 +14353,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -15111,10 +14389,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -15245,8 +14519,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -15283,10 +14555,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -15425,8 +14693,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -15466,10 +14732,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -15598,8 +14860,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.next_hop_address is not None:
                                                     return True
 
@@ -15636,10 +14896,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -15778,8 +15034,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -15821,10 +15075,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -15844,8 +15094,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.vrf_next_hop_explicit_path_name is not None:
                                                 for child_ref in self.vrf_next_hop_explicit_path_name:
                                                     if child_ref._has_data():
@@ -15873,10 +15121,6 @@ class RouterStatic(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -15896,24 +15140,12 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                            return True
-
-                                        if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                             return True
 
                                         if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                             return True
 
-                                        if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -15937,8 +15169,6 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.prefix is not None:
                                         return True
 
@@ -15948,13 +15178,6 @@ class RouterStatic(object):
                                     if self.vrf_route is not None and self.vrf_route._has_data():
                                         return True
 
-                                    if self.vrf_route is not None and self.vrf_route.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -15974,17 +15197,11 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vrf_prefix_topology is not None:
                                     for child_ref in self.vrf_prefix_topology:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16004,18 +15221,9 @@ class RouterStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies._has_data():
                                 return True
 
-                            if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -16343,8 +15551,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -16381,10 +15587,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -16515,8 +15717,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -16553,10 +15753,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -16695,8 +15891,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -16736,10 +15930,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -16868,8 +16058,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.next_hop_address is not None:
                                                         return True
 
@@ -16906,10 +16094,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -17048,8 +16232,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -17091,10 +16273,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -17114,8 +16292,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.vrf_next_hop_explicit_path_name is not None:
                                                     for child_ref in self.vrf_next_hop_explicit_path_name:
                                                         if child_ref._has_data():
@@ -17141,10 +16317,6 @@ class RouterStatic(object):
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -17331,8 +16503,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -17369,10 +16539,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -17503,8 +16669,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -17541,10 +16705,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -17683,8 +16843,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -17724,10 +16882,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -17856,8 +17010,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.next_hop_address is not None:
                                                         return True
 
@@ -17894,10 +17046,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -18036,8 +17184,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -18079,10 +17225,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -18102,8 +17244,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.vrf_next_hop_explicit_path_name is not None:
                                                     for child_ref in self.vrf_next_hop_explicit_path_name:
                                                         if child_ref._has_data():
@@ -18131,10 +17271,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -18154,24 +17290,12 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                                return True
-
-                                            if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                                 return True
 
                                             if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                                 return True
 
-                                            if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -18197,8 +17321,6 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.prefix is not None:
                                             return True
 
@@ -18208,13 +17330,6 @@ class RouterStatic(object):
                                         if self.vrf_route is not None and self.vrf_route._has_data():
                                             return True
 
-                                        if self.vrf_route is not None and self.vrf_route.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -18236,17 +17351,11 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.vrf_prefix_topology is not None:
                                         for child_ref in self.vrf_prefix_topology:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -18268,21 +17377,12 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.topology_name is not None:
                                     return True
 
                                 if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies._has_data():
                                     return True
 
-                                if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -18302,17 +17402,11 @@ class RouterStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.topology is not None:
                                 for child_ref in self.topology:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -18587,8 +17681,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_path_name is not None:
                                                 return True
 
@@ -18625,10 +17717,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -18759,8 +17847,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
@@ -18797,10 +17883,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -18939,8 +18021,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
@@ -18980,10 +18060,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19112,8 +18188,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.next_hop_address is not None:
                                                 return True
 
@@ -19150,10 +18224,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19292,8 +18362,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_path_name is not None:
                                                 return True
 
@@ -19335,10 +18403,6 @@ class RouterStatic(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -19358,8 +18422,6 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vrf_next_hop_explicit_path_name is not None:
                                             for child_ref in self.vrf_next_hop_explicit_path_name:
                                                 if child_ref._has_data():
@@ -19385,10 +18447,6 @@ class RouterStatic(object):
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -19575,8 +18633,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_path_name is not None:
                                                 return True
 
@@ -19613,10 +18669,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19747,8 +18799,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
@@ -19785,10 +18835,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -19927,8 +18973,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
@@ -19968,10 +19012,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -20100,8 +19140,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.next_hop_address is not None:
                                                 return True
 
@@ -20138,10 +19176,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -20280,8 +19314,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_path_name is not None:
                                                 return True
 
@@ -20323,10 +19355,6 @@ class RouterStatic(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -20346,8 +19374,6 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vrf_next_hop_explicit_path_name is not None:
                                             for child_ref in self.vrf_next_hop_explicit_path_name:
                                                 if child_ref._has_data():
@@ -20375,10 +19401,6 @@ class RouterStatic(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -20398,24 +19420,12 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                        return True
-
-                                    if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                         return True
 
                                     if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                         return True
 
-                                    if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -20439,8 +19449,6 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.prefix is not None:
                                     return True
 
@@ -20450,13 +19458,6 @@ class RouterStatic(object):
                                 if self.vrf_route is not None and self.vrf_route._has_data():
                                     return True
 
-                                if self.vrf_route is not None and self.vrf_route.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -20476,17 +19477,11 @@ class RouterStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf_prefix is not None:
                                 for child_ref in self.vrf_prefix:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -20506,30 +19501,15 @@ class RouterStatic(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.default_topology is not None and self.default_topology._has_data():
-                            return True
-
-                        if self.default_topology is not None and self.default_topology.is_presence():
                             return True
 
                         if self.topologies is not None and self.topologies._has_data():
                             return True
 
-                        if self.topologies is not None and self.topologies.is_presence():
-                            return True
-
                         if self.vrf_prefixes is not None and self.vrf_prefixes._has_data():
                             return True
 
-                        if self.vrf_prefixes is not None and self.vrf_prefixes.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -20862,8 +19842,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -20900,10 +19878,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -21034,8 +20008,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -21072,10 +20044,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -21214,8 +20182,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -21255,10 +20221,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -21387,8 +20349,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.next_hop_address is not None:
                                                     return True
 
@@ -21425,10 +20385,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -21567,8 +20523,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -21610,10 +20564,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -21633,8 +20583,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.vrf_next_hop_explicit_path_name is not None:
                                                 for child_ref in self.vrf_next_hop_explicit_path_name:
                                                     if child_ref._has_data():
@@ -21660,10 +20608,6 @@ class RouterStatic(object):
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -21850,8 +20794,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -21888,10 +20830,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22022,8 +20960,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -22060,10 +20996,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22202,8 +21134,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -22243,10 +21173,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22375,8 +21301,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.next_hop_address is not None:
                                                     return True
 
@@ -22413,10 +21337,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -22555,8 +21475,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -22598,10 +21516,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -22621,8 +21535,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.vrf_next_hop_explicit_path_name is not None:
                                                 for child_ref in self.vrf_next_hop_explicit_path_name:
                                                     if child_ref._has_data():
@@ -22650,10 +21562,6 @@ class RouterStatic(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -22673,24 +21581,12 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                            return True
-
-                                        if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                             return True
 
                                         if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                             return True
 
-                                        if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -22714,8 +21610,6 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.prefix is not None:
                                         return True
 
@@ -22725,13 +21619,6 @@ class RouterStatic(object):
                                     if self.vrf_route is not None and self.vrf_route._has_data():
                                         return True
 
-                                    if self.vrf_route is not None and self.vrf_route.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -22751,17 +21638,11 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vrf_prefix_topology is not None:
                                     for child_ref in self.vrf_prefix_topology:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -22781,18 +21662,9 @@ class RouterStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies._has_data():
                                 return True
 
-                            if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -23120,8 +21992,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -23158,10 +22028,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -23292,8 +22158,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -23330,10 +22194,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -23472,8 +22332,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -23513,10 +22371,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -23645,8 +22499,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.next_hop_address is not None:
                                                         return True
 
@@ -23683,10 +22535,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -23825,8 +22673,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -23868,10 +22714,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -23891,8 +22733,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.vrf_next_hop_explicit_path_name is not None:
                                                     for child_ref in self.vrf_next_hop_explicit_path_name:
                                                         if child_ref._has_data():
@@ -23918,10 +22758,6 @@ class RouterStatic(object):
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -24108,8 +22944,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -24146,10 +22980,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -24280,8 +23110,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -24318,10 +23146,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -24460,8 +23284,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -24501,10 +23323,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -24633,8 +23451,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.next_hop_address is not None:
                                                         return True
 
@@ -24671,10 +23487,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -24813,8 +23625,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -24856,10 +23666,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -24879,8 +23685,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.vrf_next_hop_explicit_path_name is not None:
                                                     for child_ref in self.vrf_next_hop_explicit_path_name:
                                                         if child_ref._has_data():
@@ -24908,10 +23712,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -24931,24 +23731,12 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                                return True
-
-                                            if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                                 return True
 
                                             if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                                 return True
 
-                                            if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -24974,8 +23762,6 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.prefix is not None:
                                             return True
 
@@ -24985,13 +23771,6 @@ class RouterStatic(object):
                                         if self.vrf_route is not None and self.vrf_route._has_data():
                                             return True
 
-                                        if self.vrf_route is not None and self.vrf_route.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -25013,17 +23792,11 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.vrf_prefix_topology is not None:
                                         for child_ref in self.vrf_prefix_topology:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -25045,21 +23818,12 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.topology_name is not None:
                                     return True
 
                                 if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies._has_data():
                                     return True
 
-                                if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -25079,17 +23843,11 @@ class RouterStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.topology is not None:
                                 for child_ref in self.topology:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -25364,8 +24122,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_path_name is not None:
                                                 return True
 
@@ -25402,10 +24158,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -25536,8 +24288,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
@@ -25574,10 +24324,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -25716,8 +24462,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
@@ -25757,10 +24501,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -25889,8 +24629,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.next_hop_address is not None:
                                                 return True
 
@@ -25927,10 +24665,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -26069,8 +24803,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_path_name is not None:
                                                 return True
 
@@ -26112,10 +24844,6 @@ class RouterStatic(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -26135,8 +24863,6 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vrf_next_hop_explicit_path_name is not None:
                                             for child_ref in self.vrf_next_hop_explicit_path_name:
                                                 if child_ref._has_data():
@@ -26162,10 +24888,6 @@ class RouterStatic(object):
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -26352,8 +25074,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_path_name is not None:
                                                 return True
 
@@ -26390,10 +25110,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -26524,8 +25240,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
@@ -26562,10 +25276,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -26704,8 +25414,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface_name is not None:
                                                 return True
 
@@ -26745,10 +25453,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -26877,8 +25581,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.next_hop_address is not None:
                                                 return True
 
@@ -26915,10 +25617,6 @@ class RouterStatic(object):
                                             if self.vrf_lable is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -27057,8 +25755,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.explicit_path_name is not None:
                                                 return True
 
@@ -27100,10 +25796,6 @@ class RouterStatic(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -27123,8 +25815,6 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vrf_next_hop_explicit_path_name is not None:
                                             for child_ref in self.vrf_next_hop_explicit_path_name:
                                                 if child_ref._has_data():
@@ -27152,10 +25842,6 @@ class RouterStatic(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -27175,24 +25861,12 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                        return True
-
-                                    if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                         return True
 
                                     if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                         return True
 
-                                    if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -27216,8 +25890,6 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.prefix is not None:
                                     return True
 
@@ -27227,13 +25899,6 @@ class RouterStatic(object):
                                 if self.vrf_route is not None and self.vrf_route._has_data():
                                     return True
 
-                                if self.vrf_route is not None and self.vrf_route.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -27253,17 +25918,11 @@ class RouterStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf_prefix is not None:
                                 for child_ref in self.vrf_prefix:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -27283,30 +25942,15 @@ class RouterStatic(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.default_topology is not None and self.default_topology._has_data():
-                            return True
-
-                        if self.default_topology is not None and self.default_topology.is_presence():
                             return True
 
                         if self.topologies is not None and self.topologies._has_data():
                             return True
 
-                        if self.topologies is not None and self.topologies.is_presence():
-                            return True
-
                         if self.vrf_prefixes is not None and self.vrf_prefixes._has_data():
                             return True
 
-                        if self.vrf_prefixes is not None and self.vrf_prefixes.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -27326,24 +25970,12 @@ class RouterStatic(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vrf_multicast is not None and self.vrf_multicast._has_data():
-                        return True
-
-                    if self.vrf_multicast is not None and self.vrf_multicast.is_presence():
                         return True
 
                     if self.vrf_unicast is not None and self.vrf_unicast._has_data():
                         return True
 
-                    if self.vrf_unicast is not None and self.vrf_unicast.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -27363,24 +25995,12 @@ class RouterStatic(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.vrfipv4 is not None and self.vrfipv4._has_data():
-                    return True
-
-                if self.vrfipv4 is not None and self.vrfipv4.is_presence():
                     return True
 
                 if self.vrfipv6 is not None and self.vrfipv6._has_data():
                     return True
 
-                if self.vrfipv6 is not None and self.vrfipv6.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -27400,18 +26020,9 @@ class RouterStatic(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.address_family is not None and self.address_family._has_data():
                 return True
 
-            if self.address_family is not None and self.address_family.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -27463,18 +26074,12 @@ class RouterStatic(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.ipv4_routes is not None:
                 return True
 
             if self.ipv6_routes is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -27918,8 +26523,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -27956,10 +26559,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -28090,8 +26689,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -28128,10 +26725,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -28270,8 +26863,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -28311,10 +26902,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -28443,8 +27030,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.next_hop_address is not None:
                                                         return True
 
@@ -28481,10 +27066,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -28623,8 +27204,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -28666,10 +27245,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -28689,8 +27264,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.vrf_next_hop_explicit_path_name is not None:
                                                     for child_ref in self.vrf_next_hop_explicit_path_name:
                                                         if child_ref._has_data():
@@ -28716,10 +27289,6 @@ class RouterStatic(object):
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -28906,8 +27475,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -28944,10 +27511,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -29078,8 +27641,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -29116,10 +27677,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -29258,8 +27815,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -29299,10 +27854,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -29431,8 +27982,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.next_hop_address is not None:
                                                         return True
 
@@ -29469,10 +28018,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -29611,8 +28156,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -29654,10 +28197,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -29677,8 +28216,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.vrf_next_hop_explicit_path_name is not None:
                                                     for child_ref in self.vrf_next_hop_explicit_path_name:
                                                         if child_ref._has_data():
@@ -29706,10 +28243,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -29729,24 +28262,12 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                                return True
-
-                                            if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                                 return True
 
                                             if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                                 return True
 
-                                            if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -29772,8 +28293,6 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.prefix is not None:
                                             return True
 
@@ -29783,13 +28302,6 @@ class RouterStatic(object):
                                         if self.vrf_route is not None and self.vrf_route._has_data():
                                             return True
 
-                                        if self.vrf_route is not None and self.vrf_route.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -29811,17 +28323,11 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.vrf_prefix_topology is not None:
                                         for child_ref in self.vrf_prefix_topology:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -29843,18 +28349,9 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies._has_data():
                                     return True
 
-                                if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -30182,8 +28679,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.explicit_path_name is not None:
                                                             return True
 
@@ -30220,10 +28715,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -30354,8 +28845,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -30392,10 +28881,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -30534,8 +29019,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -30575,10 +29058,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -30707,8 +29186,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.next_hop_address is not None:
                                                             return True
 
@@ -30745,10 +29222,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -30887,8 +29360,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.explicit_path_name is not None:
                                                             return True
 
@@ -30930,10 +29401,6 @@ class RouterStatic(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -30953,8 +29420,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.vrf_next_hop_explicit_path_name is not None:
                                                         for child_ref in self.vrf_next_hop_explicit_path_name:
                                                             if child_ref._has_data():
@@ -30980,10 +29445,6 @@ class RouterStatic(object):
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -31170,8 +29631,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.explicit_path_name is not None:
                                                             return True
 
@@ -31208,10 +29667,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -31342,8 +29797,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -31380,10 +29833,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -31522,8 +29971,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -31563,10 +30010,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -31695,8 +30138,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.next_hop_address is not None:
                                                             return True
 
@@ -31733,10 +30174,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -31875,8 +30312,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.explicit_path_name is not None:
                                                             return True
 
@@ -31918,10 +30353,6 @@ class RouterStatic(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -31941,8 +30372,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.vrf_next_hop_explicit_path_name is not None:
                                                         for child_ref in self.vrf_next_hop_explicit_path_name:
                                                             if child_ref._has_data():
@@ -31970,10 +30399,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -31993,24 +30418,12 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                                    return True
-
-                                                if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                                     return True
 
                                                 if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                                     return True
 
-                                                if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -32036,8 +30449,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.prefix is not None:
                                                 return True
 
@@ -32047,13 +30458,6 @@ class RouterStatic(object):
                                             if self.vrf_route is not None and self.vrf_route._has_data():
                                                 return True
 
-                                            if self.vrf_route is not None and self.vrf_route.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -32075,17 +30479,11 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vrf_prefix_topology is not None:
                                             for child_ref in self.vrf_prefix_topology:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -32109,21 +30507,12 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.topology_name is not None:
                                         return True
 
                                     if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies._has_data():
                                         return True
 
-                                    if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -32145,17 +30534,11 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.topology is not None:
                                     for child_ref in self.topology:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -32430,8 +30813,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -32468,10 +30849,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -32602,8 +30979,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -32640,10 +31015,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -32782,8 +31153,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -32823,10 +31192,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -32955,8 +31320,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.next_hop_address is not None:
                                                     return True
 
@@ -32993,10 +31356,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -33135,8 +31494,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -33178,10 +31535,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -33201,8 +31554,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.vrf_next_hop_explicit_path_name is not None:
                                                 for child_ref in self.vrf_next_hop_explicit_path_name:
                                                     if child_ref._has_data():
@@ -33228,10 +31579,6 @@ class RouterStatic(object):
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -33418,8 +31765,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -33456,10 +31801,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -33590,8 +31931,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -33628,10 +31967,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -33770,8 +32105,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -33811,10 +32144,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -33943,8 +32272,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.next_hop_address is not None:
                                                     return True
 
@@ -33981,10 +32308,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -34123,8 +32446,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -34166,10 +32487,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -34189,8 +32506,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.vrf_next_hop_explicit_path_name is not None:
                                                 for child_ref in self.vrf_next_hop_explicit_path_name:
                                                     if child_ref._has_data():
@@ -34218,10 +32533,6 @@ class RouterStatic(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -34241,24 +32552,12 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                            return True
-
-                                        if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                             return True
 
                                         if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                             return True
 
-                                        if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -34284,8 +32583,6 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.prefix is not None:
                                         return True
 
@@ -34295,13 +32592,6 @@ class RouterStatic(object):
                                     if self.vrf_route is not None and self.vrf_route._has_data():
                                         return True
 
-                                    if self.vrf_route is not None and self.vrf_route.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -34323,17 +32613,11 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vrf_prefix is not None:
                                     for child_ref in self.vrf_prefix:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -34355,30 +32639,15 @@ class RouterStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.default_topology is not None and self.default_topology._has_data():
-                                return True
-
-                            if self.default_topology is not None and self.default_topology.is_presence():
                                 return True
 
                             if self.topologies is not None and self.topologies._has_data():
                                 return True
 
-                            if self.topologies is not None and self.topologies.is_presence():
-                                return True
-
                             if self.vrf_prefixes is not None and self.vrf_prefixes._has_data():
                                 return True
 
-                            if self.vrf_prefixes is not None and self.vrf_prefixes.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -34711,8 +32980,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -34749,10 +33016,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -34883,8 +33146,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -34921,10 +33182,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -35063,8 +33320,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -35104,10 +33359,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -35236,8 +33487,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.next_hop_address is not None:
                                                         return True
 
@@ -35274,10 +33523,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -35416,8 +33661,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -35459,10 +33702,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -35482,8 +33721,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.vrf_next_hop_explicit_path_name is not None:
                                                     for child_ref in self.vrf_next_hop_explicit_path_name:
                                                         if child_ref._has_data():
@@ -35509,10 +33746,6 @@ class RouterStatic(object):
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -35699,8 +33932,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -35737,10 +33968,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -35871,8 +34098,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -35909,10 +34134,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -36051,8 +34272,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -36092,10 +34311,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -36224,8 +34439,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.next_hop_address is not None:
                                                         return True
 
@@ -36262,10 +34475,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -36404,8 +34613,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -36447,10 +34654,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -36470,8 +34673,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.vrf_next_hop_explicit_path_name is not None:
                                                     for child_ref in self.vrf_next_hop_explicit_path_name:
                                                         if child_ref._has_data():
@@ -36499,10 +34700,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -36522,24 +34719,12 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                                return True
-
-                                            if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                                 return True
 
                                             if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                                 return True
 
-                                            if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -36565,8 +34750,6 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.prefix is not None:
                                             return True
 
@@ -36576,13 +34759,6 @@ class RouterStatic(object):
                                         if self.vrf_route is not None and self.vrf_route._has_data():
                                             return True
 
-                                        if self.vrf_route is not None and self.vrf_route.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -36604,17 +34780,11 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.vrf_prefix_topology is not None:
                                         for child_ref in self.vrf_prefix_topology:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -36636,18 +34806,9 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies._has_data():
                                     return True
 
-                                if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -36975,8 +35136,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.explicit_path_name is not None:
                                                             return True
 
@@ -37013,10 +35172,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -37147,8 +35302,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -37185,10 +35338,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -37327,8 +35476,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -37368,10 +35515,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -37500,8 +35643,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.next_hop_address is not None:
                                                             return True
 
@@ -37538,10 +35679,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -37680,8 +35817,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.explicit_path_name is not None:
                                                             return True
 
@@ -37723,10 +35858,6 @@ class RouterStatic(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -37746,8 +35877,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.vrf_next_hop_explicit_path_name is not None:
                                                         for child_ref in self.vrf_next_hop_explicit_path_name:
                                                             if child_ref._has_data():
@@ -37773,10 +35902,6 @@ class RouterStatic(object):
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -37963,8 +36088,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.explicit_path_name is not None:
                                                             return True
 
@@ -38001,10 +36124,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -38135,8 +36254,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -38173,10 +36290,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -38315,8 +36428,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -38356,10 +36467,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -38488,8 +36595,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.next_hop_address is not None:
                                                             return True
 
@@ -38526,10 +36631,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -38668,8 +36769,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.explicit_path_name is not None:
                                                             return True
 
@@ -38711,10 +36810,6 @@ class RouterStatic(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -38734,8 +36829,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.vrf_next_hop_explicit_path_name is not None:
                                                         for child_ref in self.vrf_next_hop_explicit_path_name:
                                                             if child_ref._has_data():
@@ -38763,10 +36856,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -38786,24 +36875,12 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                                    return True
-
-                                                if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                                     return True
 
                                                 if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                                     return True
 
-                                                if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -38829,8 +36906,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.prefix is not None:
                                                 return True
 
@@ -38840,13 +36915,6 @@ class RouterStatic(object):
                                             if self.vrf_route is not None and self.vrf_route._has_data():
                                                 return True
 
-                                            if self.vrf_route is not None and self.vrf_route.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -38868,17 +36936,11 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vrf_prefix_topology is not None:
                                             for child_ref in self.vrf_prefix_topology:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -38902,21 +36964,12 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.topology_name is not None:
                                         return True
 
                                     if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies._has_data():
                                         return True
 
-                                    if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -38938,17 +36991,11 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.topology is not None:
                                     for child_ref in self.topology:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -39223,8 +37270,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -39261,10 +37306,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -39395,8 +37436,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -39433,10 +37472,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -39575,8 +37610,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -39616,10 +37649,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -39748,8 +37777,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.next_hop_address is not None:
                                                     return True
 
@@ -39786,10 +37813,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -39928,8 +37951,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -39971,10 +37992,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -39994,8 +38011,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.vrf_next_hop_explicit_path_name is not None:
                                                 for child_ref in self.vrf_next_hop_explicit_path_name:
                                                     if child_ref._has_data():
@@ -40021,10 +38036,6 @@ class RouterStatic(object):
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -40211,8 +38222,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -40249,10 +38258,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -40383,8 +38388,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -40421,10 +38424,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -40563,8 +38562,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -40604,10 +38601,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -40736,8 +38729,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.next_hop_address is not None:
                                                     return True
 
@@ -40774,10 +38765,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -40916,8 +38903,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -40959,10 +38944,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -40982,8 +38963,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.vrf_next_hop_explicit_path_name is not None:
                                                 for child_ref in self.vrf_next_hop_explicit_path_name:
                                                     if child_ref._has_data():
@@ -41011,10 +38990,6 @@ class RouterStatic(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -41034,24 +39009,12 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                            return True
-
-                                        if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                             return True
 
                                         if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                             return True
 
-                                        if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -41077,8 +39040,6 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.prefix is not None:
                                         return True
 
@@ -41088,13 +39049,6 @@ class RouterStatic(object):
                                     if self.vrf_route is not None and self.vrf_route._has_data():
                                         return True
 
-                                    if self.vrf_route is not None and self.vrf_route.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -41116,17 +39070,11 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vrf_prefix is not None:
                                     for child_ref in self.vrf_prefix:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -41148,30 +39096,15 @@ class RouterStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.default_topology is not None and self.default_topology._has_data():
-                                return True
-
-                            if self.default_topology is not None and self.default_topology.is_presence():
                                 return True
 
                             if self.topologies is not None and self.topologies._has_data():
                                 return True
 
-                            if self.topologies is not None and self.topologies.is_presence():
-                                return True
-
                             if self.vrf_prefixes is not None and self.vrf_prefixes._has_data():
                                 return True
 
-                            if self.vrf_prefixes is not None and self.vrf_prefixes.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -41193,24 +39126,12 @@ class RouterStatic(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf_multicast is not None and self.vrf_multicast._has_data():
-                            return True
-
-                        if self.vrf_multicast is not None and self.vrf_multicast.is_presence():
                             return True
 
                         if self.vrf_unicast is not None and self.vrf_unicast._has_data():
                             return True
 
-                        if self.vrf_unicast is not None and self.vrf_unicast.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -41572,8 +39493,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -41610,10 +39529,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -41744,8 +39659,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -41782,10 +39695,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -41924,8 +39833,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -41965,10 +39872,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -42097,8 +40000,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.next_hop_address is not None:
                                                         return True
 
@@ -42135,10 +40036,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -42277,8 +40174,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -42320,10 +40215,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -42343,8 +40234,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.vrf_next_hop_explicit_path_name is not None:
                                                     for child_ref in self.vrf_next_hop_explicit_path_name:
                                                         if child_ref._has_data():
@@ -42370,10 +40259,6 @@ class RouterStatic(object):
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -42560,8 +40445,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -42598,10 +40481,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -42732,8 +40611,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -42770,10 +40647,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -42912,8 +40785,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -42953,10 +40824,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -43085,8 +40952,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.next_hop_address is not None:
                                                         return True
 
@@ -43123,10 +40988,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -43265,8 +41126,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -43308,10 +41167,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -43331,8 +41186,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.vrf_next_hop_explicit_path_name is not None:
                                                     for child_ref in self.vrf_next_hop_explicit_path_name:
                                                         if child_ref._has_data():
@@ -43360,10 +41213,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -43383,24 +41232,12 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                                return True
-
-                                            if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                                 return True
 
                                             if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                                 return True
 
-                                            if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -43426,8 +41263,6 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.prefix is not None:
                                             return True
 
@@ -43437,13 +41272,6 @@ class RouterStatic(object):
                                         if self.vrf_route is not None and self.vrf_route._has_data():
                                             return True
 
-                                        if self.vrf_route is not None and self.vrf_route.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -43465,17 +41293,11 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.vrf_prefix_topology is not None:
                                         for child_ref in self.vrf_prefix_topology:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -43497,18 +41319,9 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies._has_data():
                                     return True
 
-                                if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -43836,8 +41649,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.explicit_path_name is not None:
                                                             return True
 
@@ -43874,10 +41685,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -44008,8 +41815,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -44046,10 +41851,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -44188,8 +41989,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -44229,10 +42028,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -44361,8 +42156,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.next_hop_address is not None:
                                                             return True
 
@@ -44399,10 +42192,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -44541,8 +42330,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.explicit_path_name is not None:
                                                             return True
 
@@ -44584,10 +42371,6 @@ class RouterStatic(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -44607,8 +42390,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.vrf_next_hop_explicit_path_name is not None:
                                                         for child_ref in self.vrf_next_hop_explicit_path_name:
                                                             if child_ref._has_data():
@@ -44634,10 +42415,6 @@ class RouterStatic(object):
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -44824,8 +42601,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.explicit_path_name is not None:
                                                             return True
 
@@ -44862,10 +42637,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -44996,8 +42767,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -45034,10 +42803,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -45176,8 +42941,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -45217,10 +42980,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -45349,8 +43108,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.next_hop_address is not None:
                                                             return True
 
@@ -45387,10 +43144,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -45529,8 +43282,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.explicit_path_name is not None:
                                                             return True
 
@@ -45572,10 +43323,6 @@ class RouterStatic(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -45595,8 +43342,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.vrf_next_hop_explicit_path_name is not None:
                                                         for child_ref in self.vrf_next_hop_explicit_path_name:
                                                             if child_ref._has_data():
@@ -45624,10 +43369,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -45647,24 +43388,12 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                                    return True
-
-                                                if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                                     return True
 
                                                 if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                                     return True
 
-                                                if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -45690,8 +43419,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.prefix is not None:
                                                 return True
 
@@ -45701,13 +43428,6 @@ class RouterStatic(object):
                                             if self.vrf_route is not None and self.vrf_route._has_data():
                                                 return True
 
-                                            if self.vrf_route is not None and self.vrf_route.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -45729,17 +43449,11 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vrf_prefix_topology is not None:
                                             for child_ref in self.vrf_prefix_topology:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -45763,21 +43477,12 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.topology_name is not None:
                                         return True
 
                                     if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies._has_data():
                                         return True
 
-                                    if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -45799,17 +43504,11 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.topology is not None:
                                     for child_ref in self.topology:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -46084,8 +43783,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -46122,10 +43819,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -46256,8 +43949,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -46294,10 +43985,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -46436,8 +44123,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -46477,10 +44162,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -46609,8 +44290,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.next_hop_address is not None:
                                                     return True
 
@@ -46647,10 +44326,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -46789,8 +44464,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -46832,10 +44505,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -46855,8 +44524,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.vrf_next_hop_explicit_path_name is not None:
                                                 for child_ref in self.vrf_next_hop_explicit_path_name:
                                                     if child_ref._has_data():
@@ -46882,10 +44549,6 @@ class RouterStatic(object):
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -47072,8 +44735,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -47110,10 +44771,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -47244,8 +44901,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -47282,10 +44937,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -47424,8 +45075,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -47465,10 +45114,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -47597,8 +45242,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.next_hop_address is not None:
                                                     return True
 
@@ -47635,10 +45278,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -47777,8 +45416,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -47820,10 +45457,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -47843,8 +45476,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.vrf_next_hop_explicit_path_name is not None:
                                                 for child_ref in self.vrf_next_hop_explicit_path_name:
                                                     if child_ref._has_data():
@@ -47872,10 +45503,6 @@ class RouterStatic(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -47895,24 +45522,12 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                            return True
-
-                                        if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                             return True
 
                                         if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                             return True
 
-                                        if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -47938,8 +45553,6 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.prefix is not None:
                                         return True
 
@@ -47949,13 +45562,6 @@ class RouterStatic(object):
                                     if self.vrf_route is not None and self.vrf_route._has_data():
                                         return True
 
-                                    if self.vrf_route is not None and self.vrf_route.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -47977,17 +45583,11 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vrf_prefix is not None:
                                     for child_ref in self.vrf_prefix:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -48009,30 +45609,15 @@ class RouterStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.default_topology is not None and self.default_topology._has_data():
-                                return True
-
-                            if self.default_topology is not None and self.default_topology.is_presence():
                                 return True
 
                             if self.topologies is not None and self.topologies._has_data():
                                 return True
 
-                            if self.topologies is not None and self.topologies.is_presence():
-                                return True
-
                             if self.vrf_prefixes is not None and self.vrf_prefixes._has_data():
                                 return True
 
-                            if self.vrf_prefixes is not None and self.vrf_prefixes.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -48365,8 +45950,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -48403,10 +45986,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -48537,8 +46116,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -48575,10 +46152,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -48717,8 +46290,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -48758,10 +46329,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -48890,8 +46457,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.next_hop_address is not None:
                                                         return True
 
@@ -48928,10 +46493,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -49070,8 +46631,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -49113,10 +46672,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -49136,8 +46691,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.vrf_next_hop_explicit_path_name is not None:
                                                     for child_ref in self.vrf_next_hop_explicit_path_name:
                                                         if child_ref._has_data():
@@ -49163,10 +46716,6 @@ class RouterStatic(object):
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -49353,8 +46902,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -49391,10 +46938,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -49525,8 +47068,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -49563,10 +47104,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -49705,8 +47242,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -49746,10 +47281,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -49878,8 +47409,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.next_hop_address is not None:
                                                         return True
 
@@ -49916,10 +47445,6 @@ class RouterStatic(object):
                                                     if self.vrf_lable is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -50058,8 +47583,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.explicit_path_name is not None:
                                                         return True
 
@@ -50101,10 +47624,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -50124,8 +47643,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.vrf_next_hop_explicit_path_name is not None:
                                                     for child_ref in self.vrf_next_hop_explicit_path_name:
                                                         if child_ref._has_data():
@@ -50153,10 +47670,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -50176,24 +47689,12 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                                return True
-
-                                            if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                                 return True
 
                                             if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                                 return True
 
-                                            if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -50219,8 +47720,6 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.prefix is not None:
                                             return True
 
@@ -50230,13 +47729,6 @@ class RouterStatic(object):
                                         if self.vrf_route is not None and self.vrf_route._has_data():
                                             return True
 
-                                        if self.vrf_route is not None and self.vrf_route.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -50258,17 +47750,11 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.vrf_prefix_topology is not None:
                                         for child_ref in self.vrf_prefix_topology:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -50290,18 +47776,9 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies._has_data():
                                     return True
 
-                                if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -50629,8 +48106,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.explicit_path_name is not None:
                                                             return True
 
@@ -50667,10 +48142,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -50801,8 +48272,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -50839,10 +48308,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -50981,8 +48446,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -51022,10 +48485,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -51154,8 +48613,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.next_hop_address is not None:
                                                             return True
 
@@ -51192,10 +48649,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -51334,8 +48787,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.explicit_path_name is not None:
                                                             return True
 
@@ -51377,10 +48828,6 @@ class RouterStatic(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -51400,8 +48847,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.vrf_next_hop_explicit_path_name is not None:
                                                         for child_ref in self.vrf_next_hop_explicit_path_name:
                                                             if child_ref._has_data():
@@ -51427,10 +48872,6 @@ class RouterStatic(object):
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -51617,8 +49058,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.explicit_path_name is not None:
                                                             return True
 
@@ -51655,10 +49094,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -51789,8 +49224,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -51827,10 +49260,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -51969,8 +49398,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -52010,10 +49437,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -52142,8 +49565,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.next_hop_address is not None:
                                                             return True
 
@@ -52180,10 +49601,6 @@ class RouterStatic(object):
                                                         if self.vrf_lable is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -52322,8 +49739,6 @@ class RouterStatic(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.explicit_path_name is not None:
                                                             return True
 
@@ -52365,10 +49780,6 @@ class RouterStatic(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -52388,8 +49799,6 @@ class RouterStatic(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.vrf_next_hop_explicit_path_name is not None:
                                                         for child_ref in self.vrf_next_hop_explicit_path_name:
                                                             if child_ref._has_data():
@@ -52417,10 +49826,6 @@ class RouterStatic(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -52440,24 +49845,12 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                                    return True
-
-                                                if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                                     return True
 
                                                 if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                                     return True
 
-                                                if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -52483,8 +49876,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.prefix is not None:
                                                 return True
 
@@ -52494,13 +49885,6 @@ class RouterStatic(object):
                                             if self.vrf_route is not None and self.vrf_route._has_data():
                                                 return True
 
-                                            if self.vrf_route is not None and self.vrf_route.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -52522,17 +49906,11 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.vrf_prefix_topology is not None:
                                             for child_ref in self.vrf_prefix_topology:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -52556,21 +49934,12 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.topology_name is not None:
                                         return True
 
                                     if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies._has_data():
                                         return True
 
-                                    if self.vrf_prefix_topologies is not None and self.vrf_prefix_topologies.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -52592,17 +49961,11 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.topology is not None:
                                     for child_ref in self.topology:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -52877,8 +50240,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -52915,10 +50276,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -53049,8 +50406,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -53087,10 +50442,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -53229,8 +50580,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -53270,10 +50619,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -53402,8 +50747,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.next_hop_address is not None:
                                                     return True
 
@@ -53440,10 +50783,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -53582,8 +50921,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -53625,10 +50962,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -53648,8 +50981,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.vrf_next_hop_explicit_path_name is not None:
                                                 for child_ref in self.vrf_next_hop_explicit_path_name:
                                                     if child_ref._has_data():
@@ -53675,10 +51006,6 @@ class RouterStatic(object):
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -53865,8 +51192,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -53903,10 +51228,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -54037,8 +51358,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -54075,10 +51394,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -54217,8 +51532,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -54258,10 +51571,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -54390,8 +51699,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.next_hop_address is not None:
                                                     return True
 
@@ -54428,10 +51735,6 @@ class RouterStatic(object):
                                                 if self.vrf_lable is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -54570,8 +51873,6 @@ class RouterStatic(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.explicit_path_name is not None:
                                                     return True
 
@@ -54613,10 +51914,6 @@ class RouterStatic(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -54636,8 +51933,6 @@ class RouterStatic(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.vrf_next_hop_explicit_path_name is not None:
                                                 for child_ref in self.vrf_next_hop_explicit_path_name:
                                                     if child_ref._has_data():
@@ -54665,10 +51960,6 @@ class RouterStatic(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_static_cfg as meta
@@ -54688,24 +51979,12 @@ class RouterStatic(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table._has_data():
-                                            return True
-
-                                        if self.segment_route_next_hop_table is not None and self.segment_route_next_hop_table.is_presence():
                                             return True
 
                                         if self.vrf_next_hop_table is not None and self.vrf_next_hop_table._has_data():
                                             return True
 
-                                        if self.vrf_next_hop_table is not None and self.vrf_next_hop_table.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -54731,8 +52010,6 @@ class RouterStatic(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.prefix is not None:
                                         return True
 
@@ -54742,13 +52019,6 @@ class RouterStatic(object):
                                     if self.vrf_route is not None and self.vrf_route._has_data():
                                         return True
 
-                                    if self.vrf_route is not None and self.vrf_route.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -54770,17 +52040,11 @@ class RouterStatic(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vrf_prefix is not None:
                                     for child_ref in self.vrf_prefix:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -54802,30 +52066,15 @@ class RouterStatic(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.default_topology is not None and self.default_topology._has_data():
-                                return True
-
-                            if self.default_topology is not None and self.default_topology.is_presence():
                                 return True
 
                             if self.topologies is not None and self.topologies._has_data():
                                 return True
 
-                            if self.topologies is not None and self.topologies.is_presence():
-                                return True
-
                             if self.vrf_prefixes is not None and self.vrf_prefixes._has_data():
                                 return True
 
-                            if self.vrf_prefixes is not None and self.vrf_prefixes.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -54847,24 +52096,12 @@ class RouterStatic(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf_multicast is not None and self.vrf_multicast._has_data():
-                            return True
-
-                        if self.vrf_multicast is not None and self.vrf_multicast.is_presence():
                             return True
 
                         if self.vrf_unicast is not None and self.vrf_unicast._has_data():
                             return True
 
-                        if self.vrf_unicast is not None and self.vrf_unicast.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -54886,24 +52123,12 @@ class RouterStatic(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vrfipv4 is not None and self.vrfipv4._has_data():
-                        return True
-
-                    if self.vrfipv4 is not None and self.vrfipv4.is_presence():
                         return True
 
                     if self.vrfipv6 is not None and self.vrfipv6._has_data():
                         return True
 
-                    if self.vrfipv6 is not None and self.vrfipv6.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -54925,21 +52150,12 @@ class RouterStatic(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.vrf_name is not None:
                     return True
 
                 if self.address_family is not None and self.address_family._has_data():
                     return True
 
-                if self.address_family is not None and self.address_family.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -54959,17 +52175,11 @@ class RouterStatic(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -54989,30 +52199,15 @@ class RouterStatic(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.default_vrf is not None and self.default_vrf._has_data():
-            return True
-
-        if self.default_vrf is not None and self.default_vrf.is_presence():
             return True
 
         if self.maximum_routes is not None and self.maximum_routes._has_data():
             return True
 
-        if self.maximum_routes is not None and self.maximum_routes.is_presence():
-            return True
-
         if self.vrfs is not None and self.vrfs._has_data():
             return True
 
-        if self.vrfs is not None and self.vrfs.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'LldpL3AddrProtocol_Enum' : _MetaInfoEnum('LldpL3AddrProtocol_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper',
+    'LldpL3AddrProtocolEnum' : _MetaInfoEnum('LldpL3AddrProtocolEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper',
         {
             'ipv4':'IPV4',
             'ipv6':'IPV6',
@@ -23,7 +23,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address',
             False, 
             [
-            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'LldpL3AddrProtocol_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper', 'LldpL3AddrProtocol_Enum', 
+            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'LldpL3AddrProtocolEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper', 'LldpL3AddrProtocolEnum', 
                 [], [], 
                 '''                AddressType
                 ''',
@@ -193,7 +193,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address',
             False, 
             [
-            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'LldpL3AddrProtocol_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper', 'LldpL3AddrProtocol_Enum', 
+            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'LldpL3AddrProtocolEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper', 'LldpL3AddrProtocolEnum', 
                 [], [], 
                 '''                AddressType
                 ''',
@@ -633,7 +633,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address',
             False, 
             [
-            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'LldpL3AddrProtocol_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper', 'LldpL3AddrProtocol_Enum', 
+            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'LldpL3AddrProtocolEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper', 'LldpL3AddrProtocolEnum', 
                 [], [], 
                 '''                AddressType
                 ''',
@@ -1067,7 +1067,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address',
             False, 
             [
-            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'LldpL3AddrProtocol_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper', 'LldpL3AddrProtocol_Enum', 
+            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'LldpL3AddrProtocolEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper', 'LldpL3AddrProtocolEnum', 
                 [], [], 
                 '''                AddressType
                 ''',

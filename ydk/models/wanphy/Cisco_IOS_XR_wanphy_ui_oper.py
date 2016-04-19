@@ -24,62 +24,58 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class WanphyAlarmRepStatus_Enum(Enum):
+class WanphyAlarmRepStatusEnum(Enum):
     """
-    WanphyAlarmRepStatus_Enum
+    WanphyAlarmRepStatusEnum
 
     WANPHY Alarm Report Status
 
-    """
+    .. data:: DISABLE = 0
+
+    	Alarm reporting is disable
+
+    .. data:: ENABLE = 1
+
+    	Alarm reporting is enable
 
     """
 
-    Alarm reporting is disable
-
-    """
     DISABLE = 0
 
-    """
-
-    Alarm reporting is enable
-
-    """
     ENABLE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.wanphy._meta import _Cisco_IOS_XR_wanphy_ui_oper as meta
-        return meta._meta_table['WanphyAlarmRepStatus_Enum']
+        return meta._meta_table['WanphyAlarmRepStatusEnum']
 
 
-class WanphyModeInfo_Enum(Enum):
+class WanphyModeInfoEnum(Enum):
     """
-    WanphyModeInfo_Enum
+    WanphyModeInfoEnum
 
     WANPHY Modes
 
-    """
+    .. data:: LAN = 0
+
+    	LAN mode
+
+    .. data:: WAN = 1
+
+    	WAN mode
 
     """
 
-    LAN mode
-
-    """
     LAN = 0
 
-    """
-
-    WAN mode
-
-    """
     WAN = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.wanphy._meta import _Cisco_IOS_XR_wanphy_ui_oper as meta
-        return meta._meta_table['WanphyModeInfo_Enum']
+        return meta._meta_table['WanphyModeInfoEnum']
 
 
 
@@ -164,7 +160,7 @@ class Wanphy(object):
                 .. attribute:: admin_mode
                 
                 	Configuration Mode
-                	**type**\: :py:class:`WanphyModeInfo_Enum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfo_Enum>`
+                	**type**\: :py:class:`WanphyModeInfoEnum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfoEnum>`
                 
                 .. attribute:: line_ais
                 
@@ -197,7 +193,7 @@ class Wanphy(object):
                 .. attribute:: operational_mode
                 
                 	Operational Mode
-                	**type**\: :py:class:`WanphyModeInfo_Enum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfo_Enum>`
+                	**type**\: :py:class:`WanphyModeInfoEnum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfoEnum>`
                 
                 .. attribute:: path_ais
                 
@@ -361,7 +357,7 @@ class Wanphy(object):
                 .. attribute:: sd_ber_report
                 
                 	SD\_BER Report
-                	**type**\: :py:class:`WanphyAlarmRepStatus_Enum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatus_Enum>`
+                	**type**\: :py:class:`WanphyAlarmRepStatusEnum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatusEnum>`
                 
                 .. attribute:: sd_ber_threshold
                 
@@ -394,7 +390,7 @@ class Wanphy(object):
                 .. attribute:: sf_ber_report
                 
                 	SF\_BER Report
-                	**type**\: :py:class:`WanphyAlarmRepStatus_Enum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatus_Enum>`
+                	**type**\: :py:class:`WanphyAlarmRepStatusEnum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatusEnum>`
                 
                 .. attribute:: sf_ber_threshold
                 
@@ -527,8 +523,6 @@ class Wanphy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.admin_mode is not None:
                         return True
 
@@ -663,10 +657,6 @@ class Wanphy(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.wanphy._meta import _Cisco_IOS_XR_wanphy_ui_oper as meta
@@ -686,21 +676,12 @@ class Wanphy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.controller_name is not None:
                     return True
 
                 if self.info is not None and self.info._has_data():
                     return True
 
-                if self.info is not None and self.info.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -720,17 +701,11 @@ class Wanphy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.controller is not None:
                 for child_ref in self.controller:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -750,18 +725,9 @@ class Wanphy(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.controllers is not None and self.controllers._has_data():
             return True
 
-        if self.controllers is not None and self.controllers.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

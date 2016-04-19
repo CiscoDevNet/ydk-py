@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,12 +14,12 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'IpIepPath_Enum' : _MetaInfoEnum('IpIepPath_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg',
+    'IpIepPathEnum' : _MetaInfoEnum('IpIepPathEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg',
         {
             'identifier':'IDENTIFIER',
             'name':'NAME',
         }, 'Cisco-IOS-XR-ip-iep-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-iep-cfg']),
-    'IpIepHop_Enum' : _MetaInfoEnum('IpIepHop_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg',
+    'IpIepHopEnum' : _MetaInfoEnum('IpIepHopEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg',
         {
             'next-strict':'NEXT_STRICT',
             'next-loose':'NEXT_LOOSE',
@@ -27,7 +27,7 @@ _meta_table = {
             'exclude-srlg':'EXCLUDE_SRLG',
             'next-label':'NEXT_LABEL',
         }, 'Cisco-IOS-XR-ip-iep-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-iep-cfg']),
-    'IpIepNum_Enum' : _MetaInfoEnum('IpIepNum_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg',
+    'IpIepNumEnum' : _MetaInfoEnum('IpIepNumEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg',
         {
             'unnumbered':'UNNUMBERED',
             'numbered':'NUMBERED',
@@ -42,7 +42,7 @@ _meta_table = {
                 ''',
                 'index_number',
                 'Cisco-IOS-XR-ip-iep-cfg', True),
-            _MetaInfoClassMember('hop-type', REFERENCE_ENUM_CLASS, 'IpIepHop_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg', 'IpIepHop_Enum', 
+            _MetaInfoClassMember('hop-type', REFERENCE_ENUM_CLASS, 'IpIepHopEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg', 'IpIepHopEnum', 
                 [], [], 
                 '''                Include or exclude this hop in the path
                 ''',
@@ -66,7 +66,7 @@ _meta_table = {
                 ''',
                 'mpls_label',
                 'Cisco-IOS-XR-ip-iep-cfg', False),
-            _MetaInfoClassMember('num-type', REFERENCE_ENUM_CLASS, 'IpIepNum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg', 'IpIepNum_Enum', 
+            _MetaInfoClassMember('num-type', REFERENCE_ENUM_CLASS, 'IpIepNumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg', 'IpIepNumEnum', 
                 [], [], 
                 '''                Number type Numbered or Unnumbered
                 ''',
@@ -135,7 +135,7 @@ _meta_table = {
                 ''',
                 'index_number',
                 'Cisco-IOS-XR-ip-iep-cfg', True),
-            _MetaInfoClassMember('hop-type', REFERENCE_ENUM_CLASS, 'IpIepHop_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg', 'IpIepHop_Enum', 
+            _MetaInfoClassMember('hop-type', REFERENCE_ENUM_CLASS, 'IpIepHopEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg', 'IpIepHopEnum', 
                 [], [], 
                 '''                Include or exclude this hop in the path
                 ''',
@@ -159,7 +159,7 @@ _meta_table = {
                 ''',
                 'mpls_label',
                 'Cisco-IOS-XR-ip-iep-cfg', False),
-            _MetaInfoClassMember('num-type', REFERENCE_ENUM_CLASS, 'IpIepNum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg', 'IpIepNum_Enum', 
+            _MetaInfoClassMember('num-type', REFERENCE_ENUM_CLASS, 'IpIepNumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg', 'IpIepNumEnum', 
                 [], [], 
                 '''                Number type Numbered or Unnumbered
                 ''',
@@ -222,7 +222,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('IpExplicitPaths.Paths.Path',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'IpIepPath_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg', 'IpIepPath_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'IpIepPathEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_iep_cfg', 'IpIepPathEnum', 
                 [], [], 
                 '''                Path type
                 ''',

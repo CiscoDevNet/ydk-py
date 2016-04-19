@@ -24,275 +24,247 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class Ipv6NdBndlState_Enum(Enum):
+class Ipv6NdBndlStateEnum(Enum):
     """
-    Ipv6NdBndlState_Enum
+    Ipv6NdBndlStateEnum
 
     IPv6 ND Bundle State
 
-    """
+    .. data:: RUN = 0
+
+    	Running state
+
+    .. data:: ERROR = 1
+
+    	Error state
+
+    .. data:: WAIT = 2
+
+    	Wait state
 
     """
 
-    Running state
-
-    """
     RUN = 0
 
-    """
-
-    Error state
-
-    """
     ERROR = 1
 
-    """
-
-    Wait state
-
-    """
     WAIT = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
-        return meta._meta_table['Ipv6NdBndlState_Enum']
+        return meta._meta_table['Ipv6NdBndlStateEnum']
 
 
-class Ipv6NdMediaEncap_Enum(Enum):
+class Ipv6NdMediaEncapEnum(Enum):
     """
-    Ipv6NdMediaEncap_Enum
+    Ipv6NdMediaEncapEnum
 
     IPv6 ND Media Encapsulation Type
 
-    """
+    .. data:: NONE = 0
+
+    	No encapsulation
+
+    .. data:: ARPA = 1
+
+    	ARPA encapsulation
+
+    .. data:: SNAP = 2
+
+    	SNAP encapsulation
+
+    .. data:: IEEE802_1Q = 3
+
+    	802_1Q encapsulation
+
+    .. data:: SRP = 4
+
+    	SRP encapsulation
+
+    .. data:: SRPA = 5
+
+    	SRPA encapsulation
+
+    .. data:: SRPB = 6
+
+    	SRPB encapsulation
+
+    .. data:: PPP = 7
+
+    	PPP encapsulation
+
+    .. data:: HDLC = 8
+
+    	HDLC encapsulation
+
+    .. data:: CHDLC = 9
+
+    	CHDLC encapsulation
+
+    .. data:: DOT1Q = 10
+
+    	DOT1Q encapsulation
+
+    .. data:: FR = 11
+
+    	FR encapsulation
+
+    .. data:: GRE = 12
+
+    	GRE encapsulation
 
     """
 
-    No encapsulation
-
-    """
     NONE = 0
 
-    """
-
-    ARPA encapsulation
-
-    """
     ARPA = 1
 
-    """
-
-    SNAP encapsulation
-
-    """
     SNAP = 2
 
-    """
-
-    802\_1Q encapsulation
-
-    """
     IEEE802_1Q = 3
 
-    """
-
-    SRP encapsulation
-
-    """
     SRP = 4
 
-    """
-
-    SRPA encapsulation
-
-    """
     SRPA = 5
 
-    """
-
-    SRPB encapsulation
-
-    """
     SRPB = 6
 
-    """
-
-    PPP encapsulation
-
-    """
     PPP = 7
 
-    """
-
-    HDLC encapsulation
-
-    """
     HDLC = 8
 
-    """
-
-    CHDLC encapsulation
-
-    """
     CHDLC = 9
 
-    """
-
-    DOT1Q encapsulation
-
-    """
     DOT1Q = 10
 
-    """
-
-    FR encapsulation
-
-    """
     FR = 11
 
-    """
-
-    GRE encapsulation
-
-    """
     GRE = 12
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
-        return meta._meta_table['Ipv6NdMediaEncap_Enum']
+        return meta._meta_table['Ipv6NdMediaEncapEnum']
 
 
-class Ipv6NdShState_Enum(Enum):
+class Ipv6NdShStateEnum(Enum):
     """
-    Ipv6NdShState_Enum
+    Ipv6NdShStateEnum
 
     IPv6 ND Neighbor Reachability State
 
-    """
+    .. data:: INCOMPLETE = 0
+
+    	Incomplete
+
+    .. data:: REACHABLE = 1
+
+    	Reachable
+
+    .. data:: STALE = 2
+
+    	Stale
+
+    .. data:: GLEAN = 3
+
+    	Glean
+
+    .. data:: DELAY = 4
+
+    	Delay
+
+    .. data:: PROBE = 5
+
+    	Probe
+
+    .. data:: DELETE = 6
+
+    	Delete
 
     """
 
-    Incomplete
-
-    """
     INCOMPLETE = 0
 
-    """
-
-    Reachable
-
-    """
     REACHABLE = 1
 
-    """
-
-    Stale
-
-    """
     STALE = 2
 
-    """
-
-    Glean
-
-    """
     GLEAN = 3
 
-    """
-
-    Delay
-
-    """
     DELAY = 4
 
-    """
-
-    Probe
-
-    """
     PROBE = 5
 
-    """
-
-    Delete
-
-    """
     DELETE = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
-        return meta._meta_table['Ipv6NdShState_Enum']
+        return meta._meta_table['Ipv6NdShStateEnum']
 
 
-class Ipv6NdShVrFlags_Enum(Enum):
+class Ipv6NdShVrFlagsEnum(Enum):
     """
-    Ipv6NdShVrFlags_Enum
+    Ipv6NdShVrFlagsEnum
 
     IPv6 ND VR Entry Flags Type 
 
-    """
+    .. data:: NO_FLAGS = 0
+
+    	None
+
+    .. data:: FINAL_RA = 1
+
+    	Final RA
 
     """
 
-    None
-
-    """
     NO_FLAGS = 0
 
-    """
-
-    Final RA
-
-    """
     FINAL_RA = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
-        return meta._meta_table['Ipv6NdShVrFlags_Enum']
+        return meta._meta_table['Ipv6NdShVrFlagsEnum']
 
 
-class Ipv6NdShVrState_Enum(Enum):
+class Ipv6NdShVrStateEnum(Enum):
     """
-    Ipv6NdShVrState_Enum
+    Ipv6NdShVrStateEnum
 
     IPv6 ND VR Entry State Type 
 
-    """
+    .. data:: DELETED = 0
+
+    	Delete
+
+    .. data:: STANDBY = 1
+
+    	Standby
+
+    .. data:: ACTIVE = 2
+
+    	Active
 
     """
 
-    Delete
-
-    """
     DELETED = 0
 
-    """
-
-    Standby
-
-    """
     STANDBY = 1
 
-    """
-
-    Active
-
-    """
     ACTIVE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
-        return meta._meta_table['Ipv6NdShVrState_Enum']
+        return meta._meta_table['Ipv6NdShVrStateEnum']
 
 
 
@@ -602,15 +574,9 @@ class Ipv6NodeDiscovery(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ipv6_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -655,15 +621,9 @@ class Ipv6NodeDiscovery(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ipv6_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -716,18 +676,12 @@ class Ipv6NodeDiscovery(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.node_name is not None:
                                 return True
 
                             if self.total_links is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -898,8 +852,6 @@ class Ipv6NodeDiscovery(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.complete_glean_count is not None:
                                 return True
 
@@ -956,10 +908,6 @@ class Ipv6NodeDiscovery(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
@@ -981,8 +929,6 @@ class Ipv6NodeDiscovery(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
@@ -1009,9 +955,6 @@ class Ipv6NodeDiscovery(object):
                         if self.local_address is not None and self.local_address._has_data():
                             return True
 
-                        if self.local_address is not None and self.local_address.is_presence():
-                            return True
-
                         if self.mac_addr is not None:
                             return True
 
@@ -1034,19 +977,12 @@ class Ipv6NodeDiscovery(object):
                         if self.nd_parameters is not None and self.nd_parameters._has_data():
                             return True
 
-                        if self.nd_parameters is not None and self.nd_parameters.is_presence():
-                            return True
-
                         if self.parent_interface_name is not None:
                             return True
 
                         if self.vlan_tag is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1068,17 +1004,11 @@ class Ipv6NodeDiscovery(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_interface is not None:
                         for child_ref in self.bundle_interface:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1171,7 +1101,7 @@ class Ipv6NodeDiscovery(object):
                     .. attribute:: state
                     
                     	State
-                    	**type**\: :py:class:`Ipv6NdBndlState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdBndlState_Enum>`
+                    	**type**\: :py:class:`Ipv6NdBndlStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdBndlStateEnum>`
                     
                     .. attribute:: state_changes
                     
@@ -1238,15 +1168,9 @@ class Ipv6NodeDiscovery(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.seconds is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1270,15 +1194,10 @@ class Ipv6NodeDiscovery(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.node_name is not None:
                             return True
 
                         if self.age is not None and self.age._has_data():
-                            return True
-
-                        if self.age is not None and self.age.is_presence():
                             return True
 
                         if self.group_id is not None:
@@ -1307,10 +1226,6 @@ class Ipv6NodeDiscovery(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
@@ -1330,17 +1245,11 @@ class Ipv6NodeDiscovery(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_node is not None:
                         for child_ref in self.bundle_node:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1546,8 +1455,6 @@ class Ipv6NodeDiscovery(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
@@ -1607,10 +1514,6 @@ class Ipv6NodeDiscovery(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
@@ -1630,17 +1533,11 @@ class Ipv6NodeDiscovery(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1695,7 +1592,7 @@ class Ipv6NodeDiscovery(object):
                     .. attribute:: flags
                     
                     	VR Flags
-                    	**type**\: :py:class:`Ipv6NdShVrFlags_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShVrFlags_Enum>`
+                    	**type**\: :py:class:`Ipv6NdShVrFlagsEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShVrFlagsEnum>`
                     
                     .. attribute:: link_layer_address
                     
@@ -1712,7 +1609,7 @@ class Ipv6NodeDiscovery(object):
                     .. attribute:: state
                     
                     	VR state
-                    	**type**\: :py:class:`Ipv6NdShVrState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShVrState_Enum>`
+                    	**type**\: :py:class:`Ipv6NdShVrStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShVrStateEnum>`
                     
                     .. attribute:: vr_gl_addr_ct
                     
@@ -1784,15 +1681,9 @@ class Ipv6NodeDiscovery(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ipv6_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1837,15 +1728,9 @@ class Ipv6NodeDiscovery(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ipv6_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1869,8 +1754,6 @@ class Ipv6NodeDiscovery(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
@@ -1886,9 +1769,6 @@ class Ipv6NodeDiscovery(object):
                         if self.local_address is not None and self.local_address._has_data():
                             return True
 
-                        if self.local_address is not None and self.local_address.is_presence():
-                            return True
-
                         if self.state is not None:
                             return True
 
@@ -1900,10 +1780,6 @@ class Ipv6NodeDiscovery(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1925,17 +1801,11 @@ class Ipv6NodeDiscovery(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.nd_virtual_router is not None:
                         for child_ref in self.nd_virtual_router:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2036,7 +1906,7 @@ class Ipv6NodeDiscovery(object):
                             .. attribute:: encapsulation
                             
                             	Preferred media encap type
-                            	**type**\: :py:class:`Ipv6NdMediaEncap_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncap_Enum>`
+                            	**type**\: :py:class:`Ipv6NdMediaEncapEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncapEnum>`
                             
                             .. attribute:: interface_name
                             
@@ -2065,12 +1935,12 @@ class Ipv6NodeDiscovery(object):
                             .. attribute:: reachability_state
                             
                             	Current state
-                            	**type**\: :py:class:`Ipv6NdShState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShState_Enum>`
+                            	**type**\: :py:class:`Ipv6NdShStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShStateEnum>`
                             
                             .. attribute:: selected_encapsulation
                             
                             	Selected media encap
-                            	**type**\: :py:class:`Ipv6NdMediaEncap_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncap_Enum>`
+                            	**type**\: :py:class:`Ipv6NdMediaEncapEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncapEnum>`
                             
                             
 
@@ -2128,15 +1998,9 @@ class Ipv6NodeDiscovery(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.seconds is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2160,8 +2024,6 @@ class Ipv6NodeDiscovery(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.host_address is not None:
                                     return True
 
@@ -2172,9 +2034,6 @@ class Ipv6NodeDiscovery(object):
                                     return True
 
                                 if self.last_reached_time is not None and self.last_reached_time._has_data():
-                                    return True
-
-                                if self.last_reached_time is not None and self.last_reached_time.is_presence():
                                     return True
 
                                 if self.link_layer_address is not None:
@@ -2189,10 +2048,6 @@ class Ipv6NodeDiscovery(object):
                                 if self.selected_encapsulation is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2214,17 +2069,11 @@ class Ipv6NodeDiscovery(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.host_address is not None:
                                 for child_ref in self.host_address:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2248,21 +2097,12 @@ class Ipv6NodeDiscovery(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
                         if self.host_addresses is not None and self.host_addresses._has_data():
                             return True
 
-                        if self.host_addresses is not None and self.host_addresses.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2284,17 +2124,11 @@ class Ipv6NodeDiscovery(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.neighbor_interface is not None:
                         for child_ref in self.neighbor_interface:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2431,8 +2265,6 @@ class Ipv6NodeDiscovery(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.delayed_entries is not None:
                             return True
 
@@ -2454,10 +2286,6 @@ class Ipv6NodeDiscovery(object):
                         if self.subtotal_neighbor_entries is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2550,8 +2378,6 @@ class Ipv6NodeDiscovery(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.delayed_entries is not None:
                             return True
 
@@ -2573,10 +2399,6 @@ class Ipv6NodeDiscovery(object):
                         if self.subtotal_neighbor_entries is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2669,8 +2491,6 @@ class Ipv6NodeDiscovery(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.delayed_entries is not None:
                             return True
 
@@ -2694,10 +2514,6 @@ class Ipv6NodeDiscovery(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_nd_oper as meta
@@ -2717,33 +2533,18 @@ class Ipv6NodeDiscovery(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.dynamic is not None and self.dynamic._has_data():
-                        return True
-
-                    if self.dynamic is not None and self.dynamic.is_presence():
                         return True
 
                     if self.multicast is not None and self.multicast._has_data():
                         return True
 
-                    if self.multicast is not None and self.multicast.is_presence():
-                        return True
-
                     if self.static is not None and self.static._has_data():
-                        return True
-
-                    if self.static is not None and self.static.is_presence():
                         return True
 
                     if self.total_neighbor_entries is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2765,51 +2566,27 @@ class Ipv6NodeDiscovery(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.bundle_interfaces is not None and self.bundle_interfaces._has_data():
                     return True
 
-                if self.bundle_interfaces is not None and self.bundle_interfaces.is_presence():
-                    return True
-
                 if self.bundle_nodes is not None and self.bundle_nodes._has_data():
-                    return True
-
-                if self.bundle_nodes is not None and self.bundle_nodes.is_presence():
                     return True
 
                 if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
-                if self.interfaces is not None and self.interfaces.is_presence():
-                    return True
-
                 if self.nd_virtual_routers is not None and self.nd_virtual_routers._has_data():
-                    return True
-
-                if self.nd_virtual_routers is not None and self.nd_virtual_routers.is_presence():
                     return True
 
                 if self.neighbor_interfaces is not None and self.neighbor_interfaces._has_data():
                     return True
 
-                if self.neighbor_interfaces is not None and self.neighbor_interfaces.is_presence():
-                    return True
-
                 if self.neighbor_summary is not None and self.neighbor_summary._has_data():
                     return True
 
-                if self.neighbor_summary is not None and self.neighbor_summary.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2829,17 +2606,11 @@ class Ipv6NodeDiscovery(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2859,18 +2630,9 @@ class Ipv6NodeDiscovery(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

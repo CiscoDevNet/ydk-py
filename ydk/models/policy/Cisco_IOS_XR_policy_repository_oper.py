@@ -24,283 +24,255 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class AddressFamily_Enum(Enum):
+class AddressFamilyEnum(Enum):
     """
-    AddressFamily_Enum
+    AddressFamilyEnum
 
     Address Family
 
-    """
+    .. data:: IPV4 = 0
+
+    	IPv4 Address Family
+
+    .. data:: IPV6 = 1
+
+    	IPv6 Address Family
+
+    .. data:: L2VPN = 2
+
+    	L2VPN Address Family
+
+    .. data:: AF_NONE = 3
+
+    	No Address Family
+
+    .. data:: AF_UNKNOWN = 4
+
+    	Unknown Address Family
+
+    .. data:: LS = 200
+
+    	LINKSTATE Address Family
 
     """
 
-    IPv4 Address Family
-
-    """
     IPV4 = 0
 
-    """
-
-    IPv6 Address Family
-
-    """
     IPV6 = 1
 
-    """
-
-    L2VPN Address Family
-
-    """
     L2VPN = 2
 
-    """
-
-    No Address Family
-
-    """
     AF_NONE = 3
 
-    """
-
-    Unknown Address Family
-
-    """
     AF_UNKNOWN = 4
 
-    """
-
-    LINKSTATE Address Family
-
-    """
     LS = 200
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-        return meta._meta_table['AddressFamily_Enum']
+        return meta._meta_table['AddressFamilyEnum']
 
 
-class AttachPointDirection_Enum(Enum):
+class AttachPointDirectionEnum(Enum):
     """
-    AttachPointDirection_Enum
+    AttachPointDirectionEnum
 
     Attach Point Direction
 
-    """
+    .. data:: IN = 0
+
+    	Attach Point Direction IN
+
+    .. data:: OUT = 1
+
+    	Attach Point Direction OUT
 
     """
 
-    Attach Point Direction IN
-
-    """
     IN = 0
 
-    """
-
-    Attach Point Direction OUT
-
-    """
     OUT = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-        return meta._meta_table['AttachPointDirection_Enum']
+        return meta._meta_table['AttachPointDirectionEnum']
 
 
-class Group_Enum(Enum):
+class GroupEnum(Enum):
     """
-    Group_Enum
+    GroupEnum
 
     BGP Neighbor Group Type
 
-    """
+    .. data:: ADDRESS_FAMILY_GROUP = 0
+
+    	Address Family Group
+
+    .. data:: SESSION_GROUP = 1
+
+    	Session Group
+
+    .. data:: NEIGHBOR_GROUP = 2
+
+    	Neighbor Group
+
+    .. data:: NEIGHBOR = 3
+
+    	Neighbor
+
+    .. data:: ERROR_GROUP = 4
+
+    	Error Group
 
     """
 
-    Address Family Group
-
-    """
     ADDRESS_FAMILY_GROUP = 0
 
-    """
-
-    Session Group
-
-    """
     SESSION_GROUP = 1
 
-    """
-
-    Neighbor Group
-
-    """
     NEIGHBOR_GROUP = 2
 
-    """
-
-    Neighbor
-
-    """
     NEIGHBOR = 3
 
-    """
-
-    Error Group
-
-    """
     ERROR_GROUP = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-        return meta._meta_table['Group_Enum']
+        return meta._meta_table['GroupEnum']
 
 
-class ObjectStatus_Enum(Enum):
+class ObjectStatusEnum(Enum):
     """
-    ObjectStatus_Enum
+    ObjectStatusEnum
 
     Whether an RPL object is used/referenced
 
-    """
+    .. data:: ACTIVE = 0
+
+    	The object is in use
+
+    .. data:: INACTIVE = 1
+
+    	The object is referenced by another object, but
+
+    	not used
+
+    .. data:: UNUSED = 2
+
+    	The object is not used or referenced
 
     """
 
-    The object is in use
-
-    """
     ACTIVE = 0
 
-    """
-
-    The object is referenced by another object, but
-    not used
-
-    """
     INACTIVE = 1
 
-    """
-
-    The object is not used or referenced
-
-    """
     UNUSED = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-        return meta._meta_table['ObjectStatus_Enum']
+        return meta._meta_table['ObjectStatusEnum']
 
 
-class SubAddressFamily_Enum(Enum):
+class SubAddressFamilyEnum(Enum):
     """
-    SubAddressFamily_Enum
+    SubAddressFamilyEnum
 
     Sub Address Family
 
-    """
+    .. data:: UNICAST = 0
+
+    	Unicast
+
+    .. data:: MULTICAST = 1
+
+    	Multicast
+
+    .. data:: LABEL = 2
+
+    	Label
+
+    .. data:: TUNNEL = 3
+
+    	Tunnel
+
+    .. data:: VPN = 4
+
+    	VPN
+
+    .. data:: MDT = 5
+
+    	MDT
+
+    .. data:: VPLS = 6
+
+    	VPLS
+
+    .. data:: RT_CONSTRAINT = 7
+
+    	RTConstraint
+
+    .. data:: MVPN = 8
+
+    	MVPN
+
+    .. data:: FLOW = 9
+
+    	FLOW
+
+    .. data:: VPN_MCAST = 10
+
+    	VPN Multicast
+
+    .. data:: SAF_NONE = 11
+
+    	No SAFI
+
+    .. data:: SAF_UNKNOWN = 12
+
+    	Unknown
 
     """
 
-    Unicast
-
-    """
     UNICAST = 0
 
-    """
-
-    Multicast
-
-    """
     MULTICAST = 1
 
-    """
-
-    Label
-
-    """
     LABEL = 2
 
-    """
-
-    Tunnel
-
-    """
     TUNNEL = 3
 
-    """
-
-    VPN
-
-    """
     VPN = 4
 
-    """
-
-    MDT
-
-    """
     MDT = 5
 
-    """
-
-    VPLS
-
-    """
     VPLS = 6
 
-    """
-
-    RTConstraint
-
-    """
     RT_CONSTRAINT = 7
 
-    """
-
-    MVPN
-
-    """
     MVPN = 8
 
-    """
-
-    FLOW
-
-    """
     FLOW = 9
 
-    """
-
-    VPN Multicast
-
-    """
     VPN_MCAST = 10
 
-    """
-
-    No SAFI
-
-    """
     SAF_NONE = 11
 
-    """
-
-    Unknown
-
-    """
     SAF_UNKNOWN = 12
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-        return meta._meta_table['SubAddressFamily_Enum']
+        return meta._meta_table['SubAddressFamilyEnum']
 
 
 
@@ -422,8 +394,6 @@ class RoutingPolicy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.compiled_policies_length is not None:
                 return True
 
@@ -445,10 +415,6 @@ class RoutingPolicy(object):
             if self.maximum_number_of_policies is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -533,17 +499,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.object is not None:
                     for child in self.object:
                         if child is not None:
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -585,17 +545,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.object is not None:
                     for child in self.object:
                         if child is not None:
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -702,7 +656,7 @@ class RoutingPolicy(object):
                         .. attribute:: af_name
                         
                         	Address Family Identifier
-                        	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                        	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                         
                         .. attribute:: aggregate_network_address
                         
@@ -727,12 +681,12 @@ class RoutingPolicy(object):
                         .. attribute:: direction
                         
                         	Direction In or Out
-                        	**type**\: :py:class:`AttachPointDirection_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirection_Enum>`
+                        	**type**\: :py:class:`AttachPointDirectionEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                         
                         .. attribute:: group
                         
                         	Neighbor Group 
-                        	**type**\: :py:class:`Group_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.Group_Enum>`
+                        	**type**\: :py:class:`GroupEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                         
                         .. attribute:: group_name
                         
@@ -757,7 +711,7 @@ class RoutingPolicy(object):
                         .. attribute:: neighbor_af_name
                         
                         	Neighbor IP Address Family
-                        	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                        	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                         
                         .. attribute:: propogate_from
                         
@@ -791,7 +745,7 @@ class RoutingPolicy(object):
                         .. attribute:: saf_name
                         
                         	Subsequent Address Family Identifier
-                        	**type**\: :py:class:`SubAddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamily_Enum>`
+                        	**type**\: :py:class:`SubAddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                         
                         .. attribute:: source_protocol
                         
@@ -847,8 +801,6 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.af_name is not None:
                                 return True
 
@@ -911,10 +863,6 @@ class RoutingPolicy(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
@@ -934,17 +882,11 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.binding is not None:
                             for child_ref in self.binding:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1032,17 +974,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.object is not None:
                                 for child in self.object:
                                     if child is not None:
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1115,8 +1051,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.set_domain is not None:
                                     return True
 
@@ -1125,10 +1059,6 @@ class RoutingPolicy(object):
                                         if child is not None:
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1150,17 +1080,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.sets is not None:
                                 for child_ref in self.sets:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1203,17 +1127,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.object is not None:
                                 for child in self.object:
                                     if child is not None:
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1285,8 +1203,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.set_domain is not None:
                                     return True
 
@@ -1295,10 +1211,6 @@ class RoutingPolicy(object):
                                         if child is not None:
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1320,17 +1232,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.sets is not None:
                                 for child_ref in self.sets:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1352,36 +1258,18 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.all_used_policies is not None and self.all_used_policies._has_data():
-                            return True
-
-                        if self.all_used_policies is not None and self.all_used_policies.is_presence():
                             return True
 
                         if self.all_used_sets is not None and self.all_used_sets._has_data():
                             return True
 
-                        if self.all_used_sets is not None and self.all_used_sets.is_presence():
-                            return True
-
                         if self.directly_used_policies is not None and self.directly_used_policies._has_data():
-                            return True
-
-                        if self.directly_used_policies is not None and self.directly_used_policies.is_presence():
                             return True
 
                         if self.directly_used_sets is not None and self.directly_used_sets._has_data():
                             return True
 
-                        if self.directly_used_sets is not None and self.directly_used_sets.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1427,7 +1315,7 @@ class RoutingPolicy(object):
                         .. attribute:: status
                         
                         	Active, Inactive, or Unused
-                        	**type**\: :py:class:`ObjectStatus_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatus_Enum>`
+                        	**type**\: :py:class:`ObjectStatusEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                         
                         .. attribute:: used_directly
                         
@@ -1461,8 +1349,6 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.route_policy_name is not None:
                                 return True
 
@@ -1472,10 +1358,6 @@ class RoutingPolicy(object):
                             if self.used_directly is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1497,17 +1379,11 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.reference is not None:
                             for child_ref in self.reference:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1529,33 +1405,18 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.route_policy_name is not None:
                         return True
 
                     if self.attached is not None and self.attached._has_data():
                         return True
 
-                    if self.attached is not None and self.attached.is_presence():
-                        return True
-
                     if self.policy_uses is not None and self.policy_uses._has_data():
-                        return True
-
-                    if self.policy_uses is not None and self.policy_uses.is_presence():
                         return True
 
                     if self.used_by is not None and self.used_by._has_data():
                         return True
 
-                    if self.used_by is not None and self.used_by.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1575,17 +1436,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.route_policy is not None:
                     for child_ref in self.route_policy:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1627,17 +1482,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.object is not None:
                     for child in self.object:
                         if child is not None:
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1657,36 +1506,18 @@ class RoutingPolicy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.active is not None and self.active._has_data():
-                return True
-
-            if self.active is not None and self.active.is_presence():
                 return True
 
             if self.inactive is not None and self.inactive._has_data():
                 return True
 
-            if self.inactive is not None and self.inactive.is_presence():
-                return True
-
             if self.route_policies is not None and self.route_policies._has_data():
-                return True
-
-            if self.route_policies is not None and self.route_policies.is_presence():
                 return True
 
             if self.unused is not None and self.unused._has_data():
                 return True
 
-            if self.unused is not None and self.unused.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1870,17 +1701,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1922,17 +1747,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2032,7 +1851,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -2057,12 +1876,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\: :py:class:`AttachPointDirection_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirection_Enum>`
+                            	**type**\: :py:class:`AttachPointDirectionEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\: :py:class:`Group_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.Group_Enum>`
+                            	**type**\: :py:class:`GroupEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -2087,7 +1906,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -2121,7 +1940,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\: :py:class:`SubAddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamily_Enum>`
+                            	**type**\: :py:class:`SubAddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -2177,8 +1996,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_name is not None:
                                     return True
 
@@ -2241,10 +2058,6 @@ class RoutingPolicy(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
@@ -2264,17 +2077,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2320,7 +2127,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\: :py:class:`ObjectStatus_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatus_Enum>`
+                            	**type**\: :py:class:`ObjectStatusEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -2354,8 +2161,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -2365,10 +2170,6 @@ class RoutingPolicy(object):
                                 if self.used_directly is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2390,17 +2191,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2422,27 +2217,15 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.set_name is not None:
                             return True
 
                         if self.attached is not None and self.attached._has_data():
                             return True
 
-                        if self.attached is not None and self.attached.is_presence():
-                            return True
-
                         if self.used_by is not None and self.used_by._has_data():
                             return True
 
-                        if self.used_by is not None and self.used_by.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2462,17 +2245,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2514,17 +2291,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2544,36 +2315,18 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.active is not None and self.active._has_data():
-                    return True
-
-                if self.active is not None and self.active.is_presence():
                     return True
 
                 if self.inactive is not None and self.inactive._has_data():
                     return True
 
-                if self.inactive is not None and self.inactive.is_presence():
-                    return True
-
                 if self.sets is not None and self.sets._has_data():
-                    return True
-
-                if self.sets is not None and self.sets.is_presence():
                     return True
 
                 if self.unused is not None and self.unused._has_data():
                     return True
 
-                if self.unused is not None and self.unused.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2658,17 +2411,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2710,17 +2457,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2820,7 +2561,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -2845,12 +2586,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\: :py:class:`AttachPointDirection_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirection_Enum>`
+                            	**type**\: :py:class:`AttachPointDirectionEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\: :py:class:`Group_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.Group_Enum>`
+                            	**type**\: :py:class:`GroupEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -2875,7 +2616,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -2909,7 +2650,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\: :py:class:`SubAddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamily_Enum>`
+                            	**type**\: :py:class:`SubAddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -2965,8 +2706,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_name is not None:
                                     return True
 
@@ -3029,10 +2768,6 @@ class RoutingPolicy(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
@@ -3052,17 +2787,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3108,7 +2837,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\: :py:class:`ObjectStatus_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatus_Enum>`
+                            	**type**\: :py:class:`ObjectStatusEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -3142,8 +2871,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -3153,10 +2880,6 @@ class RoutingPolicy(object):
                                 if self.used_directly is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3178,17 +2901,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3210,27 +2927,15 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.set_name is not None:
                             return True
 
                         if self.attached is not None and self.attached._has_data():
                             return True
 
-                        if self.attached is not None and self.attached.is_presence():
-                            return True
-
                         if self.used_by is not None and self.used_by._has_data():
                             return True
 
-                        if self.used_by is not None and self.used_by.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3250,17 +2955,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3302,17 +3001,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3332,36 +3025,18 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.active is not None and self.active._has_data():
-                    return True
-
-                if self.active is not None and self.active.is_presence():
                     return True
 
                 if self.inactive is not None and self.inactive._has_data():
                     return True
 
-                if self.inactive is not None and self.inactive.is_presence():
-                    return True
-
                 if self.sets is not None and self.sets._has_data():
-                    return True
-
-                if self.sets is not None and self.sets.is_presence():
                     return True
 
                 if self.unused is not None and self.unused._has_data():
                     return True
 
-                if self.unused is not None and self.unused.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3440,17 +3115,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3550,7 +3219,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -3575,12 +3244,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\: :py:class:`AttachPointDirection_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirection_Enum>`
+                            	**type**\: :py:class:`AttachPointDirectionEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\: :py:class:`Group_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.Group_Enum>`
+                            	**type**\: :py:class:`GroupEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -3605,7 +3274,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -3639,7 +3308,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\: :py:class:`SubAddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamily_Enum>`
+                            	**type**\: :py:class:`SubAddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -3695,8 +3364,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_name is not None:
                                     return True
 
@@ -3759,10 +3426,6 @@ class RoutingPolicy(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
@@ -3782,17 +3445,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3838,7 +3495,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\: :py:class:`ObjectStatus_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatus_Enum>`
+                            	**type**\: :py:class:`ObjectStatusEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -3872,8 +3529,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -3883,10 +3538,6 @@ class RoutingPolicy(object):
                                 if self.used_directly is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3908,17 +3559,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3940,27 +3585,15 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.set_name is not None:
                             return True
 
                         if self.attached is not None and self.attached._has_data():
                             return True
 
-                        if self.attached is not None and self.attached.is_presence():
-                            return True
-
                         if self.used_by is not None and self.used_by._has_data():
                             return True
 
-                        if self.used_by is not None and self.used_by.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3980,17 +3613,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4032,17 +3659,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4062,30 +3683,15 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.inactive is not None and self.inactive._has_data():
-                    return True
-
-                if self.inactive is not None and self.inactive.is_presence():
                     return True
 
                 if self.sets is not None and self.sets._has_data():
                     return True
 
-                if self.sets is not None and self.sets.is_presence():
-                    return True
-
                 if self.unused is not None and self.unused._has_data():
                     return True
 
-                if self.unused is not None and self.unused.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4170,17 +3776,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4222,17 +3822,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4332,7 +3926,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -4357,12 +3951,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\: :py:class:`AttachPointDirection_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirection_Enum>`
+                            	**type**\: :py:class:`AttachPointDirectionEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\: :py:class:`Group_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.Group_Enum>`
+                            	**type**\: :py:class:`GroupEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -4387,7 +3981,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -4421,7 +4015,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\: :py:class:`SubAddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamily_Enum>`
+                            	**type**\: :py:class:`SubAddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -4477,8 +4071,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_name is not None:
                                     return True
 
@@ -4541,10 +4133,6 @@ class RoutingPolicy(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
@@ -4564,17 +4152,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4620,7 +4202,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\: :py:class:`ObjectStatus_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatus_Enum>`
+                            	**type**\: :py:class:`ObjectStatusEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -4654,8 +4236,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -4665,10 +4245,6 @@ class RoutingPolicy(object):
                                 if self.used_directly is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4690,17 +4266,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4722,27 +4292,15 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.set_name is not None:
                             return True
 
                         if self.attached is not None and self.attached._has_data():
                             return True
 
-                        if self.attached is not None and self.attached.is_presence():
-                            return True
-
                         if self.used_by is not None and self.used_by._has_data():
                             return True
 
-                        if self.used_by is not None and self.used_by.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4762,17 +4320,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4814,17 +4366,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4844,36 +4390,18 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.active is not None and self.active._has_data():
-                    return True
-
-                if self.active is not None and self.active.is_presence():
                     return True
 
                 if self.inactive is not None and self.inactive._has_data():
                     return True
 
-                if self.inactive is not None and self.inactive.is_presence():
-                    return True
-
                 if self.sets is not None and self.sets._has_data():
-                    return True
-
-                if self.sets is not None and self.sets.is_presence():
                     return True
 
                 if self.unused is not None and self.unused._has_data():
                     return True
 
-                if self.unused is not None and self.unused.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4959,17 +4487,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5011,17 +4533,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5121,7 +4637,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -5146,12 +4662,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\: :py:class:`AttachPointDirection_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirection_Enum>`
+                            	**type**\: :py:class:`AttachPointDirectionEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\: :py:class:`Group_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.Group_Enum>`
+                            	**type**\: :py:class:`GroupEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -5176,7 +4692,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -5210,7 +4726,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\: :py:class:`SubAddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamily_Enum>`
+                            	**type**\: :py:class:`SubAddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -5266,8 +4782,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_name is not None:
                                     return True
 
@@ -5330,10 +4844,6 @@ class RoutingPolicy(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
@@ -5353,17 +4863,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5409,7 +4913,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\: :py:class:`ObjectStatus_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatus_Enum>`
+                            	**type**\: :py:class:`ObjectStatusEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -5443,8 +4947,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -5454,10 +4956,6 @@ class RoutingPolicy(object):
                                 if self.used_directly is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -5479,17 +4977,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5511,27 +5003,15 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.set_name is not None:
                             return True
 
                         if self.attached is not None and self.attached._has_data():
                             return True
 
-                        if self.attached is not None and self.attached.is_presence():
-                            return True
-
                         if self.used_by is not None and self.used_by._has_data():
                             return True
 
-                        if self.used_by is not None and self.used_by.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5551,17 +5031,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5603,17 +5077,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5633,36 +5101,18 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.active is not None and self.active._has_data():
-                    return True
-
-                if self.active is not None and self.active.is_presence():
                     return True
 
                 if self.inactive is not None and self.inactive._has_data():
                     return True
 
-                if self.inactive is not None and self.inactive.is_presence():
-                    return True
-
                 if self.sets is not None and self.sets._has_data():
-                    return True
-
-                if self.sets is not None and self.sets.is_presence():
                     return True
 
                 if self.unused is not None and self.unused._has_data():
                     return True
 
-                if self.unused is not None and self.unused.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5747,17 +5197,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5799,17 +5243,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5909,7 +5347,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -5934,12 +5372,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\: :py:class:`AttachPointDirection_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirection_Enum>`
+                            	**type**\: :py:class:`AttachPointDirectionEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\: :py:class:`Group_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.Group_Enum>`
+                            	**type**\: :py:class:`GroupEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -5964,7 +5402,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -5998,7 +5436,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\: :py:class:`SubAddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamily_Enum>`
+                            	**type**\: :py:class:`SubAddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -6054,8 +5492,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_name is not None:
                                     return True
 
@@ -6118,10 +5554,6 @@ class RoutingPolicy(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
@@ -6141,17 +5573,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6197,7 +5623,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\: :py:class:`ObjectStatus_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatus_Enum>`
+                            	**type**\: :py:class:`ObjectStatusEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -6231,8 +5657,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -6242,10 +5666,6 @@ class RoutingPolicy(object):
                                 if self.used_directly is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6267,17 +5687,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6299,27 +5713,15 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.set_name is not None:
                             return True
 
                         if self.attached is not None and self.attached._has_data():
                             return True
 
-                        if self.attached is not None and self.attached.is_presence():
-                            return True
-
                         if self.used_by is not None and self.used_by._has_data():
                             return True
 
-                        if self.used_by is not None and self.used_by.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6339,17 +5741,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6391,17 +5787,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6421,36 +5811,18 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.active is not None and self.active._has_data():
-                    return True
-
-                if self.active is not None and self.active.is_presence():
                     return True
 
                 if self.inactive is not None and self.inactive._has_data():
                     return True
 
-                if self.inactive is not None and self.inactive.is_presence():
-                    return True
-
                 if self.sets is not None and self.sets._has_data():
-                    return True
-
-                if self.sets is not None and self.sets.is_presence():
                     return True
 
                 if self.unused is not None and self.unused._has_data():
                     return True
 
-                if self.unused is not None and self.unused.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6535,17 +5907,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6587,17 +5953,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6697,7 +6057,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -6722,12 +6082,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\: :py:class:`AttachPointDirection_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirection_Enum>`
+                            	**type**\: :py:class:`AttachPointDirectionEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\: :py:class:`Group_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.Group_Enum>`
+                            	**type**\: :py:class:`GroupEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -6752,7 +6112,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -6786,7 +6146,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\: :py:class:`SubAddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamily_Enum>`
+                            	**type**\: :py:class:`SubAddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -6842,8 +6202,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_name is not None:
                                     return True
 
@@ -6906,10 +6264,6 @@ class RoutingPolicy(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
@@ -6929,17 +6283,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6985,7 +6333,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\: :py:class:`ObjectStatus_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatus_Enum>`
+                            	**type**\: :py:class:`ObjectStatusEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -7019,8 +6367,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -7030,10 +6376,6 @@ class RoutingPolicy(object):
                                 if self.used_directly is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7055,17 +6397,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7087,27 +6423,15 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.set_name is not None:
                             return True
 
                         if self.attached is not None and self.attached._has_data():
                             return True
 
-                        if self.attached is not None and self.attached.is_presence():
-                            return True
-
                         if self.used_by is not None and self.used_by._has_data():
                             return True
 
-                        if self.used_by is not None and self.used_by.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7127,17 +6451,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7179,17 +6497,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7209,36 +6521,18 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.active is not None and self.active._has_data():
-                    return True
-
-                if self.active is not None and self.active.is_presence():
                     return True
 
                 if self.inactive is not None and self.inactive._has_data():
                     return True
 
-                if self.inactive is not None and self.inactive.is_presence():
-                    return True
-
                 if self.sets is not None and self.sets._has_data():
-                    return True
-
-                if self.sets is not None and self.sets.is_presence():
                     return True
 
                 if self.unused is not None and self.unused._has_data():
                     return True
 
-                if self.unused is not None and self.unused.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -7323,17 +6617,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7375,17 +6663,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7485,7 +6767,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -7510,12 +6792,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\: :py:class:`AttachPointDirection_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirection_Enum>`
+                            	**type**\: :py:class:`AttachPointDirectionEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\: :py:class:`Group_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.Group_Enum>`
+                            	**type**\: :py:class:`GroupEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -7540,7 +6822,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -7574,7 +6856,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\: :py:class:`SubAddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamily_Enum>`
+                            	**type**\: :py:class:`SubAddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -7630,8 +6912,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_name is not None:
                                     return True
 
@@ -7694,10 +6974,6 @@ class RoutingPolicy(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
@@ -7717,17 +6993,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7773,7 +7043,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\: :py:class:`ObjectStatus_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatus_Enum>`
+                            	**type**\: :py:class:`ObjectStatusEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -7807,8 +7077,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -7818,10 +7086,6 @@ class RoutingPolicy(object):
                                 if self.used_directly is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7843,17 +7107,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7875,27 +7133,15 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.set_name is not None:
                             return True
 
                         if self.attached is not None and self.attached._has_data():
                             return True
 
-                        if self.attached is not None and self.attached.is_presence():
-                            return True
-
                         if self.used_by is not None and self.used_by._has_data():
                             return True
 
-                        if self.used_by is not None and self.used_by.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7915,17 +7161,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7967,17 +7207,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7997,36 +7231,18 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.active is not None and self.active._has_data():
-                    return True
-
-                if self.active is not None and self.active.is_presence():
                     return True
 
                 if self.inactive is not None and self.inactive._has_data():
                     return True
 
-                if self.inactive is not None and self.inactive.is_presence():
-                    return True
-
                 if self.sets is not None and self.sets._has_data():
-                    return True
-
-                if self.sets is not None and self.sets.is_presence():
                     return True
 
                 if self.unused is not None and self.unused._has_data():
                     return True
 
-                if self.unused is not None and self.unused.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8111,17 +7327,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8163,17 +7373,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8273,7 +7477,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -8298,12 +7502,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\: :py:class:`AttachPointDirection_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirection_Enum>`
+                            	**type**\: :py:class:`AttachPointDirectionEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\: :py:class:`Group_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.Group_Enum>`
+                            	**type**\: :py:class:`GroupEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -8328,7 +7532,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -8362,7 +7566,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\: :py:class:`SubAddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamily_Enum>`
+                            	**type**\: :py:class:`SubAddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -8418,8 +7622,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_name is not None:
                                     return True
 
@@ -8482,10 +7684,6 @@ class RoutingPolicy(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
@@ -8505,17 +7703,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8561,7 +7753,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\: :py:class:`ObjectStatus_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatus_Enum>`
+                            	**type**\: :py:class:`ObjectStatusEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -8595,8 +7787,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -8606,10 +7796,6 @@ class RoutingPolicy(object):
                                 if self.used_directly is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8631,17 +7817,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8663,27 +7843,15 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.set_name is not None:
                             return True
 
                         if self.attached is not None and self.attached._has_data():
                             return True
 
-                        if self.attached is not None and self.attached.is_presence():
-                            return True
-
                         if self.used_by is not None and self.used_by._has_data():
                             return True
 
-                        if self.used_by is not None and self.used_by.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8703,17 +7871,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8755,17 +7917,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8785,36 +7941,18 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.active is not None and self.active._has_data():
-                    return True
-
-                if self.active is not None and self.active.is_presence():
                     return True
 
                 if self.inactive is not None and self.inactive._has_data():
                     return True
 
-                if self.inactive is not None and self.inactive.is_presence():
-                    return True
-
                 if self.sets is not None and self.sets._has_data():
-                    return True
-
-                if self.sets is not None and self.sets.is_presence():
                     return True
 
                 if self.unused is not None and self.unused._has_data():
                     return True
 
-                if self.unused is not None and self.unused.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8899,17 +8037,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8951,17 +8083,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9061,7 +8187,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -9086,12 +8212,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\: :py:class:`AttachPointDirection_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirection_Enum>`
+                            	**type**\: :py:class:`AttachPointDirectionEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\: :py:class:`Group_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.Group_Enum>`
+                            	**type**\: :py:class:`GroupEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -9116,7 +8242,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -9150,7 +8276,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\: :py:class:`SubAddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamily_Enum>`
+                            	**type**\: :py:class:`SubAddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -9206,8 +8332,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_name is not None:
                                     return True
 
@@ -9270,10 +8394,6 @@ class RoutingPolicy(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
@@ -9293,17 +8413,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9349,7 +8463,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\: :py:class:`ObjectStatus_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatus_Enum>`
+                            	**type**\: :py:class:`ObjectStatusEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -9383,8 +8497,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -9394,10 +8506,6 @@ class RoutingPolicy(object):
                                 if self.used_directly is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9419,17 +8527,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9451,27 +8553,15 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.set_name is not None:
                             return True
 
                         if self.attached is not None and self.attached._has_data():
                             return True
 
-                        if self.attached is not None and self.attached.is_presence():
-                            return True
-
                         if self.used_by is not None and self.used_by._has_data():
                             return True
 
-                        if self.used_by is not None and self.used_by.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9491,17 +8581,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9543,17 +8627,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9573,36 +8651,18 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.active is not None and self.active._has_data():
-                    return True
-
-                if self.active is not None and self.active.is_presence():
                     return True
 
                 if self.inactive is not None and self.inactive._has_data():
                     return True
 
-                if self.inactive is not None and self.inactive.is_presence():
-                    return True
-
                 if self.sets is not None and self.sets._has_data():
-                    return True
-
-                if self.sets is not None and self.sets.is_presence():
                     return True
 
                 if self.unused is not None and self.unused._has_data():
                     return True
 
-                if self.unused is not None and self.unused.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -9687,17 +8747,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9739,17 +8793,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9849,7 +8897,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -9874,12 +8922,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\: :py:class:`AttachPointDirection_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirection_Enum>`
+                            	**type**\: :py:class:`AttachPointDirectionEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\: :py:class:`Group_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.Group_Enum>`
+                            	**type**\: :py:class:`GroupEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -9904,7 +8952,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -9938,7 +8986,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\: :py:class:`SubAddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamily_Enum>`
+                            	**type**\: :py:class:`SubAddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -9994,8 +9042,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_name is not None:
                                     return True
 
@@ -10058,10 +9104,6 @@ class RoutingPolicy(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
@@ -10081,17 +9123,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10137,7 +9173,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\: :py:class:`ObjectStatus_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatus_Enum>`
+                            	**type**\: :py:class:`ObjectStatusEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -10171,8 +9207,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -10182,10 +9216,6 @@ class RoutingPolicy(object):
                                 if self.used_directly is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10207,17 +9237,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10239,27 +9263,15 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.set_name is not None:
                             return True
 
                         if self.attached is not None and self.attached._has_data():
                             return True
 
-                        if self.attached is not None and self.attached.is_presence():
-                            return True
-
                         if self.used_by is not None and self.used_by._has_data():
                             return True
 
-                        if self.used_by is not None and self.used_by.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10279,17 +9291,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10331,17 +9337,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10361,36 +9361,18 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.active is not None and self.active._has_data():
-                    return True
-
-                if self.active is not None and self.active.is_presence():
                     return True
 
                 if self.inactive is not None and self.inactive._has_data():
                     return True
 
-                if self.inactive is not None and self.inactive.is_presence():
-                    return True
-
                 if self.sets is not None and self.sets._has_data():
-                    return True
-
-                if self.sets is not None and self.sets.is_presence():
                     return True
 
                 if self.unused is not None and self.unused._has_data():
                     return True
 
-                if self.unused is not None and self.unused.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -10475,17 +9457,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10527,17 +9503,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10637,7 +9607,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -10662,12 +9632,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\: :py:class:`AttachPointDirection_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirection_Enum>`
+                            	**type**\: :py:class:`AttachPointDirectionEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\: :py:class:`Group_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.Group_Enum>`
+                            	**type**\: :py:class:`GroupEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -10692,7 +9662,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\: :py:class:`AddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamily_Enum>`
+                            	**type**\: :py:class:`AddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -10726,7 +9696,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\: :py:class:`SubAddressFamily_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamily_Enum>`
+                            	**type**\: :py:class:`SubAddressFamilyEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -10782,8 +9752,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.af_name is not None:
                                     return True
 
@@ -10846,10 +9814,6 @@ class RoutingPolicy(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.policy._meta import _Cisco_IOS_XR_policy_repository_oper as meta
@@ -10869,17 +9833,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10925,7 +9883,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\: :py:class:`ObjectStatus_Enum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatus_Enum>`
+                            	**type**\: :py:class:`ObjectStatusEnum <ydk.models.policy.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -10959,8 +9917,6 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -10970,10 +9926,6 @@ class RoutingPolicy(object):
                                 if self.used_directly is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10995,17 +9947,11 @@ class RoutingPolicy(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11027,27 +9973,15 @@ class RoutingPolicy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.set_name is not None:
                             return True
 
                         if self.attached is not None and self.attached._has_data():
                             return True
 
-                        if self.attached is not None and self.attached.is_presence():
-                            return True
-
                         if self.used_by is not None and self.used_by._has_data():
                             return True
 
-                        if self.used_by is not None and self.used_by.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11067,17 +10001,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11119,17 +10047,11 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11149,36 +10071,18 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.active is not None and self.active._has_data():
-                    return True
-
-                if self.active is not None and self.active.is_presence():
                     return True
 
                 if self.inactive is not None and self.inactive._has_data():
                     return True
 
-                if self.inactive is not None and self.inactive.is_presence():
-                    return True
-
                 if self.sets is not None and self.sets._has_data():
-                    return True
-
-                if self.sets is not None and self.sets.is_presence():
                     return True
 
                 if self.unused is not None and self.unused._has_data():
                     return True
 
-                if self.unused is not None and self.unused.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -11198,84 +10102,42 @@ class RoutingPolicy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.as_path is not None and self.as_path._has_data():
-                return True
-
-            if self.as_path is not None and self.as_path.is_presence():
                 return True
 
             if self.community is not None and self.community._has_data():
                 return True
 
-            if self.community is not None and self.community.is_presence():
-                return True
-
             if self.extended_community_bandwidth is not None and self.extended_community_bandwidth._has_data():
-                return True
-
-            if self.extended_community_bandwidth is not None and self.extended_community_bandwidth.is_presence():
                 return True
 
             if self.extended_community_cost is not None and self.extended_community_cost._has_data():
                 return True
 
-            if self.extended_community_cost is not None and self.extended_community_cost.is_presence():
-                return True
-
             if self.extended_community_opaque is not None and self.extended_community_opaque._has_data():
-                return True
-
-            if self.extended_community_opaque is not None and self.extended_community_opaque.is_presence():
                 return True
 
             if self.extended_community_rt is not None and self.extended_community_rt._has_data():
                 return True
 
-            if self.extended_community_rt is not None and self.extended_community_rt.is_presence():
-                return True
-
             if self.extended_community_seg_nh is not None and self.extended_community_seg_nh._has_data():
-                return True
-
-            if self.extended_community_seg_nh is not None and self.extended_community_seg_nh.is_presence():
                 return True
 
             if self.extended_community_soo is not None and self.extended_community_soo._has_data():
                 return True
 
-            if self.extended_community_soo is not None and self.extended_community_soo.is_presence():
-                return True
-
             if self.ospf_area is not None and self.ospf_area._has_data():
-                return True
-
-            if self.ospf_area is not None and self.ospf_area.is_presence():
                 return True
 
             if self.prefix is not None and self.prefix._has_data():
                 return True
 
-            if self.prefix is not None and self.prefix.is_presence():
-                return True
-
             if self.rd is not None and self.rd._has_data():
-                return True
-
-            if self.rd is not None and self.rd.is_presence():
                 return True
 
             if self.tag is not None and self.tag._has_data():
                 return True
 
-            if self.tag is not None and self.tag.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -11295,30 +10157,15 @@ class RoutingPolicy(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.limits is not None and self.limits._has_data():
-            return True
-
-        if self.limits is not None and self.limits.is_presence():
             return True
 
         if self.policies is not None and self.policies._has_data():
             return True
 
-        if self.policies is not None and self.policies.is_presence():
-            return True
-
         if self.sets is not None and self.sets._has_data():
             return True
 
-        if self.sets is not None and self.sets.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

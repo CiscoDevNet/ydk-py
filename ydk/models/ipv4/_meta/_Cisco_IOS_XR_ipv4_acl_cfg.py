@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'NextHopType_Enum' : _MetaInfoEnum('NextHopType_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg',
+    'NextHopTypeEnum' : _MetaInfoEnum('NextHopTypeEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg',
         {
             'none-next-hop':'NONE_NEXT_HOP',
             'regular-next-hop':'REGULAR_NEXT_HOP',
@@ -50,7 +50,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort',
             False, 
             [
-            _MetaInfoClassMember('destination-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnum_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnum_Enum', 
+            _MetaInfoClassMember('destination-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnumEnum', 
                 [], [], 
                 '''                Destination comparison operator. Leave 
                 unspecified if no destination port comparison is
@@ -66,7 +66,7 @@ _meta_table = {
                 ''',
                 'first_destination_port',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False, [
-                    _MetaInfoClassMember('first-destination-port', REFERENCE_ENUM_CLASS, 'Ipv4AclPortNumber_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclPortNumber_Enum', 
+                    _MetaInfoClassMember('first-destination-port', REFERENCE_ENUM_CLASS, 'Ipv4AclPortNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclPortNumberEnum', 
                         [], [], 
                         '''                        First destination port for comparison, leave
                         unspecified if destination port comparison is
@@ -91,7 +91,7 @@ _meta_table = {
                 ''',
                 'second_destination_port',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False, [
-                    _MetaInfoClassMember('second-destination-port', REFERENCE_ENUM_CLASS, 'Ipv4AclPortNumber_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclPortNumber_Enum', 
+                    _MetaInfoClassMember('second-destination-port', REFERENCE_ENUM_CLASS, 'Ipv4AclPortNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclPortNumberEnum', 
                         [], [], 
                         '''                        Second destination port for comparion, leave
                         unspecified if destination port comparison is
@@ -128,7 +128,7 @@ _meta_table = {
                 ''',
                 'dscp_max',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False, [
-                    _MetaInfoClassMember('dscp-max', REFERENCE_ENUM_CLASS, 'Ipv4AclDscpNumber_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclDscpNumber_Enum', 
+                    _MetaInfoClassMember('dscp-max', REFERENCE_ENUM_CLASS, 'Ipv4AclDscpNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclDscpNumberEnum', 
                         [], [], 
                         '''                        Maximum DSCP value for comparion, leave 
                         unspecified if DSCP comparison is not to 
@@ -155,7 +155,7 @@ _meta_table = {
                 ''',
                 'dscp_min',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False, [
-                    _MetaInfoClassMember('dscp-min', REFERENCE_ENUM_CLASS, 'Ipv4AclDscpNumber_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclDscpNumber_Enum', 
+                    _MetaInfoClassMember('dscp-min', REFERENCE_ENUM_CLASS, 'Ipv4AclDscpNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclDscpNumberEnum', 
                         [], [], 
                         '''                        DSCP value to match or minimum DSCP value 
                         for DSCP range comparison, leave unspecified 
@@ -172,7 +172,7 @@ _meta_table = {
                         'dscp_min',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                 ]),
-            _MetaInfoClassMember('dscp-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnum_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnum_Enum', 
+            _MetaInfoClassMember('dscp-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnumEnum', 
                 [], [], 
                 '''                DSCP operator is applicable only when DSCP 
                 range is configured. Leave unspecified if 
@@ -191,7 +191,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp',
             False, 
             [
-            _MetaInfoClassMember('icmp-type-code', REFERENCE_ENUM_CLASS, 'Ipv4AclIcmpTypeCodeEnum_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclIcmpTypeCodeEnum_Enum', 
+            _MetaInfoClassMember('icmp-type-code', REFERENCE_ENUM_CLASS, 'Ipv4AclIcmpTypeCodeEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclIcmpTypeCodeEnumEnum', 
                 [], [], 
                 '''                Well known ICMP message code types to match, 
                 leave unspecified if ICMP message code type 
@@ -315,7 +315,7 @@ _meta_table = {
                 ''',
                 'next_hop_3',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('next-hop-type', REFERENCE_ENUM_CLASS, 'NextHopType_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'NextHopType_Enum', 
+            _MetaInfoClassMember('next-hop-type', REFERENCE_ENUM_CLASS, 'NextHopTypeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'NextHopTypeEnum', 
                 [], [], 
                 '''                The nexthop type.
                 ''',
@@ -350,7 +350,7 @@ _meta_table = {
                 ''',
                 'packet_length_min',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('packet-length-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnum_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnum_Enum', 
+            _MetaInfoClassMember('packet-length-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnumEnum', 
                 [], [], 
                 '''                Packet length operator applicable if Packet 
                 length is to be compared. Leave unspecified if 
@@ -403,7 +403,7 @@ _meta_table = {
                 ''',
                 'first_source_port',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False, [
-                    _MetaInfoClassMember('first-source-port', REFERENCE_ENUM_CLASS, 'Ipv4AclPortNumber_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclPortNumber_Enum', 
+                    _MetaInfoClassMember('first-source-port', REFERENCE_ENUM_CLASS, 'Ipv4AclPortNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclPortNumberEnum', 
                         [], [], 
                         '''                        First source port for comparison, leave 
                         unspecified if source port comparison is not to
@@ -428,7 +428,7 @@ _meta_table = {
                 ''',
                 'second_source_port',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False, [
-                    _MetaInfoClassMember('second-source-port', REFERENCE_ENUM_CLASS, 'Ipv4AclPortNumber_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclPortNumber_Enum', 
+                    _MetaInfoClassMember('second-source-port', REFERENCE_ENUM_CLASS, 'Ipv4AclPortNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclPortNumberEnum', 
                         [], [], 
                         '''                        Second source port for comparion, leave 
                         unspecified if source port comparison is not to
@@ -445,7 +445,7 @@ _meta_table = {
                         'second_source_port',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                 ]),
-            _MetaInfoClassMember('source-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnum_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnum_Enum', 
+            _MetaInfoClassMember('source-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnumEnum', 
                 [], [], 
                 '''                Source comparison operator . Leave unspecified 
                 if no source port comparison is to be done.
@@ -471,7 +471,7 @@ _meta_table = {
                 ''',
                 'tcp_bits',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False, [
-                    _MetaInfoClassMember('tcp-bits', REFERENCE_ENUM_CLASS, 'Ipv4AclTcpBitsNumber_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclTcpBitsNumber_Enum', 
+                    _MetaInfoClassMember('tcp-bits', REFERENCE_ENUM_CLASS, 'Ipv4AclTcpBitsNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclTcpBitsNumberEnum', 
                         [], [], 
                         '''                        TCP bits to match.
                         Leave unspecified if comparison of TCP bits is
@@ -496,7 +496,7 @@ _meta_table = {
                 ''',
                 'tcp_bits_mask',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False, [
-                    _MetaInfoClassMember('tcp-bits-mask', REFERENCE_ENUM_CLASS, 'Ipv4AclTcpBitsNumber_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclTcpBitsNumber_Enum', 
+                    _MetaInfoClassMember('tcp-bits-mask', REFERENCE_ENUM_CLASS, 'Ipv4AclTcpBitsNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclTcpBitsNumberEnum', 
                         [], [], 
                         '''                        TCP bits mask to use for flexible TCP matching.
                         Leave unspecified if tcp-bits-match-operator is 
@@ -513,7 +513,7 @@ _meta_table = {
                         'tcp_bits_mask',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                 ]),
-            _MetaInfoClassMember('tcp-bits-match-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclTcpMatchOperatorEnum_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclTcpMatchOperatorEnum_Enum', 
+            _MetaInfoClassMember('tcp-bits-match-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclTcpMatchOperatorEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclTcpMatchOperatorEnumEnum', 
                 [], [], 
                 '''                TCP Bits match operator. Leave unspecified if 
                 flexible comparison of TCP bits is not 
@@ -548,7 +548,7 @@ _meta_table = {
                 ''',
                 'time_to_live_min',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('time-to-live-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnum_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnum_Enum', 
+            _MetaInfoClassMember('time-to-live-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnumEnum', 
                 [], [], 
                 '''                TTL operator is applicable if TTL is to be 
                 compared. Leave unspecified if TTL 
@@ -623,7 +623,7 @@ _meta_table = {
                 ''',
                 'fragments',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('grant', REFERENCE_ENUM_CLASS, 'Ipv4AclGrantEnum_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclGrantEnum_Enum', 
+            _MetaInfoClassMember('grant', REFERENCE_ENUM_CLASS, 'Ipv4AclGrantEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclGrantEnumEnum', 
                 [], [], 
                 '''                Whether to forward or drop packets matching the 
                 ACE.
@@ -649,7 +649,7 @@ _meta_table = {
                 ''',
                 'igmp_message_type',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False, [
-                    _MetaInfoClassMember('igmp-message-type', REFERENCE_ENUM_CLASS, 'Ipv4AclIgmpNumber_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclIgmpNumber_Enum', 
+                    _MetaInfoClassMember('igmp-message-type', REFERENCE_ENUM_CLASS, 'Ipv4AclIgmpNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclIgmpNumberEnum', 
                         [], [], 
                         '''                        IGMP message type to match. Leave unspecified if 
                         no message type comparison is to be done.
@@ -664,7 +664,7 @@ _meta_table = {
                         'igmp_message_type',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                 ]),
-            _MetaInfoClassMember('log-option', REFERENCE_ENUM_CLASS, 'Ipv4AclLoggingEnum_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclLoggingEnum_Enum', 
+            _MetaInfoClassMember('log-option', REFERENCE_ENUM_CLASS, 'Ipv4AclLoggingEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclLoggingEnumEnum', 
                 [], [], 
                 '''                Whether and how to log matches against this 
                 entry.
@@ -691,7 +691,7 @@ _meta_table = {
                 ''',
                 'precedence',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False, [
-                    _MetaInfoClassMember('precedence', REFERENCE_ENUM_CLASS, 'Ipv4AclPrecedenceNumber_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclPrecedenceNumber_Enum', 
+                    _MetaInfoClassMember('precedence', REFERENCE_ENUM_CLASS, 'Ipv4AclPrecedenceNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclPrecedenceNumberEnum', 
                         [], [], 
                         '''                        Precedence value to match (if a protocol was 
                         specified), leave unspecified if precedence 
@@ -714,7 +714,7 @@ _meta_table = {
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False, [
-                    _MetaInfoClassMember('protocol', REFERENCE_ENUM_CLASS, 'Ipv4AclProtocolNumber_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclProtocolNumber_Enum', 
+                    _MetaInfoClassMember('protocol', REFERENCE_ENUM_CLASS, 'Ipv4AclProtocolNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclProtocolNumberEnum', 
                         [], [], 
                         '''                        Protocol to match.
                         ''',
@@ -874,7 +874,7 @@ _meta_table = {
                 ''',
                 'exact_prefix_length',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('grant', REFERENCE_ENUM_CLASS, 'Ipv4AclGrantEnum_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclGrantEnum_Enum', 
+            _MetaInfoClassMember('grant', REFERENCE_ENUM_CLASS, 'Ipv4AclGrantEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclGrantEnumEnum', 
                 [], [], 
                 '''                Whether to forward or drop packets matching
                 the prefix list

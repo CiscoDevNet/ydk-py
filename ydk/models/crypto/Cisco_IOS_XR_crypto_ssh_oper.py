@@ -24,369 +24,342 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class Authen_Enum(Enum):
+class AuthenEnum(Enum):
     """
-    Authen_Enum
+    AuthenEnum
 
     SSH session authentication types
 
-    """
+    .. data:: PASSWORD = 0
+
+    	Password
+
+    .. data:: RSA_PUBLIC_KEY = 1
+
+    	RSA public key encryption type
+
+    .. data:: KEYBOARD_INTERACTIVE = 2
+
+    	Keyboard interactive
 
     """
 
-    Password
-
-    """
     PASSWORD = 0
 
-    """
-
-    RSA public key encryption type
-
-    """
     RSA_PUBLIC_KEY = 1
 
-    """
-
-    Keyboard interactive
-
-    """
     KEYBOARD_INTERACTIVE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['Authen_Enum']
+        return meta._meta_table['AuthenEnum']
 
 
-class Cipher_Enum(Enum):
+class CipherEnum(Enum):
     """
-    Cipher_Enum
+    CipherEnum
 
     SSH session in and out cipher standards
 
-    """
+    .. data:: AES128_CBC = 0
+
+    	Advanced Encryption Standard(AES) 128 bits
+
+    	cipher block chaining(CBC)
+
+    .. data:: AES192_CBC = 1
+
+    	Advanced Encryption Standard(AES) 192 bits
+
+    	cipher block chaining(CBC)
+
+    .. data:: AES256_CBC = 2
+
+    	Advanced Encryption Standard(AES) 256 bits
+
+    	cipher block chaining(CBC)
+
+    .. data:: TRIPLE_DES_CBC = 3
+
+    	Triple Data Encryption Standard(DES) cipher
+
+    	block chaining(CBC)
 
     """
 
-    Advanced Encryption Standard(AES) 128 bits
-    cipher block chaining(CBC)
-
-    """
     AES128_CBC = 0
 
-    """
-
-    Advanced Encryption Standard(AES) 192 bits
-    cipher block chaining(CBC)
-
-    """
     AES192_CBC = 1
 
-    """
-
-    Advanced Encryption Standard(AES) 256 bits
-    cipher block chaining(CBC)
-
-    """
     AES256_CBC = 2
 
-    """
-
-    Triple Data Encryption Standard(DES) cipher
-    block chaining(CBC)
-
-    """
     TRIPLE_DES_CBC = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['Cipher_Enum']
+        return meta._meta_table['CipherEnum']
 
 
-class Connection_Enum(Enum):
+class ConnectionEnum(Enum):
     """
-    Connection_Enum
+    ConnectionEnum
 
     SSH channel connection types
 
-    """
+    .. data:: UNDEFINED = 0
+
+    	connection type not yet known
+
+    .. data:: SHELL = 1
+
+    	Interactive Shell
+
+    .. data:: EXEC = 2
+
+    	Remote Command Execution
+
+    .. data:: SCP = 3
+
+    	Secure Copy
+
+    .. data:: SFTP_SUBSYSTEM = 4
+
+    	Secure File Transfer
+
+    .. data:: NETCONF_SUBSYSTEM = 5
+
+    	Netconf Subsystem
 
     """
 
-    connection type not yet known
-
-    """
     UNDEFINED = 0
 
-    """
-
-    Interactive Shell
-
-    """
     SHELL = 1
 
-    """
-
-    Remote Command Execution
-
-    """
     EXEC = 2
 
-    """
-
-    Secure Copy
-
-    """
     SCP = 3
 
-    """
-
-    Secure File Transfer
-
-    """
     SFTP_SUBSYSTEM = 4
 
-    """
-
-    Netconf Subsystem
-
-    """
     NETCONF_SUBSYSTEM = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['Connection_Enum']
+        return meta._meta_table['ConnectionEnum']
 
 
-class Hostkey_Enum(Enum):
+class HostkeyEnum(Enum):
     """
-    Hostkey_Enum
+    HostkeyEnum
 
     SSH session authentication types
 
-    """
+    .. data:: SSH_DSS = 0
+
+    	Algorithm type DSS
+
+    .. data:: SSH_RSA = 1
+
+    	Algorithm type RSA
 
     """
 
-    Algorithm type DSS
-
-    """
     SSH_DSS = 0
 
-    """
-
-    Algorithm type RSA
-
-    """
     SSH_RSA = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['Hostkey_Enum']
+        return meta._meta_table['HostkeyEnum']
 
 
-class KexName_Enum(Enum):
+class KexNameEnum(Enum):
     """
-    KexName_Enum
+    KexNameEnum
 
     Different key\-exchange(kex) algorithms
 
-    """
+    .. data:: DIFFIE_HELLMAN = 0
+
+    	Diffie-Hellman key exchange algorithm
+
+    .. data:: PASSWORD_AUTHENTICATED = 1
+
+    	Password authenticated key agreement algorithm
 
     """
 
-    Diffie\-Hellman key exchange algorithm
-
-    """
     DIFFIE_HELLMAN = 0
 
-    """
-
-    Password authenticated key agreement algorithm
-
-    """
     PASSWORD_AUTHENTICATED = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['KexName_Enum']
+        return meta._meta_table['KexNameEnum']
 
 
-class Mac_Enum(Enum):
+class MacEnum(Enum):
     """
-    Mac_Enum
+    MacEnum
 
     Different Message Authentication Code(MAC)
+
     functions
 
-    """
+    .. data:: HMAC_MD5 = 0
+
+    	Hash-based Message Authentication Code(HMAC)
+
+    	MD5 algorithm
+
+    .. data:: HMAC_SHA1 = 1
+
+    	Hash-based Message Authentication Code(HMAC)
+
+    	SHA1 algorithm
 
     """
 
-    Hash\-based Message Authentication Code(HMAC)
-    MD5 algorithm
-
-    """
     HMAC_MD5 = 0
 
-    """
-
-    Hash\-based Message Authentication Code(HMAC)
-    SHA1 algorithm
-
-    """
     HMAC_SHA1 = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['Mac_Enum']
+        return meta._meta_table['MacEnum']
 
 
-class States_Enum(Enum):
+class StatesEnum(Enum):
     """
-    States_Enum
+    StatesEnum
 
     SSH session states
 
-    """
+    .. data:: OPEN = 1
+
+    	SSH Open
+
+    .. data:: VERSION_OK = 2
+
+    	SSH version OK
+
+    .. data:: KEY_EXCHANGE_INITIALIZE = 3
+
+    	Key exchange(KEX) init message exchanged
+
+    .. data:: KEY_EXCHANGE_DH = 4
+
+    	Diffie-Hellman(DH) secret is generated
+
+    .. data:: NEW_KEYS = 5
+
+    	New keys are received
+
+    .. data:: AUTHENTICATE_INFORMATION = 6
+
+    	Need more information to authenticate
+
+    .. data:: AUTHENTICATED = 7
+
+    	The client successfully authenticated
+
+    .. data:: CHANNEL_OPEN = 8
+
+    	Channel has been successfully opened
+
+    .. data:: PTY_OPEN = 9
+
+    	Allocated PTY
+
+    .. data:: SESSION_OPEN = 10
+
+    	Opened an exec shell
+
+    .. data:: REKEY = 11
+
+    	Received rekey request
+
+    .. data:: SUSPENDED = 12
+
+    	Session is suspended
+
+    .. data:: SESSION_CLOSED = 13
+
+    	Session has been closed
 
     """
 
-    SSH Open
-
-    """
     OPEN = 1
 
-    """
-
-    SSH version OK
-
-    """
     VERSION_OK = 2
 
-    """
-
-    Key exchange(KEX) init message exchanged
-
-    """
     KEY_EXCHANGE_INITIALIZE = 3
 
-    """
-
-    Diffie\-Hellman(DH) secret is generated
-
-    """
     KEY_EXCHANGE_DH = 4
 
-    """
-
-    New keys are received
-
-    """
     NEW_KEYS = 5
 
-    """
-
-    Need more information to authenticate
-
-    """
     AUTHENTICATE_INFORMATION = 6
 
-    """
-
-    The client successfully authenticated
-
-    """
     AUTHENTICATED = 7
 
-    """
-
-    Channel has been successfully opened
-
-    """
     CHANNEL_OPEN = 8
 
-    """
-
-    Allocated PTY
-
-    """
     PTY_OPEN = 9
 
-    """
-
-    Opened an exec shell
-
-    """
     SESSION_OPEN = 10
 
-    """
-
-    Received rekey request
-
-    """
     REKEY = 11
 
-    """
-
-    Session is suspended
-
-    """
     SUSPENDED = 12
 
-    """
-
-    Session has been closed
-
-    """
     SESSION_CLOSED = 13
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['States_Enum']
+        return meta._meta_table['StatesEnum']
 
 
-class Version_Enum(Enum):
+class VersionEnum(Enum):
     """
-    Version_Enum
+    VersionEnum
 
     SSH state versions
 
-    """
+    .. data:: V2 = 0
+
+    	Version V2
+
+    .. data:: V1 = 1
+
+    	Version V1
 
     """
 
-    Version V2
-
-    """
     V2 = 0
 
-    """
-
-    Version V1
-
-    """
     V1 = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['Version_Enum']
+        return meta._meta_table['VersionEnum']
 
 
 
@@ -499,7 +472,7 @@ class Ssh(object):
                     .. attribute:: authentication_type
                     
                     	Authentication method
-                    	**type**\: :py:class:`Authen_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.Authen_Enum>`
+                    	**type**\: :py:class:`AuthenEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.AuthenEnum>`
                     
                     .. attribute:: channel_id
                     
@@ -511,7 +484,7 @@ class Ssh(object):
                     .. attribute:: connection_type
                     
                     	Channel Connection Type
-                    	**type**\: :py:class:`Connection_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.Connection_Enum>`
+                    	**type**\: :py:class:`ConnectionEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.ConnectionEnum>`
                     
                     .. attribute:: host_address
                     
@@ -535,7 +508,7 @@ class Ssh(object):
                     .. attribute:: session_state
                     
                     	SSH session state
-                    	**type**\: :py:class:`States_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.States_Enum>`
+                    	**type**\: :py:class:`StatesEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.StatesEnum>`
                     
                     .. attribute:: user_id
                     
@@ -545,7 +518,7 @@ class Ssh(object):
                     .. attribute:: version
                     
                     	SSH state version
-                    	**type**\: :py:class:`Version_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.Version_Enum>`
+                    	**type**\: :py:class:`VersionEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.VersionEnum>`
                     
                     .. attribute:: vty_assigned
                     
@@ -592,8 +565,6 @@ class Ssh(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.authentication_type is not None:
                             return True
 
@@ -629,10 +600,6 @@ class Ssh(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
@@ -650,17 +617,11 @@ class Ssh(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.session_brief_info is not None:
                         for child_ref in self.session_brief_info:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -699,7 +660,7 @@ class Ssh(object):
                     .. attribute:: authentication_type
                     
                     	Authentication method
-                    	**type**\: :py:class:`Authen_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.Authen_Enum>`
+                    	**type**\: :py:class:`AuthenEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.AuthenEnum>`
                     
                     .. attribute:: channel_id
                     
@@ -711,7 +672,7 @@ class Ssh(object):
                     .. attribute:: connection_type
                     
                     	Channel Connection Type
-                    	**type**\: :py:class:`Connection_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.Connection_Enum>`
+                    	**type**\: :py:class:`ConnectionEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.ConnectionEnum>`
                     
                     .. attribute:: host_address
                     
@@ -735,7 +696,7 @@ class Ssh(object):
                     .. attribute:: session_state
                     
                     	SSH session state
-                    	**type**\: :py:class:`States_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.States_Enum>`
+                    	**type**\: :py:class:`StatesEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.StatesEnum>`
                     
                     .. attribute:: user_id
                     
@@ -745,7 +706,7 @@ class Ssh(object):
                     .. attribute:: version
                     
                     	SSH state version
-                    	**type**\: :py:class:`Version_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.Version_Enum>`
+                    	**type**\: :py:class:`VersionEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.VersionEnum>`
                     
                     .. attribute:: vty_assigned
                     
@@ -792,8 +753,6 @@ class Ssh(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.authentication_type is not None:
                             return True
 
@@ -829,10 +788,6 @@ class Ssh(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
@@ -850,17 +805,11 @@ class Ssh(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.session_brief_info is not None:
                         for child_ref in self.session_brief_info:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -880,24 +829,12 @@ class Ssh(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.incoming_sessions is not None and self.incoming_sessions._has_data():
-                    return True
-
-                if self.incoming_sessions is not None and self.incoming_sessions.is_presence():
                     return True
 
                 if self.outgoing_sessions is not None and self.outgoing_sessions._has_data():
                     return True
 
-                if self.outgoing_sessions is not None and self.outgoing_sessions.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -965,32 +902,32 @@ class Ssh(object):
                     .. attribute:: in_cipher
                     
                     	In cipher algorithm
-                    	**type**\: :py:class:`Cipher_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.Cipher_Enum>`
+                    	**type**\: :py:class:`CipherEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
                     
                     .. attribute:: in_mac
                     
                     	In MAC
-                    	**type**\: :py:class:`Mac_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.Mac_Enum>`
+                    	**type**\: :py:class:`MacEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
                     
                     .. attribute:: key_exchange
                     
                     	Key exchange name
-                    	**type**\: :py:class:`KexName_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.KexName_Enum>`
+                    	**type**\: :py:class:`KexNameEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
                     
                     .. attribute:: out_cipher
                     
                     	Out cipher algorithm
-                    	**type**\: :py:class:`Cipher_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.Cipher_Enum>`
+                    	**type**\: :py:class:`CipherEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
                     
                     .. attribute:: out_mac
                     
                     	Out MAC
-                    	**type**\: :py:class:`Mac_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.Mac_Enum>`
+                    	**type**\: :py:class:`MacEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
                     
                     .. attribute:: public_key
                     
                     	Host key algorithm
-                    	**type**\: :py:class:`Hostkey_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.Hostkey_Enum>`
+                    	**type**\: :py:class:`HostkeyEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
                     
                     .. attribute:: session_id
                     
@@ -1028,8 +965,6 @@ class Ssh(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.in_cipher is not None:
                             return True
 
@@ -1053,10 +988,6 @@ class Ssh(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
@@ -1074,17 +1005,11 @@ class Ssh(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.session_detail_info is not None:
                         for child_ref in self.session_detail_info:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1123,32 +1048,32 @@ class Ssh(object):
                     .. attribute:: in_cipher
                     
                     	In cipher algorithm
-                    	**type**\: :py:class:`Cipher_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.Cipher_Enum>`
+                    	**type**\: :py:class:`CipherEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
                     
                     .. attribute:: in_mac
                     
                     	In MAC
-                    	**type**\: :py:class:`Mac_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.Mac_Enum>`
+                    	**type**\: :py:class:`MacEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
                     
                     .. attribute:: key_exchange
                     
                     	Key exchange name
-                    	**type**\: :py:class:`KexName_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.KexName_Enum>`
+                    	**type**\: :py:class:`KexNameEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
                     
                     .. attribute:: out_cipher
                     
                     	Out cipher algorithm
-                    	**type**\: :py:class:`Cipher_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.Cipher_Enum>`
+                    	**type**\: :py:class:`CipherEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
                     
                     .. attribute:: out_mac
                     
                     	Out MAC
-                    	**type**\: :py:class:`Mac_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.Mac_Enum>`
+                    	**type**\: :py:class:`MacEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
                     
                     .. attribute:: public_key
                     
                     	Host key algorithm
-                    	**type**\: :py:class:`Hostkey_Enum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.Hostkey_Enum>`
+                    	**type**\: :py:class:`HostkeyEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
                     
                     .. attribute:: session_id
                     
@@ -1186,8 +1111,6 @@ class Ssh(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.in_cipher is not None:
                             return True
 
@@ -1211,10 +1134,6 @@ class Ssh(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
@@ -1232,17 +1151,11 @@ class Ssh(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.session_detail_info is not None:
                         for child_ref in self.session_detail_info:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1262,24 +1175,12 @@ class Ssh(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.incoming_sessions is not None and self.incoming_sessions._has_data():
-                    return True
-
-                if self.incoming_sessions is not None and self.incoming_sessions.is_presence():
                     return True
 
                 if self.outgoing_connections is not None and self.outgoing_connections._has_data():
                     return True
 
-                if self.outgoing_connections is not None and self.outgoing_connections.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1299,24 +1200,12 @@ class Ssh(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.brief is not None and self.brief._has_data():
-                return True
-
-            if self.brief is not None and self.brief.is_presence():
                 return True
 
             if self.detail is not None and self.detail._has_data():
                 return True
 
-            if self.detail is not None and self.detail.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1336,18 +1225,9 @@ class Ssh(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.session is not None and self.session._has_data():
             return True
 
-        if self.session is not None and self.session.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

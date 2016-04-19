@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,13 +14,13 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'Ipv6NdShVrState_Enum' : _MetaInfoEnum('Ipv6NdShVrState_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper',
+    'Ipv6NdShVrStateEnum' : _MetaInfoEnum('Ipv6NdShVrStateEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper',
         {
             'deleted':'DELETED',
             'standby':'STANDBY',
             'active':'ACTIVE',
         }, 'Cisco-IOS-XR-ipv6-nd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-oper']),
-    'Ipv6NdShState_Enum' : _MetaInfoEnum('Ipv6NdShState_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper',
+    'Ipv6NdShStateEnum' : _MetaInfoEnum('Ipv6NdShStateEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper',
         {
             'incomplete':'INCOMPLETE',
             'reachable':'REACHABLE',
@@ -30,7 +30,7 @@ _meta_table = {
             'probe':'PROBE',
             'delete':'DELETE',
         }, 'Cisco-IOS-XR-ipv6-nd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-oper']),
-    'Ipv6NdMediaEncap_Enum' : _MetaInfoEnum('Ipv6NdMediaEncap_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper',
+    'Ipv6NdMediaEncapEnum' : _MetaInfoEnum('Ipv6NdMediaEncapEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper',
         {
             'none':'NONE',
             'arpa':'ARPA',
@@ -46,12 +46,12 @@ _meta_table = {
             'fr':'FR',
             'gre':'GRE',
         }, 'Cisco-IOS-XR-ipv6-nd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-oper']),
-    'Ipv6NdShVrFlags_Enum' : _MetaInfoEnum('Ipv6NdShVrFlags_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper',
+    'Ipv6NdShVrFlagsEnum' : _MetaInfoEnum('Ipv6NdShVrFlagsEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper',
         {
             'no-flags':'NO_FLAGS',
             'final-ra':'FINAL_RA',
         }, 'Cisco-IOS-XR-ipv6-nd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-oper']),
-    'Ipv6NdBndlState_Enum' : _MetaInfoEnum('Ipv6NdBndlState_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper',
+    'Ipv6NdBndlStateEnum' : _MetaInfoEnum('Ipv6NdBndlStateEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper',
         {
             'run':'RUN',
             'error':'ERROR',
@@ -430,7 +430,7 @@ _meta_table = {
                 ''',
                 'sent_sequence_number',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'Ipv6NdBndlState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdBndlState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'Ipv6NdBndlStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdBndlStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -663,7 +663,7 @@ _meta_table = {
                 ''',
                 'context',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('flags', REFERENCE_ENUM_CLASS, 'Ipv6NdShVrFlags_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdShVrFlags_Enum', 
+            _MetaInfoClassMember('flags', REFERENCE_ENUM_CLASS, 'Ipv6NdShVrFlagsEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdShVrFlagsEnum', 
                 [], [], 
                 '''                VR Flags
                 ''',
@@ -681,7 +681,7 @@ _meta_table = {
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'Ipv6NdShVrState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdShVrState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'Ipv6NdShVrStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdShVrStateEnum', 
                 [], [], 
                 '''                VR state
                 ''',
@@ -751,7 +751,7 @@ _meta_table = {
                 ''',
                 'host_address',
                 'Cisco-IOS-XR-ipv6-nd-oper', True),
-            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Ipv6NdMediaEncap_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdMediaEncap_Enum', 
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Ipv6NdMediaEncapEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdMediaEncapEnum', 
                 [], [], 
                 '''                Preferred media encap type
                 ''',
@@ -781,13 +781,13 @@ _meta_table = {
                 ''',
                 'location',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('reachability-state', REFERENCE_ENUM_CLASS, 'Ipv6NdShState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdShState_Enum', 
+            _MetaInfoClassMember('reachability-state', REFERENCE_ENUM_CLASS, 'Ipv6NdShStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdShStateEnum', 
                 [], [], 
                 '''                Current state
                 ''',
                 'reachability_state',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
-            _MetaInfoClassMember('selected-encapsulation', REFERENCE_ENUM_CLASS, 'Ipv6NdMediaEncap_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdMediaEncap_Enum', 
+            _MetaInfoClassMember('selected-encapsulation', REFERENCE_ENUM_CLASS, 'Ipv6NdMediaEncapEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_oper', 'Ipv6NdMediaEncapEnum', 
                 [], [], 
                 '''                Selected media encap
                 ''',

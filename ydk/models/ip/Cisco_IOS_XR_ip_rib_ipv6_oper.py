@@ -820,8 +820,6 @@ class Ipv6Rib(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
@@ -960,10 +958,6 @@ class Ipv6Rib(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -983,17 +977,11 @@ class Ipv6Rib(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ipv6_rib_edm_path is not None:
                                     for child_ref in self.ipv6_rib_edm_path:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1017,8 +1005,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
@@ -1094,9 +1080,6 @@ class Ipv6Rib(object):
                             if self.route_path is not None and self.route_path._has_data():
                                 return True
 
-                            if self.route_path is not None and self.route_path.is_presence():
-                                return True
-
                             if self.route_precedence is not None:
                                 return True
 
@@ -1123,10 +1106,6 @@ class Ipv6Rib(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -1148,8 +1127,6 @@ class Ipv6Rib(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.handle is not None:
                             return True
 
@@ -1158,10 +1135,6 @@ class Ipv6Rib(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1183,17 +1156,11 @@ class Ipv6Rib(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.rib_table_itf_hndl is not None:
                         for child_ref in self.rib_table_itf_hndl:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1447,8 +1414,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -1461,10 +1426,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1533,8 +1494,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -1547,10 +1506,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1619,8 +1574,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -1633,10 +1586,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1705,8 +1654,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -1719,10 +1666,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1791,8 +1734,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -1805,10 +1746,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1877,8 +1814,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -1891,10 +1826,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1963,8 +1894,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -1977,10 +1906,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2049,8 +1974,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -2063,10 +1986,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2135,8 +2054,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -2149,10 +2066,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2221,8 +2134,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -2235,10 +2146,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2307,8 +2214,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -2321,10 +2226,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2393,8 +2294,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -2407,10 +2306,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2479,8 +2374,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -2493,10 +2386,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2565,8 +2454,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -2579,10 +2466,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2651,8 +2534,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -2665,10 +2546,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2737,8 +2614,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -2751,10 +2626,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2823,8 +2694,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -2837,10 +2706,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2909,8 +2774,6 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -2923,10 +2786,6 @@ class Ipv6Rib(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2950,8 +2809,6 @@ class Ipv6Rib(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.protoid is not None:
                             return True
 
@@ -2964,115 +2821,57 @@ class Ipv6Rib(object):
                         if self.proto_route_count is not None and self.proto_route_count._has_data():
                             return True
 
-                        if self.proto_route_count is not None and self.proto_route_count.is_presence():
-                            return True
-
                         if self.rtype_bgp_ext is not None and self.rtype_bgp_ext._has_data():
-                            return True
-
-                        if self.rtype_bgp_ext is not None and self.rtype_bgp_ext.is_presence():
                             return True
 
                         if self.rtype_bgp_int is not None and self.rtype_bgp_int._has_data():
                             return True
 
-                        if self.rtype_bgp_int is not None and self.rtype_bgp_int.is_presence():
-                            return True
-
                         if self.rtype_bgp_loc is not None and self.rtype_bgp_loc._has_data():
-                            return True
-
-                        if self.rtype_bgp_loc is not None and self.rtype_bgp_loc.is_presence():
                             return True
 
                         if self.rtype_igrp2_ext is not None and self.rtype_igrp2_ext._has_data():
                             return True
 
-                        if self.rtype_igrp2_ext is not None and self.rtype_igrp2_ext.is_presence():
-                            return True
-
                         if self.rtype_igrp2_int is not None and self.rtype_igrp2_int._has_data():
-                            return True
-
-                        if self.rtype_igrp2_int is not None and self.rtype_igrp2_int.is_presence():
                             return True
 
                         if self.rtype_isis_l1 is not None and self.rtype_isis_l1._has_data():
                             return True
 
-                        if self.rtype_isis_l1 is not None and self.rtype_isis_l1.is_presence():
-                            return True
-
                         if self.rtype_isis_l1_ia is not None and self.rtype_isis_l1_ia._has_data():
-                            return True
-
-                        if self.rtype_isis_l1_ia is not None and self.rtype_isis_l1_ia.is_presence():
                             return True
 
                         if self.rtype_isis_l2 is not None and self.rtype_isis_l2._has_data():
                             return True
 
-                        if self.rtype_isis_l2 is not None and self.rtype_isis_l2.is_presence():
-                            return True
-
                         if self.rtype_isis_sum is not None and self.rtype_isis_sum._has_data():
-                            return True
-
-                        if self.rtype_isis_sum is not None and self.rtype_isis_sum.is_presence():
                             return True
 
                         if self.rtype_none is not None and self.rtype_none._has_data():
                             return True
 
-                        if self.rtype_none is not None and self.rtype_none.is_presence():
-                            return True
-
                         if self.rtype_ospf_extern1 is not None and self.rtype_ospf_extern1._has_data():
-                            return True
-
-                        if self.rtype_ospf_extern1 is not None and self.rtype_ospf_extern1.is_presence():
                             return True
 
                         if self.rtype_ospf_extern2 is not None and self.rtype_ospf_extern2._has_data():
                             return True
 
-                        if self.rtype_ospf_extern2 is not None and self.rtype_ospf_extern2.is_presence():
-                            return True
-
                         if self.rtype_ospf_inter is not None and self.rtype_ospf_inter._has_data():
-                            return True
-
-                        if self.rtype_ospf_inter is not None and self.rtype_ospf_inter.is_presence():
                             return True
 
                         if self.rtype_ospf_intra is not None and self.rtype_ospf_intra._has_data():
                             return True
 
-                        if self.rtype_ospf_intra is not None and self.rtype_ospf_intra.is_presence():
-                            return True
-
                         if self.rtype_ospf_nssa1 is not None and self.rtype_ospf_nssa1._has_data():
-                            return True
-
-                        if self.rtype_ospf_nssa1 is not None and self.rtype_ospf_nssa1.is_presence():
                             return True
 
                         if self.rtype_ospf_nssa2 is not None and self.rtype_ospf_nssa2._has_data():
                             return True
 
-                        if self.rtype_ospf_nssa2 is not None and self.rtype_ospf_nssa2.is_presence():
-                            return True
-
                         if self.rtype_other is not None and self.rtype_other._has_data():
                             return True
 
-                        if self.rtype_other is not None and self.rtype_other.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3094,17 +2893,11 @@ class Ipv6Rib(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.summary_proto is not None:
                         for child_ref in self.summary_proto:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3126,27 +2919,15 @@ class Ipv6Rib(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.tableid is not None:
                     return True
 
                 if self.rib_table_itf_hndls is not None and self.rib_table_itf_hndls._has_data():
                     return True
 
-                if self.rib_table_itf_hndls is not None and self.rib_table_itf_hndls.is_presence():
-                    return True
-
                 if self.summary_protos is not None and self.summary_protos._has_data():
                     return True
 
-                if self.summary_protos is not None and self.summary_protos.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3166,17 +2947,11 @@ class Ipv6Rib(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.rib_table_id is not None:
                 for child_ref in self.rib_table_id:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3594,8 +3369,6 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.client_id is not None:
                                                         return True
 
@@ -3622,10 +3395,6 @@ class Ipv6Rib(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -3645,8 +3414,6 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.address is not None:
                                                     return True
 
@@ -3658,10 +3425,6 @@ class Ipv6Rib(object):
                                                 if self.prefix_length is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -3683,17 +3446,11 @@ class Ipv6Rib(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.advert is not None:
                                                 for child_ref in self.advert:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -4385,8 +4142,6 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.address is not None:
                                                             return True
 
@@ -4525,10 +4280,6 @@ class Ipv6Rib(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -4548,17 +4299,11 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.ipv6_rib_edm_path is not None:
                                                         for child_ref in self.ipv6_rib_edm_path:
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -4580,8 +4325,6 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.active is not None:
                                                     return True
 
@@ -4660,9 +4403,6 @@ class Ipv6Rib(object):
                                                 if self.route_path is not None and self.route_path._has_data():
                                                     return True
 
-                                                if self.route_path is not None and self.route_path.is_presence():
-                                                    return True
-
                                                 if self.route_precedence is not None:
                                                     return True
 
@@ -4689,10 +4429,6 @@ class Ipv6Rib(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -4712,17 +4448,11 @@ class Ipv6Rib(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.backup_route is not None:
                                                 for child_ref in self.backup_route:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -5414,8 +5144,6 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.address is not None:
                                                             return True
 
@@ -5554,10 +5282,6 @@ class Ipv6Rib(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -5577,17 +5301,11 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.ipv6_rib_edm_path is not None:
                                                         for child_ref in self.ipv6_rib_edm_path:
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -5609,8 +5327,6 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.active is not None:
                                                     return True
 
@@ -5689,9 +5405,6 @@ class Ipv6Rib(object):
                                                 if self.route_path is not None and self.route_path._has_data():
                                                     return True
 
-                                                if self.route_path is not None and self.route_path.is_presence():
-                                                    return True
-
                                                 if self.route_precedence is not None:
                                                     return True
 
@@ -5718,10 +5431,6 @@ class Ipv6Rib(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -5741,17 +5450,11 @@ class Ipv6Rib(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.deleted_route is not None:
                                                 for child_ref in self.deleted_route:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6486,8 +6189,6 @@ class Ipv6Rib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.address is not None:
                                                                 return True
 
@@ -6626,10 +6327,6 @@ class Ipv6Rib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -6649,17 +6346,11 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.ipv6_rib_edm_path is not None:
                                                             for child_ref in self.ipv6_rib_edm_path:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -6681,8 +6372,6 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.active is not None:
                                                         return True
 
@@ -6761,9 +6450,6 @@ class Ipv6Rib(object):
                                                     if self.route_path is not None and self.route_path._has_data():
                                                         return True
 
-                                                    if self.route_path is not None and self.route_path.is_presence():
-                                                        return True
-
                                                     if self.route_precedence is not None:
                                                         return True
 
@@ -6790,10 +6476,6 @@ class Ipv6Rib(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -6813,17 +6495,11 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.dest_backup_route is not None:
                                                     for child_ref in self.dest_backup_route:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7507,8 +7183,6 @@ class Ipv6Rib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.address is not None:
                                                                 return True
 
@@ -7647,10 +7321,6 @@ class Ipv6Rib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -7670,17 +7340,11 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.ipv6_rib_edm_path is not None:
                                                             for child_ref in self.ipv6_rib_edm_path:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -7704,8 +7368,6 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.address is not None:
                                                         return True
 
@@ -7781,9 +7443,6 @@ class Ipv6Rib(object):
                                                     if self.route_path is not None and self.route_path._has_data():
                                                         return True
 
-                                                    if self.route_path is not None and self.route_path.is_presence():
-                                                        return True
-
                                                     if self.route_precedence is not None:
                                                         return True
 
@@ -7810,10 +7469,6 @@ class Ipv6Rib(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -7833,17 +7488,11 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.dest_best_route is not None:
                                                     for child_ref in self.dest_best_route:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -8527,8 +8176,6 @@ class Ipv6Rib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.address is not None:
                                                                 return True
 
@@ -8667,10 +8314,6 @@ class Ipv6Rib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -8690,17 +8333,11 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.ipv6_rib_edm_path is not None:
                                                             for child_ref in self.ipv6_rib_edm_path:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -8724,8 +8361,6 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.address is not None:
                                                         return True
 
@@ -8801,9 +8436,6 @@ class Ipv6Rib(object):
                                                     if self.route_path is not None and self.route_path._has_data():
                                                         return True
 
-                                                    if self.route_path is not None and self.route_path.is_presence():
-                                                        return True
-
                                                     if self.route_precedence is not None:
                                                         return True
 
@@ -8830,10 +8462,6 @@ class Ipv6Rib(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -8853,17 +8481,11 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.dest_next_hop_route is not None:
                                                     for child_ref in self.dest_next_hop_route:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -9555,8 +9177,6 @@ class Ipv6Rib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.address is not None:
                                                                 return True
 
@@ -9695,10 +9315,6 @@ class Ipv6Rib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -9718,17 +9334,11 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.ipv6_rib_edm_path is not None:
                                                             for child_ref in self.ipv6_rib_edm_path:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -9750,8 +9360,6 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.active is not None:
                                                         return True
 
@@ -9830,9 +9438,6 @@ class Ipv6Rib(object):
                                                     if self.route_path is not None and self.route_path._has_data():
                                                         return True
 
-                                                    if self.route_path is not None and self.route_path.is_presence():
-                                                        return True
-
                                                     if self.route_precedence is not None:
                                                         return True
 
@@ -9859,10 +9464,6 @@ class Ipv6Rib(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -9882,17 +9483,11 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.dest_q_route is not None:
                                                     for child_ref in self.dest_q_route:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -9914,36 +9509,18 @@ class Ipv6Rib(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.dest_backup_routes is not None and self.dest_backup_routes._has_data():
-                                                return True
-
-                                            if self.dest_backup_routes is not None and self.dest_backup_routes.is_presence():
                                                 return True
 
                                             if self.dest_best_routes is not None and self.dest_best_routes._has_data():
                                                 return True
 
-                                            if self.dest_best_routes is not None and self.dest_best_routes.is_presence():
-                                                return True
-
                                             if self.dest_next_hop_routes is not None and self.dest_next_hop_routes._has_data():
-                                                return True
-
-                                            if self.dest_next_hop_routes is not None and self.dest_next_hop_routes.is_presence():
                                                 return True
 
                                             if self.dest_q_routes is not None and self.dest_q_routes._has_data():
                                                 return True
 
-                                            if self.dest_q_routes is not None and self.dest_q_routes.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -10202,8 +9779,6 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -10234,10 +9809,6 @@ class Ipv6Rib(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -10928,8 +10499,6 @@ class Ipv6Rib(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -11068,10 +10637,6 @@ class Ipv6Rib(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -11091,17 +10656,11 @@ class Ipv6Rib(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -11123,8 +10682,6 @@ class Ipv6Rib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -11203,9 +10760,6 @@ class Ipv6Rib(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -11232,10 +10786,6 @@ class Ipv6Rib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -11255,17 +10805,11 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -11289,27 +10833,15 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.as_ is not None:
                                                         return True
 
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
-                                                    if self.information is not None and self.information.is_presence():
-                                                        return True
-
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -11331,17 +10863,11 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -11357,7 +10883,7 @@ class Ipv6Rib(object):
                                             .. attribute:: l2vpn
                                             
                                             	L2VPN
-                                            	**type**\: :py:class:`L2vpn <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn>`
+                                            	**type**\: :py:class:`L2Vpn <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn>`
                                             
                                             .. attribute:: non_as
                                             
@@ -11373,25 +10899,25 @@ class Ipv6Rib(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.l2vpn = Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn()
+                                                self.l2vpn = Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn()
                                                 self.l2vpn.parent = self
                                                 self.non_as = Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs()
                                                 self.non_as.parent = self
 
 
-                                            class L2vpn(object):
+                                            class L2Vpn(object):
                                                 """
                                                 L2VPN
                                                 
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\: :py:class:`Information <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.Information>`
+                                                	**type**\: :py:class:`Information <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\: :py:class:`ProtocolRoutes <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes>`
+                                                	**type**\: :py:class:`ProtocolRoutes <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes>`
                                                 
                                                 
 
@@ -11402,9 +10928,9 @@ class Ipv6Rib(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.information = Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.Information()
+                                                    self.information = Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.Information()
                                                     self.information.parent = self
-                                                    self.protocol_routes = Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes()
+                                                    self.protocol_routes = Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes()
                                                     self.protocol_routes.parent = self
 
 
@@ -11512,8 +11038,6 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -11546,14 +11070,10 @@ class Ipv6Rib(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
-                                                        return meta._meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.Information']['meta_info']
+                                                        return meta._meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.Information']['meta_info']
 
 
                                                 class ProtocolRoutes(object):
@@ -11563,7 +11083,7 @@ class Ipv6Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	Route information of a specific Network Address
-                                                    	**type**\: list of :py:class:`ProtocolRoute <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of :py:class:`ProtocolRoute <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -11751,7 +11271,7 @@ class Ipv6Rib(object):
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\: :py:class:`RoutePath <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\: :py:class:`RoutePath <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -11843,7 +11363,7 @@ class Ipv6Rib(object):
                                                             self.route_age = None
                                                             self.route_label = None
                                                             self.route_modify_time = None
-                                                            self.route_path = Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes.ProtocolRoute.RoutePath()
+                                                            self.route_path = Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute.RoutePath()
                                                             self.route_path.parent = self
                                                             self.route_precedence = None
                                                             self.route_type = None
@@ -11862,7 +11382,7 @@ class Ipv6Rib(object):
                                                             .. attribute:: ipv6_rib_edm_path
                                                             
                                                             	ipv6 rib edm path
-                                                            	**type**\: list of :py:class:`Ipv6RibEdmPath <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath>`
+                                                            	**type**\: list of :py:class:`Ipv6RibEdmPath <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath>`
                                                             
                                                             
 
@@ -12238,8 +11758,6 @@ class Ipv6Rib(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -12378,14 +11896,10 @@ class Ipv6Rib(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
-                                                                    return meta._meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info']
+                                                                    return meta._meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info']
 
                                                             @property
                                                             def _common_path(self):
@@ -12401,8 +11915,6 @@ class Ipv6Rib(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -12410,14 +11922,10 @@ class Ipv6Rib(object):
 
                                                                 return False
 
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                                return False
-
                                                             @staticmethod
                                                             def _meta_info():
                                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
-                                                                return meta._meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+                                                                return meta._meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 
                                                         @property
                                                         def _common_path(self):
@@ -12433,8 +11941,6 @@ class Ipv6Rib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -12513,9 +12019,6 @@ class Ipv6Rib(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -12542,14 +12045,10 @@ class Ipv6Rib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
-                                                            return meta._meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes.ProtocolRoute']['meta_info']
+                                                            return meta._meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute']['meta_info']
 
                                                     @property
                                                     def _common_path(self):
@@ -12565,8 +12064,6 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -12574,14 +12071,10 @@ class Ipv6Rib(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
-                                                        return meta._meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes']['meta_info']
+                                                        return meta._meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -12597,30 +12090,18 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.information is not None and self.information._has_data():
-                                                        return True
-
-                                                    if self.information is not None and self.information.is_presence():
                                                         return True
 
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
-                                                    return meta._meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn']['meta_info']
+                                                    return meta._meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn']['meta_info']
 
 
                                             class NonAs(object):
@@ -12756,8 +12237,6 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -12788,10 +12267,6 @@ class Ipv6Rib(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -13482,8 +12957,6 @@ class Ipv6Rib(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -13622,10 +13095,6 @@ class Ipv6Rib(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -13645,17 +13114,11 @@ class Ipv6Rib(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -13677,8 +13140,6 @@ class Ipv6Rib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -13757,9 +13218,6 @@ class Ipv6Rib(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -13786,10 +13244,6 @@ class Ipv6Rib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -13809,17 +13263,11 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -13841,24 +13289,12 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.information is not None and self.information._has_data():
-                                                        return True
-
-                                                    if self.information is not None and self.information.is_presence():
                                                         return True
 
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -13880,24 +13316,12 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.l2vpn is not None and self.l2vpn._has_data():
-                                                    return True
-
-                                                if self.l2vpn is not None and self.l2vpn.is_presence():
                                                     return True
 
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
-                                                if self.non_as is not None and self.non_as.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -14070,8 +13494,6 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -14102,10 +13524,6 @@ class Ipv6Rib(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -14796,8 +14214,6 @@ class Ipv6Rib(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -14936,10 +14352,6 @@ class Ipv6Rib(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -14959,17 +14371,11 @@ class Ipv6Rib(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -14991,8 +14397,6 @@ class Ipv6Rib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -15071,9 +14475,6 @@ class Ipv6Rib(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -15100,10 +14501,6 @@ class Ipv6Rib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -15123,17 +14520,11 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -15157,27 +14548,15 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.as_ is not None:
                                                         return True
 
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
-                                                    if self.information is not None and self.information.is_presence():
-                                                        return True
-
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -15199,17 +14578,11 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -15382,8 +14755,6 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -15414,10 +14785,6 @@ class Ipv6Rib(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -16108,8 +15475,6 @@ class Ipv6Rib(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -16248,10 +15613,6 @@ class Ipv6Rib(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -16271,17 +15632,11 @@ class Ipv6Rib(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -16303,8 +15658,6 @@ class Ipv6Rib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -16383,9 +15736,6 @@ class Ipv6Rib(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -16412,10 +15762,6 @@ class Ipv6Rib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -16435,17 +15781,11 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -16469,27 +15809,15 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.as_ is not None:
                                                         return True
 
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
-                                                    if self.information is not None and self.information.is_presence():
-                                                        return True
-
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -16511,17 +15839,11 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -16685,8 +16007,6 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -16717,10 +16037,6 @@ class Ipv6Rib(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -17411,8 +16727,6 @@ class Ipv6Rib(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -17551,10 +16865,6 @@ class Ipv6Rib(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -17574,17 +16884,11 @@ class Ipv6Rib(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -17606,8 +16910,6 @@ class Ipv6Rib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -17686,9 +16988,6 @@ class Ipv6Rib(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -17715,10 +17014,6 @@ class Ipv6Rib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -17738,17 +17033,11 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -17770,24 +17059,12 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.information is not None and self.information._has_data():
-                                                        return True
-
-                                                    if self.information is not None and self.information.is_presence():
                                                         return True
 
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -17809,18 +17086,9 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
-                                                if self.non_as is not None and self.non_as.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -17984,8 +17252,6 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -18016,10 +17282,6 @@ class Ipv6Rib(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -18710,8 +17972,6 @@ class Ipv6Rib(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -18850,10 +18110,6 @@ class Ipv6Rib(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -18873,17 +18129,11 @@ class Ipv6Rib(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -18905,8 +18155,6 @@ class Ipv6Rib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -18985,9 +18233,6 @@ class Ipv6Rib(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -19014,10 +18259,6 @@ class Ipv6Rib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -19037,17 +18278,11 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -19069,24 +18304,12 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.information is not None and self.information._has_data():
-                                                        return True
-
-                                                    if self.information is not None and self.information.is_presence():
                                                         return True
 
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -19108,18 +18331,9 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
-                                                if self.non_as is not None and self.non_as.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -19292,8 +18506,6 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -19324,10 +18536,6 @@ class Ipv6Rib(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -20018,8 +19226,6 @@ class Ipv6Rib(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -20158,10 +19364,6 @@ class Ipv6Rib(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -20181,17 +19383,11 @@ class Ipv6Rib(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -20213,8 +19409,6 @@ class Ipv6Rib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -20293,9 +19487,6 @@ class Ipv6Rib(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -20322,10 +19513,6 @@ class Ipv6Rib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -20345,17 +19532,11 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -20379,27 +19560,15 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.as_ is not None:
                                                         return True
 
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
-                                                    if self.information is not None and self.information.is_presence():
-                                                        return True
-
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -20421,17 +19590,11 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -20604,8 +19767,6 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -20636,10 +19797,6 @@ class Ipv6Rib(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -21330,8 +20487,6 @@ class Ipv6Rib(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -21470,10 +20625,6 @@ class Ipv6Rib(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -21493,17 +20644,11 @@ class Ipv6Rib(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -21525,8 +20670,6 @@ class Ipv6Rib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -21605,9 +20748,6 @@ class Ipv6Rib(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -21634,10 +20774,6 @@ class Ipv6Rib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -21657,17 +20793,11 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -21691,27 +20821,15 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.as_ is not None:
                                                         return True
 
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
-                                                    if self.information is not None and self.information.is_presence():
-                                                        return True
-
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -21733,17 +20851,11 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -21907,8 +21019,6 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -21939,10 +21049,6 @@ class Ipv6Rib(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -22633,8 +21739,6 @@ class Ipv6Rib(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -22773,10 +21877,6 @@ class Ipv6Rib(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -22796,17 +21896,11 @@ class Ipv6Rib(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -22828,8 +21922,6 @@ class Ipv6Rib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -22908,9 +22000,6 @@ class Ipv6Rib(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -22937,10 +22026,6 @@ class Ipv6Rib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -22960,17 +22045,11 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -22992,24 +22071,12 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.information is not None and self.information._has_data():
-                                                        return True
-
-                                                    if self.information is not None and self.information.is_presence():
                                                         return True
 
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -23031,18 +22098,9 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
-                                                if self.non_as is not None and self.non_as.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -23206,8 +22264,6 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -23238,10 +22294,6 @@ class Ipv6Rib(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -23932,8 +22984,6 @@ class Ipv6Rib(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -24072,10 +23122,6 @@ class Ipv6Rib(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -24095,17 +23141,11 @@ class Ipv6Rib(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -24127,8 +23167,6 @@ class Ipv6Rib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -24207,9 +23245,6 @@ class Ipv6Rib(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -24236,10 +23271,6 @@ class Ipv6Rib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -24259,17 +23290,11 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -24291,24 +23316,12 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.information is not None and self.information._has_data():
-                                                        return True
-
-                                                    if self.information is not None and self.information.is_presence():
                                                         return True
 
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -24330,18 +23343,9 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
-                                                if self.non_as is not None and self.non_as.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -24363,72 +23367,36 @@ class Ipv6Rib(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.bgp is not None and self.bgp._has_data():
-                                                return True
-
-                                            if self.bgp is not None and self.bgp.is_presence():
                                                 return True
 
                                             if self.connected is not None and self.connected._has_data():
                                                 return True
 
-                                            if self.connected is not None and self.connected.is_presence():
-                                                return True
-
                                             if self.eigrp is not None and self.eigrp._has_data():
-                                                return True
-
-                                            if self.eigrp is not None and self.eigrp.is_presence():
                                                 return True
 
                                             if self.isis is not None and self.isis._has_data():
                                                 return True
 
-                                            if self.isis is not None and self.isis.is_presence():
-                                                return True
-
                                             if self.local is not None and self.local._has_data():
-                                                return True
-
-                                            if self.local is not None and self.local.is_presence():
                                                 return True
 
                                             if self.mobile is not None and self.mobile._has_data():
                                                 return True
 
-                                            if self.mobile is not None and self.mobile.is_presence():
-                                                return True
-
                                             if self.ospf is not None and self.ospf._has_data():
-                                                return True
-
-                                            if self.ospf is not None and self.ospf.is_presence():
                                                 return True
 
                                             if self.rpl is not None and self.rpl._has_data():
                                                 return True
 
-                                            if self.rpl is not None and self.rpl.is_presence():
-                                                return True
-
                                             if self.static is not None and self.static._has_data():
-                                                return True
-
-                                            if self.static is not None and self.static.is_presence():
                                                 return True
 
                                             if self.subscriber is not None and self.subscriber._has_data():
                                                 return True
 
-                                            if self.subscriber is not None and self.subscriber.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -25120,8 +24088,6 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.address is not None:
                                                             return True
 
@@ -25260,10 +24226,6 @@ class Ipv6Rib(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -25283,17 +24245,11 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.ipv6_rib_edm_path is not None:
                                                         for child_ref in self.ipv6_rib_edm_path:
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -25315,8 +24271,6 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.active is not None:
                                                     return True
 
@@ -25395,9 +24349,6 @@ class Ipv6Rib(object):
                                                 if self.route_path is not None and self.route_path._has_data():
                                                     return True
 
-                                                if self.route_path is not None and self.route_path.is_presence():
-                                                    return True
-
                                                 if self.route_precedence is not None:
                                                     return True
 
@@ -25424,10 +24375,6 @@ class Ipv6Rib(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -25447,17 +24394,11 @@ class Ipv6Rib(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.q_route is not None:
                                                 for child_ref in self.q_route:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -26165,8 +25106,6 @@ class Ipv6Rib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.address is not None:
                                                             return True
 
@@ -26305,10 +25244,6 @@ class Ipv6Rib(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -26328,17 +25263,11 @@ class Ipv6Rib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.ipv6_rib_edm_path is not None:
                                                         for child_ref in self.ipv6_rib_edm_path:
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -26360,8 +25289,6 @@ class Ipv6Rib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.active is not None:
                                                     return True
 
@@ -26446,9 +25373,6 @@ class Ipv6Rib(object):
                                                 if self.route_path is not None and self.route_path._has_data():
                                                     return True
 
-                                                if self.route_path is not None and self.route_path.is_presence():
-                                                    return True
-
                                                 if self.route_precedence is not None:
                                                     return True
 
@@ -26475,10 +25399,6 @@ class Ipv6Rib(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -26498,17 +25418,11 @@ class Ipv6Rib(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.route is not None:
                                                 for child_ref in self.route:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -26532,57 +25446,30 @@ class Ipv6Rib(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.route_table_name is not None:
                                             return True
 
                                         if self.adverts is not None and self.adverts._has_data():
                                             return True
 
-                                        if self.adverts is not None and self.adverts.is_presence():
-                                            return True
-
                                         if self.backup_routes is not None and self.backup_routes._has_data():
-                                            return True
-
-                                        if self.backup_routes is not None and self.backup_routes.is_presence():
                                             return True
 
                                         if self.deleted_routes is not None and self.deleted_routes._has_data():
                                             return True
 
-                                        if self.deleted_routes is not None and self.deleted_routes.is_presence():
-                                            return True
-
                                         if self.destination_kw is not None and self.destination_kw._has_data():
-                                            return True
-
-                                        if self.destination_kw is not None and self.destination_kw.is_presence():
                                             return True
 
                                         if self.protocol is not None and self.protocol._has_data():
                                             return True
 
-                                        if self.protocol is not None and self.protocol.is_presence():
-                                            return True
-
                                         if self.q_routes is not None and self.q_routes._has_data():
-                                            return True
-
-                                        if self.q_routes is not None and self.q_routes.is_presence():
                                             return True
 
                                         if self.routes is not None and self.routes._has_data():
                                             return True
 
-                                        if self.routes is not None and self.routes.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -26604,17 +25491,11 @@ class Ipv6Rib(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ip_rib_route_table_name is not None:
                                         for child_ref in self.ip_rib_route_table_name:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -26638,21 +25519,12 @@ class Ipv6Rib(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.saf_name is not None:
                                     return True
 
                                 if self.ip_rib_route_table_names is not None and self.ip_rib_route_table_names._has_data():
                                     return True
 
-                                if self.ip_rib_route_table_names is not None and self.ip_rib_route_table_names.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -26674,17 +25546,11 @@ class Ipv6Rib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.saf is not None:
                                 for child_ref in self.saf:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -26708,21 +25574,12 @@ class Ipv6Rib(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.af_name is not None:
                             return True
 
                         if self.safs is not None and self.safs._has_data():
                             return True
 
-                        if self.safs is not None and self.safs.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -26744,17 +25601,11 @@ class Ipv6Rib(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.af is not None:
                         for child_ref in self.af:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -26776,21 +25627,12 @@ class Ipv6Rib(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.vrf_name is not None:
                     return True
 
                 if self.afs is not None and self.afs._has_data():
                     return True
 
-                if self.afs is not None and self.afs.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -26810,17 +25652,11 @@ class Ipv6Rib(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -26840,24 +25676,12 @@ class Ipv6Rib(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.rib_table_ids is not None and self.rib_table_ids._has_data():
-            return True
-
-        if self.rib_table_ids is not None and self.rib_table_ids.is_presence():
             return True
 
         if self.vrfs is not None and self.vrfs._has_data():
             return True
 
-        if self.vrfs is not None and self.vrfs.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -27660,8 +26484,6 @@ class Ipv6RibStdby(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.address is not None:
                                         return True
 
@@ -27800,10 +26622,6 @@ class Ipv6RibStdby(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -27823,17 +26641,11 @@ class Ipv6RibStdby(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ipv6_rib_edm_path is not None:
                                     for child_ref in self.ipv6_rib_edm_path:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -27857,8 +26669,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.address is not None:
                                 return True
 
@@ -27934,9 +26744,6 @@ class Ipv6RibStdby(object):
                             if self.route_path is not None and self.route_path._has_data():
                                 return True
 
-                            if self.route_path is not None and self.route_path.is_presence():
-                                return True
-
                             if self.route_precedence is not None:
                                 return True
 
@@ -27963,10 +26770,6 @@ class Ipv6RibStdby(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -27988,8 +26791,6 @@ class Ipv6RibStdby(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.handle is not None:
                             return True
 
@@ -27998,10 +26799,6 @@ class Ipv6RibStdby(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -28023,17 +26820,11 @@ class Ipv6RibStdby(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.rib_table_itf_hndl is not None:
                         for child_ref in self.rib_table_itf_hndl:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -28287,8 +27078,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -28301,10 +27090,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -28373,8 +27158,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -28387,10 +27170,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -28459,8 +27238,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -28473,10 +27250,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -28545,8 +27318,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -28559,10 +27330,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -28631,8 +27398,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -28645,10 +27410,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -28717,8 +27478,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -28731,10 +27490,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -28803,8 +27558,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -28817,10 +27570,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -28889,8 +27638,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -28903,10 +27650,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -28975,8 +27718,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -28989,10 +27730,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -29061,8 +27798,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29075,10 +27810,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -29147,8 +27878,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29161,10 +27890,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -29233,8 +27958,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29247,10 +27970,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -29319,8 +28038,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29333,10 +28050,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -29405,8 +28118,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29419,10 +28130,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -29491,8 +28198,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29505,10 +28210,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -29577,8 +28278,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29591,10 +28290,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -29663,8 +28358,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29677,10 +28370,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -29749,8 +28438,6 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29763,10 +28450,6 @@ class Ipv6RibStdby(object):
                             if self.num_backup_routes is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -29790,8 +28473,6 @@ class Ipv6RibStdby(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.protoid is not None:
                             return True
 
@@ -29804,115 +28485,57 @@ class Ipv6RibStdby(object):
                         if self.proto_route_count is not None and self.proto_route_count._has_data():
                             return True
 
-                        if self.proto_route_count is not None and self.proto_route_count.is_presence():
-                            return True
-
                         if self.rtype_bgp_ext is not None and self.rtype_bgp_ext._has_data():
-                            return True
-
-                        if self.rtype_bgp_ext is not None and self.rtype_bgp_ext.is_presence():
                             return True
 
                         if self.rtype_bgp_int is not None and self.rtype_bgp_int._has_data():
                             return True
 
-                        if self.rtype_bgp_int is not None and self.rtype_bgp_int.is_presence():
-                            return True
-
                         if self.rtype_bgp_loc is not None and self.rtype_bgp_loc._has_data():
-                            return True
-
-                        if self.rtype_bgp_loc is not None and self.rtype_bgp_loc.is_presence():
                             return True
 
                         if self.rtype_igrp2_ext is not None and self.rtype_igrp2_ext._has_data():
                             return True
 
-                        if self.rtype_igrp2_ext is not None and self.rtype_igrp2_ext.is_presence():
-                            return True
-
                         if self.rtype_igrp2_int is not None and self.rtype_igrp2_int._has_data():
-                            return True
-
-                        if self.rtype_igrp2_int is not None and self.rtype_igrp2_int.is_presence():
                             return True
 
                         if self.rtype_isis_l1 is not None and self.rtype_isis_l1._has_data():
                             return True
 
-                        if self.rtype_isis_l1 is not None and self.rtype_isis_l1.is_presence():
-                            return True
-
                         if self.rtype_isis_l1_ia is not None and self.rtype_isis_l1_ia._has_data():
-                            return True
-
-                        if self.rtype_isis_l1_ia is not None and self.rtype_isis_l1_ia.is_presence():
                             return True
 
                         if self.rtype_isis_l2 is not None and self.rtype_isis_l2._has_data():
                             return True
 
-                        if self.rtype_isis_l2 is not None and self.rtype_isis_l2.is_presence():
-                            return True
-
                         if self.rtype_isis_sum is not None and self.rtype_isis_sum._has_data():
-                            return True
-
-                        if self.rtype_isis_sum is not None and self.rtype_isis_sum.is_presence():
                             return True
 
                         if self.rtype_none is not None and self.rtype_none._has_data():
                             return True
 
-                        if self.rtype_none is not None and self.rtype_none.is_presence():
-                            return True
-
                         if self.rtype_ospf_extern1 is not None and self.rtype_ospf_extern1._has_data():
-                            return True
-
-                        if self.rtype_ospf_extern1 is not None and self.rtype_ospf_extern1.is_presence():
                             return True
 
                         if self.rtype_ospf_extern2 is not None and self.rtype_ospf_extern2._has_data():
                             return True
 
-                        if self.rtype_ospf_extern2 is not None and self.rtype_ospf_extern2.is_presence():
-                            return True
-
                         if self.rtype_ospf_inter is not None and self.rtype_ospf_inter._has_data():
-                            return True
-
-                        if self.rtype_ospf_inter is not None and self.rtype_ospf_inter.is_presence():
                             return True
 
                         if self.rtype_ospf_intra is not None and self.rtype_ospf_intra._has_data():
                             return True
 
-                        if self.rtype_ospf_intra is not None and self.rtype_ospf_intra.is_presence():
-                            return True
-
                         if self.rtype_ospf_nssa1 is not None and self.rtype_ospf_nssa1._has_data():
-                            return True
-
-                        if self.rtype_ospf_nssa1 is not None and self.rtype_ospf_nssa1.is_presence():
                             return True
 
                         if self.rtype_ospf_nssa2 is not None and self.rtype_ospf_nssa2._has_data():
                             return True
 
-                        if self.rtype_ospf_nssa2 is not None and self.rtype_ospf_nssa2.is_presence():
-                            return True
-
                         if self.rtype_other is not None and self.rtype_other._has_data():
                             return True
 
-                        if self.rtype_other is not None and self.rtype_other.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -29934,17 +28557,11 @@ class Ipv6RibStdby(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.summary_proto is not None:
                         for child_ref in self.summary_proto:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -29966,27 +28583,15 @@ class Ipv6RibStdby(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.tableid is not None:
                     return True
 
                 if self.rib_table_itf_hndls is not None and self.rib_table_itf_hndls._has_data():
                     return True
 
-                if self.rib_table_itf_hndls is not None and self.rib_table_itf_hndls.is_presence():
-                    return True
-
                 if self.summary_protos is not None and self.summary_protos._has_data():
                     return True
 
-                if self.summary_protos is not None and self.summary_protos.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -30006,17 +28611,11 @@ class Ipv6RibStdby(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.rib_table_id is not None:
                 for child_ref in self.rib_table_id:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -30434,8 +29033,6 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.client_id is not None:
                                                         return True
 
@@ -30462,10 +29059,6 @@ class Ipv6RibStdby(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -30485,8 +29078,6 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.address is not None:
                                                     return True
 
@@ -30498,10 +29089,6 @@ class Ipv6RibStdby(object):
                                                 if self.prefix_length is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -30523,17 +29110,11 @@ class Ipv6RibStdby(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.advert is not None:
                                                 for child_ref in self.advert:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -31225,8 +29806,6 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.address is not None:
                                                             return True
 
@@ -31365,10 +29944,6 @@ class Ipv6RibStdby(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -31388,17 +29963,11 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.ipv6_rib_edm_path is not None:
                                                         for child_ref in self.ipv6_rib_edm_path:
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -31420,8 +29989,6 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.active is not None:
                                                     return True
 
@@ -31500,9 +30067,6 @@ class Ipv6RibStdby(object):
                                                 if self.route_path is not None and self.route_path._has_data():
                                                     return True
 
-                                                if self.route_path is not None and self.route_path.is_presence():
-                                                    return True
-
                                                 if self.route_precedence is not None:
                                                     return True
 
@@ -31529,10 +30093,6 @@ class Ipv6RibStdby(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -31552,17 +30112,11 @@ class Ipv6RibStdby(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.backup_route is not None:
                                                 for child_ref in self.backup_route:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -32254,8 +30808,6 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.address is not None:
                                                             return True
 
@@ -32394,10 +30946,6 @@ class Ipv6RibStdby(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -32417,17 +30965,11 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.ipv6_rib_edm_path is not None:
                                                         for child_ref in self.ipv6_rib_edm_path:
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -32449,8 +30991,6 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.active is not None:
                                                     return True
 
@@ -32529,9 +31069,6 @@ class Ipv6RibStdby(object):
                                                 if self.route_path is not None and self.route_path._has_data():
                                                     return True
 
-                                                if self.route_path is not None and self.route_path.is_presence():
-                                                    return True
-
                                                 if self.route_precedence is not None:
                                                     return True
 
@@ -32558,10 +31095,6 @@ class Ipv6RibStdby(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -32581,17 +31114,11 @@ class Ipv6RibStdby(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.deleted_route is not None:
                                                 for child_ref in self.deleted_route:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -33326,8 +31853,6 @@ class Ipv6RibStdby(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.address is not None:
                                                                 return True
 
@@ -33466,10 +31991,6 @@ class Ipv6RibStdby(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -33489,17 +32010,11 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.ipv6_rib_edm_path is not None:
                                                             for child_ref in self.ipv6_rib_edm_path:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -33521,8 +32036,6 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.active is not None:
                                                         return True
 
@@ -33601,9 +32114,6 @@ class Ipv6RibStdby(object):
                                                     if self.route_path is not None and self.route_path._has_data():
                                                         return True
 
-                                                    if self.route_path is not None and self.route_path.is_presence():
-                                                        return True
-
                                                     if self.route_precedence is not None:
                                                         return True
 
@@ -33630,10 +32140,6 @@ class Ipv6RibStdby(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -33653,17 +32159,11 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.dest_backup_route is not None:
                                                     for child_ref in self.dest_backup_route:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -34347,8 +32847,6 @@ class Ipv6RibStdby(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.address is not None:
                                                                 return True
 
@@ -34487,10 +32985,6 @@ class Ipv6RibStdby(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -34510,17 +33004,11 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.ipv6_rib_edm_path is not None:
                                                             for child_ref in self.ipv6_rib_edm_path:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -34544,8 +33032,6 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.address is not None:
                                                         return True
 
@@ -34621,9 +33107,6 @@ class Ipv6RibStdby(object):
                                                     if self.route_path is not None and self.route_path._has_data():
                                                         return True
 
-                                                    if self.route_path is not None and self.route_path.is_presence():
-                                                        return True
-
                                                     if self.route_precedence is not None:
                                                         return True
 
@@ -34650,10 +33133,6 @@ class Ipv6RibStdby(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -34673,17 +33152,11 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.dest_best_route is not None:
                                                     for child_ref in self.dest_best_route:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -35367,8 +33840,6 @@ class Ipv6RibStdby(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.address is not None:
                                                                 return True
 
@@ -35507,10 +33978,6 @@ class Ipv6RibStdby(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -35530,17 +33997,11 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.ipv6_rib_edm_path is not None:
                                                             for child_ref in self.ipv6_rib_edm_path:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -35564,8 +34025,6 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.address is not None:
                                                         return True
 
@@ -35641,9 +34100,6 @@ class Ipv6RibStdby(object):
                                                     if self.route_path is not None and self.route_path._has_data():
                                                         return True
 
-                                                    if self.route_path is not None and self.route_path.is_presence():
-                                                        return True
-
                                                     if self.route_precedence is not None:
                                                         return True
 
@@ -35670,10 +34126,6 @@ class Ipv6RibStdby(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -35693,17 +34145,11 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.dest_next_hop_route is not None:
                                                     for child_ref in self.dest_next_hop_route:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -36395,8 +34841,6 @@ class Ipv6RibStdby(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.address is not None:
                                                                 return True
 
@@ -36535,10 +34979,6 @@ class Ipv6RibStdby(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -36558,17 +34998,11 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.ipv6_rib_edm_path is not None:
                                                             for child_ref in self.ipv6_rib_edm_path:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -36590,8 +35024,6 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.active is not None:
                                                         return True
 
@@ -36670,9 +35102,6 @@ class Ipv6RibStdby(object):
                                                     if self.route_path is not None and self.route_path._has_data():
                                                         return True
 
-                                                    if self.route_path is not None and self.route_path.is_presence():
-                                                        return True
-
                                                     if self.route_precedence is not None:
                                                         return True
 
@@ -36699,10 +35128,6 @@ class Ipv6RibStdby(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -36722,17 +35147,11 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.dest_q_route is not None:
                                                     for child_ref in self.dest_q_route:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -36754,36 +35173,18 @@ class Ipv6RibStdby(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.dest_backup_routes is not None and self.dest_backup_routes._has_data():
-                                                return True
-
-                                            if self.dest_backup_routes is not None and self.dest_backup_routes.is_presence():
                                                 return True
 
                                             if self.dest_best_routes is not None and self.dest_best_routes._has_data():
                                                 return True
 
-                                            if self.dest_best_routes is not None and self.dest_best_routes.is_presence():
-                                                return True
-
                                             if self.dest_next_hop_routes is not None and self.dest_next_hop_routes._has_data():
-                                                return True
-
-                                            if self.dest_next_hop_routes is not None and self.dest_next_hop_routes.is_presence():
                                                 return True
 
                                             if self.dest_q_routes is not None and self.dest_q_routes._has_data():
                                                 return True
 
-                                            if self.dest_q_routes is not None and self.dest_q_routes.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -37042,8 +35443,6 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -37074,10 +35473,6 @@ class Ipv6RibStdby(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -37768,8 +36163,6 @@ class Ipv6RibStdby(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -37908,10 +36301,6 @@ class Ipv6RibStdby(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -37931,17 +36320,11 @@ class Ipv6RibStdby(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -37963,8 +36346,6 @@ class Ipv6RibStdby(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -38043,9 +36424,6 @@ class Ipv6RibStdby(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -38072,10 +36450,6 @@ class Ipv6RibStdby(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -38095,17 +36469,11 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -38129,27 +36497,15 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.as_ is not None:
                                                         return True
 
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
-                                                    if self.information is not None and self.information.is_presence():
-                                                        return True
-
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -38171,17 +36527,11 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -38197,7 +36547,7 @@ class Ipv6RibStdby(object):
                                             .. attribute:: l2vpn
                                             
                                             	L2VPN
-                                            	**type**\: :py:class:`L2vpn <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn>`
+                                            	**type**\: :py:class:`L2Vpn <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn>`
                                             
                                             .. attribute:: non_as
                                             
@@ -38213,25 +36563,25 @@ class Ipv6RibStdby(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.l2vpn = Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn()
+                                                self.l2vpn = Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn()
                                                 self.l2vpn.parent = self
                                                 self.non_as = Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs()
                                                 self.non_as.parent = self
 
 
-                                            class L2vpn(object):
+                                            class L2Vpn(object):
                                                 """
                                                 L2VPN
                                                 
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\: :py:class:`Information <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.Information>`
+                                                	**type**\: :py:class:`Information <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\: :py:class:`ProtocolRoutes <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes>`
+                                                	**type**\: :py:class:`ProtocolRoutes <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes>`
                                                 
                                                 
 
@@ -38242,9 +36592,9 @@ class Ipv6RibStdby(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.information = Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.Information()
+                                                    self.information = Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.Information()
                                                     self.information.parent = self
-                                                    self.protocol_routes = Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes()
+                                                    self.protocol_routes = Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes()
                                                     self.protocol_routes.parent = self
 
 
@@ -38352,8 +36702,6 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -38386,14 +36734,10 @@ class Ipv6RibStdby(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
-                                                        return meta._meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.Information']['meta_info']
+                                                        return meta._meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.Information']['meta_info']
 
 
                                                 class ProtocolRoutes(object):
@@ -38403,7 +36747,7 @@ class Ipv6RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	Route information of a specific Network Address
-                                                    	**type**\: list of :py:class:`ProtocolRoute <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of :py:class:`ProtocolRoute <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -38591,7 +36935,7 @@ class Ipv6RibStdby(object):
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\: :py:class:`RoutePath <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\: :py:class:`RoutePath <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -38683,7 +37027,7 @@ class Ipv6RibStdby(object):
                                                             self.route_age = None
                                                             self.route_label = None
                                                             self.route_modify_time = None
-                                                            self.route_path = Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes.ProtocolRoute.RoutePath()
+                                                            self.route_path = Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute.RoutePath()
                                                             self.route_path.parent = self
                                                             self.route_precedence = None
                                                             self.route_type = None
@@ -38702,7 +37046,7 @@ class Ipv6RibStdby(object):
                                                             .. attribute:: ipv6_rib_edm_path
                                                             
                                                             	ipv6 rib edm path
-                                                            	**type**\: list of :py:class:`Ipv6RibEdmPath <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath>`
+                                                            	**type**\: list of :py:class:`Ipv6RibEdmPath <ydk.models.ip.Cisco_IOS_XR_ip_rib_ipv6_oper.Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath>`
                                                             
                                                             
 
@@ -39078,8 +37422,6 @@ class Ipv6RibStdby(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -39218,14 +37560,10 @@ class Ipv6RibStdby(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
-                                                                    return meta._meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info']
+                                                                    return meta._meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info']
 
                                                             @property
                                                             def _common_path(self):
@@ -39241,8 +37579,6 @@ class Ipv6RibStdby(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -39250,14 +37586,10 @@ class Ipv6RibStdby(object):
 
                                                                 return False
 
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                                return False
-
                                                             @staticmethod
                                                             def _meta_info():
                                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
-                                                                return meta._meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+                                                                return meta._meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 
                                                         @property
                                                         def _common_path(self):
@@ -39273,8 +37605,6 @@ class Ipv6RibStdby(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -39353,9 +37683,6 @@ class Ipv6RibStdby(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -39382,14 +37709,10 @@ class Ipv6RibStdby(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
-                                                            return meta._meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes.ProtocolRoute']['meta_info']
+                                                            return meta._meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute']['meta_info']
 
                                                     @property
                                                     def _common_path(self):
@@ -39405,8 +37728,6 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -39414,14 +37735,10 @@ class Ipv6RibStdby(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
-                                                        return meta._meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn.ProtocolRoutes']['meta_info']
+                                                        return meta._meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -39437,30 +37754,18 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.information is not None and self.information._has_data():
-                                                        return True
-
-                                                    if self.information is not None and self.information.is_presence():
                                                         return True
 
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
-                                                    return meta._meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2vpn']['meta_info']
+                                                    return meta._meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn']['meta_info']
 
 
                                             class NonAs(object):
@@ -39596,8 +37901,6 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -39628,10 +37931,6 @@ class Ipv6RibStdby(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -40322,8 +38621,6 @@ class Ipv6RibStdby(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -40462,10 +38759,6 @@ class Ipv6RibStdby(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -40485,17 +38778,11 @@ class Ipv6RibStdby(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -40517,8 +38804,6 @@ class Ipv6RibStdby(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -40597,9 +38882,6 @@ class Ipv6RibStdby(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -40626,10 +38908,6 @@ class Ipv6RibStdby(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -40649,17 +38927,11 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -40681,24 +38953,12 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.information is not None and self.information._has_data():
-                                                        return True
-
-                                                    if self.information is not None and self.information.is_presence():
                                                         return True
 
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -40720,24 +38980,12 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.l2vpn is not None and self.l2vpn._has_data():
-                                                    return True
-
-                                                if self.l2vpn is not None and self.l2vpn.is_presence():
                                                     return True
 
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
-                                                if self.non_as is not None and self.non_as.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -40910,8 +39158,6 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -40942,10 +39188,6 @@ class Ipv6RibStdby(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -41636,8 +39878,6 @@ class Ipv6RibStdby(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -41776,10 +40016,6 @@ class Ipv6RibStdby(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -41799,17 +40035,11 @@ class Ipv6RibStdby(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -41831,8 +40061,6 @@ class Ipv6RibStdby(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -41911,9 +40139,6 @@ class Ipv6RibStdby(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -41940,10 +40165,6 @@ class Ipv6RibStdby(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -41963,17 +40184,11 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -41997,27 +40212,15 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.as_ is not None:
                                                         return True
 
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
-                                                    if self.information is not None and self.information.is_presence():
-                                                        return True
-
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -42039,17 +40242,11 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -42222,8 +40419,6 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -42254,10 +40449,6 @@ class Ipv6RibStdby(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -42948,8 +41139,6 @@ class Ipv6RibStdby(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -43088,10 +41277,6 @@ class Ipv6RibStdby(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -43111,17 +41296,11 @@ class Ipv6RibStdby(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -43143,8 +41322,6 @@ class Ipv6RibStdby(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -43223,9 +41400,6 @@ class Ipv6RibStdby(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -43252,10 +41426,6 @@ class Ipv6RibStdby(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -43275,17 +41445,11 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -43309,27 +41473,15 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.as_ is not None:
                                                         return True
 
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
-                                                    if self.information is not None and self.information.is_presence():
-                                                        return True
-
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -43351,17 +41503,11 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -43525,8 +41671,6 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -43557,10 +41701,6 @@ class Ipv6RibStdby(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -44251,8 +42391,6 @@ class Ipv6RibStdby(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -44391,10 +42529,6 @@ class Ipv6RibStdby(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -44414,17 +42548,11 @@ class Ipv6RibStdby(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -44446,8 +42574,6 @@ class Ipv6RibStdby(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -44526,9 +42652,6 @@ class Ipv6RibStdby(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -44555,10 +42678,6 @@ class Ipv6RibStdby(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -44578,17 +42697,11 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -44610,24 +42723,12 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.information is not None and self.information._has_data():
-                                                        return True
-
-                                                    if self.information is not None and self.information.is_presence():
                                                         return True
 
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -44649,18 +42750,9 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
-                                                if self.non_as is not None and self.non_as.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -44824,8 +42916,6 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -44856,10 +42946,6 @@ class Ipv6RibStdby(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -45550,8 +43636,6 @@ class Ipv6RibStdby(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -45690,10 +43774,6 @@ class Ipv6RibStdby(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -45713,17 +43793,11 @@ class Ipv6RibStdby(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -45745,8 +43819,6 @@ class Ipv6RibStdby(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -45825,9 +43897,6 @@ class Ipv6RibStdby(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -45854,10 +43923,6 @@ class Ipv6RibStdby(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -45877,17 +43942,11 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -45909,24 +43968,12 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.information is not None and self.information._has_data():
-                                                        return True
-
-                                                    if self.information is not None and self.information.is_presence():
                                                         return True
 
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -45948,18 +43995,9 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
-                                                if self.non_as is not None and self.non_as.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -46132,8 +44170,6 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -46164,10 +44200,6 @@ class Ipv6RibStdby(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -46858,8 +44890,6 @@ class Ipv6RibStdby(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -46998,10 +45028,6 @@ class Ipv6RibStdby(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -47021,17 +45047,11 @@ class Ipv6RibStdby(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -47053,8 +45073,6 @@ class Ipv6RibStdby(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -47133,9 +45151,6 @@ class Ipv6RibStdby(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -47162,10 +45177,6 @@ class Ipv6RibStdby(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -47185,17 +45196,11 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -47219,27 +45224,15 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.as_ is not None:
                                                         return True
 
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
-                                                    if self.information is not None and self.information.is_presence():
-                                                        return True
-
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -47261,17 +45254,11 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -47444,8 +45431,6 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -47476,10 +45461,6 @@ class Ipv6RibStdby(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -48170,8 +46151,6 @@ class Ipv6RibStdby(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -48310,10 +46289,6 @@ class Ipv6RibStdby(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -48333,17 +46308,11 @@ class Ipv6RibStdby(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -48365,8 +46334,6 @@ class Ipv6RibStdby(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -48445,9 +46412,6 @@ class Ipv6RibStdby(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -48474,10 +46438,6 @@ class Ipv6RibStdby(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -48497,17 +46457,11 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -48531,27 +46485,15 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.as_ is not None:
                                                         return True
 
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
-                                                    if self.information is not None and self.information.is_presence():
-                                                        return True
-
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -48573,17 +46515,11 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -48747,8 +46683,6 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -48779,10 +46713,6 @@ class Ipv6RibStdby(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -49473,8 +47403,6 @@ class Ipv6RibStdby(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -49613,10 +47541,6 @@ class Ipv6RibStdby(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -49636,17 +47560,11 @@ class Ipv6RibStdby(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -49668,8 +47586,6 @@ class Ipv6RibStdby(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -49748,9 +47664,6 @@ class Ipv6RibStdby(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -49777,10 +47690,6 @@ class Ipv6RibStdby(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -49800,17 +47709,11 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -49832,24 +47735,12 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.information is not None and self.information._has_data():
-                                                        return True
-
-                                                    if self.information is not None and self.information.is_presence():
                                                         return True
 
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -49871,18 +47762,9 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
-                                                if self.non_as is not None and self.non_as.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -50046,8 +47928,6 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -50078,10 +47958,6 @@ class Ipv6RibStdby(object):
                                                         if self.version is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -50772,8 +48648,6 @@ class Ipv6RibStdby(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.address is not None:
                                                                         return True
 
@@ -50912,10 +48786,6 @@ class Ipv6RibStdby(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -50935,17 +48805,11 @@ class Ipv6RibStdby(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.ipv6_rib_edm_path is not None:
                                                                     for child_ref in self.ipv6_rib_edm_path:
                                                                         if child_ref._has_data():
                                                                             return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -50967,8 +48831,6 @@ class Ipv6RibStdby(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.active is not None:
                                                                 return True
 
@@ -51047,9 +48909,6 @@ class Ipv6RibStdby(object):
                                                             if self.route_path is not None and self.route_path._has_data():
                                                                 return True
 
-                                                            if self.route_path is not None and self.route_path.is_presence():
-                                                                return True
-
                                                             if self.route_precedence is not None:
                                                                 return True
 
@@ -51076,10 +48935,6 @@ class Ipv6RibStdby(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -51099,17 +48954,11 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -51131,24 +48980,12 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.information is not None and self.information._has_data():
-                                                        return True
-
-                                                    if self.information is not None and self.information.is_presence():
                                                         return True
 
                                                     if self.protocol_routes is not None and self.protocol_routes._has_data():
                                                         return True
 
-                                                    if self.protocol_routes is not None and self.protocol_routes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -51170,18 +49007,9 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
-                                                if self.non_as is not None and self.non_as.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -51203,72 +49031,36 @@ class Ipv6RibStdby(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.bgp is not None and self.bgp._has_data():
-                                                return True
-
-                                            if self.bgp is not None and self.bgp.is_presence():
                                                 return True
 
                                             if self.connected is not None and self.connected._has_data():
                                                 return True
 
-                                            if self.connected is not None and self.connected.is_presence():
-                                                return True
-
                                             if self.eigrp is not None and self.eigrp._has_data():
-                                                return True
-
-                                            if self.eigrp is not None and self.eigrp.is_presence():
                                                 return True
 
                                             if self.isis is not None and self.isis._has_data():
                                                 return True
 
-                                            if self.isis is not None and self.isis.is_presence():
-                                                return True
-
                                             if self.local is not None and self.local._has_data():
-                                                return True
-
-                                            if self.local is not None and self.local.is_presence():
                                                 return True
 
                                             if self.mobile is not None and self.mobile._has_data():
                                                 return True
 
-                                            if self.mobile is not None and self.mobile.is_presence():
-                                                return True
-
                                             if self.ospf is not None and self.ospf._has_data():
-                                                return True
-
-                                            if self.ospf is not None and self.ospf.is_presence():
                                                 return True
 
                                             if self.rpl is not None and self.rpl._has_data():
                                                 return True
 
-                                            if self.rpl is not None and self.rpl.is_presence():
-                                                return True
-
                                             if self.static is not None and self.static._has_data():
-                                                return True
-
-                                            if self.static is not None and self.static.is_presence():
                                                 return True
 
                                             if self.subscriber is not None and self.subscriber._has_data():
                                                 return True
 
-                                            if self.subscriber is not None and self.subscriber.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -51960,8 +49752,6 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.address is not None:
                                                             return True
 
@@ -52100,10 +49890,6 @@ class Ipv6RibStdby(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -52123,17 +49909,11 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.ipv6_rib_edm_path is not None:
                                                         for child_ref in self.ipv6_rib_edm_path:
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -52155,8 +49935,6 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.active is not None:
                                                     return True
 
@@ -52235,9 +50013,6 @@ class Ipv6RibStdby(object):
                                                 if self.route_path is not None and self.route_path._has_data():
                                                     return True
 
-                                                if self.route_path is not None and self.route_path.is_presence():
-                                                    return True
-
                                                 if self.route_precedence is not None:
                                                     return True
 
@@ -52264,10 +50039,6 @@ class Ipv6RibStdby(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -52287,17 +50058,11 @@ class Ipv6RibStdby(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.q_route is not None:
                                                 for child_ref in self.q_route:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -53005,8 +50770,6 @@ class Ipv6RibStdby(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.address is not None:
                                                             return True
 
@@ -53145,10 +50908,6 @@ class Ipv6RibStdby(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -53168,17 +50927,11 @@ class Ipv6RibStdby(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.ipv6_rib_edm_path is not None:
                                                         for child_ref in self.ipv6_rib_edm_path:
                                                             if child_ref._has_data():
                                                                 return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -53200,8 +50953,6 @@ class Ipv6RibStdby(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.active is not None:
                                                     return True
 
@@ -53286,9 +51037,6 @@ class Ipv6RibStdby(object):
                                                 if self.route_path is not None and self.route_path._has_data():
                                                     return True
 
-                                                if self.route_path is not None and self.route_path.is_presence():
-                                                    return True
-
                                                 if self.route_precedence is not None:
                                                     return True
 
@@ -53315,10 +51063,6 @@ class Ipv6RibStdby(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rib_ipv6_oper as meta
@@ -53338,17 +51082,11 @@ class Ipv6RibStdby(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.route is not None:
                                                 for child_ref in self.route:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -53372,57 +51110,30 @@ class Ipv6RibStdby(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.route_table_name is not None:
                                             return True
 
                                         if self.adverts is not None and self.adverts._has_data():
                                             return True
 
-                                        if self.adverts is not None and self.adverts.is_presence():
-                                            return True
-
                                         if self.backup_routes is not None and self.backup_routes._has_data():
-                                            return True
-
-                                        if self.backup_routes is not None and self.backup_routes.is_presence():
                                             return True
 
                                         if self.deleted_routes is not None and self.deleted_routes._has_data():
                                             return True
 
-                                        if self.deleted_routes is not None and self.deleted_routes.is_presence():
-                                            return True
-
                                         if self.destination_kw is not None and self.destination_kw._has_data():
-                                            return True
-
-                                        if self.destination_kw is not None and self.destination_kw.is_presence():
                                             return True
 
                                         if self.protocol is not None and self.protocol._has_data():
                                             return True
 
-                                        if self.protocol is not None and self.protocol.is_presence():
-                                            return True
-
                                         if self.q_routes is not None and self.q_routes._has_data():
-                                            return True
-
-                                        if self.q_routes is not None and self.q_routes.is_presence():
                                             return True
 
                                         if self.routes is not None and self.routes._has_data():
                                             return True
 
-                                        if self.routes is not None and self.routes.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -53444,17 +51155,11 @@ class Ipv6RibStdby(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ip_rib_route_table_name is not None:
                                         for child_ref in self.ip_rib_route_table_name:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -53478,21 +51183,12 @@ class Ipv6RibStdby(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.saf_name is not None:
                                     return True
 
                                 if self.ip_rib_route_table_names is not None and self.ip_rib_route_table_names._has_data():
                                     return True
 
-                                if self.ip_rib_route_table_names is not None and self.ip_rib_route_table_names.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -53514,17 +51210,11 @@ class Ipv6RibStdby(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.saf is not None:
                                 for child_ref in self.saf:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -53548,21 +51238,12 @@ class Ipv6RibStdby(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.af_name is not None:
                             return True
 
                         if self.safs is not None and self.safs._has_data():
                             return True
 
-                        if self.safs is not None and self.safs.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -53584,17 +51265,11 @@ class Ipv6RibStdby(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.af is not None:
                         for child_ref in self.af:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -53616,21 +51291,12 @@ class Ipv6RibStdby(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.vrf_name is not None:
                     return True
 
                 if self.afs is not None and self.afs._has_data():
                     return True
 
-                if self.afs is not None and self.afs.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -53650,17 +51316,11 @@ class Ipv6RibStdby(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -53680,24 +51340,12 @@ class Ipv6RibStdby(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.rib_table_ids is not None and self.rib_table_ids._has_data():
-            return True
-
-        if self.rib_table_ids is not None and self.rib_table_ids.is_presence():
             return True
 
         if self.vrfs is not None and self.vrfs._has_data():
             return True
 
-        if self.vrfs is not None and self.vrfs.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

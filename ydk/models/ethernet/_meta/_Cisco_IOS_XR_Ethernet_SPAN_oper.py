@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'ImStateEnum_Enum' : _MetaInfoEnum('ImStateEnum_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper',
+    'ImStateEnumEnum' : _MetaInfoEnum('ImStateEnumEnum', 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper',
         {
             'im-state-not-ready':'IM_STATE_NOT_READY',
             'im-state-admin-down':'IM_STATE_ADMIN_DOWN',
@@ -36,7 +36,7 @@ _meta_table = {
             'im-state-unknown':'IM_STATE_UNKNOWN',
             'im-state-last':'IM_STATE_LAST',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-oper', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-oper']),
-    'DestinationClass_Enum' : _MetaInfoEnum('DestinationClass_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper',
+    'DestinationClassEnum' : _MetaInfoEnum('DestinationClassEnum', 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper',
         {
             'interface-class':'INTERFACE_CLASS',
             'pseudowire-class':'PSEUDOWIRE_CLASS',
@@ -44,21 +44,21 @@ _meta_table = {
             'next-hop-ipv6-class':'NEXT_HOP_IPV6_CLASS',
             'invalid-class':'INVALID_CLASS',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-oper', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-oper']),
-    'TrafficDirection_Enum' : _MetaInfoEnum('TrafficDirection_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper',
+    'TrafficDirectionEnum' : _MetaInfoEnum('TrafficDirectionEnum', 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper',
         {
             'invalid':'INVALID',
             'rx-only':'RX_ONLY',
             'tx-only':'TX_ONLY',
             'both':'BOTH',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-oper', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-oper']),
-    'SessionClass_Enum' : _MetaInfoEnum('SessionClass_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper',
+    'SessionClassEnum' : _MetaInfoEnum('SessionClassEnum', 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper',
         {
             'ethernet-class':'ETHERNET_CLASS',
             'ipv4-class':'IPV4_CLASS',
             'ipv6-class':'IPV6_CLASS',
             'invalid-class':'INVALID_CLASS',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-oper', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-oper']),
-    'MirrorInterval_Enum' : _MetaInfoEnum('MirrorInterval_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper',
+    'MirrorIntervalEnum' : _MetaInfoEnum('MirrorIntervalEnum', 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper',
         {
             'mirror-interval-all':'MIRROR_INTERVAL_ALL',
             'mirror-interval512':'MIRROR_INTERVAL512',
@@ -78,7 +78,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('interface-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Interface State
                 ''',
@@ -176,7 +176,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData',
             False, 
             [
-            _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClass_Enum', 
+            _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClassEnum', 
                 [], [], 
                 '''                DestinationClass
                 ''',
@@ -269,7 +269,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId',
             False, 
             [
-            _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClass_Enum', 
+            _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClassEnum', 
                 [], [], 
                 '''                DestinationClass
                 ''',
@@ -373,7 +373,7 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('session-class', REFERENCE_ENUM_CLASS, 'SessionClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClass_Enum', 
+            _MetaInfoClassMember('session-class', REFERENCE_ENUM_CLASS, 'SessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClassEnum', 
                 [], [], 
                 '''                Session class
                 ''',
@@ -471,7 +471,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId',
             False, 
             [
-            _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClass_Enum', 
+            _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClassEnum', 
                 [], [], 
                 '''                DestinationClass
                 ''',
@@ -530,7 +530,7 @@ _meta_table = {
                 ''',
                 'mirror_bytes',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'MirrorInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'MirrorInterval_Enum', 
+            _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'MirrorIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'MirrorIntervalEnum', 
                 [], [], 
                 '''                Interval between mirrored packets
                 ''',
@@ -542,7 +542,7 @@ _meta_table = {
                 ''',
                 'port_level',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirection_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirection_Enum', 
+            _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirectionEnum', 
                 [], [], 
                 '''                Direction
                 ''',
@@ -590,7 +590,7 @@ _meta_table = {
                 ''',
                 'destination_interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('global-class', REFERENCE_ENUM_CLASS, 'SessionClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClass_Enum', 
+            _MetaInfoClassMember('global-class', REFERENCE_ENUM_CLASS, 'SessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClassEnum', 
                 [], [], 
                 '''                Global session class
                 ''',
@@ -602,7 +602,7 @@ _meta_table = {
                 ''',
                 'id',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('local-class', REFERENCE_ENUM_CLASS, 'SessionClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClass_Enum', 
+            _MetaInfoClassMember('local-class', REFERENCE_ENUM_CLASS, 'SessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClassEnum', 
                 [], [], 
                 '''                Local attachment class
                 ''',
@@ -632,13 +632,13 @@ _meta_table = {
                 ''',
                 'source_interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('source-interface-state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('source-interface-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Source interface state
                 ''',
                 'source_interface_state',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirection_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirection_Enum', 
+            _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirectionEnum', 
                 [], [], 
                 '''                Traffic mirroring direction (deprecated by
                 TrafficParameters)
@@ -727,7 +727,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId',
             False, 
             [
-            _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClass_Enum', 
+            _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClassEnum', 
                 [], [], 
                 '''                DestinationClass
                 ''',
@@ -806,13 +806,13 @@ _meta_table = {
                 ''',
                 'platform_error',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('session-class', REFERENCE_ENUM_CLASS, 'SpanSessionClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClass_Enum', 
+            _MetaInfoClassMember('session-class', REFERENCE_ENUM_CLASS, 'SpanSessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClassEnum', 
                 [], [], 
                 '''                Sesssion class
                 ''',
                 'session_class',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('session-class-xr', REFERENCE_ENUM_CLASS, 'SessionClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClass_Enum', 
+            _MetaInfoClassMember('session-class-xr', REFERENCE_ENUM_CLASS, 'SessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClassEnum', 
                 [], [], 
                 '''                Session class
                 ''',
@@ -899,7 +899,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId',
             False, 
             [
-            _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClass_Enum', 
+            _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClassEnum', 
                 [], [], 
                 '''                DestinationClass
                 ''',
@@ -958,7 +958,7 @@ _meta_table = {
                 ''',
                 'mirror_bytes',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'MirrorInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'MirrorInterval_Enum', 
+            _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'MirrorIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'MirrorIntervalEnum', 
                 [], [], 
                 '''                Interval between mirrored packets
                 ''',
@@ -970,7 +970,7 @@ _meta_table = {
                 ''',
                 'port_level',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirection_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirection_Enum', 
+            _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirectionEnum', 
                 [], [], 
                 '''                Direction
                 ''',
@@ -987,7 +987,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment',
             False, 
             [
-            _MetaInfoClassMember('class', REFERENCE_ENUM_CLASS, 'SessionClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClass_Enum', 
+            _MetaInfoClassMember('class', REFERENCE_ENUM_CLASS, 'SessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClassEnum', 
                 [], [], 
                 '''                Attachment class
                 ''',
@@ -1062,7 +1062,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId',
             False, 
             [
-            _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClass_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClass_Enum', 
+            _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClassEnum', 
                 [], [], 
                 '''                DestinationClass
                 ''',
@@ -1121,7 +1121,7 @@ _meta_table = {
                 ''',
                 'mirror_bytes',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'MirrorInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'MirrorInterval_Enum', 
+            _MetaInfoClassMember('mirror-interval', REFERENCE_ENUM_CLASS, 'MirrorIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'MirrorIntervalEnum', 
                 [], [], 
                 '''                Interval between mirrored packets
                 ''',
@@ -1133,7 +1133,7 @@ _meta_table = {
                 ''',
                 'port_level',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirection_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirection_Enum', 
+            _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirectionEnum', 
                 [], [], 
                 '''                Direction
                 ''',
@@ -1187,7 +1187,7 @@ _meta_table = {
                 ''',
                 'source_interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirection_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirection_Enum', 
+            _MetaInfoClassMember('traffic-direction', REFERENCE_ENUM_CLASS, 'TrafficDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirectionEnum', 
                 [], [], 
                 '''                Traffic mirroring direction (deprecated by
                 Attachment)

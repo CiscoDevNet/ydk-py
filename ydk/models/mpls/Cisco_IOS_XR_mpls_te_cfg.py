@@ -29,1549 +29,1425 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class BandwidthConstraint_Enum(Enum):
+class BandwidthConstraintEnum(Enum):
     """
-    BandwidthConstraint_Enum
+    BandwidthConstraintEnum
 
     Bandwidth constraint
 
-    """
+    .. data:: BANDWIDTH_CONSTRAINT_MAXIMUM_ALLOCATION_MODEL = 1
+
+    	Maximum Allocation Bandwidth Constaints Model
 
     """
 
-    Maximum Allocation Bandwidth Constaints Model
-
-    """
     BANDWIDTH_CONSTRAINT_MAXIMUM_ALLOCATION_MODEL = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['BandwidthConstraint_Enum']
+        return meta._meta_table['BandwidthConstraintEnum']
 
 
-class BindingSegmentId_Enum(Enum):
+class BindingSegmentIdEnum(Enum):
     """
-    BindingSegmentId_Enum
+    BindingSegmentIdEnum
 
     Binding segment id
 
-    """
+    .. data:: ANY_LABEL = 1
+
+    	AnyLabel
+
+    .. data:: SPECIFIED_LABEL = 2
+
+    	SpecifiedLabel
 
     """
 
-    AnyLabel
-
-    """
     ANY_LABEL = 1
 
-    """
-
-    SpecifiedLabel
-
-    """
     SPECIFIED_LABEL = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['BindingSegmentId_Enum']
+        return meta._meta_table['BindingSegmentIdEnum']
 
 
-class GmplsttiMode_Enum(Enum):
+class GmplsttiModeEnum(Enum):
     """
-    GmplsttiMode_Enum
+    GmplsttiModeEnum
 
     Gmplstti mode
 
-    """
+    .. data:: SM = 1
+
+    	Section Monitoring
+
+    .. data:: PM = 2
+
+    	Path Monitoring
+
+    .. data:: TCM = 3
+
+    	Tandem Connection
 
     """
 
-    Section Monitoring
-
-    """
     SM = 1
 
-    """
-
-    Path Monitoring
-
-    """
     PM = 2
 
-    """
-
-    Tandem Connection
-
-    """
     TCM = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['GmplsttiMode_Enum']
+        return meta._meta_table['GmplsttiModeEnum']
 
 
-class IetfMode_Enum(Enum):
+class IetfModeEnum(Enum):
     """
-    IetfMode_Enum
+    IetfModeEnum
 
     Ietf mode
 
-    """
+    .. data:: STANDARD = 3
+
+    	IETF Standard
 
     """
 
-    IETF Standard
-
-    """
     STANDARD = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['IetfMode_Enum']
+        return meta._meta_table['IetfModeEnum']
 
 
-class LinkNextHop_Enum(Enum):
+class LinkNextHopEnum(Enum):
     """
-    LinkNextHop_Enum
+    LinkNextHopEnum
 
     Link next hop
 
-    """
+    .. data:: NONE = 1
+
+    	No next hop
+
+    .. data:: IPV4_ADDRESS = 2
+
+    	IPv4 next-hop address
 
     """
 
-    No next hop
-
-    """
     NONE = 1
 
-    """
-
-    IPv4 next\-hop address
-
-    """
     IPV4_ADDRESS = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['LinkNextHop_Enum']
+        return meta._meta_table['LinkNextHopEnum']
 
 
-class MplsLcacFloodingIgp_Enum(Enum):
+class MplsLcacFloodingIgpEnum(Enum):
     """
-    MplsLcacFloodingIgp_Enum
+    MplsLcacFloodingIgpEnum
 
     Mpls lcac flooding igp
 
-    """
+    .. data:: OSPF = 0
+
+    	OSPF
 
     """
 
-    OSPF
-
-    """
     OSPF = 0
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsLcacFloodingIgp_Enum']
+        return meta._meta_table['MplsLcacFloodingIgpEnum']
 
 
-class MplsTeAffinityValue_Enum(Enum):
+class MplsTeAffinityValueEnum(Enum):
     """
-    MplsTeAffinityValue_Enum
+    MplsTeAffinityValueEnum
 
     Mpls te affinity value
 
-    """
+    .. data:: HEX_VALUE = 1
+
+    	Affinity value in Hex number
+
+    .. data:: BIT_POSITION = 2
+
+    	Affinity value by Bit-Position
 
     """
 
-    Affinity value in Hex number
-
-    """
     HEX_VALUE = 1
 
-    """
-
-    Affinity value by Bit\-Position
-
-    """
     BIT_POSITION = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeAffinityValue_Enum']
+        return meta._meta_table['MplsTeAffinityValueEnum']
 
 
-class MplsTeAutorouteMetric_Enum(Enum):
+class MplsTeAutorouteMetricEnum(Enum):
     """
-    MplsTeAutorouteMetric_Enum
+    MplsTeAutorouteMetricEnum
 
     Mpls te autoroute metric
 
-    """
+    .. data:: RELATIVE = 1
+
+    	Relative
+
+    .. data:: ABSOLUTE = 2
+
+    	Absolute
+
+    .. data:: CONSTANT = 3
+
+    	Constant
 
     """
 
-    Relative
-
-    """
     RELATIVE = 1
 
-    """
-
-    Absolute
-
-    """
     ABSOLUTE = 2
 
-    """
-
-    Constant
-
-    """
     CONSTANT = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeAutorouteMetric_Enum']
+        return meta._meta_table['MplsTeAutorouteMetricEnum']
 
 
-class MplsTeBackupBandwidthClass_Enum(Enum):
+class MplsTeBackupBandwidthClassEnum(Enum):
     """
-    MplsTeBackupBandwidthClass_Enum
+    MplsTeBackupBandwidthClassEnum
 
     Mpls te backup bandwidth class
 
-    """
+    .. data:: CLASS0 = 0
+
+    	Class 0
+
+    .. data:: CLASS1 = 1
+
+    	Class 1
+
+    .. data:: ANY_CLASS = 9
+
+    	Any Class
 
     """
 
-    Class 0
-
-    """
     CLASS0 = 0
 
-    """
-
-    Class 1
-
-    """
     CLASS1 = 1
 
-    """
-
-    Any Class
-
-    """
     ANY_CLASS = 9
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeBackupBandwidthClass_Enum']
+        return meta._meta_table['MplsTeBackupBandwidthClassEnum']
 
 
-class MplsTeBackupBandwidthPool_Enum(Enum):
+class MplsTeBackupBandwidthPoolEnum(Enum):
     """
-    MplsTeBackupBandwidthPool_Enum
+    MplsTeBackupBandwidthPoolEnum
 
     Mpls te backup bandwidth pool
 
-    """
+    .. data:: ANY_POOL = 1
+
+    	Any Pool
+
+    .. data:: GLOBAL_POOL = 2
+
+    	Global Pool
+
+    .. data:: SUB_POOL = 4
+
+    	Sub Pool
 
     """
 
-    Any Pool
-
-    """
     ANY_POOL = 1
 
-    """
-
-    Global Pool
-
-    """
     GLOBAL_POOL = 2
 
-    """
-
-    Sub Pool
-
-    """
     SUB_POOL = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeBackupBandwidthPool_Enum']
+        return meta._meta_table['MplsTeBackupBandwidthPoolEnum']
 
 
-class MplsTeBandwidthDste_Enum(Enum):
+class MplsTeBandwidthDsteEnum(Enum):
     """
-    MplsTeBandwidthDste_Enum
+    MplsTeBandwidthDsteEnum
 
     Mpls te bandwidth dste
 
-    """
+    .. data:: STANDARD_DSTE = 0
+
+    	IETF-Standard DSTE
+
+    .. data:: PRE_STANDARD_DSTE = 1
+
+    	Pre-Standard DSTE
 
     """
 
-    IETF\-Standard DSTE
-
-    """
     STANDARD_DSTE = 0
 
-    """
-
-    Pre\-Standard DSTE
-
-    """
     PRE_STANDARD_DSTE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeBandwidthDste_Enum']
+        return meta._meta_table['MplsTeBandwidthDsteEnum']
 
 
-class MplsTeBandwidthLimit_Enum(Enum):
+class MplsTeBandwidthLimitEnum(Enum):
     """
-    MplsTeBandwidthLimit_Enum
+    MplsTeBandwidthLimitEnum
 
     Mpls te bandwidth limit
 
-    """
+    .. data:: UNLIMITED = 64
+
+    	Unlimited
+
+    .. data:: LIMITED = 128
+
+    	Limited
 
     """
 
-    Unlimited
-
-    """
     UNLIMITED = 64
 
-    """
-
-    Limited
-
-    """
     LIMITED = 128
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeBandwidthLimit_Enum']
+        return meta._meta_table['MplsTeBandwidthLimitEnum']
 
 
-class MplsTeBfdSessionDownAction_Enum(Enum):
+class MplsTeBfdSessionDownActionEnum(Enum):
     """
-    MplsTeBfdSessionDownAction_Enum
+    MplsTeBfdSessionDownActionEnum
 
     Mpls te bfd session down action
 
-    """
+    .. data:: RE_SETUP = 1
+
+    	Tear down and resetup
 
     """
 
-    Tear down and resetup
-
-    """
     RE_SETUP = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeBfdSessionDownAction_Enum']
+        return meta._meta_table['MplsTeBfdSessionDownActionEnum']
 
 
-class MplsTeIgpProtocol_Enum(Enum):
+class MplsTeIgpProtocolEnum(Enum):
     """
-    MplsTeIgpProtocol_Enum
+    MplsTeIgpProtocolEnum
 
     Mpls te igp protocol
 
-    """
+    .. data:: NONE = 0
+
+    	Not set
+
+    .. data:: ISIS = 1
+
+    	IS IS
+
+    .. data:: OSPF = 2
+
+    	OSPF
 
     """
 
-    Not set
-
-    """
     NONE = 0
 
-    """
-
-    IS IS
-
-    """
     ISIS = 1
 
-    """
-
-    OSPF
-
-    """
     OSPF = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeIgpProtocol_Enum']
+        return meta._meta_table['MplsTeIgpProtocolEnum']
 
 
-class MplsTeLogFrrProtection_Enum(Enum):
+class MplsTeLogFrrProtectionEnum(Enum):
     """
-    MplsTeLogFrrProtection_Enum
+    MplsTeLogFrrProtectionEnum
 
     Mpls te log frr protection
 
-    """
+    .. data:: FRR_ACTIVE_PRIMARY = 1
+
+    	Track only FRR active on primary LSP
+
+    .. data:: BACKUP = 256
+
+    	backup tunnel
+
+    .. data:: FRR_READY_PRIMARY = 512
+
+    	Track only FRR ready on primary LSP
+
+    .. data:: PRIMARY = 513
+
+    	primary LSP
+
+    .. data:: ALL = 769
+
+    	all
 
     """
 
-    Track only FRR active on primary LSP
-
-    """
     FRR_ACTIVE_PRIMARY = 1
 
-    """
-
-    backup tunnel
-
-    """
     BACKUP = 256
 
-    """
-
-    Track only FRR ready on primary LSP
-
-    """
     FRR_READY_PRIMARY = 512
 
-    """
-
-    primary LSP
-
-    """
     PRIMARY = 513
 
-    """
-
-    all
-
-    """
     ALL = 769
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeLogFrrProtection_Enum']
+        return meta._meta_table['MplsTeLogFrrProtectionEnum']
 
 
-class MplsTeOtnApsProtectionMode_Enum(Enum):
+class MplsTeOtnApsProtectionEnum(Enum):
     """
-    MplsTeOtnApsProtectionMode_Enum
-
-    Mpls te otn aps protection mode
-
-    """
-
-    """
-
-    Revertive
-
-    """
-    REVERTIVE = 1
-
-    """
-
-    Non Revertive
-
-    """
-    NON_REVERTIVE = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeOtnApsProtectionMode_Enum']
-
-
-class MplsTeOtnApsProtection_Enum(Enum):
-    """
-    MplsTeOtnApsProtection_Enum
+    MplsTeOtnApsProtectionEnum
 
     Mpls te otn aps protection
 
-    """
+    .. data:: Y_1PLUS1_UNIDIR_NO_APS = 4
+
+    	1PLUS1 UNIDIR NO APS
+
+    .. data:: Y_1PLUS1_UNIDIR_APS = 8
+
+    	1PLUS1 UNIDIR APS
+
+    .. data:: Y_1PLUS1_BDIR_APS = 16
+
+    	1PLUS1 BIDIR APS
+
+    .. data:: Y_1PLUS1PLUS_R_BIDIR_APS = 32
+
+    	1PLUS1PLUS R BIDIR APS
 
     """
 
-    1PLUS1 UNIDIR NO APS
-
-    """
     Y_1PLUS1_UNIDIR_NO_APS = 4
 
-    """
-
-    1PLUS1 UNIDIR APS
-
-    """
     Y_1PLUS1_UNIDIR_APS = 8
 
-    """
-
-    1PLUS1 BIDIR APS
-
-    """
     Y_1PLUS1_BDIR_APS = 16
 
-    """
-
-    1PLUS1PLUS R BIDIR APS
-
-    """
     Y_1PLUS1PLUS_R_BIDIR_APS = 32
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeOtnApsProtection_Enum']
+        return meta._meta_table['MplsTeOtnApsProtectionEnum']
 
 
-class MplsTeOtnSncMode_Enum(Enum):
+class MplsTeOtnApsProtectionModeEnum(Enum):
     """
-    MplsTeOtnSncMode_Enum
+    MplsTeOtnApsProtectionModeEnum
+
+    Mpls te otn aps protection mode
+
+    .. data:: REVERTIVE = 1
+
+    	Revertive
+
+    .. data:: NON_REVERTIVE = 2
+
+    	Non Revertive
+
+    """
+
+    REVERTIVE = 1
+
+    NON_REVERTIVE = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeOtnApsProtectionModeEnum']
+
+
+class MplsTeOtnSncModeEnum(Enum):
+    """
+    MplsTeOtnSncModeEnum
 
     Mpls te otn snc mode
 
-    """
+    .. data:: SNC_N = 1
+
+    	SNC N
+
+    .. data:: SNC_I = 2
+
+    	SNC I
+
+    .. data:: SNC_S = 3
+
+    	SNC S
 
     """
 
-    SNC N
-
-    """
     SNC_N = 1
 
-    """
-
-    SNC I
-
-    """
     SNC_I = 2
 
-    """
-
-    SNC S
-
-    """
     SNC_S = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeOtnSncMode_Enum']
+        return meta._meta_table['MplsTeOtnSncModeEnum']
 
 
-class MplsTePathDiversityConformance_Enum(Enum):
+class MplsTePathDiversityConformanceEnum(Enum):
     """
-    MplsTePathDiversityConformance_Enum
+    MplsTePathDiversityConformanceEnum
 
     Mpls te path diversity conformance
 
-    """
+    .. data:: STRICT = 0
+
+    	Strict
+
+    .. data:: BEST_EFFORT = 1
+
+    	Best effort
 
     """
 
-    Strict
-
-    """
     STRICT = 0
 
-    """
-
-    Best effort
-
-    """
     BEST_EFFORT = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTePathDiversityConformance_Enum']
+        return meta._meta_table['MplsTePathDiversityConformanceEnum']
 
 
-class MplsTePathOptionProperty_Enum(Enum):
+class MplsTePathOptionEnum(Enum):
     """
-    MplsTePathOptionProperty_Enum
-
-    Mpls te path option property
-
-    """
-
-    """
-
-    No property
-
-    """
-    NONE = 0
-
-    """
-
-    Path is not a canditate forreoptimization
-
-    """
-    LOCKDOWN = 1
-
-    """
-
-    Explicit path does not require topology
-    database
-
-    """
-    VERBATIM = 4
-
-    """
-
-    Dynamic path found by PCE server
-
-    """
-    PCE = 8
-
-    """
-
-    Segment Routing path
-
-    """
-    SEGMENT_ROUTING = 16
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTePathOptionProperty_Enum']
-
-
-class MplsTePathOptionProtection_Enum(Enum):
-    """
-    MplsTePathOptionProtection_Enum
-
-    Mpls te path option protection
-
-    """
-
-    """
-
-    Active path
-
-    """
-    ACTIVE = 0
-
-    """
-
-    Protecting Path
-
-    """
-    PROTECTING = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTePathOptionProtection_Enum']
-
-
-class MplsTePathOption_Enum(Enum):
-    """
-    MplsTePathOption_Enum
+    MplsTePathOptionEnum
 
     Mpls te path option
 
-    """
+    .. data:: NOT_SET = 0
+
+    	Not Set
+
+    .. data:: DYNAMIC = 1
+
+    	Dynamic
+
+    .. data:: EXPLICIT_NAME = 3
+
+    	Explicit, identified by name
+
+    .. data:: EXPLICIT_NUMBER = 4
+
+    	Explicit, identified by number
+
+    .. data:: NO_ERO = 5
+
+    	No ERO
+
+    .. data:: SR = 6
+
+    	Segment routing
 
     """
 
-    Not Set
-
-    """
     NOT_SET = 0
 
-    """
-
-    Dynamic
-
-    """
     DYNAMIC = 1
 
-    """
-
-    Explicit, identified by name
-
-    """
     EXPLICIT_NAME = 3
 
-    """
-
-    Explicit, identified by number
-
-    """
     EXPLICIT_NUMBER = 4
 
-    """
-
-    No ERO
-
-    """
     NO_ERO = 5
 
-    """
-
-    Segment routing
-
-    """
     SR = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTePathOption_Enum']
+        return meta._meta_table['MplsTePathOptionEnum']
 
 
-class MplsTePathSelectionInvalidationTimerExpire_Enum(Enum):
+class MplsTePathOptionPropertyEnum(Enum):
     """
-    MplsTePathSelectionInvalidationTimerExpire_Enum
+    MplsTePathOptionPropertyEnum
+
+    Mpls te path option property
+
+    .. data:: NONE = 0
+
+    	No property
+
+    .. data:: LOCKDOWN = 1
+
+    	Path is not a canditate forreoptimization
+
+    .. data:: VERBATIM = 4
+
+    	Explicit path does not require topology
+
+    	database
+
+    .. data:: PCE = 8
+
+    	Dynamic path found by PCE server
+
+    .. data:: SEGMENT_ROUTING = 16
+
+    	Segment Routing path
+
+    """
+
+    NONE = 0
+
+    LOCKDOWN = 1
+
+    VERBATIM = 4
+
+    PCE = 8
+
+    SEGMENT_ROUTING = 16
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTePathOptionPropertyEnum']
+
+
+class MplsTePathOptionProtectionEnum(Enum):
+    """
+    MplsTePathOptionProtectionEnum
+
+    Mpls te path option protection
+
+    .. data:: ACTIVE = 0
+
+    	Active path
+
+    .. data:: PROTECTING = 1
+
+    	Protecting Path
+
+    """
+
+    ACTIVE = 0
+
+    PROTECTING = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTePathOptionProtectionEnum']
+
+
+class MplsTePathSelectionInvalidationTimerExpireEnum(Enum):
+    """
+    MplsTePathSelectionInvalidationTimerExpireEnum
 
     Mpls te path selection invalidation timer expire
 
-    """
+    .. data:: TUNNEL_ACTION_TEAR = 1
+
+    	Tear down tunnel.
+
+    .. data:: TUNNEL_ACTION_DROP = 2
+
+    	Drop tunnel traffic.
 
     """
 
-    Tear down tunnel.
-
-    """
     TUNNEL_ACTION_TEAR = 1
 
-    """
-
-    Drop tunnel traffic.
-
-    """
     TUNNEL_ACTION_DROP = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTePathSelectionInvalidationTimerExpire_Enum']
+        return meta._meta_table['MplsTePathSelectionInvalidationTimerExpireEnum']
 
 
-class MplsTePathSelectionMetric_Enum(Enum):
+class MplsTePathSelectionMetricEnum(Enum):
     """
-    MplsTePathSelectionMetric_Enum
+    MplsTePathSelectionMetricEnum
 
     Mpls te path selection metric
 
-    """
+    .. data:: IGP = 1
+
+    	IGP Metric
+
+    .. data:: TE = 2
+
+    	TE Metric
 
     """
 
-    IGP Metric
-
-    """
     IGP = 1
 
-    """
-
-    TE Metric
-
-    """
     TE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTePathSelectionMetric_Enum']
+        return meta._meta_table['MplsTePathSelectionMetricEnum']
 
 
-class MplsTePathSelectionSegmentRoutingAdjacencyProtection_Enum(Enum):
+class MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum(Enum):
     """
-    MplsTePathSelectionSegmentRoutingAdjacencyProtection_Enum
+    MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum
 
     Mpls te path selection segment routing adjacency
+
     protection
 
-    """
+    .. data:: NOT_SET = 0
+
+    	Any segment can be used in a path.
+
+    .. data:: ADJ_UNPROTECTED = 1
+
+    	Only unprotected adjacency segments can be used
+
+    	in a path.
+
+    .. data:: ADJ_PROTECTED = 2
+
+    	Only protected adjacency segments can be used
+
+    	in a path.
 
     """
 
-    Any segment can be used in a path.
-
-    """
     NOT_SET = 0
 
-    """
-
-    Only unprotected adjacency segments can be used
-    in a path.
-
-    """
     ADJ_UNPROTECTED = 1
 
-    """
-
-    Only protected adjacency segments can be used
-    in a path.
-
-    """
     ADJ_PROTECTED = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTePathSelectionSegmentRoutingAdjacencyProtection_Enum']
+        return meta._meta_table['MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum']
 
 
-class MplsTePathSelectionTiebreaker_Enum(Enum):
+class MplsTePathSelectionTiebreakerEnum(Enum):
     """
-    MplsTePathSelectionTiebreaker_Enum
+    MplsTePathSelectionTiebreakerEnum
 
     Mpls te path selection tiebreaker
 
-    """
+    .. data:: MIN_FILL = 1
+
+    	Prefer the path with the least-utilized links
+
+    .. data:: MAX_FILL = 2
+
+    	Prefer the path with the most-utilized links
+
+    .. data:: RANDOM = 3
+
+    	Prefer a path with links utilized randomly
 
     """
 
-    Prefer the path with the least\-utilized links
-
-    """
     MIN_FILL = 1
 
-    """
-
-    Prefer the path with the most\-utilized links
-
-    """
     MAX_FILL = 2
 
-    """
-
-    Prefer a path with links utilized randomly
-
-    """
     RANDOM = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTePathSelectionTiebreaker_Enum']
+        return meta._meta_table['MplsTePathSelectionTiebreakerEnum']
 
 
-class MplsTeSigNameOption_Enum(Enum):
+class MplsTeSigNameOptionEnum(Enum):
     """
-    MplsTeSigNameOption_Enum
+    MplsTeSigNameOptionEnum
 
     Mpls te sig name option
 
-    """
+    .. data:: NONE = 0
+
+    	None
+
+    .. data:: ADDRESS = 1
+
+    	Address
+
+    .. data:: NAME = 2
+
+    	Name
 
     """
 
-    None
-
-    """
     NONE = 0
 
-    """
-
-    Address
-
-    """
     ADDRESS = 1
 
-    """
-
-    Name
-
-    """
     NAME = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeSigNameOption_Enum']
+        return meta._meta_table['MplsTeSigNameOptionEnum']
 
 
-class MplsTeSignaledLabel_Enum(Enum):
+class MplsTeSignaledLabelEnum(Enum):
     """
-    MplsTeSignaledLabel_Enum
+    MplsTeSignaledLabelEnum
 
     Mpls te signaled label
 
-    """
+    .. data:: NOT_SET = 0
+
+    	Not Set
+
+    .. data:: DWDM = 1
+
+    	DWDM Label (RFC 6205), 50GHz channel spacing
 
     """
 
-    Not Set
-
-    """
     NOT_SET = 0
 
-    """
-
-    DWDM Label (RFC 6205), 50GHz channel spacing
-
-    """
     DWDM = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeSignaledLabel_Enum']
+        return meta._meta_table['MplsTeSignaledLabelEnum']
 
 
-class MplsTeSwitchingCap_Enum(Enum):
+class MplsTeSwitchingCapEnum(Enum):
     """
-    MplsTeSwitchingCap_Enum
+    MplsTeSwitchingCapEnum
 
     Mpls te switching cap
 
-    """
+    .. data:: PSC1 = 1
+
+    	PSC1
+
+    .. data:: LSC = 150
+
+    	LSC
+
+    .. data:: FSC = 200
+
+    	FSC
 
     """
 
-    PSC1
-
-    """
     PSC1 = 1
 
-    """
-
-    LSC
-
-    """
     LSC = 150
 
-    """
-
-    FSC
-
-    """
     FSC = 200
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeSwitchingCap_Enum']
+        return meta._meta_table['MplsTeSwitchingCapEnum']
 
 
-class MplsTeSwitchingEncode_Enum(Enum):
+class MplsTeSwitchingEncodeEnum(Enum):
     """
-    MplsTeSwitchingEncode_Enum
+    MplsTeSwitchingEncodeEnum
 
     Mpls te switching encode
 
-    """
+    .. data:: NONE = 0
+
+    	None
+
+    .. data:: PACKET = 1
+
+    	Packet
+
+    .. data:: ETHERNET = 2
+
+    	Ethernet
+
+    .. data:: SONDET_SDH = 5
+
+    	SONET SDH
 
     """
 
-    None
-
-    """
     NONE = 0
 
-    """
-
-    Packet
-
-    """
     PACKET = 1
 
-    """
-
-    Ethernet
-
-    """
     ETHERNET = 2
 
-    """
-
-    SONET SDH
-
-    """
     SONDET_SDH = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeSwitchingEncode_Enum']
+        return meta._meta_table['MplsTeSwitchingEncodeEnum']
 
 
-class MplsTeSwitchingEncoding_Enum(Enum):
+class MplsTeSwitchingEncodingEnum(Enum):
     """
-    MplsTeSwitchingEncoding_Enum
+    MplsTeSwitchingEncodingEnum
 
     Mpls te switching encoding
 
-    """
+    .. data:: PACKET = 1
+
+    	Packet
+
+    .. data:: ETHERNET = 2
+
+    	Ethernet
+
+    .. data:: SONDET_SDH = 5
+
+    	SONET SDH
 
     """
 
-    Packet
-
-    """
     PACKET = 1
 
-    """
-
-    Ethernet
-
-    """
     ETHERNET = 2
 
-    """
-
-    SONET SDH
-
-    """
     SONDET_SDH = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeSwitchingEncoding_Enum']
+        return meta._meta_table['MplsTeSwitchingEncodingEnum']
 
 
-class MplsTeSwitchingIndex_Enum(Enum):
+class MplsTeSwitchingIndexEnum(Enum):
     """
-    MplsTeSwitchingIndex_Enum
+    MplsTeSwitchingIndexEnum
 
     Mpls te switching index
 
-    """
+    .. data:: LINK = 255
+
+    	Link
 
     """
 
-    Link
-
-    """
     LINK = 255
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeSwitchingIndex_Enum']
+        return meta._meta_table['MplsTeSwitchingIndexEnum']
 
 
-class MplsTeTunnelAffinity_Enum(Enum):
+class MplsTeTunnelAffinityEnum(Enum):
     """
-    MplsTeTunnelAffinity_Enum
+    MplsTeTunnelAffinityEnum
 
     Mpls te tunnel affinity
 
-    """
+    .. data:: INCLUDE = 1
+
+    	Include Affinity
+
+    .. data:: INCLUDE_STRICT = 2
+
+    	Strictly Include Affinity
+
+    .. data:: EXCLUDE = 3
+
+    	Exclude Affinity
+
+    .. data:: EXCLUDE_ALL = 4
+
+    	Exclude All Affinities
+
+    .. data:: IGNORE = 5
+
+    	Ignore Affinity
 
     """
 
-    Include Affinity
-
-    """
     INCLUDE = 1
 
-    """
-
-    Strictly Include Affinity
-
-    """
     INCLUDE_STRICT = 2
 
-    """
-
-    Exclude Affinity
-
-    """
     EXCLUDE = 3
 
-    """
-
-    Exclude All Affinities
-
-    """
     EXCLUDE_ALL = 4
 
-    """
-
-    Ignore Affinity
-
-    """
     IGNORE = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTeTunnelAffinity_Enum']
+        return meta._meta_table['MplsTeTunnelAffinityEnum']
 
 
-class MplsTesrlgExclude_Enum(Enum):
+class MplsTesrlgExcludeEnum(Enum):
     """
-    MplsTesrlgExclude_Enum
+    MplsTesrlgExcludeEnum
 
     Mpls tesrlg exclude
 
-    """
+    .. data:: MANDATORY = 1
+
+    	SRLG Mandatory Exclude
+
+    .. data:: PREFERRED = 2
+
+    	SRLG Preferred Exclude
+
+    .. data:: WEIGHTED = 3
+
+    	SRLG Weighted Exclude
 
     """
 
-    SRLG Mandatory Exclude
-
-    """
     MANDATORY = 1
 
-    """
-
-    SRLG Preferred Exclude
-
-    """
     PREFERRED = 2
 
-    """
-
-    SRLG Weighted Exclude
-
-    """
     WEIGHTED = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['MplsTesrlgExclude_Enum']
+        return meta._meta_table['MplsTesrlgExcludeEnum']
 
 
-class OspfAreaMode_Enum(Enum):
+class OspfAreaModeEnum(Enum):
     """
-    OspfAreaMode_Enum
+    OspfAreaModeEnum
 
     Ospf area mode
 
-    """
+    .. data:: OSPF_INT = 0
+
+    	OSPF area in integer format
+
+    .. data:: OSPFIP_ADDR = 1
+
+    	OSPF area in IP address format
 
     """
 
-    OSPF area in integer format
-
-    """
     OSPF_INT = 0
 
-    """
-
-    OSPF area in IP address format
-
-    """
     OSPFIP_ADDR = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['OspfAreaMode_Enum']
+        return meta._meta_table['OspfAreaModeEnum']
 
 
-class OtnDestination_Enum(Enum):
+class OtnDestinationEnum(Enum):
     """
-    OtnDestination_Enum
+    OtnDestinationEnum
 
     Otn destination
 
-    """
+    .. data:: UN_NUMBER_ED = 1
+
+    	UNICAST=0
 
     """
 
-    UNICAST=0
-
-    """
     UN_NUMBER_ED = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['OtnDestination_Enum']
+        return meta._meta_table['OtnDestinationEnum']
 
 
-class OtnPayload_Enum(Enum):
+class OtnPayloadEnum(Enum):
     """
-    OtnPayload_Enum
+    OtnPayloadEnum
 
     Otn payload
 
-    """
+    .. data:: UNKNOWN = 0
+
+    	Payload unknown
+
+    .. data:: BMP = 50
+
+    	Bmp Payload
+
+    .. data:: GFP_F = 54
+
+    	Gfp_F Payload
+
+    .. data:: GMP = 55
+
+    	GMP Payload
+
+    .. data:: GFP_F_EXT = 70
+
+    	Gfp_F_EXT Payload
 
     """
 
-    Payload unknown
-
-    """
     UNKNOWN = 0
 
-    """
-
-    Bmp Payload
-
-    """
     BMP = 50
 
-    """
-
-    Gfp\_F Payload
-
-    """
     GFP_F = 54
 
-    """
-
-    GMP Payload
-
-    """
     GMP = 55
 
-    """
-
-    Gfp\_F\_EXT Payload
-
-    """
     GFP_F_EXT = 70
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['OtnPayload_Enum']
+        return meta._meta_table['OtnPayloadEnum']
 
 
-class OtnSignaledBandwidthFlexFraming_Enum(Enum):
+class OtnSignaledBandwidthEnum(Enum):
     """
-    OtnSignaledBandwidthFlexFraming_Enum
-
-    Otn signaled bandwidth flex framing
-
-    """
-
-    """
-
-    CBR
-
-    """
-    CBR = 20
-
-    """
-
-    GFP fixed framing type
-
-    """
-    FRAMED_GFP_FIXED = 21
-
-    """
-
-    GFP resizeable framing type
-
-    """
-    FRAMED_GFP_RESIZE = 22
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['OtnSignaledBandwidthFlexFraming_Enum']
-
-
-class OtnSignaledBandwidth_Enum(Enum):
-    """
-    OtnSignaledBandwidth_Enum
+    OtnSignaledBandwidthEnum
 
     Otn signaled bandwidth
 
-    """
+    .. data:: ODU1 = 1
+
+    	Signalled BW for ODU1
+
+    .. data:: ODU2 = 2
+
+    	Signalled BW for ODU2
+
+    .. data:: ODU3 = 3
+
+    	Signalled BW for ODU3
+
+    .. data:: ODU4 = 4
+
+    	Signalled BW for ODU4
+
+    .. data:: ODU0 = 10
+
+    	Signalled BW for ODU0
+
+    .. data:: ODU2E = 11
+
+    	Signalled BW for ODU2e
+
+    .. data:: OD_UFLEX_CBR = 20
+
+    	Signalled BW for ODUflex CBR
+
+    .. data:: OD_UFLEX_GFP_RESIZE = 21
+
+    	Signalled BW for ODUflex GFP Resizable
+
+    .. data:: OD_UFLEX_GFP_NOT_RESIZE = 22
+
+    	Signalled BW for ODUflex GFP not Resizable
+
+    .. data:: ODU1E = 23
+
+    	Signalled BW for ODU1e
+
+    .. data:: ODU1F = 24
+
+    	Signalled BW for ODU1f
+
+    .. data:: ODU2F = 25
+
+    	Signalled BW for ODU2f
+
+    .. data:: ODU3E1 = 26
+
+    	Signalled BW for ODU3e1
+
+    .. data:: ODU3E2 = 27
+
+    	Signalled BW for ODU3e2
 
     """
 
-    Signalled BW for ODU1
-
-    """
     ODU1 = 1
 
-    """
-
-    Signalled BW for ODU2
-
-    """
     ODU2 = 2
 
-    """
-
-    Signalled BW for ODU3
-
-    """
     ODU3 = 3
 
-    """
-
-    Signalled BW for ODU4
-
-    """
     ODU4 = 4
 
-    """
-
-    Signalled BW for ODU0
-
-    """
     ODU0 = 10
 
-    """
-
-    Signalled BW for ODU2e
-
-    """
     ODU2E = 11
 
-    """
-
-    Signalled BW for ODUflex CBR
-
-    """
     OD_UFLEX_CBR = 20
 
-    """
-
-    Signalled BW for ODUflex GFP Resizable
-
-    """
     OD_UFLEX_GFP_RESIZE = 21
 
-    """
-
-    Signalled BW for ODUflex GFP not Resizable
-
-    """
     OD_UFLEX_GFP_NOT_RESIZE = 22
 
-    """
-
-    Signalled BW for ODU1e
-
-    """
     ODU1E = 23
 
-    """
-
-    Signalled BW for ODU1f
-
-    """
     ODU1F = 24
 
-    """
-
-    Signalled BW for ODU2f
-
-    """
     ODU2F = 25
 
-    """
-
-    Signalled BW for ODU3e1
-
-    """
     ODU3E1 = 26
 
-    """
-
-    Signalled BW for ODU3e2
-
-    """
     ODU3E2 = 27
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['OtnSignaledBandwidth_Enum']
+        return meta._meta_table['OtnSignaledBandwidthEnum']
 
 
-class OtnStaticUni_Enum(Enum):
+class OtnSignaledBandwidthFlexFramingEnum(Enum):
     """
-    OtnStaticUni_Enum
+    OtnSignaledBandwidthFlexFramingEnum
+
+    Otn signaled bandwidth flex framing
+
+    .. data:: CBR = 20
+
+    	CBR
+
+    .. data:: FRAMED_GFP_FIXED = 21
+
+    	GFP fixed framing type
+
+    .. data:: FRAMED_GFP_RESIZE = 22
+
+    	GFP resizeable framing type
+
+    """
+
+    CBR = 20
+
+    FRAMED_GFP_FIXED = 21
+
+    FRAMED_GFP_RESIZE = 22
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['OtnSignaledBandwidthFlexFramingEnum']
+
+
+class OtnStaticUniEnum(Enum):
+    """
+    OtnStaticUniEnum
 
     Otn static uni
 
-    """
+    .. data:: UNKNOWN = 0
+
+    	Uni-Type None
+
+    .. data:: XC = 1
+
+    	Uni-Type XC
+
+    .. data:: TERMINATION = 2
+
+    	Uni-Type Termination
 
     """
 
-    Uni\-Type None
-
-    """
     UNKNOWN = 0
 
-    """
-
-    Uni\-Type XC
-
-    """
     XC = 1
 
-    """
-
-    Uni\-Type Termination
-
-    """
     TERMINATION = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['OtnStaticUni_Enum']
+        return meta._meta_table['OtnStaticUniEnum']
 
 
-class PathInvalidationAction_Enum(Enum):
+class PathInvalidationActionEnum(Enum):
     """
-    PathInvalidationAction_Enum
+    PathInvalidationActionEnum
 
     Path invalidation action
 
-    """
+    .. data:: TEAR = 1
+
+    	Tear
+
+    .. data:: DROP = 2
+
+    	Drop
 
     """
 
-    Tear
-
-    """
     TEAR = 1
 
-    """
-
-    Drop
-
-    """
     DROP = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['PathInvalidationAction_Enum']
+        return meta._meta_table['PathInvalidationActionEnum']
 
 
-class RoutePriorityRole_Enum(Enum):
+class RoutePriorityRoleEnum(Enum):
     """
-    RoutePriorityRole_Enum
+    RoutePriorityRoleEnum
 
     Route priority role
 
-    """
+    .. data:: ROUTE_PRIORITY_ROLE_HEAD_BACK_UP = 0
+
+    	TE Route Priority Role Head Backup
+
+    .. data:: ROUTE_PRIORITY_ROLE_HEAD_PRIMARY = 1
+
+    	TE Route Priority Role Head Primary
+
+    .. data:: ROUTE_PRIORITY_ROLE_MIDDLE = 2
+
+    	TE Route Priority Role Middle
 
     """
 
-    TE Route Priority Role Head Backup
-
-    """
     ROUTE_PRIORITY_ROLE_HEAD_BACK_UP = 0
 
-    """
-
-    TE Route Priority Role Head Primary
-
-    """
     ROUTE_PRIORITY_ROLE_HEAD_PRIMARY = 1
 
-    """
-
-    TE Route Priority Role Middle
-
-    """
     ROUTE_PRIORITY_ROLE_MIDDLE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['RoutePriorityRole_Enum']
+        return meta._meta_table['RoutePriorityRoleEnum']
 
 
-class SrPrepend_Enum(Enum):
+class SrPrependEnum(Enum):
     """
-    SrPrepend_Enum
+    SrPrependEnum
 
     Sr prepend
 
-    """
+    .. data:: NONE_TYPE = 0
+
+    	NoneType
+
+    .. data:: NEXT_LABEL = 1
+
+    	Next Label
+
+    .. data:: BGP_N_HOP = 2
+
+    	BGP NHOP
 
     """
 
-    NoneType
-
-    """
     NONE_TYPE = 0
 
-    """
-
-    Next Label
-
-    """
     NEXT_LABEL = 1
 
-    """
-
-    BGP NHOP
-
-    """
     BGP_N_HOP = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['SrPrepend_Enum']
+        return meta._meta_table['SrPrependEnum']
 
 
 
@@ -1651,7 +1527,7 @@ class MplsTe(object):
         .. attribute:: bandwidth_constraint_model
         
         	Diff\-Serv Traffic\-Engineering Bandwidth Constraint Model
-        	**type**\: :py:class:`BandwidthConstraint_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.BandwidthConstraint_Enum>`
+        	**type**\: :py:class:`BandwidthConstraintEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.BandwidthConstraintEnum>`
         
         .. attribute:: classes
         
@@ -1661,7 +1537,7 @@ class MplsTe(object):
         .. attribute:: mode_ietf
         
         	Diff\-Serv Traffic\-Engineering IETF mode
-        	**type**\: :py:class:`IetfMode_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.IetfMode_Enum>`
+        	**type**\: :py:class:`IetfModeEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.IetfModeEnum>`
         
         
 
@@ -1759,8 +1635,6 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.class_number is not None:
                         return True
 
@@ -1773,10 +1647,6 @@ class MplsTe(object):
                     if self.unused is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1796,17 +1666,11 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.class_ is not None:
                     for child_ref in self.class_:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1826,24 +1690,15 @@ class MplsTe(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.bandwidth_constraint_model is not None:
                 return True
 
             if self.classes is not None and self.classes._has_data():
                 return True
 
-            if self.classes is not None and self.classes.is_presence():
-                return True
-
             if self.mode_ietf is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1928,7 +1783,7 @@ class MplsTe(object):
         .. attribute:: log_frr_protection
         
         	Log FRR Protection messages
-        	**type**\: :py:class:`MplsTeLogFrrProtection_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeLogFrrProtection_Enum>`
+        	**type**\: :py:class:`MplsTeLogFrrProtectionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeLogFrrProtectionEnum>`
         
         .. attribute:: log_head
         
@@ -2014,12 +1869,12 @@ class MplsTe(object):
         .. attribute:: path_selection_metric
         
         	Metric to use in path calculation
-        	**type**\: :py:class:`MplsTePathSelectionMetric_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric_Enum>`
+        	**type**\: :py:class:`MplsTePathSelectionMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
         
         .. attribute:: path_selection_tiebreaker
         
         	CSPF tiebreaker to use in path calculation
-        	**type**\: :py:class:`MplsTePathSelectionTiebreaker_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionTiebreaker_Enum>`
+        	**type**\: :py:class:`MplsTePathSelectionTiebreakerEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionTiebreakerEnum>`
         
         .. attribute:: pce_attributes
         
@@ -2212,7 +2067,7 @@ class MplsTe(object):
                 .. attribute:: value_type
                 
                 	Affinity value type
-                	**type**\: :py:class:`MplsTeAffinityValue_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeAffinityValue_Enum>`
+                	**type**\: :py:class:`MplsTeAffinityValueEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeAffinityValueEnum>`
                 
                 
 
@@ -2241,8 +2096,6 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.affinity_name is not None:
                         return True
 
@@ -2252,10 +2105,6 @@ class MplsTe(object):
                     if self.value_type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2275,17 +2124,11 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.affinity_mapping is not None:
                     for child_ref in self.affinity_mapping:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2316,12 +2159,12 @@ class MplsTe(object):
             .. attribute:: p2mpte_attributes
             
             	P2MP\-TE Tunnel AttributeSets Table
-            	**type**\: :py:class:`P2mpteAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes>`
+            	**type**\: :py:class:`P2MpteAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes>`
             
             .. attribute:: p2p_te_attributes
             
             	P2P\-TE Tunnel AttributeSets Table
-            	**type**\: :py:class:`P2pTeAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes>`
+            	**type**\: :py:class:`P2PTeAttributes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes>`
             
             .. attribute:: path_option_attributes
             
@@ -2348,9 +2191,9 @@ class MplsTe(object):
                 self.auto_mesh_attributes.parent = self
                 self.otn_pp_attributes = MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes()
                 self.otn_pp_attributes.parent = self
-                self.p2mpte_attributes = MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes()
+                self.p2mpte_attributes = MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes()
                 self.p2mpte_attributes.parent = self
-                self.p2p_te_attributes = MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes()
+                self.p2p_te_attributes = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes()
                 self.p2p_te_attributes.parent = self
                 self.path_option_attributes = MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes()
                 self.path_option_attributes.parent = self
@@ -2467,12 +2310,22 @@ class MplsTe(object):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: mask
                         
                         	Affinity mask
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -2502,8 +2355,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.affinity is not None:
                                 return True
 
@@ -2511,10 +2362,6 @@ class MplsTe(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -2574,8 +2421,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bandwidth_change_message is not None:
                                 return True
 
@@ -2588,10 +2433,6 @@ class MplsTe(object):
                             if self.state_message is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2700,7 +2541,7 @@ class MplsTe(object):
                             .. attribute:: affinity_type
                             
                             	The type of the affinity entry
-                            	**type**\: :py:class:`MplsTeTunnelAffinity_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity_Enum>`
+                            	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                             
                             
 
@@ -2759,8 +2600,6 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.affinity1 is not None:
                                     return True
 
@@ -2796,10 +2635,6 @@ class MplsTe(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
@@ -2819,17 +2654,11 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.new_style_affinity is not None:
                                 for child_ref in self.new_style_affinity:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2874,17 +2703,11 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.policy_class is not None:
                                 for child in self.policy_class:
                                     if child is not None:
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2904,12 +2727,22 @@ class MplsTe(object):
                         
                         	**range:** 0..7
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: setup_priority
                         
                         	Setup Priority
                         	**type**\: int
                         
                         	**range:** 0..7
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -2939,8 +2772,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hold_priority is not None:
                                 return True
 
@@ -2948,10 +2779,6 @@ class MplsTe(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -2976,12 +2803,12 @@ class MplsTe(object):
                         .. attribute:: protected_interface_type
                         
                         	Protected\-interface address or name
-                        	**type**\: :py:class:`MplsTeSigNameOption_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSigNameOption_Enum>`
+                        	**type**\: :py:class:`MplsTeSigNameOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSigNameOptionEnum>`
                         
                         .. attribute:: source_type
                         
                         	Source address or name
-                        	**type**\: :py:class:`MplsTeSigNameOption_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSigNameOption_Enum>`
+                        	**type**\: :py:class:`MplsTeSigNameOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSigNameOptionEnum>`
                         
                         
 
@@ -3011,8 +2838,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.mp_address is not None:
                                 return True
 
@@ -3025,10 +2850,6 @@ class MplsTe(object):
                             if self.source_type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3050,21 +2871,13 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.attribute_set_name is not None:
                             return True
 
                         if self.affinity_mask is not None and self.affinity_mask._has_data():
                             return True
 
-                        if self.affinity_mask is not None and self.affinity_mask.is_presence():
-                            return True
-
                         if self.auto_backup_logging is not None and self.auto_backup_logging._has_data():
-                            return True
-
-                        if self.auto_backup_logging is not None and self.auto_backup_logging.is_presence():
                             return True
 
                         if self.enable is not None:
@@ -3073,19 +2886,10 @@ class MplsTe(object):
                         if self.new_style_affinities is not None and self.new_style_affinities._has_data():
                             return True
 
-                        if self.new_style_affinities is not None and self.new_style_affinities.is_presence():
-                            return True
-
                         if self.policy_classes is not None and self.policy_classes._has_data():
                             return True
 
-                        if self.policy_classes is not None and self.policy_classes.is_presence():
-                            return True
-
                         if self.priority is not None and self.priority._has_data():
-                            return True
-
-                        if self.priority is not None and self.priority.is_presence():
                             return True
 
                         if self.record_route is not None:
@@ -3094,13 +2898,6 @@ class MplsTe(object):
                         if self.signalled_name is not None and self.signalled_name._has_data():
                             return True
 
-                        if self.signalled_name is not None and self.signalled_name.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3120,17 +2917,11 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.auto_backup_attribute is not None:
                         for child_ref in self.auto_backup_attribute:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3295,12 +3086,22 @@ class MplsTe(object):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: mask
                         
                         	Affinity mask
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -3330,8 +3131,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.affinity is not None:
                                 return True
 
@@ -3339,10 +3138,6 @@ class MplsTe(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -3420,8 +3215,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bandwidth_change_message is not None:
                                 return True
 
@@ -3445,10 +3238,6 @@ class MplsTe(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
@@ -3466,6 +3255,11 @@ class MplsTe(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: class_or_pool_type
                         
                         	Class type for the bandwith allocation
@@ -3473,10 +3267,20 @@ class MplsTe(object):
                         
                         	**range:** 0..1
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: dste_type
                         
                         	DSTE\-standard flag
-                        	**type**\: :py:class:`MplsTeBandwidthDste_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDste_Enum>`
+                        	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -3507,8 +3311,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bandwidth is not None:
                                 return True
 
@@ -3519,10 +3321,6 @@ class MplsTe(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -3541,12 +3339,22 @@ class MplsTe(object):
                         
                         	**range:** 0..1
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: node_protection
                         
                         	Node Protection
                         	**type**\: int
                         
                         	**range:** 0..1
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -3576,8 +3384,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bandwidth_protection is not None:
                                 return True
 
@@ -3585,10 +3391,6 @@ class MplsTe(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -3696,7 +3498,7 @@ class MplsTe(object):
                             .. attribute:: affinity_type
                             
                             	The type of the affinity entry
-                            	**type**\: :py:class:`MplsTeTunnelAffinity_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity_Enum>`
+                            	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                             
                             
 
@@ -3755,8 +3557,6 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.affinity1 is not None:
                                     return True
 
@@ -3792,10 +3592,6 @@ class MplsTe(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
@@ -3815,17 +3611,11 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.new_style_affinity is not None:
                                 for child_ref in self.new_style_affinity:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3870,17 +3660,11 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.policy_class is not None:
                                 for child in self.policy_class:
                                     if child is not None:
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3900,12 +3684,22 @@ class MplsTe(object):
                         
                         	**range:** 0..7
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: setup_priority
                         
                         	Setup Priority
                         	**type**\: int
                         
                         	**range:** 0..7
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -3935,8 +3729,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hold_priority is not None:
                                 return True
 
@@ -3944,10 +3736,6 @@ class MplsTe(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -3968,30 +3756,19 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.attribute_set_name is not None:
                             return True
 
                         if self.affinity_mask is not None and self.affinity_mask._has_data():
                             return True
 
-                        if self.affinity_mask is not None and self.affinity_mask.is_presence():
-                            return True
-
                         if self.auto_mesh_logging is not None and self.auto_mesh_logging._has_data():
-                            return True
-
-                        if self.auto_mesh_logging is not None and self.auto_mesh_logging.is_presence():
                             return True
 
                         if self.autoroute_announce is not None:
                             return True
 
                         if self.bandwidth is not None and self.bandwidth._has_data():
-                            return True
-
-                        if self.bandwidth is not None and self.bandwidth.is_presence():
                             return True
 
                         if self.collection_only is not None:
@@ -4001,9 +3778,6 @@ class MplsTe(object):
                             return True
 
                         if self.fast_reroute is not None and self.fast_reroute._has_data():
-                            return True
-
-                        if self.fast_reroute is not None and self.fast_reroute.is_presence():
                             return True
 
                         if self.forward_class is not None:
@@ -4018,19 +3792,10 @@ class MplsTe(object):
                         if self.new_style_affinities is not None and self.new_style_affinities._has_data():
                             return True
 
-                        if self.new_style_affinities is not None and self.new_style_affinities.is_presence():
-                            return True
-
                         if self.policy_classes is not None and self.policy_classes._has_data():
                             return True
 
-                        if self.policy_classes is not None and self.policy_classes.is_presence():
-                            return True
-
                         if self.priority is not None and self.priority._has_data():
-                            return True
-
-                        if self.priority is not None and self.priority.is_presence():
                             return True
 
                         if self.record_route is not None:
@@ -4039,10 +3804,6 @@ class MplsTe(object):
                         if self.soft_preemption is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4062,17 +3823,11 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.auto_mesh_attribute is not None:
                         for child_ref in self.auto_mesh_attribute:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4118,12 +3873,12 @@ class MplsTe(object):
                     .. attribute:: aps_protection_mode
                     
                     	The APS protecion mode
-                    	**type**\: :py:class:`MplsTeOtnApsProtectionMode_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnApsProtectionMode_Enum>`
+                    	**type**\: :py:class:`MplsTeOtnApsProtectionModeEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnApsProtectionModeEnum>`
                     
                     .. attribute:: aps_protection_type
                     
                     	The APS protecion type
-                    	**type**\: :py:class:`MplsTeOtnApsProtection_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnApsProtection_Enum>`
+                    	**type**\: :py:class:`MplsTeOtnApsProtectionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnApsProtectionEnum>`
                     
                     .. attribute:: enable
                     
@@ -4166,7 +3921,7 @@ class MplsTe(object):
                         .. attribute:: connection_mode
                         
                         	The sub\-network connection mode
-                        	**type**\: :py:class:`MplsTeOtnSncMode_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnSncMode_Enum>`
+                        	**type**\: :py:class:`MplsTeOtnSncModeEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnSncModeEnum>`
                         
                         .. attribute:: connection_monitoring_mode
                         
@@ -4201,18 +3956,12 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.connection_mode is not None:
                                 return True
 
                             if self.connection_monitoring_mode is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4265,18 +4014,12 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.aps_hold_off is not None:
                                 return True
 
                             if self.aps_wait_to_restore is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4298,8 +4041,6 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.attribute_set_name is not None:
                             return True
 
@@ -4315,19 +4056,9 @@ class MplsTe(object):
                         if self.sub_network_connection_mode is not None and self.sub_network_connection_mode._has_data():
                             return True
 
-                        if self.sub_network_connection_mode is not None and self.sub_network_connection_mode.is_presence():
-                            return True
-
                         if self.timers is not None and self.timers._has_data():
                             return True
 
-                        if self.timers is not None and self.timers.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4347,17 +4078,11 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.otn_pp_attribute is not None:
                         for child_ref in self.otn_pp_attribute:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4366,14 +4091,14 @@ class MplsTe(object):
                     return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes']['meta_info']
 
 
-            class P2mpteAttributes(object):
+            class P2MpteAttributes(object):
                 """
                 P2MP\-TE Tunnel AttributeSets Table
                 
                 .. attribute:: p2mpte_attribute
                 
                 	P2MP\-TE Tunnel Attribute
-                	**type**\: list of :py:class:`P2mpteAttribute <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute>`
+                	**type**\: list of :py:class:`P2MpteAttribute <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute>`
                 
                 
 
@@ -4389,7 +4114,7 @@ class MplsTe(object):
                     self.p2mpte_attribute.name = 'p2mpte_attribute'
 
 
-                class P2mpteAttribute(object):
+                class P2MpteAttribute(object):
                     """
                     P2MP\-TE Tunnel Attribute
                     
@@ -4403,12 +4128,12 @@ class MplsTe(object):
                     .. attribute:: affinity_mask
                     
                     	Set the affinity flags and mask
-                    	**type**\: :py:class:`AffinityMask <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask>`
+                    	**type**\: :py:class:`AffinityMask <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.AffinityMask>`
                     
                     .. attribute:: bandwidth
                     
                     	Tunnel bandwidth requirement
-                    	**type**\: :py:class:`Bandwidth <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth>`
+                    	**type**\: :py:class:`Bandwidth <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth>`
                     
                     .. attribute:: enable
                     
@@ -4418,7 +4143,7 @@ class MplsTe(object):
                     .. attribute:: fast_reroute
                     
                     	Specify MPLS tunnel can be fast\-rerouted
-                    	**type**\: :py:class:`FastReroute <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute>`
+                    	**type**\: :py:class:`FastReroute <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.FastReroute>`
                     
                     .. attribute:: interface_bandwidth
                     
@@ -4430,17 +4155,17 @@ class MplsTe(object):
                     .. attribute:: logging
                     
                     	Log tunnel LSP messages
-                    	**type**\: :py:class:`Logging <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging>`
+                    	**type**\: :py:class:`Logging <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging>`
                     
                     .. attribute:: new_style_affinities
                     
                     	Tunnel new style affinity attributes table
-                    	**type**\: :py:class:`NewStyleAffinities <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinities>`
+                    	**type**\: :py:class:`NewStyleAffinities <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities>`
                     
                     .. attribute:: priority
                     
                     	Tunnel Setup and Hold Priorities
-                    	**type**\: :py:class:`Priority <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority>`
+                    	**type**\: :py:class:`Priority <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority>`
                     
                     .. attribute:: record_route
                     
@@ -4462,9 +4187,9 @@ class MplsTe(object):
                         self.enable = None
                         self.fast_reroute = None
                         self.interface_bandwidth = None
-                        self.logging = MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging()
+                        self.logging = MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging()
                         self.logging.parent = self
-                        self.new_style_affinities = MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinities()
+                        self.new_style_affinities = MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities()
                         self.new_style_affinities.parent = self
                         self.priority = None
                         self.record_route = None
@@ -4481,12 +4206,22 @@ class MplsTe(object):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: mask
                         
                         	Affinity mask
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -4516,8 +4251,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.affinity is not None:
                                 return True
 
@@ -4526,14 +4259,10 @@ class MplsTe(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask']['meta_info']
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.AffinityMask']['meta_info']
 
 
                     class Bandwidth(object):
@@ -4547,6 +4276,11 @@ class MplsTe(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: class_or_pool_type
                         
                         	Class type for the bandwith allocation
@@ -4554,10 +4288,20 @@ class MplsTe(object):
                         
                         	**range:** 0..1
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: dste_type
                         
                         	DSTE\-standard flag
-                        	**type**\: :py:class:`MplsTeBandwidthDste_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDste_Enum>`
+                        	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -4588,8 +4332,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bandwidth is not None:
                                 return True
 
@@ -4601,14 +4343,10 @@ class MplsTe(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth']['meta_info']
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth']['meta_info']
 
 
                     class FastReroute(object):
@@ -4622,12 +4360,22 @@ class MplsTe(object):
                         
                         	**range:** 0..1
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: node_protection
                         
                         	Node Protection
                         	**type**\: int
                         
                         	**range:** 0..1
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -4657,8 +4405,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bandwidth_protection is not None:
                                 return True
 
@@ -4667,14 +4413,10 @@ class MplsTe(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute']['meta_info']
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.FastReroute']['meta_info']
 
 
                     class Logging(object):
@@ -4759,8 +4501,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.all is not None:
                                 return True
 
@@ -4790,14 +4530,10 @@ class MplsTe(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging']['meta_info']
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging']['meta_info']
 
 
                     class NewStyleAffinities(object):
@@ -4807,7 +4543,7 @@ class MplsTe(object):
                         .. attribute:: new_style_affinity
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of :py:class:`NewStyleAffinity <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinities.NewStyleAffinity>`
+                        	**type**\: list of :py:class:`NewStyleAffinity <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities.NewStyleAffinity>`
                         
                         
 
@@ -4900,7 +4636,7 @@ class MplsTe(object):
                             .. attribute:: affinity_type
                             
                             	The type of the affinity entry
-                            	**type**\: :py:class:`MplsTeTunnelAffinity_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity_Enum>`
+                            	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                             
                             
 
@@ -4959,8 +4695,6 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.affinity1 is not None:
                                     return True
 
@@ -4996,14 +4730,10 @@ class MplsTe(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info']
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -5019,8 +4749,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.new_style_affinity is not None:
                                 for child_ref in self.new_style_affinity:
                                     if child_ref._has_data():
@@ -5028,14 +4756,10 @@ class MplsTe(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinities']['meta_info']
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities']['meta_info']
 
 
                     class Priority(object):
@@ -5049,12 +4773,22 @@ class MplsTe(object):
                         
                         	**range:** 0..7
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: setup_priority
                         
                         	Setup Priority
                         	**type**\: int
                         
                         	**range:** 0..7
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -5084,8 +4818,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hold_priority is not None:
                                 return True
 
@@ -5094,14 +4826,10 @@ class MplsTe(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority']['meta_info']
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -5117,21 +4845,13 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.attribute_set_name is not None:
                             return True
 
                         if self.affinity_mask is not None and self.affinity_mask._has_data():
                             return True
 
-                        if self.affinity_mask is not None and self.affinity_mask.is_presence():
-                            return True
-
                         if self.bandwidth is not None and self.bandwidth._has_data():
-                            return True
-
-                        if self.bandwidth is not None and self.bandwidth.is_presence():
                             return True
 
                         if self.enable is not None:
@@ -5140,28 +4860,16 @@ class MplsTe(object):
                         if self.fast_reroute is not None and self.fast_reroute._has_data():
                             return True
 
-                        if self.fast_reroute is not None and self.fast_reroute.is_presence():
-                            return True
-
                         if self.interface_bandwidth is not None:
                             return True
 
                         if self.logging is not None and self.logging._has_data():
                             return True
 
-                        if self.logging is not None and self.logging.is_presence():
-                            return True
-
                         if self.new_style_affinities is not None and self.new_style_affinities._has_data():
                             return True
 
-                        if self.new_style_affinities is not None and self.new_style_affinities.is_presence():
-                            return True
-
                         if self.priority is not None and self.priority._has_data():
-                            return True
-
-                        if self.priority is not None and self.priority.is_presence():
                             return True
 
                         if self.record_route is not None:
@@ -5169,14 +4877,10 @@ class MplsTe(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                        return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute']['meta_info']
+                        return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -5190,8 +4894,6 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.p2mpte_attribute is not None:
                         for child_ref in self.p2mpte_attribute:
                             if child_ref._has_data():
@@ -5199,24 +4901,20 @@ class MplsTe(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes']['meta_info']
+                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes']['meta_info']
 
 
-            class P2pTeAttributes(object):
+            class P2PTeAttributes(object):
                 """
                 P2P\-TE Tunnel AttributeSets Table
                 
                 .. attribute:: p2p_te_attribute
                 
                 	P2P\-TE Tunnel Attribute
-                	**type**\: list of :py:class:`P2pTeAttribute <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute>`
+                	**type**\: list of :py:class:`P2PTeAttribute <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute>`
                 
                 
 
@@ -5232,7 +4930,7 @@ class MplsTe(object):
                     self.p2p_te_attribute.name = 'p2p_te_attribute'
 
 
-                class P2pTeAttribute(object):
+                class P2PTeAttribute(object):
                     """
                     P2P\-TE Tunnel Attribute
                     
@@ -5246,7 +4944,7 @@ class MplsTe(object):
                     .. attribute:: affinity_mask
                     
                     	Set the affinity flags and mask
-                    	**type**\: :py:class:`AffinityMask <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask>`
+                    	**type**\: :py:class:`AffinityMask <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask>`
                     
                     .. attribute:: enable
                     
@@ -5256,17 +4954,17 @@ class MplsTe(object):
                     .. attribute:: logging
                     
                     	Log tunnel LSP messages
-                    	**type**\: :py:class:`Logging <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging>`
+                    	**type**\: :py:class:`Logging <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging>`
                     
                     .. attribute:: new_style_affinities
                     
                     	Tunnel new style affinity attributes table
-                    	**type**\: :py:class:`NewStyleAffinities <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinities>`
+                    	**type**\: :py:class:`NewStyleAffinities <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities>`
                     
                     .. attribute:: path_selection
                     
                     	Configure path selection properties
-                    	**type**\: :py:class:`PathSelection <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection>`
+                    	**type**\: :py:class:`PathSelection <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection>`
                     
                     
 
@@ -5280,11 +4978,11 @@ class MplsTe(object):
                         self.attribute_set_name = None
                         self.affinity_mask = None
                         self.enable = None
-                        self.logging = MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging()
+                        self.logging = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging()
                         self.logging.parent = self
-                        self.new_style_affinities = MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinities()
+                        self.new_style_affinities = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities()
                         self.new_style_affinities.parent = self
-                        self.path_selection = MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection()
+                        self.path_selection = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection()
                         self.path_selection.parent = self
 
 
@@ -5299,12 +4997,22 @@ class MplsTe(object):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: mask
                         
                         	Affinity mask
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -5334,8 +5042,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.affinity is not None:
                                 return True
 
@@ -5344,14 +5050,10 @@ class MplsTe(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask']['meta_info']
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask']['meta_info']
 
 
                     class Logging(object):
@@ -5448,8 +5150,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.all is not None:
                                 return True
 
@@ -5485,14 +5185,10 @@ class MplsTe(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging']['meta_info']
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging']['meta_info']
 
 
                     class NewStyleAffinities(object):
@@ -5502,7 +5198,7 @@ class MplsTe(object):
                         .. attribute:: new_style_affinity
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of :py:class:`NewStyleAffinity <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinities.NewStyleAffinity>`
+                        	**type**\: list of :py:class:`NewStyleAffinity <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities.NewStyleAffinity>`
                         
                         
 
@@ -5595,7 +5291,7 @@ class MplsTe(object):
                             .. attribute:: affinity_type
                             
                             	The type of the affinity entry
-                            	**type**\: :py:class:`MplsTeTunnelAffinity_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity_Enum>`
+                            	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                             
                             
 
@@ -5654,8 +5350,6 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.affinity1 is not None:
                                     return True
 
@@ -5691,14 +5385,10 @@ class MplsTe(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info']
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -5714,8 +5404,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.new_style_affinity is not None:
                                 for child_ref in self.new_style_affinity:
                                     if child_ref._has_data():
@@ -5723,14 +5411,10 @@ class MplsTe(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinities']['meta_info']
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities']['meta_info']
 
 
                     class PathSelection(object):
@@ -5745,22 +5429,22 @@ class MplsTe(object):
                         .. attribute:: path_selection_invalidation
                         
                         	Path selection invalidation configuration
-                        	**type**\: :py:class:`PathSelectionInvalidation <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.PathSelectionInvalidation>`
+                        	**type**\: :py:class:`PathSelectionInvalidation <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.PathSelectionInvalidation>`
                         
                         .. attribute:: path_selection_metric
                         
                         	Path selection metric to use in path calculation
-                        	**type**\: :py:class:`MplsTePathSelectionMetric_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric_Enum>`
+                        	**type**\: :py:class:`MplsTePathSelectionMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
                         
                         .. attribute:: path_selection_segment_routing_adjacency_protection
                         
                         	Segment routing adjacency protection type to use in path calculation
-                        	**type**\: :py:class:`MplsTePathSelectionSegmentRoutingAdjacencyProtection_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionSegmentRoutingAdjacencyProtection_Enum>`
+                        	**type**\: :py:class:`MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum>`
                         
                         .. attribute:: segment_routing_prepend
                         
                         	Path selection segment routing prepend configuration
-                        	**type**\: :py:class:`SegmentRoutingPrepend <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend>`
+                        	**type**\: :py:class:`SegmentRoutingPrepend <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend>`
                         
                         
 
@@ -5772,11 +5456,11 @@ class MplsTe(object):
                         def __init__(self):
                             self.parent = None
                             self.enable = None
-                            self.path_selection_invalidation = MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.PathSelectionInvalidation()
+                            self.path_selection_invalidation = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.PathSelectionInvalidation()
                             self.path_selection_invalidation.parent = self
                             self.path_selection_metric = None
                             self.path_selection_segment_routing_adjacency_protection = None
-                            self.segment_routing_prepend = MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend()
+                            self.segment_routing_prepend = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend()
                             self.segment_routing_prepend.parent = self
 
 
@@ -5794,7 +5478,7 @@ class MplsTe(object):
                             .. attribute:: invalidation_timer_expire_type
                             
                             	Path selection invalidation timer expire type
-                            	**type**\: :py:class:`MplsTePathSelectionInvalidationTimerExpire_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionInvalidationTimerExpire_Enum>`
+                            	**type**\: :py:class:`MplsTePathSelectionInvalidationTimerExpireEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionInvalidationTimerExpireEnum>`
                             
                             
 
@@ -5822,8 +5506,6 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.invalidation_timer is not None:
                                     return True
 
@@ -5832,14 +5514,10 @@ class MplsTe(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.PathSelectionInvalidation']['meta_info']
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.PathSelectionInvalidation']['meta_info']
 
 
                         class SegmentRoutingPrepend(object):
@@ -5855,7 +5533,7 @@ class MplsTe(object):
                             .. attribute:: indexes
                             
                             	Segment routing prepend index table
-                            	**type**\: :py:class:`Indexes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes>`
+                            	**type**\: :py:class:`Indexes <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes>`
                             
                             
 
@@ -5867,7 +5545,7 @@ class MplsTe(object):
                             def __init__(self):
                                 self.parent = None
                                 self.enable = None
-                                self.indexes = MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes()
+                                self.indexes = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes()
                                 self.indexes.parent = self
 
 
@@ -5878,7 +5556,7 @@ class MplsTe(object):
                                 .. attribute:: index
                                 
                                 	Prepend index information
-                                	**type**\: list of :py:class:`Index <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index>`
+                                	**type**\: list of :py:class:`Index <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index>`
                                 
                                 
 
@@ -5915,7 +5593,7 @@ class MplsTe(object):
                                     .. attribute:: prepend_type
                                     
                                     	Prepend type
-                                    	**type**\: :py:class:`SrPrepend_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.SrPrepend_Enum>`
+                                    	**type**\: :py:class:`SrPrependEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.SrPrependEnum>`
                                     
                                     
 
@@ -5946,8 +5624,6 @@ class MplsTe(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.index_number is not None:
                                             return True
 
@@ -5959,14 +5635,10 @@ class MplsTe(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                                        return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index']['meta_info']
+                                        return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -5982,8 +5654,6 @@ class MplsTe(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.index is not None:
                                         for child_ref in self.index:
                                             if child_ref._has_data():
@@ -5991,14 +5661,10 @@ class MplsTe(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes']['meta_info']
+                                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -6014,27 +5680,18 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.enable is not None:
                                     return True
 
                                 if self.indexes is not None and self.indexes._has_data():
                                     return True
 
-                                if self.indexes is not None and self.indexes.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend']['meta_info']
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -6050,15 +5707,10 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.enable is not None:
                                 return True
 
                             if self.path_selection_invalidation is not None and self.path_selection_invalidation._has_data():
-                                return True
-
-                            if self.path_selection_invalidation is not None and self.path_selection_invalidation.is_presence():
                                 return True
 
                             if self.path_selection_metric is not None:
@@ -6070,19 +5722,12 @@ class MplsTe(object):
                             if self.segment_routing_prepend is not None and self.segment_routing_prepend._has_data():
                                 return True
 
-                            if self.segment_routing_prepend is not None and self.segment_routing_prepend.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection']['meta_info']
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -6098,15 +5743,10 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.attribute_set_name is not None:
                             return True
 
                         if self.affinity_mask is not None and self.affinity_mask._has_data():
-                            return True
-
-                        if self.affinity_mask is not None and self.affinity_mask.is_presence():
                             return True
 
                         if self.enable is not None:
@@ -6115,31 +5755,18 @@ class MplsTe(object):
                         if self.logging is not None and self.logging._has_data():
                             return True
 
-                        if self.logging is not None and self.logging.is_presence():
-                            return True
-
                         if self.new_style_affinities is not None and self.new_style_affinities._has_data():
-                            return True
-
-                        if self.new_style_affinities is not None and self.new_style_affinities.is_presence():
                             return True
 
                         if self.path_selection is not None and self.path_selection._has_data():
                             return True
 
-                        if self.path_selection is not None and self.path_selection.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                        return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute']['meta_info']
+                        return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -6153,8 +5780,6 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.p2p_te_attribute is not None:
                         for child_ref in self.p2p_te_attribute:
                             if child_ref._has_data():
@@ -6162,14 +5787,10 @@ class MplsTe(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes']['meta_info']
+                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes']['meta_info']
 
 
             class PathOptionAttributes(object):
@@ -6277,12 +5898,22 @@ class MplsTe(object):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: mask
                         
                         	Affinity mask
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -6312,8 +5943,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.affinity is not None:
                                 return True
 
@@ -6321,10 +5950,6 @@ class MplsTe(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -6343,6 +5968,11 @@ class MplsTe(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: class_or_pool_type
                         
                         	Class type for the bandwith allocation
@@ -6350,10 +5980,20 @@ class MplsTe(object):
                         
                         	**range:** 0..1
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: dste_type
                         
                         	DSTE\-standard flag
-                        	**type**\: :py:class:`MplsTeBandwidthDste_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDste_Enum>`
+                        	**type**\: :py:class:`MplsTeBandwidthDsteEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -6384,8 +6024,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bandwidth is not None:
                                 return True
 
@@ -6396,10 +6034,6 @@ class MplsTe(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -6507,7 +6141,7 @@ class MplsTe(object):
                             .. attribute:: affinity_type
                             
                             	The type of the affinity entry
-                            	**type**\: :py:class:`MplsTeTunnelAffinity_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinity_Enum>`
+                            	**type**\: :py:class:`MplsTeTunnelAffinityEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                             
                             
 
@@ -6566,8 +6200,6 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.affinity1 is not None:
                                     return True
 
@@ -6603,10 +6235,6 @@ class MplsTe(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
@@ -6626,17 +6254,11 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.new_style_affinity is not None:
                                 for child_ref in self.new_style_affinity:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6653,7 +6275,7 @@ class MplsTe(object):
                         .. attribute:: path_invalidation_action
                         
                         	Path Invalidation Action
-                        	**type**\: :py:class:`PathInvalidationAction_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationAction_Enum>`
+                        	**type**\: :py:class:`PathInvalidationActionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationActionEnum>`
                         
                         .. attribute:: path_invalidation_timeout
                         
@@ -6688,18 +6310,12 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.path_invalidation_action is not None:
                                 return True
 
                             if self.path_invalidation_timeout is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6721,21 +6337,13 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.attribute_set_name is not None:
                             return True
 
                         if self.affinity_mask is not None and self.affinity_mask._has_data():
                             return True
 
-                        if self.affinity_mask is not None and self.affinity_mask.is_presence():
-                            return True
-
                         if self.bandwidth is not None and self.bandwidth._has_data():
-                            return True
-
-                        if self.bandwidth is not None and self.bandwidth.is_presence():
                             return True
 
                         if self.enable is not None:
@@ -6744,13 +6352,7 @@ class MplsTe(object):
                         if self.new_style_affinities is not None and self.new_style_affinities._has_data():
                             return True
 
-                        if self.new_style_affinities is not None and self.new_style_affinities.is_presence():
-                            return True
-
                         if self.path_invalidation is not None and self.path_invalidation._has_data():
-                            return True
-
-                        if self.path_invalidation is not None and self.path_invalidation.is_presence():
                             return True
 
                         if self.path_selection_cost_limit is not None:
@@ -6759,10 +6361,6 @@ class MplsTe(object):
                         if self.path_selection_exclude_list is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -6782,17 +6380,11 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.path_option_attribute is not None:
                         for child_ref in self.path_option_attribute:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6977,7 +6569,7 @@ class MplsTe(object):
                                     .. attribute:: conformance
                                     
                                     	The diversity conformance requirements
-                                    	**type**\: :py:class:`MplsTePathDiversityConformance_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathDiversityConformance_Enum>`
+                                    	**type**\: :py:class:`MplsTePathDiversityConformanceEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathDiversityConformanceEnum>`
                                     
                                     
 
@@ -7019,8 +6611,6 @@ class MplsTe(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.destination is not None:
                                             return True
 
@@ -7039,10 +6629,6 @@ class MplsTe(object):
                                         if self.conformance is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7064,17 +6650,11 @@ class MplsTe(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fec is not None:
                                         for child_ref in self.fec:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7096,18 +6676,9 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fecs is not None and self.fecs._has_data():
                                     return True
 
-                                if self.fecs is not None and self.fecs.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7153,7 +6724,7 @@ class MplsTe(object):
                                 .. attribute:: conformance
                                 
                                 	The diversity conformance requirements
-                                	**type**\: :py:class:`MplsTePathDiversityConformance_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathDiversityConformance_Enum>`
+                                	**type**\: :py:class:`MplsTePathDiversityConformanceEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathDiversityConformanceEnum>`
                                 
                                 
 
@@ -7183,18 +6754,12 @@ class MplsTe(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.srlg is not None:
                                         return True
 
                                     if self.conformance is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7216,17 +6781,11 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.srlg is not None:
                                     for child_ref in self.srlg:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7248,24 +6807,12 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.lsp is not None and self.lsp._has_data():
-                                return True
-
-                            if self.lsp is not None and self.lsp.is_presence():
                                 return True
 
                             if self.srlgs is not None and self.srlgs._has_data():
                                 return True
 
-                            if self.srlgs is not None and self.srlgs.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7287,8 +6834,6 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.attribute_set_name is not None:
                             return True
 
@@ -7298,13 +6843,6 @@ class MplsTe(object):
                         if self.path_diversity is not None and self.path_diversity._has_data():
                             return True
 
-                        if self.path_diversity is not None and self.path_diversity.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7324,17 +6862,11 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.xro_attribute is not None:
                         for child_ref in self.xro_attribute:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7354,54 +6886,27 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.auto_backup_attributes is not None and self.auto_backup_attributes._has_data():
-                    return True
-
-                if self.auto_backup_attributes is not None and self.auto_backup_attributes.is_presence():
                     return True
 
                 if self.auto_mesh_attributes is not None and self.auto_mesh_attributes._has_data():
                     return True
 
-                if self.auto_mesh_attributes is not None and self.auto_mesh_attributes.is_presence():
-                    return True
-
                 if self.otn_pp_attributes is not None and self.otn_pp_attributes._has_data():
-                    return True
-
-                if self.otn_pp_attributes is not None and self.otn_pp_attributes.is_presence():
                     return True
 
                 if self.p2mpte_attributes is not None and self.p2mpte_attributes._has_data():
                     return True
 
-                if self.p2mpte_attributes is not None and self.p2mpte_attributes.is_presence():
-                    return True
-
                 if self.p2p_te_attributes is not None and self.p2p_te_attributes._has_data():
-                    return True
-
-                if self.p2p_te_attributes is not None and self.p2p_te_attributes.is_presence():
                     return True
 
                 if self.path_option_attributes is not None and self.path_option_attributes._has_data():
                     return True
 
-                if self.path_option_attributes is not None and self.path_option_attributes.is_presence():
-                    return True
-
                 if self.xro_attributes is not None and self.xro_attributes._has_data():
                     return True
 
-                if self.xro_attributes is not None and self.xro_attributes.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -7427,12 +6932,12 @@ class MplsTe(object):
             .. attribute:: p2mp_auto_tunnel
             
             	Configure P2MP auto\-tunnel feature
-            	**type**\: :py:class:`P2mpAutoTunnel <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel>`
+            	**type**\: :py:class:`P2MpAutoTunnel <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel>`
             
             .. attribute:: p2p_auto_tunnel
             
             	Configure P2P auto\-tunnel feature
-            	**type**\: :py:class:`P2pAutoTunnel <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel>`
+            	**type**\: :py:class:`P2PAutoTunnel <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel>`
             
             .. attribute:: pcc
             
@@ -7452,9 +6957,9 @@ class MplsTe(object):
                 self.backup.parent = self
                 self.mesh = MplsTe.GlobalAttributes.AutoTunnel.Mesh()
                 self.mesh.parent = self
-                self.p2mp_auto_tunnel = MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel()
+                self.p2mp_auto_tunnel = MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel()
                 self.p2mp_auto_tunnel.parent = self
-                self.p2p_auto_tunnel = MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel()
+                self.p2p_auto_tunnel = MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel()
                 self.p2p_auto_tunnel.parent = self
                 self.pcc = MplsTe.GlobalAttributes.AutoTunnel.Pcc()
                 self.pcc.parent = self
@@ -7552,15 +7057,9 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.unused is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7580,18 +7079,9 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.removal is not None and self.removal._has_data():
                             return True
 
-                        if self.removal is not None and self.removal.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7643,18 +7133,12 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.max_tunnel_id is not None:
                             return True
 
                         if self.min_tunnel_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7674,27 +7158,15 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.affinity_ignore is not None:
                         return True
 
                     if self.timers is not None and self.timers._has_data():
                         return True
 
-                    if self.timers is not None and self.timers.is_presence():
-                        return True
-
                     if self.tunnel_range is not None and self.tunnel_range._has_data():
                         return True
 
-                    if self.tunnel_range is not None and self.tunnel_range.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7832,8 +7304,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.mesh_group_id is not None:
                                 return True
 
@@ -7854,10 +7324,6 @@ class MplsTe(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
@@ -7875,17 +7341,11 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.mesh_group is not None:
                             for child_ref in self.mesh_group:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7951,15 +7411,9 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.unused is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7979,18 +7433,9 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.removal is not None and self.removal._has_data():
                             return True
 
-                        if self.removal is not None and self.removal.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8042,18 +7487,12 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.max_tunnel_id is not None:
                             return True
 
                         if self.min_tunnel_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8073,30 +7512,15 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.mesh_groups is not None and self.mesh_groups._has_data():
-                        return True
-
-                    if self.mesh_groups is not None and self.mesh_groups.is_presence():
                         return True
 
                     if self.timers is not None and self.timers._has_data():
                         return True
 
-                    if self.timers is not None and self.timers.is_presence():
-                        return True
-
                     if self.tunnel_range is not None and self.tunnel_range._has_data():
                         return True
 
-                    if self.tunnel_range is not None and self.tunnel_range.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8105,14 +7529,14 @@ class MplsTe(object):
                     return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.Mesh']['meta_info']
 
 
-            class P2mpAutoTunnel(object):
+            class P2MpAutoTunnel(object):
                 """
                 Configure P2MP auto\-tunnel feature
                 
                 .. attribute:: tunnel_range
                 
                 	Configure tunnel ID range for auto\-tunnel features
-                	**type**\: :py:class:`TunnelRange <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange>`
+                	**type**\: :py:class:`TunnelRange <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange>`
                 
                 
 
@@ -8123,7 +7547,7 @@ class MplsTe(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.tunnel_range = MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange()
+                    self.tunnel_range = MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange()
                     self.tunnel_range.parent = self
 
 
@@ -8170,8 +7594,6 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.max_tunnel_id is not None:
                             return True
 
@@ -8180,14 +7602,10 @@ class MplsTe(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                        return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange']['meta_info']
+                        return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel.TunnelRange']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -8201,34 +7619,25 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.tunnel_range is not None and self.tunnel_range._has_data():
                         return True
 
-                    if self.tunnel_range is not None and self.tunnel_range.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                    return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel']['meta_info']
+                    return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel']['meta_info']
 
 
-            class P2pAutoTunnel(object):
+            class P2PAutoTunnel(object):
                 """
                 Configure P2P auto\-tunnel feature
                 
                 .. attribute:: tunnel_range
                 
                 	Configure tunnel ID range for auto\-tunnel features
-                	**type**\: :py:class:`TunnelRange <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange>`
+                	**type**\: :py:class:`TunnelRange <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange>`
                 
                 
 
@@ -8239,7 +7648,7 @@ class MplsTe(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.tunnel_range = MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange()
+                    self.tunnel_range = MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange()
                     self.tunnel_range.parent = self
 
 
@@ -8286,8 +7695,6 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.max_tunnel_id is not None:
                             return True
 
@@ -8296,14 +7703,10 @@ class MplsTe(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                        return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange']['meta_info']
+                        return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -8317,24 +7720,15 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.tunnel_range is not None and self.tunnel_range._has_data():
                         return True
 
-                    if self.tunnel_range is not None and self.tunnel_range.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                    return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel']['meta_info']
+                    return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel']['meta_info']
 
 
             class Pcc(object):
@@ -8403,18 +7797,12 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.max_tunnel_id is not None:
                             return True
 
                         if self.min_tunnel_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -8434,18 +7822,9 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.tunnel_range is not None and self.tunnel_range._has_data():
                         return True
 
-                    if self.tunnel_range is not None and self.tunnel_range.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8465,42 +7844,21 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.backup is not None and self.backup._has_data():
-                    return True
-
-                if self.backup is not None and self.backup.is_presence():
                     return True
 
                 if self.mesh is not None and self.mesh._has_data():
                     return True
 
-                if self.mesh is not None and self.mesh.is_presence():
-                    return True
-
                 if self.p2mp_auto_tunnel is not None and self.p2mp_auto_tunnel._has_data():
-                    return True
-
-                if self.p2mp_auto_tunnel is not None and self.p2mp_auto_tunnel.is_presence():
                     return True
 
                 if self.p2p_auto_tunnel is not None and self.p2p_auto_tunnel._has_data():
                     return True
 
-                if self.p2p_auto_tunnel is not None and self.p2p_auto_tunnel.is_presence():
-                    return True
-
                 if self.pcc is not None and self.pcc._has_data():
                     return True
 
-                if self.pcc is not None and self.pcc.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8545,7 +7903,7 @@ class MplsTe(object):
                 .. attribute:: down_action
                 
                 	Specify BFD session down action
-                	**type**\: :py:class:`MplsTeBfdSessionDownAction_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBfdSessionDownAction_Enum>`
+                	**type**\: :py:class:`MplsTeBfdSessionDownActionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeBfdSessionDownActionEnum>`
                 
                 .. attribute:: reopt_timeout
                 
@@ -8578,18 +7936,12 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.down_action is not None:
                         return True
 
                     if self.reopt_timeout is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8640,18 +7992,12 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.minimum_interval is not None:
                         return True
 
                     if self.multiplier is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8671,24 +8017,12 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.head is not None and self.head._has_data():
-                    return True
-
-                if self.head is not None and self.head.is_presence():
                     return True
 
                 if self.tail is not None and self.tail._has_data():
                     return True
 
-                if self.tail is not None and self.tail.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8761,18 +8095,12 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.hold_backup is not None:
                         return True
 
                     if self.promotion is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -8792,18 +8120,9 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.timers is not None and self.timers._has_data():
                     return True
 
-                if self.timers is not None and self.timers.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8844,15 +8163,9 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.midpoint_lsp_stats_collection_disable is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8868,7 +8181,7 @@ class MplsTe(object):
             .. attribute:: path_invalidation_action
             
             	Path Invalidation Action
-            	**type**\: :py:class:`PathInvalidationAction_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationAction_Enum>`
+            	**type**\: :py:class:`PathInvalidationActionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationActionEnum>`
             
             .. attribute:: path_invalidation_timeout
             
@@ -8901,18 +8214,12 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.path_invalidation_action is not None:
                     return True
 
                 if self.path_invalidation_timeout is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8966,8 +8273,6 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.head is not None:
                     return True
 
@@ -8977,10 +8282,6 @@ class MplsTe(object):
                 if self.tail is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -9066,8 +8367,6 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.class_type is not None:
                         return True
 
@@ -9077,10 +8376,6 @@ class MplsTe(object):
                     if self.mask is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9100,17 +8395,11 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.path_selection_loose_affinity is not None:
                     for child_ref in self.path_selection_loose_affinity:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -9157,7 +8446,7 @@ class MplsTe(object):
                 .. attribute:: metric_type
                 
                 	Metric to use for ERO Expansion
-                	**type**\: :py:class:`MplsTePathSelectionMetric_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetric_Enum>`
+                	**type**\: :py:class:`MplsTePathSelectionMetricEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
                 
                 
 
@@ -9185,18 +8474,12 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.class_type is not None:
                         return True
 
                     if self.metric_type is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9216,17 +8499,11 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.path_selection_loose_metric is not None:
                     for child_ref in self.path_selection_loose_metric:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -9421,15 +8698,9 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.peer_status is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9449,18 +8720,9 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.events is not None and self.events._has_data():
                         return True
 
-                    if self.events is not None and self.events.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9570,18 +8832,12 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.redelegation_timeout is not None:
                             return True
 
                         if self.state_timeout is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9601,8 +8857,6 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.cisco_extension is not None:
                         return True
 
@@ -9624,13 +8878,6 @@ class MplsTe(object):
                     if self.stateful_timers is not None and self.stateful_timers._has_data():
                         return True
 
-                    if self.stateful_timers is not None and self.stateful_timers.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9728,8 +8975,6 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.pce_peer_address is not None:
                             return True
 
@@ -9745,10 +8990,6 @@ class MplsTe(object):
                         if self.precedence is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9768,17 +9009,11 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.peer is not None:
                         for child_ref in self.peer:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9801,7 +9036,6 @@ class MplsTe(object):
 
                 def __init__(self):
                     self.parent = None
-                    pass
 
                 @property
                 def _common_path(self):
@@ -9815,12 +9049,6 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9840,8 +9068,6 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.address is not None:
                     return True
 
@@ -9860,25 +9086,16 @@ class MplsTe(object):
                 if self.logging is not None and self.logging._has_data():
                     return True
 
-                if self.logging is not None and self.logging.is_presence():
-                    return True
-
                 if self.password is not None:
                     return True
 
                 if self.pce_stateful is not None and self.pce_stateful._has_data():
                     return True
 
-                if self.pce_stateful is not None and self.pce_stateful.is_presence():
-                    return True
-
                 if self.peer_source_addr is not None:
                     return True
 
                 if self.peers is not None and self.peers._has_data():
-                    return True
-
-                if self.peers is not None and self.peers.is_presence():
                     return True
 
                 if self.precedence is not None:
@@ -9896,13 +9113,6 @@ class MplsTe(object):
                 if self.timer is not None and self.timer._has_data():
                     return True
 
-                if self.timer is not None and self.timer.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -9941,7 +9151,7 @@ class MplsTe(object):
                 .. attribute:: role
                 
                 	Route Priority Tunnel Role
-                	**type**\: :py:class:`RoutePriorityRole_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.RoutePriorityRole_Enum>`
+                	**type**\: :py:class:`RoutePriorityRoleEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.RoutePriorityRoleEnum>`
                 
                 .. attribute:: value
                 
@@ -9976,18 +9186,12 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.role is not None:
                         return True
 
                     if self.value is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10007,17 +9211,11 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.queue is not None:
                     for child_ref in self.queue:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -10085,15 +9283,9 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.secondary_router_id_value is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10113,17 +9305,11 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.secondary_router_id is not None:
                     for child_ref in self.secondary_router_id:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -10178,8 +9364,6 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable is not None:
                     return True
 
@@ -10189,10 +9373,6 @@ class MplsTe(object):
                 if self.timeout is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -10311,18 +9491,12 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.srlg_name is not None:
                             return True
 
                         if self.admin_weight is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10342,17 +9516,11 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.name is not None:
                         for child_ref in self.name:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10495,18 +9663,12 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.outgoing_ipv4_address is not None:
                                     return True
 
                                 if self.remote_ipv4_address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10528,17 +9690,11 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ipv4_address_map is not None:
                                 for child_ref in self.ipv4_address_map:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10560,8 +9716,6 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.srlg_number is not None:
                             return True
 
@@ -10571,13 +9725,6 @@ class MplsTe(object):
                         if self.ipv4_address_maps is not None and self.ipv4_address_maps._has_data():
                             return True
 
-                        if self.ipv4_address_maps is not None and self.ipv4_address_maps.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -10597,17 +9744,11 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.value is not None:
                         for child_ref in self.value:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -10627,8 +9768,6 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.default_admin_weight is not None:
                     return True
 
@@ -10638,19 +9777,9 @@ class MplsTe(object):
                 if self.names is not None and self.names._has_data():
                     return True
 
-                if self.names is not None and self.names.is_presence():
-                    return True
-
                 if self.values is not None and self.values._has_data():
                     return True
 
-                if self.values is not None and self.values.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -10670,21 +9799,13 @@ class MplsTe(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.advertise_explicit_nulls is not None:
                 return True
 
             if self.affinity_mappings is not None and self.affinity_mappings._has_data():
                 return True
 
-            if self.affinity_mappings is not None and self.affinity_mappings.is_presence():
-                return True
-
             if self.attribute_set is not None and self.attribute_set._has_data():
-                return True
-
-            if self.attribute_set is not None and self.attribute_set.is_presence():
                 return True
 
             if self.auto_bandwidth_collect_frequency is not None:
@@ -10693,13 +9814,7 @@ class MplsTe(object):
             if self.auto_tunnel is not None and self.auto_tunnel._has_data():
                 return True
 
-            if self.auto_tunnel is not None and self.auto_tunnel.is_presence():
-                return True
-
             if self.bfd_over_lsp is not None and self.bfd_over_lsp._has_data():
-                return True
-
-            if self.bfd_over_lsp is not None and self.bfd_over_lsp.is_presence():
                 return True
 
             if self.disable_reoptimize_affinity_failure is not None:
@@ -10709,9 +9824,6 @@ class MplsTe(object):
                 return True
 
             if self.fast_reroute is not None and self.fast_reroute._has_data():
-                return True
-
-            if self.fast_reroute is not None and self.fast_reroute.is_presence():
                 return True
 
             if self.fault_oam is not None:
@@ -10756,13 +9868,7 @@ class MplsTe(object):
             if self.mib is not None and self.mib._has_data():
                 return True
 
-            if self.mib is not None and self.mib.is_presence():
-                return True
-
             if self.path_invalidation is not None and self.path_invalidation._has_data():
-                return True
-
-            if self.path_invalidation is not None and self.path_invalidation.is_presence():
                 return True
 
             if self.path_selection_cost_limit is not None:
@@ -10774,19 +9880,10 @@ class MplsTe(object):
             if self.path_selection_ignore_overload_role is not None and self.path_selection_ignore_overload_role._has_data():
                 return True
 
-            if self.path_selection_ignore_overload_role is not None and self.path_selection_ignore_overload_role.is_presence():
-                return True
-
             if self.path_selection_loose_affinities is not None and self.path_selection_loose_affinities._has_data():
                 return True
 
-            if self.path_selection_loose_affinities is not None and self.path_selection_loose_affinities.is_presence():
-                return True
-
             if self.path_selection_loose_metrics is not None and self.path_selection_loose_metrics._has_data():
-                return True
-
-            if self.path_selection_loose_metrics is not None and self.path_selection_loose_metrics.is_presence():
                 return True
 
             if self.path_selection_metric is not None:
@@ -10798,13 +9895,7 @@ class MplsTe(object):
             if self.pce_attributes is not None and self.pce_attributes._has_data():
                 return True
 
-            if self.pce_attributes is not None and self.pce_attributes.is_presence():
-                return True
-
             if self.queues is not None and self.queues._has_data():
-                return True
-
-            if self.queues is not None and self.queues.is_presence():
                 return True
 
             if self.reopt_delay_path_protect_switchover_timer is not None:
@@ -10834,25 +9925,12 @@ class MplsTe(object):
             if self.secondary_router_ids is not None and self.secondary_router_ids._has_data():
                 return True
 
-            if self.secondary_router_ids is not None and self.secondary_router_ids.is_presence():
-                return True
-
             if self.soft_preemption is not None and self.soft_preemption._has_data():
-                return True
-
-            if self.soft_preemption is not None and self.soft_preemption.is_presence():
                 return True
 
             if self.srlg is not None and self.srlg._has_data():
                 return True
 
-            if self.srlg is not None and self.srlg.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -10933,12 +10011,12 @@ class MplsTe(object):
                 .. attribute:: igp_type
                 
                 	IGP type
-                	**type**\: :py:class:`MplsTeIgpProtocol_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeIgpProtocol_Enum>`
+                	**type**\: :py:class:`MplsTeIgpProtocolEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeIgpProtocolEnum>`
                 
                 .. attribute:: ospf_area_type
                 
                 	OSPF area format
-                	**type**\: :py:class:`OspfAreaMode_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OspfAreaMode_Enum>`
+                	**type**\: :py:class:`OspfAreaModeEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OspfAreaModeEnum>`
                 
                 .. attribute:: ospf_int
                 
@@ -11082,7 +10160,7 @@ class MplsTe(object):
                                 .. attribute:: tti_mode_type
                                 
                                 	Type of Trail Trace Identifier
-                                	**type**\: :py:class:`GmplsttiMode_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.GmplsttiMode_Enum>`
+                                	**type**\: :py:class:`GmplsttiModeEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.GmplsttiModeEnum>`
                                 
                                 
 
@@ -11110,18 +10188,12 @@ class MplsTe(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.tcmid is not None:
                                         return True
 
                                     if self.tti_mode_type is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -11145,8 +10217,6 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.controller_name is not None:
                                     return True
 
@@ -11159,13 +10229,6 @@ class MplsTe(object):
                                 if self.tti_mode is not None and self.tti_mode._has_data():
                                     return True
 
-                                if self.tti_mode is not None and self.tti_mode.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11187,17 +10250,11 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.controller is not None:
                                 for child_ref in self.controller:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11221,21 +10278,12 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.igp_area is not None:
                             return True
 
                         if self.controllers is not None and self.controllers._has_data():
                             return True
 
-                        if self.controllers is not None and self.controllers.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11356,7 +10404,7 @@ class MplsTe(object):
                                 .. attribute:: tti_mode_type
                                 
                                 	Type of Trail Trace Identifier
-                                	**type**\: :py:class:`GmplsttiMode_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.GmplsttiMode_Enum>`
+                                	**type**\: :py:class:`GmplsttiModeEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.GmplsttiModeEnum>`
                                 
                                 
 
@@ -11384,18 +10432,12 @@ class MplsTe(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.tcmid is not None:
                                         return True
 
                                     if self.tti_mode_type is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -11419,8 +10461,6 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.controller_name is not None:
                                     return True
 
@@ -11433,13 +10473,6 @@ class MplsTe(object):
                                 if self.tti_mode is not None and self.tti_mode._has_data():
                                     return True
 
-                                if self.tti_mode is not None and self.tti_mode.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11461,17 +10494,11 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.controller is not None:
                                 for child_ref in self.controller:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11495,21 +10522,12 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             return True
 
                         if self.controllers is not None and self.controllers._has_data():
                             return True
 
-                        if self.controllers is not None and self.controllers.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11535,8 +10553,6 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.igp_instance_name is not None:
                         return True
 
@@ -11558,10 +10574,6 @@ class MplsTe(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
@@ -11579,17 +10591,11 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.topology_instance is not None:
                     for child_ref in self.topology_instance:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -11668,7 +10674,7 @@ class MplsTe(object):
                 .. attribute:: payload
                 
                 	The existence of this configuration indicates the Payload type have been set for the tunnel
-                	**type**\: :py:class:`OtnPayload_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnPayload_Enum>`
+                	**type**\: :py:class:`OtnPayloadEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnPayloadEnum>`
                 
                 .. attribute:: record_route
                 
@@ -11753,7 +10759,7 @@ class MplsTe(object):
                     .. attribute:: destination_type
                     
                     	Destination type whether it is unicast or unnumbered
-                    	**type**\: :py:class:`OtnDestination_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnDestination_Enum>`
+                    	**type**\: :py:class:`OtnDestinationEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnDestinationEnum>`
                     
                     .. attribute:: interface_if_index
                     
@@ -11789,8 +10795,6 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.destination is not None:
                             return True
 
@@ -11800,10 +10804,6 @@ class MplsTe(object):
                         if self.interface_if_index is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11864,8 +10864,6 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.active_lsp_message is not None:
                             return True
 
@@ -11878,10 +10876,6 @@ class MplsTe(object):
                         if self.static_cross_connect_message is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11929,7 +10923,7 @@ class MplsTe(object):
                         .. attribute:: lockdown
                         
                         	Lockdown properties
-                        	**type**\: :py:class:`MplsTePathOptionProperty_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProperty_Enum>`
+                        	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
                         
                         .. attribute:: path_id
                         
@@ -11946,7 +10940,7 @@ class MplsTe(object):
                         .. attribute:: path_type
                         
                         	The type of the path option
-                        	**type**\: :py:class:`MplsTePathOption_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOption_Enum>`
+                        	**type**\: :py:class:`MplsTePathOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionEnum>`
                         
                         .. attribute:: protected_by_preference_level
                         
@@ -11995,8 +10989,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.preference_level is not None:
                                 return True
 
@@ -12020,10 +11012,6 @@ class MplsTe(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
@@ -12043,17 +11031,11 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.path_option is not None:
                             for child_ref in self.path_option:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12078,12 +11060,12 @@ class MplsTe(object):
                     .. attribute:: od_uflex_framing_type
                     
                     	Framing type in case of ODUflex signal type
-                    	**type**\: :py:class:`OtnSignaledBandwidthFlexFraming_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnSignaledBandwidthFlexFraming_Enum>`
+                    	**type**\: :py:class:`OtnSignaledBandwidthFlexFramingEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnSignaledBandwidthFlexFramingEnum>`
                     
                     .. attribute:: signalled_bandwidth_type
                     
                     	The g.709 signal type requested
-                    	**type**\: :py:class:`OtnSignaledBandwidth_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnSignaledBandwidth_Enum>`
+                    	**type**\: :py:class:`OtnSignaledBandwidthEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnSignaledBandwidthEnum>`
                     
                     
 
@@ -12112,8 +11094,6 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bitrate is not None:
                             return True
 
@@ -12123,10 +11103,6 @@ class MplsTe(object):
                         if self.signalled_bandwidth_type is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12151,7 +11127,7 @@ class MplsTe(object):
                     .. attribute:: egress_type
                     
                     	Egress type whether it is xconnect or terminated
-                    	**type**\: :py:class:`OtnStaticUni_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnStaticUni_Enum>`
+                    	**type**\: :py:class:`OtnStaticUniEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnStaticUniEnum>`
                     
                     .. attribute:: ingress_controller_name
                     
@@ -12163,7 +11139,7 @@ class MplsTe(object):
                     .. attribute:: ingress_type
                     
                     	Ingress type whether it is xconnect or terminated
-                    	**type**\: :py:class:`OtnStaticUni_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnStaticUni_Enum>`
+                    	**type**\: :py:class:`OtnStaticUniEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.OtnStaticUniEnum>`
                     
                     
 
@@ -12193,8 +11169,6 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.egress_controller_if_index is not None:
                             return True
 
@@ -12207,10 +11181,6 @@ class MplsTe(object):
                         if self.ingress_type is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12232,8 +11202,6 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.tunnel_id is not None:
                         return True
 
@@ -12243,22 +11211,13 @@ class MplsTe(object):
                     if self.destination is not None and self.destination._has_data():
                         return True
 
-                    if self.destination is not None and self.destination.is_presence():
-                        return True
-
                     if self.enable is not None:
                         return True
 
                     if self.logging is not None and self.logging._has_data():
                         return True
 
-                    if self.logging is not None and self.logging.is_presence():
-                        return True
-
                     if self.path_options is not None and self.path_options._has_data():
-                        return True
-
-                    if self.path_options is not None and self.path_options.is_presence():
                         return True
 
                     if self.path_protection_attribute_set_profile is not None:
@@ -12279,9 +11238,6 @@ class MplsTe(object):
                     if self.signalled_bandwidth is not None and self.signalled_bandwidth._has_data():
                         return True
 
-                    if self.signalled_bandwidth is not None and self.signalled_bandwidth.is_presence():
-                        return True
-
                     if self.signalled_name is not None:
                         return True
 
@@ -12291,13 +11247,6 @@ class MplsTe(object):
                     if self.static_uni is not None and self.static_uni._has_data():
                         return True
 
-                    if self.static_uni is not None and self.static_uni.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12317,17 +11266,11 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.tunnel_head is not None:
                     for child_ref in self.tunnel_head:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -12347,27 +11290,15 @@ class MplsTe(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.enable_gmpls_nni is not None:
                 return True
 
             if self.topology_instances is not None and self.topology_instances._has_data():
                 return True
 
-            if self.topology_instances is not None and self.topology_instances.is_presence():
-                return True
-
             if self.tunnel_heads is not None and self.tunnel_heads._has_data():
                 return True
 
-            if self.tunnel_heads is not None and self.tunnel_heads.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -12513,15 +11444,9 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.srl_gs is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12564,15 +11489,9 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.discovered_srlg_change_logging is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12693,15 +11612,9 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.state_message is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -12754,7 +11667,7 @@ class MplsTe(object):
                             .. attribute:: lockdown
                             
                             	Path option properties\: must be Lockdown
-                            	**type**\: :py:class:`MplsTePathOptionProperty_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProperty_Enum>`
+                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
                             
                             .. attribute:: path_id
                             
@@ -12771,17 +11684,17 @@ class MplsTe(object):
                             .. attribute:: path_type
                             
                             	The type of the path option
-                            	**type**\: :py:class:`MplsTePathOption_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOption_Enum>`
+                            	**type**\: :py:class:`MplsTePathOptionEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionEnum>`
                             
                             .. attribute:: signaled_label
                             
                             	Signaled label type
-                            	**type**\: :py:class:`MplsTeSignaledLabel_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSignaledLabel_Enum>`
+                            	**type**\: :py:class:`MplsTeSignaledLabelEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSignaledLabelEnum>`
                             
                             .. attribute:: verbatim
                             
                             	Path option properties\: must be verbatim if set
-                            	**type**\: :py:class:`MplsTePathOptionProperty_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProperty_Enum>`
+                            	**type**\: :py:class:`MplsTePathOptionPropertyEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
                             
                             .. attribute:: xro_attribute_set_name
                             
@@ -12831,8 +11744,6 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.preference_level is not None:
                                     return True
 
@@ -12865,10 +11776,6 @@ class MplsTe(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
@@ -12888,17 +11795,11 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.path_option is not None:
                                 for child_ref in self.path_option:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -12918,12 +11819,22 @@ class MplsTe(object):
                         
                         	**range:** 0..7
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: setup_priority
                         
                         	Setup Priority
                         	**type**\: int
                         
                         	**range:** 0..7
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -12953,8 +11864,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.hold_priority is not None:
                                 return True
 
@@ -12962,10 +11871,6 @@ class MplsTe(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -13007,15 +11912,9 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.srlg is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -13037,8 +11936,6 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.destination is not None:
                             return True
 
@@ -13048,19 +11945,10 @@ class MplsTe(object):
                         if self.logging is not None and self.logging._has_data():
                             return True
 
-                        if self.logging is not None and self.logging.is_presence():
-                            return True
-
                         if self.path_options is not None and self.path_options._has_data():
                             return True
 
-                        if self.path_options is not None and self.path_options.is_presence():
-                            return True
-
                         if self.priority is not None and self.priority._has_data():
-                            return True
-
-                        if self.priority is not None and self.priority.is_presence():
                             return True
 
                         if self.record_route is not None:
@@ -13069,19 +11957,12 @@ class MplsTe(object):
                         if self.recording is not None and self.recording._has_data():
                             return True
 
-                        if self.recording is not None and self.recording.is_presence():
-                            return True
-
                         if self.signalled_name is not None:
                             return True
 
                         if self.tunnel_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -13103,21 +11984,13 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.controller_name is not None:
                         return True
 
                     if self.announce is not None and self.announce._has_data():
                         return True
 
-                    if self.announce is not None and self.announce.is_presence():
-                        return True
-
                     if self.controller_logging is not None and self.controller_logging._has_data():
-                        return True
-
-                    if self.controller_logging is not None and self.controller_logging.is_presence():
                         return True
 
                     if self.enable is not None:
@@ -13126,13 +11999,6 @@ class MplsTe(object):
                     if self.gmpls_unitunnel_head is not None and self.gmpls_unitunnel_head._has_data():
                         return True
 
-                    if self.gmpls_unitunnel_head is not None and self.gmpls_unitunnel_head.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -13152,17 +12018,11 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.controller is not None:
                     for child_ref in self.controller:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -13258,18 +12118,12 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.maximum is not None:
                             return True
 
                         if self.minimum is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -13289,18 +12143,9 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.holddown is not None and self.holddown._has_data():
                         return True
 
-                    if self.holddown is not None and self.holddown.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -13320,18 +12165,9 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.path_option_timers is not None and self.path_option_timers._has_data():
                     return True
 
-                if self.path_option_timers is not None and self.path_option_timers.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -13351,24 +12187,12 @@ class MplsTe(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.controllers is not None and self.controllers._has_data():
-                return True
-
-            if self.controllers is not None and self.controllers.is_presence():
                 return True
 
             if self.timers is not None and self.timers._has_data():
                 return True
 
-            if self.timers is not None and self.timers.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -13544,7 +12368,7 @@ class MplsTe(object):
                             .. attribute:: srlg_mode
                             
                             	Set exclude SRLG mode for auto\-tunnel backup on this TE link
-                            	**type**\: :py:class:`MplsTesrlgExclude_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTesrlgExclude_Enum>`
+                            	**type**\: :py:class:`MplsTesrlgExcludeEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTesrlgExcludeEnum>`
                             
                             
 
@@ -13571,15 +12395,9 @@ class MplsTe(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.srlg_mode is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -13601,8 +12419,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.attribute_set is not None:
                                 return True
 
@@ -13612,16 +12428,9 @@ class MplsTe(object):
                             if self.exclude is not None and self.exclude._has_data():
                                 return True
 
-                            if self.exclude is not None and self.exclude.is_presence():
-                                return True
-
                             if self.next_hop_only is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -13643,18 +12452,9 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.backup is not None and self.backup._has_data():
                             return True
 
-                        if self.backup is not None and self.backup.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -13725,15 +12525,9 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.tunnel_number is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -13755,17 +12549,11 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.backup_path is not None:
                             for child_ref in self.backup_path:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -13787,24 +12575,12 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.auto_tunnel is not None and self.auto_tunnel._has_data():
-                        return True
-
-                    if self.auto_tunnel is not None and self.auto_tunnel.is_presence():
                         return True
 
                     if self.backup_paths is not None and self.backup_paths._has_data():
                         return True
 
-                    if self.backup_paths is not None and self.backup_paths.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -13945,17 +12721,11 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.attribute_name is not None:
                             for child in self.attribute_name:
                                 if child is not None:
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14031,8 +12801,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.affinity_index is not None:
                                 return True
 
@@ -14041,10 +12809,6 @@ class MplsTe(object):
                                     if child is not None:
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -14066,17 +12830,11 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.attribute_name is not None:
                             for child_ref in self.attribute_name:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14122,17 +12880,11 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.down_threshold is not None:
                             for child in self.down_threshold:
                                 if child is not None:
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14156,7 +12908,7 @@ class MplsTe(object):
                     .. attribute:: igp_type
                     
                     	IGP type
-                    	**type**\: :py:class:`MplsLcacFloodingIgp_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsLcacFloodingIgp_Enum>`
+                    	**type**\: :py:class:`MplsLcacFloodingIgpEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsLcacFloodingIgpEnum>`
                     
                     .. attribute:: process_name
                     
@@ -14192,8 +12944,6 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.area_id is not None:
                             return True
 
@@ -14203,10 +12953,6 @@ class MplsTe(object):
                         if self.process_name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14276,15 +13022,9 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.srlg_number is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -14306,17 +13046,11 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.srlg is not None:
                             for child_ref in self.srlg:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14355,17 +13089,17 @@ class MplsTe(object):
                         .. attribute:: switching_id
                         
                         	Switching index
-                        	**type**\: one of { :py:class:`MplsTeSwitchingIndex_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingIndex_Enum>` | int }
+                        	**type**\: one of { :py:class:`MplsTeSwitchingIndexEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingIndexEnum>` | int }
                         
                         .. attribute:: capability
                         
                         	Set the local switching capability
-                        	**type**\: :py:class:`MplsTeSwitchingCap_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingCap_Enum>`
+                        	**type**\: :py:class:`MplsTeSwitchingCapEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingCapEnum>`
                         
                         .. attribute:: encoding
                         
                         	Set the local encoding type
-                        	**type**\: :py:class:`MplsTeSwitchingEncoding_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingEncoding_Enum>`
+                        	**type**\: :py:class:`MplsTeSwitchingEncodingEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingEncodingEnum>`
                         
                         
 
@@ -14396,8 +13130,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.switching_id is not None:
                                 return True
 
@@ -14407,10 +13139,6 @@ class MplsTe(object):
                             if self.encoding is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -14432,17 +13160,11 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.switching is not None:
                             for child_ref in self.switching:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14488,17 +13210,11 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.up_threshold is not None:
                             for child in self.up_threshold:
                                 if child is not None:
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14520,8 +13236,6 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.admin_weight is not None:
                         return True
 
@@ -14531,22 +13245,13 @@ class MplsTe(object):
                     if self.attribute_name_xr is not None and self.attribute_name_xr._has_data():
                         return True
 
-                    if self.attribute_name_xr is not None and self.attribute_name_xr.is_presence():
-                        return True
-
                     if self.attribute_names is not None and self.attribute_names._has_data():
-                        return True
-
-                    if self.attribute_names is not None and self.attribute_names.is_presence():
                         return True
 
                     if self.bfd is not None:
                         return True
 
                     if self.down_thresholds is not None and self.down_thresholds._has_data():
-                        return True
-
-                    if self.down_thresholds is not None and self.down_thresholds.is_presence():
                         return True
 
                     if self.enable is not None:
@@ -14558,31 +13263,15 @@ class MplsTe(object):
                     if self.flood_area is not None and self.flood_area._has_data():
                         return True
 
-                    if self.flood_area is not None and self.flood_area.is_presence():
-                        return True
-
                     if self.srlgs is not None and self.srlgs._has_data():
-                        return True
-
-                    if self.srlgs is not None and self.srlgs.is_presence():
                         return True
 
                     if self.switchings is not None and self.switchings._has_data():
                         return True
 
-                    if self.switchings is not None and self.switchings.is_presence():
-                        return True
-
                     if self.up_thresholds is not None and self.up_thresholds._has_data():
                         return True
 
-                    if self.up_thresholds is not None and self.up_thresholds.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -14657,7 +13346,7 @@ class MplsTe(object):
                         .. attribute:: next_hop_type
                         
                         	Next hop type
-                        	**type**\: :py:class:`LinkNextHop_Enum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.LinkNextHop_Enum>`
+                        	**type**\: :py:class:`LinkNextHopEnum <ydk.models.mpls.Cisco_IOS_XR_mpls_te_cfg.LinkNextHopEnum>`
                         
                         
 
@@ -14688,8 +13377,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.link_id is not None:
                                 return True
 
@@ -14699,10 +13386,6 @@ class MplsTe(object):
                             if self.next_hop_type is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -14724,17 +13407,11 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.link is not None:
                             for child_ref in self.link:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14756,18 +13433,9 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.links is not None and self.links._has_data():
                         return True
 
-                    if self.links is not None and self.links.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -14789,33 +13457,18 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface_name is not None:
                     return True
 
                 if self.global_attributes is not None and self.global_attributes._has_data():
                     return True
 
-                if self.global_attributes is not None and self.global_attributes.is_presence():
-                    return True
-
                 if self.lcac is not None and self.lcac._has_data():
-                    return True
-
-                if self.lcac is not None and self.lcac.is_presence():
                     return True
 
                 if self.transport_profile_link is not None and self.transport_profile_link._has_data():
                     return True
 
-                if self.transport_profile_link is not None and self.transport_profile_link.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -14835,17 +13488,11 @@ class MplsTe(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -14949,18 +13596,12 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.detection_multiplier is not None:
                     return True
 
                 if self.interval is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -15012,18 +13653,12 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.down_stream is not None:
                     return True
 
                 if self.up_stream is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -15043,15 +13678,10 @@ class MplsTe(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.bandwidth_hold_timer is not None:
                 return True
 
             if self.bfd is not None and self.bfd._has_data():
-                return True
-
-            if self.bfd is not None and self.bfd.is_presence():
                 return True
 
             if self.delay_preempt_bundle_capacity_timer is not None:
@@ -15060,16 +13690,9 @@ class MplsTe(object):
             if self.flooding_threshold is not None and self.flooding_threshold._has_data():
                 return True
 
-            if self.flooding_threshold is not None and self.flooding_threshold.is_presence():
-                return True
-
             if self.periodic_flooding_timer is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -15205,15 +13828,9 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.disable is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15233,8 +13850,6 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.enable_alarm is not None:
                     return True
 
@@ -15244,13 +13859,6 @@ class MplsTe(object):
                 if self.suppress_event is not None and self.suppress_event._has_data():
                     return True
 
-                if self.suppress_event is not None and self.suppress_event.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -15347,18 +13955,12 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interval_ms is not None:
                         return True
 
                     if self.interval_us is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15411,18 +14013,12 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interval_standby_ms is not None:
                         return True
 
                     if self.interval_standby_us is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15442,8 +14038,6 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.detection_multiplier is not None:
                     return True
 
@@ -15453,19 +14047,9 @@ class MplsTe(object):
                 if self.min_interval is not None and self.min_interval._has_data():
                     return True
 
-                if self.min_interval is not None and self.min_interval.is_presence():
-                    return True
-
                 if self.min_interval_standby is not None and self.min_interval_standby._has_data():
                     return True
 
-                if self.min_interval_standby is not None and self.min_interval_standby.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -15579,15 +14163,9 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.disable is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15628,15 +14206,9 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.disable is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15656,27 +14228,15 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ais is not None:
                         return True
 
                     if self.ldi is not None and self.ldi._has_data():
                         return True
 
-                    if self.ldi is not None and self.ldi.is_presence():
-                        return True
-
                     if self.lkr is not None and self.lkr._has_data():
                         return True
 
-                    if self.lkr is not None and self.lkr.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15696,12 +14256,7 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.protection_trigger is not None and self.protection_trigger._has_data():
-                    return True
-
-                if self.protection_trigger is not None and self.protection_trigger.is_presence():
                     return True
 
                 if self.refresh_interval is not None:
@@ -15710,10 +14265,6 @@ class MplsTe(object):
                 if self.wait_to_restore_interval is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -15827,6 +14378,11 @@ class MplsTe(object):
                     
                     	**range:** 1..65535
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: node_id
                     
                     	Node identifier in IPv4 address format
@@ -15834,12 +14390,22 @@ class MplsTe(object):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: tunnel_id
                     
                     	Tunnel identifier in numeric value
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -15870,8 +14436,6 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.global_id is not None:
                             return True
 
@@ -15882,10 +14446,6 @@ class MplsTe(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -15934,6 +14494,11 @@ class MplsTe(object):
                         
                         	**range:** 16..4015
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: out_label
                         
                         	Outgoing MPLS label
@@ -15941,12 +14506,22 @@ class MplsTe(object):
                         
                         	**range:** 16..1048575
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: out_link
                         
                         	Transport profile identifier of outgoing link
                         	**type**\: int
                         
                         	**range:** 1..65535
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -15977,8 +14552,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.in_label is not None:
                                 return True
 
@@ -15989,10 +14562,6 @@ class MplsTe(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -16013,21 +14582,12 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.forward_bandwidth is not None:
                             return True
 
                         if self.forward_io_map is not None and self.forward_io_map._has_data():
                             return True
 
-                        if self.forward_io_map is not None and self.forward_io_map.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16077,6 +14637,11 @@ class MplsTe(object):
                         
                         	**range:** 16..4015
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: out_label
                         
                         	Outgoing MPLS label
@@ -16084,12 +14649,22 @@ class MplsTe(object):
                         
                         	**range:** 16..1048575
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: out_link
                         
                         	Transport profile identifier of outgoing link
                         	**type**\: int
                         
                         	**range:** 1..65535
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -16120,8 +14695,6 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.in_label is not None:
                                 return True
 
@@ -16132,10 +14705,6 @@ class MplsTe(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -16156,21 +14725,12 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.reverse_bandwidth is not None:
                             return True
 
                         if self.reverse_io_map is not None and self.reverse_io_map._has_data():
                             return True
 
-                        if self.reverse_io_map is not None and self.reverse_io_map.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -16192,6 +14752,11 @@ class MplsTe(object):
                     
                     	**range:** 1..65535
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: node_id
                     
                     	Node identifier in IPv4 address format
@@ -16199,12 +14764,22 @@ class MplsTe(object):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: tunnel_id
                     
                     	Tunnel identifier in numeric value
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -16235,8 +14810,6 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.global_id is not None:
                             return True
 
@@ -16247,10 +14820,6 @@ class MplsTe(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -16271,21 +14840,13 @@ class MplsTe(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.midpoint_name is not None:
                         return True
 
                     if self.destination is not None and self.destination._has_data():
                         return True
 
-                    if self.destination is not None and self.destination.is_presence():
-                        return True
-
                     if self.forward_lsp is not None and self.forward_lsp._has_data():
-                        return True
-
-                    if self.forward_lsp is not None and self.forward_lsp.is_presence():
                         return True
 
                     if self.lsp_id is not None:
@@ -16297,22 +14858,12 @@ class MplsTe(object):
                     if self.reverse_lsp is not None and self.reverse_lsp._has_data():
                         return True
 
-                    if self.reverse_lsp is not None and self.reverse_lsp.is_presence():
-                        return True
-
                     if self.source is not None and self.source._has_data():
-                        return True
-
-                    if self.source is not None and self.source.is_presence():
                         return True
 
                     if self.tunnel_name is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -16332,17 +14883,11 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.midpoint is not None:
                     for child_ref in self.midpoint:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -16362,24 +14907,13 @@ class MplsTe(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.alarm is not None and self.alarm._has_data():
-                return True
-
-            if self.alarm is not None and self.alarm.is_presence():
                 return True
 
             if self.bfd is not None and self.bfd._has_data():
                 return True
 
-            if self.bfd is not None and self.bfd.is_presence():
-                return True
-
             if self.fault is not None and self.fault._has_data():
-                return True
-
-            if self.fault is not None and self.fault.is_presence():
                 return True
 
             if self.global_id is not None:
@@ -16388,16 +14922,9 @@ class MplsTe(object):
             if self.midpoints is not None and self.midpoints._has_data():
                 return True
 
-            if self.midpoints is not None and self.midpoints.is_presence():
-                return True
-
             if self.node_id is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -16417,12 +14944,7 @@ class MplsTe(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.diff_serv_traffic_engineering is not None and self.diff_serv_traffic_engineering._has_data():
-            return True
-
-        if self.diff_serv_traffic_engineering is not None and self.diff_serv_traffic_engineering.is_presence():
             return True
 
         if self.enable_traffic_engineering is not None:
@@ -16431,43 +14953,21 @@ class MplsTe(object):
         if self.global_attributes is not None and self.global_attributes._has_data():
             return True
 
-        if self.global_attributes is not None and self.global_attributes.is_presence():
-            return True
-
         if self.gmpls_nni is not None and self.gmpls_nni._has_data():
-            return True
-
-        if self.gmpls_nni is not None and self.gmpls_nni.is_presence():
             return True
 
         if self.gmpls_uni is not None and self.gmpls_uni._has_data():
             return True
 
-        if self.gmpls_uni is not None and self.gmpls_uni.is_presence():
-            return True
-
         if self.interfaces is not None and self.interfaces._has_data():
-            return True
-
-        if self.interfaces is not None and self.interfaces.is_presence():
             return True
 
         if self.lcac is not None and self.lcac._has_data():
             return True
 
-        if self.lcac is not None and self.lcac.is_presence():
-            return True
-
         if self.transport_profile is not None and self.transport_profile._has_data():
             return True
 
-        if self.transport_profile is not None and self.transport_profile.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

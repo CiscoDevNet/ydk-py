@@ -642,8 +642,6 @@ class Diag(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.rma_history is not None:
                             return True
 
@@ -653,10 +651,6 @@ class Diag(object):
                         if self.test_history is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -678,8 +672,6 @@ class Diag(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.asset_alias is not None:
                         return True
 
@@ -827,9 +819,6 @@ class Diag(object):
                     if self.rma is not None and self.rma._has_data():
                         return True
 
-                    if self.rma is not None and self.rma.is_presence():
-                        return True
-
                     if self.rma_code is not None:
                         return True
 
@@ -854,10 +843,6 @@ class Diag(object):
                     if self.vid is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1494,8 +1479,6 @@ class Diag(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.rma_history is not None:
                                             return True
 
@@ -1505,10 +1488,6 @@ class Diag(object):
                                         if self.test_history is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1530,8 +1509,6 @@ class Diag(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.asset_alias is not None:
                                         return True
 
@@ -1679,9 +1656,6 @@ class Diag(object):
                                     if self.rma is not None and self.rma._has_data():
                                         return True
 
-                                    if self.rma is not None and self.rma.is_presence():
-                                        return True
-
                                     if self.rma_code is not None:
                                         return True
 
@@ -1708,10 +1682,6 @@ class Diag(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.sdr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
@@ -1733,21 +1703,12 @@ class Diag(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fans_name is not None:
                                     return True
 
                                 if self.information is not None and self.information._has_data():
                                     return True
 
-                                if self.information is not None and self.information.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1769,17 +1730,11 @@ class Diag(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.fans is not None:
                                 for child_ref in self.fans:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1803,21 +1758,12 @@ class Diag(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.fan_tray_name is not None:
                             return True
 
                         if self.fanses is not None and self.fanses._has_data():
                             return True
 
-                        if self.fanses is not None and self.fanses.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1839,17 +1785,11 @@ class Diag(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.fan_tray is not None:
                         for child_ref in self.fan_tray:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2486,8 +2426,6 @@ class Diag(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.rma_history is not None:
                                             return True
 
@@ -2497,10 +2435,6 @@ class Diag(object):
                                         if self.test_history is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2522,8 +2456,6 @@ class Diag(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.asset_alias is not None:
                                         return True
 
@@ -2671,9 +2603,6 @@ class Diag(object):
                                     if self.rma is not None and self.rma._has_data():
                                         return True
 
-                                    if self.rma is not None and self.rma.is_presence():
-                                        return True
-
                                     if self.rma_code is not None:
                                         return True
 
@@ -2700,10 +2629,6 @@ class Diag(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.sdr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
@@ -2725,21 +2650,12 @@ class Diag(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.power_supply_name is not None:
                                     return True
 
                                 if self.information is not None and self.information._has_data():
                                     return True
 
-                                if self.information is not None and self.information.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2761,17 +2677,11 @@ class Diag(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.power_supply is not None:
                                 for child_ref in self.power_supply:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2795,21 +2705,12 @@ class Diag(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.power_shelf_name is not None:
                             return True
 
                         if self.power_supplies is not None and self.power_supplies._has_data():
                             return True
 
-                        if self.power_supplies is not None and self.power_supplies.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2831,17 +2732,11 @@ class Diag(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.power_shelf is not None:
                         for child_ref in self.power_shelf:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3508,8 +3403,6 @@ class Diag(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.rma_history is not None:
                                                 return True
 
@@ -3519,10 +3412,6 @@ class Diag(object):
                                             if self.test_history is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3544,8 +3433,6 @@ class Diag(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.asset_alias is not None:
                                             return True
 
@@ -3693,9 +3580,6 @@ class Diag(object):
                                         if self.rma is not None and self.rma._has_data():
                                             return True
 
-                                        if self.rma is not None and self.rma.is_presence():
-                                            return True
-
                                         if self.rma_code is not None:
                                             return True
 
@@ -3722,10 +3606,6 @@ class Diag(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.sdr._meta import _Cisco_IOS_XR_sdr_invmgr_diag_oper as meta
@@ -3745,21 +3625,12 @@ class Diag(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.card_instance is not None and self.card_instance._has_data():
-                                        return True
-
-                                    if self.card_instance is not None and self.card_instance.is_presence():
                                         return True
 
                                     if self.node_operational_state is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3783,21 +3654,12 @@ class Diag(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.name is not None:
                                     return True
 
                                 if self.detail is not None and self.detail._has_data():
                                     return True
 
-                                if self.detail is not None and self.detail.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3819,17 +3681,11 @@ class Diag(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.instance is not None:
                                 for child_ref in self.instance:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3853,21 +3709,12 @@ class Diag(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.slot_name is not None:
                             return True
 
                         if self.instances is not None and self.instances._has_data():
                             return True
 
-                        if self.instances is not None and self.instances.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3889,17 +3736,11 @@ class Diag(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.slot is not None:
                         for child_ref in self.slot:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3921,39 +3762,21 @@ class Diag(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.rack_name is not None:
                     return True
 
                 if self.chassis is not None and self.chassis._has_data():
                     return True
 
-                if self.chassis is not None and self.chassis.is_presence():
-                    return True
-
                 if self.fan_traies is not None and self.fan_traies._has_data():
-                    return True
-
-                if self.fan_traies is not None and self.fan_traies.is_presence():
                     return True
 
                 if self.power_shelfs is not None and self.power_shelfs._has_data():
                     return True
 
-                if self.power_shelfs is not None and self.power_shelfs.is_presence():
-                    return True
-
                 if self.slots is not None and self.slots._has_data():
                     return True
 
-                if self.slots is not None and self.slots.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3973,17 +3796,11 @@ class Diag(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.rack is not None:
                 for child_ref in self.rack:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -4003,18 +3820,9 @@ class Diag(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.racks is not None and self.racks._has_data():
             return True
 
-        if self.racks is not None and self.racks.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

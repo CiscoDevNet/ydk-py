@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -18,14 +18,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.Config',
             False, 
             [
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the export policy chain is satisfied.
                 ''',
                 'default_export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the import policy chain is satisfied.
@@ -61,14 +61,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.State',
             False, 
             [
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the export policy chain is satisfied.
                 ''',
                 'default_export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the import policy chain is satisfied.
@@ -754,8 +754,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config',
+    'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -789,8 +789,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State',
+    'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -824,18 +824,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit',
+    'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -849,11 +849,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn',
+    'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -867,8 +867,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config',
+    'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -902,8 +902,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State',
+    'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -937,18 +937,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit',
+    'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -962,11 +962,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls',
+    'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -980,8 +980,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config',
+    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1015,8 +1015,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State',
+    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1050,18 +1050,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit',
+    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -1075,11 +1075,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast',
+    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -1093,8 +1093,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config',
+    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1128,8 +1128,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State',
+    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1163,18 +1163,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit',
+    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -1188,11 +1188,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast',
+    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -1206,8 +1206,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config',
+    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1241,8 +1241,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State',
+    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1276,18 +1276,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit',
+    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -1301,11 +1301,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast',
+    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -1319,8 +1319,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config',
+    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1354,8 +1354,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State',
+    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1389,18 +1389,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit',
+    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -1414,11 +1414,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast',
+    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -1871,37 +1871,37 @@ _meta_table = {
                 ''',
                 'ipv6_unicast',
                 'bgp', False),
-            _MetaInfoClassMember('l2vpn-evpn', REFERENCE_CLASS, 'L2vpnEvpn' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn', 
+            _MetaInfoClassMember('l2vpn-evpn', REFERENCE_CLASS, 'L2VpnEvpn' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn', 
                 [], [], 
                 '''                BGP EVPN configuration options
                 ''',
                 'l2vpn_evpn',
                 'bgp', False),
-            _MetaInfoClassMember('l2vpn-vpls', REFERENCE_CLASS, 'L2vpnVpls' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls', 
+            _MetaInfoClassMember('l2vpn-vpls', REFERENCE_CLASS, 'L2VpnVpls' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls', 
                 [], [], 
                 '''                BGP-signalled VPLS configuration options
                 ''',
                 'l2vpn_vpls',
                 'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv4-multicast', REFERENCE_CLASS, 'L3vpnIpv4Multicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast', 
+            _MetaInfoClassMember('l3vpn-ipv4-multicast', REFERENCE_CLASS, 'L3VpnIpv4Multicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast', 
                 [], [], 
                 '''                Multicast IPv4 L3VPN configuration options
                 ''',
                 'l3vpn_ipv4_multicast',
                 'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv4-unicast', REFERENCE_CLASS, 'L3vpnIpv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast', 
+            _MetaInfoClassMember('l3vpn-ipv4-unicast', REFERENCE_CLASS, 'L3VpnIpv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast', 
                 [], [], 
                 '''                Unicast IPv4 L3VPN configuration options
                 ''',
                 'l3vpn_ipv4_unicast',
                 'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv6-multicast', REFERENCE_CLASS, 'L3vpnIpv6Multicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast', 
+            _MetaInfoClassMember('l3vpn-ipv6-multicast', REFERENCE_CLASS, 'L3VpnIpv6Multicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast', 
                 [], [], 
                 '''                Multicast IPv6 L3VPN configuration options
                 ''',
                 'l3vpn_ipv6_multicast',
                 'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv6-unicast', REFERENCE_CLASS, 'L3vpnIpv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast', 
+            _MetaInfoClassMember('l3vpn-ipv6-unicast', REFERENCE_CLASS, 'L3VpnIpv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast', 
                 [], [], 
                 '''                Unicast IPv6 L3VPN configuration options
                 ''',
@@ -1955,14 +1955,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Global.ApplyPolicy.Config',
             False, 
             [
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the export policy chain is satisfied.
                 ''',
                 'default_export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the import policy chain is satisfied.
@@ -1998,14 +1998,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Global.ApplyPolicy.State',
             False, 
             [
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the export policy chain is satisfied.
                 ''',
                 'default_export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the import policy chain is satisfied.
@@ -2896,14 +2896,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.Config',
             False, 
             [
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the export policy chain is satisfied.
                 ''',
                 'default_export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the import policy chain is satisfied.
@@ -2939,14 +2939,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.State',
             False, 
             [
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the export policy chain is satisfied.
                 ''',
                 'default_export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the import policy chain is satisfied.
@@ -3646,8 +3646,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -3681,8 +3681,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -3716,18 +3716,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -3741,11 +3741,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -3759,8 +3759,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -3794,8 +3794,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -3829,18 +3829,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -3854,11 +3854,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -3872,8 +3872,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -3907,8 +3907,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -3942,18 +3942,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -3967,11 +3967,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -3985,8 +3985,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -4020,8 +4020,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -4055,18 +4055,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -4080,11 +4080,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -4098,8 +4098,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -4133,8 +4133,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -4168,18 +4168,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -4193,11 +4193,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -4211,8 +4211,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -4246,8 +4246,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -4281,18 +4281,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -4306,11 +4306,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast',
+    'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -4578,37 +4578,37 @@ _meta_table = {
                 ''',
                 'ipv6_unicast',
                 'bgp', False),
-            _MetaInfoClassMember('l2vpn-evpn', REFERENCE_CLASS, 'L2vpnEvpn' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn', 
+            _MetaInfoClassMember('l2vpn-evpn', REFERENCE_CLASS, 'L2VpnEvpn' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn', 
                 [], [], 
                 '''                BGP EVPN configuration options
                 ''',
                 'l2vpn_evpn',
                 'bgp', False),
-            _MetaInfoClassMember('l2vpn-vpls', REFERENCE_CLASS, 'L2vpnVpls' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls', 
+            _MetaInfoClassMember('l2vpn-vpls', REFERENCE_CLASS, 'L2VpnVpls' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls', 
                 [], [], 
                 '''                BGP-signalled VPLS configuration options
                 ''',
                 'l2vpn_vpls',
                 'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv4-multicast', REFERENCE_CLASS, 'L3vpnIpv4Multicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast', 
+            _MetaInfoClassMember('l3vpn-ipv4-multicast', REFERENCE_CLASS, 'L3VpnIpv4Multicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast', 
                 [], [], 
                 '''                Multicast IPv4 L3VPN configuration options
                 ''',
                 'l3vpn_ipv4_multicast',
                 'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv4-unicast', REFERENCE_CLASS, 'L3vpnIpv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast', 
+            _MetaInfoClassMember('l3vpn-ipv4-unicast', REFERENCE_CLASS, 'L3VpnIpv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast', 
                 [], [], 
                 '''                Unicast IPv4 L3VPN configuration options
                 ''',
                 'l3vpn_ipv4_unicast',
                 'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv6-multicast', REFERENCE_CLASS, 'L3vpnIpv6Multicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast', 
+            _MetaInfoClassMember('l3vpn-ipv6-multicast', REFERENCE_CLASS, 'L3VpnIpv6Multicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast', 
                 [], [], 
                 '''                Multicast IPv6 L3VPN configuration options
                 ''',
                 'l3vpn_ipv6_multicast',
                 'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv6-unicast', REFERENCE_CLASS, 'L3vpnIpv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast', 
+            _MetaInfoClassMember('l3vpn-ipv6-unicast', REFERENCE_CLASS, 'L3VpnIpv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast', 
                 [], [], 
                 '''                Unicast IPv6 L3VPN configuration options
                 ''',
@@ -4656,14 +4656,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.ApplyPolicy.Config',
             False, 
             [
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the export policy chain is satisfied.
                 ''',
                 'default_export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the import policy chain is satisfied.
@@ -4699,14 +4699,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Neighbors.Neighbor.ApplyPolicy.State',
             False, 
             [
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the export policy chain is satisfied.
                 ''',
                 'default_export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the import policy chain is satisfied.
@@ -4894,14 +4894,14 @@ _meta_table = {
                 ''',
                 'peer_group',
                 'bgp', False),
-            _MetaInfoClassMember('peer-type', REFERENCE_ENUM_CLASS, 'PeerType_Enum' , 'ydk.models.bgp.bgp_types', 'PeerType_Enum', 
+            _MetaInfoClassMember('peer-type', REFERENCE_ENUM_CLASS, 'PeerTypeEnum' , 'ydk.models.bgp.bgp_types', 'PeerTypeEnum', 
                 [], [], 
                 '''                Explicitly designate the peer or peer group as internal
                 (iBGP) or external (eBGP).
                 ''',
                 'peer_type',
                 'bgp', False),
-            _MetaInfoClassMember('remove-private-as', REFERENCE_ENUM_CLASS, 'RemovePrivateAsOption_Enum' , 'ydk.models.bgp.bgp_types', 'RemovePrivateAsOption_Enum', 
+            _MetaInfoClassMember('remove-private-as', REFERENCE_ENUM_CLASS, 'RemovePrivateAsOptionEnum' , 'ydk.models.bgp.bgp_types', 'RemovePrivateAsOptionEnum', 
                 [], [], 
                 '''                Remove private AS numbers from updates sent to peers.
                 ''',
@@ -4913,7 +4913,7 @@ _meta_table = {
                 ''',
                 'route_flap_damping',
                 'bgp', False),
-            _MetaInfoClassMember('send-community', REFERENCE_ENUM_CLASS, 'CommunityType_Enum' , 'ydk.models.bgp.bgp_types', 'CommunityType_Enum', 
+            _MetaInfoClassMember('send-community', REFERENCE_ENUM_CLASS, 'CommunityTypeEnum' , 'ydk.models.bgp.bgp_types', 'CommunityTypeEnum', 
                 [], [], 
                 '''                Specify which types of community should be sent to the
                 neighbor or group. The default is to not send the
@@ -5125,7 +5125,7 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.GracefulRestart.State.Mode_Enum' : _MetaInfoEnum('Mode_Enum', 'ydk.models.bgp.bgp',
+    'Bgp.Neighbors.Neighbor.GracefulRestart.State.ModeEnum' : _MetaInfoEnum('ModeEnum', 'ydk.models.bgp.bgp',
         {
             'HELPER-ONLY':'HELPER_ONLY',
             'BILATERAL':'BILATERAL',
@@ -5159,7 +5159,7 @@ _meta_table = {
                 ''',
                 'local_restarting',
                 'bgp', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'Mode_Enum' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.GracefulRestart.State.Mode_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'ModeEnum' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.GracefulRestart.State.ModeEnum', 
                 [], [], 
                 '''                Ths leaf indicates the mode of operation of BGP graceful
                 restart with the peer
@@ -5507,7 +5507,7 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.Neighbors.Neighbor.State.SessionState_Enum' : _MetaInfoEnum('SessionState_Enum', 'ydk.models.bgp.bgp',
+    'Bgp.Neighbors.Neighbor.State.SessionStateEnum' : _MetaInfoEnum('SessionStateEnum', 'ydk.models.bgp.bgp',
         {
             'IDLE':'IDLE',
             'CONNECT':'CONNECT',
@@ -5581,7 +5581,7 @@ _meta_table = {
                 ''',
                 'peer_group',
                 'bgp', False),
-            _MetaInfoClassMember('peer-type', REFERENCE_ENUM_CLASS, 'PeerType_Enum' , 'ydk.models.bgp.bgp_types', 'PeerType_Enum', 
+            _MetaInfoClassMember('peer-type', REFERENCE_ENUM_CLASS, 'PeerTypeEnum' , 'ydk.models.bgp.bgp_types', 'PeerTypeEnum', 
                 [], [], 
                 '''                Explicitly designate the peer or peer group as internal
                 (iBGP) or external (eBGP).
@@ -5595,7 +5595,7 @@ _meta_table = {
                 ''',
                 'queues',
                 'bgp', False),
-            _MetaInfoClassMember('remove-private-as', REFERENCE_ENUM_CLASS, 'RemovePrivateAsOption_Enum' , 'ydk.models.bgp.bgp_types', 'RemovePrivateAsOption_Enum', 
+            _MetaInfoClassMember('remove-private-as', REFERENCE_ENUM_CLASS, 'RemovePrivateAsOptionEnum' , 'ydk.models.bgp.bgp_types', 'RemovePrivateAsOptionEnum', 
                 [], [], 
                 '''                Remove private AS numbers from updates sent to peers.
                 ''',
@@ -5607,7 +5607,7 @@ _meta_table = {
                 ''',
                 'route_flap_damping',
                 'bgp', False),
-            _MetaInfoClassMember('send-community', REFERENCE_ENUM_CLASS, 'CommunityType_Enum' , 'ydk.models.bgp.bgp_types', 'CommunityType_Enum', 
+            _MetaInfoClassMember('send-community', REFERENCE_ENUM_CLASS, 'CommunityTypeEnum' , 'ydk.models.bgp.bgp_types', 'CommunityTypeEnum', 
                 [], [], 
                 '''                Specify which types of community should be sent to the
                 neighbor or group. The default is to not send the
@@ -5615,7 +5615,7 @@ _meta_table = {
                 ''',
                 'send_community',
                 'bgp', False),
-            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'SessionState_Enum' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.State.SessionState_Enum', 
+            _MetaInfoClassMember('session-state', REFERENCE_ENUM_CLASS, 'SessionStateEnum' , 'ydk.models.bgp.bgp', 'Bgp.Neighbors.Neighbor.State.SessionStateEnum', 
                 [], [], 
                 '''                Operational state of the BGP peer
                 ''',
@@ -6332,14 +6332,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.Config',
             False, 
             [
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the export policy chain is satisfied.
                 ''',
                 'default_export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the import policy chain is satisfied.
@@ -6375,14 +6375,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.State',
             False, 
             [
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the export policy chain is satisfied.
                 ''',
                 'default_export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the import policy chain is satisfied.
@@ -7068,8 +7068,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -7103,8 +7103,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -7138,18 +7138,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -7163,11 +7163,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -7181,8 +7181,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -7216,8 +7216,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -7251,18 +7251,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -7276,11 +7276,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -7294,8 +7294,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -7329,8 +7329,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -7364,18 +7364,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -7389,11 +7389,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -7407,8 +7407,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -7442,8 +7442,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -7477,18 +7477,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -7502,11 +7502,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -7520,8 +7520,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -7555,8 +7555,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -7590,18 +7590,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -7615,11 +7615,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -7633,8 +7633,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -7668,8 +7668,8 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -7703,18 +7703,18 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -7728,11 +7728,11 @@ _meta_table = {
         'ydk.models.bgp.bgp'
         ),
     },
-    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast',
+    'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -8173,37 +8173,37 @@ _meta_table = {
                 ''',
                 'ipv6_unicast',
                 'bgp', False),
-            _MetaInfoClassMember('l2vpn-evpn', REFERENCE_CLASS, 'L2vpnEvpn' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn', 
+            _MetaInfoClassMember('l2vpn-evpn', REFERENCE_CLASS, 'L2VpnEvpn' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn', 
                 [], [], 
                 '''                BGP EVPN configuration options
                 ''',
                 'l2vpn_evpn',
                 'bgp', False),
-            _MetaInfoClassMember('l2vpn-vpls', REFERENCE_CLASS, 'L2vpnVpls' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls', 
+            _MetaInfoClassMember('l2vpn-vpls', REFERENCE_CLASS, 'L2VpnVpls' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls', 
                 [], [], 
                 '''                BGP-signalled VPLS configuration options
                 ''',
                 'l2vpn_vpls',
                 'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv4-multicast', REFERENCE_CLASS, 'L3vpnIpv4Multicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast', 
+            _MetaInfoClassMember('l3vpn-ipv4-multicast', REFERENCE_CLASS, 'L3VpnIpv4Multicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast', 
                 [], [], 
                 '''                Multicast IPv4 L3VPN configuration options
                 ''',
                 'l3vpn_ipv4_multicast',
                 'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv4-unicast', REFERENCE_CLASS, 'L3vpnIpv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast', 
+            _MetaInfoClassMember('l3vpn-ipv4-unicast', REFERENCE_CLASS, 'L3VpnIpv4Unicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast', 
                 [], [], 
                 '''                Unicast IPv4 L3VPN configuration options
                 ''',
                 'l3vpn_ipv4_unicast',
                 'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv6-multicast', REFERENCE_CLASS, 'L3vpnIpv6Multicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast', 
+            _MetaInfoClassMember('l3vpn-ipv6-multicast', REFERENCE_CLASS, 'L3VpnIpv6Multicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast', 
                 [], [], 
                 '''                Multicast IPv6 L3VPN configuration options
                 ''',
                 'l3vpn_ipv6_multicast',
                 'bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv6-unicast', REFERENCE_CLASS, 'L3vpnIpv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast', 
+            _MetaInfoClassMember('l3vpn-ipv6-unicast', REFERENCE_CLASS, 'L3VpnIpv6Unicast' , 'ydk.models.bgp.bgp', 'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast', 
                 [], [], 
                 '''                Unicast IPv6 L3VPN configuration options
                 ''',
@@ -8257,14 +8257,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.ApplyPolicy.Config',
             False, 
             [
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the export policy chain is satisfied.
                 ''',
                 'default_export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the import policy chain is satisfied.
@@ -8300,14 +8300,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.PeerGroups.PeerGroup.ApplyPolicy.State',
             False, 
             [
-            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the export policy chain is satisfied.
                 ''',
                 'default_export_policy',
                 'bgp', False),
-            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyType_Enum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyType_Enum', 
+            _MetaInfoClassMember('default-import-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.routing.routing_policy', 'DefaultPolicyTypeEnum', 
                 [], [], 
                 '''                explicitly set a default policy if no policy definition
                 in the import policy chain is satisfied.
@@ -8476,14 +8476,14 @@ _meta_table = {
                 ''',
                 'peer_group_name',
                 'bgp', False),
-            _MetaInfoClassMember('peer-type', REFERENCE_ENUM_CLASS, 'PeerType_Enum' , 'ydk.models.bgp.bgp_types', 'PeerType_Enum', 
+            _MetaInfoClassMember('peer-type', REFERENCE_ENUM_CLASS, 'PeerTypeEnum' , 'ydk.models.bgp.bgp_types', 'PeerTypeEnum', 
                 [], [], 
                 '''                Explicitly designate the peer or peer group as internal
                 (iBGP) or external (eBGP).
                 ''',
                 'peer_type',
                 'bgp', False),
-            _MetaInfoClassMember('remove-private-as', REFERENCE_ENUM_CLASS, 'RemovePrivateAsOption_Enum' , 'ydk.models.bgp.bgp_types', 'RemovePrivateAsOption_Enum', 
+            _MetaInfoClassMember('remove-private-as', REFERENCE_ENUM_CLASS, 'RemovePrivateAsOptionEnum' , 'ydk.models.bgp.bgp_types', 'RemovePrivateAsOptionEnum', 
                 [], [], 
                 '''                Remove private AS numbers from updates sent to peers.
                 ''',
@@ -8495,7 +8495,7 @@ _meta_table = {
                 ''',
                 'route_flap_damping',
                 'bgp', False),
-            _MetaInfoClassMember('send-community', REFERENCE_ENUM_CLASS, 'CommunityType_Enum' , 'ydk.models.bgp.bgp_types', 'CommunityType_Enum', 
+            _MetaInfoClassMember('send-community', REFERENCE_ENUM_CLASS, 'CommunityTypeEnum' , 'ydk.models.bgp.bgp_types', 'CommunityTypeEnum', 
                 [], [], 
                 '''                Specify which types of community should be sent to the
                 neighbor or group. The default is to not send the
@@ -8985,14 +8985,14 @@ _meta_table = {
                 ''',
                 'peer_group_name',
                 'bgp', False),
-            _MetaInfoClassMember('peer-type', REFERENCE_ENUM_CLASS, 'PeerType_Enum' , 'ydk.models.bgp.bgp_types', 'PeerType_Enum', 
+            _MetaInfoClassMember('peer-type', REFERENCE_ENUM_CLASS, 'PeerTypeEnum' , 'ydk.models.bgp.bgp_types', 'PeerTypeEnum', 
                 [], [], 
                 '''                Explicitly designate the peer or peer group as internal
                 (iBGP) or external (eBGP).
                 ''',
                 'peer_type',
                 'bgp', False),
-            _MetaInfoClassMember('remove-private-as', REFERENCE_ENUM_CLASS, 'RemovePrivateAsOption_Enum' , 'ydk.models.bgp.bgp_types', 'RemovePrivateAsOption_Enum', 
+            _MetaInfoClassMember('remove-private-as', REFERENCE_ENUM_CLASS, 'RemovePrivateAsOptionEnum' , 'ydk.models.bgp.bgp_types', 'RemovePrivateAsOptionEnum', 
                 [], [], 
                 '''                Remove private AS numbers from updates sent to peers.
                 ''',
@@ -9004,7 +9004,7 @@ _meta_table = {
                 ''',
                 'route_flap_damping',
                 'bgp', False),
-            _MetaInfoClassMember('send-community', REFERENCE_ENUM_CLASS, 'CommunityType_Enum' , 'ydk.models.bgp.bgp_types', 'CommunityType_Enum', 
+            _MetaInfoClassMember('send-community', REFERENCE_ENUM_CLASS, 'CommunityTypeEnum' , 'ydk.models.bgp.bgp_types', 'CommunityTypeEnum', 
                 [], [], 
                 '''                Specify which types of community should be sent to the
                 neighbor or group. The default is to not send the
@@ -9716,24 +9716,24 @@ _meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State']['meta_i
 _meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
 _meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
 _meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast']['meta_info']
 _meta_table['Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions']['meta_info']
 _meta_table['Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions']['meta_info']
 _meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp']['meta_info']
@@ -9751,12 +9751,12 @@ _meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast']['meta_info'].pare
 _meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
 _meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
 _meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2vpnEvpn']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2vpnVpls']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Multicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv4Unicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Multicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3vpnIpv6Unicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
 _meta_table['Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
 _meta_table['Bgp.Global.AfiSafis.AfiSafi.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
 _meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
@@ -9810,24 +9810,24 @@ _meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Sta
 _meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.Config']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
 _meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
 _meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.State']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast']['meta_info']
 _meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State.Prefixes']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State']['meta_info']
 _meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp']['meta_info']
 _meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp']['meta_info']
@@ -9841,12 +9841,12 @@ _meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast']['meta
 _meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
 _meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
 _meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnEvpn']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2vpnVpls']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Multicast']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv4Unicast']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Multicast']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3vpnIpv6Unicast']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
 _meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
 _meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info']
 _meta_table['Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.AfiSafis']['meta_info']
@@ -9914,24 +9914,24 @@ _meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.S
 _meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.Config']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
 _meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
 _meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.State']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast']['meta_info']
 _meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.Config']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions']['meta_info']
 _meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.State']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions']['meta_info']
 _meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp']['meta_info']
@@ -9949,12 +9949,12 @@ _meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast']['me
 _meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
 _meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
 _meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnEvpn']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2vpnVpls']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Multicast']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv4Unicast']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Multicast']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3vpnIpv6Unicast']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
 _meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
 _meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']
 _meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi']['meta_info']

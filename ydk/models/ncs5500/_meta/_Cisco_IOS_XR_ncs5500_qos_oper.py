@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,14 +14,14 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'DnxQoseaShowAction_Enum' : _MetaInfoEnum('DnxQoseaShowAction_Enum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
+    'DnxQoseaShowActionEnum' : _MetaInfoEnum('DnxQoseaShowActionEnum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
         {
             'action-none':'ACTION_NONE',
             'action-transmit':'ACTION_TRANSMIT',
             'action-drop':'ACTION_DROP',
             'action-mark':'ACTION_MARK',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
-    'DnxQoseaShowPolicyUnit_Enum' : _MetaInfoEnum('DnxQoseaShowPolicyUnit_Enum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
+    'DnxQoseaShowPolicyUnitEnum' : _MetaInfoEnum('DnxQoseaShowPolicyUnitEnum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
         {
             'invalid':'INVALID',
             'bytes':'BYTES',
@@ -41,7 +41,7 @@ _meta_table = {
             'percent':'PERCENT',
             'ratio':'RATIO',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
-    'DnxQoseaShowWred_Enum' : _MetaInfoEnum('DnxQoseaShowWred_Enum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
+    'DnxQoseaShowWredEnum' : _MetaInfoEnum('DnxQoseaShowWredEnum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
         {
             'wred-cos':'WRED_COS',
             'wred-dscp':'WRED_DSCP',
@@ -52,7 +52,7 @@ _meta_table = {
             'red-with-default-min-max':'RED_WITH_DEFAULT_MIN_MAX',
             'wred-invalid':'WRED_INVALID',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
-    'DnxQoseaShowHpLevel_Enum' : _MetaInfoEnum('DnxQoseaShowHpLevel_Enum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
+    'DnxQoseaShowHpLevelEnum' : _MetaInfoEnum('DnxQoseaShowHpLevelEnum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
         {
             'high-priority-level1':'HIGH_PRIORITY_LEVEL1',
             'high-priority-level2':'HIGH_PRIORITY_LEVEL2',
@@ -63,7 +63,7 @@ _meta_table = {
             'high-priority-level7':'HIGH_PRIORITY_LEVEL7',
             'unknown':'UNKNOWN',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
-    'QosPolicyAccountEnum_Enum' : _MetaInfoEnum('QosPolicyAccountEnum_Enum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
+    'QosPolicyAccountEnumEnum' : _MetaInfoEnum('QosPolicyAccountEnumEnum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
         {
             'qos-serv-policy-no-ac-count-pref':'QOS_SERV_POLICY_NO_AC_COUNT_PREF',
             'qos-serv-policy-ac-count-l2':'QOS_SERV_POLICY_AC_COUNT_L2',
@@ -71,7 +71,7 @@ _meta_table = {
             'qos-serv-policy-ac-count-user-def':'QOS_SERV_POLICY_AC_COUNT_USER_DEF',
             'qos-serv-policy-ac-count-l1':'QOS_SERV_POLICY_AC_COUNT_L1',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
-    'DnxQoseaShowMark_Enum' : _MetaInfoEnum('DnxQoseaShowMark_Enum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
+    'DnxQoseaShowMarkEnum' : _MetaInfoEnum('DnxQoseaShowMarkEnum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
         {
             'mark-none':'MARK_NONE',
             'dscp':'DSCP',
@@ -85,17 +85,17 @@ _meta_table = {
             'dscp-tunnel':'DSCP_TUNNEL',
             'precedence-tunnel':'PRECEDENCE_TUNNEL',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
-    'DnxQoseaShowPolicyStatus_Enum' : _MetaInfoEnum('DnxQoseaShowPolicyStatus_Enum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
+    'DnxQoseaShowPolicyStatusEnum' : _MetaInfoEnum('DnxQoseaShowPolicyStatusEnum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
         {
             'no-error':'NO_ERROR',
             'policy-in-reset':'POLICY_IN_RESET',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
-    'DnxQoseaShowIntfStatus_Enum' : _MetaInfoEnum('DnxQoseaShowIntfStatus_Enum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
+    'DnxQoseaShowIntfStatusEnum' : _MetaInfoEnum('DnxQoseaShowIntfStatusEnum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
         {
             'state-unknown':'STATE_UNKNOWN',
             'state-down':'STATE_DOWN',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
-    'DnxQoseaShowLevel_Enum' : _MetaInfoEnum('DnxQoseaShowLevel_Enum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
+    'DnxQoseaShowLevelEnum' : _MetaInfoEnum('DnxQoseaShowLevelEnum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
         {
             'level1':'LEVEL1',
             'level2':'LEVEL2',
@@ -103,7 +103,7 @@ _meta_table = {
             'level4':'LEVEL4',
             'level5':'LEVEL5',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
-    'DnxQoseaShowQueue_Enum' : _MetaInfoEnum('DnxQoseaShowQueue_Enum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
+    'DnxQoseaShowQueueEnum' : _MetaInfoEnum('DnxQoseaShowQueueEnum', 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper',
         {
             'low-priority-default-queue':'LOW_PRIORITY_DEFAULT_QUEUE',
             'low-priority-queue':'LOW_PRIORITY_QUEUE',
@@ -114,7 +114,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.CommonMark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -137,7 +137,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -160,7 +160,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -183,7 +183,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -206,7 +206,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -229,7 +229,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -252,7 +252,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -275,7 +275,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -298,7 +298,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction.Mark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -321,7 +321,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction',
             False, 
             [
-            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowAction_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowAction_Enum', 
+            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
                 [], [], 
                 '''                Policer action type
                 ''',
@@ -344,7 +344,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction.Mark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -367,7 +367,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction',
             False, 
             [
-            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowAction_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowAction_Enum', 
+            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
                 [], [], 
                 '''                Policer action type
                 ''',
@@ -390,7 +390,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.IpMark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -413,7 +413,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.MplsMark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -436,7 +436,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction.Mark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -459,7 +459,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction',
             False, 
             [
-            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowAction_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowAction_Enum', 
+            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
                 [], [], 
                 '''                Policer action type
                 ''',
@@ -482,7 +482,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -505,7 +505,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -604,7 +604,7 @@ _meta_table = {
                 ''',
                 'segment_size',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('wred-match-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowWred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowWred_Enum', 
+            _MetaInfoClassMember('wred-match-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowWredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowWredEnum', 
                 [], [], 
                 '''                WREDMatchType
                 ''',
@@ -633,7 +633,7 @@ _meta_table = {
                 ''',
                 'level_one_class_name',
                 'Cisco-IOS-XR-ncs5500-qos-oper', True),
-            _MetaInfoClassMember('class-level', REFERENCE_ENUM_CLASS, 'DnxQoseaShowLevel_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowLevel_Enum', 
+            _MetaInfoClassMember('class-level', REFERENCE_ENUM_CLASS, 'DnxQoseaShowLevelEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowLevelEnum', 
                 [], [], 
                 '''                Class level
                 ''',
@@ -807,13 +807,13 @@ _meta_table = {
                 ''',
                 'policer_stats_handle',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('priority-level', REFERENCE_ENUM_CLASS, 'DnxQoseaShowHpLevel_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowHpLevel_Enum', 
+            _MetaInfoClassMember('priority-level', REFERENCE_ENUM_CLASS, 'DnxQoseaShowHpLevelEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowHpLevelEnum', 
                 [], [], 
                 '''                Priority level
                 ''',
                 'priority_level',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('queue-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowQueue_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowQueue_Enum', 
+            _MetaInfoClassMember('queue-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowQueueEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowQueueEnum', 
                 [], [], 
                 '''                Queue type
                 ''',
@@ -859,7 +859,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.CommonMark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -882,7 +882,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -905,7 +905,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -928,7 +928,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -951,7 +951,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -974,7 +974,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -997,7 +997,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -1020,7 +1020,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -1043,7 +1043,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction.Mark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -1066,7 +1066,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction',
             False, 
             [
-            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowAction_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowAction_Enum', 
+            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
                 [], [], 
                 '''                Policer action type
                 ''',
@@ -1089,7 +1089,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction.Mark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -1112,7 +1112,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction',
             False, 
             [
-            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowAction_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowAction_Enum', 
+            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
                 [], [], 
                 '''                Policer action type
                 ''',
@@ -1135,7 +1135,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.IpMark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -1158,7 +1158,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.MplsMark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -1181,7 +1181,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction.Mark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -1204,7 +1204,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction',
             False, 
             [
-            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowAction_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowAction_Enum', 
+            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
                 [], [], 
                 '''                Policer action type
                 ''',
@@ -1227,7 +1227,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -1250,7 +1250,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -1349,7 +1349,7 @@ _meta_table = {
                 ''',
                 'segment_size',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('wred-match-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowWred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowWred_Enum', 
+            _MetaInfoClassMember('wred-match-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowWredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowWredEnum', 
                 [], [], 
                 '''                WREDMatchType
                 ''',
@@ -1378,7 +1378,7 @@ _meta_table = {
                 ''',
                 'level_one_class_name',
                 'Cisco-IOS-XR-ncs5500-qos-oper', True),
-            _MetaInfoClassMember('class-level', REFERENCE_ENUM_CLASS, 'DnxQoseaShowLevel_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowLevel_Enum', 
+            _MetaInfoClassMember('class-level', REFERENCE_ENUM_CLASS, 'DnxQoseaShowLevelEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowLevelEnum', 
                 [], [], 
                 '''                Class level
                 ''',
@@ -1552,13 +1552,13 @@ _meta_table = {
                 ''',
                 'policer_stats_handle',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('priority-level', REFERENCE_ENUM_CLASS, 'DnxQoseaShowHpLevel_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowHpLevel_Enum', 
+            _MetaInfoClassMember('priority-level', REFERENCE_ENUM_CLASS, 'DnxQoseaShowHpLevelEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowHpLevelEnum', 
                 [], [], 
                 '''                Priority level
                 ''',
                 'priority_level',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('queue-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowQueue_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowQueue_Enum', 
+            _MetaInfoClassMember('queue-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowQueueEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowQueueEnum', 
                 [], [], 
                 '''                Queue type
                 ''',
@@ -1616,7 +1616,7 @@ _meta_table = {
                 ''',
                 'interface_handle',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('interface-status', REFERENCE_ENUM_CLASS, 'DnxQoseaShowIntfStatus_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowIntfStatus_Enum', 
+            _MetaInfoClassMember('interface-status', REFERENCE_ENUM_CLASS, 'DnxQoseaShowIntfStatusEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowIntfStatusEnum', 
                 [], [], 
                 '''                Interface Status
                 ''',
@@ -1634,13 +1634,13 @@ _meta_table = {
                 ''',
                 'policy_name',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('policy-status', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyStatus_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyStatus_Enum', 
+            _MetaInfoClassMember('policy-status', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyStatusEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyStatusEnum', 
                 [], [], 
                 '''                Policy Status
                 ''',
                 'policy_status',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('stats-accounting-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'QosPolicyAccountEnum_Enum', 
+            _MetaInfoClassMember('stats-accounting-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnumEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'QosPolicyAccountEnumEnum', 
                 [], [], 
                 '''                QoS Statistics Accounting Type
                 ''',
@@ -1733,7 +1733,7 @@ _meta_table = {
                 ''',
                 'interface_handle',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('interface-status', REFERENCE_ENUM_CLASS, 'DnxQoseaShowIntfStatus_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowIntfStatus_Enum', 
+            _MetaInfoClassMember('interface-status', REFERENCE_ENUM_CLASS, 'DnxQoseaShowIntfStatusEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowIntfStatusEnum', 
                 [], [], 
                 '''                Interface Status
                 ''',
@@ -1751,13 +1751,13 @@ _meta_table = {
                 ''',
                 'policy_name',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('policy-status', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyStatus_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyStatus_Enum', 
+            _MetaInfoClassMember('policy-status', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyStatusEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyStatusEnum', 
                 [], [], 
                 '''                Policy Status
                 ''',
                 'policy_status',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('stats-accounting-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'QosPolicyAccountEnum_Enum', 
+            _MetaInfoClassMember('stats-accounting-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnumEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'QosPolicyAccountEnumEnum', 
                 [], [], 
                 '''                QoS Statistics Accounting Type
                 ''',
@@ -1857,7 +1857,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.CommonMark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -1880,7 +1880,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMaxRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -1903,7 +1903,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -1926,7 +1926,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -1949,7 +1949,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -1972,7 +1972,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -1995,7 +1995,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -2018,7 +2018,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -2041,7 +2041,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction.Mark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -2064,7 +2064,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction',
             False, 
             [
-            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowAction_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowAction_Enum', 
+            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
                 [], [], 
                 '''                Policer action type
                 ''',
@@ -2087,7 +2087,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction.Mark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -2110,7 +2110,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction',
             False, 
             [
-            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowAction_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowAction_Enum', 
+            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
                 [], [], 
                 '''                Policer action type
                 ''',
@@ -2133,7 +2133,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.IpMark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -2156,7 +2156,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.MplsMark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -2179,7 +2179,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction.Mark',
             False, 
             [
-            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMark_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMark_Enum', 
+            _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
                 [], [], 
                 '''                Mark type
                 ''',
@@ -2202,7 +2202,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction',
             False, 
             [
-            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowAction_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowAction_Enum', 
+            _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
                 [], [], 
                 '''                Policer action type
                 ''',
@@ -2225,7 +2225,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -2248,7 +2248,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnit_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnit_Enum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
@@ -2347,7 +2347,7 @@ _meta_table = {
                 ''',
                 'segment_size',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('wred-match-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowWred_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowWred_Enum', 
+            _MetaInfoClassMember('wred-match-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowWredEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowWredEnum', 
                 [], [], 
                 '''                WREDMatchType
                 ''',
@@ -2376,7 +2376,7 @@ _meta_table = {
                 ''',
                 'level_one_class_name',
                 'Cisco-IOS-XR-ncs5500-qos-oper', True),
-            _MetaInfoClassMember('class-level', REFERENCE_ENUM_CLASS, 'DnxQoseaShowLevel_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowLevel_Enum', 
+            _MetaInfoClassMember('class-level', REFERENCE_ENUM_CLASS, 'DnxQoseaShowLevelEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowLevelEnum', 
                 [], [], 
                 '''                Class level
                 ''',
@@ -2550,13 +2550,13 @@ _meta_table = {
                 ''',
                 'policer_stats_handle',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('priority-level', REFERENCE_ENUM_CLASS, 'DnxQoseaShowHpLevel_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowHpLevel_Enum', 
+            _MetaInfoClassMember('priority-level', REFERENCE_ENUM_CLASS, 'DnxQoseaShowHpLevelEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowHpLevelEnum', 
                 [], [], 
                 '''                Priority level
                 ''',
                 'priority_level',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('queue-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowQueue_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowQueue_Enum', 
+            _MetaInfoClassMember('queue-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowQueueEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowQueueEnum', 
                 [], [], 
                 '''                Queue type
                 ''',
@@ -2614,7 +2614,7 @@ _meta_table = {
                 ''',
                 'interface_handle',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('interface-status', REFERENCE_ENUM_CLASS, 'DnxQoseaShowIntfStatus_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowIntfStatus_Enum', 
+            _MetaInfoClassMember('interface-status', REFERENCE_ENUM_CLASS, 'DnxQoseaShowIntfStatusEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowIntfStatusEnum', 
                 [], [], 
                 '''                Interface Status
                 ''',
@@ -2632,13 +2632,13 @@ _meta_table = {
                 ''',
                 'policy_name',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('policy-status', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyStatus_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyStatus_Enum', 
+            _MetaInfoClassMember('policy-status', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyStatusEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyStatusEnum', 
                 [], [], 
                 '''                Policy Status
                 ''',
                 'policy_status',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('stats-accounting-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum_Enum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'QosPolicyAccountEnum_Enum', 
+            _MetaInfoClassMember('stats-accounting-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnumEnum' , 'ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper', 'QosPolicyAccountEnumEnum', 
                 [], [], 
                 '''                QoS Statistics Accounting Type
                 ''',

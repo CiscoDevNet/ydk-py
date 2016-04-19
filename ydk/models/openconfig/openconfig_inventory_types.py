@@ -61,7 +61,7 @@ class OpenconfigSoftwareComponent_Identity(object):
         return meta._meta_table['OpenconfigSoftwareComponent_Identity']['meta_info']
 
 
-class BACKPLANE_Identity(OpenconfigHardwareComponent_Identity):
+class Backplane_Identity(OpenconfigHardwareComponent_Identity):
     """
     Backplane component for aggregating traffic, typically
     contained in a chassis component
@@ -75,15 +75,14 @@ class BACKPLANE_Identity(OpenconfigHardwareComponent_Identity):
 
     def __init__(self):
         OpenconfigHardwareComponent_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['BACKPLANE_Identity']['meta_info']
+        return meta._meta_table['Backplane_Identity']['meta_info']
 
 
-class CHASSIS_Identity(OpenconfigHardwareComponent_Identity):
+class Chassis_Identity(OpenconfigHardwareComponent_Identity):
     """
     Chassis component, typically with multiple slots / shelves
     
@@ -96,15 +95,14 @@ class CHASSIS_Identity(OpenconfigHardwareComponent_Identity):
 
     def __init__(self):
         OpenconfigHardwareComponent_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['CHASSIS_Identity']['meta_info']
+        return meta._meta_table['Chassis_Identity']['meta_info']
 
 
-class CPU_Identity(OpenconfigHardwareComponent_Identity):
+class Cpu_Identity(OpenconfigHardwareComponent_Identity):
     """
     Processing unit, e.g., a management processor
     
@@ -117,15 +115,14 @@ class CPU_Identity(OpenconfigHardwareComponent_Identity):
 
     def __init__(self):
         OpenconfigHardwareComponent_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['CPU_Identity']['meta_info']
+        return meta._meta_table['Cpu_Identity']['meta_info']
 
 
-class FAN_Identity(OpenconfigHardwareComponent_Identity):
+class Fan_Identity(OpenconfigHardwareComponent_Identity):
     """
     Cooling fan, or could be some other heat\-reduction component
     
@@ -138,15 +135,14 @@ class FAN_Identity(OpenconfigHardwareComponent_Identity):
 
     def __init__(self):
         OpenconfigHardwareComponent_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['FAN_Identity']['meta_info']
+        return meta._meta_table['Fan_Identity']['meta_info']
 
 
-class LINECARD_Identity(OpenconfigHardwareComponent_Identity):
+class Linecard_Identity(OpenconfigHardwareComponent_Identity):
     """
     Linecard component, typically inserted into a chassis slot
     
@@ -159,15 +155,14 @@ class LINECARD_Identity(OpenconfigHardwareComponent_Identity):
 
     def __init__(self):
         OpenconfigHardwareComponent_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['LINECARD_Identity']['meta_info']
+        return meta._meta_table['Linecard_Identity']['meta_info']
 
 
-class MODULE_Identity(OpenconfigHardwareComponent_Identity):
+class Module_Identity(OpenconfigHardwareComponent_Identity):
     """
     Replaceable hardware module, e.g., a daughtercard
     
@@ -180,15 +175,14 @@ class MODULE_Identity(OpenconfigHardwareComponent_Identity):
 
     def __init__(self):
         OpenconfigHardwareComponent_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['MODULE_Identity']['meta_info']
+        return meta._meta_table['Module_Identity']['meta_info']
 
 
-class OPERATINGSYSTEM_Identity(OpenconfigSoftwareComponent_Identity):
+class OperatingSystem_Identity(OpenconfigSoftwareComponent_Identity):
     """
     Operating system running on a component
     
@@ -201,15 +195,14 @@ class OPERATINGSYSTEM_Identity(OpenconfigSoftwareComponent_Identity):
 
     def __init__(self):
         OpenconfigSoftwareComponent_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['OPERATINGSYSTEM_Identity']['meta_info']
+        return meta._meta_table['OperatingSystem_Identity']['meta_info']
 
 
-class PORT_Identity(OpenconfigHardwareComponent_Identity):
+class Port_Identity(OpenconfigHardwareComponent_Identity):
     """
     Physical port, e.g., for attaching pluggables and networking
     cables
@@ -223,15 +216,14 @@ class PORT_Identity(OpenconfigHardwareComponent_Identity):
 
     def __init__(self):
         OpenconfigHardwareComponent_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['PORT_Identity']['meta_info']
+        return meta._meta_table['Port_Identity']['meta_info']
 
 
-class POWERSUPPLY_Identity(OpenconfigHardwareComponent_Identity):
+class PowerSupply_Identity(OpenconfigHardwareComponent_Identity):
     """
     Component that is supplying power to the device
     
@@ -244,15 +236,14 @@ class POWERSUPPLY_Identity(OpenconfigHardwareComponent_Identity):
 
     def __init__(self):
         OpenconfigHardwareComponent_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['POWERSUPPLY_Identity']['meta_info']
+        return meta._meta_table['PowerSupply_Identity']['meta_info']
 
 
-class SENSOR_Identity(OpenconfigHardwareComponent_Identity):
+class Sensor_Identity(OpenconfigHardwareComponent_Identity):
     """
     Physical sensor, e.g., a temperature sensor in a chassis
     
@@ -265,15 +256,14 @@ class SENSOR_Identity(OpenconfigHardwareComponent_Identity):
 
     def __init__(self):
         OpenconfigHardwareComponent_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['SENSOR_Identity']['meta_info']
+        return meta._meta_table['Sensor_Identity']['meta_info']
 
 
-class TRANSCEIVER_Identity(OpenconfigHardwareComponent_Identity):
+class Transceiver_Identity(OpenconfigHardwareComponent_Identity):
     """
     Pluggable module present in a port
     
@@ -286,11 +276,10 @@ class TRANSCEIVER_Identity(OpenconfigHardwareComponent_Identity):
 
     def __init__(self):
         OpenconfigHardwareComponent_Identity.__init__(self)
-        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['TRANSCEIVER_Identity']['meta_info']
+        return meta._meta_table['Transceiver_Identity']['meta_info']
 
 

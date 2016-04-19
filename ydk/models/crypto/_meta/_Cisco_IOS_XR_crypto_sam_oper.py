@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,13 +14,13 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'LogError_Enum' : _MetaInfoEnum('LogError_Enum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper',
+    'LogErrorEnum' : _MetaInfoEnum('LogErrorEnum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper',
         {
             'unknown':'UNKNOWN',
             'log-message-error':'LOG_MESSAGE_ERROR',
             'get-issuer-name-failed':'GET_ISSUER_NAME_FAILED',
         }, 'Cisco-IOS-XR-crypto-sam-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-sam-oper']),
-    'LogCode_Enum' : _MetaInfoEnum('LogCode_Enum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper',
+    'LogCodeEnum' : _MetaInfoEnum('LogCodeEnum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper',
         {
             'unknown':'UNKNOWN',
             'sam-server-restared-router-reboot':'SAM_SERVER_RESTARED_ROUTER_REBOOT',
@@ -44,12 +44,12 @@ _meta_table = {
             'validated-elf':'VALIDATED_ELF',
             'namespace-deleted-recovered-by-sam':'NAMESPACE_DELETED_RECOVERED_BY_SAM',
         }, 'Cisco-IOS-XR-crypto-sam-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-sam-oper']),
-    'CertificateIssuer_Enum' : _MetaInfoEnum('CertificateIssuer_Enum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper',
+    'CertificateIssuerEnum' : _MetaInfoEnum('CertificateIssuerEnum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper',
         {
             'unknown':'UNKNOWN',
             'code-signing-server-certificate-authority':'CODE_SIGNING_SERVER_CERTIFICATE_AUTHORITY',
         }, 'Cisco-IOS-XR-crypto-sam-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-sam-oper']),
-    'LogTables_Enum' : _MetaInfoEnum('LogTables_Enum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper',
+    'LogTablesEnum' : _MetaInfoEnum('LogTablesEnum', 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper',
         {
             'unkown':'UNKOWN',
             'memory-digest-table':'MEMORY_DIGEST_TABLE',
@@ -447,13 +447,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sam.LogContents.LogContent.Logs',
             False, 
             [
-            _MetaInfoClassMember('code', REFERENCE_ENUM_CLASS, 'LogCode_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'LogCode_Enum', 
+            _MetaInfoClassMember('code', REFERENCE_ENUM_CLASS, 'LogCodeEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'LogCodeEnum', 
                 [], [], 
                 '''                Log code
                 ''',
                 'code',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('error', REFERENCE_ENUM_CLASS, 'LogError_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'LogError_Enum', 
+            _MetaInfoClassMember('error', REFERENCE_ENUM_CLASS, 'LogErrorEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'LogErrorEnum', 
                 [], [], 
                 '''                Log error message
                 ''',
@@ -465,7 +465,7 @@ _meta_table = {
                 ''',
                 'index',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('issuer', REFERENCE_ENUM_CLASS, 'CertificateIssuer_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'CertificateIssuer_Enum', 
+            _MetaInfoClassMember('issuer', REFERENCE_ENUM_CLASS, 'CertificateIssuerEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'CertificateIssuerEnum', 
                 [], [], 
                 '''                Issuer of the certificate
                 ''',
@@ -489,7 +489,7 @@ _meta_table = {
                 ''',
                 'source_device',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
-            _MetaInfoClassMember('table', REFERENCE_ENUM_CLASS, 'LogTables_Enum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'LogTables_Enum', 
+            _MetaInfoClassMember('table', REFERENCE_ENUM_CLASS, 'LogTablesEnum' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper', 'LogTablesEnum', 
                 [], [], 
                 '''                Log table information
                 ''',

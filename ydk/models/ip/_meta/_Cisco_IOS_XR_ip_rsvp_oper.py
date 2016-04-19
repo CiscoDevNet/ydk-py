@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'RsvpMgmtAssociation_Enum' : _MetaInfoEnum('RsvpMgmtAssociation_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtAssociationEnum' : _MetaInfoEnum('RsvpMgmtAssociationEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'none':'NONE',
             'ipv4':'IPV4',
@@ -22,75 +22,75 @@ _meta_table = {
             'extended-ipv4':'EXTENDED_IPV4',
             'extended-ipv6':'EXTENDED_IPV6',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtEroSubobj_Enum' : _MetaInfoEnum('RsvpMgmtEroSubobj_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtEroSubobjEnum' : _MetaInfoEnum('RsvpMgmtEroSubobjEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'rsvp-mgmt-ero-type-ipv4':'RSVP_MGMT_ERO_TYPE_IPV4',
             'rsvp-mgmt-ero-type-un-num':'RSVP_MGMT_ERO_TYPE_UN_NUM',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtQosServiceEnum_Enum' : _MetaInfoEnum('RsvpMgmtQosServiceEnum_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtQosServiceEnumEnum' : _MetaInfoEnum('RsvpMgmtQosServiceEnumEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'rsvp-mgmt-qos-unknown':'RSVP_MGMT_QOS_UNKNOWN',
             'rsvp-mgmt-qos-guaranteed':'RSVP_MGMT_QOS_GUARANTEED',
             'rsvp-mgmt-qos-controlled-load':'RSVP_MGMT_QOS_CONTROLLED_LOAD',
             'rsvp-mgmt-qos-qualitative':'RSVP_MGMT_QOS_QUALITATIVE',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtHelloInstance_Enum' : _MetaInfoEnum('RsvpMgmtHelloInstance_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtHelloInstanceEnum' : _MetaInfoEnum('RsvpMgmtHelloInstanceEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'active':'ACTIVE',
             'passive':'PASSIVE',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'IgpteLibBwModel_Enum' : _MetaInfoEnum('IgpteLibBwModel_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'IgpteLibBwModelEnum' : _MetaInfoEnum('IgpteLibBwModelEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'rdm':'RDM',
             'mam':'MAM',
             'not-set':'NOT_SET',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtFrrStateEnum_Enum' : _MetaInfoEnum('RsvpMgmtFrrStateEnum_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtFrrStateEnumEnum' : _MetaInfoEnum('RsvpMgmtFrrStateEnumEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'ready-state':'READY_STATE',
             'pending-state':'PENDING_STATE',
             'active-state':'ACTIVE_STATE',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpProcNsrNotReadyReason_Enum' : _MetaInfoEnum('RsvpProcNsrNotReadyReason_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpProcNsrNotReadyReasonEnum' : _MetaInfoEnum('RsvpProcNsrNotReadyReasonEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'collab-time-out':'COLLAB_TIME_OUT',
             'collab-conntection-idt':'COLLAB_CONNTECTION_IDT',
             'nsr-peer-not-connected':'NSR_PEER_NOT_CONNECTED',
             'nsr-peer-not-in-sync':'NSR_PEER_NOT_IN_SYNC',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtDsteModes_Enum' : _MetaInfoEnum('RsvpMgmtDsteModes_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtDsteModesEnum' : _MetaInfoEnum('RsvpMgmtDsteModesEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'pre-standard':'PRE_STANDARD',
             'standard':'STANDARD',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtRestartState_Enum' : _MetaInfoEnum('RsvpMgmtRestartState_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtRestartStateEnum' : _MetaInfoEnum('RsvpMgmtRestartStateEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'done':'DONE',
             'recovery':'RECOVERY',
             'abort':'ABORT',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtReservationTypeEnum_Enum' : _MetaInfoEnum('RsvpMgmtReservationTypeEnum_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtReservationTypeEnumEnum' : _MetaInfoEnum('RsvpMgmtReservationTypeEnumEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'rsvp-mgmt-ff-option':'RSVP_MGMT_FF_OPTION',
             'rsvp-mgmt-wf-option':'RSVP_MGMT_WF_OPTION',
             'rsvp-mgmt-se-option':'RSVP_MGMT_SE_OPTION',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtTspec_Enum' : _MetaInfoEnum('RsvpMgmtTspec_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtTspecEnum' : _MetaInfoEnum('RsvpMgmtTspecEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'g709otn':'G709OTN',
             'intsrv':'INTSRV',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtAuthDirection_Enum' : _MetaInfoEnum('RsvpMgmtAuthDirection_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtAuthDirectionEnum' : _MetaInfoEnum('RsvpMgmtAuthDirectionEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'rsvp-mgmt-auth-direction-send':'RSVP_MGMT_AUTH_DIRECTION_SEND',
             'rsvp-mgmt-auth-direction-recv':'RSVP_MGMT_AUTH_DIRECTION_RECV',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtFilter_Enum' : _MetaInfoEnum('RsvpMgmtFilter_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtFilterEnum' : _MetaInfoEnum('RsvpMgmtFilterEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'rsvp-mgmt-filter-type-ipv4':'RSVP_MGMT_FILTER_TYPE_IPV4',
             'rsvp-mgmt-filter-type-p2mp-lsp-ipv4':'RSVP_MGMT_FILTER_TYPE_P2MP_LSP_IPV4',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpProcRole_Enum' : _MetaInfoEnum('RsvpProcRole_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpProcRoleEnum' : _MetaInfoEnum('RsvpProcRoleEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'unknown':'UNKNOWN',
             'v1-active':'V1_ACTIVE',
@@ -101,43 +101,43 @@ _meta_table = {
             'v1-standby-post-big-bang':'V1_STANDBY_POST_BIG_BANG',
             'count':'COUNT',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpSession_Enum' : _MetaInfoEnum('RsvpSession_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpSessionEnum' : _MetaInfoEnum('RsvpSessionEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'ipv4':'IPV4',
             'p2p-lsp-ipv4':'P2P_LSP_IPV4',
             'ouni-ipv4':'OUNI_IPV4',
             'p2mp-lsp-ipv4':'P2MP_LSP_IPV4',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtHelloState_Enum' : _MetaInfoEnum('RsvpMgmtHelloState_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtHelloStateEnum' : _MetaInfoEnum('RsvpMgmtHelloStateEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'hello-state-init':'HELLO_STATE_INIT',
             'hello-state-up':'HELLO_STATE_UP',
             'hello-state-down':'HELLO_STATE_DOWN',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtFlowSpec_Enum' : _MetaInfoEnum('RsvpMgmtFlowSpec_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtFlowSpecEnum' : _MetaInfoEnum('RsvpMgmtFlowSpecEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'g709otn':'G709OTN',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtHelloInstanceOwner_Enum' : _MetaInfoEnum('RsvpMgmtHelloInstanceOwner_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtHelloInstanceOwnerEnum' : _MetaInfoEnum('RsvpMgmtHelloInstanceOwnerEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'mpls-graceful-restart':'MPLS_GRACEFUL_RESTART',
             'mpls-ouni':'MPLS_OUNI',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtRroSubobj_Enum' : _MetaInfoEnum('RsvpMgmtRroSubobj_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtRroSubobjEnum' : _MetaInfoEnum('RsvpMgmtRroSubobjEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'ipv4rro-type':'IPV4RRO_TYPE',
             'label-rro-type':'LABEL_RRO_TYPE',
             'unnumbered-rro-type':'UNNUMBERED_RRO_TYPE',
             'srlg-rro-type':'SRLG_RRO_TYPE',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtSession_Enum' : _MetaInfoEnum('RsvpMgmtSession_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtSessionEnum' : _MetaInfoEnum('RsvpMgmtSessionEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'rsvp-mgmt-session-type-udp-ipv4':'RSVP_MGMT_SESSION_TYPE_UDP_IPV4',
             'rsvp-mgmt-session-type-lsp-ipv4':'RSVP_MGMT_SESSION_TYPE_LSP_IPV4',
             'rsvp-mgmt-session-type-uni-ipv4':'RSVP_MGMT_SESSION_TYPE_UNI_IPV4',
             'rsvp-mgmt-session-type-p2mp-lsp-ipv4':'RSVP_MGMT_SESSION_TYPE_P2MP_LSP_IPV4',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtHelloDownReason_Enum' : _MetaInfoEnum('RsvpMgmtHelloDownReason_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtHelloDownReasonEnum' : _MetaInfoEnum('RsvpMgmtHelloDownReasonEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'not-applicable':'NOT_APPLICABLE',
             'wrong-destination-instance':'WRONG_DESTINATION_INSTANCE',
@@ -147,16 +147,16 @@ _meta_table = {
             'neighbor-disabled-hello':'NEIGHBOR_DISABLED_HELLO',
             'control-channel-down':'CONTROL_CHANNEL_DOWN',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtGenericLabel_Enum' : _MetaInfoEnum('RsvpMgmtGenericLabel_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtGenericLabelEnum' : _MetaInfoEnum('RsvpMgmtGenericLabelEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'rsvp-mgmt-label-type-gmpls':'RSVP_MGMT_LABEL_TYPE_GMPLS',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtGrApp_Enum' : _MetaInfoEnum('RsvpMgmtGrApp_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtGrAppEnum' : _MetaInfoEnum('RsvpMgmtGrAppEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'ouni':'OUNI',
             'gmpls':'GMPLS',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtAuthChallengeStatus_Enum' : _MetaInfoEnum('RsvpMgmtAuthChallengeStatus_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtAuthChallengeStatusEnum' : _MetaInfoEnum('RsvpMgmtAuthChallengeStatusEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'rsvp-mgmt-auth-cs-not-cfg':'RSVP_MGMT_AUTH_CS_NOT_CFG',
             'rsvp-mgmt-auth-cs-completed':'RSVP_MGMT_AUTH_CS_COMPLETED',
@@ -164,25 +164,25 @@ _meta_table = {
             'rsvp-mgmt-auth-cs-failure':'RSVP_MGMT_AUTH_CS_FAILURE',
             'rsvp-mgmt-auth-cs-not-supported':'RSVP_MGMT_AUTH_CS_NOT_SUPPORTED',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMgmtAuthKi_Enum' : _MetaInfoEnum('RsvpMgmtAuthKi_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpMgmtAuthKiEnum' : _MetaInfoEnum('RsvpMgmtAuthKiEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'rsvp-mgmt-auth-ki-type-none':'RSVP_MGMT_AUTH_KI_TYPE_NONE',
             'rsvp-mgmt-auth-ki-type-global':'RSVP_MGMT_AUTH_KI_TYPE_GLOBAL',
             'rsvp-mgmt-auth-ki-type-interface':'RSVP_MGMT_AUTH_KI_TYPE_INTERFACE',
             'rsvp-mgmt-auth-ki-type-neighbor':'RSVP_MGMT_AUTH_KI_TYPE_NEIGHBOR',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpTimerState_Enum' : _MetaInfoEnum('RsvpTimerState_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpTimerStateEnum' : _MetaInfoEnum('RsvpTimerStateEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'rsvp-timer-running-and-sleeping':'RSVP_TIMER_RUNNING_AND_SLEEPING',
             'rsvp-timer-running':'RSVP_TIMER_RUNNING',
             'rsvp-timer-not-running':'RSVP_TIMER_NOT_RUNNING',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpSyncStatus_Enum' : _MetaInfoEnum('RsvpSyncStatus_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpSyncStatusEnum' : _MetaInfoEnum('RsvpSyncStatusEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'not-ready':'NOT_READY',
             'ready':'READY',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
-    'RsvpMode_Enum' : _MetaInfoEnum('RsvpMode_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
+    'RsvpModeEnum' : _MetaInfoEnum('RsvpModeEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper',
         {
             'send':'SEND',
             'receive':'RECEIVE',
@@ -203,7 +203,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
-            _MetaInfoClassMember('mode-id', REFERENCE_ENUM_CLASS, 'RsvpMode_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMode_Enum', 
+            _MetaInfoClassMember('mode-id', REFERENCE_ENUM_CLASS, 'RsvpModeEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpModeEnum', 
                 [], [], 
                 '''                Mode (Tx or Rx)
                 ''',
@@ -221,7 +221,7 @@ _meta_table = {
                 ''',
                 'destination_address_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthDirection_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthDirectionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthDirectionEnum', 
                 [], [], 
                 '''                Direction
                 ''',
@@ -245,7 +245,7 @@ _meta_table = {
                 ''',
                 'key_source',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('key-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthKi_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthKi_Enum', 
+            _MetaInfoClassMember('key-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthKiEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthKiEnum', 
                 [], [], 
                 '''                Key type
                 ''',
@@ -297,7 +297,7 @@ _meta_table = {
                 ''',
                 'destination_address_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthDirection_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthDirectionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthDirectionEnum', 
                 [], [], 
                 '''                Direction
                 ''',
@@ -321,7 +321,7 @@ _meta_table = {
                 ''',
                 'key_source',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('key-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthKi_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthKi_Enum', 
+            _MetaInfoClassMember('key-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthKiEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthKiEnum', 
                 [], [], 
                 '''                Key type
                 ''',
@@ -558,7 +558,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.AuthenticationDetails.AuthenticationDetail.DirectionInfo',
             False, 
             [
-            _MetaInfoClassMember('auth-direction', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthDirection_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthDirection_Enum', 
+            _MetaInfoClassMember('auth-direction', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthDirectionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthDirectionEnum', 
                 [], [], 
                 '''                AuthDirection
                 ''',
@@ -599,7 +599,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
-            _MetaInfoClassMember('mode-id', REFERENCE_ENUM_CLASS, 'RsvpMode_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMode_Enum', 
+            _MetaInfoClassMember('mode-id', REFERENCE_ENUM_CLASS, 'RsvpModeEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpModeEnum', 
                 [], [], 
                 '''                Mode (Tx or Rx)
                 ''',
@@ -617,7 +617,7 @@ _meta_table = {
                 ''',
                 'auth_compact',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('challenge-status', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthChallengeStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthChallengeStatus_Enum', 
+            _MetaInfoClassMember('challenge-status', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthChallengeStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthChallengeStatusEnum', 
                 [], [], 
                 '''                Challenge status
                 ''',
@@ -681,7 +681,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.BwPoolInfo',
             False, 
             [
-            _MetaInfoClassMember('bandwidth-configuration-model', REFERENCE_ENUM_CLASS, 'IgpteLibBwModel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'IgpteLibBwModel_Enum', 
+            _MetaInfoClassMember('bandwidth-configuration-model', REFERENCE_ENUM_CLASS, 'IgpteLibBwModelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'IgpteLibBwModelEnum', 
                 [], [], 
                 '''                Bandwith configuration model currently in use
                 (MAM/RDM)
@@ -850,7 +850,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.ControllerBriefs.ControllerBrief.BandwidthInformation',
             False, 
             [
-            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModes_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModes_Enum', 
+            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModesEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModesEnum', 
                 [], [], 
                 '''                DSTEMode
                 ''',
@@ -1039,7 +1039,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.ControllerDetaileds.ControllerDetailed.BandwidthInformation',
             False, 
             [
-            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModes_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModes_Enum', 
+            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModesEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModesEnum', 
                 [], [], 
                 '''                DSTEMode
                 ''',
@@ -1286,7 +1286,7 @@ _meta_table = {
                 ''',
                 'expiry_states',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('expiry-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerState_Enum', 
+            _MetaInfoClassMember('expiry-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerStateEnum', 
                 [], [], 
                 '''                Expiry timer state
                 ''',
@@ -1358,7 +1358,7 @@ _meta_table = {
                 ''',
                 'pacing_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('pacing-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerState_Enum', 
+            _MetaInfoClassMember('pacing-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerStateEnum', 
                 [], [], 
                 '''                State of pacing timer
                 ''',
@@ -1370,7 +1370,7 @@ _meta_table = {
                 ''',
                 'refresh_interval',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('refresh-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerState_Enum', 
+            _MetaInfoClassMember('refresh-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerStateEnum', 
                 [], [], 
                 '''                Refresh timer state
                 ''',
@@ -1395,7 +1395,7 @@ _meta_table = {
                 ''',
                 'summary_refresh_max_size',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('summary-refresh-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerState_Enum', 
+            _MetaInfoClassMember('summary-refresh-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerStateEnum', 
                 [], [], 
                 '''                Summary refresh timer state
                 ''',
@@ -1543,7 +1543,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.ControllerSummaries.ControllerSummary.BandwidthInformation',
             False, 
             [
-            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModes_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModes_Enum', 
+            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModesEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModesEnum', 
                 [], [], 
                 '''                DSTEMode
                 ''',
@@ -2247,7 +2247,7 @@ _meta_table = {
                 ''',
                 'last_idt_states',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('rsvp-process-role', REFERENCE_ENUM_CLASS, 'RsvpProcRole_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRole_Enum', 
+            _MetaInfoClassMember('rsvp-process-role', REFERENCE_ENUM_CLASS, 'RsvpProcRoleEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRoleEnum', 
                 [], [], 
                 '''                Process role
                 ''',
@@ -2711,7 +2711,7 @@ _meta_table = {
                 ''',
                 'last_idt_states',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('rsvp-process-role', REFERENCE_ENUM_CLASS, 'RsvpProcRole_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRole_Enum', 
+            _MetaInfoClassMember('rsvp-process-role', REFERENCE_ENUM_CLASS, 'RsvpProcRoleEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRoleEnum', 
                 [], [], 
                 '''                Process role
                 ''',
@@ -3807,8 +3807,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.Frrs.Frr.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('Rsvp.Frrs.Frr.S2lSubLsp',
+    'Rsvp.Frrs.Frr.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('Rsvp.Frrs.Frr.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -3883,8 +3883,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4P2mpLspSession',
+    'Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -3957,7 +3957,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -3969,7 +3969,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -4027,7 +4027,7 @@ _meta_table = {
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('path-status', REFERENCE_ENUM_CLASS, 'RsvpMgmtFrrStateEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFrrStateEnum_Enum', 
+            _MetaInfoClassMember('path-status', REFERENCE_ENUM_CLASS, 'RsvpMgmtFrrStateEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFrrStateEnumEnum', 
                 [], [], 
                 '''                RSVP FRR Path States
                 ''',
@@ -4039,13 +4039,13 @@ _meta_table = {
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('reservation-status', REFERENCE_ENUM_CLASS, 'RsvpMgmtFrrStateEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFrrStateEnum_Enum', 
+            _MetaInfoClassMember('reservation-status', REFERENCE_ENUM_CLASS, 'RsvpMgmtFrrStateEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFrrStateEnumEnum', 
                 [], [], 
                 '''                RSVP FRR Reservation States
                 ''',
                 'reservation_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Frrs.Frr.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Frrs.Frr.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
@@ -4057,7 +4057,7 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -4214,7 +4214,7 @@ _meta_table = {
                 ''',
                 'local_node_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('lost-communication-reason', REFERENCE_LEAFLIST, 'RsvpMgmtHelloDownReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloDownReason_Enum', 
+            _MetaInfoClassMember('lost-communication-reason', REFERENCE_LEAFLIST, 'RsvpMgmtHelloDownReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloDownReasonEnum', 
                 [], [], 
                 '''                Reason why communication was lost
                 ''',
@@ -4232,7 +4232,7 @@ _meta_table = {
                 ''',
                 'lost_communication_total',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('neighbor-hello-state', REFERENCE_LEAFLIST, 'RsvpMgmtHelloState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloState_Enum', 
+            _MetaInfoClassMember('neighbor-hello-state', REFERENCE_LEAFLIST, 'RsvpMgmtHelloStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloStateEnum', 
                 [], [], 
                 '''                Neighbor Hello state
                 ''',
@@ -4244,7 +4244,7 @@ _meta_table = {
                 ''',
                 'node_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('restart-state', REFERENCE_ENUM_CLASS, 'RsvpMgmtRestartState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtRestartState_Enum', 
+            _MetaInfoClassMember('restart-state', REFERENCE_ENUM_CLASS, 'RsvpMgmtRestartStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtRestartStateEnum', 
                 [], [], 
                 '''                Restart state
                 ''',
@@ -4493,7 +4493,7 @@ _meta_table = {
                 ''',
                 'local_node_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('lost-communication-reason', REFERENCE_LEAFLIST, 'RsvpMgmtHelloDownReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloDownReason_Enum', 
+            _MetaInfoClassMember('lost-communication-reason', REFERENCE_LEAFLIST, 'RsvpMgmtHelloDownReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloDownReasonEnum', 
                 [], [], 
                 '''                Reason why communication was lost
                 ''',
@@ -4517,7 +4517,7 @@ _meta_table = {
                 ''',
                 'missed_hellos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('neighbor-hello-state', REFERENCE_LEAFLIST, 'RsvpMgmtHelloState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloState_Enum', 
+            _MetaInfoClassMember('neighbor-hello-state', REFERENCE_LEAFLIST, 'RsvpMgmtHelloStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloStateEnum', 
                 [], [], 
                 '''                Neighbor's hello state
                 ''',
@@ -4553,7 +4553,7 @@ _meta_table = {
                 ''',
                 'recovery_timer_exp_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('restart-state', REFERENCE_ENUM_CLASS, 'RsvpMgmtRestartState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtRestartState_Enum', 
+            _MetaInfoClassMember('restart-state', REFERENCE_ENUM_CLASS, 'RsvpMgmtRestartStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtRestartStateEnum', 
                 [], [], 
                 '''                Current restart state
                 ''',
@@ -4611,7 +4611,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.GracefulRestart.LocalNodeAddress',
             False, 
             [
-            _MetaInfoClassMember('application-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGrApp_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGrApp_Enum', 
+            _MetaInfoClassMember('application-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGrAppEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGrAppEnum', 
                 [], [], 
                 '''                GR local node-id app type
                 ''',
@@ -4782,7 +4782,7 @@ _meta_table = {
                 ''',
                 'hello_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('instance-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstance_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstance_Enum', 
+            _MetaInfoClassMember('instance-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstanceEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstanceEnum', 
                 [], [], 
                 '''                Hello instance type
                 ''',
@@ -4794,7 +4794,7 @@ _meta_table = {
                 ''',
                 'lost_communication_total',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('neighbor-hello-state', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloState_Enum', 
+            _MetaInfoClassMember('neighbor-hello-state', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloStateEnum', 
                 [], [], 
                 '''                Neighbor Hello state
                 ''',
@@ -4910,7 +4910,7 @@ _meta_table = {
                 ''',
                 'communication_lost_neighbor_disabled_hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('communication-lost-reason', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloDownReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloDownReason_Enum', 
+            _MetaInfoClassMember('communication-lost-reason', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloDownReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloDownReasonEnum', 
                 [], [], 
                 '''                Reason why communication was lost
                 ''',
@@ -4947,7 +4947,7 @@ _meta_table = {
                 ''',
                 'destination_instance',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('hello-instance-owner', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstanceOwner_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstanceOwner_Enum', 
+            _MetaInfoClassMember('hello-instance-owner', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstanceOwnerEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstanceOwnerEnum', 
                 [], [], 
                 '''                Hello instance owner
                 ''',
@@ -4983,7 +4983,7 @@ _meta_table = {
                 ''',
                 'hello_request_suppressed',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('instance-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstance_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstance_Enum', 
+            _MetaInfoClassMember('instance-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstanceEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstanceEnum', 
                 [], [], 
                 '''                Hello instance type
                 ''',
@@ -4995,7 +4995,7 @@ _meta_table = {
                 ''',
                 'missed_acks_allowed',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('neighbor-hello-state', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloState_Enum', 
+            _MetaInfoClassMember('neighbor-hello-state', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloStateEnum', 
                 [], [], 
                 '''                Neighbor Hello state
                 ''',
@@ -5077,7 +5077,7 @@ _meta_table = {
                 ''',
                 'hello_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('instance-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstance_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstance_Enum', 
+            _MetaInfoClassMember('instance-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstanceEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstanceEnum', 
                 [], [], 
                 '''                Hello instance type
                 ''',
@@ -5189,7 +5189,7 @@ _meta_table = {
                 ''',
                 'hello_messages_sent',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('instance-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstance_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstance_Enum', 
+            _MetaInfoClassMember('instance-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstanceEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstanceEnum', 
                 [], [], 
                 '''                Hello instance type
                 ''',
@@ -5356,7 +5356,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.InterfaceBriefs.InterfaceBrief.BandwidthInformation',
             False, 
             [
-            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModes_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModes_Enum', 
+            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModesEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModesEnum', 
                 [], [], 
                 '''                DSTEMode
                 ''',
@@ -5545,7 +5545,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation',
             False, 
             [
-            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModes_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModes_Enum', 
+            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModesEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModesEnum', 
                 [], [], 
                 '''                DSTEMode
                 ''',
@@ -5792,7 +5792,7 @@ _meta_table = {
                 ''',
                 'expiry_states',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('expiry-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerState_Enum', 
+            _MetaInfoClassMember('expiry-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerStateEnum', 
                 [], [], 
                 '''                Expiry timer state
                 ''',
@@ -5864,7 +5864,7 @@ _meta_table = {
                 ''',
                 'pacing_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('pacing-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerState_Enum', 
+            _MetaInfoClassMember('pacing-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerStateEnum', 
                 [], [], 
                 '''                State of pacing timer
                 ''',
@@ -5876,7 +5876,7 @@ _meta_table = {
                 ''',
                 'refresh_interval',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('refresh-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerState_Enum', 
+            _MetaInfoClassMember('refresh-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerStateEnum', 
                 [], [], 
                 '''                Refresh timer state
                 ''',
@@ -5901,7 +5901,7 @@ _meta_table = {
                 ''',
                 'summary_refresh_max_size',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('summary-refresh-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerState_Enum', 
+            _MetaInfoClassMember('summary-refresh-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerStateEnum', 
                 [], [], 
                 '''                Summary refresh timer state
                 ''',
@@ -6211,7 +6211,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.InterfaceSummaries.InterfaceSummary.BandwidthInformation',
             False, 
             [
-            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModes_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModes_Enum', 
+            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModesEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModesEnum', 
                 [], [], 
                 '''                DSTEMode
                 ''',
@@ -6330,13 +6330,13 @@ _meta_table = {
                 ''',
                 'idt_start_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReason_Enum', 
+            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReasonEnum', 
                 [], [], 
                 '''                Not ready reason
                 ''',
                 'not_ready_reason',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatus_Enum', 
+            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatusEnum', 
                 [], [], 
                 '''                Sync status
                 ''',
@@ -6377,13 +6377,13 @@ _meta_table = {
                 ''',
                 'idt_start_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReason_Enum', 
+            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReasonEnum', 
                 [], [], 
                 '''                Not ready reason
                 ''',
                 'not_ready_reason',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatus_Enum', 
+            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatusEnum', 
                 [], [], 
                 '''                Sync status
                 ''',
@@ -6418,7 +6418,7 @@ _meta_table = {
                 ''',
                 'previous_idt_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'RsvpProcRole_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRole_Enum', 
+            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'RsvpProcRoleEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRoleEnum', 
                 [], [], 
                 '''                Process role
                 ''',
@@ -6470,13 +6470,13 @@ _meta_table = {
                 ''',
                 'idt_start_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReason_Enum', 
+            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReasonEnum', 
                 [], [], 
                 '''                Not ready reason
                 ''',
                 'not_ready_reason',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatus_Enum', 
+            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatusEnum', 
                 [], [], 
                 '''                Sync status
                 ''',
@@ -6517,13 +6517,13 @@ _meta_table = {
                 ''',
                 'idt_start_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReason_Enum', 
+            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReasonEnum', 
                 [], [], 
                 '''                Not ready reason
                 ''',
                 'not_ready_reason',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatus_Enum', 
+            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatusEnum', 
                 [], [], 
                 '''                Sync status
                 ''',
@@ -6558,7 +6558,7 @@ _meta_table = {
                 ''',
                 'previous_idt_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'RsvpProcRole_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRole_Enum', 
+            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'RsvpProcRoleEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRoleEnum', 
                 [], [], 
                 '''                Process role
                 ''',
@@ -6588,8 +6588,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec.G709otnTspec' : {
-        'meta_info' : _MetaInfoClass('Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec.G709otnTspec',
+    'Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec.G709OtnTspec' : {
+        'meta_info' : _MetaInfoClass('Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
             _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -6668,7 +6668,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec',
             False, 
             [
-            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709otnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec.G709otnTspec', 
+            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709OtnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec.G709OtnTspec', 
                 [], [], 
                 '''                G709 OTN Sender Tspec
                 ''',
@@ -6680,7 +6680,7 @@ _meta_table = {
                 ''',
                 'intsrv_tspec',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspec_Enum', 
+            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspecEnum', 
                 [], [], 
                 '''                TspecType
                 ''',
@@ -6693,8 +6693,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.PsbBriefs.PsbBrief.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('Rsvp.PsbBriefs.PsbBrief.S2lSubLsp',
+    'Rsvp.PsbBriefs.PsbBrief.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('Rsvp.PsbBriefs.PsbBrief.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -6769,8 +6769,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2mpLspSession',
+    'Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -6843,7 +6843,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -6855,7 +6855,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -6955,8 +6955,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter.P2mpIpv4Session' : {
-        'meta_info' : _MetaInfoClass('Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter.P2mpIpv4Session',
+    'Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter.P2MpIpv4Session' : {
+        'meta_info' : _MetaInfoClass('Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter.P2MpIpv4Session',
             False, 
             [
             _MetaInfoClassMember('p2mp-sub-group-origin', ATTRIBUTE, 'str' , None, None, 
@@ -7017,13 +7017,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilter_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilter_Enum', 
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilterEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilterEnum', 
                 [], [], 
                 '''                FilterType
                 ''',
                 'filter_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2mpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter.P2mpIpv4Session', 
+            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2MpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter.P2MpIpv4Session', 
                 [], [], 
                 '''                IPv4 P2MP LSP FilterSpec
                 ''',
@@ -7146,7 +7146,7 @@ _meta_table = {
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbBriefs.PsbBrief.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbBriefs.PsbBrief.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
@@ -7164,7 +7164,7 @@ _meta_table = {
                 ''',
                 'session_attribute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -7282,8 +7282,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709otnTspec' : {
-        'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709otnTspec',
+    'Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709OtnTspec' : {
+        'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
             _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -7362,7 +7362,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec',
             False, 
             [
-            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709otnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709otnTspec', 
+            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709OtnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709OtnTspec', 
                 [], [], 
                 '''                G709 OTN Sender Tspec
                 ''',
@@ -7374,7 +7374,7 @@ _meta_table = {
                 ''',
                 'intsrv_tspec',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspec_Enum', 
+            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspecEnum', 
                 [], [], 
                 '''                TspecType
                 ''',
@@ -7464,8 +7464,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.PsbDetaileds.PsbDetailed.InEro.Ipv4eroSubObject' : {
-        'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.InEro.Ipv4eroSubObject',
+    'Rsvp.PsbDetaileds.PsbDetailed.InEro.Ipv4EroSubObject' : {
+        'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.InEro.Ipv4EroSubObject',
             False, 
             [
             _MetaInfoClassMember('ero-address', ATTRIBUTE, 'str' , None, None, 
@@ -7526,13 +7526,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.InEro',
             False, 
             [
-            _MetaInfoClassMember('ero-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobj_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobj_Enum', 
+            _MetaInfoClassMember('ero-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobjEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobjEnum', 
                 [], [], 
                 '''                EROType
                 ''',
                 'ero_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4ero-sub-object', REFERENCE_CLASS, 'Ipv4eroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbDetaileds.PsbDetailed.InEro.Ipv4eroSubObject', 
+            _MetaInfoClassMember('ipv4ero-sub-object', REFERENCE_CLASS, 'Ipv4EroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbDetaileds.PsbDetailed.InEro.Ipv4EroSubObject', 
                 [], [], 
                 '''                IPV4 ERO Sub Object
                 ''',
@@ -7578,7 +7578,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -7618,7 +7618,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -7658,7 +7658,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -7698,7 +7698,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -7738,7 +7738,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -7778,7 +7778,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -7880,8 +7880,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.PsbDetaileds.PsbDetailed.OutEro.Ipv4eroSubObject' : {
-        'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.OutEro.Ipv4eroSubObject',
+    'Rsvp.PsbDetaileds.PsbDetailed.OutEro.Ipv4EroSubObject' : {
+        'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.OutEro.Ipv4EroSubObject',
             False, 
             [
             _MetaInfoClassMember('ero-address', ATTRIBUTE, 'str' , None, None, 
@@ -7942,13 +7942,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.OutEro',
             False, 
             [
-            _MetaInfoClassMember('ero-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobj_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobj_Enum', 
+            _MetaInfoClassMember('ero-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobjEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobjEnum', 
                 [], [], 
                 '''                EROType
                 ''',
                 'ero_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4ero-sub-object', REFERENCE_CLASS, 'Ipv4eroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbDetaileds.PsbDetailed.OutEro.Ipv4eroSubObject', 
+            _MetaInfoClassMember('ipv4ero-sub-object', REFERENCE_CLASS, 'Ipv4EroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbDetaileds.PsbDetailed.OutEro.Ipv4EroSubObject', 
                 [], [], 
                 '''                IPV4 ERO Sub Object
                 ''',
@@ -8212,8 +8212,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.PsbDetaileds.PsbDetailed.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.S2lSubLsp',
+    'Rsvp.PsbDetaileds.PsbDetailed.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -8288,8 +8288,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2mpLspSession',
+    'Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -8362,7 +8362,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -8374,7 +8374,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -8474,8 +8474,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2mpIpv4Session' : {
-        'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2mpIpv4Session',
+    'Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2MpIpv4Session' : {
+        'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2MpIpv4Session',
             False, 
             [
             _MetaInfoClassMember('p2mp-sub-group-origin', ATTRIBUTE, 'str' , None, None, 
@@ -8536,13 +8536,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilter_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilter_Enum', 
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilterEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilterEnum', 
                 [], [], 
                 '''                FilterType
                 ''',
                 'filter_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2mpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2mpIpv4Session', 
+            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2MpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2MpIpv4Session', 
                 [], [], 
                 '''                IPv4 P2MP LSP FilterSpec
                 ''',
@@ -8755,7 +8755,7 @@ _meta_table = {
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbDetaileds.PsbDetailed.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbDetaileds.PsbDetailed.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
@@ -8773,7 +8773,7 @@ _meta_table = {
                 ''',
                 'session_attribute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -8845,8 +8845,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec.G709otnTspec' : {
-        'meta_info' : _MetaInfoClass('Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec.G709otnTspec',
+    'Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec.G709OtnTspec' : {
+        'meta_info' : _MetaInfoClass('Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
             _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -8925,7 +8925,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec',
             False, 
             [
-            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709otnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec.G709otnTspec', 
+            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709OtnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec.G709OtnTspec', 
                 [], [], 
                 '''                G709 OTN Sender Tspec
                 ''',
@@ -8937,7 +8937,7 @@ _meta_table = {
                 ''',
                 'intsrv_tspec',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspec_Enum', 
+            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspecEnum', 
                 [], [], 
                 '''                TspecType
                 ''',
@@ -9027,8 +9027,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.PxsbDetails.PxsbDetail.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('Rsvp.PxsbDetails.PxsbDetail.S2lSubLsp',
+    'Rsvp.PxsbDetails.PxsbDetail.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('Rsvp.PxsbDetails.PxsbDetail.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -9103,8 +9103,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4P2mpLspSession',
+    'Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -9177,7 +9177,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -9189,7 +9189,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -9219,8 +9219,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter.P2mpIpv4Session' : {
-        'meta_info' : _MetaInfoClass('Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter.P2mpIpv4Session',
+    'Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter.P2MpIpv4Session' : {
+        'meta_info' : _MetaInfoClass('Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter.P2MpIpv4Session',
             False, 
             [
             _MetaInfoClassMember('p2mp-sub-group-origin', ATTRIBUTE, 'str' , None, None, 
@@ -9281,13 +9281,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilter_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilter_Enum', 
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilterEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilterEnum', 
                 [], [], 
                 '''                FilterType
                 ''',
                 'filter_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2mpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter.P2mpIpv4Session', 
+            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2MpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter.P2MpIpv4Session', 
                 [], [], 
                 '''                IPv4 P2MP LSP FilterSpec
                 ''',
@@ -9428,7 +9428,7 @@ _meta_table = {
                 ''',
                 'rsvp_header',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PxsbDetails.PxsbDetail.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PxsbDetails.PxsbDetail.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
@@ -9440,7 +9440,7 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -9512,8 +9512,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2mpIpv4Session' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2mpIpv4Session',
+    'Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2MpIpv4Session' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2MpIpv4Session',
             False, 
             [
             _MetaInfoClassMember('p2mp-sub-group-origin', ATTRIBUTE, 'str' , None, None, 
@@ -9574,13 +9574,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilter_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilter_Enum', 
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilterEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilterEnum', 
                 [], [], 
                 '''                FilterType
                 ''',
                 'filter_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2mpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2mpIpv4Session', 
+            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2MpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2MpIpv4Session', 
                 [], [], 
                 '''                IPv4 P2MP LSP FilterSpec
                 ''',
@@ -9650,7 +9650,7 @@ _meta_table = {
                 ''',
                 'flow_peak_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnum_Enum', 
+            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnumEnum', 
                 [], [], 
                 '''                The Flow Quality of Service
                 ''',
@@ -9675,8 +9675,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec.G709otnFlowSpec' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec.G709otnFlowSpec',
+    'Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec.G709OtnFlowSpec' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
             _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -9714,13 +9714,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpec_Enum', 
+            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpecEnum', 
                 [], [], 
                 '''                FlowSpecType
                 ''',
                 'flow_spec_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709otnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec.G709otnFlowSpec', 
+            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709OtnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec.G709OtnFlowSpec', 
                 [], [], 
                 '''                G709 OTN FlowSpec
                 ''',
@@ -9733,8 +9733,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RequestBriefs.RequestBrief.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RequestBriefs.RequestBrief.S2lSubLsp',
+    'Rsvp.RequestBriefs.RequestBrief.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RequestBriefs.RequestBrief.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -9809,8 +9809,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2mpLspSession',
+    'Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -9883,7 +9883,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -9895,7 +9895,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -9929,7 +9929,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RequestBriefs.RequestBrief.Style',
             False, 
             [
-            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnum_Enum', 
+            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnumEnum', 
                 [], [], 
                 '''                The Reservation Type: WF, SE or FF
                 ''',
@@ -10000,7 +10000,7 @@ _meta_table = {
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RequestBriefs.RequestBrief.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RequestBriefs.RequestBrief.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
@@ -10012,7 +10012,7 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -10078,8 +10078,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter.P2mpIpv4Session' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter.P2mpIpv4Session',
+    'Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter.P2MpIpv4Session' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter.P2MpIpv4Session',
             False, 
             [
             _MetaInfoClassMember('p2mp-sub-group-origin', ATTRIBUTE, 'str' , None, None, 
@@ -10140,13 +10140,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilter_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilter_Enum', 
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilterEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilterEnum', 
                 [], [], 
                 '''                FilterType
                 ''',
                 'filter_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2mpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter.P2mpIpv4Session', 
+            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2MpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter.P2MpIpv4Session', 
                 [], [], 
                 '''                IPv4 P2MP LSP FilterSpec
                 ''',
@@ -10216,7 +10216,7 @@ _meta_table = {
                 ''',
                 'flow_peak_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnum_Enum', 
+            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnumEnum', 
                 [], [], 
                 '''                The Flow Quality of Service
                 ''',
@@ -10241,8 +10241,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RequestDetails.RequestDetail.GenericFlowSpec.G709otnFlowSpec' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RequestDetails.RequestDetail.GenericFlowSpec.G709otnFlowSpec',
+    'Rsvp.RequestDetails.RequestDetail.GenericFlowSpec.G709OtnFlowSpec' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RequestDetails.RequestDetail.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
             _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -10280,13 +10280,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RequestDetails.RequestDetail.GenericFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpec_Enum', 
+            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpecEnum', 
                 [], [], 
                 '''                FlowSpecType
                 ''',
                 'flow_spec_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709otnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RequestDetails.RequestDetail.GenericFlowSpec.G709otnFlowSpec', 
+            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709OtnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RequestDetails.RequestDetail.GenericFlowSpec.G709OtnFlowSpec', 
                 [], [], 
                 '''                G709 OTN FlowSpec
                 ''',
@@ -10527,7 +10527,7 @@ _meta_table = {
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                Session Type (e.g. LSP, OUNI or UDP)
                 ''',
@@ -10697,7 +10697,7 @@ _meta_table = {
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                Session Type (e.g. LSP, OUNI or UDP)
                 ''',
@@ -10737,8 +10737,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RequestDetails.RequestDetail.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RequestDetails.RequestDetail.S2lSubLsp',
+    'Rsvp.RequestDetails.RequestDetail.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RequestDetails.RequestDetail.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -10813,8 +10813,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2mpLspSession',
+    'Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -10887,7 +10887,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -10899,7 +10899,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -10933,7 +10933,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RequestDetails.RequestDetail.Style',
             False, 
             [
-            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnum_Enum', 
+            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnumEnum', 
                 [], [], 
                 '''                The Reservation Type: WF, SE or FF
                 ''',
@@ -11052,7 +11052,7 @@ _meta_table = {
                 ''',
                 'rsb_key',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RequestDetails.RequestDetail.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RequestDetails.RequestDetail.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
@@ -11064,7 +11064,7 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -11130,8 +11130,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2mpIpv4Session' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2mpIpv4Session',
+    'Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2MpIpv4Session' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2MpIpv4Session',
             False, 
             [
             _MetaInfoClassMember('p2mp-sub-group-origin', ATTRIBUTE, 'str' , None, None, 
@@ -11192,13 +11192,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilter_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilter_Enum', 
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilterEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilterEnum', 
                 [], [], 
                 '''                FilterType
                 ''',
                 'filter_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2mpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2mpIpv4Session', 
+            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2MpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2MpIpv4Session', 
                 [], [], 
                 '''                IPv4 P2MP LSP FilterSpec
                 ''',
@@ -11268,7 +11268,7 @@ _meta_table = {
                 ''',
                 'flow_peak_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnum_Enum', 
+            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnumEnum', 
                 [], [], 
                 '''                The Flow Quality of Service
                 ''',
@@ -11293,8 +11293,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec.G709otnFlowSpec' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec.G709otnFlowSpec',
+    'Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec.G709OtnFlowSpec' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
             _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -11332,13 +11332,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpec_Enum', 
+            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpecEnum', 
                 [], [], 
                 '''                FlowSpecType
                 ''',
                 'flow_spec_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709otnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec.G709otnFlowSpec', 
+            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709OtnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec.G709OtnFlowSpec', 
                 [], [], 
                 '''                G709 OTN FlowSpec
                 ''',
@@ -11351,8 +11351,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RsbBriefs.RsbBrief.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RsbBriefs.RsbBrief.S2lSubLsp',
+    'Rsvp.RsbBriefs.RsbBrief.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RsbBriefs.RsbBrief.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -11427,8 +11427,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2mpLspSession',
+    'Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -11501,7 +11501,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -11513,7 +11513,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -11547,7 +11547,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RsbBriefs.RsbBrief.Style',
             False, 
             [
-            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnum_Enum', 
+            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnumEnum', 
                 [], [], 
                 '''                The Reservation Type: WF, SE or FF
                 ''',
@@ -11618,7 +11618,7 @@ _meta_table = {
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RsbBriefs.RsbBrief.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RsbBriefs.RsbBrief.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
@@ -11630,7 +11630,7 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -11719,8 +11719,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2mpIpv4Session' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2mpIpv4Session',
+    'Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2MpIpv4Session' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2MpIpv4Session',
             False, 
             [
             _MetaInfoClassMember('p2mp-sub-group-origin', ATTRIBUTE, 'str' , None, None, 
@@ -11781,13 +11781,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilter_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilter_Enum', 
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilterEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilterEnum', 
                 [], [], 
                 '''                FilterType
                 ''',
                 'filter_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2mpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2mpIpv4Session', 
+            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2MpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2MpIpv4Session', 
                 [], [], 
                 '''                IPv4 P2MP LSP FilterSpec
                 ''',
@@ -11857,7 +11857,7 @@ _meta_table = {
                 ''',
                 'flow_peak_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnum_Enum', 
+            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnumEnum', 
                 [], [], 
                 '''                The Flow Quality of Service
                 ''',
@@ -11882,8 +11882,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709otnFlowSpec' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709otnFlowSpec',
+    'Rsvp.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709OtnFlowSpec' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
             _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -11921,13 +11921,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RsbDetaileds.RsbDetailed.GenericFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpec_Enum', 
+            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpecEnum', 
                 [], [], 
                 '''                FlowSpecType
                 ''',
                 'flow_spec_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709otnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709otnFlowSpec', 
+            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709OtnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709OtnFlowSpec', 
                 [], [], 
                 '''                G709 OTN FlowSpec
                 ''',
@@ -12044,7 +12044,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -12084,7 +12084,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -12124,7 +12124,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -12164,7 +12164,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -12204,7 +12204,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -12244,7 +12244,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -12492,8 +12492,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RsbDetaileds.RsbDetailed.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RsbDetaileds.RsbDetailed.S2lSubLsp',
+    'Rsvp.RsbDetaileds.RsbDetailed.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RsbDetaileds.RsbDetailed.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -12568,8 +12568,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2mpLspSession',
+    'Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -12642,7 +12642,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -12654,7 +12654,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -12688,7 +12688,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RsbDetaileds.RsbDetailed.Style',
             False, 
             [
-            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnum_Enum', 
+            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnumEnum', 
                 [], [], 
                 '''                The Reservation Type: WF, SE or FF
                 ''',
@@ -12813,7 +12813,7 @@ _meta_table = {
                 ''',
                 'rsb_flags',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RsbDetaileds.RsbDetailed.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RsbDetaileds.RsbDetailed.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
@@ -12825,7 +12825,7 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -12892,8 +12892,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter.P2mpIpv4Session' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter.P2mpIpv4Session',
+    'Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter.P2MpIpv4Session' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter.P2MpIpv4Session',
             False, 
             [
             _MetaInfoClassMember('p2mp-sub-group-origin', ATTRIBUTE, 'str' , None, None, 
@@ -12954,13 +12954,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilter_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilter_Enum', 
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilterEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilterEnum', 
                 [], [], 
                 '''                FilterType
                 ''',
                 'filter_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2mpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter.P2mpIpv4Session', 
+            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2MpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter.P2MpIpv4Session', 
                 [], [], 
                 '''                IPv4 P2MP LSP FilterSpec
                 ''',
@@ -13030,7 +13030,7 @@ _meta_table = {
                 ''',
                 'flow_peak_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnum_Enum', 
+            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnumEnum', 
                 [], [], 
                 '''                The Flow Quality of Service
                 ''',
@@ -13055,8 +13055,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec.G709otnFlowSpec' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec.G709otnFlowSpec',
+    'Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec.G709OtnFlowSpec' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
             _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -13094,13 +13094,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpec_Enum', 
+            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpecEnum', 
                 [], [], 
                 '''                FlowSpecType
                 ''',
                 'flow_spec_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709otnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec.G709otnFlowSpec', 
+            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709OtnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec.G709OtnFlowSpec', 
                 [], [], 
                 '''                G709 OTN FlowSpec
                 ''',
@@ -13190,8 +13190,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RxsbDetails.RxsbDetail.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RxsbDetails.RxsbDetail.S2lSubLsp',
+    'Rsvp.RxsbDetails.RxsbDetail.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RxsbDetails.RxsbDetail.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -13266,8 +13266,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4P2mpLspSession',
+    'Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -13340,7 +13340,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -13352,7 +13352,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -13386,7 +13386,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RxsbDetails.RxsbDetail.Style',
             False, 
             [
-            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnum_Enum', 
+            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnumEnum', 
                 [], [], 
                 '''                The Reservation Type: WF, SE or FF
                 ''',
@@ -13475,7 +13475,7 @@ _meta_table = {
                 ''',
                 'rsvp_header',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RxsbDetails.RxsbDetail.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.RxsbDetails.RxsbDetail.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
@@ -13487,7 +13487,7 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -13612,8 +13612,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2mpLspSession',
+    'Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -13686,7 +13686,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -13698,7 +13698,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -13792,7 +13792,7 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -13887,8 +13887,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2mpLspSession',
+    'Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -13961,7 +13961,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -13973,7 +13973,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -14188,7 +14188,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association',
             False, 
             [
-            _MetaInfoClassMember('association-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtAssociation_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAssociation_Enum', 
+            _MetaInfoClassMember('association-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtAssociationEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAssociationEnum', 
                 [], [], 
                 '''                AssociationType
                 ''',
@@ -14225,8 +14225,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4eroSubObject' : {
-        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4eroSubObject',
+    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4EroSubObject' : {
+        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4EroSubObject',
             False, 
             [
             _MetaInfoClassMember('ero-address', ATTRIBUTE, 'str' , None, None, 
@@ -14287,13 +14287,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero',
             False, 
             [
-            _MetaInfoClassMember('ero-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobj_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobj_Enum', 
+            _MetaInfoClassMember('ero-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobjEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobjEnum', 
                 [], [], 
                 '''                EROType
                 ''',
                 'ero_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4ero-sub-object', REFERENCE_CLASS, 'Ipv4eroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4eroSubObject', 
+            _MetaInfoClassMember('ipv4ero-sub-object', REFERENCE_CLASS, 'Ipv4EroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4EroSubObject', 
                 [], [], 
                 '''                IPV4 ERO Sub Object
                 ''',
@@ -14339,7 +14339,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -14352,8 +14352,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709otnTspec' : {
-        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709otnTspec',
+    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709OtnTspec' : {
+        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
             _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -14432,7 +14432,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec',
             False, 
             [
-            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709otnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709otnTspec', 
+            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709OtnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709OtnTspec', 
                 [], [], 
                 '''                G709 OTN Sender Tspec
                 ''',
@@ -14444,7 +14444,7 @@ _meta_table = {
                 ''',
                 'intsrv_tspec',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspec_Enum', 
+            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspecEnum', 
                 [], [], 
                 '''                TspecType
                 ''',
@@ -14605,8 +14605,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4eroSubObject' : {
-        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4eroSubObject',
+    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4EroSubObject' : {
+        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4EroSubObject',
             False, 
             [
             _MetaInfoClassMember('ero-address', ATTRIBUTE, 'str' , None, None, 
@@ -14667,13 +14667,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero',
             False, 
             [
-            _MetaInfoClassMember('ero-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobj_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobj_Enum', 
+            _MetaInfoClassMember('ero-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobjEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobjEnum', 
                 [], [], 
                 '''                EROType
                 ''',
                 'ero_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4ero-sub-object', REFERENCE_CLASS, 'Ipv4eroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4eroSubObject', 
+            _MetaInfoClassMember('ipv4ero-sub-object', REFERENCE_CLASS, 'Ipv4EroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4EroSubObject', 
                 [], [], 
                 '''                IPV4 ERO Sub Object
                 ''',
@@ -14692,8 +14692,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709otnTspec' : {
-        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709otnTspec',
+    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709OtnTspec' : {
+        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
             _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -14772,7 +14772,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec',
             False, 
             [
-            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709otnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709otnTspec', 
+            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709OtnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709OtnTspec', 
                 [], [], 
                 '''                G709 OTN Sender Tspec
                 ''',
@@ -14784,7 +14784,7 @@ _meta_table = {
                 ''',
                 'intsrv_tspec',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspec_Enum', 
+            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspecEnum', 
                 [], [], 
                 '''                TspecType
                 ''',
@@ -14843,8 +14843,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject.Flags' : {
-        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject.Flags',
+    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject.Flags' : {
+        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject.Flags',
             False, 
             [
             _MetaInfoClassMember('is-bandwidth-protected', ATTRIBUTE, 'bool' , None, None, 
@@ -14884,11 +14884,11 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject' : {
-        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject',
+    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject' : {
+        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject',
             False, 
             [
-            _MetaInfoClassMember('flags', REFERENCE_CLASS, 'Flags' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject.Flags', 
+            _MetaInfoClassMember('flags', REFERENCE_CLASS, 'Flags' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject.Flags', 
                 [], [], 
                 '''                The RRO IPV4 Subobject Flags
                 ''',
@@ -15050,7 +15050,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro',
             False, 
             [
-            _MetaInfoClassMember('ipv4rro-sub-object', REFERENCE_CLASS, 'Ipv4rroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject', 
+            _MetaInfoClassMember('ipv4rro-sub-object', REFERENCE_CLASS, 'Ipv4RroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject', 
                 [], [], 
                 '''                IPV4 RRO Sub Object
                 ''',
@@ -15062,7 +15062,7 @@ _meta_table = {
                 ''',
                 'label_rro_sub_object',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('rro-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtRroSubobj_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtRroSubobj_Enum', 
+            _MetaInfoClassMember('rro-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtRroSubobjEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtRroSubobjEnum', 
                 [], [], 
                 '''                RROType
                 ''',
@@ -15299,7 +15299,7 @@ _meta_table = {
                 ''',
                 'flow_peak_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnum_Enum', 
+            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnumEnum', 
                 [], [], 
                 '''                The Flow Quality of Service
                 ''',
@@ -15324,8 +15324,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709otnFlowSpec' : {
-        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709otnFlowSpec',
+    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709OtnFlowSpec' : {
+        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
             _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -15363,13 +15363,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpec_Enum', 
+            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpecEnum', 
                 [], [], 
                 '''                FlowSpecType
                 ''',
                 'flow_spec_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709otnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709otnFlowSpec', 
+            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709OtnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709OtnFlowSpec', 
                 [], [], 
                 '''                G709 OTN FlowSpec
                 ''',
@@ -15409,7 +15409,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -15422,8 +15422,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject.Flags' : {
-        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject.Flags',
+    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject.Flags' : {
+        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject.Flags',
             False, 
             [
             _MetaInfoClassMember('is-bandwidth-protected', ATTRIBUTE, 'bool' , None, None, 
@@ -15463,11 +15463,11 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject' : {
-        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject',
+    'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject' : {
+        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject',
             False, 
             [
-            _MetaInfoClassMember('flags', REFERENCE_CLASS, 'Flags' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject.Flags', 
+            _MetaInfoClassMember('flags', REFERENCE_CLASS, 'Flags' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject.Flags', 
                 [], [], 
                 '''                The RRO IPV4 Subobject Flags
                 ''',
@@ -15629,7 +15629,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro',
             False, 
             [
-            _MetaInfoClassMember('ipv4rro-sub-object', REFERENCE_CLASS, 'Ipv4rroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject', 
+            _MetaInfoClassMember('ipv4rro-sub-object', REFERENCE_CLASS, 'Ipv4RroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject', 
                 [], [], 
                 '''                IPV4 RRO Sub Object
                 ''',
@@ -15641,7 +15641,7 @@ _meta_table = {
                 ''',
                 'label_rro_sub_object',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('rro-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtRroSubobj_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtRroSubobj_Enum', 
+            _MetaInfoClassMember('rro-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtRroSubobjEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtRroSubobjEnum', 
                 [], [], 
                 '''                RROType
                 ''',
@@ -15772,8 +15772,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.SessionDetaileds.SessionDetailed.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.S2lSubLsp',
+    'Rsvp.SessionDetaileds.SessionDetailed.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -15835,13 +15835,13 @@ _meta_table = {
                 ''',
                 'psb_rsb_info',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.SessionDetaileds.SessionDetailed.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
                 's2l_sub_lsp',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -15948,13 +15948,13 @@ _meta_table = {
                 ''',
                 'idt_start_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReason_Enum', 
+            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReasonEnum', 
                 [], [], 
                 '''                Not ready reason
                 ''',
                 'not_ready_reason',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatus_Enum', 
+            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatusEnum', 
                 [], [], 
                 '''                Sync status
                 ''',
@@ -15995,13 +15995,13 @@ _meta_table = {
                 ''',
                 'idt_start_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReason_Enum', 
+            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReasonEnum', 
                 [], [], 
                 '''                Not ready reason
                 ''',
                 'not_ready_reason',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatus_Enum', 
+            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatusEnum', 
                 [], [], 
                 '''                Sync status
                 ''',
@@ -16036,7 +16036,7 @@ _meta_table = {
                 ''',
                 'previous_idt_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'RsvpProcRole_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRole_Enum', 
+            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'RsvpProcRoleEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRoleEnum', 
                 [], [], 
                 '''                Process role
                 ''',
@@ -16071,13 +16071,13 @@ _meta_table = {
                 ''',
                 'idt_start_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReason_Enum', 
+            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReasonEnum', 
                 [], [], 
                 '''                Not ready reason
                 ''',
                 'not_ready_reason',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatus_Enum', 
+            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatusEnum', 
                 [], [], 
                 '''                Sync status
                 ''',
@@ -16118,13 +16118,13 @@ _meta_table = {
                 ''',
                 'idt_start_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReason_Enum', 
+            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReasonEnum', 
                 [], [], 
                 '''                Not ready reason
                 ''',
                 'not_ready_reason',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatus_Enum', 
+            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatusEnum', 
                 [], [], 
                 '''                Sync status
                 ''',
@@ -16159,7 +16159,7 @@ _meta_table = {
                 ''',
                 'previous_idt_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'RsvpProcRole_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRole_Enum', 
+            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'RsvpProcRoleEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRoleEnum', 
                 [], [], 
                 '''                Process role
                 ''',
@@ -16456,7 +16456,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
-            _MetaInfoClassMember('mode-id', REFERENCE_ENUM_CLASS, 'RsvpMode_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMode_Enum', 
+            _MetaInfoClassMember('mode-id', REFERENCE_ENUM_CLASS, 'RsvpModeEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpModeEnum', 
                 [], [], 
                 '''                Mode (Tx or Rx)
                 ''',
@@ -16474,7 +16474,7 @@ _meta_table = {
                 ''',
                 'destination_address_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthDirection_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthDirectionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthDirectionEnum', 
                 [], [], 
                 '''                Direction
                 ''',
@@ -16498,7 +16498,7 @@ _meta_table = {
                 ''',
                 'key_source',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('key-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthKi_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthKi_Enum', 
+            _MetaInfoClassMember('key-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthKiEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthKiEnum', 
                 [], [], 
                 '''                Key type
                 ''',
@@ -16550,7 +16550,7 @@ _meta_table = {
                 ''',
                 'destination_address_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthDirection_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthDirectionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthDirectionEnum', 
                 [], [], 
                 '''                Direction
                 ''',
@@ -16574,7 +16574,7 @@ _meta_table = {
                 ''',
                 'key_source',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('key-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthKi_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthKi_Enum', 
+            _MetaInfoClassMember('key-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthKiEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthKiEnum', 
                 [], [], 
                 '''                Key type
                 ''',
@@ -16811,7 +16811,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.AuthenticationDetails.AuthenticationDetail.DirectionInfo',
             False, 
             [
-            _MetaInfoClassMember('auth-direction', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthDirection_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthDirection_Enum', 
+            _MetaInfoClassMember('auth-direction', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthDirectionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthDirectionEnum', 
                 [], [], 
                 '''                AuthDirection
                 ''',
@@ -16852,7 +16852,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
-            _MetaInfoClassMember('mode-id', REFERENCE_ENUM_CLASS, 'RsvpMode_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMode_Enum', 
+            _MetaInfoClassMember('mode-id', REFERENCE_ENUM_CLASS, 'RsvpModeEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpModeEnum', 
                 [], [], 
                 '''                Mode (Tx or Rx)
                 ''',
@@ -16870,7 +16870,7 @@ _meta_table = {
                 ''',
                 'auth_compact',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('challenge-status', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthChallengeStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthChallengeStatus_Enum', 
+            _MetaInfoClassMember('challenge-status', REFERENCE_ENUM_CLASS, 'RsvpMgmtAuthChallengeStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAuthChallengeStatusEnum', 
                 [], [], 
                 '''                Challenge status
                 ''',
@@ -17537,7 +17537,7 @@ _meta_table = {
                 ''',
                 'last_idt_states',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('rsvp-process-role', REFERENCE_ENUM_CLASS, 'RsvpProcRole_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRole_Enum', 
+            _MetaInfoClassMember('rsvp-process-role', REFERENCE_ENUM_CLASS, 'RsvpProcRoleEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRoleEnum', 
                 [], [], 
                 '''                Process role
                 ''',
@@ -18001,7 +18001,7 @@ _meta_table = {
                 ''',
                 'last_idt_states',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('rsvp-process-role', REFERENCE_ENUM_CLASS, 'RsvpProcRole_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRole_Enum', 
+            _MetaInfoClassMember('rsvp-process-role', REFERENCE_ENUM_CLASS, 'RsvpProcRoleEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRoleEnum', 
                 [], [], 
                 '''                Process role
                 ''',
@@ -19097,8 +19097,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.Frrs.Frr.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.Frrs.Frr.S2lSubLsp',
+    'RsvpStandby.Frrs.Frr.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.Frrs.Frr.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -19173,8 +19173,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4P2mpLspSession',
+    'RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -19247,7 +19247,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -19259,7 +19259,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -19317,7 +19317,7 @@ _meta_table = {
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('path-status', REFERENCE_ENUM_CLASS, 'RsvpMgmtFrrStateEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFrrStateEnum_Enum', 
+            _MetaInfoClassMember('path-status', REFERENCE_ENUM_CLASS, 'RsvpMgmtFrrStateEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFrrStateEnumEnum', 
                 [], [], 
                 '''                RSVP FRR Path States
                 ''',
@@ -19329,13 +19329,13 @@ _meta_table = {
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('reservation-status', REFERENCE_ENUM_CLASS, 'RsvpMgmtFrrStateEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFrrStateEnum_Enum', 
+            _MetaInfoClassMember('reservation-status', REFERENCE_ENUM_CLASS, 'RsvpMgmtFrrStateEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFrrStateEnumEnum', 
                 [], [], 
                 '''                RSVP FRR Reservation States
                 ''',
                 'reservation_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Frrs.Frr.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Frrs.Frr.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
@@ -19347,7 +19347,7 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -19504,7 +19504,7 @@ _meta_table = {
                 ''',
                 'local_node_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('lost-communication-reason', REFERENCE_LEAFLIST, 'RsvpMgmtHelloDownReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloDownReason_Enum', 
+            _MetaInfoClassMember('lost-communication-reason', REFERENCE_LEAFLIST, 'RsvpMgmtHelloDownReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloDownReasonEnum', 
                 [], [], 
                 '''                Reason why communication was lost
                 ''',
@@ -19522,7 +19522,7 @@ _meta_table = {
                 ''',
                 'lost_communication_total',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('neighbor-hello-state', REFERENCE_LEAFLIST, 'RsvpMgmtHelloState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloState_Enum', 
+            _MetaInfoClassMember('neighbor-hello-state', REFERENCE_LEAFLIST, 'RsvpMgmtHelloStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloStateEnum', 
                 [], [], 
                 '''                Neighbor Hello state
                 ''',
@@ -19534,7 +19534,7 @@ _meta_table = {
                 ''',
                 'node_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('restart-state', REFERENCE_ENUM_CLASS, 'RsvpMgmtRestartState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtRestartState_Enum', 
+            _MetaInfoClassMember('restart-state', REFERENCE_ENUM_CLASS, 'RsvpMgmtRestartStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtRestartStateEnum', 
                 [], [], 
                 '''                Restart state
                 ''',
@@ -19783,7 +19783,7 @@ _meta_table = {
                 ''',
                 'local_node_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('lost-communication-reason', REFERENCE_LEAFLIST, 'RsvpMgmtHelloDownReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloDownReason_Enum', 
+            _MetaInfoClassMember('lost-communication-reason', REFERENCE_LEAFLIST, 'RsvpMgmtHelloDownReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloDownReasonEnum', 
                 [], [], 
                 '''                Reason why communication was lost
                 ''',
@@ -19807,7 +19807,7 @@ _meta_table = {
                 ''',
                 'missed_hellos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('neighbor-hello-state', REFERENCE_LEAFLIST, 'RsvpMgmtHelloState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloState_Enum', 
+            _MetaInfoClassMember('neighbor-hello-state', REFERENCE_LEAFLIST, 'RsvpMgmtHelloStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloStateEnum', 
                 [], [], 
                 '''                Neighbor's hello state
                 ''',
@@ -19843,7 +19843,7 @@ _meta_table = {
                 ''',
                 'recovery_timer_exp_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('restart-state', REFERENCE_ENUM_CLASS, 'RsvpMgmtRestartState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtRestartState_Enum', 
+            _MetaInfoClassMember('restart-state', REFERENCE_ENUM_CLASS, 'RsvpMgmtRestartStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtRestartStateEnum', 
                 [], [], 
                 '''                Current restart state
                 ''',
@@ -19901,7 +19901,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.GracefulRestart.LocalNodeAddress',
             False, 
             [
-            _MetaInfoClassMember('application-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGrApp_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGrApp_Enum', 
+            _MetaInfoClassMember('application-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGrAppEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGrAppEnum', 
                 [], [], 
                 '''                GR local node-id app type
                 ''',
@@ -20072,7 +20072,7 @@ _meta_table = {
                 ''',
                 'hello_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('instance-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstance_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstance_Enum', 
+            _MetaInfoClassMember('instance-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstanceEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstanceEnum', 
                 [], [], 
                 '''                Hello instance type
                 ''',
@@ -20084,7 +20084,7 @@ _meta_table = {
                 ''',
                 'lost_communication_total',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('neighbor-hello-state', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloState_Enum', 
+            _MetaInfoClassMember('neighbor-hello-state', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloStateEnum', 
                 [], [], 
                 '''                Neighbor Hello state
                 ''',
@@ -20200,7 +20200,7 @@ _meta_table = {
                 ''',
                 'communication_lost_neighbor_disabled_hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('communication-lost-reason', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloDownReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloDownReason_Enum', 
+            _MetaInfoClassMember('communication-lost-reason', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloDownReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloDownReasonEnum', 
                 [], [], 
                 '''                Reason why communication was lost
                 ''',
@@ -20237,7 +20237,7 @@ _meta_table = {
                 ''',
                 'destination_instance',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('hello-instance-owner', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstanceOwner_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstanceOwner_Enum', 
+            _MetaInfoClassMember('hello-instance-owner', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstanceOwnerEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstanceOwnerEnum', 
                 [], [], 
                 '''                Hello instance owner
                 ''',
@@ -20273,7 +20273,7 @@ _meta_table = {
                 ''',
                 'hello_request_suppressed',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('instance-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstance_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstance_Enum', 
+            _MetaInfoClassMember('instance-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstanceEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstanceEnum', 
                 [], [], 
                 '''                Hello instance type
                 ''',
@@ -20285,7 +20285,7 @@ _meta_table = {
                 ''',
                 'missed_acks_allowed',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('neighbor-hello-state', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloState_Enum', 
+            _MetaInfoClassMember('neighbor-hello-state', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloStateEnum', 
                 [], [], 
                 '''                Neighbor Hello state
                 ''',
@@ -20367,7 +20367,7 @@ _meta_table = {
                 ''',
                 'hello_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('instance-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstance_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstance_Enum', 
+            _MetaInfoClassMember('instance-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstanceEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstanceEnum', 
                 [], [], 
                 '''                Hello instance type
                 ''',
@@ -20479,7 +20479,7 @@ _meta_table = {
                 ''',
                 'hello_messages_sent',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('instance-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstance_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstance_Enum', 
+            _MetaInfoClassMember('instance-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtHelloInstanceEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtHelloInstanceEnum', 
                 [], [], 
                 '''                Hello instance type
                 ''',
@@ -20646,7 +20646,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.InterfaceBriefs.InterfaceBrief.BandwidthInformation',
             False, 
             [
-            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModes_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModes_Enum', 
+            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModesEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModesEnum', 
                 [], [], 
                 '''                DSTEMode
                 ''',
@@ -20835,7 +20835,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation',
             False, 
             [
-            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModes_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModes_Enum', 
+            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModesEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModesEnum', 
                 [], [], 
                 '''                DSTEMode
                 ''',
@@ -21082,7 +21082,7 @@ _meta_table = {
                 ''',
                 'expiry_states',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('expiry-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerState_Enum', 
+            _MetaInfoClassMember('expiry-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerStateEnum', 
                 [], [], 
                 '''                Expiry timer state
                 ''',
@@ -21154,7 +21154,7 @@ _meta_table = {
                 ''',
                 'pacing_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('pacing-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerState_Enum', 
+            _MetaInfoClassMember('pacing-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerStateEnum', 
                 [], [], 
                 '''                State of pacing timer
                 ''',
@@ -21166,7 +21166,7 @@ _meta_table = {
                 ''',
                 'refresh_interval',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('refresh-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerState_Enum', 
+            _MetaInfoClassMember('refresh-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerStateEnum', 
                 [], [], 
                 '''                Refresh timer state
                 ''',
@@ -21191,7 +21191,7 @@ _meta_table = {
                 ''',
                 'summary_refresh_max_size',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('summary-refresh-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerState_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerState_Enum', 
+            _MetaInfoClassMember('summary-refresh-timer-state', REFERENCE_ENUM_CLASS, 'RsvpTimerStateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpTimerStateEnum', 
                 [], [], 
                 '''                Summary refresh timer state
                 ''',
@@ -21501,7 +21501,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.InterfaceSummaries.InterfaceSummary.BandwidthInformation',
             False, 
             [
-            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModes_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModes_Enum', 
+            _MetaInfoClassMember('dste-mode', REFERENCE_ENUM_CLASS, 'RsvpMgmtDsteModesEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtDsteModesEnum', 
                 [], [], 
                 '''                DSTEMode
                 ''',
@@ -21620,13 +21620,13 @@ _meta_table = {
                 ''',
                 'idt_start_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReason_Enum', 
+            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReasonEnum', 
                 [], [], 
                 '''                Not ready reason
                 ''',
                 'not_ready_reason',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatus_Enum', 
+            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatusEnum', 
                 [], [], 
                 '''                Sync status
                 ''',
@@ -21667,13 +21667,13 @@ _meta_table = {
                 ''',
                 'idt_start_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReason_Enum', 
+            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReasonEnum', 
                 [], [], 
                 '''                Not ready reason
                 ''',
                 'not_ready_reason',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatus_Enum', 
+            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatusEnum', 
                 [], [], 
                 '''                Sync status
                 ''',
@@ -21708,7 +21708,7 @@ _meta_table = {
                 ''',
                 'previous_idt_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'RsvpProcRole_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRole_Enum', 
+            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'RsvpProcRoleEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRoleEnum', 
                 [], [], 
                 '''                Process role
                 ''',
@@ -21738,8 +21738,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec.G709otnTspec' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec.G709otnTspec',
+    'RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec.G709OtnTspec' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
             _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -21818,7 +21818,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec',
             False, 
             [
-            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709otnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec.G709otnTspec', 
+            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709OtnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec.G709OtnTspec', 
                 [], [], 
                 '''                G709 OTN Sender Tspec
                 ''',
@@ -21830,7 +21830,7 @@ _meta_table = {
                 ''',
                 'intsrv_tspec',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspec_Enum', 
+            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspecEnum', 
                 [], [], 
                 '''                TspecType
                 ''',
@@ -21843,8 +21843,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.PsbBriefs.PsbBrief.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.PsbBriefs.PsbBrief.S2lSubLsp',
+    'RsvpStandby.PsbBriefs.PsbBrief.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.PsbBriefs.PsbBrief.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -21919,8 +21919,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2mpLspSession',
+    'RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -21993,7 +21993,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -22005,7 +22005,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -22105,8 +22105,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter.P2mpIpv4Session' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter.P2mpIpv4Session',
+    'RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter.P2MpIpv4Session' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter.P2MpIpv4Session',
             False, 
             [
             _MetaInfoClassMember('p2mp-sub-group-origin', ATTRIBUTE, 'str' , None, None, 
@@ -22167,13 +22167,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilter_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilter_Enum', 
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilterEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilterEnum', 
                 [], [], 
                 '''                FilterType
                 ''',
                 'filter_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2mpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter.P2mpIpv4Session', 
+            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2MpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter.P2MpIpv4Session', 
                 [], [], 
                 '''                IPv4 P2MP LSP FilterSpec
                 ''',
@@ -22296,7 +22296,7 @@ _meta_table = {
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbBriefs.PsbBrief.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbBriefs.PsbBrief.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
@@ -22314,7 +22314,7 @@ _meta_table = {
                 ''',
                 'session_attribute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -22432,8 +22432,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709otnTspec' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709otnTspec',
+    'RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709OtnTspec' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
             _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -22512,7 +22512,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec',
             False, 
             [
-            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709otnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709otnTspec', 
+            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709OtnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709OtnTspec', 
                 [], [], 
                 '''                G709 OTN Sender Tspec
                 ''',
@@ -22524,7 +22524,7 @@ _meta_table = {
                 ''',
                 'intsrv_tspec',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspec_Enum', 
+            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspecEnum', 
                 [], [], 
                 '''                TspecType
                 ''',
@@ -22614,8 +22614,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.PsbDetaileds.PsbDetailed.InEro.Ipv4eroSubObject' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.InEro.Ipv4eroSubObject',
+    'RsvpStandby.PsbDetaileds.PsbDetailed.InEro.Ipv4EroSubObject' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.InEro.Ipv4EroSubObject',
             False, 
             [
             _MetaInfoClassMember('ero-address', ATTRIBUTE, 'str' , None, None, 
@@ -22676,13 +22676,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.InEro',
             False, 
             [
-            _MetaInfoClassMember('ero-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobj_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobj_Enum', 
+            _MetaInfoClassMember('ero-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobjEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobjEnum', 
                 [], [], 
                 '''                EROType
                 ''',
                 'ero_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4ero-sub-object', REFERENCE_CLASS, 'Ipv4eroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbDetaileds.PsbDetailed.InEro.Ipv4eroSubObject', 
+            _MetaInfoClassMember('ipv4ero-sub-object', REFERENCE_CLASS, 'Ipv4EroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbDetaileds.PsbDetailed.InEro.Ipv4EroSubObject', 
                 [], [], 
                 '''                IPV4 ERO Sub Object
                 ''',
@@ -22728,7 +22728,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -22768,7 +22768,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -22808,7 +22808,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -22848,7 +22848,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -22888,7 +22888,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -22928,7 +22928,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -23030,8 +23030,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.PsbDetaileds.PsbDetailed.OutEro.Ipv4eroSubObject' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.OutEro.Ipv4eroSubObject',
+    'RsvpStandby.PsbDetaileds.PsbDetailed.OutEro.Ipv4EroSubObject' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.OutEro.Ipv4EroSubObject',
             False, 
             [
             _MetaInfoClassMember('ero-address', ATTRIBUTE, 'str' , None, None, 
@@ -23092,13 +23092,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.OutEro',
             False, 
             [
-            _MetaInfoClassMember('ero-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobj_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobj_Enum', 
+            _MetaInfoClassMember('ero-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobjEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobjEnum', 
                 [], [], 
                 '''                EROType
                 ''',
                 'ero_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4ero-sub-object', REFERENCE_CLASS, 'Ipv4eroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbDetaileds.PsbDetailed.OutEro.Ipv4eroSubObject', 
+            _MetaInfoClassMember('ipv4ero-sub-object', REFERENCE_CLASS, 'Ipv4EroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbDetaileds.PsbDetailed.OutEro.Ipv4EroSubObject', 
                 [], [], 
                 '''                IPV4 ERO Sub Object
                 ''',
@@ -23362,8 +23362,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.PsbDetaileds.PsbDetailed.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.S2lSubLsp',
+    'RsvpStandby.PsbDetaileds.PsbDetailed.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -23438,8 +23438,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2mpLspSession',
+    'RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -23512,7 +23512,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -23524,7 +23524,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -23624,8 +23624,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2mpIpv4Session' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2mpIpv4Session',
+    'RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2MpIpv4Session' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2MpIpv4Session',
             False, 
             [
             _MetaInfoClassMember('p2mp-sub-group-origin', ATTRIBUTE, 'str' , None, None, 
@@ -23686,13 +23686,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilter_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilter_Enum', 
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilterEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilterEnum', 
                 [], [], 
                 '''                FilterType
                 ''',
                 'filter_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2mpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2mpIpv4Session', 
+            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2MpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2MpIpv4Session', 
                 [], [], 
                 '''                IPv4 P2MP LSP FilterSpec
                 ''',
@@ -23905,7 +23905,7 @@ _meta_table = {
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbDetaileds.PsbDetailed.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbDetaileds.PsbDetailed.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
@@ -23923,7 +23923,7 @@ _meta_table = {
                 ''',
                 'session_attribute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -23995,8 +23995,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2mpIpv4Session' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2mpIpv4Session',
+    'RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2MpIpv4Session' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2MpIpv4Session',
             False, 
             [
             _MetaInfoClassMember('p2mp-sub-group-origin', ATTRIBUTE, 'str' , None, None, 
@@ -24057,13 +24057,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilter_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilter_Enum', 
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilterEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilterEnum', 
                 [], [], 
                 '''                FilterType
                 ''',
                 'filter_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2mpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2mpIpv4Session', 
+            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2MpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2MpIpv4Session', 
                 [], [], 
                 '''                IPv4 P2MP LSP FilterSpec
                 ''',
@@ -24133,7 +24133,7 @@ _meta_table = {
                 ''',
                 'flow_peak_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnum_Enum', 
+            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnumEnum', 
                 [], [], 
                 '''                The Flow Quality of Service
                 ''',
@@ -24158,8 +24158,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec.G709otnFlowSpec' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec.G709otnFlowSpec',
+    'RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec.G709OtnFlowSpec' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
             _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -24197,13 +24197,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpec_Enum', 
+            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpecEnum', 
                 [], [], 
                 '''                FlowSpecType
                 ''',
                 'flow_spec_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709otnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec.G709otnFlowSpec', 
+            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709OtnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec.G709OtnFlowSpec', 
                 [], [], 
                 '''                G709 OTN FlowSpec
                 ''',
@@ -24216,8 +24216,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.RequestBriefs.RequestBrief.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.RequestBriefs.RequestBrief.S2lSubLsp',
+    'RsvpStandby.RequestBriefs.RequestBrief.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.RequestBriefs.RequestBrief.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -24292,8 +24292,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2mpLspSession',
+    'RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -24366,7 +24366,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -24378,7 +24378,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -24412,7 +24412,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RequestBriefs.RequestBrief.Style',
             False, 
             [
-            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnum_Enum', 
+            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnumEnum', 
                 [], [], 
                 '''                The Reservation Type: WF, SE or FF
                 ''',
@@ -24483,7 +24483,7 @@ _meta_table = {
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RequestBriefs.RequestBrief.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RequestBriefs.RequestBrief.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
@@ -24495,7 +24495,7 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -24561,8 +24561,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter.P2mpIpv4Session' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter.P2mpIpv4Session',
+    'RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter.P2MpIpv4Session' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter.P2MpIpv4Session',
             False, 
             [
             _MetaInfoClassMember('p2mp-sub-group-origin', ATTRIBUTE, 'str' , None, None, 
@@ -24623,13 +24623,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilter_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilter_Enum', 
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilterEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilterEnum', 
                 [], [], 
                 '''                FilterType
                 ''',
                 'filter_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2mpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter.P2mpIpv4Session', 
+            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2MpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter.P2MpIpv4Session', 
                 [], [], 
                 '''                IPv4 P2MP LSP FilterSpec
                 ''',
@@ -24699,7 +24699,7 @@ _meta_table = {
                 ''',
                 'flow_peak_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnum_Enum', 
+            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnumEnum', 
                 [], [], 
                 '''                The Flow Quality of Service
                 ''',
@@ -24724,8 +24724,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.RequestDetails.RequestDetail.GenericFlowSpec.G709otnFlowSpec' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.RequestDetails.RequestDetail.GenericFlowSpec.G709otnFlowSpec',
+    'RsvpStandby.RequestDetails.RequestDetail.GenericFlowSpec.G709OtnFlowSpec' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.RequestDetails.RequestDetail.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
             _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -24763,13 +24763,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RequestDetails.RequestDetail.GenericFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpec_Enum', 
+            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpecEnum', 
                 [], [], 
                 '''                FlowSpecType
                 ''',
                 'flow_spec_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709otnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RequestDetails.RequestDetail.GenericFlowSpec.G709otnFlowSpec', 
+            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709OtnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RequestDetails.RequestDetail.GenericFlowSpec.G709OtnFlowSpec', 
                 [], [], 
                 '''                G709 OTN FlowSpec
                 ''',
@@ -25010,7 +25010,7 @@ _meta_table = {
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                Session Type (e.g. LSP, OUNI or UDP)
                 ''',
@@ -25180,7 +25180,7 @@ _meta_table = {
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                Session Type (e.g. LSP, OUNI or UDP)
                 ''',
@@ -25220,8 +25220,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.RequestDetails.RequestDetail.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.RequestDetails.RequestDetail.S2lSubLsp',
+    'RsvpStandby.RequestDetails.RequestDetail.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.RequestDetails.RequestDetail.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -25296,8 +25296,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2mpLspSession',
+    'RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -25370,7 +25370,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -25382,7 +25382,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -25416,7 +25416,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RequestDetails.RequestDetail.Style',
             False, 
             [
-            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnum_Enum', 
+            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnumEnum', 
                 [], [], 
                 '''                The Reservation Type: WF, SE or FF
                 ''',
@@ -25535,7 +25535,7 @@ _meta_table = {
                 ''',
                 'rsb_key',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RequestDetails.RequestDetail.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RequestDetails.RequestDetail.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
@@ -25547,7 +25547,7 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -25613,8 +25613,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2mpIpv4Session' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2mpIpv4Session',
+    'RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2MpIpv4Session' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2MpIpv4Session',
             False, 
             [
             _MetaInfoClassMember('p2mp-sub-group-origin', ATTRIBUTE, 'str' , None, None, 
@@ -25675,13 +25675,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilter_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilter_Enum', 
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilterEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilterEnum', 
                 [], [], 
                 '''                FilterType
                 ''',
                 'filter_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2mpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2mpIpv4Session', 
+            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2MpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2MpIpv4Session', 
                 [], [], 
                 '''                IPv4 P2MP LSP FilterSpec
                 ''',
@@ -25751,7 +25751,7 @@ _meta_table = {
                 ''',
                 'flow_peak_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnum_Enum', 
+            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnumEnum', 
                 [], [], 
                 '''                The Flow Quality of Service
                 ''',
@@ -25776,8 +25776,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec.G709otnFlowSpec' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec.G709otnFlowSpec',
+    'RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec.G709OtnFlowSpec' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
             _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -25815,13 +25815,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpec_Enum', 
+            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpecEnum', 
                 [], [], 
                 '''                FlowSpecType
                 ''',
                 'flow_spec_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709otnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec.G709otnFlowSpec', 
+            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709OtnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec.G709OtnFlowSpec', 
                 [], [], 
                 '''                G709 OTN FlowSpec
                 ''',
@@ -25834,8 +25834,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.RsbBriefs.RsbBrief.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.RsbBriefs.RsbBrief.S2lSubLsp',
+    'RsvpStandby.RsbBriefs.RsbBrief.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.RsbBriefs.RsbBrief.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -25910,8 +25910,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2mpLspSession',
+    'RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -25984,7 +25984,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -25996,7 +25996,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -26030,7 +26030,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RsbBriefs.RsbBrief.Style',
             False, 
             [
-            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnum_Enum', 
+            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnumEnum', 
                 [], [], 
                 '''                The Reservation Type: WF, SE or FF
                 ''',
@@ -26101,7 +26101,7 @@ _meta_table = {
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RsbBriefs.RsbBrief.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RsbBriefs.RsbBrief.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
@@ -26113,7 +26113,7 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -26202,8 +26202,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2mpIpv4Session' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2mpIpv4Session',
+    'RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2MpIpv4Session' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2MpIpv4Session',
             False, 
             [
             _MetaInfoClassMember('p2mp-sub-group-origin', ATTRIBUTE, 'str' , None, None, 
@@ -26264,13 +26264,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilter_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilter_Enum', 
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFilterEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFilterEnum', 
                 [], [], 
                 '''                FilterType
                 ''',
                 'filter_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2mpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2mpIpv4Session', 
+            _MetaInfoClassMember('p2mp-ipv4-session', REFERENCE_CLASS, 'P2MpIpv4Session' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2MpIpv4Session', 
                 [], [], 
                 '''                IPv4 P2MP LSP FilterSpec
                 ''',
@@ -26340,7 +26340,7 @@ _meta_table = {
                 ''',
                 'flow_peak_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnum_Enum', 
+            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnumEnum', 
                 [], [], 
                 '''                The Flow Quality of Service
                 ''',
@@ -26365,8 +26365,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709otnFlowSpec' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709otnFlowSpec',
+    'RsvpStandby.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709OtnFlowSpec' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
             _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -26404,13 +26404,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RsbDetaileds.RsbDetailed.GenericFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpec_Enum', 
+            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpecEnum', 
                 [], [], 
                 '''                FlowSpecType
                 ''',
                 'flow_spec_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709otnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709otnFlowSpec', 
+            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709OtnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709OtnFlowSpec', 
                 [], [], 
                 '''                G709 OTN FlowSpec
                 ''',
@@ -26527,7 +26527,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -26567,7 +26567,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -26607,7 +26607,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -26647,7 +26647,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -26687,7 +26687,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -26727,7 +26727,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -26975,8 +26975,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.RsbDetaileds.RsbDetailed.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.RsbDetaileds.RsbDetailed.S2lSubLsp',
+    'RsvpStandby.RsbDetaileds.RsbDetailed.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.RsbDetaileds.RsbDetailed.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -27051,8 +27051,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2mpLspSession',
+    'RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -27125,7 +27125,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -27137,7 +27137,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -27171,7 +27171,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RsbDetaileds.RsbDetailed.Style',
             False, 
             [
-            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnum_Enum', 
+            _MetaInfoClassMember('reservation-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtReservationTypeEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtReservationTypeEnumEnum', 
                 [], [], 
                 '''                The Reservation Type: WF, SE or FF
                 ''',
@@ -27296,7 +27296,7 @@ _meta_table = {
                 ''',
                 'rsb_flags',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RsbDetaileds.RsbDetailed.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.RsbDetaileds.RsbDetailed.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
@@ -27308,7 +27308,7 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -27434,8 +27434,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2mpLspSession',
+    'RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -27508,7 +27508,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -27520,7 +27520,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -27614,7 +27614,7 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -27709,8 +27709,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2mpLspSession' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2mpLspSession',
+    'RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2MpLspSession' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2MpLspSession',
             False, 
             [
             _MetaInfoClassMember('extended-tunnel-id', ATTRIBUTE, 'str' , None, None, 
@@ -27783,7 +27783,7 @@ _meta_table = {
                 ''',
                 'ipv4_lsp_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2mpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2mpLspSession', 
+            _MetaInfoClassMember('ipv4-p2mp-lsp-session', REFERENCE_CLASS, 'Ipv4P2MpLspSession' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2MpLspSession', 
                 [], [], 
                 '''                IPv4 P2MP LSP session
                 ''',
@@ -27795,7 +27795,7 @@ _meta_table = {
                 ''',
                 'ipv4_uni_session',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtSessionEnum', 
                 [], [], 
                 '''                SessionType
                 ''',
@@ -28010,7 +28010,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association',
             False, 
             [
-            _MetaInfoClassMember('association-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtAssociation_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAssociation_Enum', 
+            _MetaInfoClassMember('association-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtAssociationEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtAssociationEnum', 
                 [], [], 
                 '''                AssociationType
                 ''',
@@ -28047,8 +28047,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4eroSubObject' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4eroSubObject',
+    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4EroSubObject' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4EroSubObject',
             False, 
             [
             _MetaInfoClassMember('ero-address', ATTRIBUTE, 'str' , None, None, 
@@ -28109,13 +28109,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero',
             False, 
             [
-            _MetaInfoClassMember('ero-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobj_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobj_Enum', 
+            _MetaInfoClassMember('ero-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobjEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobjEnum', 
                 [], [], 
                 '''                EROType
                 ''',
                 'ero_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4ero-sub-object', REFERENCE_CLASS, 'Ipv4eroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4eroSubObject', 
+            _MetaInfoClassMember('ipv4ero-sub-object', REFERENCE_CLASS, 'Ipv4EroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4EroSubObject', 
                 [], [], 
                 '''                IPV4 ERO Sub Object
                 ''',
@@ -28161,7 +28161,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -28174,8 +28174,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709otnTspec' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709otnTspec',
+    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709OtnTspec' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
             _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -28254,7 +28254,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec',
             False, 
             [
-            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709otnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709otnTspec', 
+            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709OtnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709OtnTspec', 
                 [], [], 
                 '''                G709 OTN Sender Tspec
                 ''',
@@ -28266,7 +28266,7 @@ _meta_table = {
                 ''',
                 'intsrv_tspec',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspec_Enum', 
+            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspecEnum', 
                 [], [], 
                 '''                TspecType
                 ''',
@@ -28427,8 +28427,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4eroSubObject' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4eroSubObject',
+    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4EroSubObject' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4EroSubObject',
             False, 
             [
             _MetaInfoClassMember('ero-address', ATTRIBUTE, 'str' , None, None, 
@@ -28489,13 +28489,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero',
             False, 
             [
-            _MetaInfoClassMember('ero-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobj_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobj_Enum', 
+            _MetaInfoClassMember('ero-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobjEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobjEnum', 
                 [], [], 
                 '''                EROType
                 ''',
                 'ero_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('ipv4ero-sub-object', REFERENCE_CLASS, 'Ipv4eroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4eroSubObject', 
+            _MetaInfoClassMember('ipv4ero-sub-object', REFERENCE_CLASS, 'Ipv4EroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4EroSubObject', 
                 [], [], 
                 '''                IPV4 ERO Sub Object
                 ''',
@@ -28514,8 +28514,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709otnTspec' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709otnTspec',
+    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709OtnTspec' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
             _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -28594,7 +28594,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec',
             False, 
             [
-            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709otnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709otnTspec', 
+            _MetaInfoClassMember('g709otn-tspec', REFERENCE_CLASS, 'G709OtnTspec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709OtnTspec', 
                 [], [], 
                 '''                G709 OTN Sender Tspec
                 ''',
@@ -28606,7 +28606,7 @@ _meta_table = {
                 ''',
                 'intsrv_tspec',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspec_Enum', 
+            _MetaInfoClassMember('tspec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtTspecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtTspecEnum', 
                 [], [], 
                 '''                TspecType
                 ''',
@@ -28665,8 +28665,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject.Flags' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject.Flags',
+    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject.Flags' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject.Flags',
             False, 
             [
             _MetaInfoClassMember('is-bandwidth-protected', ATTRIBUTE, 'bool' , None, None, 
@@ -28706,11 +28706,11 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject',
+    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject',
             False, 
             [
-            _MetaInfoClassMember('flags', REFERENCE_CLASS, 'Flags' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject.Flags', 
+            _MetaInfoClassMember('flags', REFERENCE_CLASS, 'Flags' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject.Flags', 
                 [], [], 
                 '''                The RRO IPV4 Subobject Flags
                 ''',
@@ -28872,7 +28872,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro',
             False, 
             [
-            _MetaInfoClassMember('ipv4rro-sub-object', REFERENCE_CLASS, 'Ipv4rroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject', 
+            _MetaInfoClassMember('ipv4rro-sub-object', REFERENCE_CLASS, 'Ipv4RroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject', 
                 [], [], 
                 '''                IPV4 RRO Sub Object
                 ''',
@@ -28884,7 +28884,7 @@ _meta_table = {
                 ''',
                 'label_rro_sub_object',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('rro-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtRroSubobj_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtRroSubobj_Enum', 
+            _MetaInfoClassMember('rro-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtRroSubobjEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtRroSubobjEnum', 
                 [], [], 
                 '''                RROType
                 ''',
@@ -29121,7 +29121,7 @@ _meta_table = {
                 ''',
                 'flow_peak_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnum_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnum_Enum', 
+            _MetaInfoClassMember('flow-qos', REFERENCE_ENUM_CLASS, 'RsvpMgmtQosServiceEnumEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtQosServiceEnumEnum', 
                 [], [], 
                 '''                The Flow Quality of Service
                 ''',
@@ -29146,8 +29146,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709otnFlowSpec' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709otnFlowSpec',
+    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709OtnFlowSpec' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
             _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
@@ -29185,13 +29185,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpec_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpec_Enum', 
+            _MetaInfoClassMember('flow-spec-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtFlowSpecEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtFlowSpecEnum', 
                 [], [], 
                 '''                FlowSpecType
                 ''',
                 'flow_spec_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709otnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709otnFlowSpec', 
+            _MetaInfoClassMember('g709otn-flow-spec', REFERENCE_CLASS, 'G709OtnFlowSpec' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709OtnFlowSpec', 
                 [], [], 
                 '''                G709 OTN FlowSpec
                 ''',
@@ -29231,7 +29231,7 @@ _meta_table = {
                 ''',
                 'generalized_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabel_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabel_Enum', 
+            _MetaInfoClassMember('generic-label-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtGenericLabelEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtGenericLabelEnum', 
                 [], [], 
                 '''                GenericLabelType
                 ''',
@@ -29244,8 +29244,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject.Flags' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject.Flags',
+    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject.Flags' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject.Flags',
             False, 
             [
             _MetaInfoClassMember('is-bandwidth-protected', ATTRIBUTE, 'bool' , None, None, 
@@ -29285,11 +29285,11 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject',
+    'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject',
             False, 
             [
-            _MetaInfoClassMember('flags', REFERENCE_CLASS, 'Flags' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject.Flags', 
+            _MetaInfoClassMember('flags', REFERENCE_CLASS, 'Flags' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject.Flags', 
                 [], [], 
                 '''                The RRO IPV4 Subobject Flags
                 ''',
@@ -29451,7 +29451,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro',
             False, 
             [
-            _MetaInfoClassMember('ipv4rro-sub-object', REFERENCE_CLASS, 'Ipv4rroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject', 
+            _MetaInfoClassMember('ipv4rro-sub-object', REFERENCE_CLASS, 'Ipv4RroSubObject' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject', 
                 [], [], 
                 '''                IPV4 RRO Sub Object
                 ''',
@@ -29463,7 +29463,7 @@ _meta_table = {
                 ''',
                 'label_rro_sub_object',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('rro-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtRroSubobj_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtRroSubobj_Enum', 
+            _MetaInfoClassMember('rro-type', REFERENCE_ENUM_CLASS, 'RsvpMgmtRroSubobjEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtRroSubobjEnum', 
                 [], [], 
                 '''                RROType
                 ''',
@@ -29594,8 +29594,8 @@ _meta_table = {
         'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.SessionDetaileds.SessionDetailed.S2lSubLsp' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.S2lSubLsp',
+    'RsvpStandby.SessionDetaileds.SessionDetailed.S2LSubLsp' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.S2LSubLsp',
             False, 
             [
             _MetaInfoClassMember('s2l-destination-address', ATTRIBUTE, 'str' , None, None, 
@@ -29657,13 +29657,13 @@ _meta_table = {
                 ''',
                 'psb_rsb_info',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2lSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.S2lSubLsp', 
+            _MetaInfoClassMember('s2l-sub-lsp', REFERENCE_CLASS, 'S2LSubLsp' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.SessionDetaileds.SessionDetailed.S2LSubLsp', 
                 [], [], 
                 '''                RSVP S2L Sub-LSP information
                 ''',
                 's2l_sub_lsp',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSession_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSession_Enum', 
+            _MetaInfoClassMember('session-type', REFERENCE_ENUM_CLASS, 'RsvpSessionEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSessionEnum', 
                 [], [], 
                 '''                Session Type
                 ''',
@@ -29770,13 +29770,13 @@ _meta_table = {
                 ''',
                 'idt_start_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReason_Enum', 
+            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReasonEnum', 
                 [], [], 
                 '''                Not ready reason
                 ''',
                 'not_ready_reason',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatus_Enum', 
+            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatusEnum', 
                 [], [], 
                 '''                Sync status
                 ''',
@@ -29817,13 +29817,13 @@ _meta_table = {
                 ''',
                 'idt_start_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReason_Enum', 
+            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReasonEnum', 
                 [], [], 
                 '''                Not ready reason
                 ''',
                 'not_ready_reason',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatus_Enum', 
+            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatusEnum', 
                 [], [], 
                 '''                Sync status
                 ''',
@@ -29858,7 +29858,7 @@ _meta_table = {
                 ''',
                 'previous_idt_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'RsvpProcRole_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRole_Enum', 
+            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'RsvpProcRoleEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRoleEnum', 
                 [], [], 
                 '''                Process role
                 ''',
@@ -29893,13 +29893,13 @@ _meta_table = {
                 ''',
                 'idt_start_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReason_Enum', 
+            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReasonEnum', 
                 [], [], 
                 '''                Not ready reason
                 ''',
                 'not_ready_reason',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatus_Enum', 
+            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatusEnum', 
                 [], [], 
                 '''                Sync status
                 ''',
@@ -29940,13 +29940,13 @@ _meta_table = {
                 ''',
                 'idt_start_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReason_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReason_Enum', 
+            _MetaInfoClassMember('not-ready-reason', REFERENCE_ENUM_CLASS, 'RsvpProcNsrNotReadyReasonEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcNsrNotReadyReasonEnum', 
                 [], [], 
                 '''                Not ready reason
                 ''',
                 'not_ready_reason',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatus_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatus_Enum', 
+            _MetaInfoClassMember('sync-status', REFERENCE_ENUM_CLASS, 'RsvpSyncStatusEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpSyncStatusEnum', 
                 [], [], 
                 '''                Sync status
                 ''',
@@ -29981,7 +29981,7 @@ _meta_table = {
                 ''',
                 'previous_idt_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'RsvpProcRole_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRole_Enum', 
+            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'RsvpProcRoleEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpProcRoleEnum', 
                 [], [], 
                 '''                Process role
                 ''',
@@ -30292,10 +30292,10 @@ _meta_table['Rsvp.FrrSummary.PathStates']['meta_info'].parent =_meta_table['Rsvp
 _meta_table['Rsvp.FrrSummary.ReservationStates']['meta_info'].parent =_meta_table['Rsvp.FrrSummary']['meta_info']
 _meta_table['Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['Rsvp.Frrs.Frr.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['Rsvp.Frrs.Frr.Session.RsvpSession']['meta_info']
-_meta_table['Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['Rsvp.Frrs.Frr.Session.RsvpSession']['meta_info']
+_meta_table['Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['Rsvp.Frrs.Frr.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['Rsvp.Frrs.Frr.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.Frrs.Frr.Session.RsvpSession']['meta_info'].parent =_meta_table['Rsvp.Frrs.Frr.Session']['meta_info']
-_meta_table['Rsvp.Frrs.Frr.S2lSubLsp']['meta_info'].parent =_meta_table['Rsvp.Frrs.Frr']['meta_info']
+_meta_table['Rsvp.Frrs.Frr.S2LSubLsp']['meta_info'].parent =_meta_table['Rsvp.Frrs.Frr']['meta_info']
 _meta_table['Rsvp.Frrs.Frr.Session']['meta_info'].parent =_meta_table['Rsvp.Frrs.Frr']['meta_info']
 _meta_table['Rsvp.Frrs.Frr']['meta_info'].parent =_meta_table['Rsvp.Frrs']['meta_info']
 _meta_table['Rsvp.GlobalNeighborBriefs.GlobalNeighborBrief.GlobalNeighborFlags']['meta_info'].parent =_meta_table['Rsvp.GlobalNeighborBriefs.GlobalNeighborBrief']['meta_info']
@@ -30346,27 +30346,27 @@ _meta_table['Rsvp.Issu.Status']['meta_info'].parent =_meta_table['Rsvp.Issu']['m
 _meta_table['Rsvp.Nsr.Status.IdtStatus']['meta_info'].parent =_meta_table['Rsvp.Nsr.Status']['meta_info']
 _meta_table['Rsvp.Nsr.Status.PreviousIdtStatus']['meta_info'].parent =_meta_table['Rsvp.Nsr.Status']['meta_info']
 _meta_table['Rsvp.Nsr.Status']['meta_info'].parent =_meta_table['Rsvp.Nsr']['meta_info']
-_meta_table['Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec.G709otnTspec']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec']['meta_info']
+_meta_table['Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec.G709OtnTspec']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec']['meta_info']
 _meta_table['Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec.IntsrvTspec']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec']['meta_info']
 _meta_table['Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession']['meta_info']
-_meta_table['Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession']['meta_info']
+_meta_table['Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief.Session']['meta_info']
 _meta_table['Rsvp.PsbBriefs.PsbBrief.SessionAttribute.SessAttributeFlags']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief.SessionAttribute']['meta_info']
-_meta_table['Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter.P2mpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter']['meta_info']
+_meta_table['Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter.P2MpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter']['meta_info']
 _meta_table['Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter.UdpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter']['meta_info']
 _meta_table['Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief.Template']['meta_info']
 _meta_table['Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief']['meta_info']
-_meta_table['Rsvp.PsbBriefs.PsbBrief.S2lSubLsp']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief']['meta_info']
+_meta_table['Rsvp.PsbBriefs.PsbBrief.S2LSubLsp']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief']['meta_info']
 _meta_table['Rsvp.PsbBriefs.PsbBrief.Session']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief']['meta_info']
 _meta_table['Rsvp.PsbBriefs.PsbBrief.SessionAttribute']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief']['meta_info']
 _meta_table['Rsvp.PsbBriefs.PsbBrief.Template']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief']['meta_info']
 _meta_table['Rsvp.PsbBriefs.PsbBrief.TrafficSpec']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs.PsbBrief']['meta_info']
 _meta_table['Rsvp.PsbBriefs.PsbBrief']['meta_info'].parent =_meta_table['Rsvp.PsbBriefs']['meta_info']
-_meta_table['Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709otnTspec']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec']['meta_info']
+_meta_table['Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709OtnTspec']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec.IntsrvTspec']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec']['meta_info']
-_meta_table['Rsvp.PsbDetaileds.PsbDetailed.InEro.Ipv4eroSubObject']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.InEro']['meta_info']
+_meta_table['Rsvp.PsbDetaileds.PsbDetailed.InEro.Ipv4EroSubObject']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.InEro']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.InEro.UnnumberedEroSubObject']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.InEro']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalDownstreamLabel.GeneralizedLabel']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalDownstreamLabel']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalUpstreamLabel.GeneralizedLabel']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalUpstreamLabel']['meta_info']
@@ -30380,17 +30380,17 @@ _meta_table['Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericMergePointLabel']['m
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.LabelInfo']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.LabelInfo']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericRecoveryLabel']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.LabelInfo']['meta_info']
-_meta_table['Rsvp.PsbDetaileds.PsbDetailed.OutEro.Ipv4eroSubObject']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.OutEro']['meta_info']
+_meta_table['Rsvp.PsbDetaileds.PsbDetailed.OutEro.Ipv4EroSubObject']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.OutEro']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.OutEro.UnnumberedEroSubObject']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.OutEro']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.Pfc.PolicyFlags']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.Pfc']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.Pfc.PolicyQueryFlags']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.Pfc']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession']['meta_info']
-_meta_table['Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession']['meta_info']
+_meta_table['Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.Session']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.SessionAttribute.SessAttributeFlags']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.SessionAttribute']['meta_info']
-_meta_table['Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2mpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter']['meta_info']
+_meta_table['Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2MpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter.UdpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed.Template']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.ClassType']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed']['meta_info']
@@ -30406,53 +30406,53 @@ _meta_table['Rsvp.PsbDetaileds.PsbDetailed.Pfc']['meta_info'].parent =_meta_tabl
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.PolicyFlags']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.PolicyQueryFlags']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.PolicySourceInfo']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed']['meta_info']
-_meta_table['Rsvp.PsbDetaileds.PsbDetailed.S2lSubLsp']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed']['meta_info']
+_meta_table['Rsvp.PsbDetaileds.PsbDetailed.S2LSubLsp']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.Session']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.SessionAttribute']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.Template']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed.TrafficSpec']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds.PsbDetailed']['meta_info']
 _meta_table['Rsvp.PsbDetaileds.PsbDetailed']['meta_info'].parent =_meta_table['Rsvp.PsbDetaileds']['meta_info']
-_meta_table['Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec.G709otnTspec']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec']['meta_info']
+_meta_table['Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec.G709OtnTspec']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec']['meta_info']
 _meta_table['Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec.IntsrvTspec']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec']['meta_info']
 _meta_table['Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession']['meta_info']
-_meta_table['Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession']['meta_info']
+_meta_table['Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail.Session']['meta_info']
-_meta_table['Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter.P2mpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter']['meta_info']
+_meta_table['Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter.P2MpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter']['meta_info']
 _meta_table['Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter.UdpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter']['meta_info']
 _meta_table['Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail.Template']['meta_info']
 _meta_table['Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail']['meta_info']
 _meta_table['Rsvp.PxsbDetails.PxsbDetail.Hop']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail']['meta_info']
 _meta_table['Rsvp.PxsbDetails.PxsbDetail.RsvpHeader']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail']['meta_info']
-_meta_table['Rsvp.PxsbDetails.PxsbDetail.S2lSubLsp']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail']['meta_info']
+_meta_table['Rsvp.PxsbDetails.PxsbDetail.S2LSubLsp']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail']['meta_info']
 _meta_table['Rsvp.PxsbDetails.PxsbDetail.Session']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail']['meta_info']
 _meta_table['Rsvp.PxsbDetails.PxsbDetail.Template']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail']['meta_info']
 _meta_table['Rsvp.PxsbDetails.PxsbDetail.TrafficSpec']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails.PxsbDetail']['meta_info']
 _meta_table['Rsvp.PxsbDetails.PxsbDetail']['meta_info'].parent =_meta_table['Rsvp.PxsbDetails']['meta_info']
-_meta_table['Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2mpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter']['meta_info']
+_meta_table['Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2MpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter']['meta_info']
 _meta_table['Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter.UdpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter']['meta_info']
 _meta_table['Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief.Filter']['meta_info']
-_meta_table['Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec.G709otnFlowSpec']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec']['meta_info']
+_meta_table['Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec.G709OtnFlowSpec']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec']['meta_info']
 _meta_table['Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession']['meta_info']
-_meta_table['Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession']['meta_info']
+_meta_table['Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief.Session']['meta_info']
 _meta_table['Rsvp.RequestBriefs.RequestBrief.Filter']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief']['meta_info']
 _meta_table['Rsvp.RequestBriefs.RequestBrief.FlowSpec']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief']['meta_info']
 _meta_table['Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief']['meta_info']
-_meta_table['Rsvp.RequestBriefs.RequestBrief.S2lSubLsp']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief']['meta_info']
+_meta_table['Rsvp.RequestBriefs.RequestBrief.S2LSubLsp']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief']['meta_info']
 _meta_table['Rsvp.RequestBriefs.RequestBrief.Session']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief']['meta_info']
 _meta_table['Rsvp.RequestBriefs.RequestBrief.Style']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs.RequestBrief']['meta_info']
 _meta_table['Rsvp.RequestBriefs.RequestBrief']['meta_info'].parent =_meta_table['Rsvp.RequestBriefs']['meta_info']
-_meta_table['Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter.P2mpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter']['meta_info']
+_meta_table['Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter.P2MpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter']['meta_info']
 _meta_table['Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter.UdpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter']['meta_info']
 _meta_table['Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail.Filter']['meta_info']
-_meta_table['Rsvp.RequestDetails.RequestDetail.GenericFlowSpec.G709otnFlowSpec']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail.GenericFlowSpec']['meta_info']
+_meta_table['Rsvp.RequestDetails.RequestDetail.GenericFlowSpec.G709OtnFlowSpec']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail.GenericFlowSpec']['meta_info']
 _meta_table['Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail.Session.RsvpSession']['meta_info']
-_meta_table['Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail.Session.RsvpSession']['meta_info']
+_meta_table['Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.RequestDetails.RequestDetail.Session.RsvpSession']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail.Session']['meta_info']
 _meta_table['Rsvp.RequestDetails.RequestDetail.Filter']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail']['meta_info']
@@ -30466,30 +30466,30 @@ _meta_table['Rsvp.RequestDetails.RequestDetail.PolicySources']['meta_info'].pare
 _meta_table['Rsvp.RequestDetails.RequestDetail.PsbKey']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail']['meta_info']
 _meta_table['Rsvp.RequestDetails.RequestDetail.ReqFlags']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail']['meta_info']
 _meta_table['Rsvp.RequestDetails.RequestDetail.RsbKey']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail']['meta_info']
-_meta_table['Rsvp.RequestDetails.RequestDetail.S2lSubLsp']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail']['meta_info']
+_meta_table['Rsvp.RequestDetails.RequestDetail.S2LSubLsp']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail']['meta_info']
 _meta_table['Rsvp.RequestDetails.RequestDetail.Session']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail']['meta_info']
 _meta_table['Rsvp.RequestDetails.RequestDetail.Style']['meta_info'].parent =_meta_table['Rsvp.RequestDetails.RequestDetail']['meta_info']
 _meta_table['Rsvp.RequestDetails.RequestDetail']['meta_info'].parent =_meta_table['Rsvp.RequestDetails']['meta_info']
-_meta_table['Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2mpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter']['meta_info']
+_meta_table['Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2MpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter']['meta_info']
 _meta_table['Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter.UdpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter']['meta_info']
 _meta_table['Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief.Filter']['meta_info']
-_meta_table['Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec.G709otnFlowSpec']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec']['meta_info']
+_meta_table['Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec.G709OtnFlowSpec']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec']['meta_info']
 _meta_table['Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession']['meta_info']
-_meta_table['Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession']['meta_info']
+_meta_table['Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief.Session']['meta_info']
 _meta_table['Rsvp.RsbBriefs.RsbBrief.Filter']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief']['meta_info']
 _meta_table['Rsvp.RsbBriefs.RsbBrief.FlowSpec']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief']['meta_info']
 _meta_table['Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief']['meta_info']
-_meta_table['Rsvp.RsbBriefs.RsbBrief.S2lSubLsp']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief']['meta_info']
+_meta_table['Rsvp.RsbBriefs.RsbBrief.S2LSubLsp']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief']['meta_info']
 _meta_table['Rsvp.RsbBriefs.RsbBrief.Session']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief']['meta_info']
 _meta_table['Rsvp.RsbBriefs.RsbBrief.Style']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief']['meta_info']
 _meta_table['Rsvp.RsbBriefs.RsbBrief']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs']['meta_info']
-_meta_table['Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2mpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter']['meta_info']
+_meta_table['Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2MpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter']['meta_info']
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.UdpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter']['meta_info']
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed.Filter']['meta_info']
-_meta_table['Rsvp.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709otnFlowSpec']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed.GenericFlowSpec']['meta_info']
+_meta_table['Rsvp.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709OtnFlowSpec']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed.GenericFlowSpec']['meta_info']
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalDownstreamLabel.GeneralizedLabel']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalDownstreamLabel']['meta_info']
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalUpstreamLabel.GeneralizedLabel']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalUpstreamLabel']['meta_info']
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericMergePointLabel.GeneralizedLabel']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericMergePointLabel']['meta_info']
@@ -30504,7 +30504,7 @@ _meta_table['Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingUpstreamLabe
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericRecoveryLabel']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed.LabelInfo']['meta_info']
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession']['meta_info']
-_meta_table['Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession']['meta_info']
+_meta_table['Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed.Session']['meta_info']
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed.ExpiryTime']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed']['meta_info']
@@ -30518,17 +30518,17 @@ _meta_table['Rsvp.RsbDetaileds.RsbDetailed.PolicyFlags']['meta_info'].parent =_m
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed.PolicyQueryFlags']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed']['meta_info']
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed.PolicySources']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed']['meta_info']
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed.RsbFlags']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed']['meta_info']
-_meta_table['Rsvp.RsbDetaileds.RsbDetailed.S2lSubLsp']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed']['meta_info']
+_meta_table['Rsvp.RsbDetaileds.RsbDetailed.S2LSubLsp']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed']['meta_info']
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed.Session']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed']['meta_info']
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed.Style']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds.RsbDetailed']['meta_info']
 _meta_table['Rsvp.RsbDetaileds.RsbDetailed']['meta_info'].parent =_meta_table['Rsvp.RsbDetaileds']['meta_info']
-_meta_table['Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter.P2mpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter']['meta_info']
+_meta_table['Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter.P2MpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter']['meta_info']
 _meta_table['Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter.UdpIpv4Session']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter']['meta_info']
 _meta_table['Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail.Filter']['meta_info']
-_meta_table['Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec.G709otnFlowSpec']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec']['meta_info']
+_meta_table['Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec.G709OtnFlowSpec']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec']['meta_info']
 _meta_table['Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession']['meta_info']
-_meta_table['Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession']['meta_info']
+_meta_table['Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail.Session']['meta_info']
 _meta_table['Rsvp.RxsbDetails.RxsbDetail.Filter']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail']['meta_info']
@@ -30536,20 +30536,20 @@ _meta_table['Rsvp.RxsbDetails.RxsbDetail.FlowSpec']['meta_info'].parent =_meta_t
 _meta_table['Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail']['meta_info']
 _meta_table['Rsvp.RxsbDetails.RxsbDetail.Hop']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail']['meta_info']
 _meta_table['Rsvp.RxsbDetails.RxsbDetail.RsvpHeader']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail']['meta_info']
-_meta_table['Rsvp.RxsbDetails.RxsbDetail.S2lSubLsp']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail']['meta_info']
+_meta_table['Rsvp.RxsbDetails.RxsbDetail.S2LSubLsp']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail']['meta_info']
 _meta_table['Rsvp.RxsbDetails.RxsbDetail.Session']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail']['meta_info']
 _meta_table['Rsvp.RxsbDetails.RxsbDetail.Style']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails.RxsbDetail']['meta_info']
 _meta_table['Rsvp.RxsbDetails.RxsbDetail']['meta_info'].parent =_meta_table['Rsvp.RxsbDetails']['meta_info']
 _meta_table['Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession']['meta_info']
-_meta_table['Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession']['meta_info']
+_meta_table['Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession']['meta_info'].parent =_meta_table['Rsvp.SessionBriefs.SessionBrief.Session']['meta_info']
 _meta_table['Rsvp.SessionBriefs.SessionBrief.Session']['meta_info'].parent =_meta_table['Rsvp.SessionBriefs.SessionBrief']['meta_info']
 _meta_table['Rsvp.SessionBriefs.SessionBrief']['meta_info'].parent =_meta_table['Rsvp.SessionBriefs']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession']['meta_info']
-_meta_table['Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession']['meta_info']
+_meta_table['Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.Compact.Session']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.Compact.Session']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.Compact']['meta_info']
@@ -30557,24 +30557,24 @@ _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Associatio
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.ExtendedIpv6']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.Ipv4']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.Ipv6']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association']['meta_info']
-_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4eroSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero']['meta_info']
+_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4EroSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.UnnumberedEroSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericInLabel.GeneralizedLabel']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericInLabel']['meta_info']
-_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709otnTspec']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec']['meta_info']
+_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709OtnTspec']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.IntsrvTspec']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection.LinkFlags']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection.LspFlags']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection']['meta_info']
-_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4eroSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero']['meta_info']
+_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4EroSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.UnnumberedEroSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero']['meta_info']
-_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709otnTspec']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec']['meta_info']
+_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709OtnTspec']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.IntsrvTspec']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.UnsupSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp']['meta_info']
-_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject.Flags']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject']['meta_info']
+_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject.Flags']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.LabelRroSubObject.Flags']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.LabelRroSubObject']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.UnnumberedRroSubObject.Flags']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.UnnumberedRroSubObject']['meta_info']
-_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro']['meta_info']
+_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.LabelRroSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.SrlgRroSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.UnnumberedRroSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro']['meta_info']
@@ -30586,12 +30586,12 @@ _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.TrafficSpec']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo']['meta_info']
-_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709otnFlowSpec']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec']['meta_info']
+_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709OtnFlowSpec']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericOutLabel.GeneralizedLabel']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericOutLabel']['meta_info']
-_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject.Flags']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject']['meta_info']
+_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject.Flags']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.LabelRroSubObject.Flags']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.LabelRroSubObject']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.UnnumberedRroSubObject.Flags']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.UnnumberedRroSubObject']['meta_info']
-_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro']['meta_info']
+_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.LabelRroSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.SrlgRroSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.UnnumberedRroSubObject']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro']['meta_info']
@@ -30603,7 +30603,7 @@ _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo']['meta_in
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.Compact']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed']['meta_info']
-_meta_table['Rsvp.SessionDetaileds.SessionDetailed.S2lSubLsp']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed']['meta_info']
+_meta_table['Rsvp.SessionDetaileds.SessionDetailed.S2LSubLsp']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds.SessionDetailed']['meta_info']
 _meta_table['Rsvp.SessionDetaileds.SessionDetailed']['meta_info'].parent =_meta_table['Rsvp.SessionDetaileds']['meta_info']
 _meta_table['Rsvp.Summary.IssuStatus.IdtStatus']['meta_info'].parent =_meta_table['Rsvp.Summary.IssuStatus']['meta_info']
 _meta_table['Rsvp.Summary.IssuStatus.PreviousIdtStatus']['meta_info'].parent =_meta_table['Rsvp.Summary.IssuStatus']['meta_info']
@@ -30704,10 +30704,10 @@ _meta_table['RsvpStandby.FrrSummary.PathStates']['meta_info'].parent =_meta_tabl
 _meta_table['RsvpStandby.FrrSummary.ReservationStates']['meta_info'].parent =_meta_table['RsvpStandby.FrrSummary']['meta_info']
 _meta_table['RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['RsvpStandby.Frrs.Frr.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['RsvpStandby.Frrs.Frr.Session.RsvpSession']['meta_info']
-_meta_table['RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.Frrs.Frr.Session.RsvpSession']['meta_info']
+_meta_table['RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.Frrs.Frr.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['RsvpStandby.Frrs.Frr.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.Frrs.Frr.Session.RsvpSession']['meta_info'].parent =_meta_table['RsvpStandby.Frrs.Frr.Session']['meta_info']
-_meta_table['RsvpStandby.Frrs.Frr.S2lSubLsp']['meta_info'].parent =_meta_table['RsvpStandby.Frrs.Frr']['meta_info']
+_meta_table['RsvpStandby.Frrs.Frr.S2LSubLsp']['meta_info'].parent =_meta_table['RsvpStandby.Frrs.Frr']['meta_info']
 _meta_table['RsvpStandby.Frrs.Frr.Session']['meta_info'].parent =_meta_table['RsvpStandby.Frrs.Frr']['meta_info']
 _meta_table['RsvpStandby.Frrs.Frr']['meta_info'].parent =_meta_table['RsvpStandby.Frrs']['meta_info']
 _meta_table['RsvpStandby.GlobalNeighborBriefs.GlobalNeighborBrief.GlobalNeighborFlags']['meta_info'].parent =_meta_table['RsvpStandby.GlobalNeighborBriefs.GlobalNeighborBrief']['meta_info']
@@ -30755,27 +30755,27 @@ _meta_table['RsvpStandby.InterfaceSummaries.InterfaceSummary']['meta_info'].pare
 _meta_table['RsvpStandby.Nsr.Status.IdtStatus']['meta_info'].parent =_meta_table['RsvpStandby.Nsr.Status']['meta_info']
 _meta_table['RsvpStandby.Nsr.Status.PreviousIdtStatus']['meta_info'].parent =_meta_table['RsvpStandby.Nsr.Status']['meta_info']
 _meta_table['RsvpStandby.Nsr.Status']['meta_info'].parent =_meta_table['RsvpStandby.Nsr']['meta_info']
-_meta_table['RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec.G709otnTspec']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec']['meta_info']
+_meta_table['RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec.G709OtnTspec']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec']['meta_info']
 _meta_table['RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec.IntsrvTspec']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec']['meta_info']
 _meta_table['RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession']['meta_info']
-_meta_table['RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession']['meta_info']
+_meta_table['RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief.Session']['meta_info']
 _meta_table['RsvpStandby.PsbBriefs.PsbBrief.SessionAttribute.SessAttributeFlags']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief.SessionAttribute']['meta_info']
-_meta_table['RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter.P2mpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter']['meta_info']
+_meta_table['RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter.P2MpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter']['meta_info']
 _meta_table['RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter.UdpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter']['meta_info']
 _meta_table['RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief.Template']['meta_info']
 _meta_table['RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief']['meta_info']
-_meta_table['RsvpStandby.PsbBriefs.PsbBrief.S2lSubLsp']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief']['meta_info']
+_meta_table['RsvpStandby.PsbBriefs.PsbBrief.S2LSubLsp']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief']['meta_info']
 _meta_table['RsvpStandby.PsbBriefs.PsbBrief.Session']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief']['meta_info']
 _meta_table['RsvpStandby.PsbBriefs.PsbBrief.SessionAttribute']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief']['meta_info']
 _meta_table['RsvpStandby.PsbBriefs.PsbBrief.Template']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief']['meta_info']
 _meta_table['RsvpStandby.PsbBriefs.PsbBrief.TrafficSpec']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs.PsbBrief']['meta_info']
 _meta_table['RsvpStandby.PsbBriefs.PsbBrief']['meta_info'].parent =_meta_table['RsvpStandby.PsbBriefs']['meta_info']
-_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709otnTspec']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec']['meta_info']
+_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709OtnTspec']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec.IntsrvTspec']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec']['meta_info']
-_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.InEro.Ipv4eroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.InEro']['meta_info']
+_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.InEro.Ipv4EroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.InEro']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.InEro.UnnumberedEroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.InEro']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalDownstreamLabel.GeneralizedLabel']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalDownstreamLabel']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalUpstreamLabel.GeneralizedLabel']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalUpstreamLabel']['meta_info']
@@ -30789,17 +30789,17 @@ _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericMergePointLab
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericRecoveryLabel']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo']['meta_info']
-_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.OutEro.Ipv4eroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.OutEro']['meta_info']
+_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.OutEro.Ipv4EroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.OutEro']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.OutEro.UnnumberedEroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.OutEro']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Pfc.PolicyFlags']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Pfc']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Pfc.PolicyQueryFlags']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Pfc']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession']['meta_info']
-_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession']['meta_info']
+_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Session']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.SessionAttribute.SessAttributeFlags']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.SessionAttribute']['meta_info']
-_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2mpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter']['meta_info']
+_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2MpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter.UdpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Template']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.ClassType']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed']['meta_info']
@@ -30815,35 +30815,35 @@ _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Pfc']['meta_info'].parent =_me
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.PolicyFlags']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.PolicyQueryFlags']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.PolicySourceInfo']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed']['meta_info']
-_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.S2lSubLsp']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed']['meta_info']
+_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.S2LSubLsp']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Session']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.SessionAttribute']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.Template']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed.TrafficSpec']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds.PsbDetailed']['meta_info']
 _meta_table['RsvpStandby.PsbDetaileds.PsbDetailed']['meta_info'].parent =_meta_table['RsvpStandby.PsbDetaileds']['meta_info']
-_meta_table['RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2mpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter']['meta_info']
+_meta_table['RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2MpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter']['meta_info']
 _meta_table['RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter.UdpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter']['meta_info']
 _meta_table['RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief.Filter']['meta_info']
-_meta_table['RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec.G709otnFlowSpec']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec']['meta_info']
+_meta_table['RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec.G709OtnFlowSpec']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec']['meta_info']
 _meta_table['RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession']['meta_info']
-_meta_table['RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession']['meta_info']
+_meta_table['RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief.Session']['meta_info']
 _meta_table['RsvpStandby.RequestBriefs.RequestBrief.Filter']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief']['meta_info']
 _meta_table['RsvpStandby.RequestBriefs.RequestBrief.FlowSpec']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief']['meta_info']
 _meta_table['RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief']['meta_info']
-_meta_table['RsvpStandby.RequestBriefs.RequestBrief.S2lSubLsp']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief']['meta_info']
+_meta_table['RsvpStandby.RequestBriefs.RequestBrief.S2LSubLsp']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief']['meta_info']
 _meta_table['RsvpStandby.RequestBriefs.RequestBrief.Session']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief']['meta_info']
 _meta_table['RsvpStandby.RequestBriefs.RequestBrief.Style']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs.RequestBrief']['meta_info']
 _meta_table['RsvpStandby.RequestBriefs.RequestBrief']['meta_info'].parent =_meta_table['RsvpStandby.RequestBriefs']['meta_info']
-_meta_table['RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter.P2mpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter']['meta_info']
+_meta_table['RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter.P2MpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter']['meta_info']
 _meta_table['RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter.UdpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter']['meta_info']
 _meta_table['RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail.Filter']['meta_info']
-_meta_table['RsvpStandby.RequestDetails.RequestDetail.GenericFlowSpec.G709otnFlowSpec']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail.GenericFlowSpec']['meta_info']
+_meta_table['RsvpStandby.RequestDetails.RequestDetail.GenericFlowSpec.G709OtnFlowSpec']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail.GenericFlowSpec']['meta_info']
 _meta_table['RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession']['meta_info']
-_meta_table['RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession']['meta_info']
+_meta_table['RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail.Session']['meta_info']
 _meta_table['RsvpStandby.RequestDetails.RequestDetail.Filter']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail']['meta_info']
@@ -30857,30 +30857,30 @@ _meta_table['RsvpStandby.RequestDetails.RequestDetail.PolicySources']['meta_info
 _meta_table['RsvpStandby.RequestDetails.RequestDetail.PsbKey']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail']['meta_info']
 _meta_table['RsvpStandby.RequestDetails.RequestDetail.ReqFlags']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail']['meta_info']
 _meta_table['RsvpStandby.RequestDetails.RequestDetail.RsbKey']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail']['meta_info']
-_meta_table['RsvpStandby.RequestDetails.RequestDetail.S2lSubLsp']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail']['meta_info']
+_meta_table['RsvpStandby.RequestDetails.RequestDetail.S2LSubLsp']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail']['meta_info']
 _meta_table['RsvpStandby.RequestDetails.RequestDetail.Session']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail']['meta_info']
 _meta_table['RsvpStandby.RequestDetails.RequestDetail.Style']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails.RequestDetail']['meta_info']
 _meta_table['RsvpStandby.RequestDetails.RequestDetail']['meta_info'].parent =_meta_table['RsvpStandby.RequestDetails']['meta_info']
-_meta_table['RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2mpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter']['meta_info']
+_meta_table['RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2MpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter']['meta_info']
 _meta_table['RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter.UdpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter']['meta_info']
 _meta_table['RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief.Filter']['meta_info']
-_meta_table['RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec.G709otnFlowSpec']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec']['meta_info']
+_meta_table['RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec.G709OtnFlowSpec']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec']['meta_info']
 _meta_table['RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession']['meta_info']
-_meta_table['RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession']['meta_info']
+_meta_table['RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief.Session']['meta_info']
 _meta_table['RsvpStandby.RsbBriefs.RsbBrief.Filter']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief']['meta_info']
 _meta_table['RsvpStandby.RsbBriefs.RsbBrief.FlowSpec']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief']['meta_info']
 _meta_table['RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief']['meta_info']
-_meta_table['RsvpStandby.RsbBriefs.RsbBrief.S2lSubLsp']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief']['meta_info']
+_meta_table['RsvpStandby.RsbBriefs.RsbBrief.S2LSubLsp']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief']['meta_info']
 _meta_table['RsvpStandby.RsbBriefs.RsbBrief.Session']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief']['meta_info']
 _meta_table['RsvpStandby.RsbBriefs.RsbBrief.Style']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief']['meta_info']
 _meta_table['RsvpStandby.RsbBriefs.RsbBrief']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs']['meta_info']
-_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2mpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter']['meta_info']
+_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2MpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter']['meta_info']
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.UdpIpv4Session']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter']['meta_info']
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Filter']['meta_info']
-_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709otnFlowSpec']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.GenericFlowSpec']['meta_info']
+_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709OtnFlowSpec']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.GenericFlowSpec']['meta_info']
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalDownstreamLabel.GeneralizedLabel']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalDownstreamLabel']['meta_info']
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalUpstreamLabel.GeneralizedLabel']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalUpstreamLabel']['meta_info']
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericMergePointLabel.GeneralizedLabel']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericMergePointLabel']['meta_info']
@@ -30895,7 +30895,7 @@ _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingUpstr
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericRecoveryLabel']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo']['meta_info']
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession']['meta_info']
-_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession']['meta_info']
+_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Session']['meta_info']
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.ExpiryTime']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed']['meta_info']
@@ -30909,20 +30909,20 @@ _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.PolicyFlags']['meta_info'].par
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.PolicyQueryFlags']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed']['meta_info']
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.PolicySources']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed']['meta_info']
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.RsbFlags']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed']['meta_info']
-_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.S2lSubLsp']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed']['meta_info']
+_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.S2LSubLsp']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed']['meta_info']
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Session']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed']['meta_info']
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed.Style']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds.RsbDetailed']['meta_info']
 _meta_table['RsvpStandby.RsbDetaileds.RsbDetailed']['meta_info'].parent =_meta_table['RsvpStandby.RsbDetaileds']['meta_info']
 _meta_table['RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession']['meta_info']
-_meta_table['RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession']['meta_info']
+_meta_table['RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession']['meta_info'].parent =_meta_table['RsvpStandby.SessionBriefs.SessionBrief.Session']['meta_info']
 _meta_table['RsvpStandby.SessionBriefs.SessionBrief.Session']['meta_info'].parent =_meta_table['RsvpStandby.SessionBriefs.SessionBrief']['meta_info']
 _meta_table['RsvpStandby.SessionBriefs.SessionBrief']['meta_info'].parent =_meta_table['RsvpStandby.SessionBriefs']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4LspSession']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession']['meta_info']
-_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2mpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession']['meta_info']
+_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2MpLspSession']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4UniSession']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.Compact']['meta_info']
@@ -30930,24 +30930,24 @@ _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ass
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.ExtendedIpv6']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.Ipv4']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.Ipv6']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association']['meta_info']
-_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4eroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero']['meta_info']
+_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4EroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.UnnumberedEroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericInLabel.GeneralizedLabel']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericInLabel']['meta_info']
-_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709otnTspec']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec']['meta_info']
+_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709OtnTspec']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.IntsrvTspec']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection.LinkFlags']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection.LspFlags']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection']['meta_info']
-_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4eroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero']['meta_info']
+_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4EroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.UnnumberedEroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero']['meta_info']
-_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709otnTspec']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec']['meta_info']
+_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709OtnTspec']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.IntsrvTspec']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.UnsupSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp']['meta_info']
-_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject.Flags']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject']['meta_info']
+_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject.Flags']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.LabelRroSubObject.Flags']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.LabelRroSubObject']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.UnnumberedRroSubObject.Flags']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.UnnumberedRroSubObject']['meta_info']
-_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4rroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro']['meta_info']
+_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.LabelRroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.SrlgRroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.UnnumberedRroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro']['meta_info']
@@ -30959,12 +30959,12 @@ _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Pro
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.TrafficSpec']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo']['meta_info']
-_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709otnFlowSpec']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec']['meta_info']
+_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709OtnFlowSpec']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericOutLabel.GeneralizedLabel']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericOutLabel']['meta_info']
-_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject.Flags']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject']['meta_info']
+_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject.Flags']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.LabelRroSubObject.Flags']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.LabelRroSubObject']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.UnnumberedRroSubObject.Flags']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.UnnumberedRroSubObject']['meta_info']
-_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4rroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro']['meta_info']
+_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.LabelRroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.SrlgRroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.UnnumberedRroSubObject']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro']['meta_info']
@@ -30976,7 +30976,7 @@ _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo']['
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.Compact']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed']['meta_info']
-_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.S2lSubLsp']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed']['meta_info']
+_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed.S2LSubLsp']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds.SessionDetailed']['meta_info']
 _meta_table['RsvpStandby.SessionDetaileds.SessionDetailed']['meta_info'].parent =_meta_table['RsvpStandby.SessionDetaileds']['meta_info']
 _meta_table['RsvpStandby.Summary.IssuStatus.IdtStatus']['meta_info'].parent =_meta_table['RsvpStandby.Summary.IssuStatus']['meta_info']
 _meta_table['RsvpStandby.Summary.IssuStatus.PreviousIdtStatus']['meta_info'].parent =_meta_table['RsvpStandby.Summary.IssuStatus']['meta_info']

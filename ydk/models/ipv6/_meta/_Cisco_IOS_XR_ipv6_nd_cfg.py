@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'Ipv6ndMonth_Enum' : _MetaInfoEnum('Ipv6ndMonth_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg',
+    'Ipv6NdMonthEnum' : _MetaInfoEnum('Ipv6NdMonthEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg',
         {
             'january':'JANUARY',
             'february':'FEBRUARY',
@@ -29,13 +29,13 @@ _meta_table = {
             'november':'NOVEMBER',
             'december':'DECEMBER',
         }, 'Cisco-IOS-XR-ipv6-nd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-cfg']),
-    'Ipv6NdRouterPref_Enum' : _MetaInfoEnum('Ipv6NdRouterPref_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg',
+    'Ipv6NdRouterPrefEnum' : _MetaInfoEnum('Ipv6NdRouterPrefEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg',
         {
             'high':'HIGH',
             'medium':'MEDIUM',
             'low':'LOW',
         }, 'Cisco-IOS-XR-ipv6-nd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-cfg']),
-    'Ipv6srpEncapsulation_Enum' : _MetaInfoEnum('Ipv6srpEncapsulation_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg',
+    'Ipv6SrpEncapsulationEnum' : _MetaInfoEnum('Ipv6SrpEncapsulationEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg',
         {
             'srpa':'SRPA',
             'srpb':'SRPB',
@@ -56,7 +56,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv6-nd-cfg', True),
-            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Ipv6srpEncapsulation_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg', 'Ipv6srpEncapsulation_Enum', 
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Ipv6SrpEncapsulationEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg', 'Ipv6SrpEncapsulationEnum', 
                 [], [], 
                 '''                Encapsulation type only if interface type is
                 SRP

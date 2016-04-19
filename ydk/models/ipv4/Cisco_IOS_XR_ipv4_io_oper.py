@@ -23,79 +23,73 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper import Ipv4MaOperLineState_Enum
-from ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper import RpfMode_Enum
+from ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper import Ipv4MaOperLineStateEnum
+from ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper import RpfModeEnum
 
-class Ipv4MaOperLineState_Enum(Enum):
+class Ipv4MaOperLineStateEnum(Enum):
     """
-    Ipv4MaOperLineState_Enum
+    Ipv4MaOperLineStateEnum
 
     Interface line states
 
-    """
+    .. data:: UNKNOWN = 0
+
+    	Interface state is unknown
+
+    .. data:: SHUTDOWN = 1
+
+    	Interface has been shutdown
+
+    .. data:: DOWN = 2
+
+    	Interface state is down
+
+    .. data:: UP = 3
+
+    	Interface state is up
 
     """
 
-    Interface state is unknown
-
-    """
     UNKNOWN = 0
 
-    """
-
-    Interface has been shutdown
-
-    """
     SHUTDOWN = 1
 
-    """
-
-    Interface state is down
-
-    """
     DOWN = 2
 
-    """
-
-    Interface state is up
-
-    """
     UP = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
-        return meta._meta_table['Ipv4MaOperLineState_Enum']
+        return meta._meta_table['Ipv4MaOperLineStateEnum']
 
 
-class RpfMode_Enum(Enum):
+class RpfModeEnum(Enum):
     """
-    RpfMode_Enum
+    RpfModeEnum
 
     Interface line states
 
-    """
+    .. data:: STRICT = 0
+
+    	Strict RPF
+
+    .. data:: LOOSE = 1
+
+    	Loose RPF
 
     """
 
-    Strict RPF
-
-    """
     STRICT = 0
 
-    """
-
-    Loose RPF
-
-    """
     LOOSE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
-        return meta._meta_table['RpfMode_Enum']
+        return meta._meta_table['RpfModeEnum']
 
 
 
@@ -248,7 +242,7 @@ class Ipv4Network(object):
                         .. attribute:: line_state
                         
                         	Line state of the interface
-                        	**type**\: :py:class:`Ipv4MaOperLineState_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineState_Enum>`
+                        	**type**\: :py:class:`Ipv4MaOperLineStateEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineStateEnum>`
                         
                         .. attribute:: primary_address
                         
@@ -291,8 +285,6 @@ class Ipv4Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.line_state is not None:
                                 return True
 
@@ -302,10 +294,6 @@ class Ipv4Network(object):
                             if self.vrf_id is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -372,7 +360,7 @@ class Ipv4Network(object):
                         .. attribute:: line_state
                         
                         	Line state of the interface
-                        	**type**\: :py:class:`Ipv4MaOperLineState_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineState_Enum>`
+                        	**type**\: :py:class:`Ipv4MaOperLineStateEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineStateEnum>`
                         
                         .. attribute:: mask_reply
                         
@@ -574,8 +562,6 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.common_in_bound is not None:
                                     return True
 
@@ -588,10 +574,6 @@ class Ipv4Network(object):
                                 if self.outbound is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -675,8 +657,6 @@ class Ipv4Network(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.destination is not None:
                                         return True
 
@@ -686,10 +666,6 @@ class Ipv4Network(object):
                                     if self.source is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -744,8 +720,6 @@ class Ipv4Network(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.destination is not None:
                                         return True
 
@@ -755,10 +729,6 @@ class Ipv4Network(object):
                                     if self.source is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -780,24 +750,12 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.input is not None and self.input._has_data():
-                                    return True
-
-                                if self.input is not None and self.input.is_presence():
                                     return True
 
                                 if self.output is not None and self.output._has_data():
                                     return True
 
-                                if self.output is not None and self.output.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -819,7 +777,6 @@ class Ipv4Network(object):
 
                             def __init__(self):
                                 self.parent = None
-                                pass
 
                             @property
                             def _common_path(self):
@@ -835,12 +792,6 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -862,7 +813,6 @@ class Ipv4Network(object):
 
                             def __init__(self):
                                 self.parent = None
-                                pass
 
                             @property
                             def _common_path(self):
@@ -878,12 +828,6 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -905,7 +849,6 @@ class Ipv4Network(object):
 
                             def __init__(self):
                                 self.parent = None
-                                pass
 
                             @property
                             def _common_path(self):
@@ -921,12 +864,6 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -971,17 +908,11 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.address_array is not None:
                                     for child in self.address_array:
                                         if child is not None:
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1003,7 +934,6 @@ class Ipv4Network(object):
 
                             def __init__(self):
                                 self.parent = None
-                                pass
 
                             @property
                             def _common_path(self):
@@ -1019,12 +949,6 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1079,8 +1003,6 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.common is not None:
                                     for child in self.common:
                                         if child is not None:
@@ -1096,10 +1018,6 @@ class Ipv4Network(object):
                                         if child is not None:
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1144,15 +1062,9 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.group_address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1174,7 +1086,6 @@ class Ipv4Network(object):
 
                             def __init__(self):
                                 self.parent = None
-                                pass
 
                             @property
                             def _common_path(self):
@@ -1190,12 +1101,6 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1226,7 +1131,7 @@ class Ipv4Network(object):
                             .. attribute:: mode
                             
                             	RPF Mode (loose/strict)
-                            	**type**\: :py:class:`RpfMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper.RpfMode_Enum>`
+                            	**type**\: :py:class:`RpfModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_oper.RpfModeEnum>`
                             
                             
 
@@ -1256,8 +1161,6 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.allow_default_route is not None:
                                     return True
 
@@ -1270,10 +1173,6 @@ class Ipv4Network(object):
                                 if self.mode is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1334,8 +1233,6 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.address is not None:
                                     return True
 
@@ -1345,10 +1242,6 @@ class Ipv4Network(object):
                                 if self.route_tag is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1370,24 +1263,13 @@ class Ipv4Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.acl is not None and self.acl._has_data():
-                                return True
-
-                            if self.acl is not None and self.acl.is_presence():
                                 return True
 
                             if self.bgp_pa is not None and self.bgp_pa._has_data():
                                 return True
 
-                            if self.bgp_pa is not None and self.bgp_pa.is_presence():
-                                return True
-
                             if self.caps_utime is not None and self.caps_utime._has_data():
-                                return True
-
-                            if self.caps_utime is not None and self.caps_utime.is_presence():
                                 return True
 
                             if self.direct_broadcast is not None:
@@ -1402,25 +1284,13 @@ class Ipv4Network(object):
                             if self.fwd_dis_utime is not None and self.fwd_dis_utime._has_data():
                                 return True
 
-                            if self.fwd_dis_utime is not None and self.fwd_dis_utime.is_presence():
-                                return True
-
                             if self.fwd_en_utime is not None and self.fwd_en_utime._has_data():
-                                return True
-
-                            if self.fwd_en_utime is not None and self.fwd_en_utime.is_presence():
                                 return True
 
                             if self.helper_address is not None and self.helper_address._has_data():
                                 return True
 
-                            if self.helper_address is not None and self.helper_address.is_presence():
-                                return True
-
                             if self.idb_utime is not None and self.idb_utime._has_data():
-                                return True
-
-                            if self.idb_utime is not None and self.idb_utime.is_presence():
                                 return True
 
                             if self.line_state is not None:
@@ -1436,9 +1306,6 @@ class Ipv4Network(object):
                                 return True
 
                             if self.multi_acl is not None and self.multi_acl._has_data():
-                                return True
-
-                            if self.multi_acl is not None and self.multi_acl.is_presence():
                                 return True
 
                             if self.multicast_group is not None:
@@ -1458,9 +1325,6 @@ class Ipv4Network(object):
                             if self.pub_utime is not None and self.pub_utime._has_data():
                                 return True
 
-                            if self.pub_utime is not None and self.pub_utime.is_presence():
-                                return True
-
                             if self.redirect is not None:
                                 return True
 
@@ -1471,9 +1335,6 @@ class Ipv4Network(object):
                                 return True
 
                             if self.rpf is not None and self.rpf._has_data():
-                                return True
-
-                            if self.rpf is not None and self.rpf.is_presence():
                                 return True
 
                             if self.secondary_address is not None:
@@ -1490,10 +1351,6 @@ class Ipv4Network(object):
                             if self.vrf_id is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1517,27 +1374,15 @@ class Ipv4Network(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf_name is not None:
                             return True
 
                         if self.brief is not None and self.brief._has_data():
                             return True
 
-                        if self.brief is not None and self.brief.is_presence():
-                            return True
-
                         if self.detail is not None and self.detail._has_data():
                             return True
 
-                        if self.detail is not None and self.detail.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1559,17 +1404,11 @@ class Ipv4Network(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vrf is not None:
                         for child_ref in self.vrf:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1591,21 +1430,12 @@ class Ipv4Network(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface_name is not None:
                     return True
 
                 if self.vrfs is not None and self.vrfs._has_data():
                     return True
 
-                if self.vrfs is not None and self.vrfs.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1625,17 +1455,11 @@ class Ipv4Network(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1830,18 +1654,12 @@ class Ipv4Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip_assigned is not None:
                                 return True
 
                             if self.ip_unnumbered is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1894,18 +1712,12 @@ class Ipv4Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip_assigned is not None:
                                 return True
 
                             if self.ip_unnumbered is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1958,18 +1770,12 @@ class Ipv4Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip_assigned is not None:
                                 return True
 
                             if self.ip_unnumbered is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2022,18 +1828,12 @@ class Ipv4Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip_assigned is not None:
                                 return True
 
                             if self.ip_unnumbered is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2055,24 +1855,13 @@ class Ipv4Network(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.if_down_down is not None and self.if_down_down._has_data():
-                            return True
-
-                        if self.if_down_down is not None and self.if_down_down.is_presence():
                             return True
 
                         if self.if_shutdown_down is not None and self.if_shutdown_down._has_data():
                             return True
 
-                        if self.if_shutdown_down is not None and self.if_shutdown_down.is_presence():
-                            return True
-
                         if self.if_up_down is not None and self.if_up_down._has_data():
-                            return True
-
-                        if self.if_up_down is not None and self.if_up_down.is_presence():
                             return True
 
                         if self.if_up_down_basecaps_up is not None:
@@ -2081,13 +1870,6 @@ class Ipv4Network(object):
                         if self.if_up_up is not None and self.if_up_up._has_data():
                             return True
 
-                        if self.if_up_up is not None and self.if_up_up.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2196,7 +1978,7 @@ class Ipv4Network(object):
                                 .. attribute:: line_state
                                 
                                 	Line state of the interface
-                                	**type**\: :py:class:`Ipv4MaOperLineState_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineState_Enum>`
+                                	**type**\: :py:class:`Ipv4MaOperLineStateEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineStateEnum>`
                                 
                                 .. attribute:: primary_address
                                 
@@ -2242,8 +2024,6 @@ class Ipv4Network(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
@@ -2256,10 +2036,6 @@ class Ipv4Network(object):
                                     if self.vrf_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2281,17 +2057,11 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.brief is not None:
                                     for child_ref in self.brief:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2389,7 +2159,7 @@ class Ipv4Network(object):
                                 .. attribute:: line_state
                                 
                                 	Line state of the interface
-                                	**type**\: :py:class:`Ipv4MaOperLineState_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineState_Enum>`
+                                	**type**\: :py:class:`Ipv4MaOperLineStateEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineStateEnum>`
                                 
                                 .. attribute:: mask_reply
                                 
@@ -2592,8 +2362,6 @@ class Ipv4Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.common_in_bound is not None:
                                             return True
 
@@ -2606,10 +2374,6 @@ class Ipv4Network(object):
                                         if self.outbound is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2693,8 +2457,6 @@ class Ipv4Network(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.destination is not None:
                                                 return True
 
@@ -2704,10 +2466,6 @@ class Ipv4Network(object):
                                             if self.source is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -2762,8 +2520,6 @@ class Ipv4Network(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.destination is not None:
                                                 return True
 
@@ -2773,10 +2529,6 @@ class Ipv4Network(object):
                                             if self.source is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -2798,24 +2550,12 @@ class Ipv4Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.input is not None and self.input._has_data():
-                                            return True
-
-                                        if self.input is not None and self.input.is_presence():
                                             return True
 
                                         if self.output is not None and self.output._has_data():
                                             return True
 
-                                        if self.output is not None and self.output.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2837,7 +2577,6 @@ class Ipv4Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        pass
 
                                     @property
                                     def _common_path(self):
@@ -2853,12 +2592,6 @@ class Ipv4Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2880,7 +2613,6 @@ class Ipv4Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        pass
 
                                     @property
                                     def _common_path(self):
@@ -2896,12 +2628,6 @@ class Ipv4Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2923,7 +2649,6 @@ class Ipv4Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        pass
 
                                     @property
                                     def _common_path(self):
@@ -2939,12 +2664,6 @@ class Ipv4Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2989,17 +2708,11 @@ class Ipv4Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address_array is not None:
                                             for child in self.address_array:
                                                 if child is not None:
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3021,7 +2734,6 @@ class Ipv4Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        pass
 
                                     @property
                                     def _common_path(self):
@@ -3037,12 +2749,6 @@ class Ipv4Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3097,8 +2803,6 @@ class Ipv4Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.common is not None:
                                             for child in self.common:
                                                 if child is not None:
@@ -3114,10 +2818,6 @@ class Ipv4Network(object):
                                                 if child is not None:
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3162,15 +2862,9 @@ class Ipv4Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.group_address is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3192,7 +2886,6 @@ class Ipv4Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        pass
 
                                     @property
                                     def _common_path(self):
@@ -3208,12 +2901,6 @@ class Ipv4Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3244,7 +2931,7 @@ class Ipv4Network(object):
                                     .. attribute:: mode
                                     
                                     	RPF Mode (loose/strict)
-                                    	**type**\: :py:class:`RpfMode_Enum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.RpfMode_Enum>`
+                                    	**type**\: :py:class:`RpfModeEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_io_oper.RpfModeEnum>`
                                     
                                     
 
@@ -3274,8 +2961,6 @@ class Ipv4Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.allow_default_route is not None:
                                             return True
 
@@ -3288,10 +2973,6 @@ class Ipv4Network(object):
                                         if self.mode is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3352,8 +3033,6 @@ class Ipv4Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
@@ -3363,10 +3042,6 @@ class Ipv4Network(object):
                                         if self.route_tag is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3390,27 +3065,16 @@ class Ipv4Network(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
                                     if self.acl is not None and self.acl._has_data():
                                         return True
 
-                                    if self.acl is not None and self.acl.is_presence():
-                                        return True
-
                                     if self.bgp_pa is not None and self.bgp_pa._has_data():
                                         return True
 
-                                    if self.bgp_pa is not None and self.bgp_pa.is_presence():
-                                        return True
-
                                     if self.caps_utime is not None and self.caps_utime._has_data():
-                                        return True
-
-                                    if self.caps_utime is not None and self.caps_utime.is_presence():
                                         return True
 
                                     if self.direct_broadcast is not None:
@@ -3425,25 +3089,13 @@ class Ipv4Network(object):
                                     if self.fwd_dis_utime is not None and self.fwd_dis_utime._has_data():
                                         return True
 
-                                    if self.fwd_dis_utime is not None and self.fwd_dis_utime.is_presence():
-                                        return True
-
                                     if self.fwd_en_utime is not None and self.fwd_en_utime._has_data():
-                                        return True
-
-                                    if self.fwd_en_utime is not None and self.fwd_en_utime.is_presence():
                                         return True
 
                                     if self.helper_address is not None and self.helper_address._has_data():
                                         return True
 
-                                    if self.helper_address is not None and self.helper_address.is_presence():
-                                        return True
-
                                     if self.idb_utime is not None and self.idb_utime._has_data():
-                                        return True
-
-                                    if self.idb_utime is not None and self.idb_utime.is_presence():
                                         return True
 
                                     if self.line_state is not None:
@@ -3459,9 +3111,6 @@ class Ipv4Network(object):
                                         return True
 
                                     if self.multi_acl is not None and self.multi_acl._has_data():
-                                        return True
-
-                                    if self.multi_acl is not None and self.multi_acl.is_presence():
                                         return True
 
                                     if self.multicast_group is not None:
@@ -3481,9 +3130,6 @@ class Ipv4Network(object):
                                     if self.pub_utime is not None and self.pub_utime._has_data():
                                         return True
 
-                                    if self.pub_utime is not None and self.pub_utime.is_presence():
-                                        return True
-
                                     if self.redirect is not None:
                                         return True
 
@@ -3494,9 +3140,6 @@ class Ipv4Network(object):
                                         return True
 
                                     if self.rpf is not None and self.rpf._has_data():
-                                        return True
-
-                                    if self.rpf is not None and self.rpf.is_presence():
                                         return True
 
                                     if self.secondary_address is not None:
@@ -3513,10 +3156,6 @@ class Ipv4Network(object):
                                     if self.vrf_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3538,17 +3177,11 @@ class Ipv4Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.detail is not None:
                                     for child_ref in self.detail:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3572,27 +3205,15 @@ class Ipv4Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf_name is not None:
                                 return True
 
                             if self.briefs is not None and self.briefs._has_data():
                                 return True
 
-                            if self.briefs is not None and self.briefs.is_presence():
-                                return True
-
                             if self.details is not None and self.details._has_data():
                                 return True
 
-                            if self.details is not None and self.details.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3614,17 +3235,11 @@ class Ipv4Network(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf is not None:
                             for child_ref in self.vrf:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3646,24 +3261,12 @@ class Ipv4Network(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.summary is not None and self.summary._has_data():
-                        return True
-
-                    if self.summary is not None and self.summary.is_presence():
                         return True
 
                     if self.vrfs is not None and self.vrfs._has_data():
                         return True
 
-                    if self.vrfs is not None and self.vrfs.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4048,8 +3651,6 @@ class Ipv4Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.admin_unreachable_received is not None:
                                 return True
 
@@ -4161,10 +3762,6 @@ class Ipv4Network(object):
                             if self.unknown is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4561,8 +4158,6 @@ class Ipv4Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.bad_header is not None:
                                 return True
 
@@ -4700,10 +4295,6 @@ class Ipv4Network(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_io_oper as meta
@@ -4723,24 +4314,12 @@ class Ipv4Network(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.icmp_stats is not None and self.icmp_stats._has_data():
-                            return True
-
-                        if self.icmp_stats is not None and self.icmp_stats.is_presence():
                             return True
 
                         if self.ipv4_stats is not None and self.ipv4_stats._has_data():
                             return True
 
-                        if self.ipv4_stats is not None and self.ipv4_stats.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4762,18 +4341,9 @@ class Ipv4Network(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.traffic is not None and self.traffic._has_data():
                         return True
 
-                    if self.traffic is not None and self.traffic.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4795,27 +4365,15 @@ class Ipv4Network(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.interface_data is not None and self.interface_data._has_data():
                     return True
 
-                if self.interface_data is not None and self.interface_data.is_presence():
-                    return True
-
                 if self.statistics is not None and self.statistics._has_data():
                     return True
 
-                if self.statistics is not None and self.statistics.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4835,17 +4393,11 @@ class Ipv4Network(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -4865,24 +4417,12 @@ class Ipv4Network(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.interfaces is not None and self.interfaces._has_data():
-            return True
-
-        if self.interfaces is not None and self.interfaces.is_presence():
             return True
 
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

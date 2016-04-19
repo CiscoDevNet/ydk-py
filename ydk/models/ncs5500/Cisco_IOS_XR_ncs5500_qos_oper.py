@@ -24,616 +24,550 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class DnxQoseaShowAction_Enum(Enum):
+class DnxQoseaShowActionEnum(Enum):
     """
-    DnxQoseaShowAction_Enum
+    DnxQoseaShowActionEnum
 
     Policer action type
 
-    """
+    .. data:: ACTION_NONE = 0
+
+    	None
+
+    .. data:: ACTION_TRANSMIT = 1
+
+    	Transmit
+
+    .. data:: ACTION_DROP = 2
+
+    	Drop
+
+    .. data:: ACTION_MARK = 3
+
+    	Mark
 
     """
 
-    None
-
-    """
     ACTION_NONE = 0
 
-    """
-
-    Transmit
-
-    """
     ACTION_TRANSMIT = 1
 
-    """
-
-    Drop
-
-    """
     ACTION_DROP = 2
 
-    """
-
-    Mark
-
-    """
     ACTION_MARK = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-        return meta._meta_table['DnxQoseaShowAction_Enum']
+        return meta._meta_table['DnxQoseaShowActionEnum']
 
 
-class DnxQoseaShowHpLevel_Enum(Enum):
+class DnxQoseaShowHpLevelEnum(Enum):
     """
-    DnxQoseaShowHpLevel_Enum
+    DnxQoseaShowHpLevelEnum
 
     Priority level
 
-    """
+    .. data:: HIGH_PRIORITY_LEVEL1 = 0
+
+    	High priority queue level 1
+
+    .. data:: HIGH_PRIORITY_LEVEL2 = 1
+
+    	High priority queue level 2
+
+    .. data:: HIGH_PRIORITY_LEVEL3 = 2
+
+    	High priority queue level 3
+
+    .. data:: HIGH_PRIORITY_LEVEL4 = 3
+
+    	High priority queue level 4
+
+    .. data:: HIGH_PRIORITY_LEVEL5 = 4
+
+    	High priority queue level 5
+
+    .. data:: HIGH_PRIORITY_LEVEL6 = 5
+
+    	High priority queue level 6
+
+    .. data:: HIGH_PRIORITY_LEVEL7 = 6
+
+    	High priority queue level 7
+
+    .. data:: UNKNOWN = 7
+
+    	Unknown
 
     """
 
-    High priority queue level 1
-
-    """
     HIGH_PRIORITY_LEVEL1 = 0
 
-    """
-
-    High priority queue level 2
-
-    """
     HIGH_PRIORITY_LEVEL2 = 1
 
-    """
-
-    High priority queue level 3
-
-    """
     HIGH_PRIORITY_LEVEL3 = 2
 
-    """
-
-    High priority queue level 4
-
-    """
     HIGH_PRIORITY_LEVEL4 = 3
 
-    """
-
-    High priority queue level 5
-
-    """
     HIGH_PRIORITY_LEVEL5 = 4
 
-    """
-
-    High priority queue level 6
-
-    """
     HIGH_PRIORITY_LEVEL6 = 5
 
-    """
-
-    High priority queue level 7
-
-    """
     HIGH_PRIORITY_LEVEL7 = 6
 
-    """
-
-    Unknown
-
-    """
     UNKNOWN = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-        return meta._meta_table['DnxQoseaShowHpLevel_Enum']
+        return meta._meta_table['DnxQoseaShowHpLevelEnum']
 
 
-class DnxQoseaShowIntfStatus_Enum(Enum):
+class DnxQoseaShowIntfStatusEnum(Enum):
     """
-    DnxQoseaShowIntfStatus_Enum
+    DnxQoseaShowIntfStatusEnum
 
     Intf Status
 
-    """
+    .. data:: STATE_UNKNOWN = 0
+
+    	State is unknown
+
+    .. data:: STATE_DOWN = 1
+
+    	State is Down
 
     """
 
-    State is unknown
-
-    """
     STATE_UNKNOWN = 0
 
-    """
-
-    State is Down
-
-    """
     STATE_DOWN = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-        return meta._meta_table['DnxQoseaShowIntfStatus_Enum']
+        return meta._meta_table['DnxQoseaShowIntfStatusEnum']
 
 
-class DnxQoseaShowLevel_Enum(Enum):
+class DnxQoseaShowLevelEnum(Enum):
     """
-    DnxQoseaShowLevel_Enum
+    DnxQoseaShowLevelEnum
 
     Level type
 
-    """
+    .. data:: LEVEL1 = 0
+
+    	QoS level1 class
+
+    .. data:: LEVEL2 = 1
+
+    	QoS level2 class
+
+    .. data:: LEVEL3 = 2
+
+    	QoS level3 class
+
+    .. data:: LEVEL4 = 3
+
+    	QoS level4 class
+
+    .. data:: LEVEL5 = 4
+
+    	QoS level5 class
 
     """
 
-    QoS level1 class
-
-    """
     LEVEL1 = 0
 
-    """
-
-    QoS level2 class
-
-    """
     LEVEL2 = 1
 
-    """
-
-    QoS level3 class
-
-    """
     LEVEL3 = 2
 
-    """
-
-    QoS level4 class
-
-    """
     LEVEL4 = 3
 
-    """
-
-    QoS level5 class
-
-    """
     LEVEL5 = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-        return meta._meta_table['DnxQoseaShowLevel_Enum']
+        return meta._meta_table['DnxQoseaShowLevelEnum']
 
 
-class DnxQoseaShowMark_Enum(Enum):
+class DnxQoseaShowMarkEnum(Enum):
     """
-    DnxQoseaShowMark_Enum
+    DnxQoseaShowMarkEnum
 
     Mark type
 
-    """
+    .. data:: MARK_NONE = 0
+
+    	None
+
+    .. data:: DSCP = 1
+
+    	DSCP
+
+    .. data:: PRECEDENCE = 2
+
+    	Precedence
+
+    .. data:: MPLS_TOPMOST = 3
+
+    	MPLS topmost
+
+    .. data:: MPLS_IMPOSITION = 4
+
+    	MPLS imposition
+
+    .. data:: QOS_GROUP = 5
+
+    	Qos group
+
+    .. data:: DISCARD_CLASS = 6
+
+    	Discard class
+
+    .. data:: COS = 7
+
+    	COS
+
+    .. data:: INNER_COS = 8
+
+    	Inner COS
+
+    .. data:: DSCP_TUNNEL = 9
+
+    	DSCP tunnel
+
+    .. data:: PRECEDENCE_TUNNEL = 10
+
+    	Precedence tunnel
 
     """
 
-    None
-
-    """
     MARK_NONE = 0
 
-    """
-
-    DSCP
-
-    """
     DSCP = 1
 
-    """
-
-    Precedence
-
-    """
     PRECEDENCE = 2
 
-    """
-
-    MPLS topmost
-
-    """
     MPLS_TOPMOST = 3
 
-    """
-
-    MPLS imposition
-
-    """
     MPLS_IMPOSITION = 4
 
-    """
-
-    Qos group
-
-    """
     QOS_GROUP = 5
 
-    """
-
-    Discard class
-
-    """
     DISCARD_CLASS = 6
 
-    """
-
-    COS
-
-    """
     COS = 7
 
-    """
-
-    Inner COS
-
-    """
     INNER_COS = 8
 
-    """
-
-    DSCP tunnel
-
-    """
     DSCP_TUNNEL = 9
 
-    """
-
-    Precedence tunnel
-
-    """
     PRECEDENCE_TUNNEL = 10
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-        return meta._meta_table['DnxQoseaShowMark_Enum']
+        return meta._meta_table['DnxQoseaShowMarkEnum']
 
 
-class DnxQoseaShowPolicyStatus_Enum(Enum):
+class DnxQoseaShowPolicyStatusEnum(Enum):
     """
-    DnxQoseaShowPolicyStatus_Enum
+    DnxQoseaShowPolicyStatusEnum
 
     Status
 
-    """
+    .. data:: NO_ERROR = 0
+
+    	No errors
+
+    .. data:: POLICY_IN_RESET = 1
+
+    	QoS policy is reset
 
     """
 
-    No errors
-
-    """
     NO_ERROR = 0
 
-    """
-
-    QoS policy is reset
-
-    """
     POLICY_IN_RESET = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-        return meta._meta_table['DnxQoseaShowPolicyStatus_Enum']
+        return meta._meta_table['DnxQoseaShowPolicyStatusEnum']
 
 
-class DnxQoseaShowPolicyUnit_Enum(Enum):
+class DnxQoseaShowPolicyUnitEnum(Enum):
     """
-    DnxQoseaShowPolicyUnit_Enum
+    DnxQoseaShowPolicyUnitEnum
 
     Policy parameter unit type
 
-    """
+    .. data:: INVALID = 0
+
+    	Invalid uint type
+
+    .. data:: BYTES = 1
+
+    	Units in bytes
+
+    .. data:: KILO_BYTES = 2
+
+    	Units in kilobytes
+
+    .. data:: MEGA_BYTES = 3
+
+    	Units in megabytes
+
+    .. data:: GIGA_BYTES = 4
+
+    	Units in gigabytes
+
+    .. data:: BITS_PER_SECOND = 5
+
+    	Units in bits per second
+
+    .. data:: KILO_BITS_PER_SECOND = 6
+
+    	Units in kilo bits per second
+
+    .. data:: MEGA_BITS_PER_SECOND = 7
+
+    	Units in mega bits per second
+
+    .. data:: GIGA_BITS_PER_SECOND = 8
+
+    	Units in giga bits per second
+
+    .. data:: CELLS_PER_SECOND = 9
+
+    	Units in cells per second
+
+    .. data:: PACKETS_PER_SECOND = 10
+
+    	Units in Packets Per Second
+
+    .. data:: MICROSECONDS = 11
+
+    	Units in microseconds
+
+    .. data:: MILLISECONDS = 12
+
+    	Units in milliseconds
+
+    .. data:: PACKETS = 13
+
+    	Units in packets
+
+    .. data:: CELLS = 14
+
+    	Units in cells
+
+    .. data:: PERCENT = 15
+
+    	Units in percentage
+
+    .. data:: RATIO = 16
+
+    	Units in ratio
 
     """
 
-    Invalid uint type
-
-    """
     INVALID = 0
 
-    """
-
-    Units in bytes
-
-    """
     BYTES = 1
 
-    """
-
-    Units in kilobytes
-
-    """
     KILO_BYTES = 2
 
-    """
-
-    Units in megabytes
-
-    """
     MEGA_BYTES = 3
 
-    """
-
-    Units in gigabytes
-
-    """
     GIGA_BYTES = 4
 
-    """
-
-    Units in bits per second
-
-    """
     BITS_PER_SECOND = 5
 
-    """
-
-    Units in kilo bits per second
-
-    """
     KILO_BITS_PER_SECOND = 6
 
-    """
-
-    Units in mega bits per second
-
-    """
     MEGA_BITS_PER_SECOND = 7
 
-    """
-
-    Units in giga bits per second
-
-    """
     GIGA_BITS_PER_SECOND = 8
 
-    """
-
-    Units in cells per second
-
-    """
     CELLS_PER_SECOND = 9
 
-    """
-
-    Units in Packets Per Second
-
-    """
     PACKETS_PER_SECOND = 10
 
-    """
-
-    Units in microseconds
-
-    """
     MICROSECONDS = 11
 
-    """
-
-    Units in milliseconds
-
-    """
     MILLISECONDS = 12
 
-    """
-
-    Units in packets
-
-    """
     PACKETS = 13
 
-    """
-
-    Units in cells
-
-    """
     CELLS = 14
 
-    """
-
-    Units in percentage
-
-    """
     PERCENT = 15
 
-    """
-
-    Units in ratio
-
-    """
     RATIO = 16
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-        return meta._meta_table['DnxQoseaShowPolicyUnit_Enum']
+        return meta._meta_table['DnxQoseaShowPolicyUnitEnum']
 
 
-class DnxQoseaShowQueue_Enum(Enum):
+class DnxQoseaShowQueueEnum(Enum):
     """
-    DnxQoseaShowQueue_Enum
+    DnxQoseaShowQueueEnum
 
     Priority Queue Type
 
-    """
+    .. data:: LOW_PRIORITY_DEFAULT_QUEUE = 0
+
+    	Low priority default queue
+
+    .. data:: LOW_PRIORITY_QUEUE = 1
+
+    	Low priority queue
+
+    .. data:: HIGH_PRIORITY_QUEUE = 2
+
+    	High priority queue
+
+    .. data:: UNKNOWN_QUEUE_TYPE = 3
+
+    	Queue priority unknown
 
     """
 
-    Low priority default queue
-
-    """
     LOW_PRIORITY_DEFAULT_QUEUE = 0
 
-    """
-
-    Low priority queue
-
-    """
     LOW_PRIORITY_QUEUE = 1
 
-    """
-
-    High priority queue
-
-    """
     HIGH_PRIORITY_QUEUE = 2
 
-    """
-
-    Queue priority unknown
-
-    """
     UNKNOWN_QUEUE_TYPE = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-        return meta._meta_table['DnxQoseaShowQueue_Enum']
+        return meta._meta_table['DnxQoseaShowQueueEnum']
 
 
-class DnxQoseaShowWred_Enum(Enum):
+class DnxQoseaShowWredEnum(Enum):
     """
-    DnxQoseaShowWred_Enum
+    DnxQoseaShowWredEnum
 
     WRED type
 
-    """
+    .. data:: WRED_COS = 0
+
+    	WRED based on COS
+
+    .. data:: WRED_DSCP = 1
+
+    	WRED based on DSCP
+
+    .. data:: WRED_PRECEDENCE = 2
+
+    	WRED based on Precedence
+
+    .. data:: WRED_DISCARD_CLASS = 3
+
+    	WRED based on discard class
+
+    .. data:: WRED_MPLS_EXP = 4
+
+    	WRED based on MPLS EXP
+
+    .. data:: RED_WITH_USER_MIN_MAX = 5
+
+    	RED with user defined min and max
+
+    .. data:: RED_WITH_DEFAULT_MIN_MAX = 6
+
+    	RED with default min and max
+
+    .. data:: WRED_INVALID = 7
+
+    	Invalid
 
     """
 
-    WRED based on COS
-
-    """
     WRED_COS = 0
 
-    """
-
-    WRED based on DSCP
-
-    """
     WRED_DSCP = 1
 
-    """
-
-    WRED based on Precedence
-
-    """
     WRED_PRECEDENCE = 2
 
-    """
-
-    WRED based on discard class
-
-    """
     WRED_DISCARD_CLASS = 3
 
-    """
-
-    WRED based on MPLS EXP
-
-    """
     WRED_MPLS_EXP = 4
 
-    """
-
-    RED with user defined min and max
-
-    """
     RED_WITH_USER_MIN_MAX = 5
 
-    """
-
-    RED with default min and max
-
-    """
     RED_WITH_DEFAULT_MIN_MAX = 6
 
-    """
-
-    Invalid
-
-    """
     WRED_INVALID = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-        return meta._meta_table['DnxQoseaShowWred_Enum']
+        return meta._meta_table['DnxQoseaShowWredEnum']
 
 
-class QosPolicyAccountEnum_Enum(Enum):
+class QosPolicyAccountEnumEnum(Enum):
     """
-    QosPolicyAccountEnum_Enum
+    QosPolicyAccountEnumEnum
 
     Qos policy account enum
 
-    """
+    .. data:: QOS_SERV_POLICY_NO_AC_COUNT_PREF = 0
+
+    	qos serv policy no ac count pref
+
+    .. data:: QOS_SERV_POLICY_AC_COUNT_L2 = 1
+
+    	qos serv policy ac count l2
+
+    .. data:: QOS_SERV_POLICY_NO_AC_COUNT_L2 = 2
+
+    	qos serv policy no ac count l2
+
+    .. data:: QOS_SERV_POLICY_AC_COUNT_USER_DEF = 3
+
+    	qos serv policy ac count user def
+
+    .. data:: QOS_SERV_POLICY_AC_COUNT_L1 = 4
+
+    	qos serv policy ac count l1
 
     """
 
-    qos serv policy no ac count pref
-
-    """
     QOS_SERV_POLICY_NO_AC_COUNT_PREF = 0
 
-    """
-
-    qos serv policy ac count l2
-
-    """
     QOS_SERV_POLICY_AC_COUNT_L2 = 1
 
-    """
-
-    qos serv policy no ac count l2
-
-    """
     QOS_SERV_POLICY_NO_AC_COUNT_L2 = 2
 
-    """
-
-    qos serv policy ac count user def
-
-    """
     QOS_SERV_POLICY_AC_COUNT_USER_DEF = 3
 
-    """
-
-    qos serv policy ac count l1
-
-    """
     QOS_SERV_POLICY_AC_COUNT_L1 = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-        return meta._meta_table['QosPolicyAccountEnum_Enum']
+        return meta._meta_table['QosPolicyAccountEnumEnum']
 
 
 
@@ -842,7 +776,7 @@ class PlatformQos(object):
                             .. attribute:: class_level
                             
                             	Class level
-                            	**type**\: :py:class:`DnxQoseaShowLevel_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevel_Enum>`
+                            	**type**\: :py:class:`DnxQoseaShowLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevelEnum>`
                             
                             .. attribute:: common_mark
                             
@@ -1017,12 +951,12 @@ class PlatformQos(object):
                             .. attribute:: priority_level
                             
                             	Priority level
-                            	**type**\: :py:class:`DnxQoseaShowHpLevel_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevel_Enum>`
+                            	**type**\: :py:class:`DnxQoseaShowHpLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevelEnum>`
                             
                             .. attribute:: queue_type
                             
                             	Queue type
-                            	**type**\: :py:class:`DnxQoseaShowQueue_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueue_Enum>`
+                            	**type**\: :py:class:`DnxQoseaShowQueueEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueueEnum>`
                             
                             .. attribute:: violate_action
                             
@@ -1104,7 +1038,7 @@ class PlatformQos(object):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                 
                                 .. attribute:: mark_value
                                 
@@ -1139,18 +1073,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.mark_type is not None:
                                         return True
 
                                     if self.mark_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1166,7 +1094,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -1201,18 +1129,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.policy_unit is not None:
                                         return True
 
                                     if self.policy_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1228,7 +1150,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -1263,18 +1185,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.policy_unit is not None:
                                         return True
 
                                     if self.policy_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1290,7 +1206,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -1325,18 +1241,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.policy_unit is not None:
                                         return True
 
                                     if self.policy_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1352,7 +1262,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -1387,18 +1297,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.policy_unit is not None:
                                         return True
 
                                     if self.policy_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1414,7 +1318,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -1449,18 +1353,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.policy_unit is not None:
                                         return True
 
                                     if self.policy_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1476,7 +1374,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -1511,18 +1409,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.policy_unit is not None:
                                         return True
 
                                     if self.policy_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1538,7 +1430,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -1573,18 +1465,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.policy_unit is not None:
                                         return True
 
                                     if self.policy_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1600,7 +1486,7 @@ class PlatformQos(object):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\: :py:class:`DnxQoseaShowAction_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowActionEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                 
                                 .. attribute:: mark
                                 
@@ -1629,7 +1515,7 @@ class PlatformQos(object):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                    	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                     
                                     .. attribute:: mark_value
                                     
@@ -1664,18 +1550,12 @@ class PlatformQos(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.mark_type is not None:
                                             return True
 
                                         if self.mark_value is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1697,8 +1577,6 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.action_type is not None:
                                         return True
 
@@ -1707,10 +1585,6 @@ class PlatformQos(object):
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1726,7 +1600,7 @@ class PlatformQos(object):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\: :py:class:`DnxQoseaShowAction_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowActionEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                 
                                 .. attribute:: mark
                                 
@@ -1755,7 +1629,7 @@ class PlatformQos(object):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                    	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                     
                                     .. attribute:: mark_value
                                     
@@ -1790,18 +1664,12 @@ class PlatformQos(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.mark_type is not None:
                                             return True
 
                                         if self.mark_value is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1823,8 +1691,6 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.action_type is not None:
                                         return True
 
@@ -1833,10 +1699,6 @@ class PlatformQos(object):
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1852,7 +1714,7 @@ class PlatformQos(object):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                 
                                 .. attribute:: mark_value
                                 
@@ -1887,18 +1749,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.mark_type is not None:
                                         return True
 
                                     if self.mark_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1914,7 +1770,7 @@ class PlatformQos(object):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                 
                                 .. attribute:: mark_value
                                 
@@ -1949,18 +1805,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.mark_type is not None:
                                         return True
 
                                     if self.mark_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1976,7 +1826,7 @@ class PlatformQos(object):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\: :py:class:`DnxQoseaShowAction_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowActionEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                 
                                 .. attribute:: mark
                                 
@@ -2005,7 +1855,7 @@ class PlatformQos(object):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                    	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                     
                                     .. attribute:: mark_value
                                     
@@ -2040,18 +1890,12 @@ class PlatformQos(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.mark_type is not None:
                                             return True
 
                                         if self.mark_value is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2073,8 +1917,6 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.action_type is not None:
                                         return True
 
@@ -2083,10 +1925,6 @@ class PlatformQos(object):
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2140,7 +1978,7 @@ class PlatformQos(object):
                                 .. attribute:: wred_match_type
                                 
                                 	WREDMatchType
-                                	**type**\: :py:class:`DnxQoseaShowWred_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWred_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowWredEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWredEnum>`
                                 
                                 .. attribute:: wred_match_value
                                 
@@ -2176,7 +2014,7 @@ class PlatformQos(object):
                                     .. attribute:: policy_unit
                                     
                                     	Policy unit
-                                    	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                    	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                     
                                     .. attribute:: policy_value
                                     
@@ -2211,18 +2049,12 @@ class PlatformQos(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.policy_unit is not None:
                                             return True
 
                                         if self.policy_value is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2238,7 +2070,7 @@ class PlatformQos(object):
                                     .. attribute:: policy_unit
                                     
                                     	Policy unit
-                                    	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                    	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                     
                                     .. attribute:: policy_value
                                     
@@ -2273,18 +2105,12 @@ class PlatformQos(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.policy_unit is not None:
                                             return True
 
                                         if self.policy_value is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2360,18 +2186,12 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.range_end is not None:
                                                 return True
 
                                             if self.range_start is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -2393,17 +2213,11 @@ class PlatformQos(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.dnx_qosea_show_red_match_value is not None:
                                             for child_ref in self.dnx_qosea_show_red_match_value:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2425,18 +2239,10 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.config_max_threshold is not None and self.config_max_threshold._has_data():
                                         return True
 
-                                    if self.config_max_threshold is not None and self.config_max_threshold.is_presence():
-                                        return True
-
                                     if self.config_min_threshold is not None and self.config_min_threshold._has_data():
-                                        return True
-
-                                    if self.config_min_threshold is not None and self.config_min_threshold.is_presence():
                                         return True
 
                                     if self.first_segment is not None:
@@ -2457,13 +2263,6 @@ class PlatformQos(object):
                                     if self.wred_match_value is not None and self.wred_match_value._has_data():
                                         return True
 
-                                    if self.wred_match_value is not None and self.wred_match_value.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2487,8 +2286,6 @@ class PlatformQos(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.level_one_class_name is not None:
                                     return True
 
@@ -2509,58 +2306,31 @@ class PlatformQos(object):
                                 if self.config_max_rate is not None and self.config_max_rate._has_data():
                                     return True
 
-                                if self.config_max_rate is not None and self.config_max_rate.is_presence():
-                                    return True
-
                                 if self.config_min_rate is not None and self.config_min_rate._has_data():
-                                    return True
-
-                                if self.config_min_rate is not None and self.config_min_rate.is_presence():
                                     return True
 
                                 if self.config_policer_average_rate is not None and self.config_policer_average_rate._has_data():
                                     return True
 
-                                if self.config_policer_average_rate is not None and self.config_policer_average_rate.is_presence():
-                                    return True
-
                                 if self.config_policer_conform_burst is not None and self.config_policer_conform_burst._has_data():
-                                    return True
-
-                                if self.config_policer_conform_burst is not None and self.config_policer_conform_burst.is_presence():
                                     return True
 
                                 if self.config_policer_excess_burst is not None and self.config_policer_excess_burst._has_data():
                                     return True
 
-                                if self.config_policer_excess_burst is not None and self.config_policer_excess_burst.is_presence():
-                                    return True
-
                                 if self.config_policer_peak_rate is not None and self.config_policer_peak_rate._has_data():
-                                    return True
-
-                                if self.config_policer_peak_rate is not None and self.config_policer_peak_rate.is_presence():
                                     return True
 
                                 if self.config_queue_limit is not None and self.config_queue_limit._has_data():
                                     return True
 
-                                if self.config_queue_limit is not None and self.config_queue_limit.is_presence():
-                                    return True
-
                                 if self.conform_action is not None and self.conform_action._has_data():
-                                    return True
-
-                                if self.conform_action is not None and self.conform_action.is_presence():
                                     return True
 
                                 if self.egress_queue_id is not None:
                                     return True
 
                                 if self.exceed_action is not None and self.exceed_action._has_data():
-                                    return True
-
-                                if self.exceed_action is not None and self.exceed_action.is_presence():
                                     return True
 
                                 if self.hardware_excess_bandwidth_weight is not None:
@@ -2621,18 +2391,11 @@ class PlatformQos(object):
                                 if self.violate_action is not None and self.violate_action._has_data():
                                     return True
 
-                                if self.violate_action is not None and self.violate_action.is_presence():
-                                    return True
-
                                 if self.wred is not None:
                                     for child_ref in self.wred:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2654,17 +2417,11 @@ class PlatformQos(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.class_ is not None:
                                 for child_ref in self.class_:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2768,7 +2525,7 @@ class PlatformQos(object):
                                     .. attribute:: class_level
                                     
                                     	Class level
-                                    	**type**\: :py:class:`DnxQoseaShowLevel_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevel_Enum>`
+                                    	**type**\: :py:class:`DnxQoseaShowLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevelEnum>`
                                     
                                     .. attribute:: common_mark
                                     
@@ -2943,12 +2700,12 @@ class PlatformQos(object):
                                     .. attribute:: priority_level
                                     
                                     	Priority level
-                                    	**type**\: :py:class:`DnxQoseaShowHpLevel_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevel_Enum>`
+                                    	**type**\: :py:class:`DnxQoseaShowHpLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevelEnum>`
                                     
                                     .. attribute:: queue_type
                                     
                                     	Queue type
-                                    	**type**\: :py:class:`DnxQoseaShowQueue_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueue_Enum>`
+                                    	**type**\: :py:class:`DnxQoseaShowQueueEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueueEnum>`
                                     
                                     .. attribute:: violate_action
                                     
@@ -3030,7 +2787,7 @@ class PlatformQos(object):
                                         .. attribute:: mark_type
                                         
                                         	Mark type
-                                        	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                        	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                         
                                         .. attribute:: mark_value
                                         
@@ -3065,18 +2822,12 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.mark_type is not None:
                                                 return True
 
                                             if self.mark_value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3092,7 +2843,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -3127,18 +2878,12 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.policy_unit is not None:
                                                 return True
 
                                             if self.policy_value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3154,7 +2899,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -3189,18 +2934,12 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.policy_unit is not None:
                                                 return True
 
                                             if self.policy_value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3216,7 +2955,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -3251,18 +2990,12 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.policy_unit is not None:
                                                 return True
 
                                             if self.policy_value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3278,7 +3011,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -3313,18 +3046,12 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.policy_unit is not None:
                                                 return True
 
                                             if self.policy_value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3340,7 +3067,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -3375,18 +3102,12 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.policy_unit is not None:
                                                 return True
 
                                             if self.policy_value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3402,7 +3123,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -3437,18 +3158,12 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.policy_unit is not None:
                                                 return True
 
                                             if self.policy_value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3464,7 +3179,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -3499,18 +3214,12 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.policy_unit is not None:
                                                 return True
 
                                             if self.policy_value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3526,7 +3235,7 @@ class PlatformQos(object):
                                         .. attribute:: action_type
                                         
                                         	Policer action type
-                                        	**type**\: :py:class:`DnxQoseaShowAction_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction_Enum>`
+                                        	**type**\: :py:class:`DnxQoseaShowActionEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                         
                                         .. attribute:: mark
                                         
@@ -3555,7 +3264,7 @@ class PlatformQos(object):
                                             .. attribute:: mark_type
                                             
                                             	Mark type
-                                            	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                            	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                             
                                             .. attribute:: mark_value
                                             
@@ -3590,18 +3299,12 @@ class PlatformQos(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.mark_type is not None:
                                                     return True
 
                                                 if self.mark_value is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -3623,8 +3326,6 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.action_type is not None:
                                                 return True
 
@@ -3633,10 +3334,6 @@ class PlatformQos(object):
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3652,7 +3349,7 @@ class PlatformQos(object):
                                         .. attribute:: action_type
                                         
                                         	Policer action type
-                                        	**type**\: :py:class:`DnxQoseaShowAction_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction_Enum>`
+                                        	**type**\: :py:class:`DnxQoseaShowActionEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                         
                                         .. attribute:: mark
                                         
@@ -3681,7 +3378,7 @@ class PlatformQos(object):
                                             .. attribute:: mark_type
                                             
                                             	Mark type
-                                            	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                            	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                             
                                             .. attribute:: mark_value
                                             
@@ -3716,18 +3413,12 @@ class PlatformQos(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.mark_type is not None:
                                                     return True
 
                                                 if self.mark_value is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -3749,8 +3440,6 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.action_type is not None:
                                                 return True
 
@@ -3759,10 +3448,6 @@ class PlatformQos(object):
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3778,7 +3463,7 @@ class PlatformQos(object):
                                         .. attribute:: mark_type
                                         
                                         	Mark type
-                                        	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                        	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                         
                                         .. attribute:: mark_value
                                         
@@ -3813,18 +3498,12 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.mark_type is not None:
                                                 return True
 
                                             if self.mark_value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3840,7 +3519,7 @@ class PlatformQos(object):
                                         .. attribute:: mark_type
                                         
                                         	Mark type
-                                        	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                        	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                         
                                         .. attribute:: mark_value
                                         
@@ -3875,18 +3554,12 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.mark_type is not None:
                                                 return True
 
                                             if self.mark_value is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3902,7 +3575,7 @@ class PlatformQos(object):
                                         .. attribute:: action_type
                                         
                                         	Policer action type
-                                        	**type**\: :py:class:`DnxQoseaShowAction_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction_Enum>`
+                                        	**type**\: :py:class:`DnxQoseaShowActionEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                         
                                         .. attribute:: mark
                                         
@@ -3931,7 +3604,7 @@ class PlatformQos(object):
                                             .. attribute:: mark_type
                                             
                                             	Mark type
-                                            	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                            	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                             
                                             .. attribute:: mark_value
                                             
@@ -3966,18 +3639,12 @@ class PlatformQos(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.mark_type is not None:
                                                     return True
 
                                                 if self.mark_value is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -3999,8 +3666,6 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.action_type is not None:
                                                 return True
 
@@ -4009,10 +3674,6 @@ class PlatformQos(object):
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -4066,7 +3727,7 @@ class PlatformQos(object):
                                         .. attribute:: wred_match_type
                                         
                                         	WREDMatchType
-                                        	**type**\: :py:class:`DnxQoseaShowWred_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWred_Enum>`
+                                        	**type**\: :py:class:`DnxQoseaShowWredEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWredEnum>`
                                         
                                         .. attribute:: wred_match_value
                                         
@@ -4102,7 +3763,7 @@ class PlatformQos(object):
                                             .. attribute:: policy_unit
                                             
                                             	Policy unit
-                                            	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                            	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                             
                                             .. attribute:: policy_value
                                             
@@ -4137,18 +3798,12 @@ class PlatformQos(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.policy_unit is not None:
                                                     return True
 
                                                 if self.policy_value is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -4164,7 +3819,7 @@ class PlatformQos(object):
                                             .. attribute:: policy_unit
                                             
                                             	Policy unit
-                                            	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                            	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                             
                                             .. attribute:: policy_value
                                             
@@ -4199,18 +3854,12 @@ class PlatformQos(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.policy_unit is not None:
                                                     return True
 
                                                 if self.policy_value is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -4286,18 +3935,12 @@ class PlatformQos(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.range_end is not None:
                                                         return True
 
                                                     if self.range_start is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -4319,17 +3962,11 @@ class PlatformQos(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.dnx_qosea_show_red_match_value is not None:
                                                     for child_ref in self.dnx_qosea_show_red_match_value:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -4351,18 +3988,10 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.config_max_threshold is not None and self.config_max_threshold._has_data():
                                                 return True
 
-                                            if self.config_max_threshold is not None and self.config_max_threshold.is_presence():
-                                                return True
-
                                             if self.config_min_threshold is not None and self.config_min_threshold._has_data():
-                                                return True
-
-                                            if self.config_min_threshold is not None and self.config_min_threshold.is_presence():
                                                 return True
 
                                             if self.first_segment is not None:
@@ -4383,13 +4012,6 @@ class PlatformQos(object):
                                             if self.wred_match_value is not None and self.wred_match_value._has_data():
                                                 return True
 
-                                            if self.wred_match_value is not None and self.wred_match_value.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -4413,8 +4035,6 @@ class PlatformQos(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.level_one_class_name is not None:
                                             return True
 
@@ -4435,58 +4055,31 @@ class PlatformQos(object):
                                         if self.config_max_rate is not None and self.config_max_rate._has_data():
                                             return True
 
-                                        if self.config_max_rate is not None and self.config_max_rate.is_presence():
-                                            return True
-
                                         if self.config_min_rate is not None and self.config_min_rate._has_data():
-                                            return True
-
-                                        if self.config_min_rate is not None and self.config_min_rate.is_presence():
                                             return True
 
                                         if self.config_policer_average_rate is not None and self.config_policer_average_rate._has_data():
                                             return True
 
-                                        if self.config_policer_average_rate is not None and self.config_policer_average_rate.is_presence():
-                                            return True
-
                                         if self.config_policer_conform_burst is not None and self.config_policer_conform_burst._has_data():
-                                            return True
-
-                                        if self.config_policer_conform_burst is not None and self.config_policer_conform_burst.is_presence():
                                             return True
 
                                         if self.config_policer_excess_burst is not None and self.config_policer_excess_burst._has_data():
                                             return True
 
-                                        if self.config_policer_excess_burst is not None and self.config_policer_excess_burst.is_presence():
-                                            return True
-
                                         if self.config_policer_peak_rate is not None and self.config_policer_peak_rate._has_data():
-                                            return True
-
-                                        if self.config_policer_peak_rate is not None and self.config_policer_peak_rate.is_presence():
                                             return True
 
                                         if self.config_queue_limit is not None and self.config_queue_limit._has_data():
                                             return True
 
-                                        if self.config_queue_limit is not None and self.config_queue_limit.is_presence():
-                                            return True
-
                                         if self.conform_action is not None and self.conform_action._has_data():
-                                            return True
-
-                                        if self.conform_action is not None and self.conform_action.is_presence():
                                             return True
 
                                         if self.egress_queue_id is not None:
                                             return True
 
                                         if self.exceed_action is not None and self.exceed_action._has_data():
-                                            return True
-
-                                        if self.exceed_action is not None and self.exceed_action.is_presence():
                                             return True
 
                                         if self.hardware_excess_bandwidth_weight is not None:
@@ -4547,18 +4140,11 @@ class PlatformQos(object):
                                         if self.violate_action is not None and self.violate_action._has_data():
                                             return True
 
-                                        if self.violate_action is not None and self.violate_action.is_presence():
-                                            return True
-
                                         if self.wred is not None:
                                             for child_ref in self.wred:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4580,17 +4166,11 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.class_ is not None:
                                         for child_ref in self.class_:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4620,7 +4200,7 @@ class PlatformQos(object):
                                 .. attribute:: interface_status
                                 
                                 	Interface Status
-                                	**type**\: :py:class:`DnxQoseaShowIntfStatus_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatus_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowIntfStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatusEnum>`
                                 
                                 .. attribute:: npu_id
                                 
@@ -4639,12 +4219,12 @@ class PlatformQos(object):
                                 .. attribute:: policy_status
                                 
                                 	Policy Status
-                                	**type**\: :py:class:`DnxQoseaShowPolicyStatus_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatus_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowPolicyStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatusEnum>`
                                 
                                 .. attribute:: stats_accounting_type
                                 
                                 	QoS Statistics Accounting Type
-                                	**type**\: :py:class:`QosPolicyAccountEnum_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnum_Enum>`
+                                	**type**\: :py:class:`QosPolicyAccountEnumEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnumEnum>`
                                 
                                 .. attribute:: total_number_of_classes
                                 
@@ -4701,8 +4281,6 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_bandwidth_kbps is not None:
                                         return True
 
@@ -4735,10 +4313,6 @@ class PlatformQos(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
@@ -4760,27 +4334,15 @@ class PlatformQos(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interface_name is not None:
                                     return True
 
                                 if self.classes is not None and self.classes._has_data():
                                     return True
 
-                                if self.classes is not None and self.classes.is_presence():
-                                    return True
-
                                 if self.policy_details is not None and self.policy_details._has_data():
                                     return True
 
-                                if self.policy_details is not None and self.policy_details.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4802,17 +4364,11 @@ class PlatformQos(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.member_interface is not None:
                                 for child_ref in self.member_interface:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4842,7 +4398,7 @@ class PlatformQos(object):
                         .. attribute:: interface_status
                         
                         	Interface Status
-                        	**type**\: :py:class:`DnxQoseaShowIntfStatus_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatus_Enum>`
+                        	**type**\: :py:class:`DnxQoseaShowIntfStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatusEnum>`
                         
                         .. attribute:: npu_id
                         
@@ -4861,12 +4417,12 @@ class PlatformQos(object):
                         .. attribute:: policy_status
                         
                         	Policy Status
-                        	**type**\: :py:class:`DnxQoseaShowPolicyStatus_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatus_Enum>`
+                        	**type**\: :py:class:`DnxQoseaShowPolicyStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatusEnum>`
                         
                         .. attribute:: stats_accounting_type
                         
                         	QoS Statistics Accounting Type
-                        	**type**\: :py:class:`QosPolicyAccountEnum_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnum_Enum>`
+                        	**type**\: :py:class:`QosPolicyAccountEnumEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnumEnum>`
                         
                         .. attribute:: total_number_of_classes
                         
@@ -4923,8 +4479,6 @@ class PlatformQos(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface_bandwidth_kbps is not None:
                                 return True
 
@@ -4957,10 +4511,6 @@ class PlatformQos(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
@@ -4982,21 +4532,13 @@ class PlatformQos(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
                         if self.classes is not None and self.classes._has_data():
                             return True
 
-                        if self.classes is not None and self.classes.is_presence():
-                            return True
-
                         if self.member_interfaces is not None and self.member_interfaces._has_data():
-                            return True
-
-                        if self.member_interfaces is not None and self.member_interfaces.is_presence():
                             return True
 
                         if self.npu_id is not None:
@@ -5005,16 +4547,9 @@ class PlatformQos(object):
                         if self.policy_details is not None and self.policy_details._has_data():
                             return True
 
-                        if self.policy_details is not None and self.policy_details.is_presence():
-                            return True
-
                         if self.qos_direction is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5036,17 +4571,11 @@ class PlatformQos(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bundle_interface is not None:
                         for child_ref in self.bundle_interface:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5156,7 +4685,7 @@ class PlatformQos(object):
                             .. attribute:: class_level
                             
                             	Class level
-                            	**type**\: :py:class:`DnxQoseaShowLevel_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevel_Enum>`
+                            	**type**\: :py:class:`DnxQoseaShowLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevelEnum>`
                             
                             .. attribute:: common_mark
                             
@@ -5331,12 +4860,12 @@ class PlatformQos(object):
                             .. attribute:: priority_level
                             
                             	Priority level
-                            	**type**\: :py:class:`DnxQoseaShowHpLevel_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevel_Enum>`
+                            	**type**\: :py:class:`DnxQoseaShowHpLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevelEnum>`
                             
                             .. attribute:: queue_type
                             
                             	Queue type
-                            	**type**\: :py:class:`DnxQoseaShowQueue_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueue_Enum>`
+                            	**type**\: :py:class:`DnxQoseaShowQueueEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueueEnum>`
                             
                             .. attribute:: violate_action
                             
@@ -5418,7 +4947,7 @@ class PlatformQos(object):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                 
                                 .. attribute:: mark_value
                                 
@@ -5453,18 +4982,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.mark_type is not None:
                                         return True
 
                                     if self.mark_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5480,7 +5003,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5515,18 +5038,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.policy_unit is not None:
                                         return True
 
                                     if self.policy_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5542,7 +5059,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5577,18 +5094,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.policy_unit is not None:
                                         return True
 
                                     if self.policy_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5604,7 +5115,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5639,18 +5150,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.policy_unit is not None:
                                         return True
 
                                     if self.policy_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5666,7 +5171,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5701,18 +5206,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.policy_unit is not None:
                                         return True
 
                                     if self.policy_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5728,7 +5227,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5763,18 +5262,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.policy_unit is not None:
                                         return True
 
                                     if self.policy_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5790,7 +5283,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5825,18 +5318,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.policy_unit is not None:
                                         return True
 
                                     if self.policy_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5852,7 +5339,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5887,18 +5374,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.policy_unit is not None:
                                         return True
 
                                     if self.policy_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5914,7 +5395,7 @@ class PlatformQos(object):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\: :py:class:`DnxQoseaShowAction_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowActionEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                 
                                 .. attribute:: mark
                                 
@@ -5943,7 +5424,7 @@ class PlatformQos(object):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                    	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                     
                                     .. attribute:: mark_value
                                     
@@ -5978,18 +5459,12 @@ class PlatformQos(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.mark_type is not None:
                                             return True
 
                                         if self.mark_value is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6011,8 +5486,6 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.action_type is not None:
                                         return True
 
@@ -6021,10 +5494,6 @@ class PlatformQos(object):
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6040,7 +5509,7 @@ class PlatformQos(object):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\: :py:class:`DnxQoseaShowAction_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowActionEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                 
                                 .. attribute:: mark
                                 
@@ -6069,7 +5538,7 @@ class PlatformQos(object):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                    	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                     
                                     .. attribute:: mark_value
                                     
@@ -6104,18 +5573,12 @@ class PlatformQos(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.mark_type is not None:
                                             return True
 
                                         if self.mark_value is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6137,8 +5600,6 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.action_type is not None:
                                         return True
 
@@ -6147,10 +5608,6 @@ class PlatformQos(object):
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6166,7 +5623,7 @@ class PlatformQos(object):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                 
                                 .. attribute:: mark_value
                                 
@@ -6201,18 +5658,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.mark_type is not None:
                                         return True
 
                                     if self.mark_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6228,7 +5679,7 @@ class PlatformQos(object):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                 
                                 .. attribute:: mark_value
                                 
@@ -6263,18 +5714,12 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.mark_type is not None:
                                         return True
 
                                     if self.mark_value is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6290,7 +5735,7 @@ class PlatformQos(object):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\: :py:class:`DnxQoseaShowAction_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowAction_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowActionEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                 
                                 .. attribute:: mark
                                 
@@ -6319,7 +5764,7 @@ class PlatformQos(object):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\: :py:class:`DnxQoseaShowMark_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMark_Enum>`
+                                    	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                     
                                     .. attribute:: mark_value
                                     
@@ -6354,18 +5799,12 @@ class PlatformQos(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.mark_type is not None:
                                             return True
 
                                         if self.mark_value is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6387,8 +5826,6 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.action_type is not None:
                                         return True
 
@@ -6397,10 +5834,6 @@ class PlatformQos(object):
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6454,7 +5887,7 @@ class PlatformQos(object):
                                 .. attribute:: wred_match_type
                                 
                                 	WREDMatchType
-                                	**type**\: :py:class:`DnxQoseaShowWred_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWred_Enum>`
+                                	**type**\: :py:class:`DnxQoseaShowWredEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWredEnum>`
                                 
                                 .. attribute:: wred_match_value
                                 
@@ -6490,7 +5923,7 @@ class PlatformQos(object):
                                     .. attribute:: policy_unit
                                     
                                     	Policy unit
-                                    	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                    	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                     
                                     .. attribute:: policy_value
                                     
@@ -6525,18 +5958,12 @@ class PlatformQos(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.policy_unit is not None:
                                             return True
 
                                         if self.policy_value is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6552,7 +5979,7 @@ class PlatformQos(object):
                                     .. attribute:: policy_unit
                                     
                                     	Policy unit
-                                    	**type**\: :py:class:`DnxQoseaShowPolicyUnit_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnit_Enum>`
+                                    	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                     
                                     .. attribute:: policy_value
                                     
@@ -6587,18 +6014,12 @@ class PlatformQos(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.policy_unit is not None:
                                             return True
 
                                         if self.policy_value is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6674,18 +6095,12 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.range_end is not None:
                                                 return True
 
                                             if self.range_start is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6707,17 +6122,11 @@ class PlatformQos(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.dnx_qosea_show_red_match_value is not None:
                                             for child_ref in self.dnx_qosea_show_red_match_value:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6739,18 +6148,10 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.config_max_threshold is not None and self.config_max_threshold._has_data():
                                         return True
 
-                                    if self.config_max_threshold is not None and self.config_max_threshold.is_presence():
-                                        return True
-
                                     if self.config_min_threshold is not None and self.config_min_threshold._has_data():
-                                        return True
-
-                                    if self.config_min_threshold is not None and self.config_min_threshold.is_presence():
                                         return True
 
                                     if self.first_segment is not None:
@@ -6771,13 +6172,6 @@ class PlatformQos(object):
                                     if self.wred_match_value is not None and self.wred_match_value._has_data():
                                         return True
 
-                                    if self.wred_match_value is not None and self.wred_match_value.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6801,8 +6195,6 @@ class PlatformQos(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.level_one_class_name is not None:
                                     return True
 
@@ -6823,58 +6215,31 @@ class PlatformQos(object):
                                 if self.config_max_rate is not None and self.config_max_rate._has_data():
                                     return True
 
-                                if self.config_max_rate is not None and self.config_max_rate.is_presence():
-                                    return True
-
                                 if self.config_min_rate is not None and self.config_min_rate._has_data():
-                                    return True
-
-                                if self.config_min_rate is not None and self.config_min_rate.is_presence():
                                     return True
 
                                 if self.config_policer_average_rate is not None and self.config_policer_average_rate._has_data():
                                     return True
 
-                                if self.config_policer_average_rate is not None and self.config_policer_average_rate.is_presence():
-                                    return True
-
                                 if self.config_policer_conform_burst is not None and self.config_policer_conform_burst._has_data():
-                                    return True
-
-                                if self.config_policer_conform_burst is not None and self.config_policer_conform_burst.is_presence():
                                     return True
 
                                 if self.config_policer_excess_burst is not None and self.config_policer_excess_burst._has_data():
                                     return True
 
-                                if self.config_policer_excess_burst is not None and self.config_policer_excess_burst.is_presence():
-                                    return True
-
                                 if self.config_policer_peak_rate is not None and self.config_policer_peak_rate._has_data():
-                                    return True
-
-                                if self.config_policer_peak_rate is not None and self.config_policer_peak_rate.is_presence():
                                     return True
 
                                 if self.config_queue_limit is not None and self.config_queue_limit._has_data():
                                     return True
 
-                                if self.config_queue_limit is not None and self.config_queue_limit.is_presence():
-                                    return True
-
                                 if self.conform_action is not None and self.conform_action._has_data():
-                                    return True
-
-                                if self.conform_action is not None and self.conform_action.is_presence():
                                     return True
 
                                 if self.egress_queue_id is not None:
                                     return True
 
                                 if self.exceed_action is not None and self.exceed_action._has_data():
-                                    return True
-
-                                if self.exceed_action is not None and self.exceed_action.is_presence():
                                     return True
 
                                 if self.hardware_excess_bandwidth_weight is not None:
@@ -6935,18 +6300,11 @@ class PlatformQos(object):
                                 if self.violate_action is not None and self.violate_action._has_data():
                                     return True
 
-                                if self.violate_action is not None and self.violate_action.is_presence():
-                                    return True
-
                                 if self.wred is not None:
                                     for child_ref in self.wred:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6968,17 +6326,11 @@ class PlatformQos(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.class_ is not None:
                                 for child_ref in self.class_:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7008,7 +6360,7 @@ class PlatformQos(object):
                         .. attribute:: interface_status
                         
                         	Interface Status
-                        	**type**\: :py:class:`DnxQoseaShowIntfStatus_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatus_Enum>`
+                        	**type**\: :py:class:`DnxQoseaShowIntfStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatusEnum>`
                         
                         .. attribute:: npu_id
                         
@@ -7027,12 +6379,12 @@ class PlatformQos(object):
                         .. attribute:: policy_status
                         
                         	Policy Status
-                        	**type**\: :py:class:`DnxQoseaShowPolicyStatus_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatus_Enum>`
+                        	**type**\: :py:class:`DnxQoseaShowPolicyStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatusEnum>`
                         
                         .. attribute:: stats_accounting_type
                         
                         	QoS Statistics Accounting Type
-                        	**type**\: :py:class:`QosPolicyAccountEnum_Enum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnum_Enum>`
+                        	**type**\: :py:class:`QosPolicyAccountEnumEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnumEnum>`
                         
                         .. attribute:: total_number_of_classes
                         
@@ -7089,8 +6441,6 @@ class PlatformQos(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface_bandwidth_kbps is not None:
                                 return True
 
@@ -7123,10 +6473,6 @@ class PlatformQos(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
@@ -7148,30 +6494,18 @@ class PlatformQos(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
                         if self.classes is not None and self.classes._has_data():
                             return True
 
-                        if self.classes is not None and self.classes.is_presence():
-                            return True
-
                         if self.policy_details is not None and self.policy_details._has_data():
-                            return True
-
-                        if self.policy_details is not None and self.policy_details.is_presence():
                             return True
 
                         if self.qos_direction is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7193,17 +6527,11 @@ class PlatformQos(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7421,8 +6749,6 @@ class PlatformQos(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.drop_probability is not None:
                                     return True
 
@@ -7432,10 +6758,6 @@ class PlatformQos(object):
                                 if self.min_threshold is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7496,8 +6818,6 @@ class PlatformQos(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.drop_probability is not None:
                                     return True
 
@@ -7507,10 +6827,6 @@ class PlatformQos(object):
                                 if self.min_threshold is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7532,8 +6848,6 @@ class PlatformQos(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.class_id is not None:
                                 return True
 
@@ -7558,10 +6872,6 @@ class PlatformQos(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
@@ -7583,8 +6893,6 @@ class PlatformQos(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
@@ -7610,10 +6918,6 @@ class PlatformQos(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
@@ -7633,17 +6937,11 @@ class PlatformQos(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.remote_interface is not None:
                         for child_ref in self.remote_interface:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7665,33 +6963,18 @@ class PlatformQos(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.bundle_interfaces is not None and self.bundle_interfaces._has_data():
                     return True
 
-                if self.bundle_interfaces is not None and self.bundle_interfaces.is_presence():
-                    return True
-
                 if self.interfaces is not None and self.interfaces._has_data():
-                    return True
-
-                if self.interfaces is not None and self.interfaces.is_presence():
                     return True
 
                 if self.remote_interfaces is not None and self.remote_interfaces._has_data():
                     return True
 
-                if self.remote_interfaces is not None and self.remote_interfaces.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -7711,17 +6994,11 @@ class PlatformQos(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -7741,18 +7018,9 @@ class PlatformQos(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

@@ -102,8 +102,6 @@ class NvSatelliteGlobal(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.mac1 is not None:
                 return True
 
@@ -113,10 +111,6 @@ class NvSatelliteGlobal(object):
             if self.mac3 is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -136,18 +130,9 @@ class NvSatelliteGlobal(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.chassis_mac is not None and self.chassis_mac._has_data():
             return True
 
-        if self.chassis_mac is not None and self.chassis_mac.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -377,8 +362,6 @@ class NvSatellites(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.port_type is not None:
                         return True
 
@@ -391,10 +374,6 @@ class NvSatellites(object):
                     if self.port_range is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -416,17 +395,11 @@ class NvSatellites(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.candidate_fabric_port is not None:
                     for child_ref in self.candidate_fabric_port:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -477,18 +450,12 @@ class NvSatellites(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.password is not None:
                     return True
 
                 if self.username is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -533,15 +500,9 @@ class NvSatellites(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.host_priority is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -563,21 +524,13 @@ class NvSatellites(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.satellite_id is not None:
                 return True
 
             if self.candidate_fabric_ports is not None and self.candidate_fabric_ports._has_data():
                 return True
 
-            if self.candidate_fabric_ports is not None and self.candidate_fabric_ports.is_presence():
-                return True
-
             if self.connection_info is not None and self.connection_info._has_data():
-                return True
-
-            if self.connection_info is not None and self.connection_info.is_presence():
                 return True
 
             if self.description is not None:
@@ -598,9 +551,6 @@ class NvSatellites(object):
             if self.redundancy is not None and self.redundancy._has_data():
                 return True
 
-            if self.redundancy is not None and self.redundancy.is_presence():
-                return True
-
             if self.secret is not None:
                 return True
 
@@ -616,10 +566,6 @@ class NvSatellites(object):
             if self.vrf is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -639,17 +585,11 @@ class NvSatellites(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nv_satellite is not None:
             for child_ref in self.nv_satellite:
                 if child_ref._has_data():
                     return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

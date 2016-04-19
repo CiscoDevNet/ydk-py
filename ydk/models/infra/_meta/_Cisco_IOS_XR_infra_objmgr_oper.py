@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'EndPort_Enum' : _MetaInfoEnum('EndPort_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper',
+    'EndPortEnum' : _MetaInfoEnum('EndPortEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper',
         {
             'echo':'ECHO',
             'discard':'DISCARD',
@@ -51,14 +51,14 @@ _meta_table = {
             'talk':'TALK',
             'ldp':'LDP',
         }, 'Cisco-IOS-XR-infra-objmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-objmgr-oper']),
-    'PortOperator_Enum' : _MetaInfoEnum('PortOperator_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper',
+    'PortOperatorEnum' : _MetaInfoEnum('PortOperatorEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper',
         {
             'equal':'EQUAL',
             'not-equal':'NOT_EQUAL',
             'greater-than':'GREATER_THAN',
             'less-than':'LESS_THAN',
         }, 'Cisco-IOS-XR-infra-objmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-objmgr-oper']),
-    'Port_Enum' : _MetaInfoEnum('Port_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper',
+    'PortEnum' : _MetaInfoEnum('PortEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper',
         {
             'echo':'ECHO',
             'discard':'DISCARD',
@@ -95,7 +95,7 @@ _meta_table = {
             'talk':'TALK',
             'ldp':'LDP',
         }, 'Cisco-IOS-XR-infra-objmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-objmgr-oper']),
-    'StartPort_Enum' : _MetaInfoEnum('StartPort_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper',
+    'StartPortEnum' : _MetaInfoEnum('StartPortEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper',
         {
             'echo':'ECHO',
             'discard':'DISCARD',
@@ -811,7 +811,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ObjectGroup.Port.Objects.Object.Operators.Operator',
             False, 
             [
-            _MetaInfoClassMember('operator-type', REFERENCE_ENUM_CLASS, 'PortOperator_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'PortOperator_Enum', 
+            _MetaInfoClassMember('operator-type', REFERENCE_ENUM_CLASS, 'PortOperatorEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'PortOperatorEnum', 
                 [], [], 
                 '''                operation for ports
                 ''',
@@ -829,7 +829,7 @@ _meta_table = {
                 ''',
                 'port',
                 'Cisco-IOS-XR-infra-objmgr-oper', False, [
-                    _MetaInfoClassMember('port', REFERENCE_ENUM_CLASS, 'Port_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'Port_Enum', 
+                    _MetaInfoClassMember('port', REFERENCE_ENUM_CLASS, 'PortEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'PortEnum', 
                         [], [], 
                         '''                        Port number
                         ''',
@@ -922,7 +922,7 @@ _meta_table = {
                 ''',
                 'end_port',
                 'Cisco-IOS-XR-infra-objmgr-oper', False, [
-                    _MetaInfoClassMember('end-port', REFERENCE_ENUM_CLASS, 'EndPort_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'EndPort_Enum', 
+                    _MetaInfoClassMember('end-port', REFERENCE_ENUM_CLASS, 'EndPortEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'EndPortEnum', 
                         [], [], 
                         '''                        End port number
                         ''',
@@ -947,7 +947,7 @@ _meta_table = {
                 ''',
                 'start_port',
                 'Cisco-IOS-XR-infra-objmgr-oper', False, [
-                    _MetaInfoClassMember('start-port', REFERENCE_ENUM_CLASS, 'StartPort_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'StartPort_Enum', 
+                    _MetaInfoClassMember('start-port', REFERENCE_ENUM_CLASS, 'StartPortEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_objmgr_oper', 'StartPortEnum', 
                         [], [], 
                         '''                        Start port number
                         ''',

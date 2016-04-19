@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'SrmsMiFlag_Enum' : _MetaInfoEnum('SrmsMiFlag_Enum', 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_cfg',
+    'SrmsMiFlagEnum' : _MetaInfoEnum('SrmsMiFlagEnum', 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_cfg',
         {
             'disable':'DISABLE',
             'enable':'ENABLE',
@@ -64,7 +64,7 @@ _meta_table = {
                 ''',
                 'mask',
                 'Cisco-IOS-XR-segment-routing-ms-cfg', True),
-            _MetaInfoClassMember('flag-attached', REFERENCE_ENUM_CLASS, 'SrmsMiFlag_Enum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_cfg', 'SrmsMiFlag_Enum', 
+            _MetaInfoClassMember('flag-attached', REFERENCE_ENUM_CLASS, 'SrmsMiFlagEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_cfg', 'SrmsMiFlagEnum', 
                 [], [], 
                 '''                Enable/Disable Attached flag
                 ''',

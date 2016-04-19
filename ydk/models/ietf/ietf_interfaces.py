@@ -107,7 +107,7 @@ class Interfaces(object):
         .. attribute:: link_up_down_trap_enable
         
         	Controls whether linkUp/linkDown SNMP notifications should be generated for this interface.  If this node is not configured, the value 'enabled' is operationally used by the server for interfaces that do not operate on top of any other interface (i.e., there are no 'lower\-layer\-if' entries), and 'disabled' otherwise
-        	**type**\: :py:class:`LinkUpDownTrapEnable_Enum <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.LinkUpDownTrapEnable_Enum>`
+        	**type**\: :py:class:`LinkUpDownTrapEnableEnum <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.LinkUpDownTrapEnableEnum>`
         
         .. attribute:: type
         
@@ -129,17 +129,25 @@ class Interfaces(object):
             self.link_up_down_trap_enable = None
             self.type = None
 
-        class LinkUpDownTrapEnable_Enum(Enum):
+        class LinkUpDownTrapEnableEnum(Enum):
             """
-            LinkUpDownTrapEnable_Enum
+            LinkUpDownTrapEnableEnum
 
             Controls whether linkUp/linkDown SNMP notifications
+
             should be generated for this interface.
-            
+
             If this node is not configured, the value 'enabled' is
+
             operationally used by the server for interfaces that do
+
             not operate on top of any other interface (i.e., there are
+
             no 'lower\-layer\-if' entries), and 'disabled' otherwise.
+
+            .. data:: ENABLED = 1
+
+            .. data:: DISABLED = 2
 
             """
 
@@ -151,7 +159,7 @@ class Interfaces(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.ietf._meta import _ietf_interfaces as meta
-                return meta._meta_table['Interfaces.Interface.LinkUpDownTrapEnable_Enum']
+                return meta._meta_table['Interfaces.Interface.LinkUpDownTrapEnableEnum']
 
 
         @property
@@ -168,8 +176,6 @@ class Interfaces(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.name is not None:
                 return True
 
@@ -185,10 +191,6 @@ class Interfaces(object):
             if self.type is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -208,17 +210,11 @@ class Interfaces(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.interface is not None:
             for child_ref in self.interface:
                 if child_ref._has_data():
                     return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -265,7 +261,7 @@ class InterfacesState(object):
         .. attribute:: admin_status
         
         	The desired state of the interface.  This leaf has the same read semantics as ifAdminStatus
-        	**type**\: :py:class:`AdminStatus_Enum <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.AdminStatus_Enum>`
+        	**type**\: :py:class:`AdminStatusEnum <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.AdminStatusEnum>`
         
         .. attribute:: bandwidth
         
@@ -299,7 +295,7 @@ class InterfacesState(object):
         .. attribute:: oper_status
         
         	The current operational state of the interface.  This leaf has the same semantics as ifOperStatus
-        	**type**\: :py:class:`OperStatus_Enum <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.OperStatus_Enum>`
+        	**type**\: :py:class:`OperStatusEnum <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.OperStatusEnum>`
         
         .. attribute:: phys_address
         
@@ -349,109 +345,100 @@ class InterfacesState(object):
             self.statistics.parent = self
             self.type = None
 
-        class AdminStatus_Enum(Enum):
+        class AdminStatusEnum(Enum):
             """
-            AdminStatus_Enum
+            AdminStatusEnum
 
             The desired state of the interface.
-            
+
             This leaf has the same read semantics as ifAdminStatus.
 
-            """
+            .. data:: UP = 1
+
+            	Ready to pass packets.
+
+            .. data:: DOWN = 2
+
+            	Not ready to pass packets and not in some test mode.
+
+            .. data:: TESTING = 3
+
+            	In some test mode.
 
             """
 
-            Ready to pass packets.
-
-            """
             UP = 1
 
-            """
-
-            Not ready to pass packets and not in some test mode.
-
-            """
             DOWN = 2
 
-            """
-
-            In some test mode.
-
-            """
             TESTING = 3
 
 
             @staticmethod
             def _meta_info():
                 from ydk.models.ietf._meta import _ietf_interfaces as meta
-                return meta._meta_table['InterfacesState.Interface.AdminStatus_Enum']
+                return meta._meta_table['InterfacesState.Interface.AdminStatusEnum']
 
 
-        class OperStatus_Enum(Enum):
+        class OperStatusEnum(Enum):
             """
-            OperStatus_Enum
+            OperStatusEnum
 
             The current operational state of the interface.
-            
+
             This leaf has the same semantics as ifOperStatus.
 
-            """
+            .. data:: UP = 1
+
+            	Ready to pass packets.
+
+            .. data:: DOWN = 2
+
+            	The interface does not pass any packets.
+
+            .. data:: TESTING = 3
+
+            	In some test mode.  No operational packets can
+
+            	be passed.
+
+            .. data:: UNKNOWN = 4
+
+            	Status cannot be determined for some reason.
+
+            .. data:: DORMANT = 5
+
+            	Waiting for some external event.
+
+            .. data:: NOT_PRESENT = 6
+
+            	Some component (typically hardware) is missing.
+
+            .. data:: LOWER_LAYER_DOWN = 7
+
+            	Down due to state of lower-layer interface(s).
 
             """
 
-            Ready to pass packets.
-
-            """
             UP = 1
 
-            """
-
-            The interface does not pass any packets.
-
-            """
             DOWN = 2
 
-            """
-
-            In some test mode.  No operational packets can
-            be passed.
-
-            """
             TESTING = 3
 
-            """
-
-            Status cannot be determined for some reason.
-
-            """
             UNKNOWN = 4
 
-            """
-
-            Waiting for some external event.
-
-            """
             DORMANT = 5
 
-            """
-
-            Some component (typically hardware) is missing.
-
-            """
             NOT_PRESENT = 6
 
-            """
-
-            Down due to state of lower\-layer interface(s).
-
-            """
             LOWER_LAYER_DOWN = 7
 
 
             @staticmethod
             def _meta_info():
                 from ydk.models.ietf._meta import _ietf_interfaces as meta
-                return meta._meta_table['InterfacesState.Interface.OperStatus_Enum']
+                return meta._meta_table['InterfacesState.Interface.OperStatusEnum']
 
 
 
@@ -496,18 +483,12 @@ class InterfacesState(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.units is not None:
                     return True
 
                 if self.value is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -672,8 +653,6 @@ class InterfacesState(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.discontinuity_time is not None:
                     return True
 
@@ -724,10 +703,6 @@ class InterfacesState(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.ietf._meta import _ietf_interfaces as meta
@@ -747,8 +722,6 @@ class InterfacesState(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.name is not None:
                 return True
 
@@ -756,9 +729,6 @@ class InterfacesState(object):
                 return True
 
             if self.bandwidth is not None and self.bandwidth._has_data():
-                return True
-
-            if self.bandwidth is not None and self.bandwidth.is_presence():
                 return True
 
             if self.higher_layer_if is not None:
@@ -789,16 +759,9 @@ class InterfacesState(object):
             if self.statistics is not None and self.statistics._has_data():
                 return True
 
-            if self.statistics is not None and self.statistics.is_presence():
-                return True
-
             if self.type is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -818,17 +781,11 @@ class InterfacesState(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.interface is not None:
             for child_ref in self.interface:
                 if child_ref._has_data():
                     return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

@@ -23,217 +23,195 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.aaa.Cisco_IOS_XR_aaa_locald_cfg import AaaLocaldTaskClass_Enum
-from ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg import AaaAction_Enum
-from ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg import AaaAuthentication_Enum
-from ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg import AaaConfig_Enum
-from ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg import AaaSelectKey_Enum
+from ydk.models.aaa.Cisco_IOS_XR_aaa_locald_cfg import AaaLocaldTaskClassEnum
+from ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg import AaaActionEnum
+from ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg import AaaAuthenticationEnum
+from ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg import AaaConfigEnum
+from ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg import AaaSelectKeyEnum
 
-class AaaAccountingUpdate_Enum(Enum):
+class AaaAccountingEnum(Enum):
     """
-    AaaAccountingUpdate_Enum
-
-    Aaa accounting update
-
-    """
-
-    """
-
-    Not Set
-
-    """
-    NONE = 0
-
-    """
-
-    Update records for new accountable information
-    only
-
-    """
-    NEWINFO = 3
-
-    """
-
-    Update records at periodic intervals
-
-    """
-    PERIODIC = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-        return meta._meta_table['AaaAccountingUpdate_Enum']
-
-
-class AaaAccounting_Enum(Enum):
-    """
-    AaaAccounting_Enum
+    AaaAccountingEnum
 
     Aaa accounting
 
-    """
+    .. data:: NOT_SET = 0
+
+    	Not Set
+
+    .. data:: START_STOP = 1
+
+    	Start Stop
+
+    .. data:: STOP_ONLY = 2
+
+    	Stop Only
 
     """
 
-    Not Set
-
-    """
     NOT_SET = 0
 
-    """
-
-    Start Stop
-
-    """
     START_STOP = 1
 
-    """
-
-    Stop Only
-
-    """
     STOP_ONLY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-        return meta._meta_table['AaaAccounting_Enum']
+        return meta._meta_table['AaaAccountingEnum']
 
 
-class AaaMethod_Enum(Enum):
+class AaaAccountingUpdateEnum(Enum):
     """
-    AaaMethod_Enum
+    AaaAccountingUpdateEnum
+
+    Aaa accounting update
+
+    .. data:: NONE = 0
+
+    	Not Set
+
+    .. data:: NEWINFO = 3
+
+    	Update records for new accountable information
+
+    	only
+
+    .. data:: PERIODIC = 4
+
+    	Update records at periodic intervals
+
+    """
+
+    NONE = 0
+
+    NEWINFO = 3
+
+    PERIODIC = 4
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+        return meta._meta_table['AaaAccountingUpdateEnum']
+
+
+class AaaMethodEnum(Enum):
+    """
+    AaaMethodEnum
 
     Aaa method
 
-    """
+    .. data:: NOT_SET = 0
+
+    	Not Set
+
+    .. data:: NONE = 1
+
+    	None
+
+    .. data:: LOCAL = 2
+
+    	Local
+
+    .. data:: RADIUS = 3
+
+    	Radius
+
+    .. data:: TACACS_PLUS = 4
+
+    	TACACS+
+
+    .. data:: DSMD = 5
+
+    	DSMD
+
+    .. data:: SGBP = 6
+
+    	SGBP
+
+    .. data:: ACCT_D = 7
+
+    	AcctD
+
+    .. data:: ERROR = 8
+
+    	Error
+
+    .. data:: IF_AUTHENTICATED = 9
+
+    	If Authenticated
+
+    .. data:: SERVER_GROUP = 10
+
+    	Server Group
+
+    .. data:: SERVER_GROUP_NOT_DEFINED = 11
+
+    	Server Group Not Defined
+
+    .. data:: LINE = 12
+
+    	Line
+
+    .. data:: ENABLE = 13
+
+    	Enable
+
+    .. data:: KERBEROS = 14
+
+    	Kerberos
+
+    .. data:: DIAMETER = 15
+
+    	Diameter
+
+    .. data:: LAST = 16
+
+    	Last
 
     """
 
-    Not Set
-
-    """
     NOT_SET = 0
 
-    """
-
-    None
-
-    """
     NONE = 1
 
-    """
-
-    Local
-
-    """
     LOCAL = 2
 
-    """
-
-    Radius
-
-    """
     RADIUS = 3
 
-    """
-
-    TACACS+
-
-    """
     TACACS_PLUS = 4
 
-    """
-
-    DSMD
-
-    """
     DSMD = 5
 
-    """
-
-    SGBP
-
-    """
     SGBP = 6
 
-    """
-
-    AcctD
-
-    """
     ACCT_D = 7
 
-    """
-
-    Error
-
-    """
     ERROR = 8
 
-    """
-
-    If Authenticated
-
-    """
     IF_AUTHENTICATED = 9
 
-    """
-
-    Server Group
-
-    """
     SERVER_GROUP = 10
 
-    """
-
-    Server Group Not Defined
-
-    """
     SERVER_GROUP_NOT_DEFINED = 11
 
-    """
-
-    Line
-
-    """
     LINE = 12
 
-    """
-
-    Enable
-
-    """
     ENABLE = 13
 
-    """
-
-    Kerberos
-
-    """
     KERBEROS = 14
 
-    """
-
-    Diameter
-
-    """
     DIAMETER = 15
 
-    """
-
-    Last
-
-    """
     LAST = 16
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-        return meta._meta_table['AaaMethod_Enum']
+        return meta._meta_table['AaaMethodEnum']
 
 
 
@@ -337,10 +315,20 @@ class Aaa(object):
         
         	**range:** 0..35791394
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: type
         
         	newinfo/periodic
-        	**type**\: :py:class:`AaaAccountingUpdate_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingUpdate_Enum>`
+        	**type**\: :py:class:`AaaAccountingUpdateEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingUpdateEnum>`
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -368,8 +356,6 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.periodic_interval is not None:
                 return True
 
@@ -377,10 +363,6 @@ class Aaa(object):
                 return True
 
             return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
 
         @staticmethod
         def _meta_info():
@@ -437,7 +419,7 @@ class Aaa(object):
             .. attribute:: method
             
             	Method Types
-            	**type**\: list of :py:class:`AaaMethod_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.AaaMethod_Enum>`
+            	**type**\: list of :py:class:`AaaMethodEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.AaaMethodEnum>`
             
             .. attribute:: rp_failover
             
@@ -452,7 +434,7 @@ class Aaa(object):
             .. attribute:: type_xr
             
             	Stop only/Start Stop
-            	**type**\: :py:class:`AaaAccounting_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.AaaAccounting_Enum>`
+            	**type**\: :py:class:`AaaAccountingEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingEnum>`
             
             
 
@@ -487,8 +469,6 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.listname is not None:
                     return True
 
@@ -516,10 +496,6 @@ class Aaa(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
@@ -537,17 +513,11 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.accounting is not None:
                 for child_ref in self.accounting:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -600,7 +570,7 @@ class Aaa(object):
             .. attribute:: method
             
             	Methods
-            	**type**\: list of :py:class:`AaaMethod_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.AaaMethod_Enum>`
+            	**type**\: list of :py:class:`AaaMethodEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.AaaMethodEnum>`
             
             .. attribute:: server_group_name
             
@@ -637,8 +607,6 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.listname is not None:
                     return True
 
@@ -655,10 +623,6 @@ class Aaa(object):
                         if child is not None:
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -678,17 +642,11 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.authentication is not None:
                 for child_ref in self.authentication:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -741,7 +699,7 @@ class Aaa(object):
             .. attribute:: method
             
             	Methods
-            	**type**\: list of :py:class:`AaaMethod_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.AaaMethod_Enum>`
+            	**type**\: list of :py:class:`AaaMethodEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg.AaaMethodEnum>`
             
             .. attribute:: server_group_name
             
@@ -778,8 +736,6 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.listname is not None:
                     return True
 
@@ -796,10 +752,6 @@ class Aaa(object):
                         if child is not None:
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -819,17 +771,11 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.authorization is not None:
                 for child_ref in self.authorization:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1067,18 +1013,12 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.attribute_list_name is not None:
                         return True
 
                     if self.attribute is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1098,17 +1038,11 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.attribute is not None:
                     for child_ref in self.attribute:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1159,18 +1093,12 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.time is not None:
                     return True
 
                 if self.tries is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1213,15 +1141,9 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.null_username is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1237,7 +1159,7 @@ class Aaa(object):
             .. attribute:: authentication_type
             
             	RADIUS  dynamic  authorization  type
-            	**type**\: :py:class:`AaaAuthentication_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAuthentication_Enum>`
+            	**type**\: :py:class:`AaaAuthenticationEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAuthenticationEnum>`
             
             .. attribute:: clients
             
@@ -1247,7 +1169,7 @@ class Aaa(object):
             .. attribute:: ignore
             
             	Ignore option for server key or session key
-            	**type**\: :py:class:`AaaSelectKey_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaSelectKey_Enum>`
+            	**type**\: :py:class:`AaaSelectKeyEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaSelectKeyEnum>`
             
             .. attribute:: port
             
@@ -1353,18 +1275,12 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ip_address is not None:
                             return True
 
                         if self.server_key is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1425,8 +1341,6 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ip_address is not None:
                             return True
 
@@ -1436,10 +1350,6 @@ class Aaa(object):
                         if self.server_key is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1459,8 +1369,6 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.client is not None:
                         for child_ref in self.client:
                             if child_ref._has_data():
@@ -1471,10 +1379,6 @@ class Aaa(object):
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1494,15 +1398,10 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.authentication_type is not None:
                     return True
 
                 if self.clients is not None and self.clients._has_data():
-                    return True
-
-                if self.clients is not None and self.clients.is_presence():
                     return True
 
                 if self.ignore is not None:
@@ -1514,10 +1413,6 @@ class Aaa(object):
                 if self.server_key is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1663,8 +1558,6 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.acct_port_number is not None:
                         return True
 
@@ -1700,10 +1593,6 @@ class Aaa(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
@@ -1721,17 +1610,11 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.host is not None:
                     for child_ref in self.host:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1747,7 +1630,7 @@ class Aaa(object):
             .. attribute:: dscp
             
             	Specify the DSCP value
-            	**type**\: one of { :py:class:`AaaDscpValue_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaDscpValue_Enum>` | int }
+            	**type**\: one of { :py:class:`AaaDscpValueEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaDscpValueEnum>` | int }
             
             
 
@@ -1772,15 +1655,9 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.dscp is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1796,7 +1673,7 @@ class Aaa(object):
             .. attribute:: dscp
             
             	Specify the DSCP value
-            	**type**\: one of { :py:class:`AaaDscpValue_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaDscpValue_Enum>` | int }
+            	**type**\: one of { :py:class:`AaaDscpValueEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaDscpValueEnum>` | int }
             
             
 
@@ -1821,15 +1698,9 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.dscp is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1924,18 +1795,12 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.batch_size is not None:
                             return True
 
                         if self.ignore_preferred_server is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1955,18 +1820,9 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.batch_size is not None and self.batch_size._has_data():
                         return True
 
-                    if self.batch_size is not None and self.batch_size.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1986,18 +1842,9 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.load_balance_method is not None and self.load_balance_method._has_data():
                     return True
 
-                if self.load_balance_method is not None and self.load_balance_method.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2065,7 +1912,7 @@ class Aaa(object):
                     .. attribute:: config
                     
                     	false/true
-                    	**type**\: :py:class:`AaaConfig_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaConfig_Enum>`
+                    	**type**\: :py:class:`AaaConfigEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaConfigEnum>`
                     
                     
 
@@ -2090,15 +1937,9 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.config is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2118,18 +1959,9 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.include_parent_session_id is not None and self.include_parent_session_id._has_data():
                         return True
 
-                    if self.include_parent_session_id is not None and self.include_parent_session_id.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2168,7 +2000,7 @@ class Aaa(object):
                     .. attribute:: config
                     
                     	false/true
-                    	**type**\: :py:class:`AaaConfig_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaConfig_Enum>`
+                    	**type**\: :py:class:`AaaConfigEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaConfigEnum>`
                     
                     
 
@@ -2193,15 +2025,9 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.config is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2221,18 +2047,9 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.prepend_nas_port_id is not None and self.prepend_nas_port_id._has_data():
                         return True
 
-                    if self.prepend_nas_port_id is not None and self.prepend_nas_port_id.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2252,24 +2069,12 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.acct_multi_session_id is not None and self.acct_multi_session_id._has_data():
-                    return True
-
-                if self.acct_multi_session_id is not None and self.acct_multi_session_id.is_presence():
                     return True
 
                 if self.acct_session_id is not None and self.acct_session_id._has_data():
                     return True
 
-                if self.acct_session_id is not None and self.acct_session_id.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2310,15 +2115,9 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.extended is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2377,8 +2176,6 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.access is not None:
                     return True
 
@@ -2388,10 +2185,6 @@ class Aaa(object):
                 if self.accounting is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2467,18 +2260,12 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vrf_name is not None:
                         return True
 
                     if self.source_interface is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2498,17 +2285,11 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.vrf is not None:
                     for child_ref in self.vrf:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2593,15 +2374,9 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.unknown is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2621,18 +2396,9 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ignore is not None and self.ignore._has_data():
                         return True
 
-                    if self.ignore is not None and self.ignore.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2652,18 +2418,9 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.attribute is not None and self.attribute._has_data():
                     return True
 
-                if self.attribute is not None and self.attribute.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2683,18 +2440,10 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.attributes is not None and self.attributes._has_data():
                 return True
 
-            if self.attributes is not None and self.attributes.is_presence():
-                return True
-
             if self.dead_criteria is not None and self.dead_criteria._has_data():
-                return True
-
-            if self.dead_criteria is not None and self.dead_criteria.is_presence():
                 return True
 
             if self.dead_time is not None:
@@ -2703,19 +2452,10 @@ class Aaa(object):
             if self.disallow is not None and self.disallow._has_data():
                 return True
 
-            if self.disallow is not None and self.disallow.is_presence():
-                return True
-
             if self.dynamic_authorization is not None and self.dynamic_authorization._has_data():
                 return True
 
-            if self.dynamic_authorization is not None and self.dynamic_authorization.is_presence():
-                return True
-
             if self.hosts is not None and self.hosts._has_data():
-                return True
-
-            if self.hosts is not None and self.hosts.is_presence():
                 return True
 
             if self.idle_time is not None:
@@ -2730,13 +2470,7 @@ class Aaa(object):
             if self.ipv4 is not None and self.ipv4._has_data():
                 return True
 
-            if self.ipv4 is not None and self.ipv4.is_presence():
-                return True
-
             if self.ipv6 is not None and self.ipv6._has_data():
-                return True
-
-            if self.ipv6 is not None and self.ipv6.is_presence():
                 return True
 
             if self.key is not None:
@@ -2745,13 +2479,7 @@ class Aaa(object):
             if self.load_balance_options is not None and self.load_balance_options._has_data():
                 return True
 
-            if self.load_balance_options is not None and self.load_balance_options.is_presence():
-                return True
-
             if self.radius_attribute is not None and self.radius_attribute._has_data():
-                return True
-
-            if self.radius_attribute is not None and self.radius_attribute.is_presence():
                 return True
 
             if self.retransmit is not None:
@@ -2760,13 +2488,7 @@ class Aaa(object):
             if self.source_port is not None and self.source_port._has_data():
                 return True
 
-            if self.source_port is not None and self.source_port.is_presence():
-                return True
-
             if self.throttle is not None and self.throttle._has_data():
-                return True
-
-            if self.throttle is not None and self.throttle.is_presence():
                 return True
 
             if self.timeout is not None:
@@ -2778,19 +2500,9 @@ class Aaa(object):
             if self.vrfs is not None and self.vrfs._has_data():
                 return True
 
-            if self.vrfs is not None and self.vrfs.is_presence():
-                return True
-
             if self.vsa is not None and self.vsa._has_data():
                 return True
 
-            if self.vsa is not None and self.vsa.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2981,7 +2693,7 @@ class Aaa(object):
                         .. attribute:: action
                         
                         	Specify the attribute list type accept or reject
-                        	**type**\: :py:class:`AaaAction_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAction_Enum>`
+                        	**type**\: :py:class:`AaaActionEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaActionEnum>`
                         
                         .. attribute:: attribute_list_name
                         
@@ -3014,18 +2726,12 @@ class Aaa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.action is not None:
                                 return True
 
                             if self.attribute_list_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3041,7 +2747,7 @@ class Aaa(object):
                         .. attribute:: action
                         
                         	Specify the attribute list type accept or reject
-                        	**type**\: :py:class:`AaaAction_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAction_Enum>`
+                        	**type**\: :py:class:`AaaActionEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaActionEnum>`
                         
                         .. attribute:: attribute_list_name
                         
@@ -3074,18 +2780,12 @@ class Aaa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.action is not None:
                                 return True
 
                             if self.attribute_list_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3107,24 +2807,12 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.reply is not None and self.reply._has_data():
-                            return True
-
-                        if self.reply is not None and self.reply.is_presence():
                             return True
 
                         if self.request is not None and self.request._has_data():
                             return True
 
-                        if self.request is not None and self.request.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3169,7 +2857,7 @@ class Aaa(object):
                         .. attribute:: action
                         
                         	Specify the attribute list type accept or reject
-                        	**type**\: :py:class:`AaaAction_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAction_Enum>`
+                        	**type**\: :py:class:`AaaActionEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaActionEnum>`
                         
                         .. attribute:: attribute_list_name
                         
@@ -3202,18 +2890,12 @@ class Aaa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.action is not None:
                                 return True
 
                             if self.attribute_list_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3229,7 +2911,7 @@ class Aaa(object):
                         .. attribute:: action
                         
                         	Specify the attribute list type accept or reject
-                        	**type**\: :py:class:`AaaAction_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAction_Enum>`
+                        	**type**\: :py:class:`AaaActionEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaActionEnum>`
                         
                         .. attribute:: attribute_list_name
                         
@@ -3262,18 +2944,12 @@ class Aaa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.action is not None:
                                 return True
 
                             if self.attribute_list_name is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3295,24 +2971,12 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.reply is not None and self.reply._has_data():
-                            return True
-
-                        if self.reply is not None and self.reply.is_presence():
                             return True
 
                         if self.request is not None and self.request._has_data():
                             return True
 
-                        if self.request is not None and self.request.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3417,8 +3081,6 @@ class Aaa(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.batch_size is not None:
                                     return True
 
@@ -3428,10 +3090,6 @@ class Aaa(object):
                                 if self.least_outstanding is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3453,18 +3111,9 @@ class Aaa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.name is not None and self.name._has_data():
                                 return True
 
-                            if self.name is not None and self.name.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3486,18 +3135,9 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.method is not None and self.method._has_data():
                             return True
 
-                        if self.method is not None and self.method.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3647,8 +3287,6 @@ class Aaa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.acct_port_number is not None:
                                 return True
 
@@ -3684,10 +3322,6 @@ class Aaa(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
@@ -3707,17 +3341,11 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.private_server is not None:
                             for child_ref in self.private_server:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3778,8 +3406,6 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.access is not None:
                             return True
 
@@ -3789,10 +3415,6 @@ class Aaa(object):
                         if self.accounting is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3890,8 +3512,6 @@ class Aaa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.acct_port_number is not None:
                                 return True
 
@@ -3904,10 +3524,6 @@ class Aaa(object):
                             if self.ordering_index is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3929,17 +3545,11 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.server is not None:
                             for child_ref in self.server:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4000,8 +3610,6 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.access is not None:
                             return True
 
@@ -4011,10 +3619,6 @@ class Aaa(object):
                         if self.accounting is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4036,21 +3640,13 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.server_group_name is not None:
                         return True
 
                     if self.accounting is not None and self.accounting._has_data():
                         return True
 
-                    if self.accounting is not None and self.accounting.is_presence():
-                        return True
-
                     if self.authorization is not None and self.authorization._has_data():
-                        return True
-
-                    if self.authorization is not None and self.authorization.is_presence():
                         return True
 
                     if self.dead_time is not None:
@@ -4059,25 +3655,13 @@ class Aaa(object):
                     if self.load_balance is not None and self.load_balance._has_data():
                         return True
 
-                    if self.load_balance is not None and self.load_balance.is_presence():
-                        return True
-
                     if self.private_servers is not None and self.private_servers._has_data():
-                        return True
-
-                    if self.private_servers is not None and self.private_servers.is_presence():
                         return True
 
                     if self.server_group_throttle is not None and self.server_group_throttle._has_data():
                         return True
 
-                    if self.server_group_throttle is not None and self.server_group_throttle.is_presence():
-                        return True
-
                     if self.servers is not None and self.servers._has_data():
-                        return True
-
-                    if self.servers is not None and self.servers.is_presence():
                         return True
 
                     if self.source_interface is not None:
@@ -4086,16 +3670,9 @@ class Aaa(object):
                     if self.throttle is not None and self.throttle._has_data():
                         return True
 
-                    if self.throttle is not None and self.throttle.is_presence():
-                        return True
-
                     if self.vrf is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4115,17 +3692,11 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.radius_server_group is not None:
                     for child_ref in self.radius_server_group:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4297,8 +3868,6 @@ class Aaa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip_address is not None:
                                 return True
 
@@ -4314,10 +3883,6 @@ class Aaa(object):
                             if self.timeout is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4339,17 +3904,11 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.private_server is not None:
                             for child_ref in self.private_server:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4427,18 +3986,12 @@ class Aaa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip_address is not None:
                                 return True
 
                             if self.ordering_index is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4460,17 +4013,11 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.server is not None:
                             for child_ref in self.server:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4492,30 +4039,18 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.server_group_name is not None:
                         return True
 
                     if self.private_servers is not None and self.private_servers._has_data():
                         return True
 
-                    if self.private_servers is not None and self.private_servers.is_presence():
-                        return True
-
                     if self.servers is not None and self.servers._has_data():
-                        return True
-
-                    if self.servers is not None and self.servers.is_presence():
                         return True
 
                     if self.vrf is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4535,17 +4070,11 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.tacacs_server_group is not None:
                     for child_ref in self.tacacs_server_group:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4565,24 +4094,12 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.radius_server_groups is not None and self.radius_server_groups._has_data():
-                return True
-
-            if self.radius_server_groups is not None and self.radius_server_groups.is_presence():
                 return True
 
             if self.tacacs_server_groups is not None and self.tacacs_server_groups._has_data():
                 return True
 
-            if self.tacacs_server_groups is not None and self.tacacs_server_groups.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -4755,8 +4272,6 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ip_address is not None:
                         return True
 
@@ -4777,10 +4292,6 @@ class Aaa(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.aaa._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
@@ -4798,17 +4309,11 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.host is not None:
                     for child_ref in self.host:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4824,7 +4329,7 @@ class Aaa(object):
             .. attribute:: dscp
             
             	Specify the DSCP value
-            	**type**\: one of { :py:class:`TacacsDscpValue_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValue_Enum>` | int }
+            	**type**\: one of { :py:class:`TacacsDscpValueEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValueEnum>` | int }
             
             
 
@@ -4849,15 +4354,9 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.dscp is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4873,7 +4372,7 @@ class Aaa(object):
             .. attribute:: dscp
             
             	Specify the DSCP value
-            	**type**\: one of { :py:class:`TacacsDscpValue_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValue_Enum>` | int }
+            	**type**\: one of { :py:class:`TacacsDscpValueEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValueEnum>` | int }
             
             
 
@@ -4898,15 +4397,9 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.dscp is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4982,18 +4475,12 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vrf_name is not None:
                         return True
 
                     if self.source_interface is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5013,17 +4500,11 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.vrf is not None:
                     for child_ref in self.vrf:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5043,24 +4524,13 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.hosts is not None and self.hosts._has_data():
-                return True
-
-            if self.hosts is not None and self.hosts.is_presence():
                 return True
 
             if self.ipv4 is not None and self.ipv4._has_data():
                 return True
 
-            if self.ipv4 is not None and self.ipv4.is_presence():
-                return True
-
             if self.ipv6 is not None and self.ipv6._has_data():
-                return True
-
-            if self.ipv6 is not None and self.ipv6.is_presence():
                 return True
 
             if self.key is not None:
@@ -5075,13 +4545,6 @@ class Aaa(object):
             if self.vrfs is not None and self.vrfs._has_data():
                 return True
 
-            if self.vrfs is not None and self.vrfs.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -5215,15 +4678,9 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5245,17 +4702,11 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.taskgroup_under_taskgroup is not None:
                         for child_ref in self.taskgroup_under_taskgroup:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5299,7 +4750,7 @@ class Aaa(object):
                     .. attribute:: type
                     
                     	This specifies the operation permitted for this task eg\: read/write/execute/debug
-                    	**type**\: :py:class:`AaaLocaldTaskClass_Enum <ydk.models.aaa.Cisco_IOS_XR_aaa_locald_cfg.AaaLocaldTaskClass_Enum>`
+                    	**type**\: :py:class:`AaaLocaldTaskClassEnum <ydk.models.aaa.Cisco_IOS_XR_aaa_locald_cfg.AaaLocaldTaskClassEnum>`
                     
                     
 
@@ -5331,18 +4782,12 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.task_id is not None:
                             return True
 
                         if self.type is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5364,17 +4809,11 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.task is not None:
                         for child_ref in self.task:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5396,8 +4835,6 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
@@ -5407,19 +4844,9 @@ class Aaa(object):
                 if self.taskgroup_under_taskgroups is not None and self.taskgroup_under_taskgroups._has_data():
                     return True
 
-                if self.taskgroup_under_taskgroups is not None and self.taskgroup_under_taskgroups.is_presence():
-                    return True
-
                 if self.tasks is not None and self.tasks._has_data():
                     return True
 
-                if self.tasks is not None and self.tasks.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5439,17 +4866,11 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.taskgroup is not None:
                 for child_ref in self.taskgroup:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -5583,15 +5004,9 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5613,17 +5028,11 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.taskgroup_under_usergroup is not None:
                         for child_ref in self.taskgroup_under_usergroup:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5693,15 +5102,9 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5723,17 +5126,11 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.usergroup_under_usergroup is not None:
                         for child_ref in self.usergroup_under_usergroup:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5755,8 +5152,6 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
@@ -5766,19 +5161,9 @@ class Aaa(object):
                 if self.taskgroup_under_usergroups is not None and self.taskgroup_under_usergroups._has_data():
                     return True
 
-                if self.taskgroup_under_usergroups is not None and self.taskgroup_under_usergroups.is_presence():
-                    return True
-
                 if self.usergroup_under_usergroups is not None and self.usergroup_under_usergroups._has_data():
                     return True
 
-                if self.usergroup_under_usergroups is not None and self.usergroup_under_usergroups.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5798,17 +5183,11 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.usergroup is not None:
                 for child_ref in self.usergroup:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -5946,15 +5325,9 @@ class Aaa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5976,17 +5349,11 @@ class Aaa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.usergroup_under_username is not None:
                         for child_ref in self.usergroup_under_username:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -6008,8 +5375,6 @@ class Aaa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
@@ -6022,13 +5387,6 @@ class Aaa(object):
                 if self.usergroup_under_usernames is not None and self.usergroup_under_usernames._has_data():
                     return True
 
-                if self.usergroup_under_usernames is not None and self.usergroup_under_usernames.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6048,17 +5406,11 @@ class Aaa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.username is not None:
                 for child_ref in self.username:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -6078,30 +5430,16 @@ class Aaa(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.accounting_update is not None and self.accounting_update._has_data():
-            return True
-
-        if self.accounting_update is not None and self.accounting_update.is_presence():
             return True
 
         if self.accountings is not None and self.accountings._has_data():
             return True
 
-        if self.accountings is not None and self.accountings.is_presence():
-            return True
-
         if self.authentications is not None and self.authentications._has_data():
             return True
 
-        if self.authentications is not None and self.authentications.is_presence():
-            return True
-
         if self.authorizations is not None and self.authorizations._has_data():
-            return True
-
-        if self.authorizations is not None and self.authorizations.is_presence():
             return True
 
         if self.default_taskgroup is not None:
@@ -6110,43 +5448,21 @@ class Aaa(object):
         if self.radius is not None and self.radius._has_data():
             return True
 
-        if self.radius is not None and self.radius.is_presence():
-            return True
-
         if self.server_groups is not None and self.server_groups._has_data():
-            return True
-
-        if self.server_groups is not None and self.server_groups.is_presence():
             return True
 
         if self.tacacs is not None and self.tacacs._has_data():
             return True
 
-        if self.tacacs is not None and self.tacacs.is_presence():
-            return True
-
         if self.taskgroups is not None and self.taskgroups._has_data():
-            return True
-
-        if self.taskgroups is not None and self.taskgroups.is_presence():
             return True
 
         if self.usergroups is not None and self.usergroups._has_data():
             return True
 
-        if self.usergroups is not None and self.usergroups.is_presence():
-            return True
-
         if self.usernames is not None and self.usernames._has_data():
             return True
 
-        if self.usernames is not None and self.usernames.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

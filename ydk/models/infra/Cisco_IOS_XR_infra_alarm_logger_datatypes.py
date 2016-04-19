@@ -20,68 +20,61 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class AlarmLoggerSeverityLevel_Enum(Enum):
+class AlarmLoggerSeverityLevelEnum(Enum):
     """
-    AlarmLoggerSeverityLevel_Enum
+    AlarmLoggerSeverityLevelEnum
 
     Alarm logger severity level
 
-    """
+    .. data:: EMERGENCY = 0
+
+    	Emergency
+
+    .. data:: ALERT = 1
+
+    	Alert
+
+    .. data:: CRITICAL = 2
+
+    	Critical
+
+    .. data:: ERROR = 3
+
+    	Error
+
+    .. data:: WARNING = 4
+
+    	Warning
+
+    .. data:: NOTICE = 5
+
+    	Notice
+
+    .. data:: INFORMATIONAL = 6
+
+    	Informational
 
     """
 
-    Emergency
-
-    """
     EMERGENCY = 0
 
-    """
-
-    Alert
-
-    """
     ALERT = 1
 
-    """
-
-    Critical
-
-    """
     CRITICAL = 2
 
-    """
-
-    Error
-
-    """
     ERROR = 3
 
-    """
-
-    Warning
-
-    """
     WARNING = 4
 
-    """
-
-    Notice
-
-    """
     NOTICE = 5
 
-    """
-
-    Informational
-
-    """
     INFORMATIONAL = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_alarm_logger_datatypes as meta
-        return meta._meta_table['AlarmLoggerSeverityLevel_Enum']
+        return meta._meta_table['AlarmLoggerSeverityLevelEnum']
 
 
 

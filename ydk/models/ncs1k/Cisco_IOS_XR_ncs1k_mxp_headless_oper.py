@@ -326,8 +326,6 @@ class HeadlessFuncData(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.rx_bytes_good is not None:
                         return True
 
@@ -393,10 +391,6 @@ class HeadlessFuncData(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ncs1k._meta import _Cisco_IOS_XR_ncs1k_mxp_headless_oper as meta
@@ -416,15 +410,10 @@ class HeadlessFuncData(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
                 if self.ether_statistics is not None and self.ether_statistics._has_data():
-                    return True
-
-                if self.ether_statistics is not None and self.ether_statistics.is_presence():
                     return True
 
                 if self.headless_end_time is not None:
@@ -436,10 +425,6 @@ class HeadlessFuncData(object):
                 if self.started_stateful is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -459,17 +444,11 @@ class HeadlessFuncData(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.ethernet_port_name is not None:
                 for child_ref in self.ethernet_port_name:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -614,8 +593,6 @@ class HeadlessFuncData(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.fec_ec is not None:
                         return True
 
@@ -628,10 +605,6 @@ class HeadlessFuncData(object):
                     if self.sm_bip is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -653,8 +626,6 @@ class HeadlessFuncData(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
@@ -667,16 +638,9 @@ class HeadlessFuncData(object):
                 if self.otn_statistics is not None and self.otn_statistics._has_data():
                     return True
 
-                if self.otn_statistics is not None and self.otn_statistics.is_presence():
-                    return True
-
                 if self.started_stateful is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -696,17 +660,11 @@ class HeadlessFuncData(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.otn_port_name is not None:
                 for child_ref in self.otn_port_name:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -726,24 +684,12 @@ class HeadlessFuncData(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.ethernet_port_names is not None and self.ethernet_port_names._has_data():
-            return True
-
-        if self.ethernet_port_names is not None and self.ethernet_port_names.is_presence():
             return True
 
         if self.otn_port_names is not None and self.otn_port_names._has_data():
             return True
 
-        if self.otn_port_names is not None and self.otn_port_names.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

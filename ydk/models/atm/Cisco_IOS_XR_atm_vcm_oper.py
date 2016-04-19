@@ -24,679 +24,614 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class ClassLinkOamInheritLevel_Enum(Enum):
+class ClassLinkOamInheritLevelEnum(Enum):
     """
-    ClassLinkOamInheritLevel_Enum
+    ClassLinkOamInheritLevelEnum
 
     ATM VC\-class inheritence level for class\-link
 
-    """
+    .. data:: VC_CONFIGURED_ONVC = 0
+
+    	Configured on VC
+
+    .. data:: VC_CLASS_ONVC = 1
+
+    	Class on VC
+
+    .. data:: VC_CLASS_ON_SUB_INTERFACE = 2
+
+    	Class on sub-if
+
+    .. data:: VC_CLASS_ON_MAIN_INTERFACE = 3
+
+    	Class on main-if
+
+    .. data:: VC_GLOBAL_DEFAULT = 4
+
+    	Global default values
+
+    .. data:: VC_INHERIT_LEVEL_UNKNOWN = 5
+
+    	Unknown (invalid)
 
     """
 
-    Configured on VC
-
-    """
     VC_CONFIGURED_ONVC = 0
 
-    """
-
-    Class on VC
-
-    """
     VC_CLASS_ONVC = 1
 
-    """
-
-    Class on sub\-if
-
-    """
     VC_CLASS_ON_SUB_INTERFACE = 2
 
-    """
-
-    Class on main\-if
-
-    """
     VC_CLASS_ON_MAIN_INTERFACE = 3
 
-    """
-
-    Global default values
-
-    """
     VC_GLOBAL_DEFAULT = 4
 
-    """
-
-    Unknown (invalid)
-
-    """
     VC_INHERIT_LEVEL_UNKNOWN = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
-        return meta._meta_table['ClassLinkOamInheritLevel_Enum']
+        return meta._meta_table['ClassLinkOamInheritLevelEnum']
 
 
-class VcCellPackingMode_Enum(Enum):
+class VcCellPackingModeEnum(Enum):
     """
-    VcCellPackingMode_Enum
+    VcCellPackingModeEnum
 
     ATM VC cell packing mode
 
-    """
+    .. data:: VP = 1
+
+    	VP mode
+
+    .. data:: VC = 2
+
+    	VC mode
+
+    .. data:: PORT_MODE = 3
+
+    	Port mode
 
     """
 
-    VP mode
-
-    """
     VP = 1
 
-    """
-
-    VC mode
-
-    """
     VC = 2
 
-    """
-
-    Port mode
-
-    """
     PORT_MODE = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
-        return meta._meta_table['VcCellPackingMode_Enum']
+        return meta._meta_table['VcCellPackingModeEnum']
 
 
-class VcEncap_Enum(Enum):
+class VcEncapEnum(Enum):
     """
-    VcEncap_Enum
+    VcEncapEnum
 
     VC Encapsulation Type
 
-    """
+    .. data:: ILMI = 1
+
+    	ILMI Encapsulation
+
+    .. data:: QSAAL = 2
+
+    	QSAAL Encapsulation
+
+    .. data:: SNAP = 3
+
+    	SNAP Encapsulation
+
+    .. data:: MUX = 4
+
+    	MUX Encapsulation
+
+    .. data:: NLPID = 5
+
+    	NLPID Encapsulation
+
+    .. data:: F4OAM = 6
+
+    	F4OAM Encapsulation
+
+    .. data:: AAL0 = 7
+
+    	AAL0 Encapsulation
+
+    .. data:: AAL5 = 8
+
+    	AAL5 Encapsulation
+
+    .. data:: ENCAP_UNKNOWN = 9
+
+    	Uknown (invalid) Encapsulation
 
     """
 
-    ILMI Encapsulation
-
-    """
     ILMI = 1
 
-    """
-
-    QSAAL Encapsulation
-
-    """
     QSAAL = 2
 
-    """
-
-    SNAP Encapsulation
-
-    """
     SNAP = 3
 
-    """
-
-    MUX Encapsulation
-
-    """
     MUX = 4
 
-    """
-
-    NLPID Encapsulation
-
-    """
     NLPID = 5
 
-    """
-
-    F4OAM Encapsulation
-
-    """
     F4OAM = 6
 
-    """
-
-    AAL0 Encapsulation
-
-    """
     AAL0 = 7
 
-    """
-
-    AAL5 Encapsulation
-
-    """
     AAL5 = 8
 
-    """
-
-    Uknown (invalid) Encapsulation
-
-    """
     ENCAP_UNKNOWN = 9
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
-        return meta._meta_table['VcEncap_Enum']
+        return meta._meta_table['VcEncapEnum']
 
 
-class VcInheritLevel_Enum(Enum):
+class VcEnum(Enum):
     """
-    VcInheritLevel_Enum
-
-    ATM vc\-class inheritence level
-
-    """
-
-    """
-
-    ATM vc\-class inherit level\: Config of VC
-
-    """
-    DIRECTLY_CONFIGURED_ONVC = 0
-
-    """
-
-    ATM vc\-class inherit level\: Class of VC
-
-    """
-    VC_CLASS_CONFIGURED_ONVC = 1
-
-    """
-
-    ATM vc\-class inherit level\: Class of Sub\-if
-
-    """
-    VC_CLASS_CONFIGURED_ON_SUB_INTERFACE = 2
-
-    """
-
-    ATM vc\-class inherit level\: Class of Main\-if
-
-    """
-    VC_CLASS_CONFIGURED_ON_MAIN_INTERFACE = 3
-
-    """
-
-    ATM vc\-class inherit level\: Global Default
-
-    """
-    GLOBAL_DEFAULT = 4
-
-    """
-
-    ATM vc\-class inherit level\: Unknown (invalid)
-
-    """
-    UNKNOWN = 5
-
-    """
-
-    ATM vc\-class inherit level\: Not supported on
-    this VC class
-
-    """
-    NOT_SUPPORTED = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
-        return meta._meta_table['VcInheritLevel_Enum']
-
-
-class VcManageLevel_Enum(Enum):
-    """
-    VcManageLevel_Enum
-
-    ATM Class link manage level
-
-    """
-
-    """
-
-    Managed
-
-    """
-    MANAGE = 1
-
-    """
-
-    Not managed
-
-    """
-    NOT_MANAGED = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
-        return meta._meta_table['VcManageLevel_Enum']
-
-
-class VcState_Enum(Enum):
-    """
-    VcState_Enum
-
-    VC State
-
-    """
-
-    """
-
-    ATM VC State\: only VC data structure
-    initialized   
-
-    """
-    INITIALIZED = 0
-
-    """
-
-    ATM VC State\: configuration currently being
-    changed
-
-    """
-    MODIFYING = 1
-
-    """
-
-    ATM VC State\: configuration changed            
-
-    """
-    MODIFIED = 2
-
-    """
-
-    ATM VC State\: command sent to hardware to
-    activate 
-
-    """
-    ACTIVATING = 3
-
-    """
-
-    ATM VC State\: activated in h/w or protocol     
-
-    """
-    ACTIVATED = 4
-
-    """
-
-    ATM VC State\: OAM/ILMI \- yet to verify         
-
-    """
-    NOT_VERIFIED = 5
-
-    """
-
-    ATM VC State\: Ready state                      
-
-    """
-    READY = 6
-
-    """
-
-    ATM VC State\: command sent to h/w to deactivate
-
-    """
-    DEACTIVATING = 7
-
-    """
-
-    ATM VC State\: inactive/not present in hardware 
-
-    """
-    INACTIVE = 8
-
-    """
-
-    ATM VC State\: VC is being deleted              
-
-    """
-    DELETING = 9
-
-    """
-
-    ATM VC State\: VC is already delete in hardware 
-
-    """
-    DELETED = 10
-
-    """
-
-    ATM VC State\: Unknown(invalid)
-
-    """
-    STATE_UNKNOWN = 11
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
-        return meta._meta_table['VcState_Enum']
-
-
-class VcTestMode_Enum(Enum):
-    """
-    VcTestMode_Enum
-
-    VC Test Mode Type
-
-    """
-
-    """
-
-    VC not in test mode
-
-    """
-    TEST_MODE_NONE = 1
-
-    """
-
-    VC in test mode Loop
-
-    """
-    LOOP = 2
-
-    """
-
-    VC in test mode Reserved
-
-    """
-    RESERVED = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
-        return meta._meta_table['VcTestMode_Enum']
-
-
-class VcTrafShaping_Enum(Enum):
-    """
-    VcTrafShaping_Enum
-
-    VC traffic shaping type
-
-    """
-
-    """
-
-    VC traffic shaping type CBR
-
-    """
-    CBR = 1
-
-    """
-
-    VC traffic shaping type VBR\-NR
-
-    """
-    VBR_NRT = 2
-
-    """
-
-    VC traffic shaping type VBR\-RT
-
-    """
-    VBR_RT = 3
-
-    """
-
-    VC traffic shaping type ABR
-
-    """
-    ABR = 4
-
-    """
-
-    VC traffic shaping type UBR+
-
-    """
-    UBR_PLUS = 5
-
-    """
-
-    VC traffic shaping type UBR
-
-    """
-    UBR = 6
-
-    """
-
-    VC traffic shaping type Unknown (invalid)
-
-    """
-    TRAF_SHAPING_UNKNOWN = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
-        return meta._meta_table['VcTrafShaping_Enum']
-
-
-class Vc_Enum(Enum):
-    """
-    Vc_Enum
+    VcEnum
 
      ATM VC type
 
-    """
+    .. data:: LAYER3_VC = 0
+
+    	 ATM Layer 3 VC type
+
+    .. data:: LAYER2_VC = 1
+
+    	 ATM Layer 2 VC type
+
+    .. data:: LAYER2_VP = 2
+
+    	 ATM Layer 2 VP type
+
+    .. data:: VC_TYPE_UNKNOWN = 3
+
+    	 ATM type unknown
 
     """
 
-     ATM Layer 3 VC type
-
-    """
     LAYER3_VC = 0
 
-    """
-
-     ATM Layer 2 VC type
-
-    """
     LAYER2_VC = 1
 
-    """
-
-     ATM Layer 2 VP type
-
-    """
     LAYER2_VP = 2
 
-    """
-
-     ATM type unknown
-
-    """
     VC_TYPE_UNKNOWN = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
-        return meta._meta_table['Vc_Enum']
+        return meta._meta_table['VcEnum']
 
 
-class VcmPort_Enum(Enum):
+class VcInheritLevelEnum(Enum):
     """
-    VcmPort_Enum
+    VcInheritLevelEnum
+
+    ATM vc\-class inheritence level
+
+    .. data:: DIRECTLY_CONFIGURED_ONVC = 0
+
+    	ATM vc-class inherit level: Config of VC
+
+    .. data:: VC_CLASS_CONFIGURED_ONVC = 1
+
+    	ATM vc-class inherit level: Class of VC
+
+    .. data:: VC_CLASS_CONFIGURED_ON_SUB_INTERFACE = 2
+
+    	ATM vc-class inherit level: Class of Sub-if
+
+    .. data:: VC_CLASS_CONFIGURED_ON_MAIN_INTERFACE = 3
+
+    	ATM vc-class inherit level: Class of Main-if
+
+    .. data:: GLOBAL_DEFAULT = 4
+
+    	ATM vc-class inherit level: Global Default
+
+    .. data:: UNKNOWN = 5
+
+    	ATM vc-class inherit level: Unknown (invalid)
+
+    .. data:: NOT_SUPPORTED = 6
+
+    	ATM vc-class inherit level: Not supported on
+
+    	this VC class
+
+    """
+
+    DIRECTLY_CONFIGURED_ONVC = 0
+
+    VC_CLASS_CONFIGURED_ONVC = 1
+
+    VC_CLASS_CONFIGURED_ON_SUB_INTERFACE = 2
+
+    VC_CLASS_CONFIGURED_ON_MAIN_INTERFACE = 3
+
+    GLOBAL_DEFAULT = 4
+
+    UNKNOWN = 5
+
+    NOT_SUPPORTED = 6
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['VcInheritLevelEnum']
+
+
+class VcManageLevelEnum(Enum):
+    """
+    VcManageLevelEnum
+
+    ATM Class link manage level
+
+    .. data:: MANAGE = 1
+
+    	Managed
+
+    .. data:: NOT_MANAGED = 2
+
+    	Not managed
+
+    """
+
+    MANAGE = 1
+
+    NOT_MANAGED = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['VcManageLevelEnum']
+
+
+class VcStateEnum(Enum):
+    """
+    VcStateEnum
+
+    VC State
+
+    .. data:: INITIALIZED = 0
+
+    	ATM VC State: only VC data structure
+
+    	initialized   
+
+    .. data:: MODIFYING = 1
+
+    	ATM VC State: configuration currently being
+
+    	changed
+
+    .. data:: MODIFIED = 2
+
+    	ATM VC State: configuration changed            
+
+    .. data:: ACTIVATING = 3
+
+    	ATM VC State: command sent to hardware to
+
+    	activate 
+
+    .. data:: ACTIVATED = 4
+
+    	ATM VC State: activated in h/w or protocol     
+
+    .. data:: NOT_VERIFIED = 5
+
+    	ATM VC State: OAM/ILMI - yet to verify         
+
+    .. data:: READY = 6
+
+    	ATM VC State: Ready state                      
+
+    .. data:: DEACTIVATING = 7
+
+    	ATM VC State: command sent to h/w to deactivate
+
+    .. data:: INACTIVE = 8
+
+    	ATM VC State: inactive/not present in hardware 
+
+    .. data:: DELETING = 9
+
+    	ATM VC State: VC is being deleted              
+
+    .. data:: DELETED = 10
+
+    	ATM VC State: VC is already delete in hardware 
+
+    .. data:: STATE_UNKNOWN = 11
+
+    	ATM VC State: Unknown(invalid)
+
+    """
+
+    INITIALIZED = 0
+
+    MODIFYING = 1
+
+    MODIFIED = 2
+
+    ACTIVATING = 3
+
+    ACTIVATED = 4
+
+    NOT_VERIFIED = 5
+
+    READY = 6
+
+    DEACTIVATING = 7
+
+    INACTIVE = 8
+
+    DELETING = 9
+
+    DELETED = 10
+
+    STATE_UNKNOWN = 11
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['VcStateEnum']
+
+
+class VcTestModeEnum(Enum):
+    """
+    VcTestModeEnum
+
+    VC Test Mode Type
+
+    .. data:: TEST_MODE_NONE = 1
+
+    	VC not in test mode
+
+    .. data:: LOOP = 2
+
+    	VC in test mode Loop
+
+    .. data:: RESERVED = 3
+
+    	VC in test mode Reserved
+
+    """
+
+    TEST_MODE_NONE = 1
+
+    LOOP = 2
+
+    RESERVED = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['VcTestModeEnum']
+
+
+class VcTrafShapingEnum(Enum):
+    """
+    VcTrafShapingEnum
+
+    VC traffic shaping type
+
+    .. data:: CBR = 1
+
+    	VC traffic shaping type CBR
+
+    .. data:: VBR_NRT = 2
+
+    	VC traffic shaping type VBR-NR
+
+    .. data:: VBR_RT = 3
+
+    	VC traffic shaping type VBR-RT
+
+    .. data:: ABR = 4
+
+    	VC traffic shaping type ABR
+
+    .. data:: UBR_PLUS = 5
+
+    	VC traffic shaping type UBR+
+
+    .. data:: UBR = 6
+
+    	VC traffic shaping type UBR
+
+    .. data:: TRAF_SHAPING_UNKNOWN = 7
+
+    	VC traffic shaping type Unknown (invalid)
+
+    """
+
+    CBR = 1
+
+    VBR_NRT = 2
+
+    VBR_RT = 3
+
+    ABR = 4
+
+    UBR_PLUS = 5
+
+    UBR = 6
+
+    TRAF_SHAPING_UNKNOWN = 7
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
+        return meta._meta_table['VcTrafShapingEnum']
+
+
+class VcmPortEnum(Enum):
+    """
+    VcmPortEnum
 
     ATM port type
 
-    """
+    .. data:: PORT_TYPE_LAYER_2 = 0
+
+    	 Layer 2 ATM port type 
+
+    .. data:: PORT_TYPE_LAYER_3 = 1
+
+    	 Layer 3 ATM port type 
+
+    .. data:: PORT_TYPE_UNKNOWN = 3
+
+    	 ATM port type unknown 
 
     """
 
-     Layer 2 ATM port type 
-
-    """
     PORT_TYPE_LAYER_2 = 0
 
-    """
-
-     Layer 3 ATM port type 
-
-    """
     PORT_TYPE_LAYER_3 = 1
 
-    """
-
-     ATM port type unknown 
-
-    """
     PORT_TYPE_UNKNOWN = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
-        return meta._meta_table['VcmPort_Enum']
+        return meta._meta_table['VcmPortEnum']
 
 
-class VpState_Enum(Enum):
+class VpStateEnum(Enum):
     """
-    VpState_Enum
+    VpStateEnum
 
     VP\-Tunnel State
 
-    """
+    .. data:: VP_INITIALIZED = 0
+
+    	VP-Tunnel State: Initialized
+
+    .. data:: VP_MODIFYING = 1
+
+    	VP-Tunnel State: Modifying
+
+    .. data:: VP_READY = 2
+
+    	VP-Tunnel State: Ready
+
+    .. data:: VP_MGD_DOWN = 3
+
+    	VP-Tunnel State: Managed Down
+
+    .. data:: VP_DELETING = 4
+
+    	VP-Tunnel State: Deleting
+
+    .. data:: VP_DELETED = 5
+
+    	VP-Tunnel State: Deleted
+
+    .. data:: VP_STATE_UNKNOWN = 6
+
+    	VP-Tunnel State: Unknown
 
     """
 
-    VP\-Tunnel State\: Initialized
-
-    """
     VP_INITIALIZED = 0
 
-    """
-
-    VP\-Tunnel State\: Modifying
-
-    """
     VP_MODIFYING = 1
 
-    """
-
-    VP\-Tunnel State\: Ready
-
-    """
     VP_READY = 2
 
-    """
-
-    VP\-Tunnel State\: Managed Down
-
-    """
     VP_MGD_DOWN = 3
 
-    """
-
-    VP\-Tunnel State\: Deleting
-
-    """
     VP_DELETING = 4
 
-    """
-
-    VP\-Tunnel State\: Deleted
-
-    """
     VP_DELETED = 5
 
-    """
-
-    VP\-Tunnel State\: Unknown
-
-    """
     VP_STATE_UNKNOWN = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
-        return meta._meta_table['VpState_Enum']
+        return meta._meta_table['VpStateEnum']
 
 
-class VpTrafShaping_Enum(Enum):
+class VpTrafShapingEnum(Enum):
     """
-    VpTrafShaping_Enum
+    VpTrafShapingEnum
 
     VP\-Tunnel traffic shaping type
 
-    """
+    .. data:: VP_CBR = 1
+
+    	VP-Tunnel traffic shaping type CBR
+
+    .. data:: VP_VBR_NRT = 2
+
+    	VP-Tunnel traffic shaping type VBR-NR
+
+    .. data:: VP_VBR_RT = 3
+
+    	VP-Tunnel traffic shaping type VBR-RT
+
+    .. data:: VP_ABR = 4
+
+    	VP-Tunnel traffic shaping type ABR
+
+    .. data:: VP_UBR_PLUS = 5
+
+    	VP-Tunnel traffic shaping type UBR+
+
+    .. data:: VP_UBR = 6
+
+    	VP-Tunnel traffic shaping type UBR
+
+    .. data:: VP_TRAF_SHAPING_UNKNOWN = 7
+
+    	VP-Tunnel traffic shaping type Unknown
+
+    	(invalid)
 
     """
 
-    VP\-Tunnel traffic shaping type CBR
-
-    """
     VP_CBR = 1
 
-    """
-
-    VP\-Tunnel traffic shaping type VBR\-NR
-
-    """
     VP_VBR_NRT = 2
 
-    """
-
-    VP\-Tunnel traffic shaping type VBR\-RT
-
-    """
     VP_VBR_RT = 3
 
-    """
-
-    VP\-Tunnel traffic shaping type ABR
-
-    """
     VP_ABR = 4
 
-    """
-
-    VP\-Tunnel traffic shaping type UBR+
-
-    """
     VP_UBR_PLUS = 5
 
-    """
-
-    VP\-Tunnel traffic shaping type UBR
-
-    """
     VP_UBR = 6
 
-    """
-
-    VP\-Tunnel traffic shaping type Unknown
-    (invalid)
-
-    """
     VP_TRAF_SHAPING_UNKNOWN = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
-        return meta._meta_table['VpTrafShaping_Enum']
+        return meta._meta_table['VpTrafShapingEnum']
 
 
 
@@ -845,7 +780,7 @@ class AtmVcm(object):
                     .. attribute:: cell_packing_mode
                     
                     	ATM cell packing mode
-                    	**type**\: :py:class:`VcCellPackingMode_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcCellPackingMode_Enum>`
+                    	**type**\: :py:class:`VcCellPackingModeEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcCellPackingModeEnum>`
                     
                     .. attribute:: interface_name
                     
@@ -969,8 +904,6 @@ class AtmVcm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.local_max_cells_packed_per_packet is not None:
                                 return True
 
@@ -980,10 +913,6 @@ class AtmVcm(object):
                             if self.negotiated_max_cells_packed_per_packet is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1005,12 +934,7 @@ class AtmVcm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.cell_packing is not None and self.cell_packing._has_data():
-                            return True
-
-                        if self.cell_packing is not None and self.cell_packing.is_presence():
                             return True
 
                         if self.cell_packing_mode is not None:
@@ -1039,10 +963,6 @@ class AtmVcm(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
@@ -1062,17 +982,11 @@ class AtmVcm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.cell_pack is not None:
                         for child_ref in self.cell_pack:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1214,7 +1128,7 @@ class AtmVcm(object):
                             .. attribute:: ais_rdi_inherit_level
                             
                             	AIS RDI inherit level
-                            	**type**\: :py:class:`ClassLinkOamInheritLevel_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevel_Enum>`
+                            	**type**\: :py:class:`ClassLinkOamInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevelEnum>`
                             
                             .. attribute:: ais_rdi_up_count
                             
@@ -1257,8 +1171,6 @@ class AtmVcm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ais_rdi_inherit_level is not None:
                                     return True
 
@@ -1268,10 +1180,6 @@ class AtmVcm(object):
                                 if self.ais_rdi_up_time is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1287,12 +1195,12 @@ class AtmVcm(object):
                             .. attribute:: encapsulation_inherit_level
                             
                             	Encapsulation inherit level
-                            	**type**\: :py:class:`VcInheritLevel_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel_Enum>`
+                            	**type**\: :py:class:`VcInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
                             
                             .. attribute:: encapsulation_type
                             
                             	Encapsulation type
-                            	**type**\: :py:class:`VcEncap_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEncap_Enum>`
+                            	**type**\: :py:class:`VcEncapEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
                             
                             
 
@@ -1320,18 +1228,12 @@ class AtmVcm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.encapsulation_inherit_level is not None:
                                     return True
 
                                 if self.encapsulation_type is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1368,12 +1270,12 @@ class AtmVcm(object):
                             .. attribute:: shaping_inherit_level
                             
                             	Shaping inherit level
-                            	**type**\: :py:class:`VcInheritLevel_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel_Enum>`
+                            	**type**\: :py:class:`VcInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
                             
                             .. attribute:: shaping_type
                             
                             	ATM VC traffic shaping type
-                            	**type**\: :py:class:`VcTrafShaping_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTrafShaping_Enum>`
+                            	**type**\: :py:class:`VcTrafShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTrafShapingEnum>`
                             
                             
 
@@ -1404,8 +1306,6 @@ class AtmVcm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.average_output_rate is not None:
                                     return True
 
@@ -1421,10 +1321,6 @@ class AtmVcm(object):
                                 if self.shaping_type is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1450,12 +1346,12 @@ class AtmVcm(object):
                             .. attribute:: manage_inherit_level
                             
                             	Manage inherit level
-                            	**type**\: :py:class:`ClassLinkOamInheritLevel_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevel_Enum>`
+                            	**type**\: :py:class:`ClassLinkOamInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevelEnum>`
                             
                             .. attribute:: manage_level
                             
                             	Manage Level
-                            	**type**\: :py:class:`VcManageLevel_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcManageLevel_Enum>`
+                            	**type**\: :py:class:`VcManageLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcManageLevelEnum>`
                             
                             .. attribute:: pvc_frequency
                             
@@ -1493,8 +1389,6 @@ class AtmVcm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ais_rdi_failure is not None:
                                     return True
 
@@ -1510,10 +1404,6 @@ class AtmVcm(object):
                                 if self.pvc_frequency is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1543,7 +1433,7 @@ class AtmVcm(object):
                             .. attribute:: retry_inherit_level
                             
                             	Retry inherit level
-                            	**type**\: :py:class:`ClassLinkOamInheritLevel_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevel_Enum>`
+                            	**type**\: :py:class:`ClassLinkOamInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevelEnum>`
                             
                             .. attribute:: retry_up_count
                             
@@ -1580,8 +1470,6 @@ class AtmVcm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.down_count is not None:
                                     return True
 
@@ -1594,10 +1482,6 @@ class AtmVcm(object):
                                 if self.retry_up_count is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1619,42 +1503,21 @@ class AtmVcm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ais_rdi is not None and self.ais_rdi._has_data():
-                                return True
-
-                            if self.ais_rdi is not None and self.ais_rdi.is_presence():
                                 return True
 
                             if self.class_link_encapsulation is not None and self.class_link_encapsulation._has_data():
                                 return True
 
-                            if self.class_link_encapsulation is not None and self.class_link_encapsulation.is_presence():
-                                return True
-
                             if self.class_link_shaping is not None and self.class_link_shaping._has_data():
-                                return True
-
-                            if self.class_link_shaping is not None and self.class_link_shaping.is_presence():
                                 return True
 
                             if self.oam_pvc is not None and self.oam_pvc._has_data():
                                 return True
 
-                            if self.oam_pvc is not None and self.oam_pvc.is_presence():
-                                return True
-
                             if self.oam_retry is not None and self.oam_retry._has_data():
                                 return True
 
-                            if self.oam_retry is not None and self.oam_retry.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1670,12 +1533,12 @@ class AtmVcm(object):
                         .. attribute:: encapsulation_not_supported
                         
                         	Encapsulation type not supported
-                        	**type**\: :py:class:`VcEncap_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEncap_Enum>`
+                        	**type**\: :py:class:`VcEncapEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
                         
                         .. attribute:: not_supported_inherit_level
                         
                         	NotSupportedInheritLevel
-                        	**type**\: :py:class:`VcInheritLevel_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel_Enum>`
+                        	**type**\: :py:class:`VcInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
                         
                         
 
@@ -1703,18 +1566,12 @@ class AtmVcm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.encapsulation_not_supported is not None:
                                 return True
 
                             if self.not_supported_inherit_level is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1738,15 +1595,10 @@ class AtmVcm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vpi is not None:
                             return True
 
                         if self.oam_config is not None and self.oam_config._has_data():
-                            return True
-
-                        if self.oam_config is not None and self.oam_config.is_presence():
                             return True
 
                         if self.sub_interface_name is not None:
@@ -1755,16 +1607,9 @@ class AtmVcm(object):
                         if self.vc_class_not_supported is not None and self.vc_class_not_supported._has_data():
                             return True
 
-                        if self.vc_class_not_supported is not None and self.vc_class_not_supported.is_presence():
-                            return True
-
                         if self.vci is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1786,17 +1631,11 @@ class AtmVcm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.class_link is not None:
                         for child_ref in self.class_link:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1931,7 +1770,7 @@ class AtmVcm(object):
                     .. attribute:: port_type
                     
                     	ATM interface port type
-                    	**type**\: :py:class:`VcmPort_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcmPort_Enum>`
+                    	**type**\: :py:class:`VcmPortEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcmPortEnum>`
                     
                     .. attribute:: pvc_failures
                     
@@ -2034,8 +1873,6 @@ class AtmVcm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.local_max_cells_packed_per_packet is not None:
                                 return True
 
@@ -2045,10 +1882,6 @@ class AtmVcm(object):
                             if self.negotiated_max_cells_packed_per_packet is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2072,15 +1905,10 @@ class AtmVcm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
                         if self.cell_packing_data is not None and self.cell_packing_data._has_data():
-                            return True
-
-                        if self.cell_packing_data is not None and self.cell_packing_data.is_presence():
                             return True
 
                         if self.configured_layer2pv_cs is not None:
@@ -2133,10 +1961,6 @@ class AtmVcm(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
@@ -2156,17 +1980,11 @@ class AtmVcm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2229,17 +2047,17 @@ class AtmVcm(object):
                     .. attribute:: encaps_inherit_level
                     
                     	Encapsulation inherit level \- identifies if encapsulation is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\: :py:class:`VcInheritLevel_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel_Enum>`
+                    	**type**\: :py:class:`VcInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
                     
                     .. attribute:: encapsulation
                     
                     	Encapsulation type
-                    	**type**\: :py:class:`VcEncap_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEncap_Enum>`
+                    	**type**\: :py:class:`VcEncapEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
                     
                     .. attribute:: internal_state
                     
                     	VC Internal state
-                    	**type**\: :py:class:`VcState_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcState_Enum>`
+                    	**type**\: :py:class:`VcStateEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcStateEnum>`
                     
                     .. attribute:: last_state_change_time
                     
@@ -2270,7 +2088,7 @@ class AtmVcm(object):
                     .. attribute:: qos_inherit_level
                     
                     	Quality of Service inherit level \- identifies if QoS is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\: :py:class:`VcInheritLevel_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel_Enum>`
+                    	**type**\: :py:class:`VcInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
                     
                     .. attribute:: receive_mtu
                     
@@ -2282,7 +2100,7 @@ class AtmVcm(object):
                     .. attribute:: shape
                     
                     	ATM VC traffic shaping type
-                    	**type**\: :py:class:`VcTrafShaping_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTrafShaping_Enum>`
+                    	**type**\: :py:class:`VcTrafShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTrafShapingEnum>`
                     
                     .. attribute:: sub_interface
                     
@@ -2301,7 +2119,7 @@ class AtmVcm(object):
                     .. attribute:: test_mode
                     
                     	VC test mode
-                    	**type**\: :py:class:`VcTestMode_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTestMode_Enum>`
+                    	**type**\: :py:class:`VcTestModeEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTestModeEnum>`
                     
                     .. attribute:: transmit_mtu
                     
@@ -2313,7 +2131,7 @@ class AtmVcm(object):
                     .. attribute:: type
                     
                     	VC Type
-                    	**type**\: :py:class:`Vc_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.Vc_Enum>`
+                    	**type**\: :py:class:`VcEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEnum>`
                     
                     .. attribute:: vc_interface
                     
@@ -2442,8 +2260,6 @@ class AtmVcm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.local_max_cells_packed_per_packet is not None:
                                 return True
 
@@ -2453,10 +2269,6 @@ class AtmVcm(object):
                             if self.negotiated_max_cells_packed_per_packet is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2480,8 +2292,6 @@ class AtmVcm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
@@ -2492,9 +2302,6 @@ class AtmVcm(object):
                             return True
 
                         if self.cell_packing_data is not None and self.cell_packing_data._has_data():
-                            return True
-
-                        if self.cell_packing_data is not None and self.cell_packing_data.is_presence():
                             return True
 
                         if self.encaps_inherit_level is not None:
@@ -2562,10 +2369,6 @@ class AtmVcm(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
@@ -2585,17 +2388,11 @@ class AtmVcm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.pvp is not None:
                         for child_ref in self.pvp:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2658,17 +2455,17 @@ class AtmVcm(object):
                     .. attribute:: encaps_inherit_level
                     
                     	Encapsulation inherit level \- identifies if encapsulation is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\: :py:class:`VcInheritLevel_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel_Enum>`
+                    	**type**\: :py:class:`VcInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
                     
                     .. attribute:: encapsulation
                     
                     	Encapsulation type
-                    	**type**\: :py:class:`VcEncap_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEncap_Enum>`
+                    	**type**\: :py:class:`VcEncapEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
                     
                     .. attribute:: internal_state
                     
                     	VC Internal state
-                    	**type**\: :py:class:`VcState_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcState_Enum>`
+                    	**type**\: :py:class:`VcStateEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcStateEnum>`
                     
                     .. attribute:: last_state_change_time
                     
@@ -2699,7 +2496,7 @@ class AtmVcm(object):
                     .. attribute:: qos_inherit_level
                     
                     	Quality of Service inherit level \- identifies if QoS is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\: :py:class:`VcInheritLevel_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel_Enum>`
+                    	**type**\: :py:class:`VcInheritLevelEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
                     
                     .. attribute:: receive_mtu
                     
@@ -2711,7 +2508,7 @@ class AtmVcm(object):
                     .. attribute:: shape
                     
                     	ATM VC traffic shaping type
-                    	**type**\: :py:class:`VcTrafShaping_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTrafShaping_Enum>`
+                    	**type**\: :py:class:`VcTrafShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTrafShapingEnum>`
                     
                     .. attribute:: sub_interface
                     
@@ -2730,7 +2527,7 @@ class AtmVcm(object):
                     .. attribute:: test_mode
                     
                     	VC test mode
-                    	**type**\: :py:class:`VcTestMode_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTestMode_Enum>`
+                    	**type**\: :py:class:`VcTestModeEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcTestModeEnum>`
                     
                     .. attribute:: transmit_mtu
                     
@@ -2742,7 +2539,7 @@ class AtmVcm(object):
                     .. attribute:: type
                     
                     	VC Type
-                    	**type**\: :py:class:`Vc_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.Vc_Enum>`
+                    	**type**\: :py:class:`VcEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VcEnum>`
                     
                     .. attribute:: vc_interface
                     
@@ -2879,8 +2676,6 @@ class AtmVcm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.local_max_cells_packed_per_packet is not None:
                                 return True
 
@@ -2890,10 +2685,6 @@ class AtmVcm(object):
                             if self.negotiated_max_cells_packed_per_packet is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2917,8 +2708,6 @@ class AtmVcm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
@@ -2929,9 +2718,6 @@ class AtmVcm(object):
                             return True
 
                         if self.cell_packing_data is not None and self.cell_packing_data._has_data():
-                            return True
-
-                        if self.cell_packing_data is not None and self.cell_packing_data.is_presence():
                             return True
 
                         if self.encaps_inherit_level is not None:
@@ -3002,10 +2788,6 @@ class AtmVcm(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
@@ -3025,17 +2807,11 @@ class AtmVcm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vc is not None:
                         for child_ref in self.vc:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3105,7 +2881,7 @@ class AtmVcm(object):
                     .. attribute:: internal_state
                     
                     	Internal state
-                    	**type**\: :py:class:`VpState_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VpState_Enum>`
+                    	**type**\: :py:class:`VpStateEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VpStateEnum>`
                     
                     .. attribute:: last_vp_state_change_time
                     
@@ -3136,7 +2912,7 @@ class AtmVcm(object):
                     .. attribute:: shape
                     
                     	ATM VP traffic shaping type
-                    	**type**\: :py:class:`VpTrafShaping_Enum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VpTrafShaping_Enum>`
+                    	**type**\: :py:class:`VpTrafShapingEnum <ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper.VpTrafShapingEnum>`
                     
                     .. attribute:: sustained_cell_rate
                     
@@ -3207,8 +2983,6 @@ class AtmVcm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface_name is not None:
                             return True
 
@@ -3256,10 +3030,6 @@ class AtmVcm(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_vcm_oper as meta
@@ -3279,17 +3049,11 @@ class AtmVcm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vp_tunnel is not None:
                         for child_ref in self.vp_tunnel:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3311,51 +3075,27 @@ class AtmVcm(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.cell_packs is not None and self.cell_packs._has_data():
                     return True
 
-                if self.cell_packs is not None and self.cell_packs.is_presence():
-                    return True
-
                 if self.class_links is not None and self.class_links._has_data():
-                    return True
-
-                if self.class_links is not None and self.class_links.is_presence():
                     return True
 
                 if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
-                if self.interfaces is not None and self.interfaces.is_presence():
-                    return True
-
                 if self.pvps is not None and self.pvps._has_data():
-                    return True
-
-                if self.pvps is not None and self.pvps.is_presence():
                     return True
 
                 if self.vcs is not None and self.vcs._has_data():
                     return True
 
-                if self.vcs is not None and self.vcs.is_presence():
-                    return True
-
                 if self.vp_tunnels is not None and self.vp_tunnels._has_data():
                     return True
 
-                if self.vp_tunnels is not None and self.vp_tunnels.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3375,17 +3115,11 @@ class AtmVcm(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3405,18 +3139,9 @@ class AtmVcm(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

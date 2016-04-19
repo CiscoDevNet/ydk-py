@@ -72,8 +72,6 @@ class Ipv6Assembler(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.max_packets is not None:
             return True
 
@@ -82,17 +80,13 @@ class Ipv6Assembler(object):
 
         return False
 
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
-        return False
-
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_io_cfg as meta
         return meta._meta_table['Ipv6Assembler']['meta_info']
 
 
-class Ipv6icmp(object):
+class Ipv6Icmp(object):
     """
     ipv6icmp
     
@@ -103,12 +97,22 @@ class Ipv6icmp(object):
     
     	**range:** 1..200
     
+    .. attribute:: _is_presence
+    
+    	Is present if this instance represents presence container else not
+    	**type**\: bool
+    
     .. attribute:: error_interval
     
     	Interval between tokens in milliseconds
     	**type**\: int
     
     	**range:** 0..2147483647
+    
+    .. attribute:: _is_presence
+    
+    	Is present if this instance represents presence container else not
+    	**type**\: bool
     
     
 
@@ -135,8 +139,6 @@ class Ipv6icmp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.bucket_size is not None:
             return True
 
@@ -145,13 +147,9 @@ class Ipv6icmp(object):
 
         return False
 
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
-        return True
-
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_io_cfg as meta
-        return meta._meta_table['Ipv6icmp']['meta_info']
+        return meta._meta_table['Ipv6Icmp']['meta_info']
 
 

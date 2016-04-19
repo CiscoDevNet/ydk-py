@@ -25,858 +25,751 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class CardRedundancyState_Enum(Enum):
+class CardRedundancyStateEnum(Enum):
     """
-    CardRedundancyState_Enum
+    CardRedundancyStateEnum
 
     Redundancy state detail
 
-    """
+    .. data:: ACTIVE = 1
+
+    	Active
+
+    .. data:: STANDBY = 2
+
+    	Standby
 
     """
 
-    Active
-
-    """
     ACTIVE = 1
 
-    """
-
-    Standby
-
-    """
     STANDBY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-        return meta._meta_table['CardRedundancyState_Enum']
+        return meta._meta_table['CardRedundancyStateEnum']
 
 
-class InvAdminState_Enum(Enum):
+class InvAdminStateEnum(Enum):
     """
-    InvAdminState_Enum
+    InvAdminStateEnum
 
     Inv admin state
 
-    """
+    .. data:: ADMIN_STATE_INVALID = 0
+
+    	admin state invalid
+
+    .. data:: ADMIN_UP = 1
+
+    	admin up
+
+    .. data:: ADMIN_DOWN = 2
+
+    	admin down
 
     """
 
-    admin state invalid
-
-    """
     ADMIN_STATE_INVALID = 0
 
-    """
-
-    admin up
-
-    """
     ADMIN_UP = 1
 
-    """
-
-    admin down
-
-    """
     ADMIN_DOWN = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-        return meta._meta_table['InvAdminState_Enum']
+        return meta._meta_table['InvAdminStateEnum']
 
 
-class InvCardState_Enum(Enum):
+class InvCardStateEnum(Enum):
     """
-    InvCardState_Enum
+    InvCardStateEnum
 
     Inv card state
 
-    """
+    .. data:: INV_CARD_NOT_PRESENT = 0
+
+    	inv card not present
+
+    .. data:: INV_CARD_PRESENT = 1
+
+    	inv card present
+
+    .. data:: INV_CARD_RESET = 2
+
+    	inv card reset
+
+    .. data:: INV_CARD_BOOTING = 3
+
+    	inv card booting
+
+    .. data:: INV_CARD_MBI_BOOTING = 4
+
+    	inv card mbi booting
+
+    .. data:: INV_CARD_RUNNING_MBI = 5
+
+    	inv card running mbi
+
+    .. data:: INV_CARD_RUNNING_ENA = 6
+
+    	inv card running ena
+
+    .. data:: INV_CARD_BRING_DOWN = 7
+
+    	inv card bring down
+
+    .. data:: INV_CARD_ENA_FAILURE = 8
+
+    	inv card ena failure
+
+    .. data:: INV_CARD_F_DIAG_RUN = 9
+
+    	inv card f diag run
+
+    .. data:: INV_CARD_F_DIAG_FAILURE = 10
+
+    	inv card f diag failure
+
+    .. data:: INV_CARD_POWERED = 11
+
+    	inv card powered
+
+    .. data:: INV_CARD_UNPOWERED = 12
+
+    	inv card unpowered
+
+    .. data:: INV_CARD_MDR = 13
+
+    	inv card mdr
+
+    .. data:: INV_CARD_MDR_RUNNING_MBI = 14
+
+    	inv card mdr running mbi
+
+    .. data:: INV_CARD_MAIN_T_MODE = 15
+
+    	inv card main t mode
+
+    .. data:: INV_CARD_ADMIN_DOWN = 16
+
+    	inv card admin down
+
+    .. data:: INV_CARD_NO_MON = 17
+
+    	inv card no mon
+
+    .. data:: INV_CARD_UNKNOWN = 18
+
+    	inv card unknown
+
+    .. data:: INV_CARD_FAILED = 19
+
+    	inv card failed
+
+    .. data:: INV_CARD_OK = 20
+
+    	inv card ok
+
+    .. data:: INV_CARD_MISSING = 21
+
+    	inv card missing
+
+    .. data:: INV_CARD_FIELD_DIAG_DOWNLOADING = 22
+
+    	inv card field diag downloading
+
+    .. data:: INV_CARD_FIELD_DIAG_UNMONITOR = 23
+
+    	inv card field diag unmonitor
+
+    .. data:: INV_CARD_FABRIC_FIELD_DIAG_UNMONITOR = 24
+
+    	inv card fabric field diag unmonitor
+
+    .. data:: INV_CARD_FIELD_DIAG_RP_LAUNCHING = 25
+
+    	inv card field diag rp launching
+
+    .. data:: INV_CARD_FIELD_DIAG_RUNNING = 26
+
+    	inv card field diag running
+
+    .. data:: INV_CARD_FIELD_DIAG_PASS = 27
+
+    	inv card field diag pass
+
+    .. data:: INV_CARD_FIELD_DIAG_FAIL = 28
+
+    	inv card field diag fail
+
+    .. data:: INV_CARD_FIELD_DIAG_TIMEOUT = 29
+
+    	inv card field diag timeout
+
+    .. data:: INV_CARD_DISABLED = 30
+
+    	inv card disabled
+
+    .. data:: INV_CARD_SPA_BOOTING = 31
+
+    	inv card spa booting
+
+    .. data:: INV_CARD_NOT_ALLOWED_ONLINE = 32
+
+    	inv card not allowed online
+
+    .. data:: INV_CARD_STOPPED = 33
+
+    	inv card stopped
+
+    .. data:: INV_CARD_INCOMPATIBLE_FW_VER = 34
+
+    	inv card incompatible fw ver
+
+    .. data:: INV_CARD_FPD_HOLD = 35
+
+    	inv card fpd hold
+
+    .. data:: INV_CARD_NODE_PREP = 36
+
+    	inv card node prep
+
+    .. data:: INV_CARD_UPDATING_FPD = 37
+
+    	inv card updating fpd
+
+    .. data:: INV_CARD_NUM_STATES = 38
+
+    	inv card num states
 
     """
 
-    inv card not present
-
-    """
     INV_CARD_NOT_PRESENT = 0
 
-    """
-
-    inv card present
-
-    """
     INV_CARD_PRESENT = 1
 
-    """
-
-    inv card reset
-
-    """
     INV_CARD_RESET = 2
 
-    """
-
-    inv card booting
-
-    """
     INV_CARD_BOOTING = 3
 
-    """
-
-    inv card mbi booting
-
-    """
     INV_CARD_MBI_BOOTING = 4
 
-    """
-
-    inv card running mbi
-
-    """
     INV_CARD_RUNNING_MBI = 5
 
-    """
-
-    inv card running ena
-
-    """
     INV_CARD_RUNNING_ENA = 6
 
-    """
-
-    inv card bring down
-
-    """
     INV_CARD_BRING_DOWN = 7
 
-    """
-
-    inv card ena failure
-
-    """
     INV_CARD_ENA_FAILURE = 8
 
-    """
-
-    inv card f diag run
-
-    """
     INV_CARD_F_DIAG_RUN = 9
 
-    """
-
-    inv card f diag failure
-
-    """
     INV_CARD_F_DIAG_FAILURE = 10
 
-    """
-
-    inv card powered
-
-    """
     INV_CARD_POWERED = 11
 
-    """
-
-    inv card unpowered
-
-    """
     INV_CARD_UNPOWERED = 12
 
-    """
-
-    inv card mdr
-
-    """
     INV_CARD_MDR = 13
 
-    """
-
-    inv card mdr running mbi
-
-    """
     INV_CARD_MDR_RUNNING_MBI = 14
 
-    """
-
-    inv card main t mode
-
-    """
     INV_CARD_MAIN_T_MODE = 15
 
-    """
-
-    inv card admin down
-
-    """
     INV_CARD_ADMIN_DOWN = 16
 
-    """
-
-    inv card no mon
-
-    """
     INV_CARD_NO_MON = 17
 
-    """
-
-    inv card unknown
-
-    """
     INV_CARD_UNKNOWN = 18
 
-    """
-
-    inv card failed
-
-    """
     INV_CARD_FAILED = 19
 
-    """
-
-    inv card ok
-
-    """
     INV_CARD_OK = 20
 
-    """
-
-    inv card missing
-
-    """
     INV_CARD_MISSING = 21
 
-    """
-
-    inv card field diag downloading
-
-    """
     INV_CARD_FIELD_DIAG_DOWNLOADING = 22
 
-    """
-
-    inv card field diag unmonitor
-
-    """
     INV_CARD_FIELD_DIAG_UNMONITOR = 23
 
-    """
-
-    inv card fabric field diag unmonitor
-
-    """
     INV_CARD_FABRIC_FIELD_DIAG_UNMONITOR = 24
 
-    """
-
-    inv card field diag rp launching
-
-    """
     INV_CARD_FIELD_DIAG_RP_LAUNCHING = 25
 
-    """
-
-    inv card field diag running
-
-    """
     INV_CARD_FIELD_DIAG_RUNNING = 26
 
-    """
-
-    inv card field diag pass
-
-    """
     INV_CARD_FIELD_DIAG_PASS = 27
 
-    """
-
-    inv card field diag fail
-
-    """
     INV_CARD_FIELD_DIAG_FAIL = 28
 
-    """
-
-    inv card field diag timeout
-
-    """
     INV_CARD_FIELD_DIAG_TIMEOUT = 29
 
-    """
-
-    inv card disabled
-
-    """
     INV_CARD_DISABLED = 30
 
-    """
-
-    inv card spa booting
-
-    """
     INV_CARD_SPA_BOOTING = 31
 
-    """
-
-    inv card not allowed online
-
-    """
     INV_CARD_NOT_ALLOWED_ONLINE = 32
 
-    """
-
-    inv card stopped
-
-    """
     INV_CARD_STOPPED = 33
 
-    """
-
-    inv card incompatible fw ver
-
-    """
     INV_CARD_INCOMPATIBLE_FW_VER = 34
 
-    """
-
-    inv card fpd hold
-
-    """
     INV_CARD_FPD_HOLD = 35
 
-    """
-
-    inv card node prep
-
-    """
     INV_CARD_NODE_PREP = 36
 
-    """
-
-    inv card updating fpd
-
-    """
     INV_CARD_UPDATING_FPD = 37
 
-    """
-
-    inv card num states
-
-    """
     INV_CARD_NUM_STATES = 38
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-        return meta._meta_table['InvCardState_Enum']
+        return meta._meta_table['InvCardStateEnum']
 
 
-class InvMonitorState_Enum(Enum):
+class InvMonitorStateEnum(Enum):
     """
-    InvMonitorState_Enum
+    InvMonitorStateEnum
 
     Inv monitor state
 
-    """
+    .. data:: UNMONITORED = 0
+
+    	unmonitored
+
+    .. data:: MONITORED = 1
+
+    	monitored
 
     """
 
-    unmonitored
-
-    """
     UNMONITORED = 0
 
-    """
-
-    monitored
-
-    """
     MONITORED = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-        return meta._meta_table['InvMonitorState_Enum']
+        return meta._meta_table['InvMonitorStateEnum']
 
 
-class InvPowerAdminState_Enum(Enum):
+class InvPowerAdminStateEnum(Enum):
     """
-    InvPowerAdminState_Enum
+    InvPowerAdminStateEnum
 
     Inv power admin state
 
-    """
+    .. data:: ADMIN_POWER_INVALID = 0
+
+    	admin power invalid
+
+    .. data:: ADMIN_ON = 2
+
+    	admin on
+
+    .. data:: ADMIN_OFF = 3
+
+    	admin off
 
     """
 
-    admin power invalid
-
-    """
     ADMIN_POWER_INVALID = 0
 
-    """
-
-    admin on
-
-    """
     ADMIN_ON = 2
 
-    """
-
-    admin off
-
-    """
     ADMIN_OFF = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-        return meta._meta_table['InvPowerAdminState_Enum']
+        return meta._meta_table['InvPowerAdminStateEnum']
 
 
-class InvResetReason_Enum(Enum):
+class InvResetReasonEnum(Enum):
     """
-    InvResetReason_Enum
+    InvResetReasonEnum
 
     Inv reset reason
 
-    """
+    .. data:: MODULE_RESET_REASON_UNKNOWN = 0
+
+    	module reset reason unknown
+
+    .. data:: MODULE_RESET_REASON_POWERUP = 1
+
+    	module reset reason powerup
+
+    .. data:: MODULE_RESET_REASON_USER_SHUTDOWN = 2
+
+    	module reset reason user shutdown
+
+    .. data:: MODULE_RESET_REASON_USER_RELOAD = 3
+
+    	module reset reason user reload
+
+    .. data:: MODULE_RESET_REASON_AUTO_RELOAD = 4
+
+    	module reset reason auto reload
+
+    .. data:: MODULE_RESET_REASON_ENVIRONMENT = 5
+
+    	module reset reason environment
+
+    .. data:: MODULE_RESET_REASON_USER_UNPOWER = 6
+
+    	module reset reason user unpower
 
     """
 
-    module reset reason unknown
-
-    """
     MODULE_RESET_REASON_UNKNOWN = 0
 
-    """
-
-    module reset reason powerup
-
-    """
     MODULE_RESET_REASON_POWERUP = 1
 
-    """
-
-    module reset reason user shutdown
-
-    """
     MODULE_RESET_REASON_USER_SHUTDOWN = 2
 
-    """
-
-    module reset reason user reload
-
-    """
     MODULE_RESET_REASON_USER_RELOAD = 3
 
-    """
-
-    module reset reason auto reload
-
-    """
     MODULE_RESET_REASON_AUTO_RELOAD = 4
 
-    """
-
-    module reset reason environment
-
-    """
     MODULE_RESET_REASON_ENVIRONMENT = 5
 
-    """
-
-    module reset reason user unpower
-
-    """
     MODULE_RESET_REASON_USER_UNPOWER = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-        return meta._meta_table['InvResetReason_Enum']
+        return meta._meta_table['InvResetReasonEnum']
 
 
-class NodeState_Enum(Enum):
+class NodeStateEnum(Enum):
     """
-    NodeState_Enum
+    NodeStateEnum
 
     Node state detail
 
-    """
+    .. data:: NOT_PRESENT = 0
+
+    	Not present
+
+    .. data:: PRESENT = 1
+
+    	Present
+
+    .. data:: RESET = 2
+
+    	Reset
+
+    .. data:: ROMMON = 3
+
+    	Card booting or rommon
+
+    .. data:: MBI_BOOT = 4
+
+    	MBI booting
+
+    .. data:: MBI_RUN = 5
+
+    	Running MBI
+
+    .. data:: XR_RUN = 6
+
+    	Running ENA
+
+    .. data:: BRING_DOWN = 7
+
+    	Bringdown
+
+    .. data:: XR_FAIL = 8
+
+    	ENA failure
+
+    .. data:: FDIAG_RUN = 9
+
+    	Running FDIAG
+
+    .. data:: FDIAG_FAIL = 10
+
+    	FDIAG failure
+
+    .. data:: POWER = 11
+
+    	Powered
+
+    .. data:: UNPOWER = 12
+
+    	Unpowered
+
+    .. data:: MDR_WARM_RELOAD = 13
+
+    	MDR warm reload
+
+    .. data:: MDR_MBI_RUN = 14
+
+    	MDR running MBI
+
+    .. data:: MAINTENANCE_MODE = 15
+
+    	Maintenance mode
+
+    .. data:: ADMIN_DOWN = 16
+
+    	Admin down
+
+    .. data:: NOT_MONITOR = 17
+
+    	No MON
+
+    .. data:: UNKNOWN_CARD = 18
+
+    	Unknown
+
+    .. data:: FAILED = 19
+
+    	Failed
+
+    .. data:: OK = 20
+
+    	OK
+
+    .. data:: MISSING = 21
+
+    	Missing
+
+    .. data:: DIAG_DOWNLOAD = 22
+
+    	Field diag downloading
+
+    .. data:: DIAG_NOT_MONITOR = 23
+
+    	Field diag unmonitor
+
+    .. data:: FABRIC_DIAG_NOT_MONITOR = 24
+
+    	Fabric field diag unmonitor
+
+    .. data:: DIAG_RP_LAUNCH = 25
+
+    	Field diag RP launching
+
+    .. data:: DIAG_RUN = 26
+
+    	Field diag running
+
+    .. data:: DIAG_PASS = 27
+
+    	Field diag pass
+
+    .. data:: DIAG_FAIL = 28
+
+    	Field diag fail
+
+    .. data:: DIAG_TIMEOUT = 29
+
+    	Field diag timeout
+
+    .. data:: DISABLE = 30
+
+    	Disable
+
+    .. data:: SPA_BOOT = 31
+
+    	SPA booting
+
+    .. data:: NOT_ALLOWED_ONLINE = 32
+
+    	Not allowed online
+
+    .. data:: STOP = 33
+
+    	Stopped
+
+    .. data:: INCOMP_VERSION = 34
+
+    	Incompatible FW version
+
+    .. data:: FPD_HOLD = 35
+
+    	FPD hold
+
+    .. data:: XR_PREPARATION = 36
+
+    	XR preparation
+
+    .. data:: SYNC_READY = 37
+
+    	Sync ready state
+
+    .. data:: XR_ISOLATE = 38
+
+    	Node isolate state
+
+    .. data:: READY = 39
+
+    	Ready
+
+    .. data:: INVALID = 40
+
+    	Invalid
+
+    .. data:: OPERATIONAL = 41
+
+    	Operational
+
+    .. data:: OPERATIONAL_LOCK = 42
+
+    	Operational lock
+
+    .. data:: GOING_DOWN = 43
+
+    	Going down
+
+    .. data:: GOING_OFFLINE = 44
+
+    	Going offline
+
+    .. data:: GOING_ONLINE = 45
+
+    	Going online
+
+    .. data:: OFFLINE = 46
+
+    	Offline
+
+    .. data:: UP = 47
+
+    	Up
+
+    .. data:: DOWN = 48
+
+    	Down
+
+    .. data:: MAX = 49
+
+    	Max
+
+    .. data:: UNKNOWN = 50
+
+    	Unknown
 
     """
 
-    Not present
-
-    """
     NOT_PRESENT = 0
 
-    """
-
-    Present
-
-    """
     PRESENT = 1
 
-    """
-
-    Reset
-
-    """
     RESET = 2
 
-    """
-
-    Card booting or rommon
-
-    """
     ROMMON = 3
 
-    """
-
-    MBI booting
-
-    """
     MBI_BOOT = 4
 
-    """
-
-    Running MBI
-
-    """
     MBI_RUN = 5
 
-    """
-
-    Running ENA
-
-    """
     XR_RUN = 6
 
-    """
-
-    Bringdown
-
-    """
     BRING_DOWN = 7
 
-    """
-
-    ENA failure
-
-    """
     XR_FAIL = 8
 
-    """
-
-    Running FDIAG
-
-    """
     FDIAG_RUN = 9
 
-    """
-
-    FDIAG failure
-
-    """
     FDIAG_FAIL = 10
 
-    """
-
-    Powered
-
-    """
     POWER = 11
 
-    """
-
-    Unpowered
-
-    """
     UNPOWER = 12
 
-    """
-
-    MDR warm reload
-
-    """
     MDR_WARM_RELOAD = 13
 
-    """
-
-    MDR running MBI
-
-    """
     MDR_MBI_RUN = 14
 
-    """
-
-    Maintenance mode
-
-    """
     MAINTENANCE_MODE = 15
 
-    """
-
-    Admin down
-
-    """
     ADMIN_DOWN = 16
 
-    """
-
-    No MON
-
-    """
     NOT_MONITOR = 17
 
-    """
-
-    Unknown
-
-    """
     UNKNOWN_CARD = 18
 
-    """
-
-    Failed
-
-    """
     FAILED = 19
 
-    """
-
-    OK
-
-    """
     OK = 20
 
-    """
-
-    Missing
-
-    """
     MISSING = 21
 
-    """
-
-    Field diag downloading
-
-    """
     DIAG_DOWNLOAD = 22
 
-    """
-
-    Field diag unmonitor
-
-    """
     DIAG_NOT_MONITOR = 23
 
-    """
-
-    Fabric field diag unmonitor
-
-    """
     FABRIC_DIAG_NOT_MONITOR = 24
 
-    """
-
-    Field diag RP launching
-
-    """
     DIAG_RP_LAUNCH = 25
 
-    """
-
-    Field diag running
-
-    """
     DIAG_RUN = 26
 
-    """
-
-    Field diag pass
-
-    """
     DIAG_PASS = 27
 
-    """
-
-    Field diag fail
-
-    """
     DIAG_FAIL = 28
 
-    """
-
-    Field diag timeout
-
-    """
     DIAG_TIMEOUT = 29
 
-    """
-
-    Disable
-
-    """
     DISABLE = 30
 
-    """
-
-    SPA booting
-
-    """
     SPA_BOOT = 31
 
-    """
-
-    Not allowed online
-
-    """
     NOT_ALLOWED_ONLINE = 32
 
-    """
-
-    Stopped
-
-    """
     STOP = 33
 
-    """
-
-    Incompatible FW version
-
-    """
     INCOMP_VERSION = 34
 
-    """
-
-    FPD hold
-
-    """
     FPD_HOLD = 35
 
-    """
-
-    XR preparation
-
-    """
     XR_PREPARATION = 36
 
-    """
-
-    Sync ready state
-
-    """
     SYNC_READY = 37
 
-    """
-
-    Node isolate state
-
-    """
     XR_ISOLATE = 38
 
-    """
-
-    Ready
-
-    """
     READY = 39
 
-    """
-
-    Invalid
-
-    """
     INVALID = 40
 
-    """
-
-    Operational
-
-    """
     OPERATIONAL = 41
 
-    """
-
-    Operational lock
-
-    """
     OPERATIONAL_LOCK = 42
 
-    """
-
-    Going down
-
-    """
     GOING_DOWN = 43
 
-    """
-
-    Going offline
-
-    """
     GOING_OFFLINE = 44
 
-    """
-
-    Going online
-
-    """
     GOING_ONLINE = 45
 
-    """
-
-    Offline
-
-    """
     OFFLINE = 46
 
-    """
-
-    Up
-
-    """
     UP = 47
 
-    """
-
-    Down
-
-    """
     DOWN = 48
 
-    """
-
-    Max
-
-    """
     MAX = 49
 
-    """
-
-    Unknown
-
-    """
     UNKNOWN = 50
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-        return meta._meta_table['NodeState_Enum']
+        return meta._meta_table['NodeStateEnum']
 
 
 
@@ -1084,7 +977,7 @@ class Platform(object):
                                 .. attribute:: card_redundancy_state
                                 
                                 	Redundancy state
-                                	**type**\: :py:class:`CardRedundancyState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.CardRedundancyState_Enum>`
+                                	**type**\: :py:class:`CardRedundancyStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.CardRedundancyStateEnum>`
                                 
                                 .. attribute:: card_type
                                 
@@ -1114,7 +1007,7 @@ class Platform(object):
                                 .. attribute:: state
                                 
                                 	State
-                                	**type**\: :py:class:`NodeState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.NodeState_Enum>`
+                                	**type**\: :py:class:`NodeStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.NodeStateEnum>`
                                 
                                 
 
@@ -1148,8 +1041,6 @@ class Platform(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.admin_state is not None:
                                         return True
 
@@ -1176,10 +1067,6 @@ class Platform(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -1201,21 +1088,12 @@ class Platform(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.instance_name is not None:
                                     return True
 
                                 if self.state is not None and self.state._has_data():
                                     return True
 
-                                if self.state is not None and self.state.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1237,17 +1115,11 @@ class Platform(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.instance is not None:
                                 for child_ref in self.instance:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1268,7 +1140,7 @@ class Platform(object):
                         .. attribute:: card_redundancy_state
                         
                         	Redundancy state
-                        	**type**\: :py:class:`CardRedundancyState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.CardRedundancyState_Enum>`
+                        	**type**\: :py:class:`CardRedundancyStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.CardRedundancyStateEnum>`
                         
                         .. attribute:: card_type
                         
@@ -1298,7 +1170,7 @@ class Platform(object):
                         .. attribute:: state
                         
                         	State
-                        	**type**\: :py:class:`NodeState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.NodeState_Enum>`
+                        	**type**\: :py:class:`NodeStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.NodeStateEnum>`
                         
                         
 
@@ -1332,8 +1204,6 @@ class Platform(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.admin_state is not None:
                                 return True
 
@@ -1358,10 +1228,6 @@ class Platform(object):
                             if self.state is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1428,8 +1294,6 @@ class Platform(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.node_descriptiton is not None:
                                 return True
 
@@ -1445,10 +1309,6 @@ class Platform(object):
                             if self.software_status is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1472,33 +1332,18 @@ class Platform(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.slot_name is not None:
                             return True
 
                         if self.instances is not None and self.instances._has_data():
                             return True
 
-                        if self.instances is not None and self.instances.is_presence():
-                            return True
-
                         if self.state is not None and self.state._has_data():
-                            return True
-
-                        if self.state is not None and self.state.is_presence():
                             return True
 
                         if self.vm is not None and self.vm._has_data():
                             return True
 
-                        if self.vm is not None and self.vm.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1520,17 +1365,11 @@ class Platform(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.slot is not None:
                         for child_ref in self.slot:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1552,21 +1391,12 @@ class Platform(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.rack_name is not None:
                     return True
 
                 if self.slots is not None and self.slots._has_data():
                     return True
 
-                if self.slots is not None and self.slots.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1586,17 +1416,11 @@ class Platform(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.rack is not None:
                 for child_ref in self.rack:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1616,18 +1440,9 @@ class Platform(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.racks is not None and self.racks._has_data():
             return True
 
-        if self.racks is not None and self.racks.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -1844,8 +1659,6 @@ class PlatformInventory(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.description is not None:
                             return True
 
@@ -1875,10 +1688,6 @@ class PlatformInventory(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -1897,27 +1706,27 @@ class PlatformInventory(object):
                     .. attribute:: module_administrative_state
                     
                     	Administrative    state
-                    	**type**\: :py:class:`InvAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState_Enum>`
+                    	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                     
                     .. attribute:: module_monitor_state
                     
                     	Monitor state
-                    	**type**\: :py:class:`InvMonitorState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState_Enum>`
+                    	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                     
                     .. attribute:: module_operational_state
                     
                     	Operation state
-                    	**type**\: :py:class:`InvCardState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState_Enum>`
+                    	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                     
                     .. attribute:: module_power_administrative_state
                     
                     	Power administrative state
-                    	**type**\: :py:class:`InvPowerAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState_Enum>`
+                    	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                     
                     .. attribute:: module_reset_reason
                     
                     	Reset reason
-                    	**type**\: :py:class:`InvResetReason_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason_Enum>`
+                    	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                     
                     .. attribute:: module_up_time
                     
@@ -1988,18 +1797,12 @@ class PlatformInventory(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.time_in_nano_seconds is not None:
                                 return True
 
                             if self.time_in_seconds is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2052,18 +1855,12 @@ class PlatformInventory(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.time_in_nano_seconds is not None:
                                 return True
 
                             if self.time_in_seconds is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2085,12 +1882,7 @@ class PlatformInventory(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                            return True
-
-                        if self.last_operational_state_change is not None and self.last_operational_state_change.is_presence():
                             return True
 
                         if self.module_administrative_state is not None:
@@ -2111,13 +1903,6 @@ class PlatformInventory(object):
                         if self.module_up_time is not None and self.module_up_time._has_data():
                             return True
 
-                        if self.module_up_time is not None and self.module_up_time.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2139,24 +1924,12 @@ class PlatformInventory(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.basic_info is not None and self.basic_info._has_data():
-                        return True
-
-                    if self.basic_info is not None and self.basic_info.is_presence():
                         return True
 
                     if self.fru_info is not None and self.fru_info._has_data():
                         return True
 
-                    if self.fru_info is not None and self.fru_info.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2352,8 +2125,6 @@ class PlatformInventory(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.description is not None:
                                     return True
 
@@ -2383,10 +2154,6 @@ class PlatformInventory(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -2405,27 +2172,27 @@ class PlatformInventory(object):
                             .. attribute:: module_administrative_state
                             
                             	Administrative    state
-                            	**type**\: :py:class:`InvAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState_Enum>`
+                            	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                             
                             .. attribute:: module_monitor_state
                             
                             	Monitor state
-                            	**type**\: :py:class:`InvMonitorState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState_Enum>`
+                            	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                             
                             .. attribute:: module_operational_state
                             
                             	Operation state
-                            	**type**\: :py:class:`InvCardState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState_Enum>`
+                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                             
                             .. attribute:: module_power_administrative_state
                             
                             	Power administrative state
-                            	**type**\: :py:class:`InvPowerAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState_Enum>`
+                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                             
                             .. attribute:: module_reset_reason
                             
                             	Reset reason
-                            	**type**\: :py:class:`InvResetReason_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason_Enum>`
+                            	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                             
                             .. attribute:: module_up_time
                             
@@ -2496,18 +2263,12 @@ class PlatformInventory(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.time_in_nano_seconds is not None:
                                         return True
 
                                     if self.time_in_seconds is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2560,18 +2321,12 @@ class PlatformInventory(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.time_in_nano_seconds is not None:
                                         return True
 
                                     if self.time_in_seconds is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2593,12 +2348,7 @@ class PlatformInventory(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                    return True
-
-                                if self.last_operational_state_change is not None and self.last_operational_state_change.is_presence():
                                     return True
 
                                 if self.module_administrative_state is not None:
@@ -2619,13 +2369,6 @@ class PlatformInventory(object):
                                 if self.module_up_time is not None and self.module_up_time._has_data():
                                     return True
 
-                                if self.module_up_time is not None and self.module_up_time.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2647,24 +2390,12 @@ class PlatformInventory(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.basic_info is not None and self.basic_info._has_data():
-                                return True
-
-                            if self.basic_info is not None and self.basic_info.is_presence():
                                 return True
 
                             if self.fru_info is not None and self.fru_info._has_data():
                                 return True
 
-                            if self.fru_info is not None and self.fru_info.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2895,8 +2626,6 @@ class PlatformInventory(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.description is not None:
                                             return True
 
@@ -2926,10 +2655,6 @@ class PlatformInventory(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -2948,27 +2673,27 @@ class PlatformInventory(object):
                                     .. attribute:: module_administrative_state
                                     
                                     	Administrative    state
-                                    	**type**\: :py:class:`InvAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState_Enum>`
+                                    	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                     
                                     .. attribute:: module_monitor_state
                                     
                                     	Monitor state
-                                    	**type**\: :py:class:`InvMonitorState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState_Enum>`
+                                    	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                     
                                     .. attribute:: module_operational_state
                                     
                                     	Operation state
-                                    	**type**\: :py:class:`InvCardState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState_Enum>`
+                                    	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                     
                                     .. attribute:: module_power_administrative_state
                                     
                                     	Power administrative state
-                                    	**type**\: :py:class:`InvPowerAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState_Enum>`
+                                    	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                     
                                     .. attribute:: module_reset_reason
                                     
                                     	Reset reason
-                                    	**type**\: :py:class:`InvResetReason_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason_Enum>`
+                                    	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                     
                                     .. attribute:: module_up_time
                                     
@@ -3039,18 +2764,12 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.time_in_nano_seconds is not None:
                                                 return True
 
                                             if self.time_in_seconds is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3103,18 +2822,12 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.time_in_nano_seconds is not None:
                                                 return True
 
                                             if self.time_in_seconds is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3136,12 +2849,7 @@ class PlatformInventory(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                            return True
-
-                                        if self.last_operational_state_change is not None and self.last_operational_state_change.is_presence():
                                             return True
 
                                         if self.module_administrative_state is not None:
@@ -3162,13 +2870,6 @@ class PlatformInventory(object):
                                         if self.module_up_time is not None and self.module_up_time._has_data():
                                             return True
 
-                                        if self.module_up_time is not None and self.module_up_time.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3190,24 +2891,12 @@ class PlatformInventory(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.basic_info is not None and self.basic_info._has_data():
-                                        return True
-
-                                    if self.basic_info is not None and self.basic_info.is_presence():
                                         return True
 
                                     if self.fru_info is not None and self.fru_info._has_data():
                                         return True
 
-                                    if self.fru_info is not None and self.fru_info.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3367,8 +3056,6 @@ class PlatformInventory(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bootflash_size is not None:
                                             return True
 
@@ -3399,10 +3086,6 @@ class PlatformInventory(object):
                                         if self.sector_size is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3510,8 +3193,6 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.disk_name is not None:
                                                 return True
 
@@ -3521,10 +3202,6 @@ class PlatformInventory(object):
                                             if self.sector_size is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3546,8 +3223,6 @@ class PlatformInventory(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.disk_name is not None:
                                             return True
 
@@ -3562,10 +3237,6 @@ class PlatformInventory(object):
                                         if self.sector_size is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3734,8 +3405,6 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.bootflash_size is not None:
                                                 return True
 
@@ -3766,10 +3435,6 @@ class PlatformInventory(object):
                                             if self.sector_size is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3830,8 +3495,6 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.processor_type is not None:
                                                 return True
 
@@ -3841,10 +3504,6 @@ class PlatformInventory(object):
                                             if self.speed is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3929,8 +3588,6 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.image_name is not None:
                                                 return True
 
@@ -3949,10 +3606,6 @@ class PlatformInventory(object):
                                             if self.release_type is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3974,12 +3627,7 @@ class PlatformInventory(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.bootflash is not None and self.bootflash._has_data():
-                                            return True
-
-                                        if self.bootflash is not None and self.bootflash.is_presence():
                                             return True
 
                                         if self.main_memory_size is not None:
@@ -3991,19 +3639,9 @@ class PlatformInventory(object):
                                         if self.processor is not None and self.processor._has_data():
                                             return True
 
-                                        if self.processor is not None and self.processor.is_presence():
-                                            return True
-
                                         if self.rom is not None and self.rom._has_data():
                                             return True
 
-                                        if self.rom is not None and self.rom.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4064,8 +3702,6 @@ class PlatformInventory(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.processor_type is not None:
                                             return True
 
@@ -4075,10 +3711,6 @@ class PlatformInventory(object):
                                         if self.speed is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4100,36 +3732,18 @@ class PlatformInventory(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bootflash_information is not None and self.bootflash_information._has_data():
-                                        return True
-
-                                    if self.bootflash_information is not None and self.bootflash_information.is_presence():
                                         return True
 
                                     if self.disk_information is not None and self.disk_information._has_data():
                                         return True
 
-                                    if self.disk_information is not None and self.disk_information.is_presence():
-                                        return True
-
                                     if self.motherboard_information is not None and self.motherboard_information._has_data():
-                                        return True
-
-                                    if self.motherboard_information is not None and self.motherboard_information.is_presence():
                                         return True
 
                                     if self.processor_information is not None and self.processor_information._has_data():
                                         return True
 
-                                    if self.processor_information is not None and self.processor_information.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4325,8 +3939,6 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.description is not None:
                                                     return True
 
@@ -4356,10 +3968,6 @@ class PlatformInventory(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -4378,27 +3986,27 @@ class PlatformInventory(object):
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
-                                            	**type**\: :py:class:`InvAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState_Enum>`
+                                            	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
-                                            	**type**\: :py:class:`InvMonitorState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState_Enum>`
+                                            	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
-                                            	**type**\: :py:class:`InvCardState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState_Enum>`
+                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                             
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
-                                            	**type**\: :py:class:`InvPowerAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState_Enum>`
+                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                             
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
-                                            	**type**\: :py:class:`InvResetReason_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason_Enum>`
+                                            	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                             
                                             .. attribute:: module_up_time
                                             
@@ -4469,18 +4077,12 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
                                                     if self.time_in_seconds is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -4533,18 +4135,12 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
                                                     if self.time_in_seconds is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -4566,12 +4162,7 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                    return True
-
-                                                if self.last_operational_state_change is not None and self.last_operational_state_change.is_presence():
                                                     return True
 
                                                 if self.module_administrative_state is not None:
@@ -4592,13 +4183,6 @@ class PlatformInventory(object):
                                                 if self.module_up_time is not None and self.module_up_time._has_data():
                                                     return True
 
-                                                if self.module_up_time is not None and self.module_up_time.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -4620,24 +4204,12 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.basic_info is not None and self.basic_info._has_data():
-                                                return True
-
-                                            if self.basic_info is not None and self.basic_info.is_presence():
                                                 return True
 
                                             if self.fru_info is not None and self.fru_info._has_data():
                                                 return True
 
-                                            if self.fru_info is not None and self.fru_info.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -4826,8 +4398,6 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.description is not None:
                                                             return True
 
@@ -4857,10 +4427,6 @@ class PlatformInventory(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -4879,27 +4445,27 @@ class PlatformInventory(object):
                                                     .. attribute:: module_administrative_state
                                                     
                                                     	Administrative    state
-                                                    	**type**\: :py:class:`InvAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState_Enum>`
+                                                    	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                                     
                                                     .. attribute:: module_monitor_state
                                                     
                                                     	Monitor state
-                                                    	**type**\: :py:class:`InvMonitorState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState_Enum>`
+                                                    	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                     
                                                     .. attribute:: module_operational_state
                                                     
                                                     	Operation state
-                                                    	**type**\: :py:class:`InvCardState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState_Enum>`
+                                                    	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                     
                                                     .. attribute:: module_power_administrative_state
                                                     
                                                     	Power administrative state
-                                                    	**type**\: :py:class:`InvPowerAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState_Enum>`
+                                                    	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                                     
                                                     .. attribute:: module_reset_reason
                                                     
                                                     	Reset reason
-                                                    	**type**\: :py:class:`InvResetReason_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason_Enum>`
+                                                    	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                                     
                                                     .. attribute:: module_up_time
                                                     
@@ -4970,18 +4536,12 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.time_in_nano_seconds is not None:
                                                                 return True
 
                                                             if self.time_in_seconds is not None:
                                                                 return True
 
-                                                            return False
-
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
                                                             return False
 
                                                         @staticmethod
@@ -5034,18 +4594,12 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.time_in_nano_seconds is not None:
                                                                 return True
 
                                                             if self.time_in_seconds is not None:
                                                                 return True
 
-                                                            return False
-
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
                                                             return False
 
                                                         @staticmethod
@@ -5067,12 +4621,7 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                            return True
-
-                                                        if self.last_operational_state_change is not None and self.last_operational_state_change.is_presence():
                                                             return True
 
                                                         if self.module_administrative_state is not None:
@@ -5093,13 +4642,6 @@ class PlatformInventory(object):
                                                         if self.module_up_time is not None and self.module_up_time._has_data():
                                                             return True
 
-                                                        if self.module_up_time is not None and self.module_up_time.is_presence():
-                                                            return True
-
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -5121,24 +4663,12 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.basic_info is not None and self.basic_info._has_data():
-                                                        return True
-
-                                                    if self.basic_info is not None and self.basic_info.is_presence():
                                                         return True
 
                                                     if self.fru_info is not None and self.fru_info._has_data():
                                                         return True
 
-                                                    if self.fru_info is not None and self.fru_info.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -5162,21 +4692,12 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.name is not None:
                                                     return True
 
                                                 if self.attributes is not None and self.attributes._has_data():
                                                     return True
 
-                                                if self.attributes is not None and self.attributes.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -5198,17 +4719,11 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.sensor is not None:
                                                 for child_ref in self.sensor:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -5232,27 +4747,15 @@ class PlatformInventory(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.name is not None:
                                             return True
 
                                         if self.attributes is not None and self.attributes._has_data():
                                             return True
 
-                                        if self.attributes is not None and self.attributes.is_presence():
-                                            return True
-
                                         if self.sensors is not None and self.sensors._has_data():
                                             return True
 
-                                        if self.sensors is not None and self.sensors.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5274,17 +4777,11 @@ class PlatformInventory(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.hw_component is not None:
                                         for child_ref in self.hw_component:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -5487,8 +4984,6 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.description is not None:
                                                     return True
 
@@ -5518,10 +5013,6 @@ class PlatformInventory(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -5540,27 +5031,27 @@ class PlatformInventory(object):
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
-                                            	**type**\: :py:class:`InvAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState_Enum>`
+                                            	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
-                                            	**type**\: :py:class:`InvMonitorState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState_Enum>`
+                                            	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
-                                            	**type**\: :py:class:`InvCardState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState_Enum>`
+                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                             
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
-                                            	**type**\: :py:class:`InvPowerAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState_Enum>`
+                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                             
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
-                                            	**type**\: :py:class:`InvResetReason_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason_Enum>`
+                                            	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                             
                                             .. attribute:: module_up_time
                                             
@@ -5631,18 +5122,12 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
                                                     if self.time_in_seconds is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -5695,18 +5180,12 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
                                                     if self.time_in_seconds is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -5728,12 +5207,7 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                    return True
-
-                                                if self.last_operational_state_change is not None and self.last_operational_state_change.is_presence():
                                                     return True
 
                                                 if self.module_administrative_state is not None:
@@ -5754,13 +5228,6 @@ class PlatformInventory(object):
                                                 if self.module_up_time is not None and self.module_up_time._has_data():
                                                     return True
 
-                                                if self.module_up_time is not None and self.module_up_time.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -5782,24 +5249,12 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.basic_info is not None and self.basic_info._has_data():
-                                                return True
-
-                                            if self.basic_info is not None and self.basic_info.is_presence():
                                                 return True
 
                                             if self.fru_info is not None and self.fru_info._has_data():
                                                 return True
 
-                                            if self.fru_info is not None and self.fru_info.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -5957,8 +5412,6 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.description is not None:
                                                         return True
 
@@ -5988,10 +5441,6 @@ class PlatformInventory(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -6010,27 +5459,27 @@ class PlatformInventory(object):
                                                 .. attribute:: module_administrative_state
                                                 
                                                 	Administrative    state
-                                                	**type**\: :py:class:`InvAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState_Enum>`
+                                                	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                                 
                                                 .. attribute:: module_monitor_state
                                                 
                                                 	Monitor state
-                                                	**type**\: :py:class:`InvMonitorState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState_Enum>`
+                                                	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                 
                                                 .. attribute:: module_operational_state
                                                 
                                                 	Operation state
-                                                	**type**\: :py:class:`InvCardState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState_Enum>`
+                                                	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                 
                                                 .. attribute:: module_power_administrative_state
                                                 
                                                 	Power administrative state
-                                                	**type**\: :py:class:`InvPowerAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState_Enum>`
+                                                	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                                 
                                                 .. attribute:: module_reset_reason
                                                 
                                                 	Reset reason
-                                                	**type**\: :py:class:`InvResetReason_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason_Enum>`
+                                                	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                                 
                                                 .. attribute:: module_up_time
                                                 
@@ -6101,18 +5550,12 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.time_in_nano_seconds is not None:
                                                             return True
 
                                                         if self.time_in_seconds is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -6165,18 +5608,12 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.time_in_nano_seconds is not None:
                                                             return True
 
                                                         if self.time_in_seconds is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -6198,12 +5635,7 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                        return True
-
-                                                    if self.last_operational_state_change is not None and self.last_operational_state_change.is_presence():
                                                         return True
 
                                                     if self.module_administrative_state is not None:
@@ -6224,13 +5656,6 @@ class PlatformInventory(object):
                                                     if self.module_up_time is not None and self.module_up_time._has_data():
                                                         return True
 
-                                                    if self.module_up_time is not None and self.module_up_time.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -6252,24 +5677,12 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.basic_info is not None and self.basic_info._has_data():
-                                                    return True
-
-                                                if self.basic_info is not None and self.basic_info.is_presence():
                                                     return True
 
                                                 if self.fru_info is not None and self.fru_info._has_data():
                                                     return True
 
-                                                if self.fru_info is not None and self.fru_info.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -6291,18 +5704,9 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.attributes is not None and self.attributes._has_data():
                                                 return True
 
-                                            if self.attributes is not None and self.attributes.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6491,8 +5895,6 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.description is not None:
                                                             return True
 
@@ -6522,10 +5924,6 @@ class PlatformInventory(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -6544,27 +5942,27 @@ class PlatformInventory(object):
                                                     .. attribute:: module_administrative_state
                                                     
                                                     	Administrative    state
-                                                    	**type**\: :py:class:`InvAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState_Enum>`
+                                                    	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                                     
                                                     .. attribute:: module_monitor_state
                                                     
                                                     	Monitor state
-                                                    	**type**\: :py:class:`InvMonitorState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState_Enum>`
+                                                    	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                     
                                                     .. attribute:: module_operational_state
                                                     
                                                     	Operation state
-                                                    	**type**\: :py:class:`InvCardState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState_Enum>`
+                                                    	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                     
                                                     .. attribute:: module_power_administrative_state
                                                     
                                                     	Power administrative state
-                                                    	**type**\: :py:class:`InvPowerAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState_Enum>`
+                                                    	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                                     
                                                     .. attribute:: module_reset_reason
                                                     
                                                     	Reset reason
-                                                    	**type**\: :py:class:`InvResetReason_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason_Enum>`
+                                                    	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                                     
                                                     .. attribute:: module_up_time
                                                     
@@ -6635,18 +6033,12 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.time_in_nano_seconds is not None:
                                                                 return True
 
                                                             if self.time_in_seconds is not None:
                                                                 return True
 
-                                                            return False
-
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
                                                             return False
 
                                                         @staticmethod
@@ -6699,18 +6091,12 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.time_in_nano_seconds is not None:
                                                                 return True
 
                                                             if self.time_in_seconds is not None:
                                                                 return True
 
-                                                            return False
-
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
                                                             return False
 
                                                         @staticmethod
@@ -6732,12 +6118,7 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                            return True
-
-                                                        if self.last_operational_state_change is not None and self.last_operational_state_change.is_presence():
                                                             return True
 
                                                         if self.module_administrative_state is not None:
@@ -6758,13 +6139,6 @@ class PlatformInventory(object):
                                                         if self.module_up_time is not None and self.module_up_time._has_data():
                                                             return True
 
-                                                        if self.module_up_time is not None and self.module_up_time.is_presence():
-                                                            return True
-
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -6786,24 +6160,12 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.basic_info is not None and self.basic_info._has_data():
-                                                        return True
-
-                                                    if self.basic_info is not None and self.basic_info.is_presence():
                                                         return True
 
                                                     if self.fru_info is not None and self.fru_info._has_data():
                                                         return True
 
-                                                    if self.fru_info is not None and self.fru_info.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -6827,21 +6189,12 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.name is not None:
                                                     return True
 
                                                 if self.attributes is not None and self.attributes._has_data():
                                                     return True
 
-                                                if self.attributes is not None and self.attributes.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -6863,17 +6216,11 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.sensor is not None:
                                                 for child_ref in self.sensor:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6897,33 +6244,18 @@ class PlatformInventory(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.name is not None:
                                             return True
 
                                         if self.attributes is not None and self.attributes._has_data():
                                             return True
 
-                                        if self.attributes is not None and self.attributes.is_presence():
-                                            return True
-
                                         if self.port is not None and self.port._has_data():
-                                            return True
-
-                                        if self.port is not None and self.port.is_presence():
                                             return True
 
                                         if self.sensors is not None and self.sensors._has_data():
                                             return True
 
-                                        if self.sensors is not None and self.sensors.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6945,17 +6277,11 @@ class PlatformInventory(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.port_slot is not None:
                                         for child_ref in self.port_slot:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7144,8 +6470,6 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.description is not None:
                                                     return True
 
@@ -7175,10 +6499,6 @@ class PlatformInventory(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -7197,27 +6517,27 @@ class PlatformInventory(object):
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
-                                            	**type**\: :py:class:`InvAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState_Enum>`
+                                            	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
-                                            	**type**\: :py:class:`InvMonitorState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState_Enum>`
+                                            	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
-                                            	**type**\: :py:class:`InvCardState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState_Enum>`
+                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                             
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
-                                            	**type**\: :py:class:`InvPowerAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState_Enum>`
+                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                             
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
-                                            	**type**\: :py:class:`InvResetReason_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason_Enum>`
+                                            	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                             
                                             .. attribute:: module_up_time
                                             
@@ -7288,18 +6608,12 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
                                                     if self.time_in_seconds is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -7352,18 +6666,12 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
                                                     if self.time_in_seconds is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -7385,12 +6693,7 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                    return True
-
-                                                if self.last_operational_state_change is not None and self.last_operational_state_change.is_presence():
                                                     return True
 
                                                 if self.module_administrative_state is not None:
@@ -7411,13 +6714,6 @@ class PlatformInventory(object):
                                                 if self.module_up_time is not None and self.module_up_time._has_data():
                                                     return True
 
-                                                if self.module_up_time is not None and self.module_up_time.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -7439,24 +6735,12 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.basic_info is not None and self.basic_info._has_data():
-                                                return True
-
-                                            if self.basic_info is not None and self.basic_info.is_presence():
                                                 return True
 
                                             if self.fru_info is not None and self.fru_info._has_data():
                                                 return True
 
-                                            if self.fru_info is not None and self.fru_info.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -7480,21 +6764,12 @@ class PlatformInventory(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.name is not None:
                                             return True
 
                                         if self.attributes is not None and self.attributes._has_data():
                                             return True
 
-                                        if self.attributes is not None and self.attributes.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7516,17 +6791,11 @@ class PlatformInventory(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ports is not None:
                                         for child_ref in self.ports:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7715,8 +6984,6 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.description is not None:
                                                     return True
 
@@ -7746,10 +7013,6 @@ class PlatformInventory(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -7768,27 +7031,27 @@ class PlatformInventory(object):
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
-                                            	**type**\: :py:class:`InvAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState_Enum>`
+                                            	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
-                                            	**type**\: :py:class:`InvMonitorState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState_Enum>`
+                                            	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
-                                            	**type**\: :py:class:`InvCardState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState_Enum>`
+                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                             
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
-                                            	**type**\: :py:class:`InvPowerAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState_Enum>`
+                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                             
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
-                                            	**type**\: :py:class:`InvResetReason_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason_Enum>`
+                                            	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                             
                                             .. attribute:: module_up_time
                                             
@@ -7859,18 +7122,12 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
                                                     if self.time_in_seconds is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -7923,18 +7180,12 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
                                                     if self.time_in_seconds is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -7956,12 +7207,7 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                    return True
-
-                                                if self.last_operational_state_change is not None and self.last_operational_state_change.is_presence():
                                                     return True
 
                                                 if self.module_administrative_state is not None:
@@ -7982,13 +7228,6 @@ class PlatformInventory(object):
                                                 if self.module_up_time is not None and self.module_up_time._has_data():
                                                     return True
 
-                                                if self.module_up_time is not None and self.module_up_time.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -8010,24 +7249,12 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.basic_info is not None and self.basic_info._has_data():
-                                                return True
-
-                                            if self.basic_info is not None and self.basic_info.is_presence():
                                                 return True
 
                                             if self.fru_info is not None and self.fru_info._has_data():
                                                 return True
 
-                                            if self.fru_info is not None and self.fru_info.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -8051,21 +7278,12 @@ class PlatformInventory(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.name is not None:
                                             return True
 
                                         if self.attributes is not None and self.attributes._has_data():
                                             return True
 
-                                        if self.attributes is not None and self.attributes.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8087,17 +7305,11 @@ class PlatformInventory(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.sensor is not None:
                                         for child_ref in self.sensor:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8293,8 +7505,6 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.description is not None:
                                                     return True
 
@@ -8324,10 +7534,6 @@ class PlatformInventory(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -8346,27 +7552,27 @@ class PlatformInventory(object):
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
-                                            	**type**\: :py:class:`InvAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState_Enum>`
+                                            	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
-                                            	**type**\: :py:class:`InvMonitorState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState_Enum>`
+                                            	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
-                                            	**type**\: :py:class:`InvCardState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState_Enum>`
+                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                             
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
-                                            	**type**\: :py:class:`InvPowerAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState_Enum>`
+                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                             
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
-                                            	**type**\: :py:class:`InvResetReason_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason_Enum>`
+                                            	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                             
                                             .. attribute:: module_up_time
                                             
@@ -8437,18 +7643,12 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
                                                     if self.time_in_seconds is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -8501,18 +7701,12 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
                                                     if self.time_in_seconds is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -8534,12 +7728,7 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                    return True
-
-                                                if self.last_operational_state_change is not None and self.last_operational_state_change.is_presence():
                                                     return True
 
                                                 if self.module_administrative_state is not None:
@@ -8560,13 +7749,6 @@ class PlatformInventory(object):
                                                 if self.module_up_time is not None and self.module_up_time._has_data():
                                                     return True
 
-                                                if self.module_up_time is not None and self.module_up_time.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -8588,24 +7770,12 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.basic_info is not None and self.basic_info._has_data():
-                                                return True
-
-                                            if self.basic_info is not None and self.basic_info.is_presence():
                                                 return True
 
                                             if self.fru_info is not None and self.fru_info._has_data():
                                                 return True
 
-                                            if self.fru_info is not None and self.fru_info.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -8777,8 +7947,6 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.description is not None:
                                                         return True
 
@@ -8808,10 +7976,6 @@ class PlatformInventory(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -8830,27 +7994,27 @@ class PlatformInventory(object):
                                                 .. attribute:: module_administrative_state
                                                 
                                                 	Administrative    state
-                                                	**type**\: :py:class:`InvAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState_Enum>`
+                                                	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                                 
                                                 .. attribute:: module_monitor_state
                                                 
                                                 	Monitor state
-                                                	**type**\: :py:class:`InvMonitorState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState_Enum>`
+                                                	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                 
                                                 .. attribute:: module_operational_state
                                                 
                                                 	Operation state
-                                                	**type**\: :py:class:`InvCardState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState_Enum>`
+                                                	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                 
                                                 .. attribute:: module_power_administrative_state
                                                 
                                                 	Power administrative state
-                                                	**type**\: :py:class:`InvPowerAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState_Enum>`
+                                                	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                                 
                                                 .. attribute:: module_reset_reason
                                                 
                                                 	Reset reason
-                                                	**type**\: :py:class:`InvResetReason_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason_Enum>`
+                                                	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                                 
                                                 .. attribute:: module_up_time
                                                 
@@ -8921,18 +8085,12 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.time_in_nano_seconds is not None:
                                                             return True
 
                                                         if self.time_in_seconds is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -8985,18 +8143,12 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.time_in_nano_seconds is not None:
                                                             return True
 
                                                         if self.time_in_seconds is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -9018,12 +8170,7 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                        return True
-
-                                                    if self.last_operational_state_change is not None and self.last_operational_state_change.is_presence():
                                                         return True
 
                                                     if self.module_administrative_state is not None:
@@ -9044,13 +8191,6 @@ class PlatformInventory(object):
                                                     if self.module_up_time is not None and self.module_up_time._has_data():
                                                         return True
 
-                                                    if self.module_up_time is not None and self.module_up_time.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -9072,24 +8212,12 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.basic_info is not None and self.basic_info._has_data():
-                                                    return True
-
-                                                if self.basic_info is not None and self.basic_info.is_presence():
                                                     return True
 
                                                 if self.fru_info is not None and self.fru_info._has_data():
                                                     return True
 
-                                                if self.fru_info is not None and self.fru_info.is_presence():
-                                                    return True
-
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -9292,8 +8420,6 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.description is not None:
                                                                 return True
 
@@ -9323,10 +8449,6 @@ class PlatformInventory(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -9345,27 +8467,27 @@ class PlatformInventory(object):
                                                         .. attribute:: module_administrative_state
                                                         
                                                         	Administrative    state
-                                                        	**type**\: :py:class:`InvAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState_Enum>`
+                                                        	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                                         
                                                         .. attribute:: module_monitor_state
                                                         
                                                         	Monitor state
-                                                        	**type**\: :py:class:`InvMonitorState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState_Enum>`
+                                                        	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                         
                                                         .. attribute:: module_operational_state
                                                         
                                                         	Operation state
-                                                        	**type**\: :py:class:`InvCardState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState_Enum>`
+                                                        	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                         
                                                         .. attribute:: module_power_administrative_state
                                                         
                                                         	Power administrative state
-                                                        	**type**\: :py:class:`InvPowerAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState_Enum>`
+                                                        	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                                         
                                                         .. attribute:: module_reset_reason
                                                         
                                                         	Reset reason
-                                                        	**type**\: :py:class:`InvResetReason_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason_Enum>`
+                                                        	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                                         
                                                         .. attribute:: module_up_time
                                                         
@@ -9436,18 +8558,12 @@ class PlatformInventory(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.time_in_nano_seconds is not None:
                                                                     return True
 
                                                                 if self.time_in_seconds is not None:
                                                                     return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -9500,18 +8616,12 @@ class PlatformInventory(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.time_in_nano_seconds is not None:
                                                                     return True
 
                                                                 if self.time_in_seconds is not None:
                                                                     return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -9533,12 +8643,7 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                                return True
-
-                                                            if self.last_operational_state_change is not None and self.last_operational_state_change.is_presence():
                                                                 return True
 
                                                             if self.module_administrative_state is not None:
@@ -9559,13 +8664,6 @@ class PlatformInventory(object):
                                                             if self.module_up_time is not None and self.module_up_time._has_data():
                                                                 return True
 
-                                                            if self.module_up_time is not None and self.module_up_time.is_presence():
-                                                                return True
-
-                                                            return False
-
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
                                                             return False
 
                                                         @staticmethod
@@ -9587,24 +8685,12 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.basic_info is not None and self.basic_info._has_data():
-                                                            return True
-
-                                                        if self.basic_info is not None and self.basic_info.is_presence():
                                                             return True
 
                                                         if self.fru_info is not None and self.fru_info._has_data():
                                                             return True
 
-                                                        if self.fru_info is not None and self.fru_info.is_presence():
-                                                            return True
-
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -9762,8 +8848,6 @@ class PlatformInventory(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.description is not None:
                                                                     return True
 
@@ -9793,10 +8877,6 @@ class PlatformInventory(object):
 
                                                                 return False
 
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                                return False
-
                                                             @staticmethod
                                                             def _meta_info():
                                                                 from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -9815,27 +8895,27 @@ class PlatformInventory(object):
                                                             .. attribute:: module_administrative_state
                                                             
                                                             	Administrative    state
-                                                            	**type**\: :py:class:`InvAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState_Enum>`
+                                                            	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                                             
                                                             .. attribute:: module_monitor_state
                                                             
                                                             	Monitor state
-                                                            	**type**\: :py:class:`InvMonitorState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState_Enum>`
+                                                            	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                             
                                                             .. attribute:: module_operational_state
                                                             
                                                             	Operation state
-                                                            	**type**\: :py:class:`InvCardState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState_Enum>`
+                                                            	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                             
                                                             .. attribute:: module_power_administrative_state
                                                             
                                                             	Power administrative state
-                                                            	**type**\: :py:class:`InvPowerAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState_Enum>`
+                                                            	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                                             
                                                             .. attribute:: module_reset_reason
                                                             
                                                             	Reset reason
-                                                            	**type**\: :py:class:`InvResetReason_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason_Enum>`
+                                                            	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                                             
                                                             .. attribute:: module_up_time
                                                             
@@ -9906,18 +8986,12 @@ class PlatformInventory(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.time_in_nano_seconds is not None:
                                                                         return True
 
                                                                     if self.time_in_seconds is not None:
                                                                         return True
 
-                                                                    return False
-
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                                     return False
 
                                                                 @staticmethod
@@ -9970,18 +9044,12 @@ class PlatformInventory(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.time_in_nano_seconds is not None:
                                                                         return True
 
                                                                     if self.time_in_seconds is not None:
                                                                         return True
 
-                                                                    return False
-
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                                     return False
 
                                                                 @staticmethod
@@ -10003,12 +9071,7 @@ class PlatformInventory(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                                    return True
-
-                                                                if self.last_operational_state_change is not None and self.last_operational_state_change.is_presence():
                                                                     return True
 
                                                                 if self.module_administrative_state is not None:
@@ -10029,13 +9092,6 @@ class PlatformInventory(object):
                                                                 if self.module_up_time is not None and self.module_up_time._has_data():
                                                                     return True
 
-                                                                if self.module_up_time is not None and self.module_up_time.is_presence():
-                                                                    return True
-
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -10057,24 +9113,12 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.basic_info is not None and self.basic_info._has_data():
-                                                                return True
-
-                                                            if self.basic_info is not None and self.basic_info.is_presence():
                                                                 return True
 
                                                             if self.fru_info is not None and self.fru_info._has_data():
                                                                 return True
 
-                                                            if self.fru_info is not None and self.fru_info.is_presence():
-                                                                return True
-
-                                                            return False
-
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
                                                             return False
 
                                                         @staticmethod
@@ -10096,18 +9140,9 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.attributes is not None and self.attributes._has_data():
                                                             return True
 
-                                                        if self.attributes is not None and self.attributes.is_presence():
-                                                            return True
-
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -10296,8 +9331,6 @@ class PlatformInventory(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.description is not None:
                                                                         return True
 
@@ -10327,10 +9360,6 @@ class PlatformInventory(object):
 
                                                                     return False
 
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                                    return False
-
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -10349,27 +9378,27 @@ class PlatformInventory(object):
                                                                 .. attribute:: module_administrative_state
                                                                 
                                                                 	Administrative    state
-                                                                	**type**\: :py:class:`InvAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState_Enum>`
+                                                                	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                                                 
                                                                 .. attribute:: module_monitor_state
                                                                 
                                                                 	Monitor state
-                                                                	**type**\: :py:class:`InvMonitorState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState_Enum>`
+                                                                	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                                 
                                                                 .. attribute:: module_operational_state
                                                                 
                                                                 	Operation state
-                                                                	**type**\: :py:class:`InvCardState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState_Enum>`
+                                                                	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                                 
                                                                 .. attribute:: module_power_administrative_state
                                                                 
                                                                 	Power administrative state
-                                                                	**type**\: :py:class:`InvPowerAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState_Enum>`
+                                                                	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                                                 
                                                                 .. attribute:: module_reset_reason
                                                                 
                                                                 	Reset reason
-                                                                	**type**\: :py:class:`InvResetReason_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason_Enum>`
+                                                                	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                                                 
                                                                 .. attribute:: module_up_time
                                                                 
@@ -10440,18 +9469,12 @@ class PlatformInventory(object):
                                                                     def _has_data(self):
                                                                         if not self.is_config():
                                                                             return False
-                                                                        if self.is_presence():
-                                                                            return True
                                                                         if self.time_in_nano_seconds is not None:
                                                                             return True
 
                                                                         if self.time_in_seconds is not None:
                                                                             return True
 
-                                                                        return False
-
-                                                                    def is_presence(self):
-                                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                                         return False
 
                                                                     @staticmethod
@@ -10504,18 +9527,12 @@ class PlatformInventory(object):
                                                                     def _has_data(self):
                                                                         if not self.is_config():
                                                                             return False
-                                                                        if self.is_presence():
-                                                                            return True
                                                                         if self.time_in_nano_seconds is not None:
                                                                             return True
 
                                                                         if self.time_in_seconds is not None:
                                                                             return True
 
-                                                                        return False
-
-                                                                    def is_presence(self):
-                                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                                         return False
 
                                                                     @staticmethod
@@ -10537,12 +9554,7 @@ class PlatformInventory(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.is_presence():
-                                                                        return True
                                                                     if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                                        return True
-
-                                                                    if self.last_operational_state_change is not None and self.last_operational_state_change.is_presence():
                                                                         return True
 
                                                                     if self.module_administrative_state is not None:
@@ -10563,13 +9575,6 @@ class PlatformInventory(object):
                                                                     if self.module_up_time is not None and self.module_up_time._has_data():
                                                                         return True
 
-                                                                    if self.module_up_time is not None and self.module_up_time.is_presence():
-                                                                        return True
-
-                                                                    return False
-
-                                                                def is_presence(self):
-                                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                                     return False
 
                                                                 @staticmethod
@@ -10591,24 +9596,12 @@ class PlatformInventory(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.basic_info is not None and self.basic_info._has_data():
-                                                                    return True
-
-                                                                if self.basic_info is not None and self.basic_info.is_presence():
                                                                     return True
 
                                                                 if self.fru_info is not None and self.fru_info._has_data():
                                                                     return True
 
-                                                                if self.fru_info is not None and self.fru_info.is_presence():
-                                                                    return True
-
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -10632,21 +9625,12 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.name is not None:
                                                                 return True
 
                                                             if self.attributes is not None and self.attributes._has_data():
                                                                 return True
 
-                                                            if self.attributes is not None and self.attributes.is_presence():
-                                                                return True
-
-                                                            return False
-
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
                                                             return False
 
                                                         @staticmethod
@@ -10668,17 +9652,11 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.sensor is not None:
                                                             for child_ref in self.sensor:
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -10702,33 +9680,18 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.name is not None:
                                                         return True
 
                                                     if self.attributes is not None and self.attributes._has_data():
                                                         return True
 
-                                                    if self.attributes is not None and self.attributes.is_presence():
-                                                        return True
-
                                                     if self.port is not None and self.port._has_data():
-                                                        return True
-
-                                                    if self.port is not None and self.port.is_presence():
                                                         return True
 
                                                     if self.sensors is not None and self.sensors._has_data():
                                                         return True
 
-                                                    if self.sensors is not None and self.sensors.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -10750,17 +9713,11 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.port_slot is not None:
                                                     for child_ref in self.port_slot:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -10949,8 +9906,6 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.description is not None:
                                                                 return True
 
@@ -10980,10 +9935,6 @@ class PlatformInventory(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.plat._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
@@ -11002,27 +9953,27 @@ class PlatformInventory(object):
                                                         .. attribute:: module_administrative_state
                                                         
                                                         	Administrative    state
-                                                        	**type**\: :py:class:`InvAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminState_Enum>`
+                                                        	**type**\: :py:class:`InvAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                                         
                                                         .. attribute:: module_monitor_state
                                                         
                                                         	Monitor state
-                                                        	**type**\: :py:class:`InvMonitorState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorState_Enum>`
+                                                        	**type**\: :py:class:`InvMonitorStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                         
                                                         .. attribute:: module_operational_state
                                                         
                                                         	Operation state
-                                                        	**type**\: :py:class:`InvCardState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardState_Enum>`
+                                                        	**type**\: :py:class:`InvCardStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                         
                                                         .. attribute:: module_power_administrative_state
                                                         
                                                         	Power administrative state
-                                                        	**type**\: :py:class:`InvPowerAdminState_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminState_Enum>`
+                                                        	**type**\: :py:class:`InvPowerAdminStateEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                                         
                                                         .. attribute:: module_reset_reason
                                                         
                                                         	Reset reason
-                                                        	**type**\: :py:class:`InvResetReason_Enum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReason_Enum>`
+                                                        	**type**\: :py:class:`InvResetReasonEnum <ydk.models.plat.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                                         
                                                         .. attribute:: module_up_time
                                                         
@@ -11093,18 +10044,12 @@ class PlatformInventory(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.time_in_nano_seconds is not None:
                                                                     return True
 
                                                                 if self.time_in_seconds is not None:
                                                                     return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -11157,18 +10102,12 @@ class PlatformInventory(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.is_presence():
-                                                                    return True
                                                                 if self.time_in_nano_seconds is not None:
                                                                     return True
 
                                                                 if self.time_in_seconds is not None:
                                                                     return True
 
-                                                                return False
-
-                                                            def is_presence(self):
-                                                                ''' Returns True if this instance represents presence container else returns False '''
                                                                 return False
 
                                                             @staticmethod
@@ -11190,12 +10129,7 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                                return True
-
-                                                            if self.last_operational_state_change is not None and self.last_operational_state_change.is_presence():
                                                                 return True
 
                                                             if self.module_administrative_state is not None:
@@ -11216,13 +10150,6 @@ class PlatformInventory(object):
                                                             if self.module_up_time is not None and self.module_up_time._has_data():
                                                                 return True
 
-                                                            if self.module_up_time is not None and self.module_up_time.is_presence():
-                                                                return True
-
-                                                            return False
-
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
                                                             return False
 
                                                         @staticmethod
@@ -11244,24 +10171,12 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.basic_info is not None and self.basic_info._has_data():
-                                                            return True
-
-                                                        if self.basic_info is not None and self.basic_info.is_presence():
                                                             return True
 
                                                         if self.fru_info is not None and self.fru_info._has_data():
                                                             return True
 
-                                                        if self.fru_info is not None and self.fru_info.is_presence():
-                                                            return True
-
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -11285,21 +10200,12 @@ class PlatformInventory(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.name is not None:
                                                         return True
 
                                                     if self.attributes is not None and self.attributes._has_data():
                                                         return True
 
-                                                    if self.attributes is not None and self.attributes.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -11321,17 +10227,11 @@ class PlatformInventory(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.sensor is not None:
                                                     for child_ref in self.sensor:
                                                         if child_ref._has_data():
                                                             return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -11353,30 +10253,15 @@ class PlatformInventory(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.attributes is not None and self.attributes._has_data():
-                                                return True
-
-                                            if self.attributes is not None and self.attributes.is_presence():
                                                 return True
 
                                             if self.port_slots is not None and self.port_slots._has_data():
                                                 return True
 
-                                            if self.port_slots is not None and self.port_slots.is_presence():
-                                                return True
-
                                             if self.sensors is not None and self.sensors._has_data():
                                                 return True
 
-                                            if self.sensors is not None and self.sensors.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -11400,27 +10285,15 @@ class PlatformInventory(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.name is not None:
                                             return True
 
                                         if self.attributes is not None and self.attributes._has_data():
                                             return True
 
-                                        if self.attributes is not None and self.attributes.is_presence():
-                                            return True
-
                                         if self.module is not None and self.module._has_data():
                                             return True
 
-                                        if self.module is not None and self.module.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -11442,17 +10315,11 @@ class PlatformInventory(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.sub_slot is not None:
                                         for child_ref in self.sub_slot:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -11476,57 +10343,30 @@ class PlatformInventory(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.name is not None:
                                     return True
 
                                 if self.attributes is not None and self.attributes._has_data():
                                     return True
 
-                                if self.attributes is not None and self.attributes.is_presence():
-                                    return True
-
                                 if self.hardware_information is not None and self.hardware_information._has_data():
-                                    return True
-
-                                if self.hardware_information is not None and self.hardware_information.is_presence():
                                     return True
 
                                 if self.hw_components is not None and self.hw_components._has_data():
                                     return True
 
-                                if self.hw_components is not None and self.hw_components.is_presence():
-                                    return True
-
                                 if self.port_slots is not None and self.port_slots._has_data():
-                                    return True
-
-                                if self.port_slots is not None and self.port_slots.is_presence():
                                     return True
 
                                 if self.portses is not None and self.portses._has_data():
                                     return True
 
-                                if self.portses is not None and self.portses.is_presence():
-                                    return True
-
                                 if self.sensors is not None and self.sensors._has_data():
-                                    return True
-
-                                if self.sensors is not None and self.sensors.is_presence():
                                     return True
 
                                 if self.sub_slots is not None and self.sub_slots._has_data():
                                     return True
 
-                                if self.sub_slots is not None and self.sub_slots.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11548,17 +10388,11 @@ class PlatformInventory(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.card is not None:
                                 for child_ref in self.card:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11582,27 +10416,15 @@ class PlatformInventory(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.name is not None:
                             return True
 
                         if self.attributes is not None and self.attributes._has_data():
                             return True
 
-                        if self.attributes is not None and self.attributes.is_presence():
-                            return True
-
                         if self.cards is not None and self.cards._has_data():
                             return True
 
-                        if self.cards is not None and self.cards.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11624,17 +10446,11 @@ class PlatformInventory(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.slot is not None:
                         for child_ref in self.slot:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11656,27 +10472,15 @@ class PlatformInventory(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
                 if self.attributes is not None and self.attributes._has_data():
                     return True
 
-                if self.attributes is not None and self.attributes.is_presence():
-                    return True
-
                 if self.slots is not None and self.slots._has_data():
                     return True
 
-                if self.slots is not None and self.slots.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -11696,17 +10500,11 @@ class PlatformInventory(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.rack is not None:
                 for child_ref in self.rack:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -11726,18 +10524,9 @@ class PlatformInventory(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.racks is not None and self.racks._has_data():
             return True
 
-        if self.racks is not None and self.racks.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

@@ -330,8 +330,6 @@ class Dpa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.data_block_number is not None:
                                 return True
 
@@ -382,10 +380,6 @@ class Dpa(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.fretta._meta import _Cisco_IOS_XR_fretta_bcm_dpa_oper as meta
@@ -405,17 +399,11 @@ class Dpa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.all_traps_stats_data_block is not None:
                             for child_ref in self.all_traps_stats_data_block:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -640,8 +628,6 @@ class Dpa(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.gport_dropped_bytes is not None:
                                     return True
 
@@ -654,10 +640,6 @@ class Dpa(object):
                                 if self.gport_received_pkts is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -681,8 +663,6 @@ class Dpa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.data_block_number is not None:
                                 return True
 
@@ -732,10 +712,6 @@ class Dpa(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.fretta._meta import _Cisco_IOS_XR_fretta_bcm_dpa_oper as meta
@@ -755,17 +731,11 @@ class Dpa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.all_voq_stats_data_block is not None:
                             for child_ref in self.all_voq_stats_data_block:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -986,8 +956,6 @@ class Dpa(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data_block_number is not None:
                                     return True
 
@@ -1038,10 +1006,6 @@ class Dpa(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.fretta._meta import _Cisco_IOS_XR_fretta_bcm_dpa_oper as meta
@@ -1063,8 +1027,6 @@ class Dpa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.trapid is not None:
                                 return True
 
@@ -1073,10 +1035,6 @@ class Dpa(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1098,17 +1056,11 @@ class Dpa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.single_trap_stats_data_block is not None:
                             for child_ref in self.single_trap_stats_data_block:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1364,8 +1316,6 @@ class Dpa(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.gport_dropped_bytes is not None:
                                         return True
 
@@ -1378,10 +1328,6 @@ class Dpa(object):
                                     if self.gport_received_pkts is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1405,8 +1351,6 @@ class Dpa(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data_block_number is not None:
                                     return True
 
@@ -1456,10 +1400,6 @@ class Dpa(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.fretta._meta import _Cisco_IOS_XR_fretta_bcm_dpa_oper as meta
@@ -1481,8 +1421,6 @@ class Dpa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface_handle is not None:
                                 return True
 
@@ -1491,10 +1429,6 @@ class Dpa(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1516,17 +1450,11 @@ class Dpa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.single_voq_stats_data_block is not None:
                             for child_ref in self.single_voq_stats_data_block:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1782,8 +1710,6 @@ class Dpa(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.gport_dropped_bytes is not None:
                                         return True
 
@@ -1796,10 +1722,6 @@ class Dpa(object):
                                     if self.gport_received_pkts is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1823,8 +1745,6 @@ class Dpa(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.data_block_number is not None:
                                     return True
 
@@ -1874,10 +1794,6 @@ class Dpa(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.fretta._meta import _Cisco_IOS_XR_fretta_bcm_dpa_oper as meta
@@ -1899,8 +1815,6 @@ class Dpa(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.base_number is not None:
                                 return True
 
@@ -1909,10 +1823,6 @@ class Dpa(object):
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1934,17 +1844,11 @@ class Dpa(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.voq_base_number is not None:
                             for child_ref in self.voq_base_number:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1966,45 +1870,24 @@ class Dpa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.node_name is not None:
                         return True
 
                     if self.all_traps_stats_data_blocks is not None and self.all_traps_stats_data_blocks._has_data():
                         return True
 
-                    if self.all_traps_stats_data_blocks is not None and self.all_traps_stats_data_blocks.is_presence():
-                        return True
-
                     if self.all_voq_stats_data_blocks is not None and self.all_voq_stats_data_blocks._has_data():
-                        return True
-
-                    if self.all_voq_stats_data_blocks is not None and self.all_voq_stats_data_blocks.is_presence():
                         return True
 
                     if self.single_trap_stats_data_blocks is not None and self.single_trap_stats_data_blocks._has_data():
                         return True
 
-                    if self.single_trap_stats_data_blocks is not None and self.single_trap_stats_data_blocks.is_presence():
-                        return True
-
                     if self.single_voq_stats_data_blocks is not None and self.single_voq_stats_data_blocks._has_data():
-                        return True
-
-                    if self.single_voq_stats_data_blocks is not None and self.single_voq_stats_data_blocks.is_presence():
                         return True
 
                     if self.voq_base_numbers is not None and self.voq_base_numbers._has_data():
                         return True
 
-                    if self.voq_base_numbers is not None and self.voq_base_numbers.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2024,17 +1907,11 @@ class Dpa(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node is not None:
                     for child_ref in self.node:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2054,18 +1931,9 @@ class Dpa(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.nodes is not None and self.nodes._has_data():
                 return True
 
-            if self.nodes is not None and self.nodes.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -2085,18 +1953,9 @@ class Dpa(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.stats is not None and self.stats._has_data():
             return True
 
-        if self.stats is not None and self.stats.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

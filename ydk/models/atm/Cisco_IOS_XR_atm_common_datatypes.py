@@ -20,176 +20,160 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class AtmPvcData_Enum(Enum):
+class AtmPvcDataEnum(Enum):
     """
-    AtmPvcData_Enum
+    AtmPvcDataEnum
 
     Atm pvc data
 
-    """
+    .. data:: DATA = 0
+
+    	Data
+
+    .. data:: ILMI = 2
+
+    	ILMI
+
+    .. data:: LAYER2 = 3
+
+    	Layer2
 
     """
 
-    Data
-
-    """
     DATA = 0
 
-    """
-
-    ILMI
-
-    """
     ILMI = 2
 
-    """
-
-    Layer2
-
-    """
     LAYER2 = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_common_datatypes as meta
-        return meta._meta_table['AtmPvcData_Enum']
+        return meta._meta_table['AtmPvcDataEnum']
 
 
-class AtmPvcEncapsulation_Enum(Enum):
+class AtmPvcEncapsulationEnum(Enum):
     """
-    AtmPvcEncapsulation_Enum
+    AtmPvcEncapsulationEnum
 
     Atm pvc encapsulation
 
-    """
+    .. data:: SNAP = 3
+
+    	SNAP
+
+    .. data:: VC_MUX = 4
+
+    	VC MUX
+
+    .. data:: NLPID = 5
+
+    	NLPID
+
+    .. data:: AAL0 = 7
+
+    	AAL0
+
+    .. data:: AAL5 = 8
+
+    	AAL5
 
     """
 
-    SNAP
-
-    """
     SNAP = 3
 
-    """
-
-    VC MUX
-
-    """
     VC_MUX = 4
 
-    """
-
-    NLPID
-
-    """
     NLPID = 5
 
-    """
-
-    AAL0
-
-    """
     AAL0 = 7
 
-    """
-
-    AAL5
-
-    """
     AAL5 = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_common_datatypes as meta
-        return meta._meta_table['AtmPvcEncapsulation_Enum']
+        return meta._meta_table['AtmPvcEncapsulationEnum']
 
 
-class AtmPvcShaping_Enum(Enum):
+class AtmPvcShapingEnum(Enum):
     """
-    AtmPvcShaping_Enum
+    AtmPvcShapingEnum
 
     Atm pvc shaping
 
-    """
+    .. data:: CBR = 1
+
+    	Constant Bit Rate
+
+    .. data:: VBR_NRT = 2
+
+    	Variable Bit Rate-non real time
+
+    .. data:: VBR_RT = 3
+
+    	Variable Bit Rate-real time
+
+    .. data:: UBR = 6
+
+    	Unspecified Bit Rate
 
     """
 
-    Constant Bit Rate
-
-    """
     CBR = 1
 
-    """
-
-    Variable Bit Rate\-non real time
-
-    """
     VBR_NRT = 2
 
-    """
-
-    Variable Bit Rate\-real time
-
-    """
     VBR_RT = 3
 
-    """
-
-    Unspecified Bit Rate
-
-    """
     UBR = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_common_datatypes as meta
-        return meta._meta_table['AtmPvcShaping_Enum']
+        return meta._meta_table['AtmPvcShapingEnum']
 
 
-class AtmVpShaping_Enum(Enum):
+class AtmVpShapingEnum(Enum):
     """
-    AtmVpShaping_Enum
+    AtmVpShapingEnum
 
     Atm vp shaping
 
-    """
+    .. data:: CBR = 1
+
+    	Constant Bit Rate
+
+    .. data:: VBR_NRT = 2
+
+    	Variable Bit Rate-non real time
+
+    .. data:: VBR_RT = 3
+
+    	Variable Bit Rate-real time
+
+    .. data:: UBR = 6
+
+    	Unspecified Bit Rate
 
     """
 
-    Constant Bit Rate
-
-    """
     CBR = 1
 
-    """
-
-    Variable Bit Rate\-non real time
-
-    """
     VBR_NRT = 2
 
-    """
-
-    Variable Bit Rate\-real time
-
-    """
     VBR_RT = 3
 
-    """
-
-    Unspecified Bit Rate
-
-    """
     UBR = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.atm._meta import _Cisco_IOS_XR_atm_common_datatypes as meta
-        return meta._meta_table['AtmVpShaping_Enum']
+        return meta._meta_table['AtmVpShapingEnum']
 
 
 

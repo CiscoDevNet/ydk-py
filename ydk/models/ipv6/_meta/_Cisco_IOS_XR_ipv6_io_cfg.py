@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -39,8 +39,8 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_io_cfg'
         ),
     },
-    'Ipv6icmp' : {
-        'meta_info' : _MetaInfoClass('Ipv6icmp',
+    'Ipv6Icmp' : {
+        'meta_info' : _MetaInfoClass('Ipv6Icmp',
             False, 
             [
             _MetaInfoClassMember('bucket-size', ATTRIBUTE, 'int' , None, None, 

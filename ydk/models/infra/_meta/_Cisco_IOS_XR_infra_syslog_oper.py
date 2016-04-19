@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'SystemMessageSeverity_Enum' : _MetaInfoEnum('SystemMessageSeverity_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper',
+    'SystemMessageSeverityEnum' : _MetaInfoEnum('SystemMessageSeverityEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper',
         {
             'message-severity-unknown':'MESSAGE_SEVERITY_UNKNOWN',
             'message-severity-emergency':'MESSAGE_SEVERITY_EMERGENCY',
@@ -140,7 +140,7 @@ _meta_table = {
                 ''',
                 'message_count',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverity_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverityEnum', 
                 [], [], 
                 '''                Configured severity
                 ''',
@@ -175,7 +175,7 @@ _meta_table = {
                 ''',
                 'message_count',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverity_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverityEnum', 
                 [], [], 
                 '''                Configured severity
                 ''',
@@ -268,7 +268,7 @@ _meta_table = {
                 ''',
                 'message_count',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverity_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverityEnum', 
                 [], [], 
                 '''                Configured severity
                 ''',
@@ -326,7 +326,7 @@ _meta_table = {
                 ''',
                 'message_count',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverity_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverityEnum', 
                 [], [], 
                 '''                Configured severity
                 ''',
@@ -439,7 +439,7 @@ _meta_table = {
                 ''',
                 'process_name',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverity_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverity_Enum', 
+            _MetaInfoClassMember('severity', REFERENCE_ENUM_CLASS, 'SystemMessageSeverityEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverityEnum', 
                 [], [], 
                 '''                Message severity
                 ''',

@@ -27,800 +27,727 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class Eos_Enum(Enum):
+class EosEnum(Enum):
     """
-    Eos_Enum
+    EosEnum
 
     Eos
 
-    """
+    .. data:: EOS0 = 0
+
+    	EOS Disable
+
+    .. data:: EOS1 = 1
+
+    	EOS Enable
 
     """
 
-    EOS Disable
-
-    """
     EOS0 = 0
 
-    """
-
-    EOS Enable
-
-    """
     EOS1 = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['Eos_Enum']
+        return meta._meta_table['EosEnum']
 
 
-class FibAdjacencyShow_Enum(Enum):
+class FibAdjacencyShowEnum(Enum):
     """
-    FibAdjacencyShow_Enum
+    FibAdjacencyShowEnum
 
     Adjacency types
 
-    """
+    .. data:: FIB_ADJACENCY_NORMAL = 0
+
+    	Normal adjacency
+
+    .. data:: FIB_ADJACENCY_NULL = 1
+
+    	Null adjacency
+
+    .. data:: FIB_ADJACENCY_PUNT = 2
+
+    	Punt adjacency
+
+    .. data:: FIB_ADJACENCY_DROP = 3
+
+    	Drop adjacency
+
+    .. data:: FIB_ADJACENCY_GLEAN = 4
+
+    	Glean adjacency
+
+    .. data:: FIB_ADJACENCY_DISCARD = 5
+
+    	Discard adjacency
+
+    .. data:: FIB_ADJACENCY_BROADCAST = 6
+
+    	Broadcast adjacency
+
+    .. data:: FIB_ADJACENCY_EXTERNAL = 7
+
+    	external adjacency
+
+    .. data:: FIB_ADJACENCY_LISP = 8
+
+    	LISP adjacency
+
+    .. data:: FIB_ADJACENCY_UNKNOWN = 9
+
+    	Unknown adjacency
 
     """
 
-    Normal adjacency
-
-    """
     FIB_ADJACENCY_NORMAL = 0
 
-    """
-
-    Null adjacency
-
-    """
     FIB_ADJACENCY_NULL = 1
 
-    """
-
-    Punt adjacency
-
-    """
     FIB_ADJACENCY_PUNT = 2
 
-    """
-
-    Drop adjacency
-
-    """
     FIB_ADJACENCY_DROP = 3
 
-    """
-
-    Glean adjacency
-
-    """
     FIB_ADJACENCY_GLEAN = 4
 
-    """
-
-    Discard adjacency
-
-    """
     FIB_ADJACENCY_DISCARD = 5
 
-    """
-
-    Broadcast adjacency
-
-    """
     FIB_ADJACENCY_BROADCAST = 6
 
-    """
-
-    external adjacency
-
-    """
     FIB_ADJACENCY_EXTERNAL = 7
 
-    """
-
-    LISP adjacency
-
-    """
     FIB_ADJACENCY_LISP = 8
 
-    """
-
-    Unknown adjacency
-
-    """
     FIB_ADJACENCY_UNKNOWN = 9
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['FibAdjacencyShow_Enum']
+        return meta._meta_table['FibAdjacencyShowEnum']
 
 
-class FibFrrProtocolShow_Enum(Enum):
+class FibFrrProtocolShowEnum(Enum):
     """
-    FibFrrProtocolShow_Enum
+    FibFrrProtocolShowEnum
 
     Fib frr protocol show
 
-    """
+    .. data:: FRR_PROTOCOL_IPV4 = 0
+
+    	frr protocol ipv4
+
+    .. data:: FRR_PROTOCOL_IPV6 = 1
+
+    	frr protocol ipv6
+
+    .. data:: FRR_PROTOCOL_MPLS = 2
+
+    	frr protocol mpls
 
     """
 
-    frr protocol ipv4
-
-    """
     FRR_PROTOCOL_IPV4 = 0
 
-    """
-
-    frr protocol ipv6
-
-    """
     FRR_PROTOCOL_IPV6 = 1
 
-    """
-
-    frr protocol mpls
-
-    """
     FRR_PROTOCOL_MPLS = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['FibFrrProtocolShow_Enum']
+        return meta._meta_table['FibFrrProtocolShowEnum']
 
 
-class FibLink_Enum(Enum):
+class FibLinkEnum(Enum):
     """
-    FibLink_Enum
+    FibLinkEnum
 
     Fib link
 
-    """
+    .. data:: LINK_IPV4 = 0
+
+    	IPv4 link protocol
+
+    .. data:: LINK_IPV6 = 1
+
+    	IPv6 link protocol
+
+    .. data:: LINK_MPLS = 2
+
+    	MPLS link protocol
 
     """
 
-    IPv4 link protocol
-
-    """
     LINK_IPV4 = 0
 
-    """
-
-    IPv6 link protocol
-
-    """
     LINK_IPV6 = 1
 
-    """
-
-    MPLS link protocol
-
-    """
     LINK_MPLS = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['FibLink_Enum']
+        return meta._meta_table['FibLinkEnum']
 
 
-class FibLoadshareShow_Enum(Enum):
+class FibLoadshareShowEnum(Enum):
     """
-    FibLoadshareShow_Enum
+    FibLoadshareShowEnum
 
     Loadsharing type
 
-    """
+    .. data:: FIB_LOAD_SHARE_NONE = 0
+
+    	No loadsharing
+
+    .. data:: FIB_LOAD_SHARE_PER_PACKET = 1
+
+    	Per packet loadsharing
+
+    .. data:: FIB_LOAD_SHARE_DEST_SHARING = 2
+
+    	Destination loadsharing
 
     """
 
-    No loadsharing
-
-    """
     FIB_LOAD_SHARE_NONE = 0
 
-    """
-
-    Per packet loadsharing
-
-    """
     FIB_LOAD_SHARE_PER_PACKET = 1
 
-    """
-
-    Destination loadsharing
-
-    """
     FIB_LOAD_SHARE_DEST_SHARING = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['FibLoadshareShow_Enum']
+        return meta._meta_table['FibLoadshareShowEnum']
 
 
-class FibNehSpecial_Enum(Enum):
+class FibNehEnum(Enum):
     """
-    FibNehSpecial_Enum
-
-    Fib neh special
-
-    """
-
-    """
-
-    nh not found
-
-    """
-    NH_NOT_FOUND = 0
-
-    """
-
-    nh null0
-
-    """
-    NH_NULL0 = 1
-
-    """
-
-    nh punt
-
-    """
-    NH_PUNT = 2
-
-    """
-
-    nh drop
-
-    """
-    NH_DROP = 3
-
-    """
-
-    nh glean
-
-    """
-    NH_GLEAN = 4
-
-    """
-
-    nh receive
-
-    """
-    NH_RECEIVE = 5
-
-    """
-
-    nh broadcast
-
-    """
-    NH_BROADCAST = 6
-
-    """
-
-    nh external
-
-    """
-    NH_EXTERNAL = 7
-
-    """
-
-    nh lisp
-
-    """
-    NH_LISP = 8
-
-    """
-
-    nh lookup
-
-    """
-    NH_LOOKUP = 9
-
-    """
-
-    nh max type
-
-    """
-    NH_MAX_TYPE = 10
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['FibNehSpecial_Enum']
-
-
-class FibNeh_Enum(Enum):
-    """
-    FibNeh_Enum
+    FibNehEnum
 
     Fib neh
 
-    """
+    .. data:: NH_LOCAL = 0
+
+    	nh local
+
+    .. data:: NH_REMOTE = 1
+
+    	nh remote
+
+    .. data:: NH_SPECIAL = 2
+
+    	nh special
 
     """
 
-    nh local
-
-    """
     NH_LOCAL = 0
 
-    """
-
-    nh remote
-
-    """
     NH_REMOTE = 1
 
-    """
-
-    nh special
-
-    """
     NH_SPECIAL = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['FibNeh_Enum']
+        return meta._meta_table['FibNehEnum']
 
 
-class FibProtocol_Enum(Enum):
+class FibNehSpecialEnum(Enum):
     """
-    FibProtocol_Enum
+    FibNehSpecialEnum
+
+    Fib neh special
+
+    .. data:: NH_NOT_FOUND = 0
+
+    	nh not found
+
+    .. data:: NH_NULL0 = 1
+
+    	nh null0
+
+    .. data:: NH_PUNT = 2
+
+    	nh punt
+
+    .. data:: NH_DROP = 3
+
+    	nh drop
+
+    .. data:: NH_GLEAN = 4
+
+    	nh glean
+
+    .. data:: NH_RECEIVE = 5
+
+    	nh receive
+
+    .. data:: NH_BROADCAST = 6
+
+    	nh broadcast
+
+    .. data:: NH_EXTERNAL = 7
+
+    	nh external
+
+    .. data:: NH_LISP = 8
+
+    	nh lisp
+
+    .. data:: NH_LOOKUP = 9
+
+    	nh lookup
+
+    .. data:: NH_MAX_TYPE = 10
+
+    	nh max type
+
+    """
+
+    NH_NOT_FOUND = 0
+
+    NH_NULL0 = 1
+
+    NH_PUNT = 2
+
+    NH_DROP = 3
+
+    NH_GLEAN = 4
+
+    NH_RECEIVE = 5
+
+    NH_BROADCAST = 6
+
+    NH_EXTERNAL = 7
+
+    NH_LISP = 8
+
+    NH_LOOKUP = 9
+
+    NH_MAX_TYPE = 10
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
+        return meta._meta_table['FibNehSpecialEnum']
+
+
+class FibProtocolEnum(Enum):
+    """
+    FibProtocolEnum
 
     Fib protocol
 
-    """
+    .. data:: IPV4 = 0
+
+    	ipv4 protocol
+
+    .. data:: IPV6 = 1
+
+    	ipv6 protocol
+
+    .. data:: MPLS = 2
+
+    	MPLS protocol
 
     """
 
-    ipv4 protocol
-
-    """
     IPV4 = 0
 
-    """
-
-    ipv6 protocol
-
-    """
     IPV6 = 1
 
-    """
-
-    MPLS protocol
-
-    """
     MPLS = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['FibProtocol_Enum']
+        return meta._meta_table['FibProtocolEnum']
 
 
-class FibRouteSource_Enum(Enum):
+class FibRouteSourceEnum(Enum):
     """
-    FibRouteSource_Enum
+    FibRouteSourceEnum
 
     Fib route source
 
-    """
+    .. data:: LSD = 5
+
+    	LSD
+
+    .. data:: RIB = 7
+
+    	RIB
+
+    .. data:: MRIB = 13
+
+    	MRIB
 
     """
 
-    LSD
-
-    """
     LSD = 5
 
-    """
-
-    RIB
-
-    """
     RIB = 7
 
-    """
-
-    MRIB
-
-    """
     MRIB = 13
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['FibRouteSource_Enum']
+        return meta._meta_table['FibRouteSourceEnum']
 
 
-class FibRpfMode_Enum(Enum):
+class FibRpfModeEnum(Enum):
     """
-    FibRpfMode_Enum
+    FibRpfModeEnum
 
     RPF mode types
 
-    """
+    .. data:: FIB_RPF_MODE_STRICT = 0
+
+    	RPF mode strict
+
+    .. data:: FIB_RPF_MODE_LOOSE = 1
+
+    	RPF mode loose
+
+    .. data:: FIB_RPF_MODE_UNKNOWN = 2
+
+    	RPF mode unknown
 
     """
 
-    RPF mode strict
-
-    """
     FIB_RPF_MODE_STRICT = 0
 
-    """
-
-    RPF mode loose
-
-    """
     FIB_RPF_MODE_LOOSE = 1
 
-    """
-
-    RPF mode unknown
-
-    """
     FIB_RPF_MODE_UNKNOWN = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['FibRpfMode_Enum']
+        return meta._meta_table['FibRpfModeEnum']
 
 
-class FibShIpencapHdr_Enum(Enum):
+class FibShIpencapHdrEnum(Enum):
     """
-    FibShIpencapHdr_Enum
+    FibShIpencapHdrEnum
 
     IP Encap Header Type
 
-    """
+    .. data:: FIB_SH_IP_ENCAP_NONE = 0
+
+    	No Header
+
+    .. data:: FIB_SH_IP_ENCAP_IP4 = 1
+
+    	IPv4 Header
+
+    .. data:: FIB_SH_IP_ENCAP_IP6 = 2
+
+    	IPv6 Header
+
+    .. data:: FIB_SH_IP_ENCAP_UDP = 3
+
+    	UDP Header
+
+    .. data:: FIB_SH_IP_ENCAP_LISP = 4
+
+    	Lisp Header
 
     """
 
-    No Header
-
-    """
     FIB_SH_IP_ENCAP_NONE = 0
 
-    """
-
-    IPv4 Header
-
-    """
     FIB_SH_IP_ENCAP_IP4 = 1
 
-    """
-
-    IPv6 Header
-
-    """
     FIB_SH_IP_ENCAP_IP6 = 2
 
-    """
-
-    UDP Header
-
-    """
     FIB_SH_IP_ENCAP_UDP = 3
 
-    """
-
-    Lisp Header
-
-    """
     FIB_SH_IP_ENCAP_LISP = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['FibShIpencapHdr_Enum']
+        return meta._meta_table['FibShIpencapHdrEnum']
 
 
-class FibidbOper_Enum(Enum):
+class FibidbOperEnum(Enum):
     """
-    FibidbOper_Enum
+    FibidbOperEnum
 
     Fibidb oper
 
-    """
+    .. data:: FIBIDB_NONE = 0
+
+    	fibidb none
+
+    .. data:: FIBIDB_CREATE = 1
+
+    	fibidb create
+
+    .. data:: FIBIDB_DELETE = 2
+
+    	fibidb delete
+
+    .. data:: FIBIDB_MODIFY = 3
+
+    	fibidb modify
+
+    .. data:: FIBIDB_MAX = 4
+
+    	fibidb max
 
     """
 
-    fibidb none
-
-    """
     FIBIDB_NONE = 0
 
-    """
-
-    fibidb create
-
-    """
     FIBIDB_CREATE = 1
 
-    """
-
-    fibidb delete
-
-    """
     FIBIDB_DELETE = 2
 
-    """
-
-    fibidb modify
-
-    """
     FIBIDB_MODIFY = 3
 
-    """
-
-    fibidb max
-
-    """
     FIBIDB_MAX = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['FibidbOper_Enum']
+        return meta._meta_table['FibidbOperEnum']
 
 
-class FibllcEntry_Enum(Enum):
+class FibllcEntryEnum(Enum):
     """
-    FibllcEntry_Enum
+    FibllcEntryEnum
 
     Fibllc entry
 
-    """
+    .. data:: XC = 1
+
+    	LabelXconnect
+
+    .. data:: PFX = 2
+
+    	IPPrefix
 
     """
 
-    LabelXconnect
-
-    """
     XC = 1
 
-    """
-
-    IPPrefix
-
-    """
     PFX = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['FibllcEntry_Enum']
+        return meta._meta_table['FibllcEntryEnum']
 
 
-class MgmtFibMplsFrrState_Enum(Enum):
+class MgmtFibMplsFrrStateEnum(Enum):
     """
-    MgmtFibMplsFrrState_Enum
+    MgmtFibMplsFrrStateEnum
 
     MPLS FRR entry state
 
-    """
+    .. data:: PARTIAL = 0
+
+    	Partial
+
+    .. data:: ACTIVE = 1
+
+    	Active
+
+    .. data:: READY = 2
+
+    	Ready
+
+    .. data:: COMPLETE = 3
+
+    	Complete
+
+    .. data:: ANY = 4
+
+    	Any
 
     """
 
-    Partial
-
-    """
     PARTIAL = 0
 
-    """
-
-    Active
-
-    """
     ACTIVE = 1
 
-    """
-
-    Ready
-
-    """
     READY = 2
 
-    """
-
-    Complete
-
-    """
     COMPLETE = 3
 
-    """
-
-    Any
-
-    """
     ANY = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['MgmtFibMplsFrrState_Enum']
+        return meta._meta_table['MgmtFibMplsFrrStateEnum']
 
 
-class MgmtFibMplsLspRole_Enum(Enum):
+class MgmtFibMplsLspRoleEnum(Enum):
     """
-    MgmtFibMplsLspRole_Enum
+    MgmtFibMplsLspRoleEnum
 
     MPLS FRR entry role
 
-    """
+    .. data:: HEAD = 0
+
+    	Head
+
+    .. data:: MIDPOINT = 1
+
+    	Midpoint
 
     """
 
-    Head
-
-    """
     HEAD = 0
 
-    """
-
-    Midpoint
-
-    """
     MIDPOINT = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['MgmtFibMplsLspRole_Enum']
+        return meta._meta_table['MgmtFibMplsLspRoleEnum']
 
 
-class Mplseos_Enum(Enum):
+class MplseosEnum(Enum):
     """
-    Mplseos_Enum
+    MplseosEnum
 
     Mplseos
 
-    """
+    .. data:: EOS0 = 0
+
+    	EOS Disable
+
+    .. data:: EOS1 = 1
+
+    	EOS Enable
 
     """
 
-    EOS Disable
-
-    """
     EOS0 = 0
 
-    """
-
-    EOS Enable
-
-    """
     EOS1 = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['Mplseos_Enum']
+        return meta._meta_table['MplseosEnum']
 
 
-class NextHop_Enum(Enum):
+class NextHopEnum(Enum):
     """
-    NextHop_Enum
+    NextHopEnum
 
     MPLS Forwarding Next Hop Type
 
-    """
+    .. data:: TX = 0
+
+    	TX
+
+    .. data:: RX = 1
+
+    	RX
+
+    .. data:: SPECIAL = 2
+
+    	Special
 
     """
 
-    TX
-
-    """
     TX = 0
 
-    """
-
-    RX
-
-    """
     RX = 1
 
-    """
-
-    Special
-
-    """
     SPECIAL = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['NextHop_Enum']
+        return meta._meta_table['NextHopEnum']
 
 
-class Proto_Enum(Enum):
+class ProtoEnum(Enum):
     """
-    Proto_Enum
+    ProtoEnum
 
     MPLS Forwarding Protocol Type
 
-    """
+    .. data:: IPV4 = 0
+
+    	IPv4
+
+    .. data:: IPV6 = 1
+
+    	IPv6
+
+    .. data:: MPLS = 2
+
+    	MPLS
 
     """
 
-    IPv4
-
-    """
     IPV4 = 0
 
-    """
-
-    IPv6
-
-    """
     IPV6 = 1
 
-    """
-
-    MPLS
-
-    """
     MPLS = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['Proto_Enum']
+        return meta._meta_table['ProtoEnum']
 
 
-class SsLbaState_Enum(Enum):
+class SsLbaStateEnum(Enum):
     """
-    SsLbaState_Enum
+    SsLbaStateEnum
 
     Load Balance config
 
-    """
+    .. data:: L3 = 0
+
+    	L3 Load Balance config
+
+    .. data:: L4 = 1
+
+    	L4 Load Balance config
 
     """
 
-    L3 Load Balance config
-
-    """
     L3 = 0
 
-    """
-
-    L4 Load Balance config
-
-    """
     L4 = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['SsLbaState_Enum']
+        return meta._meta_table['SsLbaStateEnum']
 
 
 
@@ -928,7 +855,7 @@ class Fib(object):
                     .. attribute:: protocol_name
                     
                     	Protocol Name 
-                    	**type**\: :py:class:`FibProtocol_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibProtocol_Enum>`
+                    	**type**\: :py:class:`FibProtocolEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibProtocolEnum>`
                     
                     .. attribute:: frr_log
                     
@@ -1110,7 +1037,7 @@ class Fib(object):
                                         .. attribute:: frr_protocol_type
                                         
                                         	FIB Protocol Type
-                                        	**type**\: :py:class:`FibFrrProtocolShow_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibFrrProtocolShow_Enum>`
+                                        	**type**\: :py:class:`FibFrrProtocolShowEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibFrrProtocolShowEnum>`
                                         
                                         .. attribute:: frr_switching_time
                                         
@@ -1187,18 +1114,12 @@ class Fib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.nano_seconds is not None:
                                                     return True
 
                                                 if self.seconds is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -1222,8 +1143,6 @@ class Fib(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.log_index is not None:
                                                 return True
 
@@ -1245,13 +1164,6 @@ class Fib(object):
                                             if self.frr_timestamp is not None and self.frr_timestamp._has_data():
                                                 return True
 
-                                            if self.frr_timestamp is not None and self.frr_timestamp.is_presence():
-                                                return True
-
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -1273,17 +1185,11 @@ class Fib(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.log is not None:
                                             for child_ref in self.log:
                                                 if child_ref._has_data():
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1307,21 +1213,12 @@ class Fib(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.frr_interface_name is not None:
                                         return True
 
                                     if self.logs is not None and self.logs._has_data():
                                         return True
 
-                                    if self.logs is not None and self.logs.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1343,17 +1240,11 @@ class Fib(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.frr_interface is not None:
                                     for child_ref in self.frr_interface:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1375,18 +1266,9 @@ class Fib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.frr_interfaces is not None and self.frr_interfaces._has_data():
                                 return True
 
-                            if self.frr_interfaces is not None and self.frr_interfaces.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1626,8 +1508,6 @@ class Fib(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.aib_eod_time_stamp is not None:
                                     return True
 
@@ -1672,10 +1552,6 @@ class Fib(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -1695,8 +1571,6 @@ class Fib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.eoc_received_imdr_time_stamp is not None:
                                 return True
 
@@ -1735,10 +1609,6 @@ class Fib(object):
                             if self.slc_support is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1806,7 +1676,7 @@ class Fib(object):
                                 .. attribute:: ll_ctype
                                 
                                 	Type of entry
-                                	**type**\: :py:class:`FibllcEntry_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibllcEntry_Enum>`
+                                	**type**\: :py:class:`FibllcEntryEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibllcEntryEnum>`
                                 
                                 .. attribute:: local_label
                                 
@@ -1867,7 +1737,7 @@ class Fib(object):
                                 .. attribute:: source
                                 
                                 	Route source
-                                	**type**\: :py:class:`FibRouteSource_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibRouteSource_Enum>`
+                                	**type**\: :py:class:`FibRouteSourceEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibRouteSourceEnum>`
                                 
                                 .. attribute:: source_xr
                                 
@@ -1928,8 +1798,6 @@ class Fib(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.label is not None:
                                         return True
 
@@ -1974,10 +1842,6 @@ class Fib(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -1997,17 +1861,11 @@ class Fib(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.conflict is not None:
                                     for child_ref in self.conflict:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2029,18 +1887,9 @@ class Fib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.conflicts is not None and self.conflicts._has_data():
                                 return True
 
-                            if self.conflicts is not None and self.conflicts.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2396,8 +2245,6 @@ class Fib(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.msec_time is not None:
                                     return True
 
@@ -2413,10 +2260,6 @@ class Fib(object):
                                 if self.tableid is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2573,8 +2416,6 @@ class Fib(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mi_num_bfd_down is not None:
                                     return True
 
@@ -2622,10 +2463,6 @@ class Fib(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -2669,17 +2506,11 @@ class Fib(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fpp_cntr is not None:
                                     for child in self.fpp_cntr:
                                         if child is not None:
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2919,8 +2750,6 @@ class Fib(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.aib_eod_time_stamp is not None:
                                         return True
 
@@ -2965,10 +2794,6 @@ class Fib(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -2988,8 +2813,6 @@ class Fib(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.eoc_received_imdr_time_stamp is not None:
                                     return True
 
@@ -3028,10 +2851,6 @@ class Fib(object):
                                 if self.slc_support is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3259,15 +3078,9 @@ class Fib(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.entry is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3310,15 +3123,9 @@ class Fib(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.entry is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3361,15 +3168,9 @@ class Fib(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.entry is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3412,15 +3213,9 @@ class Fib(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.entry is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3442,8 +3237,6 @@ class Fib(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fpc_dlb_support is not None:
                                     return True
 
@@ -3524,10 +3317,6 @@ class Fib(object):
                                 if self.fpc_stats_support is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4080,8 +3869,6 @@ class Fib(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fgft_fn is not None:
                                             return True
 
@@ -4100,10 +3887,6 @@ class Fib(object):
                                         if self.fgft_tot_updates_zero is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4125,8 +3908,6 @@ class Fib(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fgt_gtrie_fn_timing is not None:
                                         for child_ref in self.fgt_gtrie_fn_timing:
                                             if child_ref._has_data():
@@ -4141,10 +3922,6 @@ class Fib(object):
                                     if self.fgt_upd_total_time is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4276,8 +4053,6 @@ class Fib(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.fos_max_action_type is not None:
                                             return True
 
@@ -4296,10 +4071,6 @@ class Fib(object):
                                         if self.fos_tot_updates_zero is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4321,8 +4092,6 @@ class Fib(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fpus_num_failure is not None:
                                         return True
 
@@ -4337,10 +4106,6 @@ class Fib(object):
                                     if self.fpus_upd_total_time is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4362,8 +4127,6 @@ class Fib(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fpd_adj_del is not None:
                                     return True
 
@@ -4406,9 +4169,6 @@ class Fib(object):
                                             return True
 
                                 if self.fpd_gtrie_timing is not None and self.fpd_gtrie_timing._has_data():
-                                    return True
-
-                                if self.fpd_gtrie_timing is not None and self.fpd_gtrie_timing.is_presence():
                                     return True
 
                                 if self.fpd_lbl_recycled is not None:
@@ -4488,9 +4248,6 @@ class Fib(object):
                                 if self.fpd_platf_upd_stats is not None and self.fpd_platf_upd_stats._has_data():
                                     return True
 
-                                if self.fpd_platf_upd_stats is not None and self.fpd_platf_upd_stats.is_presence():
-                                    return True
-
                                 if self.fpd_recursion_constraint_count is not None:
                                     return True
 
@@ -4531,10 +4288,6 @@ class Fib(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -4554,8 +4307,6 @@ class Fib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.mi_clock_time is not None:
                                 return True
 
@@ -4605,9 +4356,6 @@ class Fib(object):
                                 return True
 
                             if self.mi_issu_state is not None and self.mi_issu_state._has_data():
-                                return True
-
-                            if self.mi_issu_state is not None and self.mi_issu_state.is_presence():
                                 return True
 
                             if self.mi_lrpf_num is not None:
@@ -4662,9 +4410,6 @@ class Fib(object):
                             if self.mi_plat_capabilities is not None and self.mi_plat_capabilities._has_data():
                                 return True
 
-                            if self.mi_plat_capabilities is not None and self.mi_plat_capabilities.is_presence():
-                                return True
-
                             if self.mi_prefer_aib_routes_over_rib_cfg is not None:
                                 return True
 
@@ -4688,10 +4433,6 @@ class Fib(object):
                             if self.mi_tot_plat_upd_time is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4804,7 +4545,7 @@ class Fib(object):
                                     .. attribute:: link_type
                                     
                                     	Link type
-                                    	**type**\: :py:class:`FibLink_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibLink_Enum>`
+                                    	**type**\: :py:class:`FibLinkEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibLinkEnum>`
                                     
                                     .. attribute:: interfaces
                                     
@@ -4924,7 +4665,7 @@ class Fib(object):
                                             .. attribute:: last_operation
                                             
                                             	Last Oper
-                                            	**type**\: :py:class:`FibidbOper_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibidbOper_Enum>`
+                                            	**type**\: :py:class:`FibidbOperEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibidbOperEnum>`
                                             
                                             .. attribute:: loopback_interface_flag
                                             
@@ -5154,7 +4895,7 @@ class Fib(object):
                                                 .. attribute:: rpf_mode
                                                 
                                                 	RPF mode
-                                                	**type**\: :py:class:`FibRpfMode_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibRpfMode_Enum>`
+                                                	**type**\: :py:class:`FibRpfModeEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibRpfModeEnum>`
                                                 
                                                 .. attribute:: self_ping_with_rpf
                                                 
@@ -5209,8 +4950,6 @@ class Fib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.bgp_pa_input_configured_flag is not None:
                                                         return True
 
@@ -5253,10 +4992,6 @@ class Fib(object):
                                                     if self.source_bgp_pa_output_configured_flag is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -5391,8 +5126,6 @@ class Fib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.evt_data is not None:
                                                                 for child in self.evt_data:
                                                                     if child is not None:
@@ -5415,10 +5148,6 @@ class Fib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -5438,8 +5167,6 @@ class Fib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.evt_class_name is not None:
                                                             return True
 
@@ -5448,10 +5175,6 @@ class Fib(object):
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -5557,8 +5280,6 @@ class Fib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.evt_data is not None:
                                                                 for child in self.evt_data:
                                                                     if child is not None:
@@ -5581,10 +5302,6 @@ class Fib(object):
 
                                                             return False
 
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
-                                                            return False
-
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -5604,8 +5321,6 @@ class Fib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.evt_class_name is not None:
                                                             return True
 
@@ -5614,10 +5329,6 @@ class Fib(object):
                                                                 if child_ref._has_data():
                                                                     return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -5639,24 +5350,12 @@ class Fib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.fib_idb_hist is not None and self.fib_idb_hist._has_data():
-                                                        return True
-
-                                                    if self.fib_idb_hist is not None and self.fib_idb_hist.is_presence():
                                                         return True
 
                                                     if self.fib_srte_head_hist is not None and self.fib_srte_head_hist._has_data():
                                                         return True
 
-                                                    if self.fib_srte_head_hist is not None and self.fib_srte_head_hist.is_presence():
-                                                        return True
-
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -5680,15 +5379,10 @@ class Fib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.interface_name is not None:
                                                     return True
 
                                                 if self.detail_fib_int_information is not None and self.detail_fib_int_information._has_data():
-                                                    return True
-
-                                                if self.detail_fib_int_information is not None and self.detail_fib_int_information.is_presence():
                                                     return True
 
                                                 if self.drop_packets_while_fib_switching_flag is not None:
@@ -5775,19 +5469,12 @@ class Fib(object):
                                                 if self.si_internal is not None and self.si_internal._has_data():
                                                     return True
 
-                                                if self.si_internal is not None and self.si_internal.is_presence():
-                                                    return True
-
                                                 if self.tunnel_interface_flag is not None:
                                                     return True
 
                                                 if self.vrf_local_cef_information_pointer is not None:
                                                     return True
 
-                                                return False
-
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
                                                 return False
 
                                             @staticmethod
@@ -5809,17 +5496,11 @@ class Fib(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.interface is not None:
                                                 for child_ref in self.interface:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -5843,21 +5524,12 @@ class Fib(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.link_type is not None:
                                             return True
 
                                         if self.interfaces is not None and self.interfaces._has_data():
                                             return True
 
-                                        if self.interfaces is not None and self.interfaces.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -5879,17 +5551,11 @@ class Fib(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_info is not None:
                                         for child_ref in self.interface_info:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6309,7 +5975,7 @@ class Fib(object):
                                         .. attribute:: fib_entry_adjacency_type
                                         
                                         	FIB entry adjacency type
-                                        	**type**\: :py:class:`FibAdjacencyShow_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibAdjacencyShow_Enum>`
+                                        	**type**\: :py:class:`FibAdjacencyShowEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibAdjacencyShowEnum>`
                                         
                                         .. attribute:: fib_entry_version
                                         
@@ -6361,7 +6027,7 @@ class Fib(object):
                                         .. attribute:: load_sharing_type
                                         
                                         	Load sharing type
-                                        	**type**\: :py:class:`FibLoadshareShow_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibLoadshareShow_Enum>`
+                                        	**type**\: :py:class:`FibLoadshareShowEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibLoadshareShowEnum>`
                                         
                                         .. attribute:: loadshare_information
                                         
@@ -6839,15 +6505,9 @@ class Fib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.address is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -6890,15 +6550,9 @@ class Fib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.entry is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -6941,15 +6595,9 @@ class Fib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.entry is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -6992,15 +6640,9 @@ class Fib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.entry is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -7022,8 +6664,6 @@ class Fib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.adjacency_address is not None:
                                                         for child_ref in self.adjacency_address:
                                                             if child_ref._has_data():
@@ -7106,10 +6746,6 @@ class Fib(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -7129,8 +6765,6 @@ class Fib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.bytes_through_load_information is not None:
                                                     return True
 
@@ -7144,9 +6778,6 @@ class Fib(object):
                                                     return True
 
                                                 if self.load_informtion_internal_data is not None and self.load_informtion_internal_data._has_data():
-                                                    return True
-
-                                                if self.load_informtion_internal_data is not None and self.load_informtion_internal_data.is_presence():
                                                     return True
 
                                                 if self.loadinfo_sanity_flag is not None:
@@ -7172,10 +6803,6 @@ class Fib(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -7195,8 +6822,6 @@ class Fib(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.adjacency_address_length is not None:
                                                 return True
 
@@ -7275,9 +6900,6 @@ class Fib(object):
                                             if self.loadshare_information is not None and self.loadshare_information._has_data():
                                                 return True
 
-                                            if self.loadshare_information is not None and self.loadshare_information.is_presence():
-                                                return True
-
                                             if self.lwldi_time_of_last_update_in_msec is not None:
                                                 return True
 
@@ -7320,10 +6942,6 @@ class Fib(object):
                                             if self.traffic_index_for_packets is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -7548,7 +7166,7 @@ class Fib(object):
                                                 .. attribute:: detail_fib_adjacency_type
                                                 
                                                 	FIB entry adjacency type
-                                                	**type**\: :py:class:`FibAdjacencyShow_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibAdjacencyShow_Enum>`
+                                                	**type**\: :py:class:`FibAdjacencyShowEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibAdjacencyShowEnum>`
                                                 
                                                 .. attribute:: detail_next_hop_prefix
                                                 
@@ -7565,12 +7183,12 @@ class Fib(object):
                                                 .. attribute:: fib_path_nh_information_type
                                                 
                                                 	FIB Nhinfo type
-                                                	**type**\: :py:class:`FibNeh_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibNeh_Enum>`
+                                                	**type**\: :py:class:`FibNehEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibNehEnum>`
                                                 
                                                 .. attribute:: fib_path_nh_information_type_special
                                                 
                                                 	FIB Nhinfo type special
-                                                	**type**\: :py:class:`FibNehSpecial_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibNehSpecial_Enum>`
+                                                	**type**\: :py:class:`FibNehSpecialEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibNehSpecialEnum>`
                                                 
                                                 .. attribute:: interface_associated_path
                                                 
@@ -7856,7 +7474,7 @@ class Fib(object):
                                                         .. attribute:: ip_encap_hdr_type
                                                         
                                                         	Header Type
-                                                        	**type**\: :py:class:`FibShIpencapHdr_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibShIpencapHdr_Enum>`
+                                                        	**type**\: :py:class:`FibShIpencapHdrEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibShIpencapHdrEnum>`
                                                         
                                                         .. attribute:: ip_encap_hdrp
                                                         
@@ -7892,8 +7510,6 @@ class Fib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.ip_encap_hdr_dyn is not None:
                                                                 return True
 
@@ -7903,10 +7519,6 @@ class Fib(object):
                                                             if self.ip_encap_hdrp is not None:
                                                                 return True
 
-                                                            return False
-
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
                                                             return False
 
                                                         @staticmethod
@@ -7928,8 +7540,6 @@ class Fib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.ip_encap_hdr is not None:
                                                             for child_ref in self.ip_encap_hdr:
                                                                 if child_ref._has_data():
@@ -7964,10 +7574,6 @@ class Fib(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -7987,8 +7593,6 @@ class Fib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.current_path_flag is not None:
                                                         return True
 
@@ -8072,10 +7676,6 @@ class Fib(object):
                                                     if self.weight_of_path is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -8209,8 +7809,6 @@ class Fib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.lstack is not None:
                                                             for child in self.lstack:
                                                                 if child is not None:
@@ -8225,10 +7823,6 @@ class Fib(object):
                                                         if self.out_interface is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -8250,8 +7844,6 @@ class Fib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.igp_label_stack_array is not None:
                                                         for child_ref in self.igp_label_stack_array:
                                                             if child_ref._has_data():
@@ -8277,10 +7869,6 @@ class Fib(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -8300,8 +7888,6 @@ class Fib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.attached_path is not None:
                                                     return True
 
@@ -8332,13 +7918,7 @@ class Fib(object):
                                                 if self.more_detail_about_path is not None and self.more_detail_about_path._has_data():
                                                     return True
 
-                                                if self.more_detail_about_path is not None and self.more_detail_about_path.is_presence():
-                                                    return True
-
                                                 if self.mpls_information_for_path is not None and self.mpls_information_for_path._has_data():
-                                                    return True
-
-                                                if self.mpls_information_for_path is not None and self.mpls_information_for_path.is_presence():
                                                     return True
 
                                                 if self.next_hop_index is not None:
@@ -8379,10 +7959,6 @@ class Fib(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -8402,17 +7978,11 @@ class Fib(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fib_sh_tbl_path is not None:
                                                 for child_ref in self.fib_sh_tbl_path:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -8434,8 +8004,6 @@ class Fib(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.broadcast_forward_flag is not None:
                                             return True
 
@@ -8443,9 +8011,6 @@ class Fib(object):
                                             return True
 
                                         if self.detail_fib_entry_information is not None and self.detail_fib_entry_information._has_data():
-                                            return True
-
-                                        if self.detail_fib_entry_information is not None and self.detail_fib_entry_information.is_presence():
                                             return True
 
                                         if self.dummy_real_zero_route is not None:
@@ -8458,9 +8023,6 @@ class Fib(object):
                                             return True
 
                                         if self.fib_entry_path is not None and self.fib_entry_path._has_data():
-                                            return True
-
-                                        if self.fib_entry_path is not None and self.fib_entry_path.is_presence():
                                             return True
 
                                         if self.fib_route_download_priority is not None:
@@ -8552,10 +8114,6 @@ class Fib(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -8575,17 +8133,11 @@ class Fib(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ip_prefix_brief is not None:
                                         for child_ref in self.ip_prefix_brief:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9005,7 +8557,7 @@ class Fib(object):
                                         .. attribute:: fib_entry_adjacency_type
                                         
                                         	FIB entry adjacency type
-                                        	**type**\: :py:class:`FibAdjacencyShow_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibAdjacencyShow_Enum>`
+                                        	**type**\: :py:class:`FibAdjacencyShowEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibAdjacencyShowEnum>`
                                         
                                         .. attribute:: fib_entry_version
                                         
@@ -9057,7 +8609,7 @@ class Fib(object):
                                         .. attribute:: load_sharing_type
                                         
                                         	Load sharing type
-                                        	**type**\: :py:class:`FibLoadshareShow_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibLoadshareShow_Enum>`
+                                        	**type**\: :py:class:`FibLoadshareShowEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibLoadshareShowEnum>`
                                         
                                         .. attribute:: loadshare_information
                                         
@@ -9535,15 +9087,9 @@ class Fib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.address is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -9586,15 +9132,9 @@ class Fib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.entry is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -9637,15 +9177,9 @@ class Fib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.entry is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -9688,15 +9222,9 @@ class Fib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.entry is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -9718,8 +9246,6 @@ class Fib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.adjacency_address is not None:
                                                         for child_ref in self.adjacency_address:
                                                             if child_ref._has_data():
@@ -9802,10 +9328,6 @@ class Fib(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -9825,8 +9347,6 @@ class Fib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.bytes_through_load_information is not None:
                                                     return True
 
@@ -9840,9 +9360,6 @@ class Fib(object):
                                                     return True
 
                                                 if self.load_informtion_internal_data is not None and self.load_informtion_internal_data._has_data():
-                                                    return True
-
-                                                if self.load_informtion_internal_data is not None and self.load_informtion_internal_data.is_presence():
                                                     return True
 
                                                 if self.loadinfo_sanity_flag is not None:
@@ -9868,10 +9385,6 @@ class Fib(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -9891,8 +9404,6 @@ class Fib(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.adjacency_address_length is not None:
                                                 return True
 
@@ -9971,9 +9482,6 @@ class Fib(object):
                                             if self.loadshare_information is not None and self.loadshare_information._has_data():
                                                 return True
 
-                                            if self.loadshare_information is not None and self.loadshare_information.is_presence():
-                                                return True
-
                                             if self.lwldi_time_of_last_update_in_msec is not None:
                                                 return True
 
@@ -10016,10 +9524,6 @@ class Fib(object):
                                             if self.traffic_index_for_packets is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -10244,7 +9748,7 @@ class Fib(object):
                                                 .. attribute:: detail_fib_adjacency_type
                                                 
                                                 	FIB entry adjacency type
-                                                	**type**\: :py:class:`FibAdjacencyShow_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibAdjacencyShow_Enum>`
+                                                	**type**\: :py:class:`FibAdjacencyShowEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibAdjacencyShowEnum>`
                                                 
                                                 .. attribute:: detail_next_hop_prefix
                                                 
@@ -10261,12 +9765,12 @@ class Fib(object):
                                                 .. attribute:: fib_path_nh_information_type
                                                 
                                                 	FIB Nhinfo type
-                                                	**type**\: :py:class:`FibNeh_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibNeh_Enum>`
+                                                	**type**\: :py:class:`FibNehEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibNehEnum>`
                                                 
                                                 .. attribute:: fib_path_nh_information_type_special
                                                 
                                                 	FIB Nhinfo type special
-                                                	**type**\: :py:class:`FibNehSpecial_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibNehSpecial_Enum>`
+                                                	**type**\: :py:class:`FibNehSpecialEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibNehSpecialEnum>`
                                                 
                                                 .. attribute:: interface_associated_path
                                                 
@@ -10552,7 +10056,7 @@ class Fib(object):
                                                         .. attribute:: ip_encap_hdr_type
                                                         
                                                         	Header Type
-                                                        	**type**\: :py:class:`FibShIpencapHdr_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibShIpencapHdr_Enum>`
+                                                        	**type**\: :py:class:`FibShIpencapHdrEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.FibShIpencapHdrEnum>`
                                                         
                                                         .. attribute:: ip_encap_hdrp
                                                         
@@ -10588,8 +10092,6 @@ class Fib(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.is_presence():
-                                                                return True
                                                             if self.ip_encap_hdr_dyn is not None:
                                                                 return True
 
@@ -10599,10 +10101,6 @@ class Fib(object):
                                                             if self.ip_encap_hdrp is not None:
                                                                 return True
 
-                                                            return False
-
-                                                        def is_presence(self):
-                                                            ''' Returns True if this instance represents presence container else returns False '''
                                                             return False
 
                                                         @staticmethod
@@ -10624,8 +10122,6 @@ class Fib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.ip_encap_hdr is not None:
                                                             for child_ref in self.ip_encap_hdr:
                                                                 if child_ref._has_data():
@@ -10660,10 +10156,6 @@ class Fib(object):
 
                                                         return False
 
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
-                                                        return False
-
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -10683,8 +10175,6 @@ class Fib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.current_path_flag is not None:
                                                         return True
 
@@ -10768,10 +10258,6 @@ class Fib(object):
                                                     if self.weight_of_path is not None:
                                                         return True
 
-                                                    return False
-
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
                                                     return False
 
                                                 @staticmethod
@@ -10905,8 +10391,6 @@ class Fib(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.is_presence():
-                                                            return True
                                                         if self.lstack is not None:
                                                             for child in self.lstack:
                                                                 if child is not None:
@@ -10921,10 +10405,6 @@ class Fib(object):
                                                         if self.out_interface is not None:
                                                             return True
 
-                                                        return False
-
-                                                    def is_presence(self):
-                                                        ''' Returns True if this instance represents presence container else returns False '''
                                                         return False
 
                                                     @staticmethod
@@ -10946,8 +10426,6 @@ class Fib(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.is_presence():
-                                                        return True
                                                     if self.igp_label_stack_array is not None:
                                                         for child_ref in self.igp_label_stack_array:
                                                             if child_ref._has_data():
@@ -10973,10 +10451,6 @@ class Fib(object):
 
                                                     return False
 
-                                                def is_presence(self):
-                                                    ''' Returns True if this instance represents presence container else returns False '''
-                                                    return False
-
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -10996,8 +10470,6 @@ class Fib(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.is_presence():
-                                                    return True
                                                 if self.attached_path is not None:
                                                     return True
 
@@ -11028,13 +10500,7 @@ class Fib(object):
                                                 if self.more_detail_about_path is not None and self.more_detail_about_path._has_data():
                                                     return True
 
-                                                if self.more_detail_about_path is not None and self.more_detail_about_path.is_presence():
-                                                    return True
-
                                                 if self.mpls_information_for_path is not None and self.mpls_information_for_path._has_data():
-                                                    return True
-
-                                                if self.mpls_information_for_path is not None and self.mpls_information_for_path.is_presence():
                                                     return True
 
                                                 if self.next_hop_index is not None:
@@ -11075,10 +10541,6 @@ class Fib(object):
 
                                                 return False
 
-                                            def is_presence(self):
-                                                ''' Returns True if this instance represents presence container else returns False '''
-                                                return False
-
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -11098,17 +10560,11 @@ class Fib(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.fib_sh_tbl_path is not None:
                                                 for child_ref in self.fib_sh_tbl_path:
                                                     if child_ref._has_data():
                                                         return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -11130,8 +10586,6 @@ class Fib(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.broadcast_forward_flag is not None:
                                             return True
 
@@ -11139,9 +10593,6 @@ class Fib(object):
                                             return True
 
                                         if self.detail_fib_entry_information is not None and self.detail_fib_entry_information._has_data():
-                                            return True
-
-                                        if self.detail_fib_entry_information is not None and self.detail_fib_entry_information.is_presence():
                                             return True
 
                                         if self.dummy_real_zero_route is not None:
@@ -11154,9 +10605,6 @@ class Fib(object):
                                             return True
 
                                         if self.fib_entry_path is not None and self.fib_entry_path._has_data():
-                                            return True
-
-                                        if self.fib_entry_path is not None and self.fib_entry_path.is_presence():
                                             return True
 
                                         if self.fib_route_download_priority is not None:
@@ -11248,10 +10696,6 @@ class Fib(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -11271,17 +10715,11 @@ class Fib(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ip_prefix_detail is not None:
                                         for child_ref in self.ip_prefix_detail:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -11423,7 +10861,7 @@ class Fib(object):
                                 .. attribute:: load_balancing
                                 
                                 	LBA configuration state
-                                	**type**\: :py:class:`SsLbaState_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.SsLbaState_Enum>`
+                                	**type**\: :py:class:`SsLbaStateEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.SsLbaStateEnum>`
                                 
                                 .. attribute:: load_sharing_elements
                                 
@@ -11652,8 +11090,6 @@ class Fib(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.cef_route_drops is not None:
                                         return True
 
@@ -11782,10 +11218,6 @@ class Fib(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -11807,39 +11239,21 @@ class Fib(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vrf_name is not None:
                                     return True
 
                                 if self.interface_infos is not None and self.interface_infos._has_data():
                                     return True
 
-                                if self.interface_infos is not None and self.interface_infos.is_presence():
-                                    return True
-
                                 if self.ip_prefix_briefs is not None and self.ip_prefix_briefs._has_data():
-                                    return True
-
-                                if self.ip_prefix_briefs is not None and self.ip_prefix_briefs.is_presence():
                                     return True
 
                                 if self.ip_prefix_details is not None and self.ip_prefix_details._has_data():
                                     return True
 
-                                if self.ip_prefix_details is not None and self.ip_prefix_details.is_presence():
-                                    return True
-
                                 if self.summary is not None and self.summary._has_data():
                                     return True
 
-                                if self.summary is not None and self.summary.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11861,17 +11275,11 @@ class Fib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf is not None:
                                 for child_ref in self.vrf:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11895,45 +11303,24 @@ class Fib(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.protocol_name is not None:
                             return True
 
                         if self.frr_log is not None and self.frr_log._has_data():
                             return True
 
-                        if self.frr_log is not None and self.frr_log.is_presence():
-                            return True
-
                         if self.issu_state is not None and self.issu_state._has_data():
-                            return True
-
-                        if self.issu_state is not None and self.issu_state.is_presence():
                             return True
 
                         if self.local_label is not None and self.local_label._has_data():
                             return True
 
-                        if self.local_label is not None and self.local_label.is_presence():
-                            return True
-
                         if self.misc is not None and self.misc._has_data():
-                            return True
-
-                        if self.misc is not None and self.misc.is_presence():
                             return True
 
                         if self.vrfs is not None and self.vrfs._has_data():
                             return True
 
-                        if self.vrfs is not None and self.vrfs.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11955,17 +11342,11 @@ class Fib(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.protocol is not None:
                         for child_ref in self.protocol:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11987,21 +11368,12 @@ class Fib(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.protocols is not None and self.protocols._has_data():
                     return True
 
-                if self.protocols is not None and self.protocols.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -12021,17 +11393,11 @@ class Fib(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -12051,18 +11417,9 @@ class Fib(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -12425,8 +11782,6 @@ class FibMpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.deleted_stale_entries is not None:
                         return True
 
@@ -12511,10 +11866,6 @@ class FibMpls(object):
                     if self.total_p2mp_iir_forwarding_drop_messages is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12682,8 +12033,6 @@ class FibMpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface_name is not None:
                                 return True
 
@@ -12699,10 +12048,6 @@ class FibMpls(object):
                             if self.ready is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -12724,17 +12069,11 @@ class FibMpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.frrdb_backup_interface_summary is not None:
                             for child_ref in self.frrdb_backup_interface_summary:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12838,8 +12177,6 @@ class FibMpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface_name is not None:
                                 return True
 
@@ -12855,10 +12192,6 @@ class FibMpls(object):
                             if self.ready is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -12880,17 +12213,11 @@ class FibMpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.frrdb_protected_interface_table_summary is not None:
                             for child_ref in self.frrdb_protected_interface_table_summary:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12959,8 +12286,6 @@ class FibMpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.active is not None:
                             return True
 
@@ -12973,10 +12298,6 @@ class FibMpls(object):
                         if self.ready is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -13045,8 +12366,6 @@ class FibMpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.active is not None:
                             return True
 
@@ -13059,10 +12378,6 @@ class FibMpls(object):
                         if self.ready is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -13108,7 +12423,7 @@ class FibMpls(object):
                         .. attribute:: entry_frr_state
                         
                         	MPLS FRR entry state
-                        	**type**\: :py:class:`MgmtFibMplsFrrState_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrState_Enum>`
+                        	**type**\: :py:class:`MgmtFibMplsFrrStateEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrStateEnum>`
                         
                         .. attribute:: frr_entry_id
                         
@@ -13231,7 +12546,7 @@ class FibMpls(object):
                             .. attribute:: role
                             
                             	Role
-                            	**type**\: :py:class:`MgmtFibMplsLspRole_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRole_Enum>`
+                            	**type**\: :py:class:`MgmtFibMplsLspRoleEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRoleEnum>`
                             
                             
 
@@ -13293,18 +12608,12 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.destination_prefix is not None:
                                         return True
 
                                     if self.destination_prefix_length is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -13365,8 +12674,6 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.lspid is not None:
                                         return True
 
@@ -13376,10 +12683,6 @@ class FibMpls(object):
                                     if self.tunnel_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -13401,27 +12704,15 @@ class FibMpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.head is not None and self.head._has_data():
-                                    return True
-
-                                if self.head is not None and self.head.is_presence():
                                     return True
 
                                 if self.midpoint is not None and self.midpoint._has_data():
                                     return True
 
-                                if self.midpoint is not None and self.midpoint.is_presence():
-                                    return True
-
                                 if self.role is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -13437,7 +12728,7 @@ class FibMpls(object):
                             .. attribute:: entry_frr_state
                             
                             	MPLS FRR entry state
-                            	**type**\: :py:class:`MgmtFibMplsFrrState_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrState_Enum>`
+                            	**type**\: :py:class:`MgmtFibMplsFrrStateEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrStateEnum>`
                             
                             .. attribute:: frr_entry_id
                             
@@ -13537,7 +12828,7 @@ class FibMpls(object):
                                 .. attribute:: role
                                 
                                 	Role
-                                	**type**\: :py:class:`MgmtFibMplsLspRole_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRole_Enum>`
+                                	**type**\: :py:class:`MgmtFibMplsLspRoleEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRoleEnum>`
                                 
                                 
 
@@ -13599,18 +12890,12 @@ class FibMpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.destination_prefix is not None:
                                             return True
 
                                         if self.destination_prefix_length is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -13671,8 +12956,6 @@ class FibMpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.lspid is not None:
                                             return True
 
@@ -13682,10 +12965,6 @@ class FibMpls(object):
                                         if self.tunnel_id is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -13707,27 +12986,15 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.head is not None and self.head._has_data():
-                                        return True
-
-                                    if self.head is not None and self.head.is_presence():
                                         return True
 
                                     if self.midpoint is not None and self.midpoint._has_data():
                                         return True
 
-                                    if self.midpoint is not None and self.midpoint.is_presence():
-                                        return True
-
                                     if self.role is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -13749,15 +13016,10 @@ class FibMpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.entry_frr_state is not None:
                                     return True
 
                                 if self.frr_entry_id is not None and self.frr_entry_id._has_data():
-                                    return True
-
-                                if self.frr_entry_id is not None and self.frr_entry_id.is_presence():
                                     return True
 
                                 if self.frr_interface_name is not None:
@@ -13786,10 +13048,6 @@ class FibMpls(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -13811,8 +13069,6 @@ class FibMpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface_name is not None:
                                 return True
 
@@ -13820,9 +13076,6 @@ class FibMpls(object):
                                 return True
 
                             if self.frr_entry_id is not None and self.frr_entry_id._has_data():
-                                return True
-
-                            if self.frr_entry_id is not None and self.frr_entry_id.is_presence():
                                 return True
 
                             if self.frr_interface_name is not None:
@@ -13862,10 +13115,6 @@ class FibMpls(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -13885,17 +13134,11 @@ class FibMpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.frrdb_tunnel_head is not None:
                             for child_ref in self.frrdb_tunnel_head:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -13964,8 +13207,6 @@ class FibMpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.active is not None:
                             return True
 
@@ -13978,10 +13219,6 @@ class FibMpls(object):
                         if self.ready is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14027,7 +13264,7 @@ class FibMpls(object):
                         .. attribute:: entry_frr_state
                         
                         	MPLS FRR entry state
-                        	**type**\: :py:class:`MgmtFibMplsFrrState_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrState_Enum>`
+                        	**type**\: :py:class:`MgmtFibMplsFrrStateEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrStateEnum>`
                         
                         .. attribute:: frr_entry_id
                         
@@ -14150,7 +13387,7 @@ class FibMpls(object):
                             .. attribute:: role
                             
                             	Role
-                            	**type**\: :py:class:`MgmtFibMplsLspRole_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRole_Enum>`
+                            	**type**\: :py:class:`MgmtFibMplsLspRoleEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRoleEnum>`
                             
                             
 
@@ -14212,18 +13449,12 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.destination_prefix is not None:
                                         return True
 
                                     if self.destination_prefix_length is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -14284,8 +13515,6 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.lspid is not None:
                                         return True
 
@@ -14295,10 +13524,6 @@ class FibMpls(object):
                                     if self.tunnel_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -14320,27 +13545,15 @@ class FibMpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.head is not None and self.head._has_data():
-                                    return True
-
-                                if self.head is not None and self.head.is_presence():
                                     return True
 
                                 if self.midpoint is not None and self.midpoint._has_data():
                                     return True
 
-                                if self.midpoint is not None and self.midpoint.is_presence():
-                                    return True
-
                                 if self.role is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -14356,7 +13569,7 @@ class FibMpls(object):
                             .. attribute:: entry_frr_state
                             
                             	MPLS FRR entry state
-                            	**type**\: :py:class:`MgmtFibMplsFrrState_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrState_Enum>`
+                            	**type**\: :py:class:`MgmtFibMplsFrrStateEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrStateEnum>`
                             
                             .. attribute:: frr_entry_id
                             
@@ -14456,7 +13669,7 @@ class FibMpls(object):
                                 .. attribute:: role
                                 
                                 	Role
-                                	**type**\: :py:class:`MgmtFibMplsLspRole_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRole_Enum>`
+                                	**type**\: :py:class:`MgmtFibMplsLspRoleEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRoleEnum>`
                                 
                                 
 
@@ -14518,18 +13731,12 @@ class FibMpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.destination_prefix is not None:
                                             return True
 
                                         if self.destination_prefix_length is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -14590,8 +13797,6 @@ class FibMpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.lspid is not None:
                                             return True
 
@@ -14601,10 +13806,6 @@ class FibMpls(object):
                                         if self.tunnel_id is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -14626,27 +13827,15 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.head is not None and self.head._has_data():
-                                        return True
-
-                                    if self.head is not None and self.head.is_presence():
                                         return True
 
                                     if self.midpoint is not None and self.midpoint._has_data():
                                         return True
 
-                                    if self.midpoint is not None and self.midpoint.is_presence():
-                                        return True
-
                                     if self.role is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -14668,15 +13857,10 @@ class FibMpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.entry_frr_state is not None:
                                     return True
 
                                 if self.frr_entry_id is not None and self.frr_entry_id._has_data():
-                                    return True
-
-                                if self.frr_entry_id is not None and self.frr_entry_id.is_presence():
                                     return True
 
                                 if self.frr_interface_name is not None:
@@ -14705,10 +13889,6 @@ class FibMpls(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -14730,8 +13910,6 @@ class FibMpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.local_label is not None:
                                 return True
 
@@ -14739,9 +13917,6 @@ class FibMpls(object):
                                 return True
 
                             if self.frr_entry_id is not None and self.frr_entry_id._has_data():
-                                return True
-
-                            if self.frr_entry_id is not None and self.frr_entry_id.is_presence():
                                 return True
 
                             if self.frr_interface_name is not None:
@@ -14781,10 +13956,6 @@ class FibMpls(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -14804,17 +13975,11 @@ class FibMpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.frrdb_tunnel_midpoint is not None:
                             for child_ref in self.frrdb_tunnel_midpoint:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -14836,54 +14001,27 @@ class FibMpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.frrdb_backup_interface_summaries is not None and self.frrdb_backup_interface_summaries._has_data():
-                        return True
-
-                    if self.frrdb_backup_interface_summaries is not None and self.frrdb_backup_interface_summaries.is_presence():
                         return True
 
                     if self.frrdb_protected_interface_table_summaries is not None and self.frrdb_protected_interface_table_summaries._has_data():
                         return True
 
-                    if self.frrdb_protected_interface_table_summaries is not None and self.frrdb_protected_interface_table_summaries.is_presence():
-                        return True
-
                     if self.frrdb_summary is not None and self.frrdb_summary._has_data():
-                        return True
-
-                    if self.frrdb_summary is not None and self.frrdb_summary.is_presence():
                         return True
 
                     if self.frrdb_tunnel_head_summary is not None and self.frrdb_tunnel_head_summary._has_data():
                         return True
 
-                    if self.frrdb_tunnel_head_summary is not None and self.frrdb_tunnel_head_summary.is_presence():
-                        return True
-
                     if self.frrdb_tunnel_heads is not None and self.frrdb_tunnel_heads._has_data():
-                        return True
-
-                    if self.frrdb_tunnel_heads is not None and self.frrdb_tunnel_heads.is_presence():
                         return True
 
                     if self.frrdb_tunnel_midpoint_summary is not None and self.frrdb_tunnel_midpoint_summary._has_data():
                         return True
 
-                    if self.frrdb_tunnel_midpoint_summary is not None and self.frrdb_tunnel_midpoint_summary.is_presence():
-                        return True
-
                     if self.frrdb_tunnel_midpoints is not None and self.frrdb_tunnel_midpoints._has_data():
                         return True
 
-                    if self.frrdb_tunnel_midpoints is not None and self.frrdb_tunnel_midpoints.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15046,18 +14184,12 @@ class FibMpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.nanoseconds is not None:
                                 return True
 
                             if self.seconds is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -15081,8 +14213,6 @@ class FibMpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.event_id is not None:
                             return True
 
@@ -15107,16 +14237,9 @@ class FibMpls(object):
                         if self.start_time is not None and self.start_time._has_data():
                             return True
 
-                        if self.start_time is not None and self.start_time.is_presence():
-                            return True
-
                         if self.switching_time_nsecs is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -15138,17 +14261,11 @@ class FibMpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.frr_log is not None:
                         for child_ref in self.frr_log:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -15223,7 +14340,7 @@ class FibMpls(object):
                         .. attribute:: eos
                         
                         	End of stack flag
-                        	**type**\: :py:class:`Eos_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.Eos_Enum>`
+                        	**type**\: :py:class:`EosEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.EosEnum>`
                         
                         .. attribute:: eos_bit
                         
@@ -15994,8 +15111,6 @@ class FibMpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.l3_mtu is not None:
                                             return True
 
@@ -16046,10 +15161,6 @@ class FibMpls(object):
                                         if self.version_priority_valid is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -16186,8 +15297,6 @@ class FibMpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.backup_is_local is not None:
                                             return True
 
@@ -16237,10 +15346,6 @@ class FibMpls(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -16260,8 +15365,6 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.app_id is not None:
                                         return True
 
@@ -16284,9 +15387,6 @@ class FibMpls(object):
                                         return True
 
                                     if self.label_information_detail is not None and self.label_information_detail._has_data():
-                                        return True
-
-                                    if self.label_information_detail is not None and self.label_information_detail.is_presence():
                                         return True
 
                                     if self.label_information_encap_id is not None:
@@ -16335,9 +15435,6 @@ class FibMpls(object):
                                         return True
 
                                     if self.mpi_info is not None and self.mpi_info._has_data():
-                                        return True
-
-                                    if self.mpi_info is not None and self.mpi_info.is_presence():
                                         return True
 
                                     if self.mpls_adjacency_flags is not None:
@@ -16390,10 +15487,6 @@ class FibMpls(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -16413,17 +15506,11 @@ class FibMpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fib_mpls_adj_info is not None:
                                     for child_ref in self.fib_mpls_adj_info:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16468,15 +15555,9 @@ class FibMpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ldi_hardware_information is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16681,8 +15762,6 @@ class FibMpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.dependent_tunnel_ifh is not None:
                                     return True
 
@@ -16746,10 +15825,6 @@ class FibMpls(object):
                                 if self.multicast_v6_table_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -16897,18 +15972,12 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.rpf_ifh is not None:
                                         return True
 
                                     if self.rpf_path_index is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -16961,18 +16030,12 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.rpf_tbl_id is not None:
                                         return True
 
                                     if self.rpf_v4_addr is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17025,18 +16088,12 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.rpf_tbl_id is not None:
                                         return True
 
                                     if self.rpf_v6_addr is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -17058,8 +16115,6 @@ class FibMpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.rpf_create_ts is not None:
                                     return True
 
@@ -17100,10 +16155,6 @@ class FibMpls(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -17123,8 +16174,6 @@ class FibMpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.afi_table_id is not None:
                                 return True
 
@@ -17140,16 +16189,10 @@ class FibMpls(object):
                             if self.label_information is not None and self.label_information._has_data():
                                 return True
 
-                            if self.label_information is not None and self.label_information.is_presence():
-                                return True
-
                             if self.ldi_flags is not None:
                                 return True
 
                             if self.ldi_information is not None and self.ldi_information._has_data():
-                                return True
-
-                            if self.ldi_information is not None and self.ldi_information.is_presence():
                                 return True
 
                             if self.ldi_pointer is not None:
@@ -17206,9 +16249,6 @@ class FibMpls(object):
                             if self.multicast_information is not None and self.multicast_information._has_data():
                                 return True
 
-                            if self.multicast_information is not None and self.multicast_information.is_presence():
-                                return True
-
                             if self.multicast_label is not None:
                                 return True
 
@@ -17239,13 +16279,6 @@ class FibMpls(object):
                             if self.rpf is not None and self.rpf._has_data():
                                 return True
 
-                            if self.rpf is not None and self.rpf.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -17267,17 +16300,11 @@ class FibMpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.forwarding_detail is not None:
                             for child_ref in self.forwarding_detail:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -17323,7 +16350,7 @@ class FibMpls(object):
                         .. attribute:: eos
                         
                         	End of stack flag
-                        	**type**\: :py:class:`Eos_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.Eos_Enum>`
+                        	**type**\: :py:class:`EosEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.EosEnum>`
                         
                         .. attribute:: eos_bit
                         
@@ -18094,8 +17121,6 @@ class FibMpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.l3_mtu is not None:
                                             return True
 
@@ -18146,10 +17171,6 @@ class FibMpls(object):
                                         if self.version_priority_valid is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -18286,8 +17307,6 @@ class FibMpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.backup_is_local is not None:
                                             return True
 
@@ -18337,10 +17356,6 @@ class FibMpls(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -18360,8 +17375,6 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.app_id is not None:
                                         return True
 
@@ -18384,9 +17397,6 @@ class FibMpls(object):
                                         return True
 
                                     if self.label_information_detail is not None and self.label_information_detail._has_data():
-                                        return True
-
-                                    if self.label_information_detail is not None and self.label_information_detail.is_presence():
                                         return True
 
                                     if self.label_information_encap_id is not None:
@@ -18435,9 +17445,6 @@ class FibMpls(object):
                                         return True
 
                                     if self.mpi_info is not None and self.mpi_info._has_data():
-                                        return True
-
-                                    if self.mpi_info is not None and self.mpi_info.is_presence():
                                         return True
 
                                     if self.mpls_adjacency_flags is not None:
@@ -18490,10 +17497,6 @@ class FibMpls(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -18513,17 +17516,11 @@ class FibMpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fib_mpls_adj_info is not None:
                                     for child_ref in self.fib_mpls_adj_info:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -18568,15 +17565,9 @@ class FibMpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ldi_hardware_information is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -18781,8 +17772,6 @@ class FibMpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.dependent_tunnel_ifh is not None:
                                     return True
 
@@ -18846,10 +17835,6 @@ class FibMpls(object):
                                 if self.multicast_v6_table_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -18997,18 +17982,12 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.rpf_ifh is not None:
                                         return True
 
                                     if self.rpf_path_index is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -19061,18 +18040,12 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.rpf_tbl_id is not None:
                                         return True
 
                                     if self.rpf_v4_addr is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -19125,18 +18098,12 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.rpf_tbl_id is not None:
                                         return True
 
                                     if self.rpf_v6_addr is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -19158,8 +18125,6 @@ class FibMpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.rpf_create_ts is not None:
                                     return True
 
@@ -19200,10 +18165,6 @@ class FibMpls(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -19223,8 +18184,6 @@ class FibMpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.afi_table_id is not None:
                                 return True
 
@@ -19240,16 +18199,10 @@ class FibMpls(object):
                             if self.label_information is not None and self.label_information._has_data():
                                 return True
 
-                            if self.label_information is not None and self.label_information.is_presence():
-                                return True
-
                             if self.ldi_flags is not None:
                                 return True
 
                             if self.ldi_information is not None and self.ldi_information._has_data():
-                                return True
-
-                            if self.ldi_information is not None and self.ldi_information.is_presence():
                                 return True
 
                             if self.ldi_pointer is not None:
@@ -19306,9 +18259,6 @@ class FibMpls(object):
                             if self.multicast_information is not None and self.multicast_information._has_data():
                                 return True
 
-                            if self.multicast_information is not None and self.multicast_information.is_presence():
-                                return True
-
                             if self.multicast_label is not None:
                                 return True
 
@@ -19339,13 +18289,6 @@ class FibMpls(object):
                             if self.rpf is not None and self.rpf._has_data():
                                 return True
 
-                            if self.rpf is not None and self.rpf.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -19367,17 +18310,11 @@ class FibMpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.forwarding is not None:
                             for child_ref in self.forwarding:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -19399,24 +18336,12 @@ class FibMpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.forwarding_details is not None and self.forwarding_details._has_data():
-                        return True
-
-                    if self.forwarding_details is not None and self.forwarding_details.is_presence():
                         return True
 
                     if self.forwardings is not None and self.forwardings._has_data():
                         return True
 
-                    if self.forwardings is not None and self.forwardings.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -20278,8 +19203,6 @@ class FibMpls(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.l3_mtu is not None:
                                                 return True
 
@@ -20330,10 +19253,6 @@ class FibMpls(object):
                                             if self.version_priority_valid is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -20470,8 +19389,6 @@ class FibMpls(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.backup_is_local is not None:
                                                 return True
 
@@ -20521,10 +19438,6 @@ class FibMpls(object):
 
                                             return False
 
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
-                                            return False
-
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -20544,8 +19457,6 @@ class FibMpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.app_id is not None:
                                             return True
 
@@ -20568,9 +19479,6 @@ class FibMpls(object):
                                             return True
 
                                         if self.label_information_detail is not None and self.label_information_detail._has_data():
-                                            return True
-
-                                        if self.label_information_detail is not None and self.label_information_detail.is_presence():
                                             return True
 
                                         if self.label_information_encap_id is not None:
@@ -20619,9 +19527,6 @@ class FibMpls(object):
                                             return True
 
                                         if self.mpi_info is not None and self.mpi_info._has_data():
-                                            return True
-
-                                        if self.mpi_info is not None and self.mpi_info.is_presence():
                                             return True
 
                                         if self.mpls_adjacency_flags is not None:
@@ -20674,10 +19579,6 @@ class FibMpls(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -20697,17 +19598,11 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.fib_mpls_adj_info is not None:
                                         for child_ref in self.fib_mpls_adj_info:
                                             if child_ref._has_data():
                                                 return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -20752,15 +19647,9 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.ldi_hardware_information is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -20965,8 +19854,6 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dependent_tunnel_ifh is not None:
                                         return True
 
@@ -21030,10 +19917,6 @@ class FibMpls(object):
                                     if self.multicast_v6_table_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -21181,18 +20064,12 @@ class FibMpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.rpf_ifh is not None:
                                             return True
 
                                         if self.rpf_path_index is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21245,18 +20122,12 @@ class FibMpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.rpf_tbl_id is not None:
                                             return True
 
                                         if self.rpf_v4_addr is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21309,18 +20180,12 @@ class FibMpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.rpf_tbl_id is not None:
                                             return True
 
                                         if self.rpf_v6_addr is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -21342,8 +20207,6 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.rpf_create_ts is not None:
                                         return True
 
@@ -21384,10 +20247,6 @@ class FibMpls(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -21407,8 +20266,6 @@ class FibMpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.afi_table_id is not None:
                                     return True
 
@@ -21421,16 +20278,10 @@ class FibMpls(object):
                                 if self.label_information is not None and self.label_information._has_data():
                                     return True
 
-                                if self.label_information is not None and self.label_information.is_presence():
-                                    return True
-
                                 if self.ldi_flags is not None:
                                     return True
 
                                 if self.ldi_information is not None and self.ldi_information._has_data():
-                                    return True
-
-                                if self.ldi_information is not None and self.ldi_information.is_presence():
                                     return True
 
                                 if self.ldi_pointer is not None:
@@ -21484,9 +20335,6 @@ class FibMpls(object):
                                 if self.multicast_information is not None and self.multicast_information._has_data():
                                     return True
 
-                                if self.multicast_information is not None and self.multicast_information.is_presence():
-                                    return True
-
                                 if self.multicast_label is not None:
                                     return True
 
@@ -21517,13 +20365,6 @@ class FibMpls(object):
                                 if self.rpf is not None and self.rpf._has_data():
                                     return True
 
-                                if self.rpf is not None and self.rpf.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -21656,8 +20497,6 @@ class FibMpls(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.tli_flags is not None:
                                     return True
 
@@ -21699,10 +20538,6 @@ class FibMpls(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -21724,27 +20559,15 @@ class FibMpls(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface_name is not None:
                                 return True
 
                             if self.fwdg is not None and self.fwdg._has_data():
                                 return True
 
-                            if self.fwdg is not None and self.fwdg.is_presence():
-                                return True
-
                             if self.tunnel_info is not None and self.tunnel_info._has_data():
                                 return True
 
-                            if self.tunnel_info is not None and self.tunnel_info.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -21766,17 +20589,11 @@ class FibMpls(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.forwarding_tunnel is not None:
                             for child_ref in self.forwarding_tunnel:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -21798,18 +20615,9 @@ class FibMpls(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.forwarding_tunnels is not None and self.forwarding_tunnels._has_data():
                         return True
 
-                    if self.forwarding_tunnels is not None and self.forwarding_tunnels.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -21831,45 +20639,24 @@ class FibMpls(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.forwarding_summary is not None and self.forwarding_summary._has_data():
                     return True
 
-                if self.forwarding_summary is not None and self.forwarding_summary.is_presence():
-                    return True
-
                 if self.frr_database is not None and self.frr_database._has_data():
-                    return True
-
-                if self.frr_database is not None and self.frr_database.is_presence():
                     return True
 
                 if self.frr_logs is not None and self.frr_logs._has_data():
                     return True
 
-                if self.frr_logs is not None and self.frr_logs.is_presence():
-                    return True
-
                 if self.label_fib is not None and self.label_fib._has_data():
-                    return True
-
-                if self.label_fib is not None and self.label_fib.is_presence():
                     return True
 
                 if self.tunnel is not None and self.tunnel._has_data():
                     return True
 
-                if self.tunnel is not None and self.tunnel.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -21889,17 +20676,11 @@ class FibMpls(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -21919,18 +20700,9 @@ class FibMpls(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -22225,8 +20997,6 @@ class FibStatistics(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.acl_in_rpf_packets is not None:
                         return True
 
@@ -22298,10 +21068,6 @@ class FibStatistics(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -22321,21 +21087,12 @@ class FibStatistics(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.drops is not None and self.drops._has_data():
                     return True
 
-                if self.drops is not None and self.drops.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -22355,17 +21112,11 @@ class FibStatistics(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -22385,18 +21136,9 @@ class FibStatistics(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -22746,8 +21488,6 @@ class MplsForwarding(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.deleted_stale_entries is not None:
                         return True
 
@@ -22837,10 +21577,6 @@ class MplsForwarding(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -22920,7 +21656,7 @@ class MplsForwarding(object):
                         .. attribute:: eos
                         
                         	End of stack flag
-                        	**type**\: :py:class:`Mplseos_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.Mplseos_Enum>`
+                        	**type**\: :py:class:`MplseosEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MplseosEnum>`
                         
                         .. attribute:: eos_bit
                         
@@ -23141,7 +21877,7 @@ class MplsForwarding(object):
                                 .. attribute:: label_information_next_hop_protocol
                                 
                                 	The address family (v4/v6) 
-                                	**type**\: :py:class:`Proto_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.Proto_Enum>`
+                                	**type**\: :py:class:`ProtoEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
                                 
                                 .. attribute:: label_information_next_hop_string
                                 
@@ -23153,7 +21889,7 @@ class MplsForwarding(object):
                                 .. attribute:: label_information_next_hop_type
                                 
                                 	NHinfo Type
-                                	**type**\: :py:class:`NextHop_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.NextHop_Enum>`
+                                	**type**\: :py:class:`NextHopEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.NextHopEnum>`
                                 
                                 .. attribute:: label_information_path_index
                                 
@@ -23332,7 +22068,7 @@ class MplsForwarding(object):
                                     .. attribute:: next_hop_protocol
                                     
                                     	The address family (V4/V6) 
-                                    	**type**\: :py:class:`Proto_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.Proto_Enum>`
+                                    	**type**\: :py:class:`ProtoEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
                                     
                                     .. attribute:: next_hop_string
                                     
@@ -23403,8 +22139,6 @@ class MplsForwarding(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.l3_mtu is not None:
                                             return True
 
@@ -23439,10 +22173,6 @@ class MplsForwarding(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -23462,12 +22192,7 @@ class MplsForwarding(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.label_information_detail is not None and self.label_information_detail._has_data():
-                                        return True
-
-                                    if self.label_information_detail is not None and self.label_information_detail.is_presence():
                                         return True
 
                                     if self.label_information_next_hop_protocol is not None:
@@ -23529,10 +22254,6 @@ class MplsForwarding(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -23552,17 +22273,11 @@ class MplsForwarding(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mpls_adj_info is not None:
                                     for child_ref in self.mpls_adj_info:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -23607,15 +22322,9 @@ class MplsForwarding(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ldi_hardware_information is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -23764,8 +22473,6 @@ class MplsForwarding(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.multicast_encap_id is not None:
                                     return True
 
@@ -23810,10 +22517,6 @@ class MplsForwarding(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -23833,8 +22536,6 @@ class MplsForwarding(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.afi_table_id is not None:
                                 return True
 
@@ -23850,9 +22551,6 @@ class MplsForwarding(object):
                             if self.label_information is not None and self.label_information._has_data():
                                 return True
 
-                            if self.label_information is not None and self.label_information.is_presence():
-                                return True
-
                             if self.label_value is not None:
                                 return True
 
@@ -23860,9 +22558,6 @@ class MplsForwarding(object):
                                 return True
 
                             if self.ldi_information is not None and self.ldi_information._has_data():
-                                return True
-
-                            if self.ldi_information is not None and self.ldi_information.is_presence():
                                 return True
 
                             if self.ldi_pointer is not None:
@@ -23904,9 +22599,6 @@ class MplsForwarding(object):
                             if self.multicast_information is not None and self.multicast_information._has_data():
                                 return True
 
-                            if self.multicast_information is not None and self.multicast_information.is_presence():
-                                return True
-
                             if self.multicast_label is not None:
                                 return True
 
@@ -23916,10 +22608,6 @@ class MplsForwarding(object):
                             if self.path_list_referance_count is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -23941,17 +22629,11 @@ class MplsForwarding(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.forwarding_detail is not None:
                             for child_ref in self.forwarding_detail:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -23997,7 +22679,7 @@ class MplsForwarding(object):
                         .. attribute:: eos
                         
                         	End of stack flag
-                        	**type**\: :py:class:`Mplseos_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.Mplseos_Enum>`
+                        	**type**\: :py:class:`MplseosEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.MplseosEnum>`
                         
                         .. attribute:: eos_bit
                         
@@ -24218,7 +22900,7 @@ class MplsForwarding(object):
                                 .. attribute:: label_information_next_hop_protocol
                                 
                                 	The address family (v4/v6) 
-                                	**type**\: :py:class:`Proto_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.Proto_Enum>`
+                                	**type**\: :py:class:`ProtoEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
                                 
                                 .. attribute:: label_information_next_hop_string
                                 
@@ -24230,7 +22912,7 @@ class MplsForwarding(object):
                                 .. attribute:: label_information_next_hop_type
                                 
                                 	NHinfo Type
-                                	**type**\: :py:class:`NextHop_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.NextHop_Enum>`
+                                	**type**\: :py:class:`NextHopEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.NextHopEnum>`
                                 
                                 .. attribute:: label_information_path_index
                                 
@@ -24409,7 +23091,7 @@ class MplsForwarding(object):
                                     .. attribute:: next_hop_protocol
                                     
                                     	The address family (V4/V6) 
-                                    	**type**\: :py:class:`Proto_Enum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.Proto_Enum>`
+                                    	**type**\: :py:class:`ProtoEnum <ydk.models.fib.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
                                     
                                     .. attribute:: next_hop_string
                                     
@@ -24480,8 +23162,6 @@ class MplsForwarding(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.l3_mtu is not None:
                                             return True
 
@@ -24516,10 +23196,6 @@ class MplsForwarding(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -24539,12 +23215,7 @@ class MplsForwarding(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.label_information_detail is not None and self.label_information_detail._has_data():
-                                        return True
-
-                                    if self.label_information_detail is not None and self.label_information_detail.is_presence():
                                         return True
 
                                     if self.label_information_next_hop_protocol is not None:
@@ -24606,10 +23277,6 @@ class MplsForwarding(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -24629,17 +23296,11 @@ class MplsForwarding(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mpls_adj_info is not None:
                                     for child_ref in self.mpls_adj_info:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -24684,15 +23345,9 @@ class MplsForwarding(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ldi_hardware_information is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -24841,8 +23496,6 @@ class MplsForwarding(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.multicast_encap_id is not None:
                                     return True
 
@@ -24887,10 +23540,6 @@ class MplsForwarding(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -24910,8 +23559,6 @@ class MplsForwarding(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.afi_table_id is not None:
                                 return True
 
@@ -24927,9 +23574,6 @@ class MplsForwarding(object):
                             if self.label_information is not None and self.label_information._has_data():
                                 return True
 
-                            if self.label_information is not None and self.label_information.is_presence():
-                                return True
-
                             if self.label_value is not None:
                                 return True
 
@@ -24937,9 +23581,6 @@ class MplsForwarding(object):
                                 return True
 
                             if self.ldi_information is not None and self.ldi_information._has_data():
-                                return True
-
-                            if self.ldi_information is not None and self.ldi_information.is_presence():
                                 return True
 
                             if self.ldi_pointer is not None:
@@ -24981,9 +23622,6 @@ class MplsForwarding(object):
                             if self.multicast_information is not None and self.multicast_information._has_data():
                                 return True
 
-                            if self.multicast_information is not None and self.multicast_information.is_presence():
-                                return True
-
                             if self.multicast_label is not None:
                                 return True
 
@@ -24993,10 +23631,6 @@ class MplsForwarding(object):
                             if self.path_list_referance_count is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -25018,17 +23652,11 @@ class MplsForwarding(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.information is not None:
                             for child_ref in self.information:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -25175,8 +23803,6 @@ class MplsForwarding(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interface_name is not None:
                                     return True
 
@@ -25203,10 +23829,6 @@ class MplsForwarding(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.fib._meta import _Cisco_IOS_XR_fib_common_oper as meta
@@ -25226,17 +23848,11 @@ class MplsForwarding(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface is not None:
                                 for child_ref in self.interface:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -25289,18 +23905,12 @@ class MplsForwarding(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.multi_label_drops is not None:
                                 return True
 
                             if self.rpf_drops is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -25322,24 +23932,12 @@ class MplsForwarding(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interfaces is not None and self.interfaces._has_data():
-                            return True
-
-                        if self.interfaces is not None and self.interfaces.is_presence():
                             return True
 
                         if self.summary is not None and self.summary._has_data():
                             return True
 
-                        if self.summary is not None and self.summary.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -25361,30 +23959,15 @@ class MplsForwarding(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.forwarding_details is not None and self.forwarding_details._has_data():
-                        return True
-
-                    if self.forwarding_details is not None and self.forwarding_details.is_presence():
                         return True
 
                     if self.informations is not None and self.informations._has_data():
                         return True
 
-                    if self.informations is not None and self.informations.is_presence():
-                        return True
-
                     if self.label_security is not None and self.label_security._has_data():
                         return True
 
-                    if self.label_security is not None and self.label_security.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -25406,27 +23989,15 @@ class MplsForwarding(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.forwarding_summary is not None and self.forwarding_summary._has_data():
                     return True
 
-                if self.forwarding_summary is not None and self.forwarding_summary.is_presence():
-                    return True
-
                 if self.label_fib is not None and self.label_fib._has_data():
                     return True
 
-                if self.label_fib is not None and self.label_fib.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -25446,17 +24017,11 @@ class MplsForwarding(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -25476,18 +24041,9 @@ class MplsForwarding(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

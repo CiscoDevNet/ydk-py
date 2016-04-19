@@ -24,1050 +24,937 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class IcpeGcoOperControlReason_Enum(Enum):
+class IcpeGcoOperControlReasonEnum(Enum):
     """
-    IcpeGcoOperControlReason_Enum
+    IcpeGcoOperControlReasonEnum
 
     Icpe gco oper control reason
 
-    """
+    .. data:: ICPE_GCO_OPER_CONTROL_REASON_UNKNOWN_ERROR = 0
+
+    	Unknown error
+
+    .. data:: ICPE_GCO_OPER_CONTROL_REASON_WRONG_CHASSIS_TYPE = 1
+
+    	Wrong chassis type
+
+    .. data:: ICPE_GCO_OPER_CONTROL_REASON_WRONG_CHASSIS_SERIAL = 2
+
+    	Wrong chassis serial
+
+    .. data:: ICPE_GCO_OPER_CONTROL_REASON_NEEDS_TO_UPGRADE = 3
+
+    	Needs to upgrade
+
+    .. data:: ICPE_GCO_OPER_CONTROL_REASON_NONE = 4
+
+    	None
 
     """
 
-    Unknown error
-
-    """
     ICPE_GCO_OPER_CONTROL_REASON_UNKNOWN_ERROR = 0
 
-    """
-
-    Wrong chassis type
-
-    """
     ICPE_GCO_OPER_CONTROL_REASON_WRONG_CHASSIS_TYPE = 1
 
-    """
-
-    Wrong chassis serial
-
-    """
     ICPE_GCO_OPER_CONTROL_REASON_WRONG_CHASSIS_SERIAL = 2
 
-    """
-
-    Needs to upgrade
-
-    """
     ICPE_GCO_OPER_CONTROL_REASON_NEEDS_TO_UPGRADE = 3
 
-    """
-
-    None
-
-    """
     ICPE_GCO_OPER_CONTROL_REASON_NONE = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeGcoOperControlReason_Enum']
+        return meta._meta_table['IcpeGcoOperControlReasonEnum']
 
 
-class IcpeOperConflict_Enum(Enum):
+class IcpeOperConflictEnum(Enum):
     """
-    IcpeOperConflict_Enum
+    IcpeOperConflictEnum
 
     Icpe oper conflict
 
-    """
+    .. data:: ICPE_OPER_CONFLICT_NOT_CALCULATED = 0
+
+    	Not calculated
+
+    .. data:: ICPE_OPER_CONFLICT_NO_CONFLICT = 1
+
+    	No conflict
+
+    .. data:: ICPE_OPER_CONFLICT_SATELLITE_NOT_CONFIGURED = 2
+
+    	Satellite not configured
+
+    .. data:: ICPE_OPER_CONFLICT_SATELLITE_NO_TYPE = 3
+
+    	Satellite no type
+
+    .. data:: ICPE_OPER_CONFLICT_SATELLITE_ID_INVALID = 4
+
+    	Satellite id invalid
+
+    .. data:: ICPE_OPER_CONFLICT_SATELLITE_NO_IPV4_ADDR = 5
+
+    	Satellite no ipv4 addr
+
+    .. data:: ICPE_OPER_CONFLICT_SATELLITE_CONFLICTING_IPV4_ADDR = 6
+
+    	Satellite conflicting ipv4 addr
+
+    .. data:: ICPE_OPER_CONFLICT_NO_CONFIGURED_LINKS = 7
+
+    	No configured links
+
+    .. data:: ICPE_OPER_CONFLICT_NO_DISCOVERED_LINKS = 8
+
+    	No discovered links
+
+    .. data:: ICPE_OPER_CONFLICT_INVALID_PORTS = 9
+
+    	Invalid ports
+
+    .. data:: ICPE_OPER_CONFLICT_PORTS_OVERLAP = 10
+
+    	Ports overlap
+
+    .. data:: ICPE_OPER_CONFLICT_WAITING_FOR_IPV4_ADDR = 11
+
+    	Waiting for ipv4 addr
+
+    .. data:: ICPE_OPER_CONFLICT_WAITING_FOR_VRF = 12
+
+    	Waiting for VRF
+
+    .. data:: ICPE_OPER_CONFLICT_DIFFERENT_IPV4_ADDR = 13
+
+    	Different ipv4 addr
+
+    .. data:: ICPE_OPER_CONFLICT_DIFFERENT_VRF = 14
+
+    	Different VRF
+
+    .. data:: ICPE_OPER_CONFLICT_SATELLITE_LINK_IPV4_OVERLAP = 15
+
+    	Satellite link ipv4 overlap
+
+    .. data:: ICPE_OPER_CONFLICT_WAITING_FOR_IDENT = 16
+
+    	Waiting for ident
+
+    .. data:: ICPE_OPER_CONFLICT_MULTIPLE_IDS = 17
+
+    	Multiple ids
+
+    .. data:: ICPE_OPER_CONFLICT_MULTIPLE_SATELLITES = 18
+
+    	Multiple satellites
+
+    .. data:: ICPE_OPER_CONFLICT_IDENT_REJECTED = 19
+
+    	Ident rejected
+
+    .. data:: ICPE_OPER_CONFLICT_INTERFACE_DOWN = 20
+
+    	Interface down
+
+    .. data:: ICPE_OPER_CONFLICT_AUTO_IP_UNAVAILABLE = 21
+
+    	Auto IP unavailable
+
+    .. data:: ICPE_OPER_CONFLICT_SATELLITE_AUTO_IP_LINK_MANUAL_IP = 22
+
+    	Satellite auto IP link manual IP
+
+    .. data:: ICPE_OPER_CONFLICT_LINK_AUTO_IP_SATELLITE_MANUAL_IP = 23
+
+    	Link auto IP satellite manual IP
+
+    .. data:: ICPE_OPER_CONFLICT_SERIAL_NUM_MISMATCH = 24
+
+    	Serial num mismatch
+
+    .. data:: ICPE_OPER_CONFLICT_SATELLITE_NOT_IDENTIFIED = 25
+
+    	Satellite not identified
+
+    .. data:: ICPE_OPER_CONFLICT_SATELLITE_UNSUPPORTED_TYPE = 26
+
+    	Satellite unsupported type
+
+    .. data:: ICPE_OPER_CONFLICT_SATELLITE_PARTITION_UNSUPPORTED = 27
+
+    	Satellite partition unsupported
+
+    .. data:: ICPE_OPER_CONFLICT_SATELLITE_NO_SERIAL_NUMBER = 28
+
+    	Satellite no serial number
+
+    .. data:: ICPE_OPER_CONFLICT_SATELLITE_CONFLICTING_SERIAL_NUMBER = 29
+
+    	Satellite conflicting serial number
+
+    .. data:: ICPE_OPER_CONFLICT_SATELLITE_LINK_WAITING_FOR_ARP = 30
+
+    	Satellite link waiting for arp
+
+    .. data:: ICPE_OPER_CONFLICT_HOST_PE_ISOLATED_SPLIT_BRAIN = 31
+
+    	Host PE isolated split brain
+
+    .. data:: ICPE_OPER_CONFLICT_FABRIC_ICCP_GROUP_INCONSISTENT = 32
+
+    	Fabric ICCP group inconsistent
+
+    .. data:: ICPE_OPER_CONFLICT_INVALID_ICCP_GROUP = 33
+
+    	Invalid ICCP group
+
+    .. data:: ICPE_OPER_CONFLICT_PORT_REJECTED = 34
+
+    	Port rejected
+
+    .. data:: ICPE_OPER_CONFLICT_SATELLITE_ICL_NOT_SUPPORTED = 35
+
+    	Satellite ICL not supported
+
+    .. data:: ICPE_OPER_CONFLICT_MULTIPLE_SERIAL_NUMBER = 36
+
+    	Multiple serial number
+
+    .. data:: ICPE_OPER_CONFLICT_MULTIPLE_MAC_ADDRESS = 37
+
+    	Multiple MAC address
 
     """
 
-    Not calculated
-
-    """
     ICPE_OPER_CONFLICT_NOT_CALCULATED = 0
 
-    """
-
-    No conflict
-
-    """
     ICPE_OPER_CONFLICT_NO_CONFLICT = 1
 
-    """
-
-    Satellite not configured
-
-    """
     ICPE_OPER_CONFLICT_SATELLITE_NOT_CONFIGURED = 2
 
-    """
-
-    Satellite no type
-
-    """
     ICPE_OPER_CONFLICT_SATELLITE_NO_TYPE = 3
 
-    """
-
-    Satellite id invalid
-
-    """
     ICPE_OPER_CONFLICT_SATELLITE_ID_INVALID = 4
 
-    """
-
-    Satellite no ipv4 addr
-
-    """
     ICPE_OPER_CONFLICT_SATELLITE_NO_IPV4_ADDR = 5
 
-    """
-
-    Satellite conflicting ipv4 addr
-
-    """
     ICPE_OPER_CONFLICT_SATELLITE_CONFLICTING_IPV4_ADDR = 6
 
-    """
-
-    No configured links
-
-    """
     ICPE_OPER_CONFLICT_NO_CONFIGURED_LINKS = 7
 
-    """
-
-    No discovered links
-
-    """
     ICPE_OPER_CONFLICT_NO_DISCOVERED_LINKS = 8
 
-    """
-
-    Invalid ports
-
-    """
     ICPE_OPER_CONFLICT_INVALID_PORTS = 9
 
-    """
-
-    Ports overlap
-
-    """
     ICPE_OPER_CONFLICT_PORTS_OVERLAP = 10
 
-    """
-
-    Waiting for ipv4 addr
-
-    """
     ICPE_OPER_CONFLICT_WAITING_FOR_IPV4_ADDR = 11
 
-    """
-
-    Waiting for VRF
-
-    """
     ICPE_OPER_CONFLICT_WAITING_FOR_VRF = 12
 
-    """
-
-    Different ipv4 addr
-
-    """
     ICPE_OPER_CONFLICT_DIFFERENT_IPV4_ADDR = 13
 
-    """
-
-    Different VRF
-
-    """
     ICPE_OPER_CONFLICT_DIFFERENT_VRF = 14
 
-    """
-
-    Satellite link ipv4 overlap
-
-    """
     ICPE_OPER_CONFLICT_SATELLITE_LINK_IPV4_OVERLAP = 15
 
-    """
-
-    Waiting for ident
-
-    """
     ICPE_OPER_CONFLICT_WAITING_FOR_IDENT = 16
 
-    """
-
-    Multiple ids
-
-    """
     ICPE_OPER_CONFLICT_MULTIPLE_IDS = 17
 
-    """
-
-    Multiple satellites
-
-    """
     ICPE_OPER_CONFLICT_MULTIPLE_SATELLITES = 18
 
-    """
-
-    Ident rejected
-
-    """
     ICPE_OPER_CONFLICT_IDENT_REJECTED = 19
 
-    """
-
-    Interface down
-
-    """
     ICPE_OPER_CONFLICT_INTERFACE_DOWN = 20
 
-    """
-
-    Auto IP unavailable
-
-    """
     ICPE_OPER_CONFLICT_AUTO_IP_UNAVAILABLE = 21
 
-    """
-
-    Satellite auto IP link manual IP
-
-    """
     ICPE_OPER_CONFLICT_SATELLITE_AUTO_IP_LINK_MANUAL_IP = 22
 
-    """
-
-    Link auto IP satellite manual IP
-
-    """
     ICPE_OPER_CONFLICT_LINK_AUTO_IP_SATELLITE_MANUAL_IP = 23
 
-    """
-
-    Serial num mismatch
-
-    """
     ICPE_OPER_CONFLICT_SERIAL_NUM_MISMATCH = 24
 
-    """
-
-    Satellite not identified
-
-    """
     ICPE_OPER_CONFLICT_SATELLITE_NOT_IDENTIFIED = 25
 
-    """
-
-    Satellite unsupported type
-
-    """
     ICPE_OPER_CONFLICT_SATELLITE_UNSUPPORTED_TYPE = 26
 
-    """
-
-    Satellite partition unsupported
-
-    """
     ICPE_OPER_CONFLICT_SATELLITE_PARTITION_UNSUPPORTED = 27
 
-    """
-
-    Satellite no serial number
-
-    """
     ICPE_OPER_CONFLICT_SATELLITE_NO_SERIAL_NUMBER = 28
 
-    """
-
-    Satellite conflicting serial number
-
-    """
     ICPE_OPER_CONFLICT_SATELLITE_CONFLICTING_SERIAL_NUMBER = 29
 
-    """
-
-    Satellite link waiting for arp
-
-    """
     ICPE_OPER_CONFLICT_SATELLITE_LINK_WAITING_FOR_ARP = 30
 
-    """
-
-    Host PE isolated split brain
-
-    """
     ICPE_OPER_CONFLICT_HOST_PE_ISOLATED_SPLIT_BRAIN = 31
 
-    """
-
-    Fabric ICCP group inconsistent
-
-    """
     ICPE_OPER_CONFLICT_FABRIC_ICCP_GROUP_INCONSISTENT = 32
 
-    """
-
-    Invalid ICCP group
-
-    """
     ICPE_OPER_CONFLICT_INVALID_ICCP_GROUP = 33
 
-    """
-
-    Port rejected
-
-    """
     ICPE_OPER_CONFLICT_PORT_REJECTED = 34
 
-    """
-
-    Satellite ICL not supported
-
-    """
     ICPE_OPER_CONFLICT_SATELLITE_ICL_NOT_SUPPORTED = 35
 
-    """
-
-    Multiple serial number
-
-    """
     ICPE_OPER_CONFLICT_MULTIPLE_SERIAL_NUMBER = 36
 
-    """
-
-    Multiple MAC address
-
-    """
     ICPE_OPER_CONFLICT_MULTIPLE_MAC_ADDRESS = 37
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOperConflict_Enum']
+        return meta._meta_table['IcpeOperConflictEnum']
 
 
-class IcpeOperDiscdLinkState_Enum(Enum):
+class IcpeOperDiscdLinkStateEnum(Enum):
     """
-    IcpeOperDiscdLinkState_Enum
+    IcpeOperDiscdLinkStateEnum
 
     Icpe oper discd link state
 
-    """
+    .. data:: ICPE_OPER_DISCD_LINK_STATE_STOPPED = 0
+
+    	Stopped
+
+    .. data:: ICPE_OPER_DISCD_LINK_STATE_PROBING = 1
+
+    	Probing
+
+    .. data:: ICPE_OPER_DISCD_LINK_STATE_CONFIGURING = 2
+
+    	Configuring
+
+    .. data:: ICPE_OPER_DISCD_LINK_STATE_READY = 3
+
+    	Ready
 
     """
 
-    Stopped
-
-    """
     ICPE_OPER_DISCD_LINK_STATE_STOPPED = 0
 
-    """
-
-    Probing
-
-    """
     ICPE_OPER_DISCD_LINK_STATE_PROBING = 1
 
-    """
-
-    Configuring
-
-    """
     ICPE_OPER_DISCD_LINK_STATE_CONFIGURING = 2
 
-    """
-
-    Ready
-
-    """
     ICPE_OPER_DISCD_LINK_STATE_READY = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOperDiscdLinkState_Enum']
+        return meta._meta_table['IcpeOperDiscdLinkStateEnum']
 
 
-class IcpeOperFabricPort_Enum(Enum):
+class IcpeOperFabricPortEnum(Enum):
     """
-    IcpeOperFabricPort_Enum
+    IcpeOperFabricPortEnum
 
     Icpe oper fabric port
 
-    """
+    .. data:: ICPE_OPER_FABRIC_PORT_UNKNOWN = 0
+
+    	Unknown
+
+    .. data:: ICPE_OPER_FABRIC_PORT_N_V_FABRIC_GIG_E = 1
+
+    	n v fabric- gig e
+
+    .. data:: ICPE_OPER_FABRIC_PORT_N_V_FABRIC_TEN_GIG_E = 2
+
+    	n v fabric- ten gig e
+
+    .. data:: ICPE_OPER_FABRIC_PORT_N_V_FABRIC_HUNDRED_GIG_E = 3
+
+    	n v fabric- hundred gig e
 
     """
 
-    Unknown
-
-    """
     ICPE_OPER_FABRIC_PORT_UNKNOWN = 0
 
-    """
-
-    n v fabric\- gig e
-
-    """
     ICPE_OPER_FABRIC_PORT_N_V_FABRIC_GIG_E = 1
 
-    """
-
-    n v fabric\- ten gig e
-
-    """
     ICPE_OPER_FABRIC_PORT_N_V_FABRIC_TEN_GIG_E = 2
 
-    """
-
-    n v fabric\- hundred gig e
-
-    """
     ICPE_OPER_FABRIC_PORT_N_V_FABRIC_HUNDRED_GIG_E = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOperFabricPort_Enum']
+        return meta._meta_table['IcpeOperFabricPortEnum']
 
 
-class IcpeOperInstallState_Enum(Enum):
+class IcpeOperInstallStateEnum(Enum):
     """
-    IcpeOperInstallState_Enum
+    IcpeOperInstallStateEnum
 
     Icpe oper install state
 
-    """
+    .. data:: ICPE_OPER_INSTALL_STATE_STABLE = 0
+
+    	Stable
+
+    .. data:: ICPE_OPER_INSTALL_STATE_TRANSFERRING = 1
+
+    	Transferring
+
+    .. data:: ICPE_OPER_INSTALL_STATE_TRANSFERRED = 2
+
+    	Transferred
+
+    .. data:: ICPE_OPER_INSTALL_STATE_INSTALLING = 3
+
+    	Installing
 
     """
 
-    Stable
-
-    """
     ICPE_OPER_INSTALL_STATE_STABLE = 0
 
-    """
-
-    Transferring
-
-    """
     ICPE_OPER_INSTALL_STATE_TRANSFERRING = 1
 
-    """
-
-    Transferred
-
-    """
     ICPE_OPER_INSTALL_STATE_TRANSFERRED = 2
 
-    """
-
-    Installing
-
-    """
     ICPE_OPER_INSTALL_STATE_INSTALLING = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOperInstallState_Enum']
+        return meta._meta_table['IcpeOperInstallStateEnum']
 
 
-class IcpeOperPort_Enum(Enum):
+class IcpeOperPortEnum(Enum):
     """
-    IcpeOperPort_Enum
+    IcpeOperPortEnum
 
     Icpe oper port
 
-    """
+    .. data:: ICPE_OPER_PORT_UNKNOWN = 0
+
+    	Unknown
+
+    .. data:: ICPE_OPER_PORT_GIGABIT_ETHERNET = 1
+
+    	Gigabit ethernet
+
+    .. data:: ICPE_OPER_PORT_TEN_GIG_E = 2
+
+    	Ten gig e
 
     """
 
-    Unknown
-
-    """
     ICPE_OPER_PORT_UNKNOWN = 0
 
-    """
-
-    Gigabit ethernet
-
-    """
     ICPE_OPER_PORT_GIGABIT_ETHERNET = 1
 
-    """
-
-    Ten gig e
-
-    """
     ICPE_OPER_PORT_TEN_GIG_E = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOperPort_Enum']
+        return meta._meta_table['IcpeOperPortEnum']
 
 
-class IcpeOperSdacpSessState_Enum(Enum):
+class IcpeOperSdacpSessStateEnum(Enum):
     """
-    IcpeOperSdacpSessState_Enum
+    IcpeOperSdacpSessStateEnum
 
     Icpe oper sdacp sess state
 
-    """
+    .. data:: ICPE_OPER_SDACP_SESS_STATE_NOT_CREATED = 0
+
+    	Not created
+
+    .. data:: ICPE_OPER_SDACP_SESS_STATE_CREATED = 1
+
+    	Created
+
+    .. data:: ICPE_OPER_SDACP_SESS_STATE_AUTHENTICATION_NOT_OK = 2
+
+    	Authentication not OK
+
+    .. data:: ICPE_OPER_SDACP_SESS_STATE_AUTHENTICATION_OK = 3
+
+    	Authentication OK
+
+    .. data:: ICPE_OPER_SDACP_SESS_STATE_VERSION_NOT_OK = 4
+
+    	Version not OK
+
+    .. data:: ICPE_OPER_SDACP_SESS_STATE_UP = 5
+
+    	Up
+
+    .. data:: ICPE_OPER_SDACP_SESS_STATE_ISSU = 6
+
+    	ISSU
 
     """
 
-    Not created
-
-    """
     ICPE_OPER_SDACP_SESS_STATE_NOT_CREATED = 0
 
-    """
-
-    Created
-
-    """
     ICPE_OPER_SDACP_SESS_STATE_CREATED = 1
 
-    """
-
-    Authentication not OK
-
-    """
     ICPE_OPER_SDACP_SESS_STATE_AUTHENTICATION_NOT_OK = 2
 
-    """
-
-    Authentication OK
-
-    """
     ICPE_OPER_SDACP_SESS_STATE_AUTHENTICATION_OK = 3
 
-    """
-
-    Version not OK
-
-    """
     ICPE_OPER_SDACP_SESS_STATE_VERSION_NOT_OK = 4
 
-    """
-
-    Up
-
-    """
     ICPE_OPER_SDACP_SESS_STATE_UP = 5
 
-    """
-
-    ISSU
-
-    """
     ICPE_OPER_SDACP_SESS_STATE_ISSU = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOperSdacpSessState_Enum']
+        return meta._meta_table['IcpeOperSdacpSessStateEnum']
 
 
-class IcpeOperVerCheckState_Enum(Enum):
+class IcpeOperVerCheckStateEnum(Enum):
     """
-    IcpeOperVerCheckState_Enum
+    IcpeOperVerCheckStateEnum
 
     Icpe oper ver check state
 
-    """
+    .. data:: ICPE_OPER_VER_CHECK_STATE_UNKNOWN = 0
+
+    	Unknown
+
+    .. data:: ICPE_OPER_VER_CHECK_STATE_NOT_COMPATIBLE = 1
+
+    	Not compatible
+
+    .. data:: ICPE_OPER_VER_CHECK_STATE_CURRENT_VERSION = 2
+
+    	Current version
+
+    .. data:: ICPE_OPER_VER_CHECK_STATE_COMPATIBLE_OLDER = 3
+
+    	Compatible older
+
+    .. data:: ICPE_OPER_VER_CHECK_STATE_COMPATIBLE_NEWER = 4
+
+    	Compatible newer
 
     """
 
-    Unknown
-
-    """
     ICPE_OPER_VER_CHECK_STATE_UNKNOWN = 0
 
-    """
-
-    Not compatible
-
-    """
     ICPE_OPER_VER_CHECK_STATE_NOT_COMPATIBLE = 1
 
-    """
-
-    Current version
-
-    """
     ICPE_OPER_VER_CHECK_STATE_CURRENT_VERSION = 2
 
-    """
-
-    Compatible older
-
-    """
     ICPE_OPER_VER_CHECK_STATE_COMPATIBLE_OLDER = 3
 
-    """
-
-    Compatible newer
-
-    """
     ICPE_OPER_VER_CHECK_STATE_COMPATIBLE_NEWER = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOperVerCheckState_Enum']
+        return meta._meta_table['IcpeOperVerCheckStateEnum']
 
 
-class IcpeOpmArbitrationFsmState_Enum(Enum):
+class IcpeOpmArbitrationFsmStateEnum(Enum):
     """
-    IcpeOpmArbitrationFsmState_Enum
+    IcpeOpmArbitrationFsmStateEnum
 
     Icpe opm arbitration fsm state
 
-    """
+    .. data:: ICPE_OPM_ARBITRATION_FSM_STATE_UNARBITRATED = 0
+
+    	Unarbitrated
+
+    .. data:: ICPE_OPM_ARBITRATION_FSM_STATE_WAITING = 1
+
+    	Waiting
+
+    .. data:: ICPE_OPM_ARBITRATION_FSM_STATE_ARBITRATING = 2
+
+    	Arbitrating
+
+    .. data:: ICPE_OPM_ARBITRATION_FSM_STATE_ARBITRATED = 3
+
+    	Arbitrated
 
     """
 
-    Unarbitrated
-
-    """
     ICPE_OPM_ARBITRATION_FSM_STATE_UNARBITRATED = 0
 
-    """
-
-    Waiting
-
-    """
     ICPE_OPM_ARBITRATION_FSM_STATE_WAITING = 1
 
-    """
-
-    Arbitrating
-
-    """
     ICPE_OPM_ARBITRATION_FSM_STATE_ARBITRATING = 2
 
-    """
-
-    Arbitrated
-
-    """
     ICPE_OPM_ARBITRATION_FSM_STATE_ARBITRATED = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpmArbitrationFsmState_Enum']
+        return meta._meta_table['IcpeOpmArbitrationFsmStateEnum']
 
 
-class IcpeOpmAuthFsmState_Enum(Enum):
+class IcpeOpmAuthFsmStateEnum(Enum):
     """
-    IcpeOpmAuthFsmState_Enum
+    IcpeOpmAuthFsmStateEnum
 
     Icpe opm auth fsm state
 
-    """
+    .. data:: ICPE_OPM_AUTH_FSM_STATE_UNAUTH = 0
+
+    	Unauth
+
+    .. data:: ICPE_OPM_AUTH_FSM_STATE_WAITING = 1
+
+    	Waiting
+
+    .. data:: ICPE_OPM_AUTH_FSM_STATE_WAITING_FOR_AUTH = 2
+
+    	Waiting for auth
+
+    .. data:: ICPE_OPM_AUTH_FSM_STATE_WAITING_FOR_REPLY = 3
+
+    	Waiting for reply
+
+    .. data:: ICPE_OPM_AUTH_FSM_STATE_AUTHED = 4
+
+    	Authed
 
     """
 
-    Unauth
-
-    """
     ICPE_OPM_AUTH_FSM_STATE_UNAUTH = 0
 
-    """
-
-    Waiting
-
-    """
     ICPE_OPM_AUTH_FSM_STATE_WAITING = 1
 
-    """
-
-    Waiting for auth
-
-    """
     ICPE_OPM_AUTH_FSM_STATE_WAITING_FOR_AUTH = 2
 
-    """
-
-    Waiting for reply
-
-    """
     ICPE_OPM_AUTH_FSM_STATE_WAITING_FOR_REPLY = 3
 
-    """
-
-    Authed
-
-    """
     ICPE_OPM_AUTH_FSM_STATE_AUTHED = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpmAuthFsmState_Enum']
+        return meta._meta_table['IcpeOpmAuthFsmStateEnum']
 
 
-class IcpeOpmChanFsmState_Enum(Enum):
+class IcpeOpmChanFsmStateEnum(Enum):
     """
-    IcpeOpmChanFsmState_Enum
+    IcpeOpmChanFsmStateEnum
 
     Icpe opm chan fsm state
 
-    """
+    .. data:: ICPE_OPM_CHAN_FSM_STATE_DOWN = 0
+
+    	Down
+
+    .. data:: ICPE_OPM_CHAN_FSM_STATE_CLOSED = 1
+
+    	Closed
+
+    .. data:: ICPE_OPM_CHAN_FSM_STATE_OPENING = 2
+
+    	Opening
+
+    .. data:: ICPE_OPM_CHAN_FSM_STATE_OPENED = 3
+
+    	Opened
+
+    .. data:: ICPE_OPM_CHAN_FSM_STATE_OPEN = 4
+
+    	Open
 
     """
 
-    Down
-
-    """
     ICPE_OPM_CHAN_FSM_STATE_DOWN = 0
 
-    """
-
-    Closed
-
-    """
     ICPE_OPM_CHAN_FSM_STATE_CLOSED = 1
 
-    """
-
-    Opening
-
-    """
     ICPE_OPM_CHAN_FSM_STATE_OPENING = 2
 
-    """
-
-    Opened
-
-    """
     ICPE_OPM_CHAN_FSM_STATE_OPENED = 3
 
-    """
-
-    Open
-
-    """
     ICPE_OPM_CHAN_FSM_STATE_OPEN = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpmChanFsmState_Enum']
+        return meta._meta_table['IcpeOpmChanFsmStateEnum']
 
 
-class IcpeOpmController_Enum(Enum):
+class IcpeOpmControllerEnum(Enum):
     """
-    IcpeOpmController_Enum
+    IcpeOpmControllerEnum
 
     Icpe opm controller
 
-    """
+    .. data:: ICPE_OPM_CONTROLLER_UNKNOWN = 0
+
+    	Unknown
+
+    .. data:: ICPE_OPM_CONTROLLER_PRIMARY = 1
+
+    	Primary
+
+    .. data:: ICPE_OPM_CONTROLLER_SECONDARY = 2
+
+    	Secondary
 
     """
 
-    Unknown
-
-    """
     ICPE_OPM_CONTROLLER_UNKNOWN = 0
 
-    """
-
-    Primary
-
-    """
     ICPE_OPM_CONTROLLER_PRIMARY = 1
 
-    """
-
-    Secondary
-
-    """
     ICPE_OPM_CONTROLLER_SECONDARY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpmController_Enum']
+        return meta._meta_table['IcpeOpmControllerEnum']
 
 
-class IcpeOpmResyncFsmState_Enum(Enum):
+class IcpeOpmResyncFsmStateEnum(Enum):
     """
-    IcpeOpmResyncFsmState_Enum
+    IcpeOpmResyncFsmStateEnum
 
     Icpe opm resync fsm state
 
-    """
+    .. data:: ICPE_OPM_RESYNC_FSM_STATE_NOT_OPEN = 0
+
+    	Not open
+
+    .. data:: ICPE_OPM_RESYNC_FSM_STATE_STABLE = 1
+
+    	Stable
+
+    .. data:: ICPE_OPM_RESYNC_FSM_STATE_IN_RESYNC = 2
+
+    	In resync
+
+    .. data:: ICPE_OPM_RESYNC_FSM_STATE_QUEUED = 3
+
+    	Queued
+
+    .. data:: ICPE_OPM_RESYNC_FSM_STATE_RESYNC_REQ = 4
+
+    	Resync req
 
     """
 
-    Not open
-
-    """
     ICPE_OPM_RESYNC_FSM_STATE_NOT_OPEN = 0
 
-    """
-
-    Stable
-
-    """
     ICPE_OPM_RESYNC_FSM_STATE_STABLE = 1
 
-    """
-
-    In resync
-
-    """
     ICPE_OPM_RESYNC_FSM_STATE_IN_RESYNC = 2
 
-    """
-
-    Queued
-
-    """
     ICPE_OPM_RESYNC_FSM_STATE_QUEUED = 3
 
-    """
-
-    Resync req
-
-    """
     ICPE_OPM_RESYNC_FSM_STATE_RESYNC_REQ = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpmResyncFsmState_Enum']
+        return meta._meta_table['IcpeOpmResyncFsmStateEnum']
 
 
-class IcpeOpmSessState_Enum(Enum):
+class IcpeOpmSessStateEnum(Enum):
     """
-    IcpeOpmSessState_Enum
+    IcpeOpmSessStateEnum
 
     Icpe opm sess state
 
-    """
+    .. data:: ICPE_OPM_SESS_STATE_DISCONNECTED = 0
+
+    	Disconnected
+
+    .. data:: ICPE_OPM_SESS_STATE_CONNECTING = 1
+
+    	Connecting
+
+    .. data:: ICPE_OPM_SESS_STATE_AUTHENTICATING = 2
+
+    	Authenticating
+
+    .. data:: ICPE_OPM_SESS_STATE_ARBITRATING = 3
+
+    	Arbitrating
+
+    .. data:: ICPE_OPM_SESS_STATE_WAITING_FOR_RESYNCS = 4
+
+    	Waiting for resyncs
+
+    .. data:: ICPE_OPM_SESS_STATE_CONNECTED = 5
+
+    	Connected
 
     """
 
-    Disconnected
-
-    """
     ICPE_OPM_SESS_STATE_DISCONNECTED = 0
 
-    """
-
-    Connecting
-
-    """
     ICPE_OPM_SESS_STATE_CONNECTING = 1
 
-    """
-
-    Authenticating
-
-    """
     ICPE_OPM_SESS_STATE_AUTHENTICATING = 2
 
-    """
-
-    Arbitrating
-
-    """
     ICPE_OPM_SESS_STATE_ARBITRATING = 3
 
-    """
-
-    Waiting for resyncs
-
-    """
     ICPE_OPM_SESS_STATE_WAITING_FOR_RESYNCS = 4
 
-    """
-
-    Connected
-
-    """
     ICPE_OPM_SESS_STATE_CONNECTED = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpmSessState_Enum']
+        return meta._meta_table['IcpeOpmSessStateEnum']
 
 
-class IcpeOpmSyncFsmState_Enum(Enum):
+class IcpeOpmSyncFsmStateEnum(Enum):
     """
-    IcpeOpmSyncFsmState_Enum
+    IcpeOpmSyncFsmStateEnum
 
     Icpe opm sync fsm state
 
-    """
+    .. data:: ICPE_OPM_SYNC_FSM_STATE_SPLIT_BRAIN = 0
+
+    	Split brain
+
+    .. data:: ICPE_OPM_SYNC_FSM_STATE_WAITING = 1
+
+    	Waiting
+
+    .. data:: ICPE_OPM_SYNC_FSM_STATE_WHOLE_BRAIN = 2
+
+    	Whole brain
 
     """
 
-    Split brain
-
-    """
     ICPE_OPM_SYNC_FSM_STATE_SPLIT_BRAIN = 0
 
-    """
-
-    Waiting
-
-    """
     ICPE_OPM_SYNC_FSM_STATE_WAITING = 1
 
-    """
-
-    Whole brain
-
-    """
     ICPE_OPM_SYNC_FSM_STATE_WHOLE_BRAIN = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpmSyncFsmState_Enum']
+        return meta._meta_table['IcpeOpmSyncFsmStateEnum']
 
 
-class IcpeOpmTransportState_Enum(Enum):
+class IcpeOpmTransportStateEnum(Enum):
     """
-    IcpeOpmTransportState_Enum
+    IcpeOpmTransportStateEnum
 
     Icpe opm transport state
 
-    """
+    .. data:: ICPE_OPM_TRANSPORT_STATE_DISCONNECTED = 0
+
+    	Disconnected
+
+    .. data:: ICPE_OPM_TRANSPORT_STATE_ICCP_UNAVAILABLE = 1
+
+    	ICCP unavailable
+
+    .. data:: ICPE_OPM_TRANSPORT_STATE_NO_MEMBER_PRESENT = 2
+
+    	No member present
+
+    .. data:: ICPE_OPM_TRANSPORT_STATE_MEMBER_DOWN = 3
+
+    	Member down
+
+    .. data:: ICPE_OPM_TRANSPORT_STATE_MEMBER_NOT_REACHABLE = 4
+
+    	Member not reachable
+
+    .. data:: ICPE_OPM_TRANSPORT_STATE_WAITING_FOR_APP_CONNECT = 5
+
+    	Waiting for app connect
+
+    .. data:: ICPE_OPM_TRANSPORT_STATE_WAITING_FOR_APP_CONNECT_RESPONSE = 6
+
+    	Waiting for app connect response
+
+    .. data:: ICPE_OPM_TRANSPORT_STATE_CONNECTED = 7
+
+    	Connected
 
     """
 
-    Disconnected
-
-    """
     ICPE_OPM_TRANSPORT_STATE_DISCONNECTED = 0
 
-    """
-
-    ICCP unavailable
-
-    """
     ICPE_OPM_TRANSPORT_STATE_ICCP_UNAVAILABLE = 1
 
-    """
-
-    No member present
-
-    """
     ICPE_OPM_TRANSPORT_STATE_NO_MEMBER_PRESENT = 2
 
-    """
-
-    Member down
-
-    """
     ICPE_OPM_TRANSPORT_STATE_MEMBER_DOWN = 3
 
-    """
-
-    Member not reachable
-
-    """
     ICPE_OPM_TRANSPORT_STATE_MEMBER_NOT_REACHABLE = 4
 
-    """
-
-    Waiting for app connect
-
-    """
     ICPE_OPM_TRANSPORT_STATE_WAITING_FOR_APP_CONNECT = 5
 
-    """
-
-    Waiting for app connect response
-
-    """
     ICPE_OPM_TRANSPORT_STATE_WAITING_FOR_APP_CONNECT_RESPONSE = 6
 
-    """
-
-    Connected
-
-    """
     ICPE_OPM_TRANSPORT_STATE_CONNECTED = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpmTransportState_Enum']
+        return meta._meta_table['IcpeOpmTransportStateEnum']
 
 
-class IcpeOpticalSyncState_Enum(Enum):
+class IcpeOpticalSyncStateEnum(Enum):
     """
-    IcpeOpticalSyncState_Enum
+    IcpeOpticalSyncStateEnum
 
     Icpe optical sync state
 
-    """
+    .. data:: ICPE_OPTICAL_SYNC_STATE_UNKNOWN = 0
+
+    	Unknown
+
+    .. data:: ICPE_OPTICAL_SYNC_STATE_SYNCING = 1
+
+    	Syncing
+
+    .. data:: ICPE_OPTICAL_SYNC_STATE_SYNCED = 2
+
+    	Synced
+
+    .. data:: ICPE_OPTICAL_SYNC_STATE_NOT_CONNECTED = 3
+
+    	Not connected
 
     """
 
-    Unknown
-
-    """
     ICPE_OPTICAL_SYNC_STATE_UNKNOWN = 0
 
-    """
-
-    Syncing
-
-    """
     ICPE_OPTICAL_SYNC_STATE_SYNCING = 1
 
-    """
-
-    Synced
-
-    """
     ICPE_OPTICAL_SYNC_STATE_SYNCED = 2
 
-    """
-
-    Not connected
-
-    """
     ICPE_OPTICAL_SYNC_STATE_NOT_CONNECTED = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpticalSyncState_Enum']
+        return meta._meta_table['IcpeOpticalSyncStateEnum']
 
 
 
@@ -1279,8 +1166,6 @@ class NvSatellite(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.operation_id is not None:
                     return True
 
@@ -1337,10 +1222,6 @@ class NvSatellite(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
@@ -1358,17 +1239,11 @@ class NvSatellite(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.install_op_status is not None:
                 for child_ref in self.install_op_status:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1452,8 +1327,6 @@ class NvSatellite(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.progress_percentage is not None:
                     return True
 
@@ -1463,10 +1336,6 @@ class NvSatellite(object):
                 if self.satellite_count is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1486,17 +1355,11 @@ class NvSatellite(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.install_progress is not None:
                 for child_ref in self.install_progress:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1650,8 +1513,6 @@ class NvSatellite(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.satellite_range is not None:
                     return True
 
@@ -1708,10 +1569,6 @@ class NvSatellite(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
@@ -1729,17 +1586,11 @@ class NvSatellite(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.install_status is not None:
                 for child_ref in self.install_status:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1845,8 +1696,6 @@ class NvSatellite(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.satellite_range is not None:
                     return True
 
@@ -1875,10 +1724,6 @@ class NvSatellite(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
@@ -1896,17 +1741,11 @@ class NvSatellite(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.reload_status is not None:
                 for child_ref in self.reload_status:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1984,7 +1823,7 @@ class NvSatellite(object):
             .. attribute:: conflict_reason
             
             	Conflict reason
-            	**type**\: :py:class:`IcpeOperConflict_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict_Enum>`
+            	**type**\: :py:class:`IcpeOperConflictEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
             
             .. attribute:: description
             
@@ -2009,7 +1848,7 @@ class NvSatellite(object):
             .. attribute:: install_state
             
             	Install state
-            	**type**\: :py:class:`IcpeOperInstallState_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperInstallState_Enum>`
+            	**type**\: :py:class:`IcpeOperInstallStateEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperInstallStateEnum>`
             
             .. attribute:: ip_address
             
@@ -2124,12 +1963,12 @@ class NvSatellite(object):
             .. attribute:: sdacp_session_failure_reason
             
             	SDACP session failure reason
-            	**type**\: :py:class:`IcpeGcoOperControlReason_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeGcoOperControlReason_Enum>`
+            	**type**\: :py:class:`IcpeGcoOperControlReasonEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeGcoOperControlReasonEnum>`
             
             .. attribute:: sdacp_session_state
             
             	SDACP session state
-            	**type**\: :py:class:`IcpeOperSdacpSessState_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperSdacpSessState_Enum>`
+            	**type**\: :py:class:`IcpeOperSdacpSessStateEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperSdacpSessStateEnum>`
             
             .. attribute:: type
             
@@ -2139,7 +1978,7 @@ class NvSatellite(object):
             .. attribute:: version_check_state
             
             	Version check state
-            	**type**\: :py:class:`IcpeOperVerCheckState_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckState_Enum>`
+            	**type**\: :py:class:`IcpeOperVerCheckStateEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckStateEnum>`
             
             .. attribute:: vrf_name
             
@@ -2271,7 +2110,7 @@ class NvSatellite(object):
                     .. attribute:: port_type
                     
                     	Port type
-                    	**type**\: :py:class:`IcpeOperFabricPort_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperFabricPort_Enum>`
+                    	**type**\: :py:class:`IcpeOperFabricPortEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperFabricPortEnum>`
                     
                     .. attribute:: slot
                     
@@ -2321,8 +2160,6 @@ class NvSatellite(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.port is not None:
                             return True
 
@@ -2338,10 +2175,6 @@ class NvSatellite(object):
                         if self.valid is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2370,7 +2203,7 @@ class NvSatellite(object):
                     .. attribute:: port_type
                     
                     	Port type
-                    	**type**\: :py:class:`IcpeOperFabricPort_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperFabricPort_Enum>`
+                    	**type**\: :py:class:`IcpeOperFabricPortEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperFabricPortEnum>`
                     
                     .. attribute:: requested
                     
@@ -2421,8 +2254,6 @@ class NvSatellite(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.permanent is not None:
                             return True
 
@@ -2441,10 +2272,6 @@ class NvSatellite(object):
                         if self.subslot is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2466,8 +2293,6 @@ class NvSatellite(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.channel_up is not None:
                         return True
 
@@ -2489,10 +2314,6 @@ class NvSatellite(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
@@ -2511,7 +2332,7 @@ class NvSatellite(object):
                 .. attribute:: conflict_reason
                 
                 	Conflict reason
-                	**type**\: :py:class:`IcpeOperConflict_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict_Enum>`
+                	**type**\: :py:class:`IcpeOperConflictEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
                 
                 .. attribute:: discovered_link
                 
@@ -2612,7 +2433,7 @@ class NvSatellite(object):
                     .. attribute:: conflict_reason
                     
                     	Conflict reason
-                    	**type**\: :py:class:`IcpeOperConflict_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict_Enum>`
+                    	**type**\: :py:class:`IcpeOperConflictEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
                     
                     .. attribute:: interface_handle
                     
@@ -2624,7 +2445,7 @@ class NvSatellite(object):
                     .. attribute:: state
                     
                     	State
-                    	**type**\: :py:class:`IcpeOperDiscdLinkState_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperDiscdLinkState_Enum>`
+                    	**type**\: :py:class:`IcpeOperDiscdLinkStateEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperDiscdLinkStateEnum>`
                     
                     
 
@@ -2654,8 +2475,6 @@ class NvSatellite(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.conflict_context is not None:
                             return True
 
@@ -2668,10 +2487,6 @@ class NvSatellite(object):
                         if self.state is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2692,7 +2507,7 @@ class NvSatellite(object):
                     .. attribute:: conflict_reason
                     
                     	Conflict reason
-                    	**type**\: :py:class:`IcpeOperConflict_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict_Enum>`
+                    	**type**\: :py:class:`IcpeOperConflictEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
                     
                     .. attribute:: high_port
                     
@@ -2711,7 +2526,7 @@ class NvSatellite(object):
                     .. attribute:: port_type
                     
                     	Port type
-                    	**type**\: :py:class:`IcpeOperPort_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperPort_Enum>`
+                    	**type**\: :py:class:`IcpeOperPortEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperPortEnum>`
                     
                     .. attribute:: slot
                     
@@ -2758,8 +2573,6 @@ class NvSatellite(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.conflict_context is not None:
                             return True
 
@@ -2783,10 +2596,6 @@ class NvSatellite(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
@@ -2806,8 +2615,6 @@ class NvSatellite(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.conflict_context is not None:
                         return True
 
@@ -2850,10 +2657,6 @@ class NvSatellite(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
@@ -2872,7 +2675,7 @@ class NvSatellite(object):
                 .. attribute:: chassis_sync_state
                 
                 	Chassis sync state
-                	**type**\: :py:class:`IcpeOpticalSyncState_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpticalSyncState_Enum>`
+                	**type**\: :py:class:`IcpeOpticalSyncStateEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpticalSyncStateEnum>`
                 
                 
 
@@ -2901,7 +2704,7 @@ class NvSatellite(object):
                     .. attribute:: sync_state
                     
                     	Sync state
-                    	**type**\: :py:class:`IcpeOpticalSyncState_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpticalSyncState_Enum>`
+                    	**type**\: :py:class:`IcpeOpticalSyncStateEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpticalSyncStateEnum>`
                     
                     
 
@@ -2929,18 +2732,12 @@ class NvSatellite(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.name is not None:
                             return True
 
                         if self.sync_state is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2962,8 +2759,6 @@ class NvSatellite(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.application is not None:
                         for child_ref in self.application:
                             if child_ref._has_data():
@@ -2972,10 +2767,6 @@ class NvSatellite(object):
                     if self.chassis_sync_state is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3028,18 +2819,12 @@ class NvSatellite(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.nanoseconds is not None:
                         return True
 
                     if self.seconds is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3061,15 +2846,10 @@ class NvSatellite(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.satellite_id is not None:
                     return True
 
                 if self.candidate_fabric_ports is not None and self.candidate_fabric_ports._has_data():
-                    return True
-
-                if self.candidate_fabric_ports is not None and self.candidate_fabric_ports.is_presence():
                     return True
 
                 if self.cfgd_timeout is not None:
@@ -3131,9 +2911,6 @@ class NvSatellite(object):
                 if self.optical_status is not None and self.optical_status._has_data():
                     return True
 
-                if self.optical_status is not None and self.optical_status.is_presence():
-                    return True
-
                 if self.optical_supported is not None:
                     return True
 
@@ -3156,9 +2933,6 @@ class NvSatellite(object):
                     return True
 
                 if self.redundancy_out_of_sync_timestamp is not None and self.redundancy_out_of_sync_timestamp._has_data():
-                    return True
-
-                if self.redundancy_out_of_sync_timestamp is not None and self.redundancy_out_of_sync_timestamp.is_presence():
                     return True
 
                 if self.remote_version is not None:
@@ -3195,10 +2969,6 @@ class NvSatellite(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
@@ -3216,17 +2986,11 @@ class NvSatellite(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.satellite_status is not None:
                 for child_ref in self.satellite_status:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3379,8 +3143,6 @@ class NvSatellite(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.discovery_running is not None:
                         return True
 
@@ -3390,10 +3152,6 @@ class NvSatellite(object):
                     if self.interface_name is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3419,7 +3177,7 @@ class NvSatellite(object):
                 .. attribute:: conflict_reason
                 
                 	Conflict reason
-                	**type**\: :py:class:`IcpeOperConflict_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict_Enum>`
+                	**type**\: :py:class:`IcpeOperConflictEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
                 
                 .. attribute:: display_name
                 
@@ -3630,8 +3388,6 @@ class NvSatellite(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.icl_id is not None:
                                 return True
 
@@ -3650,10 +3406,6 @@ class NvSatellite(object):
                             if self.remote_is_satellite is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3675,8 +3427,6 @@ class NvSatellite(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.active is not None:
                             return True
 
@@ -3702,10 +3452,6 @@ class NvSatellite(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
@@ -3725,8 +3471,6 @@ class NvSatellite(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.configured is not None:
                         return True
 
@@ -3767,10 +3511,6 @@ class NvSatellite(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
@@ -3790,8 +3530,6 @@ class NvSatellite(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.interface_name is not None:
                     return True
 
@@ -3822,10 +3560,6 @@ class NvSatellite(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.icpe._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
@@ -3843,17 +3577,11 @@ class NvSatellite(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.satellite_topology is not None:
                 for child_ref in self.satellite_topology:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3900,12 +3628,12 @@ class NvSatellite(object):
             .. attribute:: arbitration_state
             
             	Arbitration state
-            	**type**\: :py:class:`IcpeOpmArbitrationFsmState_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmArbitrationFsmState_Enum>`
+            	**type**\: :py:class:`IcpeOpmArbitrationFsmStateEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmArbitrationFsmStateEnum>`
             
             .. attribute:: authentication_state
             
             	Authentication state
-            	**type**\: :py:class:`IcpeOpmAuthFsmState_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmAuthFsmState_Enum>`
+            	**type**\: :py:class:`IcpeOpmAuthFsmStateEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmAuthFsmStateEnum>`
             
             .. attribute:: channel
             
@@ -3927,12 +3655,12 @@ class NvSatellite(object):
             .. attribute:: primacy
             
             	Primacy
-            	**type**\: :py:class:`IcpeOpmController_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmController_Enum>`
+            	**type**\: :py:class:`IcpeOpmControllerEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmControllerEnum>`
             
             .. attribute:: protocol_state
             
             	Protocol state
-            	**type**\: :py:class:`IcpeOpmSessState_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmSessState_Enum>`
+            	**type**\: :py:class:`IcpeOpmSessStateEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmSessStateEnum>`
             
             .. attribute:: protocol_state_timestamp
             
@@ -3942,7 +3670,7 @@ class NvSatellite(object):
             .. attribute:: synchronization_state
             
             	Synchronization state
-            	**type**\: :py:class:`IcpeOpmSyncFsmState_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmSyncFsmState_Enum>`
+            	**type**\: :py:class:`IcpeOpmSyncFsmStateEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmSyncFsmStateEnum>`
             
             .. attribute:: system_mac
             
@@ -3954,7 +3682,7 @@ class NvSatellite(object):
             .. attribute:: transport_state
             
             	Transport state
-            	**type**\: :py:class:`IcpeOpmTransportState_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmTransportState_Enum>`
+            	**type**\: :py:class:`IcpeOpmTransportStateEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmTransportStateEnum>`
             
             
 
@@ -3989,7 +3717,7 @@ class NvSatellite(object):
                 .. attribute:: chan_state
                 
                 	Chan state
-                	**type**\: :py:class:`IcpeOpmChanFsmState_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmChanFsmState_Enum>`
+                	**type**\: :py:class:`IcpeOpmChanFsmStateEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmChanFsmStateEnum>`
                 
                 .. attribute:: channel_id
                 
@@ -4034,7 +3762,7 @@ class NvSatellite(object):
                 .. attribute:: resync_state
                 
                 	Resync state
-                	**type**\: :py:class:`IcpeOpmResyncFsmState_Enum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmResyncFsmState_Enum>`
+                	**type**\: :py:class:`IcpeOpmResyncFsmStateEnum <ydk.models.icpe.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmResyncFsmStateEnum>`
                 
                 .. attribute:: resync_state_timestamp
                 
@@ -4107,18 +3835,12 @@ class NvSatellite(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.nanoseconds is not None:
                             return True
 
                         if self.seconds is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4171,18 +3893,12 @@ class NvSatellite(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.nanoseconds is not None:
                             return True
 
                         if self.seconds is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4204,8 +3920,6 @@ class NvSatellite(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.chan_state is not None:
                         return True
 
@@ -4213,9 +3927,6 @@ class NvSatellite(object):
                         return True
 
                     if self.channel_state_timestamp is not None and self.channel_state_timestamp._has_data():
-                        return True
-
-                    if self.channel_state_timestamp is not None and self.channel_state_timestamp.is_presence():
                         return True
 
                     if self.control_messages_received is not None:
@@ -4236,13 +3947,6 @@ class NvSatellite(object):
                     if self.resync_state_timestamp is not None and self.resync_state_timestamp._has_data():
                         return True
 
-                    if self.resync_state_timestamp is not None and self.resync_state_timestamp.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4295,18 +3999,12 @@ class NvSatellite(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.nanoseconds is not None:
                         return True
 
                     if self.seconds is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4328,8 +4026,6 @@ class NvSatellite(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.iccp_group is not None:
                     return True
 
@@ -4359,9 +4055,6 @@ class NvSatellite(object):
                 if self.protocol_state_timestamp is not None and self.protocol_state_timestamp._has_data():
                     return True
 
-                if self.protocol_state_timestamp is not None and self.protocol_state_timestamp.is_presence():
-                    return True
-
                 if self.synchronization_state is not None:
                     return True
 
@@ -4371,10 +4064,6 @@ class NvSatellite(object):
                 if self.transport_state is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4394,17 +4083,11 @@ class NvSatellite(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.sdacp_redundancy is not None:
                 for child_ref in self.sdacp_redundancy:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -4424,54 +4107,27 @@ class NvSatellite(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.install_op_statuses is not None and self.install_op_statuses._has_data():
-            return True
-
-        if self.install_op_statuses is not None and self.install_op_statuses.is_presence():
             return True
 
         if self.install_progresses is not None and self.install_progresses._has_data():
             return True
 
-        if self.install_progresses is not None and self.install_progresses.is_presence():
-            return True
-
         if self.install_statuses is not None and self.install_statuses._has_data():
-            return True
-
-        if self.install_statuses is not None and self.install_statuses.is_presence():
             return True
 
         if self.reload_statuses is not None and self.reload_statuses._has_data():
             return True
 
-        if self.reload_statuses is not None and self.reload_statuses.is_presence():
-            return True
-
         if self.satellite_statuses is not None and self.satellite_statuses._has_data():
-            return True
-
-        if self.satellite_statuses is not None and self.satellite_statuses.is_presence():
             return True
 
         if self.satellite_topologies is not None and self.satellite_topologies._has_data():
             return True
 
-        if self.satellite_topologies is not None and self.satellite_topologies.is_presence():
-            return True
-
         if self.sdacp_redundancies is not None and self.sdacp_redundancies._has_data():
             return True
 
-        if self.sdacp_redundancies is not None and self.sdacp_redundancies.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

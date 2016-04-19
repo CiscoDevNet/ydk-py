@@ -20,62 +20,58 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class SpanSessionClassOld_Enum(Enum):
+class SpanSessionClassEnum(Enum):
     """
-    SpanSessionClassOld_Enum
-
-    Span session class old
-
-    """
-
-    """
-
-    Mirror Ethernet packets
-
-    """
-    TRUE = 0
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ethernet._meta import _Cisco_IOS_XR_Ethernet_SPAN_datatypes as meta
-        return meta._meta_table['SpanSessionClassOld_Enum']
-
-
-class SpanSessionClass_Enum(Enum):
-    """
-    SpanSessionClass_Enum
+    SpanSessionClassEnum
 
     Span session class
 
-    """
+    .. data:: ETHERNET = 0
+
+    	Mirror Ethernet packets
+
+    .. data:: IPV4 = 1
+
+    	Mirror IPv4 packets
+
+    .. data:: IPV6 = 2
+
+    	Mirror IPv6 packets
 
     """
 
-    Mirror Ethernet packets
-
-    """
     ETHERNET = 0
 
-    """
-
-    Mirror IPv4 packets
-
-    """
     IPV4 = 1
 
-    """
-
-    Mirror IPv6 packets
-
-    """
     IPV6 = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_Ethernet_SPAN_datatypes as meta
-        return meta._meta_table['SpanSessionClass_Enum']
+        return meta._meta_table['SpanSessionClassEnum']
+
+
+class SpanSessionClassOldEnum(Enum):
+    """
+    SpanSessionClassOldEnum
+
+    Span session class old
+
+    .. data:: TRUE = 0
+
+    	Mirror Ethernet packets
+
+    """
+
+    TRUE = 0
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ethernet._meta import _Cisco_IOS_XR_Ethernet_SPAN_datatypes as meta
+        return meta._meta_table['SpanSessionClassOldEnum']
 
 
 

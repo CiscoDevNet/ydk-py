@@ -20,168 +20,161 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class MplsLdpDownstreamOnDemand_Enum(Enum):
+class MplsLdpDownstreamOnDemandEnum(Enum):
     """
-    MplsLdpDownstreamOnDemand_Enum
+    MplsLdpDownstreamOnDemandEnum
 
     Mpls ldp downstream on demand
 
-    """
+    .. data:: PEER_ACL = 1
+
+    	Downstream on Demand peers permitted by ACL
 
     """
 
-    Downstream on Demand peers permitted by ACL
-
-    """
     PEER_ACL = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_ldp_cfg_datatypes as meta
-        return meta._meta_table['MplsLdpDownstreamOnDemand_Enum']
+        return meta._meta_table['MplsLdpDownstreamOnDemandEnum']
 
 
-class MplsLdpNbrPassword_Enum(Enum):
+class MplsLdpNbrPasswordEnum(Enum):
     """
-    MplsLdpNbrPassword_Enum
+    MplsLdpNbrPasswordEnum
 
     Mpls ldp nbr password
 
-    """
+    .. data:: DISABLE = 1
+
+    	Disable the global default password for this
+
+    	neighbor
+
+    .. data:: SPECIFIED = 2
+
+    	Specify a password for this neighbor
 
     """
 
-    Disable the global default password for this
-    neighbor
-
-    """
     DISABLE = 1
 
-    """
-
-    Specify a password for this neighbor
-
-    """
     SPECIFIED = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_ldp_cfg_datatypes as meta
-        return meta._meta_table['MplsLdpNbrPassword_Enum']
+        return meta._meta_table['MplsLdpNbrPasswordEnum']
 
 
-class MplsLdpRouterId_Enum(Enum):
+class MplsLdpRouterIdEnum(Enum):
     """
-    MplsLdpRouterId_Enum
+    MplsLdpRouterIdEnum
 
     Mpls ldp router id
 
-    """
+    .. data:: ADDRESS = 1
+
+    	Use given IP address as LDP Router ID
 
     """
 
-    Use given IP address as LDP Router ID
-
-    """
     ADDRESS = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_ldp_cfg_datatypes as meta
-        return meta._meta_table['MplsLdpRouterId_Enum']
+        return meta._meta_table['MplsLdpRouterIdEnum']
 
 
-class MplsLdpSessionProtection_Enum(Enum):
+class MplsLdpSessionProtectionEnum(Enum):
     """
-    MplsLdpSessionProtection_Enum
+    MplsLdpSessionProtectionEnum
 
     Mpls ldp session protection
 
-    """
+    .. data:: ALL = 1
+
+    	Protect all peer sessions
+
+    .. data:: FOR = 2
+
+    	Protect peer session(s) permitted by peer ACL
+
+    .. data:: ALL_WITH_DURATION = 3
+
+    	Protect all peer sessions and holdup protection
+
+    	for given duration
+
+    .. data:: FOR_WITH_DURATION = 4
+
+    	Protect peer session(s) permitted by peer ACL
+
+    	and holdup protection for given duration
+
+    .. data:: ALL_WITH_FOREVER = 5
+
+    	Protect all peer sessions and holdup protection
+
+    	forever
+
+    .. data:: FOR_WITH_FOREVER = 6
+
+    	Protect peer session(s) permitted by peer ACL
+
+    	and holdup protection forever
 
     """
 
-    Protect all peer sessions
-
-    """
     ALL = 1
 
-    """
-
-    Protect peer session(s) permitted by peer ACL
-
-    """
     FOR = 2
 
-    """
-
-    Protect all peer sessions and holdup protection
-    for given duration
-
-    """
     ALL_WITH_DURATION = 3
 
-    """
-
-    Protect peer session(s) permitted by peer ACL
-    and holdup protection for given duration
-
-    """
     FOR_WITH_DURATION = 4
 
-    """
-
-    Protect all peer sessions and holdup protection
-    forever
-
-    """
     ALL_WITH_FOREVER = 5
 
-    """
-
-    Protect peer session(s) permitted by peer ACL
-    and holdup protection forever
-
-    """
     FOR_WITH_FOREVER = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_ldp_cfg_datatypes as meta
-        return meta._meta_table['MplsLdpSessionProtection_Enum']
+        return meta._meta_table['MplsLdpSessionProtectionEnum']
 
 
-class MplsLdpafName_Enum(Enum):
+class MplsLdpafNameEnum(Enum):
     """
-    MplsLdpafName_Enum
+    MplsLdpafNameEnum
 
     Mpls ldpaf name
 
-    """
+    .. data:: IPV4 = 4
+
+    	IPv4
+
+    .. data:: IPV6 = 6
+
+    	IPv6
 
     """
 
-    IPv4
-
-    """
     IPV4 = 4
 
-    """
-
-    IPv6
-
-    """
     IPV6 = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_ldp_cfg_datatypes as meta
-        return meta._meta_table['MplsLdpafName_Enum']
+        return meta._meta_table['MplsLdpafNameEnum']
 
 
 

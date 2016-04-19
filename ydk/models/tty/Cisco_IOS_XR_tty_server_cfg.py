@@ -23,10 +23,10 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes import TtyPager_Enum
-from ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes import TtySessionTimeoutDirection_Enum
-from ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes import TtyTransportProtocolSelect_Enum
-from ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes import TtyTransportProtocol_Enum
+from ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes import TtyPagerEnum
+from ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes import TtySessionTimeoutDirectionEnum
+from ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes import TtyTransportProtocolEnum
+from ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes import TtyTransportProtocolSelectEnum
 
 
 class Tty(object):
@@ -249,18 +249,12 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.commands is not None:
                             return True
 
                         if self.exec_ is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -303,15 +297,9 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.login is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -366,8 +354,6 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.commands is not None:
                             return True
 
@@ -377,10 +363,6 @@ class Tty(object):
                         if self.exec_ is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -456,18 +438,12 @@ class Tty(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.name is not None:
                                 return True
 
                             if self.category is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -489,17 +465,11 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.user_group is not None:
                             for child_ref in self.user_group:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -521,24 +491,13 @@ class Tty(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.accounting is not None and self.accounting._has_data():
-                        return True
-
-                    if self.accounting is not None and self.accounting.is_presence():
                         return True
 
                     if self.authentication is not None and self.authentication._has_data():
                         return True
 
-                    if self.authentication is not None and self.authentication.is_presence():
-                        return True
-
                     if self.authorization is not None and self.authorization._has_data():
-                        return True
-
-                    if self.authorization is not None and self.authorization.is_presence():
                         return True
 
                     if self.login_timeout is not None:
@@ -553,13 +512,6 @@ class Tty(object):
                     if self.user_groups is not None and self.user_groups._has_data():
                         return True
 
-                    if self.user_groups is not None and self.user_groups.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -622,7 +574,7 @@ class Tty(object):
                 .. attribute:: transport_preferred
                 
                 	The preferred protocol to use
-                	**type**\: :py:class:`TtyTransportProtocol_Enum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol_Enum>`
+                	**type**\: :py:class:`TtyTransportProtocolEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                 
                 
 
@@ -654,7 +606,12 @@ class Tty(object):
                     .. attribute:: direction
                     
                     	Include output traffic as well as input traffic
-                    	**type**\: :py:class:`TtySessionTimeoutDirection_Enum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtySessionTimeoutDirection_Enum>`
+                    	**type**\: :py:class:`TtySessionTimeoutDirectionEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtySessionTimeoutDirectionEnum>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: timeout
                     
@@ -662,6 +619,11 @@ class Tty(object):
                     	**type**\: int
                     
                     	**range:** 0..35791
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -691,8 +653,6 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.direction is not None:
                             return True
 
@@ -700,10 +660,6 @@ class Tty(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -726,17 +682,17 @@ class Tty(object):
                     .. attribute:: protocol1
                     
                     	Transport protocol1
-                    	**type**\: :py:class:`TtyTransportProtocol_Enum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol_Enum>`
+                    	**type**\: :py:class:`TtyTransportProtocolEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                     
                     .. attribute:: protocol2
                     
                     	Transport protocol2
-                    	**type**\: :py:class:`TtyTransportProtocol_Enum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol_Enum>`
+                    	**type**\: :py:class:`TtyTransportProtocolEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                     
                     .. attribute:: select
                     
                     	Choose transport protocols
-                    	**type**\: :py:class:`TtyTransportProtocolSelect_Enum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelect_Enum>`
+                    	**type**\: :py:class:`TtyTransportProtocolSelectEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
                     
                     
 
@@ -766,8 +722,6 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.none is not None:
                             return True
 
@@ -780,10 +734,6 @@ class Tty(object):
                         if self.select is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -803,20 +753,40 @@ class Tty(object):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: protocol1
                     
                     	Transport protocol1
-                    	**type**\: :py:class:`TtyTransportProtocol_Enum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol_Enum>`
+                    	**type**\: :py:class:`TtyTransportProtocolEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: protocol2
                     
                     	Transport protocol2
-                    	**type**\: :py:class:`TtyTransportProtocol_Enum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol_Enum>`
+                    	**type**\: :py:class:`TtyTransportProtocolEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: select
                     
                     	Choose transport protocols
-                    	**type**\: :py:class:`TtyTransportProtocolSelect_Enum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelect_Enum>`
+                    	**type**\: :py:class:`TtyTransportProtocolSelectEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -848,8 +818,6 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.none is not None:
                             return True
 
@@ -863,10 +831,6 @@ class Tty(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -887,8 +851,6 @@ class Tty(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.acl_in is not None:
                         return True
 
@@ -910,28 +872,15 @@ class Tty(object):
                     if self.session_timeout is not None and self.session_timeout._has_data():
                         return True
 
-                    if self.session_timeout is not None and self.session_timeout.is_presence():
-                        return True
-
                     if self.transport_input is not None and self.transport_input._has_data():
-                        return True
-
-                    if self.transport_input is not None and self.transport_input.is_presence():
                         return True
 
                     if self.transport_output is not None and self.transport_output._has_data():
                         return True
 
-                    if self.transport_output is not None and self.transport_output.is_presence():
-                        return True
-
                     if self.transport_preferred is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -978,12 +927,22 @@ class Tty(object):
                     
                     	**range:** 0..35791
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: seconds
                     
                     	Timeout in seconds
                     	**type**\: int
                     
                     	**range:** 0..2147483
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -1013,8 +972,6 @@ class Tty(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.minutes is not None:
                             return True
 
@@ -1022,10 +979,6 @@ class Tty(object):
                             return True
 
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -1046,21 +999,12 @@ class Tty(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.time_stamp is not None:
                         return True
 
                     if self.timeout is not None and self.timeout._has_data():
                         return True
 
-                    if self.timeout is not None and self.timeout.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1076,7 +1020,7 @@ class Tty(object):
                 .. attribute:: pager
                 
                 	Preferred Paging Utility
-                	**type**\: :py:class:`TtyPager_Enum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyPager_Enum>`
+                	**type**\: :py:class:`TtyPagerEnum <ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes.TtyPagerEnum>`
                 
                 
 
@@ -1103,15 +1047,9 @@ class Tty(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.pager is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1172,8 +1110,6 @@ class Tty(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.absolute_timeout is not None:
                         return True
 
@@ -1183,10 +1119,6 @@ class Tty(object):
                     if self.width is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1229,15 +1161,9 @@ class Tty(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.transparent is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1259,51 +1185,27 @@ class Tty(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.name is not None:
                     return True
 
                 if self.aaa is not None and self.aaa._has_data():
                     return True
 
-                if self.aaa is not None and self.aaa.is_presence():
-                    return True
-
                 if self.connection is not None and self.connection._has_data():
-                    return True
-
-                if self.connection is not None and self.connection.is_presence():
                     return True
 
                 if self.exec_ is not None and self.exec_._has_data():
                     return True
 
-                if self.exec_ is not None and self.exec_.is_presence():
-                    return True
-
                 if self.exec_mode is not None and self.exec_mode._has_data():
-                    return True
-
-                if self.exec_mode is not None and self.exec_mode.is_presence():
                     return True
 
                 if self.general is not None and self.general._has_data():
                     return True
 
-                if self.general is not None and self.general.is_presence():
-                    return True
-
                 if self.telnet is not None and self.telnet._has_data():
                     return True
 
-                if self.telnet is not None and self.telnet.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1323,17 +1225,11 @@ class Tty(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.tty_line is not None:
                 for child_ref in self.tty_line:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1353,18 +1249,9 @@ class Tty(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.tty_lines is not None and self.tty_lines._has_data():
             return True
 
-        if self.tty_lines is not None and self.tty_lines.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'VlanEncaps_Enum' : _MetaInfoEnum('VlanEncaps_Enum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
+    'VlanEncapsEnum' : _MetaInfoEnum('VlanEncapsEnum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
         {
             'no-encapsulation':'NO_ENCAPSULATION',
             'dot1q':'DOT1Q',
@@ -27,12 +27,12 @@ _meta_table = {
             'dot1ad-dot1q':'DOT1AD_DOT1Q',
             'dot1ad-any':'DOT1AD_ANY',
         }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
-    'EthCapsUcastMacMode_Enum' : _MetaInfoEnum('EthCapsUcastMacMode_Enum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
+    'EthCapsUcastMacModeEnum' : _MetaInfoEnum('EthCapsUcastMacModeEnum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
         {
             'reserved':'RESERVED',
             'permit':'PERMIT',
         }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
-    'ImStateEnum_Enum' : _MetaInfoEnum('ImStateEnum_Enum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
+    'ImStateEnumEnum' : _MetaInfoEnum('ImStateEnumEnum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
         {
             'im-state-not-ready':'IM_STATE_NOT_READY',
             'im-state-admin-down':'IM_STATE_ADMIN_DOWN',
@@ -54,7 +54,7 @@ _meta_table = {
             'im-state-unknown':'IM_STATE_UNKNOWN',
             'im-state-last':'IM_STATE_LAST',
         }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
-    'EfpTagPriority_Enum' : _MetaInfoEnum('EfpTagPriority_Enum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
+    'EfpTagPriorityEnum' : _MetaInfoEnum('EfpTagPriorityEnum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
         {
             'priority0':'PRIORITY0',
             'priority1':'PRIORITY1',
@@ -66,30 +66,30 @@ _meta_table = {
             'priority7':'PRIORITY7',
             'priority-any':'PRIORITY_ANY',
         }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
-    'EfpTagEtype_Enum' : _MetaInfoEnum('EfpTagEtype_Enum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
+    'EfpTagEtypeEnum' : _MetaInfoEnum('EfpTagEtypeEnum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
         {
             'untagged':'UNTAGGED',
             'dot1q':'DOT1Q',
             'dot1ad':'DOT1AD',
         }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
-    'VlanService_Enum' : _MetaInfoEnum('VlanService_Enum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
+    'VlanServiceEnum' : _MetaInfoEnum('VlanServiceEnum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
         {
             'vlan-service-l2':'VLAN_SERVICE_L2',
             'vlan-service-l3':'VLAN_SERVICE_L3',
         }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
-    'EfpPayloadEtype_Enum' : _MetaInfoEnum('EfpPayloadEtype_Enum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
+    'EfpPayloadEtypeEnum' : _MetaInfoEnum('EfpPayloadEtypeEnum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
         {
             'payload-ethertype-any':'PAYLOAD_ETHERTYPE_ANY',
             'payload-ethertype-ip':'PAYLOAD_ETHERTYPE_IP',
             'payload-ethertype-pppoe':'PAYLOAD_ETHERTYPE_PPPOE',
         }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
-    'VlanQinqOuterEtype_Enum' : _MetaInfoEnum('VlanQinqOuterEtype_Enum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
+    'VlanQinqOuterEtypeEnum' : _MetaInfoEnum('VlanQinqOuterEtypeEnum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
         {
             'ether-type8100':'ETHER_TYPE8100',
             'ether-type9100':'ETHER_TYPE9100',
             'ether-type9200':'ETHER_TYPE9200',
         }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
-    'EthFiltering_Enum' : _MetaInfoEnum('EthFiltering_Enum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
+    'EthFilteringEnum' : _MetaInfoEnum('EthFilteringEnum', 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper',
         {
             'no-filtering':'NO_FILTERING',
             'dot1q-filtering':'DOT1Q_FILTERING',
@@ -106,7 +106,7 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'EthCapsUcastMacMode_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EthCapsUcastMacMode_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'EthCapsUcastMacModeEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EthCapsUcastMacModeEnum', 
                 [], [], 
                 '''                Unicast MAC mode
                 ''',
@@ -390,8 +390,8 @@ _meta_table = {
         'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper'
         ),
     },
-    'Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack' : {
-        'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack',
+    'Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack' : {
+        'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack',
             False, 
             [
             _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
@@ -417,7 +417,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag',
             False, 
             [
-            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtype_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtype_Enum', 
+            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtypeEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtypeEnum', 
                 [], [], 
                 '''                Ethertype of tag
                 ''',
@@ -457,7 +457,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe',
             False, 
             [
-            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtype_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtype_Enum', 
+            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtypeEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtypeEnum', 
                 [], [], 
                 '''                Ethertype of tag
                 ''',
@@ -503,13 +503,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch',
             False, 
             [
-            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtype_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtype_Enum', 
+            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtypeEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtypeEnum', 
                 [], [], 
                 '''                Ethertype of tag to match
                 ''',
                 'ethertype',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'EfpTagPriority_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'EfpTagPriorityEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagPriorityEnum', 
                 [], [], 
                 '''                Priority to match
                 ''',
@@ -565,7 +565,7 @@ _meta_table = {
                 ''',
                 'local_traffic_stack',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('payload-ethertype', REFERENCE_ENUM_CLASS, 'EfpPayloadEtype_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpPayloadEtype_Enum', 
+            _MetaInfoClassMember('payload-ethertype', REFERENCE_ENUM_CLASS, 'EfpPayloadEtypeEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpPayloadEtypeEnum', 
                 [], [], 
                 '''                Payload Ethertype to match
                 ''',
@@ -629,7 +629,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails',
             False, 
             [
-            _MetaInfoClassMember('dot1ad-dot1q-stack', REFERENCE_CLASS, 'Dot1adDot1qStack' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack', 
+            _MetaInfoClassMember('dot1ad-dot1q-stack', REFERENCE_CLASS, 'Dot1AdDot1QStack' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack', 
                 [], [], 
                 '''                802.1ad 802.1Q stack value
                 ''',
@@ -683,7 +683,7 @@ _meta_table = {
                 ''',
                 'tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('vlan-encapsulation', REFERENCE_ENUM_CLASS, 'VlanEncaps_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanEncaps_Enum', 
+            _MetaInfoClassMember('vlan-encapsulation', REFERENCE_ENUM_CLASS, 'VlanEncapsEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanEncapsEnum', 
                 [], [], 
                 '''                VLANEncapsulation
                 ''',
@@ -730,13 +730,13 @@ _meta_table = {
                 ''',
                 'parent_interface',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('service', REFERENCE_ENUM_CLASS, 'VlanService_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanService_Enum', 
+            _MetaInfoClassMember('service', REFERENCE_ENUM_CLASS, 'VlanServiceEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanServiceEnum', 
                 [], [], 
                 '''                Service type
                 ''',
                 'service',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -773,8 +773,8 @@ _meta_table = {
         'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper'
         ),
     },
-    'Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack' : {
-        'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack',
+    'Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack' : {
+        'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack',
             False, 
             [
             _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
@@ -800,7 +800,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag',
             False, 
             [
-            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtype_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtype_Enum', 
+            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtypeEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtypeEnum', 
                 [], [], 
                 '''                Ethertype of tag
                 ''',
@@ -840,7 +840,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe',
             False, 
             [
-            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtype_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtype_Enum', 
+            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtypeEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtypeEnum', 
                 [], [], 
                 '''                Ethertype of tag
                 ''',
@@ -886,13 +886,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch',
             False, 
             [
-            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtype_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtype_Enum', 
+            _MetaInfoClassMember('ethertype', REFERENCE_ENUM_CLASS, 'EfpTagEtypeEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtypeEnum', 
                 [], [], 
                 '''                Ethertype of tag to match
                 ''',
                 'ethertype',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'EfpTagPriority_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagPriority_Enum', 
+            _MetaInfoClassMember('priority', REFERENCE_ENUM_CLASS, 'EfpTagPriorityEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagPriorityEnum', 
                 [], [], 
                 '''                Priority to match
                 ''',
@@ -948,7 +948,7 @@ _meta_table = {
                 ''',
                 'local_traffic_stack',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('payload-ethertype', REFERENCE_ENUM_CLASS, 'EfpPayloadEtype_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpPayloadEtype_Enum', 
+            _MetaInfoClassMember('payload-ethertype', REFERENCE_ENUM_CLASS, 'EfpPayloadEtypeEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpPayloadEtypeEnum', 
                 [], [], 
                 '''                Payload Ethertype to match
                 ''',
@@ -1012,7 +1012,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails',
             False, 
             [
-            _MetaInfoClassMember('dot1ad-dot1q-stack', REFERENCE_CLASS, 'Dot1adDot1qStack' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack', 
+            _MetaInfoClassMember('dot1ad-dot1q-stack', REFERENCE_CLASS, 'Dot1AdDot1QStack' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack', 
                 [], [], 
                 '''                802.1ad 802.1Q stack value
                 ''',
@@ -1066,7 +1066,7 @@ _meta_table = {
                 ''',
                 'tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('vlan-encapsulation', REFERENCE_ENUM_CLASS, 'VlanEncaps_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanEncaps_Enum', 
+            _MetaInfoClassMember('vlan-encapsulation', REFERENCE_ENUM_CLASS, 'VlanEncapsEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanEncapsEnum', 
                 [], [], 
                 '''                VLANEncapsulation
                 ''',
@@ -1125,7 +1125,7 @@ _meta_table = {
                 ''',
                 'second_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False, [
-                    _MetaInfoClassMember('second-tag', REFERENCE_ENUM_CLASS, 'VlanTagOrAny_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrAny_Enum', 
+                    _MetaInfoClassMember('second-tag', REFERENCE_ENUM_CLASS, 'VlanTagOrAnyEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrAnyEnum', 
                         [], [], 
                         '''                        The second tag
                         ''',
@@ -1138,13 +1138,13 @@ _meta_table = {
                         'second_tag',
                         'Cisco-IOS-XR-l2-eth-infra-oper', False),
                 ]),
-            _MetaInfoClassMember('service', REFERENCE_ENUM_CLASS, 'VlanService_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanService_Enum', 
+            _MetaInfoClassMember('service', REFERENCE_ENUM_CLASS, 'VlanServiceEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanServiceEnum', 
                 [], [], 
                 '''                Service type
                 ''',
                 'service',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -1375,7 +1375,7 @@ _meta_table = {
                 ''',
                 'layer3_sub_interfaces',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('mac-filtering', REFERENCE_ENUM_CLASS, 'EthFiltering_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EthFiltering_Enum', 
+            _MetaInfoClassMember('mac-filtering', REFERENCE_ENUM_CLASS, 'EthFilteringEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'EthFilteringEnum', 
                 [], [], 
                 '''                IEEE 802.1Q/802.1ad multicast MAC address
                 filtering
@@ -1388,13 +1388,13 @@ _meta_table = {
                 ''',
                 'mtu',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('qinq-outer-ether-type', REFERENCE_ENUM_CLASS, 'VlanQinqOuterEtype_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanQinqOuterEtype_Enum', 
+            _MetaInfoClassMember('qinq-outer-ether-type', REFERENCE_ENUM_CLASS, 'VlanQinqOuterEtypeEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanQinqOuterEtypeEnum', 
                 [], [], 
                 '''                QinQ Outer Tag Ether Type
                 ''',
                 'qinq_outer_ether_type',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnum_Enum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'ImStateEnum_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_oper', 'ImStateEnumEnum', 
                 [], [], 
                 '''                Interface state
                 ''',
@@ -1517,7 +1517,7 @@ _meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceIn
 _meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack']['meta_info'].parent =_meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
 _meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe']['meta_info'].parent =_meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
 _meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch']['meta_info'].parent =_meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
-_meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack']['meta_info'].parent =_meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails']['meta_info']
+_meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack']['meta_info'].parent =_meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails']['meta_info']
 _meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails']['meta_info'].parent =_meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails']['meta_info']
 _meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack']['meta_info'].parent =_meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails']['meta_info']
 _meta_table['Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails']['meta_info'].parent =_meta_table['Vlan.Nodes.Node.Interfaces.Interface']['meta_info']
@@ -1527,7 +1527,7 @@ _meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.S
 _meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack']['meta_info'].parent =_meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
 _meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe']['meta_info'].parent =_meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
 _meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch']['meta_info'].parent =_meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
-_meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack']['meta_info'].parent =_meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails']['meta_info']
+_meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack']['meta_info'].parent =_meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails']['meta_info']
 _meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails']['meta_info'].parent =_meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails']['meta_info']
 _meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack']['meta_info'].parent =_meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails']['meta_info']
 _meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails']['meta_info'].parent =_meta_table['Vlan.Nodes.Node.TagAllocations.TagAllocation']['meta_info']

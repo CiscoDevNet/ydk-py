@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'LocaleCountry_Enum' : _MetaInfoEnum('LocaleCountry_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_infra_locale_cfg',
+    'LocaleCountryEnum' : _MetaInfoEnum('LocaleCountryEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_infra_locale_cfg',
         {
             'ad':'AD',
             'ae':'AE',
@@ -255,7 +255,7 @@ _meta_table = {
             'zm':'ZM',
             'zw':'ZW',
         }, 'Cisco-IOS-XR-infra-infra-locale-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-infra-locale-cfg']),
-    'LocaleLanguage_Enum' : _MetaInfoEnum('LocaleLanguage_Enum', 'ydk.models.infra.Cisco_IOS_XR_infra_infra_locale_cfg',
+    'LocaleLanguageEnum' : _MetaInfoEnum('LocaleLanguageEnum', 'ydk.models.infra.Cisco_IOS_XR_infra_infra_locale_cfg',
         {
             'aa':'AA',
             'ab':'AB',
@@ -401,13 +401,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Locale',
             False, 
             [
-            _MetaInfoClassMember('country', REFERENCE_ENUM_CLASS, 'LocaleCountry_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_infra_locale_cfg', 'LocaleCountry_Enum', 
+            _MetaInfoClassMember('country', REFERENCE_ENUM_CLASS, 'LocaleCountryEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_infra_locale_cfg', 'LocaleCountryEnum', 
                 [], [], 
                 '''                Name of country locale
                 ''',
                 'country',
                 'Cisco-IOS-XR-infra-infra-locale-cfg', False),
-            _MetaInfoClassMember('language', REFERENCE_ENUM_CLASS, 'LocaleLanguage_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_infra_locale_cfg', 'LocaleLanguage_Enum', 
+            _MetaInfoClassMember('language', REFERENCE_ENUM_CLASS, 'LocaleLanguageEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_infra_locale_cfg', 'LocaleLanguageEnum', 
                 [], [], 
                 '''                Name of language locale
                 ''',

@@ -21,15 +21,15 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 from ydk.models.ietf.ietf_interfaces import InterfaceType_Identity
-from ydk.models.openconfig.openconfig_if_aggregate import AggregationType_Enum
-from ydk.models.openconfig.openconfig_if_aggregate import LacpActivityType_Enum
-from ydk.models.openconfig.openconfig_if_aggregate import LacpPeriodType_Enum
-from ydk.models.openconfig.openconfig_if_aggregate import LacpSynchronizationType_Enum
-from ydk.models.openconfig.openconfig_if_aggregate import LacpTimeoutType_Enum
+from ydk.models.openconfig.openconfig_if_aggregate import AggregationTypeEnum
+from ydk.models.openconfig.openconfig_if_aggregate import LacpActivityTypeEnum
+from ydk.models.openconfig.openconfig_if_aggregate import LacpPeriodTypeEnum
+from ydk.models.openconfig.openconfig_if_aggregate import LacpSynchronizationTypeEnum
+from ydk.models.openconfig.openconfig_if_aggregate import LacpTimeoutTypeEnum
 from ydk.models.openconfig.openconfig_if_ethernet import EthernetSpeed_Identity
-from ydk.models.openconfig.openconfig_if_ip import IpAddressOrigin_Enum
-from ydk.models.openconfig.openconfig_if_ip import NeighborOrigin_Enum
-from ydk.models.openconfig.openconfig_vlan import VlanModeType_Enum
+from ydk.models.openconfig.openconfig_if_ip import IpAddressOriginEnum
+from ydk.models.openconfig.openconfig_if_ip import NeighborOriginEnum
+from ydk.models.openconfig.openconfig_vlan import VlanModeTypeEnum
 
 
 class Interfaces(object):
@@ -134,20 +134,40 @@ class Interfaces(object):
             	Configuration variables for logical aggregate / LAG interfaces
             	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Config>`
             
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
+            
             .. attribute:: lacp
             
             	Configuration for LACP protocol operation on the aggregate interface
             	**type**\: :py:class:`Lacp <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp>`
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             .. attribute:: state
             
             	Operational state variables for logical aggregate / LAG interfaces
             	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.State>`
             
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
+            
             .. attribute:: vlan
             
             	Enclosing container for VLAN interface\-specific data on Ethernet interfaces
             	**type**\: :py:class:`Vlan <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Vlan>`
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
             
             
 
@@ -177,7 +197,7 @@ class Interfaces(object):
                 .. attribute:: lag_type
                 
                 	Sets the type of LAG, i.e., how it is configured / maintained
-                	**type**\: :py:class:`AggregationType_Enum <ydk.models.openconfig.openconfig_if_aggregate.AggregationType_Enum>`
+                	**type**\: :py:class:`AggregationTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.AggregationTypeEnum>`
                 
                 .. attribute:: min_links
                 
@@ -212,18 +232,12 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.lag_type is not None:
                         return True
 
                     if self.min_links is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -242,15 +256,30 @@ class Interfaces(object):
                 	Configuration data for LACP
                 	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Config>`
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: members
                 
                 	Enclosing container for the list of members interfaces of the aggregate. This list is considered operational state only so is labeled config false and has no config container
                 	**type**\: :py:class:`Members <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Members>`
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: state
                 
                 	Operational state data for LACP
                 	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.State>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -278,12 +307,12 @@ class Interfaces(object):
                     .. attribute:: interval
                     
                     	Set the period between LACP messages \-\- uses the lacp\-period\-type enumeration
-                    	**type**\: :py:class:`LacpPeriodType_Enum <ydk.models.openconfig.openconfig_if_aggregate.LacpPeriodType_Enum>`
+                    	**type**\: :py:class:`LacpPeriodTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpPeriodTypeEnum>`
                     
                     .. attribute:: lacp_mode
                     
                     	ACTIVE is to initiate the transmission of LACP packets. PASSIVE is to wait for peer to initiate the transmission of LACP packets
-                    	**type**\: :py:class:`LacpActivityType_Enum <ydk.models.openconfig.openconfig_if_aggregate.LacpActivityType_Enum>`
+                    	**type**\: :py:class:`LacpActivityTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpActivityTypeEnum>`
                     
                     .. attribute:: system_id_mac
                     
@@ -327,8 +356,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interval is not None:
                             return True
 
@@ -341,10 +368,6 @@ class Interfaces(object):
                         if self.system_priority is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -416,7 +439,7 @@ class Interfaces(object):
                             .. attribute:: activity
                             
                             	Indicates participant is active or passive
-                            	**type**\: :py:class:`LacpActivityType_Enum <ydk.models.openconfig.openconfig_if_aggregate.LacpActivityType_Enum>`
+                            	**type**\: :py:class:`LacpActivityTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpActivityTypeEnum>`
                             
                             .. attribute:: aggregatable
                             
@@ -467,7 +490,7 @@ class Interfaces(object):
                             .. attribute:: synchronization
                             
                             	Indicates whether the participant is in\-sync or out\-of\-sync
-                            	**type**\: :py:class:`LacpSynchronizationType_Enum <ydk.models.openconfig.openconfig_if_aggregate.LacpSynchronizationType_Enum>`
+                            	**type**\: :py:class:`LacpSynchronizationTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpSynchronizationTypeEnum>`
                             
                             .. attribute:: system_id
                             
@@ -479,7 +502,7 @@ class Interfaces(object):
                             .. attribute:: timeout
                             
                             	The timeout type (short or long) used by the participant
-                            	**type**\: :py:class:`LacpTimeoutType_Enum <ydk.models.openconfig.openconfig_if_aggregate.LacpTimeoutType_Enum>`
+                            	**type**\: :py:class:`LacpTimeoutTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpTimeoutTypeEnum>`
                             
                             
 
@@ -581,8 +604,6 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.lacp_errors is not None:
                                         return True
 
@@ -601,10 +622,6 @@ class Interfaces(object):
                                     if self.lacp_unknown_errors is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -626,8 +643,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.activity is not None:
                                     return True
 
@@ -638,9 +653,6 @@ class Interfaces(object):
                                     return True
 
                                 if self.counters is not None and self.counters._has_data():
-                                    return True
-
-                                if self.counters is not None and self.counters.is_presence():
                                     return True
 
                                 if self.distributing is not None:
@@ -669,10 +681,6 @@ class Interfaces(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return False
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_interfaces as meta
@@ -694,21 +702,12 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.interface is not None:
                                 return True
 
                             if self.state is not None and self.state._has_data():
                                 return True
 
-                            if self.state is not None and self.state.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -730,17 +729,11 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.member is not None:
                             for child_ref in self.member:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -756,12 +749,12 @@ class Interfaces(object):
                     .. attribute:: interval
                     
                     	Set the period between LACP messages \-\- uses the lacp\-period\-type enumeration
-                    	**type**\: :py:class:`LacpPeriodType_Enum <ydk.models.openconfig.openconfig_if_aggregate.LacpPeriodType_Enum>`
+                    	**type**\: :py:class:`LacpPeriodTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpPeriodTypeEnum>`
                     
                     .. attribute:: lacp_mode
                     
                     	ACTIVE is to initiate the transmission of LACP packets. PASSIVE is to wait for peer to initiate the transmission of LACP packets
-                    	**type**\: :py:class:`LacpActivityType_Enum <ydk.models.openconfig.openconfig_if_aggregate.LacpActivityType_Enum>`
+                    	**type**\: :py:class:`LacpActivityTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpActivityTypeEnum>`
                     
                     .. attribute:: system_id_mac
                     
@@ -805,8 +798,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interval is not None:
                             return True
 
@@ -819,10 +810,6 @@ class Interfaces(object):
                         if self.system_priority is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -844,31 +831,16 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.config is not None and self.config._has_data():
-                        return True
-
-                    if self.config is not None and self.config.is_presence():
                         return True
 
                     if self.members is not None and self.members._has_data():
                         return True
 
-                    if self.members is not None and self.members.is_presence():
-                        return True
-
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -884,7 +856,7 @@ class Interfaces(object):
                 .. attribute:: lag_type
                 
                 	Sets the type of LAG, i.e., how it is configured / maintained
-                	**type**\: :py:class:`AggregationType_Enum <ydk.models.openconfig.openconfig_if_aggregate.AggregationType_Enum>`
+                	**type**\: :py:class:`AggregationTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.AggregationTypeEnum>`
                 
                 .. attribute:: members
                 
@@ -925,8 +897,6 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.lag_type is not None:
                         return True
 
@@ -938,10 +908,6 @@ class Interfaces(object):
                     if self.min_links is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -992,7 +958,7 @@ class Interfaces(object):
                     .. attribute:: interface_mode
                     
                     	Set the interface to access or trunk mode for VLANs
-                    	**type**\: :py:class:`VlanModeType_Enum <ydk.models.openconfig.openconfig_vlan.VlanModeType_Enum>`
+                    	**type**\: :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
                     
                     .. attribute:: native_vlan
                     
@@ -1032,8 +998,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.access_vlan is not None:
                             return True
 
@@ -1048,10 +1012,6 @@ class Interfaces(object):
                                 if child is not None:
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1072,7 +1032,7 @@ class Interfaces(object):
                     .. attribute:: interface_mode
                     
                     	Set the interface to access or trunk mode for VLANs
-                    	**type**\: :py:class:`VlanModeType_Enum <ydk.models.openconfig.openconfig_vlan.VlanModeType_Enum>`
+                    	**type**\: :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
                     
                     .. attribute:: native_vlan
                     
@@ -1112,8 +1072,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.access_vlan is not None:
                             return True
 
@@ -1128,10 +1086,6 @@ class Interfaces(object):
                                 if child is not None:
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1153,24 +1107,12 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.config is not None and self.config._has_data():
-                        return True
-
-                    if self.config is not None and self.config.is_presence():
                         return True
 
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1192,37 +1134,19 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.config is not None and self.config._has_data():
-                    return True
-
-                if self.config is not None and self.config.is_presence():
                     return True
 
                 if self.lacp is not None and self.lacp._has_data():
                     return True
 
-                if self.lacp is not None and self.lacp.is_presence():
-                    return True
-
                 if self.state is not None and self.state._has_data():
-                    return True
-
-                if self.state is not None and self.state.is_presence():
                     return True
 
                 if self.vlan is not None and self.vlan._has_data():
                     return True
 
-                if self.vlan is not None and self.vlan.is_presence():
-                    return True
-
                 return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return True
 
             @staticmethod
             def _meta_info():
@@ -1291,8 +1215,6 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.description is not None:
                     return True
 
@@ -1308,10 +1230,6 @@ class Interfaces(object):
                 if self.type is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1374,7 +1292,7 @@ class Interfaces(object):
                 .. attribute:: duplex_mode
                 
                 	When auto\-negotiate is TRUE, this optionally sets the duplex mode that will be advertised to the peer.  If unspecified, the interface should negotiate the duplex mode directly (typically full\-duplex).  When auto\-negotiate is FALSE, this sets the duplex mode on the interface directly
-                	**type**\: :py:class:`DuplexMode_Enum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.Config.DuplexMode_Enum>`
+                	**type**\: :py:class:`DuplexModeEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.Config.DuplexModeEnum>`
                 
                 .. attribute:: enable_flow_control
                 
@@ -1409,37 +1327,39 @@ class Interfaces(object):
                     self.mac_address = None
                     self.port_speed = None
 
-                class DuplexMode_Enum(Enum):
+                class DuplexModeEnum(Enum):
                     """
-                    DuplexMode_Enum
+                    DuplexModeEnum
 
                     When auto\-negotiate is TRUE, this optionally sets the
+
                     duplex mode that will be advertised to the peer.  If
+
                     unspecified, the interface should negotiate the duplex mode
+
                     directly (typically full\-duplex).  When auto\-negotiate is
+
                     FALSE, this sets the duplex mode on the interface directly.
 
-                    """
+                    .. data:: FULL = 0
+
+                    	Full duplex mode
+
+                    .. data:: HALF = 1
+
+                    	Half duplex mode
 
                     """
 
-                    Full duplex mode
-
-                    """
                     FULL = 0
 
-                    """
-
-                    Half duplex mode
-
-                    """
                     HALF = 1
 
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_interfaces as meta
-                        return meta._meta_table['Interfaces.Interface.Ethernet.Config.DuplexMode_Enum']
+                        return meta._meta_table['Interfaces.Interface.Ethernet.Config.DuplexModeEnum']
 
 
                 @property
@@ -1456,8 +1376,6 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.aggregate_id is not None:
                         return True
 
@@ -1476,10 +1394,6 @@ class Interfaces(object):
                     if self.port_speed is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1510,7 +1424,7 @@ class Interfaces(object):
                 .. attribute:: duplex_mode
                 
                 	When auto\-negotiate is TRUE, this optionally sets the duplex mode that will be advertised to the peer.  If unspecified, the interface should negotiate the duplex mode directly (typically full\-duplex).  When auto\-negotiate is FALSE, this sets the duplex mode on the interface directly
-                	**type**\: :py:class:`DuplexMode_Enum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.State.DuplexMode_Enum>`
+                	**type**\: :py:class:`DuplexModeEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.State.DuplexModeEnum>`
                 
                 .. attribute:: enable_flow_control
                 
@@ -1555,37 +1469,39 @@ class Interfaces(object):
                     self.mac_address = None
                     self.port_speed = None
 
-                class DuplexMode_Enum(Enum):
+                class DuplexModeEnum(Enum):
                     """
-                    DuplexMode_Enum
+                    DuplexModeEnum
 
                     When auto\-negotiate is TRUE, this optionally sets the
+
                     duplex mode that will be advertised to the peer.  If
+
                     unspecified, the interface should negotiate the duplex mode
+
                     directly (typically full\-duplex).  When auto\-negotiate is
+
                     FALSE, this sets the duplex mode on the interface directly.
 
-                    """
+                    .. data:: FULL = 0
+
+                    	Full duplex mode
+
+                    .. data:: HALF = 1
+
+                    	Half duplex mode
 
                     """
 
-                    Full duplex mode
-
-                    """
                     FULL = 0
 
-                    """
-
-                    Half duplex mode
-
-                    """
                     HALF = 1
 
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_interfaces as meta
-                        return meta._meta_table['Interfaces.Interface.Ethernet.State.DuplexMode_Enum']
+                        return meta._meta_table['Interfaces.Interface.Ethernet.State.DuplexModeEnum']
 
 
 
@@ -1697,8 +1613,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.in_8021q_frames is not None:
                             return True
 
@@ -1731,10 +1645,6 @@ class Interfaces(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_interfaces as meta
@@ -1754,8 +1664,6 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.aggregate_id is not None:
                         return True
 
@@ -1763,9 +1671,6 @@ class Interfaces(object):
                         return True
 
                     if self.counters is not None and self.counters._has_data():
-                        return True
-
-                    if self.counters is not None and self.counters.is_presence():
                         return True
 
                     if self.duplex_mode is not None:
@@ -1783,10 +1688,6 @@ class Interfaces(object):
                     if self.port_speed is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1837,7 +1738,7 @@ class Interfaces(object):
                     .. attribute:: interface_mode
                     
                     	Set the interface to access or trunk mode for VLANs
-                    	**type**\: :py:class:`VlanModeType_Enum <ydk.models.openconfig.openconfig_vlan.VlanModeType_Enum>`
+                    	**type**\: :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
                     
                     .. attribute:: native_vlan
                     
@@ -1877,8 +1778,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.access_vlan is not None:
                             return True
 
@@ -1893,10 +1792,6 @@ class Interfaces(object):
                                 if child is not None:
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1917,7 +1812,7 @@ class Interfaces(object):
                     .. attribute:: interface_mode
                     
                     	Set the interface to access or trunk mode for VLANs
-                    	**type**\: :py:class:`VlanModeType_Enum <ydk.models.openconfig.openconfig_vlan.VlanModeType_Enum>`
+                    	**type**\: :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
                     
                     .. attribute:: native_vlan
                     
@@ -1957,8 +1852,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.access_vlan is not None:
                             return True
 
@@ -1973,10 +1866,6 @@ class Interfaces(object):
                                 if child is not None:
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1998,24 +1887,12 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.config is not None and self.config._has_data():
-                        return True
-
-                    if self.config is not None and self.config.is_presence():
                         return True
 
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2037,30 +1914,15 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.config is not None and self.config._has_data():
-                    return True
-
-                if self.config is not None and self.config.is_presence():
                     return True
 
                 if self.state is not None and self.state._has_data():
                     return True
 
-                if self.state is not None and self.state.is_presence():
-                    return True
-
                 if self.vlan is not None and self.vlan._has_data():
                     return True
 
-                if self.vlan is not None and self.vlan.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2143,18 +2005,12 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.down is not None:
                         return True
 
                     if self.up is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2207,18 +2063,12 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.down is not None:
                         return True
 
                     if self.up is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2240,24 +2090,12 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.config is not None and self.config._has_data():
-                    return True
-
-                if self.config is not None and self.config.is_presence():
                     return True
 
                 if self.state is not None and self.state._has_data():
                     return True
 
-                if self.state is not None and self.state.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2344,15 +2182,9 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vlan is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2370,20 +2202,40 @@ class Interfaces(object):
                 	The list of configured IPv4 addresses on the interface
                 	**type**\: list of :py:class:`Address <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address>`
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: config
                 
                 	Top\-level IPv4 configuration data for the interface
                 	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Config>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: neighbor
                 
                 	A list of mappings from IPv4 addresses to link\-layer addresses.  Entries in this list are used as static entries in the ARP Cache
                 	**type**\: list of :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Neighbor>`
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: state
                 
                 	Top level IPv4 operational state data
                 	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.State>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -2497,18 +2349,12 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip is not None:
                                 return True
 
                             if self.prefix_length is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2532,7 +2378,7 @@ class Interfaces(object):
                         .. attribute:: origin
                         
                         	The origin of this address, e.g., statically configured, assigned by DHCP, etc.
-                        	**type**\: :py:class:`IpAddressOrigin_Enum <ydk.models.openconfig.openconfig_if_ip.IpAddressOrigin_Enum>`
+                        	**type**\: :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
                         
                         .. attribute:: prefix_length
                         
@@ -2568,8 +2414,6 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip is not None:
                                 return True
 
@@ -2579,10 +2423,6 @@ class Interfaces(object):
                             if self.prefix_length is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2737,8 +2577,6 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.accept_mode is not None:
                                         return True
 
@@ -2762,10 +2600,6 @@ class Interfaces(object):
                                     if self.virtual_router_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2845,18 +2679,12 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.priority_decrement is not None:
                                             return True
 
                                         if self.track_interface is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2907,18 +2735,12 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.priority_decrement is not None:
                                             return True
 
                                         if self.track_interface is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2940,24 +2762,12 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.config is not None and self.config._has_data():
-                                        return True
-
-                                    if self.config is not None and self.config.is_presence():
                                         return True
 
                                     if self.state is not None and self.state._has_data():
                                         return True
 
-                                    if self.state is not None and self.state.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -3052,8 +2862,6 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.accept_mode is not None:
                                         return True
 
@@ -3082,10 +2890,6 @@ class Interfaces(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.openconfig._meta import _openconfig_interfaces as meta
@@ -3107,33 +2911,18 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.virtual_router_id is not None:
                                     return True
 
                                 if self.config is not None and self.config._has_data():
                                     return True
 
-                                if self.config is not None and self.config.is_presence():
-                                    return True
-
                                 if self.interface_tracking is not None and self.interface_tracking._has_data():
-                                    return True
-
-                                if self.interface_tracking is not None and self.interface_tracking.is_presence():
                                     return True
 
                                 if self.state is not None and self.state._has_data():
                                     return True
 
-                                if self.state is not None and self.state.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3155,17 +2944,11 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrrp_group is not None:
                                 for child_ref in self.vrrp_group:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3189,33 +2972,18 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ip is not None:
                             return True
 
                         if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.config is not None and self.config.is_presence():
-                            return True
-
                         if self.state is not None and self.state._has_data():
-                            return True
-
-                        if self.state is not None and self.state.is_presence():
                             return True
 
                         if self.vrrp is not None and self.vrrp._has_data():
                             return True
 
-                        if self.vrrp is not None and self.vrrp.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3266,18 +3034,12 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.enabled is not None:
                             return True
 
                         if self.mtu is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3372,18 +3134,12 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip is not None:
                                 return True
 
                             if self.link_layer_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3414,7 +3170,7 @@ class Interfaces(object):
                         .. attribute:: origin
                         
                         	The origin of this neighbor entry, static or dynamic
-                        	**type**\: :py:class:`NeighborOrigin_Enum <ydk.models.openconfig.openconfig_if_ip.NeighborOrigin_Enum>`
+                        	**type**\: :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
                         
                         
 
@@ -3443,8 +3199,6 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip is not None:
                                 return True
 
@@ -3454,10 +3208,6 @@ class Interfaces(object):
                             if self.origin is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3481,27 +3231,15 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ip is not None:
                             return True
 
                         if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.config is not None and self.config.is_presence():
-                            return True
-
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3552,18 +3290,12 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.enabled is not None:
                             return True
 
                         if self.mtu is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3585,17 +3317,12 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.address is not None:
                         for child_ref in self.address:
                             if child_ref._has_data():
                                 return True
 
                     if self.config is not None and self.config._has_data():
-                        return True
-
-                    if self.config is not None and self.config.is_presence():
                         return True
 
                     if self.neighbor is not None:
@@ -3606,14 +3333,7 @@ class Interfaces(object):
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -3630,25 +3350,50 @@ class Interfaces(object):
                 	The list of configured IPv6 addresses on the interface
                 	**type**\: list of :py:class:`Address <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address>`
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: autoconf
                 
                 	Top\-level container for IPv6 autoconf
                 	**type**\: :py:class:`Autoconf <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Autoconf>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 .. attribute:: config
                 
                 	Top\-level config data for the IPv6 interface
                 	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Config>`
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: neighbor
                 
                 	A list of mappings from IPv6 addresses to link\-layer addresses.  Entries in this list are used as static entries in the Neighbor Cache
                 	**type**\: list of :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor>`
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: state
                 
                 	Top\-level operational state data for the IPv6 interface
                 	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.State>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -3764,18 +3509,12 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip is not None:
                                 return True
 
                             if self.prefix_length is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3799,7 +3538,7 @@ class Interfaces(object):
                         .. attribute:: origin
                         
                         	[adapted from IETF IP model RFC 7277]  The origin of this address, e.g., static, dhcp, etc
-                        	**type**\: :py:class:`IpAddressOrigin_Enum <ydk.models.openconfig.openconfig_if_ip.IpAddressOrigin_Enum>`
+                        	**type**\: :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
                         
                         .. attribute:: prefix_length
                         
@@ -3811,7 +3550,7 @@ class Interfaces(object):
                         .. attribute:: status
                         
                         	[adapted from IETF IP model RFC 7277]  The status of an address.  Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol
-                        	**type**\: :py:class:`Status_Enum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.State.Status_Enum>`
+                        	**type**\: :py:class:`StatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.State.StatusEnum>`
                         
                         
 
@@ -3827,92 +3566,99 @@ class Interfaces(object):
                             self.prefix_length = None
                             self.status = None
 
-                        class Status_Enum(Enum):
+                        class StatusEnum(Enum):
                             """
-                            Status_Enum
+                            StatusEnum
 
                             [adapted from IETF IP model RFC 7277]
-                            
+
                             The status of an address.  Most of the states correspond
+
                             to states from the IPv6 Stateless Address
+
                             Autoconfiguration protocol.
 
-                            """
+                            .. data:: PREFERRED = 0
+
+                            	This is a valid address that can appear as the
+
+                            	destination or source address of a packet.
+
+                            .. data:: DEPRECATED = 1
+
+                            	This is a valid but deprecated address that should
+
+                            	no longer be used as a source address in new
+
+                            	communications, but packets addressed to such an
+
+                            	address are processed as expected.
+
+                            .. data:: INVALID = 2
+
+                            	This isn't a valid address, and it shouldn't appear
+
+                            	as the destination or source address of a packet.
+
+                            .. data:: INACCESSIBLE = 3
+
+                            	The address is not accessible because the interface
+
+                            	to which this address is assigned is not
+
+                            	operational.
+
+                            .. data:: UNKNOWN = 4
+
+                            	The status cannot be determined for some reason.
+
+                            .. data:: TENTATIVE = 5
+
+                            	The uniqueness of the address on the link is being
+
+                            	verified.  Addresses in this state should not be
+
+                            	used for general communication and should only be
+
+                            	used to determine the uniqueness of the address.
+
+                            .. data:: DUPLICATE = 6
+
+                            	The address has been determined to be non-unique on
+
+                            	the link and so must not be used.
+
+                            .. data:: OPTIMISTIC = 7
+
+                            	The address is available for use, subject to
+
+                            	restrictions, while its uniqueness on a link is
+
+                            	being verified.
 
                             """
 
-                            This is a valid address that can appear as the
-                            destination or source address of a packet.
-
-                            """
                             PREFERRED = 0
 
-                            """
-
-                            This is a valid but deprecated address that should
-                            no longer be used as a source address in new
-                            communications, but packets addressed to such an
-                            address are processed as expected.
-
-                            """
                             DEPRECATED = 1
 
-                            """
-
-                            This isn't a valid address, and it shouldn't appear
-                            as the destination or source address of a packet.
-
-                            """
                             INVALID = 2
 
-                            """
-
-                            The address is not accessible because the interface
-                            to which this address is assigned is not
-                            operational.
-
-                            """
                             INACCESSIBLE = 3
 
-                            """
-
-                            The status cannot be determined for some reason.
-
-                            """
                             UNKNOWN = 4
 
-                            """
-
-                            The uniqueness of the address on the link is being
-                            verified.  Addresses in this state should not be
-                            used for general communication and should only be
-                            used to determine the uniqueness of the address.
-
-                            """
                             TENTATIVE = 5
 
-                            """
-
-                            The address has been determined to be non\-unique on
-                            the link and so must not be used.
-
-                            """
                             DUPLICATE = 6
 
-                            """
-
-                            The address is available for use, subject to
-                            restrictions, while its uniqueness on a link is
-                            being verified.
-
-                            """
                             OPTIMISTIC = 7
 
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_interfaces as meta
-                                return meta._meta_table['Interfaces.Interface.RoutedVlan.Ipv6.Address.State.Status_Enum']
+                                return meta._meta_table['Interfaces.Interface.RoutedVlan.Ipv6.Address.State.StatusEnum']
 
 
                         @property
@@ -3929,8 +3675,6 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip is not None:
                                 return True
 
@@ -3943,10 +3687,6 @@ class Interfaces(object):
                             if self.status is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4107,8 +3847,6 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.accept_mode is not None:
                                         return True
 
@@ -4135,10 +3873,6 @@ class Interfaces(object):
                                     if self.virtual_router_id is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4218,18 +3952,12 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.priority_decrement is not None:
                                             return True
 
                                         if self.track_interface is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4280,18 +4008,12 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.priority_decrement is not None:
                                             return True
 
                                         if self.track_interface is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4313,24 +4035,12 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.config is not None and self.config._has_data():
-                                        return True
-
-                                    if self.config is not None and self.config.is_presence():
                                         return True
 
                                     if self.state is not None and self.state._has_data():
                                         return True
 
-                                    if self.state is not None and self.state.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4431,8 +4141,6 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.accept_mode is not None:
                                         return True
 
@@ -4464,10 +4172,6 @@ class Interfaces(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.openconfig._meta import _openconfig_interfaces as meta
@@ -4489,33 +4193,18 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.virtual_router_id is not None:
                                     return True
 
                                 if self.config is not None and self.config._has_data():
                                     return True
 
-                                if self.config is not None and self.config.is_presence():
-                                    return True
-
                                 if self.interface_tracking is not None and self.interface_tracking._has_data():
-                                    return True
-
-                                if self.interface_tracking is not None and self.interface_tracking.is_presence():
                                     return True
 
                                 if self.state is not None and self.state._has_data():
                                     return True
 
-                                if self.state is not None and self.state.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4537,17 +4226,11 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrrp_group is not None:
                                 for child_ref in self.vrrp_group:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4571,33 +4254,18 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ip is not None:
                             return True
 
                         if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.config is not None and self.config.is_presence():
-                            return True
-
                         if self.state is not None and self.state._has_data():
-                            return True
-
-                        if self.state is not None and self.state.is_presence():
                             return True
 
                         if self.vrrp is not None and self.vrrp._has_data():
                             return True
 
-                        if self.vrrp is not None and self.vrrp.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4694,8 +4362,6 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.create_global_addresses is not None:
                                 return True
 
@@ -4708,10 +4374,6 @@ class Interfaces(object):
                             if self.temporary_valid_lifetime is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4776,8 +4438,6 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.create_global_addresses is not None:
                                 return True
 
@@ -4790,10 +4450,6 @@ class Interfaces(object):
                             if self.temporary_valid_lifetime is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4815,24 +4471,12 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.config is not None and self.config._has_data():
-                            return True
-
-                        if self.config is not None and self.config.is_presence():
                             return True
 
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4891,8 +4535,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.dup_addr_detect_transmits is not None:
                             return True
 
@@ -4902,10 +4544,6 @@ class Interfaces(object):
                         if self.mtu is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5000,18 +4638,12 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip is not None:
                                 return True
 
                             if self.link_layer_address is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5047,12 +4679,12 @@ class Interfaces(object):
                         .. attribute:: neighbor_state
                         
                         	[adapted from IETF IP model RFC 7277]  The Neighbor Unreachability Detection state of this entry
-                        	**type**\: :py:class:`NeighborState_Enum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.State.NeighborState_Enum>`
+                        	**type**\: :py:class:`NeighborStateEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.State.NeighborStateEnum>`
                         
                         .. attribute:: origin
                         
                         	[adapted from IETF IP model RFC 7277]  The origin of this neighbor entry
-                        	**type**\: :py:class:`NeighborOrigin_Enum <ydk.models.openconfig.openconfig_if_ip.NeighborOrigin_Enum>`
+                        	**type**\: :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
                         
                         
 
@@ -5069,69 +4701,77 @@ class Interfaces(object):
                             self.neighbor_state = None
                             self.origin = None
 
-                        class NeighborState_Enum(Enum):
+                        class NeighborStateEnum(Enum):
                             """
-                            NeighborState_Enum
+                            NeighborStateEnum
 
                             [adapted from IETF IP model RFC 7277]
-                            
+
                             The Neighbor Unreachability Detection state of this
+
                             entry.
 
-                            """
+                            .. data:: INCOMPLETE = 0
+
+                            	Address resolution is in progress, and the link-layer
+
+                            	     address of the neighbor has not yet been
+
+                            	     determined.
+
+                            .. data:: REACHABLE = 1
+
+                            	Roughly speaking, the neighbor is known to have been
+
+                            	     reachable recently (within tens of seconds ago).
+
+                            .. data:: STALE = 2
+
+                            	The neighbor is no longer known to be reachable, but
+
+                            	     until traffic is sent to the neighbor no attempt
+
+                            	     should be made to verify its reachability.
+
+                            .. data:: DELAY = 3
+
+                            	The neighbor is no longer known to be reachable, and
+
+                            	     traffic has recently been sent to the neighbor.
+
+                            	     Rather than probe the neighbor immediately, however,
+
+                            	     delay sending probes for a short while in order to
+
+                            	     give upper-layer protocols a chance to provide
+
+                            	     reachability confirmation.
+
+                            .. data:: PROBE = 4
+
+                            	The neighbor is no longer known to be reachable, and
+
+                            	     unicast Neighbor Solicitation probes are being sent
+
+                            	     to verify reachability.
 
                             """
 
-                            Address resolution is in progress, and the link\-layer
-                                 address of the neighbor has not yet been
-                                 determined.
-
-                            """
                             INCOMPLETE = 0
 
-                            """
-
-                            Roughly speaking, the neighbor is known to have been
-                                 reachable recently (within tens of seconds ago).
-
-                            """
                             REACHABLE = 1
 
-                            """
-
-                            The neighbor is no longer known to be reachable, but
-                                 until traffic is sent to the neighbor no attempt
-                                 should be made to verify its reachability.
-
-                            """
                             STALE = 2
 
-                            """
-
-                            The neighbor is no longer known to be reachable, and
-                                 traffic has recently been sent to the neighbor.
-                                 Rather than probe the neighbor immediately, however,
-                                 delay sending probes for a short while in order to
-                                 give upper\-layer protocols a chance to provide
-                                 reachability confirmation.
-
-                            """
                             DELAY = 3
 
-                            """
-
-                            The neighbor is no longer known to be reachable, and
-                                 unicast Neighbor Solicitation probes are being sent
-                                 to verify reachability.
-
-                            """
                             PROBE = 4
 
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_interfaces as meta
-                                return meta._meta_table['Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.State.NeighborState_Enum']
+                                return meta._meta_table['Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.State.NeighborStateEnum']
 
 
                         @property
@@ -5148,8 +4788,6 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip is not None:
                                 return True
 
@@ -5165,10 +4803,6 @@ class Interfaces(object):
                             if self.origin is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5192,27 +4826,15 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ip is not None:
                             return True
 
                         if self.config is not None and self.config._has_data():
                             return True
 
-                        if self.config is not None and self.config.is_presence():
-                            return True
-
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5271,8 +4893,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.dup_addr_detect_transmits is not None:
                             return True
 
@@ -5282,10 +4902,6 @@ class Interfaces(object):
                         if self.mtu is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5307,8 +4923,6 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.address is not None:
                         for child_ref in self.address:
                             if child_ref._has_data():
@@ -5317,13 +4931,7 @@ class Interfaces(object):
                     if self.autoconf is not None and self.autoconf._has_data():
                         return True
 
-                    if self.autoconf is not None and self.autoconf.is_presence():
-                        return True
-
                     if self.config is not None and self.config._has_data():
-                        return True
-
-                    if self.config is not None and self.config.is_presence():
                         return True
 
                     if self.neighbor is not None:
@@ -5334,14 +4942,7 @@ class Interfaces(object):
                     if self.state is not None and self.state._has_data():
                         return True
 
-                    if self.state is not None and self.state.is_presence():
-                        return True
-
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -5383,15 +4984,9 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vlan is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5413,36 +5008,18 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.config is not None and self.config._has_data():
-                    return True
-
-                if self.config is not None and self.config.is_presence():
                     return True
 
                 if self.ipv4 is not None and self.ipv4._has_data():
                     return True
 
-                if self.ipv4 is not None and self.ipv4.is_presence():
-                    return True
-
                 if self.ipv6 is not None and self.ipv6._has_data():
-                    return True
-
-                if self.ipv6 is not None and self.ipv6.is_presence():
                     return True
 
                 if self.state is not None and self.state._has_data():
                     return True
 
-                if self.state is not None and self.state.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5458,7 +5035,7 @@ class Interfaces(object):
             .. attribute:: admin_status
             
             	[adapted from IETF interfaces model (RFC 7223)]  The desired state of the interface.  In RFC 7223 this leaf has the same read semantics as ifAdminStatus.  Here, it reflects the administrative state as set by enabling or disabling the interface
-            	**type**\: :py:class:`AdminStatus_Enum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.AdminStatus_Enum>`
+            	**type**\: :py:class:`AdminStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.AdminStatusEnum>`
             
             .. attribute:: counters
             
@@ -5509,7 +5086,7 @@ class Interfaces(object):
             .. attribute:: oper_status
             
             	[adapted from IETF interfaces model (RFC 7223)]  The current operational state of the interface.  This leaf has the same semantics as ifOperStatus
-            	**type**\: :py:class:`OperStatus_Enum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.OperStatus_Enum>`
+            	**type**\: :py:class:`OperStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.OperStatusEnum>`
             
             .. attribute:: type
             
@@ -5538,114 +5115,108 @@ class Interfaces(object):
                 self.oper_status = None
                 self.type = None
 
-            class AdminStatus_Enum(Enum):
+            class AdminStatusEnum(Enum):
                 """
-                AdminStatus_Enum
+                AdminStatusEnum
 
                 [adapted from IETF interfaces model (RFC 7223)]
-                
+
                 The desired state of the interface.  In RFC 7223 this leaf
+
                 has the same read semantics as ifAdminStatus.  Here, it
+
                 reflects the administrative state as set by enabling or
+
                 disabling the interface.
 
-                """
+                .. data:: UP = 0
+
+                	Ready to pass packets.
+
+                .. data:: DOWN = 1
+
+                	Not ready to pass packets and not in some test mode.
+
+                .. data:: TESTING = 2
+
+                	In some test mode.
 
                 """
 
-                Ready to pass packets.
-
-                """
                 UP = 0
 
-                """
-
-                Not ready to pass packets and not in some test mode.
-
-                """
                 DOWN = 1
 
-                """
-
-                In some test mode.
-
-                """
                 TESTING = 2
 
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_interfaces as meta
-                    return meta._meta_table['Interfaces.Interface.State.AdminStatus_Enum']
+                    return meta._meta_table['Interfaces.Interface.State.AdminStatusEnum']
 
 
-            class OperStatus_Enum(Enum):
+            class OperStatusEnum(Enum):
                 """
-                OperStatus_Enum
+                OperStatusEnum
 
                 [adapted from IETF interfaces model (RFC 7223)]
-                
+
                 The current operational state of the interface.
-                
+
                 This leaf has the same semantics as ifOperStatus.
 
-                """
+                .. data:: UP = 1
+
+                	Ready to pass packets.
+
+                .. data:: DOWN = 2
+
+                	The interface does not pass any packets.
+
+                .. data:: TESTING = 3
+
+                	In some test mode.  No operational packets can
+
+                	be passed.
+
+                .. data:: UNKNOWN = 4
+
+                	Status cannot be determined for some reason.
+
+                .. data:: DORMANT = 5
+
+                	Waiting for some external event.
+
+                .. data:: NOT_PRESENT = 6
+
+                	Some component (typically hardware) is missing.
+
+                .. data:: LOWER_LAYER_DOWN = 7
+
+                	Down due to state of lower-layer interface(s).
 
                 """
 
-                Ready to pass packets.
-
-                """
                 UP = 1
 
-                """
-
-                The interface does not pass any packets.
-
-                """
                 DOWN = 2
 
-                """
-
-                In some test mode.  No operational packets can
-                be passed.
-
-                """
                 TESTING = 3
 
-                """
-
-                Status cannot be determined for some reason.
-
-                """
                 UNKNOWN = 4
 
-                """
-
-                Waiting for some external event.
-
-                """
                 DORMANT = 5
 
-                """
-
-                Some component (typically hardware) is missing.
-
-                """
                 NOT_PRESENT = 6
 
-                """
-
-                Down due to state of lower\-layer interface(s).
-
-                """
                 LOWER_LAYER_DOWN = 7
 
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_interfaces as meta
-                    return meta._meta_table['Interfaces.Interface.State.OperStatus_Enum']
+                    return meta._meta_table['Interfaces.Interface.State.OperStatusEnum']
 
 
 
@@ -5789,8 +5360,6 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.in_broadcast_pkts is not None:
                         return True
 
@@ -5835,10 +5404,6 @@ class Interfaces(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_interfaces as meta
@@ -5858,15 +5423,10 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.admin_status is not None:
                     return True
 
                 if self.counters is not None and self.counters._has_data():
-                    return True
-
-                if self.counters is not None and self.counters.is_presence():
                     return True
 
                 if self.description is not None:
@@ -5896,10 +5456,6 @@ class Interfaces(object):
                 if self.type is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6051,8 +5607,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.description is not None:
                             return True
 
@@ -6070,10 +5624,6 @@ class Interfaces(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_interfaces as meta
@@ -6089,20 +5639,40 @@ class Interfaces(object):
                     	The list of configured IPv4 addresses on the interface
                     	**type**\: list of :py:class:`Address <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address>`
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: config
                     
                     	Top\-level IPv4 configuration data for the interface
                     	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: neighbor
                     
                     	A list of mappings from IPv4 addresses to link\-layer addresses.  Entries in this list are used as static entries in the ARP Cache
                     	**type**\: list of :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbor>`
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: state
                     
                     	Top level IPv4 operational state data
                     	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -6216,18 +5786,12 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ip is not None:
                                     return True
 
                                 if self.prefix_length is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6251,7 +5815,7 @@ class Interfaces(object):
                             .. attribute:: origin
                             
                             	The origin of this address, e.g., statically configured, assigned by DHCP, etc.
-                            	**type**\: :py:class:`IpAddressOrigin_Enum <ydk.models.openconfig.openconfig_if_ip.IpAddressOrigin_Enum>`
+                            	**type**\: :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
                             
                             .. attribute:: prefix_length
                             
@@ -6287,8 +5851,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ip is not None:
                                     return True
 
@@ -6298,10 +5860,6 @@ class Interfaces(object):
                                 if self.prefix_length is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6456,8 +6014,6 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.accept_mode is not None:
                                             return True
 
@@ -6481,10 +6037,6 @@ class Interfaces(object):
                                         if self.virtual_router_id is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6564,18 +6116,12 @@ class Interfaces(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.priority_decrement is not None:
                                                 return True
 
                                             if self.track_interface is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6626,18 +6172,12 @@ class Interfaces(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.priority_decrement is not None:
                                                 return True
 
                                             if self.track_interface is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -6659,24 +6199,12 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.config is not None and self.config._has_data():
-                                            return True
-
-                                        if self.config is not None and self.config.is_presence():
                                             return True
 
                                         if self.state is not None and self.state._has_data():
                                             return True
 
-                                        if self.state is not None and self.state.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6771,8 +6299,6 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.accept_mode is not None:
                                             return True
 
@@ -6801,10 +6327,6 @@ class Interfaces(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.openconfig._meta import _openconfig_interfaces as meta
@@ -6826,33 +6348,18 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.virtual_router_id is not None:
                                         return True
 
                                     if self.config is not None and self.config._has_data():
                                         return True
 
-                                    if self.config is not None and self.config.is_presence():
-                                        return True
-
                                     if self.interface_tracking is not None and self.interface_tracking._has_data():
-                                        return True
-
-                                    if self.interface_tracking is not None and self.interface_tracking.is_presence():
                                         return True
 
                                     if self.state is not None and self.state._has_data():
                                         return True
 
-                                    if self.state is not None and self.state.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6874,17 +6381,11 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vrrp_group is not None:
                                     for child_ref in self.vrrp_group:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6908,33 +6409,18 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip is not None:
                                 return True
 
                             if self.config is not None and self.config._has_data():
                                 return True
 
-                            if self.config is not None and self.config.is_presence():
-                                return True
-
                             if self.state is not None and self.state._has_data():
-                                return True
-
-                            if self.state is not None and self.state.is_presence():
                                 return True
 
                             if self.vrrp is not None and self.vrrp._has_data():
                                 return True
 
-                            if self.vrrp is not None and self.vrrp.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -6985,18 +6471,12 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.enabled is not None:
                                 return True
 
                             if self.mtu is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7091,18 +6571,12 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ip is not None:
                                     return True
 
                                 if self.link_layer_address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7133,7 +6607,7 @@ class Interfaces(object):
                             .. attribute:: origin
                             
                             	The origin of this neighbor entry, static or dynamic
-                            	**type**\: :py:class:`NeighborOrigin_Enum <ydk.models.openconfig.openconfig_if_ip.NeighborOrigin_Enum>`
+                            	**type**\: :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
                             
                             
 
@@ -7162,8 +6636,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ip is not None:
                                     return True
 
@@ -7173,10 +6645,6 @@ class Interfaces(object):
                                 if self.origin is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7200,27 +6668,15 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip is not None:
                                 return True
 
                             if self.config is not None and self.config._has_data():
                                 return True
 
-                            if self.config is not None and self.config.is_presence():
-                                return True
-
                             if self.state is not None and self.state._has_data():
                                 return True
 
-                            if self.state is not None and self.state.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7271,18 +6727,12 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.enabled is not None:
                                 return True
 
                             if self.mtu is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7304,17 +6754,12 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             for child_ref in self.address:
                                 if child_ref._has_data():
                                     return True
 
                         if self.config is not None and self.config._has_data():
-                            return True
-
-                        if self.config is not None and self.config.is_presence():
                             return True
 
                         if self.neighbor is not None:
@@ -7325,14 +6770,7 @@ class Interfaces(object):
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -7349,25 +6787,50 @@ class Interfaces(object):
                     	The list of configured IPv6 addresses on the interface
                     	**type**\: list of :py:class:`Address <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address>`
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: autoconf
                     
                     	Top\-level container for IPv6 autoconf
                     	**type**\: :py:class:`Autoconf <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     .. attribute:: config
                     
                     	Top\-level config data for the IPv6 interface
                     	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config>`
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: neighbor
                     
                     	A list of mappings from IPv6 addresses to link\-layer addresses.  Entries in this list are used as static entries in the Neighbor Cache
                     	**type**\: list of :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor>`
                     
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
                     .. attribute:: state
                     
                     	Top\-level operational state data for the IPv6 interface
                     	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State>`
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
                     
                     
 
@@ -7483,18 +6946,12 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ip is not None:
                                     return True
 
                                 if self.prefix_length is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7518,7 +6975,7 @@ class Interfaces(object):
                             .. attribute:: origin
                             
                             	[adapted from IETF IP model RFC 7277]  The origin of this address, e.g., static, dhcp, etc
-                            	**type**\: :py:class:`IpAddressOrigin_Enum <ydk.models.openconfig.openconfig_if_ip.IpAddressOrigin_Enum>`
+                            	**type**\: :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
                             
                             .. attribute:: prefix_length
                             
@@ -7530,7 +6987,7 @@ class Interfaces(object):
                             .. attribute:: status
                             
                             	[adapted from IETF IP model RFC 7277]  The status of an address.  Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol
-                            	**type**\: :py:class:`Status_Enum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.State.Status_Enum>`
+                            	**type**\: :py:class:`StatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.State.StatusEnum>`
                             
                             
 
@@ -7546,92 +7003,99 @@ class Interfaces(object):
                                 self.prefix_length = None
                                 self.status = None
 
-                            class Status_Enum(Enum):
+                            class StatusEnum(Enum):
                                 """
-                                Status_Enum
+                                StatusEnum
 
                                 [adapted from IETF IP model RFC 7277]
-                                
+
                                 The status of an address.  Most of the states correspond
+
                                 to states from the IPv6 Stateless Address
+
                                 Autoconfiguration protocol.
 
-                                """
+                                .. data:: PREFERRED = 0
+
+                                	This is a valid address that can appear as the
+
+                                	destination or source address of a packet.
+
+                                .. data:: DEPRECATED = 1
+
+                                	This is a valid but deprecated address that should
+
+                                	no longer be used as a source address in new
+
+                                	communications, but packets addressed to such an
+
+                                	address are processed as expected.
+
+                                .. data:: INVALID = 2
+
+                                	This isn't a valid address, and it shouldn't appear
+
+                                	as the destination or source address of a packet.
+
+                                .. data:: INACCESSIBLE = 3
+
+                                	The address is not accessible because the interface
+
+                                	to which this address is assigned is not
+
+                                	operational.
+
+                                .. data:: UNKNOWN = 4
+
+                                	The status cannot be determined for some reason.
+
+                                .. data:: TENTATIVE = 5
+
+                                	The uniqueness of the address on the link is being
+
+                                	verified.  Addresses in this state should not be
+
+                                	used for general communication and should only be
+
+                                	used to determine the uniqueness of the address.
+
+                                .. data:: DUPLICATE = 6
+
+                                	The address has been determined to be non-unique on
+
+                                	the link and so must not be used.
+
+                                .. data:: OPTIMISTIC = 7
+
+                                	The address is available for use, subject to
+
+                                	restrictions, while its uniqueness on a link is
+
+                                	being verified.
 
                                 """
 
-                                This is a valid address that can appear as the
-                                destination or source address of a packet.
-
-                                """
                                 PREFERRED = 0
 
-                                """
-
-                                This is a valid but deprecated address that should
-                                no longer be used as a source address in new
-                                communications, but packets addressed to such an
-                                address are processed as expected.
-
-                                """
                                 DEPRECATED = 1
 
-                                """
-
-                                This isn't a valid address, and it shouldn't appear
-                                as the destination or source address of a packet.
-
-                                """
                                 INVALID = 2
 
-                                """
-
-                                The address is not accessible because the interface
-                                to which this address is assigned is not
-                                operational.
-
-                                """
                                 INACCESSIBLE = 3
 
-                                """
-
-                                The status cannot be determined for some reason.
-
-                                """
                                 UNKNOWN = 4
 
-                                """
-
-                                The uniqueness of the address on the link is being
-                                verified.  Addresses in this state should not be
-                                used for general communication and should only be
-                                used to determine the uniqueness of the address.
-
-                                """
                                 TENTATIVE = 5
 
-                                """
-
-                                The address has been determined to be non\-unique on
-                                the link and so must not be used.
-
-                                """
                                 DUPLICATE = 6
 
-                                """
-
-                                The address is available for use, subject to
-                                restrictions, while its uniqueness on a link is
-                                being verified.
-
-                                """
                                 OPTIMISTIC = 7
 
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.openconfig._meta import _openconfig_interfaces as meta
-                                    return meta._meta_table['Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.State.Status_Enum']
+                                    return meta._meta_table['Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.State.StatusEnum']
 
 
                             @property
@@ -7648,8 +7112,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ip is not None:
                                     return True
 
@@ -7662,10 +7124,6 @@ class Interfaces(object):
                                 if self.status is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7826,8 +7284,6 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.accept_mode is not None:
                                             return True
 
@@ -7854,10 +7310,6 @@ class Interfaces(object):
                                         if self.virtual_router_id is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7937,18 +7389,12 @@ class Interfaces(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.priority_decrement is not None:
                                                 return True
 
                                             if self.track_interface is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -7999,18 +7445,12 @@ class Interfaces(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.priority_decrement is not None:
                                                 return True
 
                                             if self.track_interface is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -8032,24 +7472,12 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.config is not None and self.config._has_data():
-                                            return True
-
-                                        if self.config is not None and self.config.is_presence():
                                             return True
 
                                         if self.state is not None and self.state._has_data():
                                             return True
 
-                                        if self.state is not None and self.state.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -8150,8 +7578,6 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.accept_mode is not None:
                                             return True
 
@@ -8183,10 +7609,6 @@ class Interfaces(object):
 
                                         return False
 
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
-                                        return False
-
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.openconfig._meta import _openconfig_interfaces as meta
@@ -8208,33 +7630,18 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.virtual_router_id is not None:
                                         return True
 
                                     if self.config is not None and self.config._has_data():
                                         return True
 
-                                    if self.config is not None and self.config.is_presence():
-                                        return True
-
                                     if self.interface_tracking is not None and self.interface_tracking._has_data():
-                                        return True
-
-                                    if self.interface_tracking is not None and self.interface_tracking.is_presence():
                                         return True
 
                                     if self.state is not None and self.state._has_data():
                                         return True
 
-                                    if self.state is not None and self.state.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8256,17 +7663,11 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.vrrp_group is not None:
                                     for child_ref in self.vrrp_group:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8290,33 +7691,18 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip is not None:
                                 return True
 
                             if self.config is not None and self.config._has_data():
                                 return True
 
-                            if self.config is not None and self.config.is_presence():
-                                return True
-
                             if self.state is not None and self.state._has_data():
-                                return True
-
-                            if self.state is not None and self.state.is_presence():
                                 return True
 
                             if self.vrrp is not None and self.vrrp._has_data():
                                 return True
 
-                            if self.vrrp is not None and self.vrrp.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8413,8 +7799,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.create_global_addresses is not None:
                                     return True
 
@@ -8427,10 +7811,6 @@ class Interfaces(object):
                                 if self.temporary_valid_lifetime is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8495,8 +7875,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.create_global_addresses is not None:
                                     return True
 
@@ -8509,10 +7887,6 @@ class Interfaces(object):
                                 if self.temporary_valid_lifetime is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8534,24 +7908,12 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.config is not None and self.config._has_data():
-                                return True
-
-                            if self.config is not None and self.config.is_presence():
                                 return True
 
                             if self.state is not None and self.state._has_data():
                                 return True
 
-                            if self.state is not None and self.state.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8610,8 +7972,6 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.dup_addr_detect_transmits is not None:
                                 return True
 
@@ -8621,10 +7981,6 @@ class Interfaces(object):
                             if self.mtu is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8719,18 +8075,12 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ip is not None:
                                     return True
 
                                 if self.link_layer_address is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8766,12 +8116,12 @@ class Interfaces(object):
                             .. attribute:: neighbor_state
                             
                             	[adapted from IETF IP model RFC 7277]  The Neighbor Unreachability Detection state of this entry
-                            	**type**\: :py:class:`NeighborState_Enum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State.NeighborState_Enum>`
+                            	**type**\: :py:class:`NeighborStateEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State.NeighborStateEnum>`
                             
                             .. attribute:: origin
                             
                             	[adapted from IETF IP model RFC 7277]  The origin of this neighbor entry
-                            	**type**\: :py:class:`NeighborOrigin_Enum <ydk.models.openconfig.openconfig_if_ip.NeighborOrigin_Enum>`
+                            	**type**\: :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
                             
                             
 
@@ -8788,69 +8138,77 @@ class Interfaces(object):
                                 self.neighbor_state = None
                                 self.origin = None
 
-                            class NeighborState_Enum(Enum):
+                            class NeighborStateEnum(Enum):
                                 """
-                                NeighborState_Enum
+                                NeighborStateEnum
 
                                 [adapted from IETF IP model RFC 7277]
-                                
+
                                 The Neighbor Unreachability Detection state of this
+
                                 entry.
 
-                                """
+                                .. data:: INCOMPLETE = 0
+
+                                	Address resolution is in progress, and the link-layer
+
+                                	     address of the neighbor has not yet been
+
+                                	     determined.
+
+                                .. data:: REACHABLE = 1
+
+                                	Roughly speaking, the neighbor is known to have been
+
+                                	     reachable recently (within tens of seconds ago).
+
+                                .. data:: STALE = 2
+
+                                	The neighbor is no longer known to be reachable, but
+
+                                	     until traffic is sent to the neighbor no attempt
+
+                                	     should be made to verify its reachability.
+
+                                .. data:: DELAY = 3
+
+                                	The neighbor is no longer known to be reachable, and
+
+                                	     traffic has recently been sent to the neighbor.
+
+                                	     Rather than probe the neighbor immediately, however,
+
+                                	     delay sending probes for a short while in order to
+
+                                	     give upper-layer protocols a chance to provide
+
+                                	     reachability confirmation.
+
+                                .. data:: PROBE = 4
+
+                                	The neighbor is no longer known to be reachable, and
+
+                                	     unicast Neighbor Solicitation probes are being sent
+
+                                	     to verify reachability.
 
                                 """
 
-                                Address resolution is in progress, and the link\-layer
-                                     address of the neighbor has not yet been
-                                     determined.
-
-                                """
                                 INCOMPLETE = 0
 
-                                """
-
-                                Roughly speaking, the neighbor is known to have been
-                                     reachable recently (within tens of seconds ago).
-
-                                """
                                 REACHABLE = 1
 
-                                """
-
-                                The neighbor is no longer known to be reachable, but
-                                     until traffic is sent to the neighbor no attempt
-                                     should be made to verify its reachability.
-
-                                """
                                 STALE = 2
 
-                                """
-
-                                The neighbor is no longer known to be reachable, and
-                                     traffic has recently been sent to the neighbor.
-                                     Rather than probe the neighbor immediately, however,
-                                     delay sending probes for a short while in order to
-                                     give upper\-layer protocols a chance to provide
-                                     reachability confirmation.
-
-                                """
                                 DELAY = 3
 
-                                """
-
-                                The neighbor is no longer known to be reachable, and
-                                     unicast Neighbor Solicitation probes are being sent
-                                     to verify reachability.
-
-                                """
                                 PROBE = 4
 
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.openconfig._meta import _openconfig_interfaces as meta
-                                    return meta._meta_table['Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State.NeighborState_Enum']
+                                    return meta._meta_table['Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State.NeighborStateEnum']
 
 
                             @property
@@ -8867,8 +8225,6 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ip is not None:
                                     return True
 
@@ -8884,10 +8240,6 @@ class Interfaces(object):
                                 if self.origin is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8911,27 +8263,15 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip is not None:
                                 return True
 
                             if self.config is not None and self.config._has_data():
                                 return True
 
-                            if self.config is not None and self.config.is_presence():
-                                return True
-
                             if self.state is not None and self.state._has_data():
                                 return True
 
-                            if self.state is not None and self.state.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8990,8 +8330,6 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.dup_addr_detect_transmits is not None:
                                 return True
 
@@ -9001,10 +8339,6 @@ class Interfaces(object):
                             if self.mtu is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9026,8 +8360,6 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.address is not None:
                             for child_ref in self.address:
                                 if child_ref._has_data():
@@ -9036,13 +8368,7 @@ class Interfaces(object):
                         if self.autoconf is not None and self.autoconf._has_data():
                             return True
 
-                        if self.autoconf is not None and self.autoconf.is_presence():
-                            return True
-
                         if self.config is not None and self.config._has_data():
-                            return True
-
-                        if self.config is not None and self.config.is_presence():
                             return True
 
                         if self.neighbor is not None:
@@ -9053,14 +8379,7 @@ class Interfaces(object):
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
                         return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return True
 
                     @staticmethod
                     def _meta_info():
@@ -9075,7 +8394,7 @@ class Interfaces(object):
                     .. attribute:: admin_status
                     
                     	[adapted from IETF interfaces model (RFC 7223)]  The desired state of the interface.  In RFC 7223 this leaf has the same read semantics as ifAdminStatus.  Here, it reflects the administrative state as set by enabling or disabling the interface
-                    	**type**\: :py:class:`AdminStatus_Enum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatus_Enum>`
+                    	**type**\: :py:class:`AdminStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatusEnum>`
                     
                     .. attribute:: counters
                     
@@ -9121,7 +8440,7 @@ class Interfaces(object):
                     .. attribute:: oper_status
                     
                     	[adapted from IETF interfaces model (RFC 7223)]  The current operational state of the interface.  This leaf has the same semantics as ifOperStatus
-                    	**type**\: :py:class:`OperStatus_Enum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.OperStatus_Enum>`
+                    	**type**\: :py:class:`OperStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.OperStatusEnum>`
                     
                     .. attribute:: unnumbered
                     
@@ -9151,114 +8470,108 @@ class Interfaces(object):
                         self.oper_status = None
                         self.unnumbered = None
 
-                    class AdminStatus_Enum(Enum):
+                    class AdminStatusEnum(Enum):
                         """
-                        AdminStatus_Enum
+                        AdminStatusEnum
 
                         [adapted from IETF interfaces model (RFC 7223)]
-                        
+
                         The desired state of the interface.  In RFC 7223 this leaf
+
                         has the same read semantics as ifAdminStatus.  Here, it
+
                         reflects the administrative state as set by enabling or
+
                         disabling the interface.
 
-                        """
+                        .. data:: UP = 0
+
+                        	Ready to pass packets.
+
+                        .. data:: DOWN = 1
+
+                        	Not ready to pass packets and not in some test mode.
+
+                        .. data:: TESTING = 2
+
+                        	In some test mode.
 
                         """
 
-                        Ready to pass packets.
-
-                        """
                         UP = 0
 
-                        """
-
-                        Not ready to pass packets and not in some test mode.
-
-                        """
                         DOWN = 1
 
-                        """
-
-                        In some test mode.
-
-                        """
                         TESTING = 2
 
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_interfaces as meta
-                            return meta._meta_table['Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatus_Enum']
+                            return meta._meta_table['Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatusEnum']
 
 
-                    class OperStatus_Enum(Enum):
+                    class OperStatusEnum(Enum):
                         """
-                        OperStatus_Enum
+                        OperStatusEnum
 
                         [adapted from IETF interfaces model (RFC 7223)]
-                        
+
                         The current operational state of the interface.
-                        
+
                         This leaf has the same semantics as ifOperStatus.
 
-                        """
+                        .. data:: UP = 1
+
+                        	Ready to pass packets.
+
+                        .. data:: DOWN = 2
+
+                        	The interface does not pass any packets.
+
+                        .. data:: TESTING = 3
+
+                        	In some test mode.  No operational packets can
+
+                        	be passed.
+
+                        .. data:: UNKNOWN = 4
+
+                        	Status cannot be determined for some reason.
+
+                        .. data:: DORMANT = 5
+
+                        	Waiting for some external event.
+
+                        .. data:: NOT_PRESENT = 6
+
+                        	Some component (typically hardware) is missing.
+
+                        .. data:: LOWER_LAYER_DOWN = 7
+
+                        	Down due to state of lower-layer interface(s).
 
                         """
 
-                        Ready to pass packets.
-
-                        """
                         UP = 1
 
-                        """
-
-                        The interface does not pass any packets.
-
-                        """
                         DOWN = 2
 
-                        """
-
-                        In some test mode.  No operational packets can
-                        be passed.
-
-                        """
                         TESTING = 3
 
-                        """
-
-                        Status cannot be determined for some reason.
-
-                        """
                         UNKNOWN = 4
 
-                        """
-
-                        Waiting for some external event.
-
-                        """
                         DORMANT = 5
 
-                        """
-
-                        Some component (typically hardware) is missing.
-
-                        """
                         NOT_PRESENT = 6
 
-                        """
-
-                        Down due to state of lower\-layer interface(s).
-
-                        """
                         LOWER_LAYER_DOWN = 7
 
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_interfaces as meta
-                            return meta._meta_table['Interfaces.Interface.Subinterfaces.Subinterface.State.OperStatus_Enum']
+                            return meta._meta_table['Interfaces.Interface.Subinterfaces.Subinterface.State.OperStatusEnum']
 
 
 
@@ -9402,8 +8715,6 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.in_broadcast_pkts is not None:
                                 return True
 
@@ -9448,10 +8759,6 @@ class Interfaces(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_interfaces as meta
@@ -9471,15 +8778,10 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.admin_status is not None:
                             return True
 
                         if self.counters is not None and self.counters._has_data():
-                            return True
-
-                        if self.counters is not None and self.counters.is_presence():
                             return True
 
                         if self.description is not None:
@@ -9506,10 +8808,6 @@ class Interfaces(object):
                         if self.unnumbered is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9588,18 +8886,12 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.global_vlan_id is not None:
                                 return True
 
                             if self.vlan_id is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9648,18 +8940,12 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.global_vlan_id is not None:
                                 return True
 
                             if self.vlan_id is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9681,24 +8967,12 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.config is not None and self.config._has_data():
-                            return True
-
-                        if self.config is not None and self.config.is_presence():
                             return True
 
                         if self.state is not None and self.state._has_data():
                             return True
 
-                        if self.state is not None and self.state.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9722,45 +8996,24 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.index is not None:
                         return True
 
                     if self.config is not None and self.config._has_data():
                         return True
 
-                    if self.config is not None and self.config.is_presence():
-                        return True
-
                     if self.ipv4 is not None and self.ipv4._has_data():
-                        return True
-
-                    if self.ipv4 is not None and self.ipv4.is_presence():
                         return True
 
                     if self.ipv6 is not None and self.ipv6._has_data():
                         return True
 
-                    if self.ipv6 is not None and self.ipv6.is_presence():
-                        return True
-
                     if self.state is not None and self.state._has_data():
-                        return True
-
-                    if self.state is not None and self.state.is_presence():
                         return True
 
                     if self.vlan is not None and self.vlan._has_data():
                         return True
 
-                    if self.vlan is not None and self.vlan.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -9782,17 +9035,11 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.subinterface is not None:
                     for child_ref in self.subinterface:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -9814,57 +9061,30 @@ class Interfaces(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.name is not None:
                 return True
 
             if self.aggregation is not None and self.aggregation._has_data():
                 return True
 
-            if self.aggregation is not None and self.aggregation.is_presence():
-                return True
-
             if self.config is not None and self.config._has_data():
-                return True
-
-            if self.config is not None and self.config.is_presence():
                 return True
 
             if self.ethernet is not None and self.ethernet._has_data():
                 return True
 
-            if self.ethernet is not None and self.ethernet.is_presence():
-                return True
-
             if self.hold_time is not None and self.hold_time._has_data():
-                return True
-
-            if self.hold_time is not None and self.hold_time.is_presence():
                 return True
 
             if self.routed_vlan is not None and self.routed_vlan._has_data():
                 return True
 
-            if self.routed_vlan is not None and self.routed_vlan.is_presence():
-                return True
-
             if self.state is not None and self.state._has_data():
-                return True
-
-            if self.state is not None and self.state.is_presence():
                 return True
 
             if self.subinterfaces is not None and self.subinterfaces._has_data():
                 return True
 
-            if self.subinterfaces is not None and self.subinterfaces.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -9884,17 +9104,11 @@ class Interfaces(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.interface is not None:
             for child_ref in self.interface:
                 if child_ref._has_data():
                     return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

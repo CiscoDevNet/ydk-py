@@ -24,62 +24,58 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class Ipv6NdHopLimit_Enum(Enum):
+class Ipv6NdHopLimitEnum(Enum):
     """
-    Ipv6NdHopLimit_Enum
+    Ipv6NdHopLimitEnum
 
     Ipv6 nd hop limit
 
-    """
+    .. data:: UNSPECIFIED = 0
+
+    	Zero hoplimit value
 
     """
 
-    Zero hoplimit value
-
-    """
     UNSPECIFIED = 0
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_nd_subscriber_cfg as meta
-        return meta._meta_table['Ipv6NdHopLimit_Enum']
+        return meta._meta_table['Ipv6NdHopLimitEnum']
 
 
-class Ipv6NdRouterPrefTemplate_Enum(Enum):
+class Ipv6NdRouterPrefTemplateEnum(Enum):
     """
-    Ipv6NdRouterPrefTemplate_Enum
+    Ipv6NdRouterPrefTemplateEnum
 
     Ipv6 nd router pref template
 
-    """
+    .. data:: HIGH = 1
+
+    	High preference
+
+    .. data:: MEDIUM = 2
+
+    	Medium preference
+
+    .. data:: LOW = 3
+
+    	Low preference
 
     """
 
-    High preference
-
-    """
     HIGH = 1
 
-    """
-
-    Medium preference
-
-    """
     MEDIUM = 2
 
-    """
-
-    Low preference
-
-    """
     LOW = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_nd_subscriber_cfg as meta
-        return meta._meta_table['Ipv6NdRouterPrefTemplate_Enum']
+        return meta._meta_table['Ipv6NdRouterPrefTemplateEnum']
 
 
 

@@ -24,118 +24,106 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class AlAlarmBistate_Enum(Enum):
+class AlAlarmBistateEnum(Enum):
     """
-    AlAlarmBistate_Enum
+    AlAlarmBistateEnum
 
     Al alarm bistate
 
-    """
+    .. data:: NOT_AVAILABLE = 0
+
+    	not available
+
+    .. data:: ACTIVE = 1
+
+    	active
+
+    .. data:: CLEAR = 2
+
+    	clear
 
     """
 
-    not available
-
-    """
     NOT_AVAILABLE = 0
 
-    """
-
-    active
-
-    """
     ACTIVE = 1
 
-    """
-
-    clear
-
-    """
     CLEAR = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_alarm_logger_oper as meta
-        return meta._meta_table['AlAlarmBistate_Enum']
+        return meta._meta_table['AlAlarmBistateEnum']
 
 
-class AlAlarmSeverity_Enum(Enum):
+class AlAlarmSeverityEnum(Enum):
     """
-    AlAlarmSeverity_Enum
+    AlAlarmSeverityEnum
 
     Al alarm severity
 
-    """
+    .. data:: UNKNOWN = -1
+
+    	unknown
+
+    .. data:: EMERGENCY = 0
+
+    	emergency
+
+    .. data:: ALERT = 1
+
+    	alert
+
+    .. data:: CRITICAL = 2
+
+    	critical
+
+    .. data:: ERROR = 3
+
+    	error
+
+    .. data:: WARNING = 4
+
+    	warning
+
+    .. data:: NOTICE = 5
+
+    	notice
+
+    .. data:: INFORMATIONAL = 6
+
+    	informational
+
+    .. data:: DEBUGGING = 7
+
+    	debugging
 
     """
 
-    unknown
-
-    """
     UNKNOWN = -1
 
-    """
-
-    emergency
-
-    """
     EMERGENCY = 0
 
-    """
-
-    alert
-
-    """
     ALERT = 1
 
-    """
-
-    critical
-
-    """
     CRITICAL = 2
 
-    """
-
-    error
-
-    """
     ERROR = 3
 
-    """
-
-    warning
-
-    """
     WARNING = 4
 
-    """
-
-    notice
-
-    """
     NOTICE = 5
 
-    """
-
-    informational
-
-    """
     INFORMATIONAL = 6
 
-    """
-
-    debugging
-
-    """
     DEBUGGING = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_alarm_logger_oper as meta
-        return meta._meta_table['AlAlarmSeverity_Enum']
+        return meta._meta_table['AlAlarmSeverityEnum']
 
 
 
@@ -237,7 +225,7 @@ class AlarmLogger(object):
             .. attribute:: severity
             
             	Severity of the alarm
-            	**type**\: :py:class:`AlAlarmSeverity_Enum <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverity_Enum>`
+            	**type**\: :py:class:`AlAlarmSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverityEnum>`
             
             .. attribute:: source_id
             
@@ -247,7 +235,7 @@ class AlarmLogger(object):
             .. attribute:: state
             
             	State of the alarm (bistate alarms only)
-            	**type**\: :py:class:`AlAlarmBistate_Enum <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmBistate_Enum>`
+            	**type**\: :py:class:`AlAlarmBistateEnum <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmBistateEnum>`
             
             .. attribute:: timestamp
             
@@ -291,8 +279,6 @@ class AlarmLogger(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.event_id is not None:
                     return True
 
@@ -328,10 +314,6 @@ class AlarmLogger(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_alarm_logger_oper as meta
@@ -349,17 +331,11 @@ class AlarmLogger(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.alarm is not None:
                 for child_ref in self.alarm:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -404,7 +380,7 @@ class AlarmLogger(object):
         .. attribute:: severity_filter
         
         	Severity Filter
-        	**type**\: :py:class:`AlAlarmSeverity_Enum <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverity_Enum>`
+        	**type**\: :py:class:`AlAlarmSeverityEnum <ydk.models.infra.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverityEnum>`
         
         
 
@@ -433,8 +409,6 @@ class AlarmLogger(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.capacity_threshold is not None:
                 return True
 
@@ -450,10 +424,6 @@ class AlarmLogger(object):
             if self.severity_filter is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -473,24 +443,12 @@ class AlarmLogger(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.alarms is not None and self.alarms._has_data():
-            return True
-
-        if self.alarms is not None and self.alarms.is_presence():
             return True
 
         if self.buffer_status is not None and self.buffer_status._has_data():
             return True
 
-        if self.buffer_status is not None and self.buffer_status.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

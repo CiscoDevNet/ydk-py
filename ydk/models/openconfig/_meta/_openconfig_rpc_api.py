@@ -6,16 +6,16 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'CancelTelemetrySubscriptionRpc' : {
-        'meta_info' : _MetaInfoClass('CancelTelemetrySubscriptionRpc',
+    'CanceltelemetrysubscriptionRpc.Input' : {
+        'meta_info' : _MetaInfoClass('CanceltelemetrysubscriptionRpc.Input',
             False, 
             [
             _MetaInfoClassMember('subscription-id', ATTRIBUTE, 'int' , None, None, 
@@ -24,6 +24,22 @@ _meta_table = {
                 subscription was requested
                 ''',
                 'subscription_id',
+                'openconfig-rpc-api', False),
+            ],
+            'openconfig-rpc-api',
+            'input',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'CanceltelemetrysubscriptionRpc' : {
+        'meta_info' : _MetaInfoClass('CanceltelemetrysubscriptionRpc',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.openconfig.openconfig_rpc_api', 'CanceltelemetrysubscriptionRpc.Input', 
+                [], [], 
+                '''                ''',
+                'input',
                 'openconfig-rpc-api', False),
             ],
             'openconfig-rpc-api',
@@ -43,8 +59,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'EditConfigRpc.ConfigCommand' : {
-        'meta_info' : _MetaInfoClass('EditConfigRpc.ConfigCommand',
+    'EditconfigRpc.Input.ConfigCommand' : {
+        'meta_info' : _MetaInfoClass('EditconfigRpc.Input.ConfigCommand',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
@@ -53,15 +69,6 @@ _meta_table = {
                 ''',
                 'path',
                 'openconfig-rpc-api', True),
-            _MetaInfoClassMember('command', REFERENCE_IDENTITY_CLASS, 'EditConfigCommands_Identity' , 'ydk.models.openconfig.openconfig_rpc_api', 'EditConfigCommands_Identity', 
-                [], [], 
-                '''                The type of configuration modification requested for the
-                corresponding path.  Note that some commands, such as
-                'delete' do not specify any associated data with the
-                path.
-                ''',
-                'command',
-                'openconfig-rpc-api', False),
             _MetaInfoClassMember('values', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Data encoded using the encoding specified in
@@ -72,6 +79,15 @@ _meta_table = {
                 ''',
                 'values',
                 'openconfig-rpc-api', False),
+            _MetaInfoClassMember('command', REFERENCE_IDENTITY_CLASS, 'EditConfigCommands_Identity' , 'ydk.models.openconfig.openconfig_rpc_api', 'EditConfigCommands_Identity', 
+                [], [], 
+                '''                The type of configuration modification requested for the
+                corresponding path.  Note that some commands, such as
+                'delete' do not specify any associated data with the
+                path.
+                ''',
+                'command',
+                'openconfig-rpc-api', False),
             ],
             'openconfig-rpc-api',
             'config-command',
@@ -79,11 +95,17 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'EditConfigRpc' : {
-        'meta_info' : _MetaInfoClass('EditConfigRpc',
+    'EditconfigRpc.Input' : {
+        'meta_info' : _MetaInfoClass('EditconfigRpc.Input',
             False, 
             [
-            _MetaInfoClassMember('config-command', REFERENCE_LIST, 'ConfigCommand' , 'ydk.models.openconfig.openconfig_rpc_api', 'EditConfigRpc.ConfigCommand', 
+            _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Identifier sent in request messages
+                ''',
+                'request_id',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('config-command', REFERENCE_LIST, 'ConfigCommand' , 'ydk.models.openconfig.openconfig_rpc_api', 'EditconfigRpc.Input.ConfigCommand', 
                 [], [], 
                 '''                List of configuration data items, each consisting of the
                 data model path, and corresponding data encoded based on
@@ -91,19 +113,17 @@ _meta_table = {
                 ''',
                 'config_command',
                 'openconfig-rpc-api', False),
-            _MetaInfoClassMember('message', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Error or information text associated with the return-code
-                value.
-                ''',
-                'message',
-                'openconfig-rpc-api', False),
-            _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Identifier sent in request messages
-                ''',
-                'request_id',
-                'openconfig-rpc-api', False),
+            ],
+            'openconfig-rpc-api',
+            'input',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'EditconfigRpc.Output' : {
+        'meta_info' : _MetaInfoClass('EditconfigRpc.Output',
+            False, 
+            [
             _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                The request id corresponding to the request
@@ -116,6 +136,34 @@ _meta_table = {
                 ''',
                 'response_code',
                 'openconfig-rpc-api', False),
+            _MetaInfoClassMember('message', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Error or information text associated with the return-code
+                value.
+                ''',
+                'message',
+                'openconfig-rpc-api', False),
+            ],
+            'openconfig-rpc-api',
+            'output',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'EditconfigRpc' : {
+        'meta_info' : _MetaInfoClass('EditconfigRpc',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.openconfig.openconfig_rpc_api', 'EditconfigRpc.Input', 
+                [], [], 
+                '''                ''',
+                'input',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.openconfig.openconfig_rpc_api', 'EditconfigRpc.Output', 
+                [], [], 
+                '''                ''',
+                'output',
+                'openconfig-rpc-api', False),
             ],
             'openconfig-rpc-api',
             'editConfig',
@@ -123,8 +171,31 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'GetConfigRpc.Data' : {
-        'meta_info' : _MetaInfoClass('GetConfigRpc.Data',
+    'GetconfigRpc.Input' : {
+        'meta_info' : _MetaInfoClass('GetconfigRpc.Input',
+            False, 
+            [
+            _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Identifier sent in request messages
+                ''',
+                'request_id',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('path', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                List of data model paths to retrieve
+                ''',
+                'path',
+                'openconfig-rpc-api', False),
+            ],
+            'openconfig-rpc-api',
+            'input',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'GetconfigRpc.Output.Data' : {
+        'meta_info' : _MetaInfoClass('GetconfigRpc.Output.Data',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
@@ -150,37 +221,10 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'GetConfigRpc' : {
-        'meta_info' : _MetaInfoClass('GetConfigRpc',
+    'GetconfigRpc.Output' : {
+        'meta_info' : _MetaInfoClass('GetconfigRpc.Output',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_LIST, 'Data' , 'ydk.models.openconfig.openconfig_rpc_api', 'GetConfigRpc.Data', 
-                [], [], 
-                '''                List of configuration data items, each consisting of the
-                data model path, and corresponding data encoded based on
-                the requested format
-                ''',
-                'data',
-                'openconfig-rpc-api', False),
-            _MetaInfoClassMember('message', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Error or information text associated with the return-code
-                value.
-                ''',
-                'message',
-                'openconfig-rpc-api', False),
-            _MetaInfoClassMember('path', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                List of data model paths to retrieve
-                ''',
-                'path',
-                'openconfig-rpc-api', False),
-            _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Identifier sent in request messages
-                ''',
-                'request_id',
-                'openconfig-rpc-api', False),
             _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                The request id corresponding to the request
@@ -193,6 +237,42 @@ _meta_table = {
                 ''',
                 'response_code',
                 'openconfig-rpc-api', False),
+            _MetaInfoClassMember('message', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Error or information text associated with the return-code
+                value.
+                ''',
+                'message',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('data', REFERENCE_LIST, 'Data' , 'ydk.models.openconfig.openconfig_rpc_api', 'GetconfigRpc.Output.Data', 
+                [], [], 
+                '''                List of configuration data items, each consisting of the
+                data model path, and corresponding data encoded based on
+                the requested format
+                ''',
+                'data',
+                'openconfig-rpc-api', False),
+            ],
+            'openconfig-rpc-api',
+            'output',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'GetconfigRpc' : {
+        'meta_info' : _MetaInfoClass('GetconfigRpc',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.openconfig.openconfig_rpc_api', 'GetconfigRpc.Input', 
+                [], [], 
+                '''                ''',
+                'input',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.openconfig.openconfig_rpc_api', 'GetconfigRpc.Output', 
+                [], [], 
+                '''                ''',
+                'output',
+                'openconfig-rpc-api', False),
             ],
             'openconfig-rpc-api',
             'getConfig',
@@ -200,8 +280,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'GetDataEncodingsRpc' : {
-        'meta_info' : _MetaInfoClass('GetDataEncodingsRpc',
+    'GetdataencodingsRpc.Output' : {
+        'meta_info' : _MetaInfoClass('GetdataencodingsRpc.Output',
             False, 
             [
             _MetaInfoClassMember('encoding', REFERENCE_LIST, 'OpenconfigDataEncodingTypes_Identity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigDataEncodingTypes_Identity', 
@@ -213,13 +293,53 @@ _meta_table = {
                 'openconfig-rpc-api', False),
             ],
             'openconfig-rpc-api',
+            'output',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'GetdataencodingsRpc' : {
+        'meta_info' : _MetaInfoClass('GetdataencodingsRpc',
+            False, 
+            [
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.openconfig.openconfig_rpc_api', 'GetdataencodingsRpc.Output', 
+                [], [], 
+                '''                ''',
+                'output',
+                'openconfig-rpc-api', False),
+            ],
+            'openconfig-rpc-api',
             'getDataEncodings',
             _yang_ns._namespaces['openconfig-rpc-api'],
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'GetModelsRpc.Schema' : {
-        'meta_info' : _MetaInfoClass('GetModelsRpc.Schema',
+    'GetmodelsRpc.Input' : {
+        'meta_info' : _MetaInfoClass('GetmodelsRpc.Input',
+            False, 
+            [
+            _MetaInfoClassMember('schema-format', REFERENCE_IDENTITY_CLASS, 'OpenconfigSchemaFormatTypes_Identity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigSchemaFormatTypes_Identity', 
+                [], [], 
+                '''                Schema format requested, e.g., JSON-Schema, XSD, Proto,
+                YANG
+                ''',
+                'schema_format',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('request-mode', REFERENCE_IDENTITY_CLASS, 'OpenconfigSchemaModeTypes_Identity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigSchemaModeTypes_Identity', 
+                [], [], 
+                '''                Mode for delivering the schema data
+                ''',
+                'request_mode',
+                'openconfig-rpc-api', False),
+            ],
+            'openconfig-rpc-api',
+            'input',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'GetmodelsRpc.Output.Schema' : {
+        'meta_info' : _MetaInfoClass('GetmodelsRpc.Output.Schema',
             False, 
             [
             _MetaInfoClassMember('model-name', ATTRIBUTE, 'str' , None, None, 
@@ -228,14 +348,6 @@ _meta_table = {
                 ''',
                 'model_name',
                 'openconfig-rpc-api', True),
-            _MetaInfoClassMember('model-data', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Model data, formatted according to the requested format
-                (e.g., JSON-Schema, YANG, etc.) and using the requested
-                mode (URI, file, etc.)
-                ''',
-                'model_data',
-                'openconfig-rpc-api', False),
             _MetaInfoClassMember('model-namespace', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Namespace the model belongs to, whether standard or ad-hoc
@@ -250,6 +362,14 @@ _meta_table = {
                 ''',
                 'model_version',
                 'openconfig-rpc-api', False),
+            _MetaInfoClassMember('model-data', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Model data, formatted according to the requested format
+                (e.g., JSON-Schema, YANG, etc.) and using the requested
+                mode (URI, file, etc.)
+                ''',
+                'model_data',
+                'openconfig-rpc-api', False),
             ],
             'openconfig-rpc-api',
             'schema',
@@ -257,28 +377,36 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'GetModelsRpc' : {
-        'meta_info' : _MetaInfoClass('GetModelsRpc',
+    'GetmodelsRpc.Output' : {
+        'meta_info' : _MetaInfoClass('GetmodelsRpc.Output',
             False, 
             [
-            _MetaInfoClassMember('request-mode', REFERENCE_IDENTITY_CLASS, 'OpenconfigSchemaModeTypes_Identity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigSchemaModeTypes_Identity', 
-                [], [], 
-                '''                Mode for delivering the schema data
-                ''',
-                'request_mode',
-                'openconfig-rpc-api', False),
-            _MetaInfoClassMember('schema', REFERENCE_LIST, 'Schema' , 'ydk.models.openconfig.openconfig_rpc_api', 'GetModelsRpc.Schema', 
+            _MetaInfoClassMember('schema', REFERENCE_LIST, 'Schema' , 'ydk.models.openconfig.openconfig_rpc_api', 'GetmodelsRpc.Output.Schema', 
                 [], [], 
                 '''                list of supported schemas
                 ''',
                 'schema',
                 'openconfig-rpc-api', False),
-            _MetaInfoClassMember('schema-format', REFERENCE_IDENTITY_CLASS, 'OpenconfigSchemaFormatTypes_Identity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigSchemaFormatTypes_Identity', 
+            ],
+            'openconfig-rpc-api',
+            'output',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'GetmodelsRpc' : {
+        'meta_info' : _MetaInfoClass('GetmodelsRpc',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.openconfig.openconfig_rpc_api', 'GetmodelsRpc.Input', 
                 [], [], 
-                '''                Schema format requested, e.g., JSON-Schema, XSD, Proto,
-                YANG
-                ''',
-                'schema_format',
+                '''                ''',
+                'input',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.openconfig.openconfig_rpc_api', 'GetmodelsRpc.Output', 
+                [], [], 
+                '''                ''',
+                'output',
                 'openconfig-rpc-api', False),
             ],
             'openconfig-rpc-api',
@@ -287,8 +415,40 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'GetOperationalRpc.Data' : {
-        'meta_info' : _MetaInfoClass('GetOperationalRpc.Data',
+    'GetoperationalRpc.Input' : {
+        'meta_info' : _MetaInfoClass('GetoperationalRpc.Input',
+            False, 
+            [
+            _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Identifier sent in request messages
+                ''',
+                'request_id',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('path', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                List of data model paths to retrieve
+                ''',
+                'path',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('oper-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                When this is set to true, the device should return only the
+                operational state data that is marked as operational: true.
+                Otherwise, it should return all operational state date
+                (config: false).
+                ''',
+                'oper_only',
+                'openconfig-rpc-api', False),
+            ],
+            'openconfig-rpc-api',
+            'input',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'GetoperationalRpc.Output.Data' : {
+        'meta_info' : _MetaInfoClass('GetoperationalRpc.Output.Data',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
@@ -314,46 +474,10 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'GetOperationalRpc' : {
-        'meta_info' : _MetaInfoClass('GetOperationalRpc',
+    'GetoperationalRpc.Output' : {
+        'meta_info' : _MetaInfoClass('GetoperationalRpc.Output',
             False, 
             [
-            _MetaInfoClassMember('data', REFERENCE_LIST, 'Data' , 'ydk.models.openconfig.openconfig_rpc_api', 'GetOperationalRpc.Data', 
-                [], [], 
-                '''                List of operational state data items, each consisting of the
-                data model path, and corresponding data encoded based on
-                the requested format
-                ''',
-                'data',
-                'openconfig-rpc-api', False),
-            _MetaInfoClassMember('message', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Error or information text associated with the return-code
-                value.
-                ''',
-                'message',
-                'openconfig-rpc-api', False),
-            _MetaInfoClassMember('oper-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                When this is set to true, the device should return only the
-                operational state data that is marked as operational: true.
-                Otherwise, it should return all operational state date
-                (config: false).
-                ''',
-                'oper_only',
-                'openconfig-rpc-api', False),
-            _MetaInfoClassMember('path', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                List of data model paths to retrieve
-                ''',
-                'path',
-                'openconfig-rpc-api', False),
-            _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Identifier sent in request messages
-                ''',
-                'request_id',
-                'openconfig-rpc-api', False),
             _MetaInfoClassMember('request-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                The request id corresponding to the request
@@ -366,6 +490,42 @@ _meta_table = {
                 ''',
                 'response_code',
                 'openconfig-rpc-api', False),
+            _MetaInfoClassMember('message', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Error or information text associated with the return-code
+                value.
+                ''',
+                'message',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('data', REFERENCE_LIST, 'Data' , 'ydk.models.openconfig.openconfig_rpc_api', 'GetoperationalRpc.Output.Data', 
+                [], [], 
+                '''                List of operational state data items, each consisting of the
+                data model path, and corresponding data encoded based on
+                the requested format
+                ''',
+                'data',
+                'openconfig-rpc-api', False),
+            ],
+            'openconfig-rpc-api',
+            'output',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'GetoperationalRpc' : {
+        'meta_info' : _MetaInfoClass('GetoperationalRpc',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.openconfig.openconfig_rpc_api', 'GetoperationalRpc.Input', 
+                [], [], 
+                '''                ''',
+                'input',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.openconfig.openconfig_rpc_api', 'GetoperationalRpc.Output', 
+                [], [], 
+                '''                ''',
+                'output',
+                'openconfig-rpc-api', False),
             ],
             'openconfig-rpc-api',
             'getOperational',
@@ -373,8 +533,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'GetTelemetrySubscriptionsRpc.Subscription.Collectors' : {
-        'meta_info' : _MetaInfoClass('GetTelemetrySubscriptionsRpc.Subscription.Collectors',
+    'GettelemetrysubscriptionsRpc.Output.Subscription.Collectors' : {
+        'meta_info' : _MetaInfoClass('GettelemetrysubscriptionsRpc.Output.Subscription.Collectors',
             False, 
             [
             _MetaInfoClassMember('address', REFERENCE_UNION, 'str' , None, None, 
@@ -410,8 +570,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'GetTelemetrySubscriptionsRpc.Subscription.Paths' : {
-        'meta_info' : _MetaInfoClass('GetTelemetrySubscriptionsRpc.Subscription.Paths',
+    'GettelemetrysubscriptionsRpc.Output.Subscription.Paths' : {
+        'meta_info' : _MetaInfoClass('GettelemetrysubscriptionsRpc.Output.Subscription.Paths',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
@@ -425,6 +585,13 @@ _meta_table = {
                 '''                Regular expression to be used in filtering state leaves
                 ''',
                 'filter',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('suppress-unchanged', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                If this is set to true, the target device will only send
+                updates to the collector upon a change in data value
+                ''',
+                'suppress_unchanged',
                 'openconfig-rpc-api', False),
             _MetaInfoClassMember('max-silent-interval', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -447,13 +614,6 @@ _meta_table = {
                 ''',
                 'sample_frequency',
                 'openconfig-rpc-api', False),
-            _MetaInfoClassMember('suppress-unchanged', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                If this is set to true, the target device will only send
-                updates to the collector upon a change in data value
-                ''',
-                'suppress_unchanged',
-                'openconfig-rpc-api', False),
             ],
             'openconfig-rpc-api',
             'paths',
@@ -461,8 +621,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'GetTelemetrySubscriptionsRpc.Subscription' : {
-        'meta_info' : _MetaInfoClass('GetTelemetrySubscriptionsRpc.Subscription',
+    'GettelemetrysubscriptionsRpc.Output.Subscription' : {
+        'meta_info' : _MetaInfoClass('GettelemetrysubscriptionsRpc.Output.Subscription',
             False, 
             [
             _MetaInfoClassMember('subscription-id', ATTRIBUTE, 'int' , None, None, 
@@ -473,7 +633,7 @@ _meta_table = {
                 ''',
                 'subscription_id',
                 'openconfig-rpc-api', True),
-            _MetaInfoClassMember('collectors', REFERENCE_LIST, 'Collectors' , 'ydk.models.openconfig.openconfig_rpc_api', 'GetTelemetrySubscriptionsRpc.Subscription.Collectors', 
+            _MetaInfoClassMember('collectors', REFERENCE_LIST, 'Collectors' , 'ydk.models.openconfig.openconfig_rpc_api', 'GettelemetrysubscriptionsRpc.Output.Subscription.Collectors', 
                 [], [], 
                 '''                List of optional collector endpoints to send data for
                 this subscription, specified as an ip+port combination.
@@ -489,7 +649,7 @@ _meta_table = {
                 ''',
                 'export_dscp_marking',
                 'openconfig-rpc-api', False),
-            _MetaInfoClassMember('paths', REFERENCE_LIST, 'Paths' , 'ydk.models.openconfig.openconfig_rpc_api', 'GetTelemetrySubscriptionsRpc.Subscription.Paths', 
+            _MetaInfoClassMember('paths', REFERENCE_LIST, 'Paths' , 'ydk.models.openconfig.openconfig_rpc_api', 'GettelemetrysubscriptionsRpc.Output.Subscription.Paths', 
                 [], [], 
                 '''                List of data model paths, keyed by path name
                 ''',
@@ -502,15 +662,31 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'GetTelemetrySubscriptionsRpc' : {
-        'meta_info' : _MetaInfoClass('GetTelemetrySubscriptionsRpc',
+    'GettelemetrysubscriptionsRpc.Output' : {
+        'meta_info' : _MetaInfoClass('GettelemetrysubscriptionsRpc.Output',
             False, 
             [
-            _MetaInfoClassMember('subscription', REFERENCE_LIST, 'Subscription' , 'ydk.models.openconfig.openconfig_rpc_api', 'GetTelemetrySubscriptionsRpc.Subscription', 
+            _MetaInfoClassMember('subscription', REFERENCE_LIST, 'Subscription' , 'ydk.models.openconfig.openconfig_rpc_api', 'GettelemetrysubscriptionsRpc.Output.Subscription', 
                 [], [], 
                 '''                List of current telemetry subscriptions
                 ''',
                 'subscription',
+                'openconfig-rpc-api', False),
+            ],
+            'openconfig-rpc-api',
+            'output',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'GettelemetrysubscriptionsRpc' : {
+        'meta_info' : _MetaInfoClass('GettelemetrysubscriptionsRpc',
+            False, 
+            [
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.openconfig.openconfig_rpc_api', 'GettelemetrysubscriptionsRpc.Output', 
+                [], [], 
+                '''                ''',
+                'output',
                 'openconfig-rpc-api', False),
             ],
             'openconfig-rpc-api',
@@ -563,8 +739,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'SetDataEncodingRpc' : {
-        'meta_info' : _MetaInfoClass('SetDataEncodingRpc',
+    'SetdataencodingRpc.Input' : {
+        'meta_info' : _MetaInfoClass('SetdataencodingRpc.Input',
             False, 
             [
             _MetaInfoClassMember('encoding', REFERENCE_IDENTITY_CLASS, 'OpenconfigDataEncodingTypes_Identity' , 'ydk.models.openconfig.openconfig_rpc_api', 'OpenconfigDataEncodingTypes_Identity', 
@@ -575,13 +751,29 @@ _meta_table = {
                 'openconfig-rpc-api', False),
             ],
             'openconfig-rpc-api',
+            'input',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'SetdataencodingRpc' : {
+        'meta_info' : _MetaInfoClass('SetdataencodingRpc',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.openconfig.openconfig_rpc_api', 'SetdataencodingRpc.Input', 
+                [], [], 
+                '''                ''',
+                'input',
+                'openconfig-rpc-api', False),
+            ],
+            'openconfig-rpc-api',
             'setDataEncoding',
             _yang_ns._namespaces['openconfig-rpc-api'],
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'TelemetrySubscribeRpc.Collectors' : {
-        'meta_info' : _MetaInfoClass('TelemetrySubscribeRpc.Collectors',
+    'TelemetrysubscribeRpc.Input.Collectors' : {
+        'meta_info' : _MetaInfoClass('TelemetrysubscribeRpc.Input.Collectors',
             False, 
             [
             _MetaInfoClassMember('address', REFERENCE_UNION, 'str' , None, None, 
@@ -617,45 +809,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'TelemetrySubscribeRpc.Collectors' : {
-        'meta_info' : _MetaInfoClass('TelemetrySubscribeRpc.Collectors',
-            False, 
-            [
-            _MetaInfoClassMember('address', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                IP address of collector endpoint
-                ''',
-                'address',
-                'openconfig-rpc-api', True, [
-                    _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP address of collector endpoint
-                        ''',
-                        'address',
-                        'openconfig-rpc-api', True),
-                    _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP address of collector endpoint
-                        ''',
-                        'address',
-                        'openconfig-rpc-api', True),
-                ]),
-            _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Transport protocol port number for the collector
-                destination
-                ''',
-                'port',
-                'openconfig-rpc-api', True),
-            ],
-            'openconfig-rpc-api',
-            'collectors',
-            _yang_ns._namespaces['openconfig-rpc-api'],
-        'ydk.models.openconfig.openconfig_rpc_api'
-        ),
-    },
-    'TelemetrySubscribeRpc.Paths' : {
-        'meta_info' : _MetaInfoClass('TelemetrySubscribeRpc.Paths',
+    'TelemetrysubscribeRpc.Input.Paths' : {
+        'meta_info' : _MetaInfoClass('TelemetrysubscribeRpc.Input.Paths',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
@@ -669,6 +824,13 @@ _meta_table = {
                 '''                Regular expression to be used in filtering state leaves
                 ''',
                 'filter',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('suppress-unchanged', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                If this is set to true, the target device will only send
+                updates to the collector upon a change in data value
+                ''',
+                'suppress_unchanged',
                 'openconfig-rpc-api', False),
             _MetaInfoClassMember('max-silent-interval', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -691,13 +853,6 @@ _meta_table = {
                 ''',
                 'sample_frequency',
                 'openconfig-rpc-api', False),
-            _MetaInfoClassMember('suppress-unchanged', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                If this is set to true, the target device will only send
-                updates to the collector upon a change in data value
-                ''',
-                'suppress_unchanged',
-                'openconfig-rpc-api', False),
             ],
             'openconfig-rpc-api',
             'paths',
@@ -705,62 +860,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_rpc_api'
         ),
     },
-    'TelemetrySubscribeRpc.Paths' : {
-        'meta_info' : _MetaInfoClass('TelemetrySubscribeRpc.Paths',
+    'TelemetrysubscribeRpc.Input' : {
+        'meta_info' : _MetaInfoClass('TelemetrysubscribeRpc.Input',
             False, 
             [
-            _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Data model path of interest
-                ''',
-                'path',
-                'openconfig-rpc-api', True),
-            _MetaInfoClassMember('filter', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Regular expression to be used in filtering state leaves
-                ''',
-                'filter',
-                'openconfig-rpc-api', False),
-            _MetaInfoClassMember('max-silent-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Maximum time in ms the target device may go without sending
-                a message to the collector. If this time expires with
-                suppress-unchanged set, the target device must send an update
-                message regardless if the data values have changed.
-                ''',
-                'max_silent_interval',
-                'openconfig-rpc-api', False),
-            _MetaInfoClassMember('sample-frequency', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time in ms between collection and transmission of the
-                specified data to the collector platform. The target device
-                will sample the corresponding data (e.g,. a counter) and
-                immediately send to the collector destination.
-                
-                If sample-frequency is set to 0, then the network device
-                must emit an update upon every datum change.
-                ''',
-                'sample_frequency',
-                'openconfig-rpc-api', False),
-            _MetaInfoClassMember('suppress-unchanged', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                If this is set to true, the target device will only send
-                updates to the collector upon a change in data value
-                ''',
-                'suppress_unchanged',
-                'openconfig-rpc-api', False),
-            ],
-            'openconfig-rpc-api',
-            'paths',
-            _yang_ns._namespaces['openconfig-rpc-api'],
-        'ydk.models.openconfig.openconfig_rpc_api'
-        ),
-    },
-    'TelemetrySubscribeRpc' : {
-        'meta_info' : _MetaInfoClass('TelemetrySubscribeRpc',
-            False, 
-            [
-            _MetaInfoClassMember('collectors', REFERENCE_LIST, 'Collectors' , 'ydk.models.openconfig.openconfig_rpc_api', 'TelemetrySubscribeRpc.Collectors', 
+            _MetaInfoClassMember('collectors', REFERENCE_LIST, 'Collectors' , 'ydk.models.openconfig.openconfig_rpc_api', 'TelemetrysubscribeRpc.Input.Collectors', 
                 [], [], 
                 '''                List of optional collector endpoints to send data for
                 this subscription, specified as an ip+port combination.
@@ -769,7 +873,127 @@ _meta_table = {
                 ''',
                 'collectors',
                 'openconfig-rpc-api', False),
-            _MetaInfoClassMember('collectors', REFERENCE_LIST, 'Collectors' , 'ydk.models.openconfig.openconfig_rpc_api', 'TelemetrySubscribeRpc.Collectors', 
+            _MetaInfoClassMember('export-dscp-marking', ATTRIBUTE, 'int' , None, None, 
+                [(0, 63)], [], 
+                '''                The DSCP code point value to be set on telemetry messages
+                to the collector platform.
+                ''',
+                'export_dscp_marking',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('paths', REFERENCE_LIST, 'Paths' , 'ydk.models.openconfig.openconfig_rpc_api', 'TelemetrysubscribeRpc.Input.Paths', 
+                [], [], 
+                '''                List of data model paths, keyed by path name
+                ''',
+                'paths',
+                'openconfig-rpc-api', False),
+            ],
+            'openconfig-rpc-api',
+            'input',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'TelemetrysubscribeRpc.Output.Collectors' : {
+        'meta_info' : _MetaInfoClass('TelemetrysubscribeRpc.Output.Collectors',
+            False, 
+            [
+            _MetaInfoClassMember('address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP address of collector endpoint
+                ''',
+                'address',
+                'openconfig-rpc-api', True, [
+                    _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP address of collector endpoint
+                        ''',
+                        'address',
+                        'openconfig-rpc-api', True),
+                    _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP address of collector endpoint
+                        ''',
+                        'address',
+                        'openconfig-rpc-api', True),
+                ]),
+            _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Transport protocol port number for the collector
+                destination
+                ''',
+                'port',
+                'openconfig-rpc-api', True),
+            ],
+            'openconfig-rpc-api',
+            'collectors',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'TelemetrysubscribeRpc.Output.Paths' : {
+        'meta_info' : _MetaInfoClass('TelemetrysubscribeRpc.Output.Paths',
+            False, 
+            [
+            _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Data model path of interest
+                ''',
+                'path',
+                'openconfig-rpc-api', True),
+            _MetaInfoClassMember('filter', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Regular expression to be used in filtering state leaves
+                ''',
+                'filter',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('suppress-unchanged', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                If this is set to true, the target device will only send
+                updates to the collector upon a change in data value
+                ''',
+                'suppress_unchanged',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('max-silent-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Maximum time in ms the target device may go without sending
+                a message to the collector. If this time expires with
+                suppress-unchanged set, the target device must send an update
+                message regardless if the data values have changed.
+                ''',
+                'max_silent_interval',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('sample-frequency', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time in ms between collection and transmission of the
+                specified data to the collector platform. The target device
+                will sample the corresponding data (e.g,. a counter) and
+                immediately send to the collector destination.
+                
+                If sample-frequency is set to 0, then the network device
+                must emit an update upon every datum change.
+                ''',
+                'sample_frequency',
+                'openconfig-rpc-api', False),
+            ],
+            'openconfig-rpc-api',
+            'paths',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'TelemetrysubscribeRpc.Output' : {
+        'meta_info' : _MetaInfoClass('TelemetrysubscribeRpc.Output',
+            False, 
+            [
+            _MetaInfoClassMember('subscription-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Unique id for the subscription on the device.  This is
+                generated by the device and returned in a subscription
+                request or when listing existing subscriptions
+                ''',
+                'subscription_id',
+                'openconfig-rpc-api', False),
+            _MetaInfoClassMember('collectors', REFERENCE_LIST, 'Collectors' , 'ydk.models.openconfig.openconfig_rpc_api', 'TelemetrysubscribeRpc.Output.Collectors', 
                 [], [], 
                 '''                List of optional collector endpoints to send data for
                 this subscription, specified as an ip+port combination.
@@ -785,32 +1009,32 @@ _meta_table = {
                 ''',
                 'export_dscp_marking',
                 'openconfig-rpc-api', False),
-            _MetaInfoClassMember('export-dscp-marking', ATTRIBUTE, 'int' , None, None, 
-                [(0, 63)], [], 
-                '''                The DSCP code point value to be set on telemetry messages
-                to the collector platform.
-                ''',
-                'export_dscp_marking',
-                'openconfig-rpc-api', False),
-            _MetaInfoClassMember('paths', REFERENCE_LIST, 'Paths' , 'ydk.models.openconfig.openconfig_rpc_api', 'TelemetrySubscribeRpc.Paths', 
+            _MetaInfoClassMember('paths', REFERENCE_LIST, 'Paths' , 'ydk.models.openconfig.openconfig_rpc_api', 'TelemetrysubscribeRpc.Output.Paths', 
                 [], [], 
                 '''                List of data model paths, keyed by path name
                 ''',
                 'paths',
                 'openconfig-rpc-api', False),
-            _MetaInfoClassMember('paths', REFERENCE_LIST, 'Paths' , 'ydk.models.openconfig.openconfig_rpc_api', 'TelemetrySubscribeRpc.Paths', 
+            ],
+            'openconfig-rpc-api',
+            'output',
+            _yang_ns._namespaces['openconfig-rpc-api'],
+        'ydk.models.openconfig.openconfig_rpc_api'
+        ),
+    },
+    'TelemetrysubscribeRpc' : {
+        'meta_info' : _MetaInfoClass('TelemetrysubscribeRpc',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.openconfig.openconfig_rpc_api', 'TelemetrysubscribeRpc.Input', 
                 [], [], 
-                '''                List of data model paths, keyed by path name
-                ''',
-                'paths',
+                '''                ''',
+                'input',
                 'openconfig-rpc-api', False),
-            _MetaInfoClassMember('subscription-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Unique id for the subscription on the device.  This is
-                generated by the device and returned in a subscription
-                request or when listing existing subscriptions
-                ''',
-                'subscription_id',
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.openconfig.openconfig_rpc_api', 'TelemetrysubscribeRpc.Output', 
+                [], [], 
+                '''                ''',
+                'output',
                 'openconfig-rpc-api', False),
             ],
             'openconfig-rpc-api',
@@ -941,14 +1165,28 @@ _meta_table = {
         ),
     },
 }
-_meta_table['EditConfigRpc.ConfigCommand']['meta_info'].parent =_meta_table['EditConfigRpc']['meta_info']
-_meta_table['GetConfigRpc.Data']['meta_info'].parent =_meta_table['GetConfigRpc']['meta_info']
-_meta_table['GetModelsRpc.Schema']['meta_info'].parent =_meta_table['GetModelsRpc']['meta_info']
-_meta_table['GetOperationalRpc.Data']['meta_info'].parent =_meta_table['GetOperationalRpc']['meta_info']
-_meta_table['GetTelemetrySubscriptionsRpc.Subscription.Collectors']['meta_info'].parent =_meta_table['GetTelemetrySubscriptionsRpc.Subscription']['meta_info']
-_meta_table['GetTelemetrySubscriptionsRpc.Subscription.Paths']['meta_info'].parent =_meta_table['GetTelemetrySubscriptionsRpc.Subscription']['meta_info']
-_meta_table['GetTelemetrySubscriptionsRpc.Subscription']['meta_info'].parent =_meta_table['GetTelemetrySubscriptionsRpc']['meta_info']
-_meta_table['TelemetrySubscribeRpc.Collectors']['meta_info'].parent =_meta_table['TelemetrySubscribeRpc']['meta_info']
-_meta_table['TelemetrySubscribeRpc.Collectors']['meta_info'].parent =_meta_table['TelemetrySubscribeRpc']['meta_info']
-_meta_table['TelemetrySubscribeRpc.Paths']['meta_info'].parent =_meta_table['TelemetrySubscribeRpc']['meta_info']
-_meta_table['TelemetrySubscribeRpc.Paths']['meta_info'].parent =_meta_table['TelemetrySubscribeRpc']['meta_info']
+_meta_table['CanceltelemetrysubscriptionRpc.Input']['meta_info'].parent =_meta_table['CanceltelemetrysubscriptionRpc']['meta_info']
+_meta_table['EditconfigRpc.Input.ConfigCommand']['meta_info'].parent =_meta_table['EditconfigRpc.Input']['meta_info']
+_meta_table['EditconfigRpc.Input']['meta_info'].parent =_meta_table['EditconfigRpc']['meta_info']
+_meta_table['EditconfigRpc.Output']['meta_info'].parent =_meta_table['EditconfigRpc']['meta_info']
+_meta_table['GetconfigRpc.Output.Data']['meta_info'].parent =_meta_table['GetconfigRpc.Output']['meta_info']
+_meta_table['GetconfigRpc.Input']['meta_info'].parent =_meta_table['GetconfigRpc']['meta_info']
+_meta_table['GetconfigRpc.Output']['meta_info'].parent =_meta_table['GetconfigRpc']['meta_info']
+_meta_table['GetdataencodingsRpc.Output']['meta_info'].parent =_meta_table['GetdataencodingsRpc']['meta_info']
+_meta_table['GetmodelsRpc.Output.Schema']['meta_info'].parent =_meta_table['GetmodelsRpc.Output']['meta_info']
+_meta_table['GetmodelsRpc.Input']['meta_info'].parent =_meta_table['GetmodelsRpc']['meta_info']
+_meta_table['GetmodelsRpc.Output']['meta_info'].parent =_meta_table['GetmodelsRpc']['meta_info']
+_meta_table['GetoperationalRpc.Output.Data']['meta_info'].parent =_meta_table['GetoperationalRpc.Output']['meta_info']
+_meta_table['GetoperationalRpc.Input']['meta_info'].parent =_meta_table['GetoperationalRpc']['meta_info']
+_meta_table['GetoperationalRpc.Output']['meta_info'].parent =_meta_table['GetoperationalRpc']['meta_info']
+_meta_table['GettelemetrysubscriptionsRpc.Output.Subscription.Collectors']['meta_info'].parent =_meta_table['GettelemetrysubscriptionsRpc.Output.Subscription']['meta_info']
+_meta_table['GettelemetrysubscriptionsRpc.Output.Subscription.Paths']['meta_info'].parent =_meta_table['GettelemetrysubscriptionsRpc.Output.Subscription']['meta_info']
+_meta_table['GettelemetrysubscriptionsRpc.Output.Subscription']['meta_info'].parent =_meta_table['GettelemetrysubscriptionsRpc.Output']['meta_info']
+_meta_table['GettelemetrysubscriptionsRpc.Output']['meta_info'].parent =_meta_table['GettelemetrysubscriptionsRpc']['meta_info']
+_meta_table['SetdataencodingRpc.Input']['meta_info'].parent =_meta_table['SetdataencodingRpc']['meta_info']
+_meta_table['TelemetrysubscribeRpc.Input.Collectors']['meta_info'].parent =_meta_table['TelemetrysubscribeRpc.Input']['meta_info']
+_meta_table['TelemetrysubscribeRpc.Input.Paths']['meta_info'].parent =_meta_table['TelemetrysubscribeRpc.Input']['meta_info']
+_meta_table['TelemetrysubscribeRpc.Output.Collectors']['meta_info'].parent =_meta_table['TelemetrysubscribeRpc.Output']['meta_info']
+_meta_table['TelemetrysubscribeRpc.Output.Paths']['meta_info'].parent =_meta_table['TelemetrysubscribeRpc.Output']['meta_info']
+_meta_table['TelemetrysubscribeRpc.Input']['meta_info'].parent =_meta_table['TelemetrysubscribeRpc']['meta_info']
+_meta_table['TelemetrysubscribeRpc.Output']['meta_info'].parent =_meta_table['TelemetrysubscribeRpc']['meta_info']

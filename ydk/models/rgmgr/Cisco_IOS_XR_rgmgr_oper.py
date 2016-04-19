@@ -162,8 +162,6 @@ class RedundancyGroupManager(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.controller_name is not None:
                     return True
 
@@ -190,10 +188,6 @@ class RedundancyGroupManager(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.rgmgr._meta import _Cisco_IOS_XR_rgmgr_oper as meta
@@ -211,17 +205,11 @@ class RedundancyGroupManager(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.controller is not None:
                 for child_ref in self.controller:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -241,18 +229,9 @@ class RedundancyGroupManager(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.controllers is not None and self.controllers._has_data():
             return True
 
-        if self.controllers is not None and self.controllers.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

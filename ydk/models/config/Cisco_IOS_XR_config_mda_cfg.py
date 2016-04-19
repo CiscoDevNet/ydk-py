@@ -24,7 +24,7 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg import LptsFlow_Enum
+from ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg import LptsFlowEnum
 
 
 class ActiveNodes(object):
@@ -63,12 +63,12 @@ class ActiveNodes(object):
         .. attribute:: cisco_ios_xr_watchd_cfg_watchdog_node_threshold
         
         	watchdog node threshold
-        	**type**\: :py:class:`CiscoIOSXRWatchdCfg_watchdogNodeThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold>`
+        	**type**\: :py:class:`CiscoIosXrWatchdCfg_WatchdogNodeThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold>`
         
         .. attribute:: cisco_ios_xr_wd_cfg_watchdog_node_threshold
         
         	Watchdog threshold configuration
-        	**type**\: :py:class:`CiscoIOSXRWdCfg_watchdogNodeThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWdCfg_watchdogNodeThreshold>`
+        	**type**\: :py:class:`CiscoIosXrWdCfg_WatchdogNodeThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold>`
         
         .. attribute:: lpts_local
         
@@ -85,22 +85,22 @@ class ActiveNodes(object):
         def __init__(self):
             self.parent = None
             self.node_name = None
-            self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold()
+            self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold = ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold()
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold.parent = self
-            self.cisco_ios_xr_wd_cfg_watchdog_node_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWdCfg_watchdogNodeThreshold()
+            self.cisco_ios_xr_wd_cfg_watchdog_node_threshold = ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold()
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold.parent = self
             self.lpts_local = ActiveNodes.ActiveNode.LptsLocal()
             self.lpts_local.parent = self
 
 
-        class CiscoIOSXRWatchdCfg_watchdogNodeThreshold(object):
+        class CiscoIosXrWatchdCfg_WatchdogNodeThreshold(object):
             """
             watchdog node threshold
             
             .. attribute:: memory_threshold
             
             	Memory thresholds
-            	**type**\: :py:class:`MemoryThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold.MemoryThreshold>`
+            	**type**\: :py:class:`MemoryThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold>`
             
             
 
@@ -111,7 +111,7 @@ class ActiveNodes(object):
 
             def __init__(self):
                 self.parent = None
-                self.memory_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold = ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold()
                 self.memory_threshold.parent = self
 
 
@@ -167,8 +167,6 @@ class ActiveNodes(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.critical is not None:
                         return True
 
@@ -180,14 +178,10 @@ class ActiveNodes(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                    return meta._meta_table['ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold.MemoryThreshold']['meta_info']
+                    return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info']
 
             @property
             def _common_path(self):
@@ -203,34 +197,25 @@ class ActiveNodes(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.memory_threshold is not None and self.memory_threshold._has_data():
                     return True
 
-                if self.memory_threshold is not None and self.memory_threshold.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                return meta._meta_table['ActiveNodes.ActiveNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold']['meta_info']
+                return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold']['meta_info']
 
 
-        class CiscoIOSXRWdCfg_watchdogNodeThreshold(object):
+        class CiscoIosXrWdCfg_WatchdogNodeThreshold(object):
             """
             Watchdog threshold configuration
             
             .. attribute:: memory_threshold
             
             	Memory thresholds
-            	**type**\: :py:class:`MemoryThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIOSXRWdCfg_watchdogNodeThreshold.MemoryThreshold>`
+            	**type**\: :py:class:`MemoryThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold>`
             
             
 
@@ -241,7 +226,7 @@ class ActiveNodes(object):
 
             def __init__(self):
                 self.parent = None
-                self.memory_threshold = ActiveNodes.ActiveNode.CiscoIOSXRWdCfg_watchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold = ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold()
                 self.memory_threshold.parent = self
 
 
@@ -297,8 +282,6 @@ class ActiveNodes(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.critical is not None:
                         return True
 
@@ -310,14 +293,10 @@ class ActiveNodes(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                    return meta._meta_table['ActiveNodes.ActiveNode.CiscoIOSXRWdCfg_watchdogNodeThreshold.MemoryThreshold']['meta_info']
+                    return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info']
 
             @property
             def _common_path(self):
@@ -333,24 +312,15 @@ class ActiveNodes(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.memory_threshold is not None and self.memory_threshold._has_data():
                     return True
 
-                if self.memory_threshold is not None and self.memory_threshold.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                return meta._meta_table['ActiveNodes.ActiveNode.CiscoIOSXRWdCfg_watchdogNodeThreshold']['meta_info']
+                return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info']
 
 
         class LptsLocal(object):
@@ -391,10 +361,20 @@ class ActiveNodes(object):
                 	Enabled
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: flows
                 
                 	Table for Flows
                 	**type**\: :py:class:`Flows <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -442,7 +422,7 @@ class ActiveNodes(object):
                         .. attribute:: flow_type
                         
                         	LPTS Flow Type
-                        	**type**\: :py:class:`LptsFlow_Enum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow_Enum>`
+                        	**type**\: :py:class:`LptsFlowEnum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlowEnum>`
                         
                         .. attribute:: precedences
                         
@@ -478,7 +458,7 @@ class ActiveNodes(object):
                             .. attribute:: precedence
                             
                             	Precedence values
-                            	**type**\: list of one of { list of :py:class:`LptsPreIFibPrecedenceNumber_Enum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumber_Enum>` | list of int }
+                            	**type**\: list of one of { list of :py:class:`LptsPreIFibPrecedenceNumberEnum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumberEnum>` | list of int }
                             
                             
 
@@ -505,17 +485,11 @@ class ActiveNodes(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.precedence is not None:
                                     for child in self.precedence:
                                         if child is not None:
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -539,24 +513,15 @@ class ActiveNodes(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.flow_type is not None:
                                 return True
 
                             if self.precedences is not None and self.precedences._has_data():
                                 return True
 
-                            if self.precedences is not None and self.precedences.is_presence():
-                                return True
-
                             if self.rate is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -578,17 +543,11 @@ class ActiveNodes(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.flow is not None:
                             for child_ref in self.flow:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -610,22 +569,13 @@ class ActiveNodes(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.enable is not None:
                         return True
 
                     if self.flows is not None and self.flows._has_data():
                         return True
 
-                    if self.flows is not None and self.flows.is_presence():
-                        return True
-
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -757,18 +707,12 @@ class ActiveNodes(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.id1 is not None:
                                     return True
 
                                 if self.rate is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -790,17 +734,11 @@ class ActiveNodes(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.np is not None:
                                 for child_ref in self.np:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -824,21 +762,12 @@ class ActiveNodes(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.id1 is not None:
                             return True
 
                         if self.nps is not None and self.nps._has_data():
                             return True
 
-                        if self.nps is not None and self.nps.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -860,17 +789,11 @@ class ActiveNodes(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ipolicer_local_table is not None:
                         for child_ref in self.ipolicer_local_table:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -892,24 +815,12 @@ class ActiveNodes(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.ipolicer_local is not None and self.ipolicer_local._has_data():
-                    return True
-
-                if self.ipolicer_local is not None and self.ipolicer_local.is_presence():
                     return True
 
                 if self.ipolicer_local_tables is not None and self.ipolicer_local_tables._has_data():
                     return True
 
-                if self.ipolicer_local_tables is not None and self.ipolicer_local_tables.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -931,33 +842,18 @@ class ActiveNodes(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node_name is not None:
                 return True
 
             if self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold is not None and self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold._has_data():
                 return True
 
-            if self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold is not None and self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold.is_presence():
-                return True
-
             if self.cisco_ios_xr_wd_cfg_watchdog_node_threshold is not None and self.cisco_ios_xr_wd_cfg_watchdog_node_threshold._has_data():
-                return True
-
-            if self.cisco_ios_xr_wd_cfg_watchdog_node_threshold is not None and self.cisco_ios_xr_wd_cfg_watchdog_node_threshold.is_presence():
                 return True
 
             if self.lpts_local is not None and self.lpts_local._has_data():
                 return True
 
-            if self.lpts_local is not None and self.lpts_local.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -977,17 +873,11 @@ class ActiveNodes(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.active_node is not None:
             for child_ref in self.active_node:
                 if child_ref._has_data():
                     return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -1032,12 +922,12 @@ class PreconfiguredNodes(object):
         .. attribute:: cisco_ios_xr_watchd_cfg_watchdog_node_threshold
         
         	watchdog node threshold
-        	**type**\: :py:class:`CiscoIOSXRWatchdCfg_watchdogNodeThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold>`
+        	**type**\: :py:class:`CiscoIosXrWatchdCfg_WatchdogNodeThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold>`
         
         .. attribute:: cisco_ios_xr_wd_cfg_watchdog_node_threshold
         
         	Watchdog threshold configuration
-        	**type**\: :py:class:`CiscoIOSXRWdCfg_watchdogNodeThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfg_watchdogNodeThreshold>`
+        	**type**\: :py:class:`CiscoIosXrWdCfg_WatchdogNodeThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold>`
         
         .. attribute:: lpts_local
         
@@ -1054,22 +944,22 @@ class PreconfiguredNodes(object):
         def __init__(self):
             self.parent = None
             self.node_name = None
-            self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold()
+            self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold()
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold.parent = self
-            self.cisco_ios_xr_wd_cfg_watchdog_node_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfg_watchdogNodeThreshold()
+            self.cisco_ios_xr_wd_cfg_watchdog_node_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold()
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold.parent = self
             self.lpts_local = PreconfiguredNodes.PreconfiguredNode.LptsLocal()
             self.lpts_local.parent = self
 
 
-        class CiscoIOSXRWatchdCfg_watchdogNodeThreshold(object):
+        class CiscoIosXrWatchdCfg_WatchdogNodeThreshold(object):
             """
             watchdog node threshold
             
             .. attribute:: memory_threshold
             
             	Memory thresholds
-            	**type**\: :py:class:`MemoryThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold.MemoryThreshold>`
+            	**type**\: :py:class:`MemoryThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold>`
             
             
 
@@ -1080,7 +970,7 @@ class PreconfiguredNodes(object):
 
             def __init__(self):
                 self.parent = None
-                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold()
                 self.memory_threshold.parent = self
 
 
@@ -1136,8 +1026,6 @@ class PreconfiguredNodes(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.critical is not None:
                         return True
 
@@ -1149,14 +1037,10 @@ class PreconfiguredNodes(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                    return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold.MemoryThreshold']['meta_info']
+                    return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info']
 
             @property
             def _common_path(self):
@@ -1172,34 +1056,25 @@ class PreconfiguredNodes(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.memory_threshold is not None and self.memory_threshold._has_data():
                     return True
 
-                if self.memory_threshold is not None and self.memory_threshold.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWatchdCfg_watchdogNodeThreshold']['meta_info']
+                return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold']['meta_info']
 
 
-        class CiscoIOSXRWdCfg_watchdogNodeThreshold(object):
+        class CiscoIosXrWdCfg_WatchdogNodeThreshold(object):
             """
             Watchdog threshold configuration
             
             .. attribute:: memory_threshold
             
             	Memory thresholds
-            	**type**\: :py:class:`MemoryThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfg_watchdogNodeThreshold.MemoryThreshold>`
+            	**type**\: :py:class:`MemoryThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold>`
             
             
 
@@ -1210,7 +1085,7 @@ class PreconfiguredNodes(object):
 
             def __init__(self):
                 self.parent = None
-                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfg_watchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold()
                 self.memory_threshold.parent = self
 
 
@@ -1266,8 +1141,6 @@ class PreconfiguredNodes(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.critical is not None:
                         return True
 
@@ -1279,14 +1152,10 @@ class PreconfiguredNodes(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                    return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfg_watchdogNodeThreshold.MemoryThreshold']['meta_info']
+                    return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info']
 
             @property
             def _common_path(self):
@@ -1302,24 +1171,15 @@ class PreconfiguredNodes(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.memory_threshold is not None and self.memory_threshold._has_data():
                     return True
 
-                if self.memory_threshold is not None and self.memory_threshold.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIOSXRWdCfg_watchdogNodeThreshold']['meta_info']
+                return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info']
 
 
         class LptsLocal(object):
@@ -1360,10 +1220,20 @@ class PreconfiguredNodes(object):
                 	Enabled
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
                 .. attribute:: flows
                 
                 	Table for Flows
                 	**type**\: :py:class:`Flows <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
                 
                 
 
@@ -1411,7 +1281,7 @@ class PreconfiguredNodes(object):
                         .. attribute:: flow_type
                         
                         	LPTS Flow Type
-                        	**type**\: :py:class:`LptsFlow_Enum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlow_Enum>`
+                        	**type**\: :py:class:`LptsFlowEnum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlowEnum>`
                         
                         .. attribute:: precedences
                         
@@ -1447,7 +1317,7 @@ class PreconfiguredNodes(object):
                             .. attribute:: precedence
                             
                             	Precedence values
-                            	**type**\: list of one of { list of :py:class:`LptsPreIFibPrecedenceNumber_Enum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumber_Enum>` | list of int }
+                            	**type**\: list of one of { list of :py:class:`LptsPreIFibPrecedenceNumberEnum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumberEnum>` | list of int }
                             
                             
 
@@ -1474,17 +1344,11 @@ class PreconfiguredNodes(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.precedence is not None:
                                     for child in self.precedence:
                                         if child is not None:
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1508,24 +1372,15 @@ class PreconfiguredNodes(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.flow_type is not None:
                                 return True
 
                             if self.precedences is not None and self.precedences._has_data():
                                 return True
 
-                            if self.precedences is not None and self.precedences.is_presence():
-                                return True
-
                             if self.rate is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1547,17 +1402,11 @@ class PreconfiguredNodes(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.flow is not None:
                             for child_ref in self.flow:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1579,22 +1428,13 @@ class PreconfiguredNodes(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.enable is not None:
                         return True
 
                     if self.flows is not None and self.flows._has_data():
                         return True
 
-                    if self.flows is not None and self.flows.is_presence():
-                        return True
-
                     return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return True
 
                 @staticmethod
                 def _meta_info():
@@ -1726,18 +1566,12 @@ class PreconfiguredNodes(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.id1 is not None:
                                     return True
 
                                 if self.rate is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1759,17 +1593,11 @@ class PreconfiguredNodes(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.np is not None:
                                 for child_ref in self.np:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1793,21 +1621,12 @@ class PreconfiguredNodes(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.id1 is not None:
                             return True
 
                         if self.nps is not None and self.nps._has_data():
                             return True
 
-                        if self.nps is not None and self.nps.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1829,17 +1648,11 @@ class PreconfiguredNodes(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ipolicer_local_table is not None:
                         for child_ref in self.ipolicer_local_table:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1861,24 +1674,12 @@ class PreconfiguredNodes(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.ipolicer_local is not None and self.ipolicer_local._has_data():
-                    return True
-
-                if self.ipolicer_local is not None and self.ipolicer_local.is_presence():
                     return True
 
                 if self.ipolicer_local_tables is not None and self.ipolicer_local_tables._has_data():
                     return True
 
-                if self.ipolicer_local_tables is not None and self.ipolicer_local_tables.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1900,33 +1701,18 @@ class PreconfiguredNodes(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node_name is not None:
                 return True
 
             if self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold is not None and self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold._has_data():
                 return True
 
-            if self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold is not None and self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold.is_presence():
-                return True
-
             if self.cisco_ios_xr_wd_cfg_watchdog_node_threshold is not None and self.cisco_ios_xr_wd_cfg_watchdog_node_threshold._has_data():
-                return True
-
-            if self.cisco_ios_xr_wd_cfg_watchdog_node_threshold is not None and self.cisco_ios_xr_wd_cfg_watchdog_node_threshold.is_presence():
                 return True
 
             if self.lpts_local is not None and self.lpts_local._has_data():
                 return True
 
-            if self.lpts_local is not None and self.lpts_local.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1946,17 +1732,11 @@ class PreconfiguredNodes(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.preconfigured_node is not None:
             for child_ref in self.preconfigured_node:
                 if child_ref._has_data():
                     return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

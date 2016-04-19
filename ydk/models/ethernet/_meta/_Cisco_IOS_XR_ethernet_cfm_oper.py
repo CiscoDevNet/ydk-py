@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,20 +14,20 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'CfmPmElrIngressAction_Enum' : _MetaInfoEnum('CfmPmElrIngressAction_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmElrIngressActionEnum' : _MetaInfoEnum('CfmPmElrIngressActionEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'elr-ingress-ok':'ELR_INGRESS_OK',
             'elr-ingress-down':'ELR_INGRESS_DOWN',
             'elr-ingress-blocked':'ELR_INGRESS_BLOCKED',
             'elr-ingress-vid':'ELR_INGRESS_VID',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmRelayAction_Enum' : _MetaInfoEnum('CfmPmRelayAction_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmRelayActionEnum' : _MetaInfoEnum('CfmPmRelayActionEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'relay-hit':'RELAY_HIT',
             'relay-fdb':'RELAY_FDB',
             'relay-mpdb':'RELAY_MPDB',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmBagSmanFmt_Enum' : _MetaInfoEnum('CfmBagSmanFmt_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmBagSmanFmtEnum' : _MetaInfoEnum('CfmBagSmanFmtEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'sman-vlan-id':'SMAN_VLAN_ID',
             'sman-string':'SMAN_STRING',
@@ -36,7 +36,7 @@ _meta_table = {
             'sman-icc':'SMAN_ICC',
             'sman-unknown':'SMAN_UNKNOWN',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmMepDefect_Enum' : _MetaInfoEnum('CfmPmMepDefect_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmMepDefectEnum' : _MetaInfoEnum('CfmPmMepDefectEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'defect-none':'DEFECT_NONE',
             'defect-rdi-ccm':'DEFECT_RDI_CCM',
@@ -45,7 +45,7 @@ _meta_table = {
             'defect-error-ccm':'DEFECT_ERROR_CCM',
             'defect-cross-connect-ccm':'DEFECT_CROSS_CONNECT_CCM',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmElrEgressAction_Enum' : _MetaInfoEnum('CfmPmElrEgressAction_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmElrEgressActionEnum' : _MetaInfoEnum('CfmPmElrEgressActionEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'elr-egress-ok':'ELR_EGRESS_OK',
             'elr-egress-down':'ELR_EGRESS_DOWN',
@@ -53,14 +53,14 @@ _meta_table = {
             'elr-egress-vid':'ELR_EGRESS_VID',
             'elr-egress-mac':'ELR_EGRESS_MAC',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmIngressAction_Enum' : _MetaInfoEnum('CfmPmIngressAction_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmIngressActionEnum' : _MetaInfoEnum('CfmPmIngressActionEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'ingress-ok':'INGRESS_OK',
             'ingress-down':'INGRESS_DOWN',
             'ingress-blocked':'INGRESS_BLOCKED',
             'ingress-vid':'INGRESS_VID',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmBagCcmInterval_Enum' : _MetaInfoEnum('CfmBagCcmInterval_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmBagCcmIntervalEnum' : _MetaInfoEnum('CfmBagCcmIntervalEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'interval-none':'INTERVAL_NONE',
             'interval3-3ms':'INTERVAL3_3MS',
@@ -71,7 +71,7 @@ _meta_table = {
             'interval1m':'INTERVAL1M',
             'interval10m':'INTERVAL10M',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmChassisIdFmt_Enum' : _MetaInfoEnum('CfmPmChassisIdFmt_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmChassisIdFmtEnum' : _MetaInfoEnum('CfmPmChassisIdFmtEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'chassis-id-chassis-component':'CHASSIS_ID_CHASSIS_COMPONENT',
             'chassis-id-interface-alias':'CHASSIS_ID_INTERFACE_ALIAS',
@@ -82,51 +82,51 @@ _meta_table = {
             'chassis-id-local':'CHASSIS_ID_LOCAL',
             'chassis-id-unknown-type':'CHASSIS_ID_UNKNOWN_TYPE',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'SlaOperOperation_Enum' : _MetaInfoEnum('SlaOperOperation_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'SlaOperOperationEnum' : _MetaInfoEnum('SlaOperOperationEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'operation-type-configured':'OPERATION_TYPE_CONFIGURED',
             'operation-type-ondemand':'OPERATION_TYPE_ONDEMAND',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmLastHopFmt_Enum' : _MetaInfoEnum('CfmPmLastHopFmt_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmLastHopFmtEnum' : _MetaInfoEnum('CfmPmLastHopFmtEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'last-hop-none':'LAST_HOP_NONE',
             'last-hop-host-name':'LAST_HOP_HOST_NAME',
             'last-hop-egress-id':'LAST_HOP_EGRESS_ID',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmIdFmt_Enum' : _MetaInfoEnum('CfmPmIdFmt_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmIdFmtEnum' : _MetaInfoEnum('CfmPmIdFmtEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'id-format-is-string':'ID_FORMAT_IS_STRING',
             'id-format-is-mac-address':'ID_FORMAT_IS_MAC_ADDRESS',
             'id-format-is-raw-hex':'ID_FORMAT_IS_RAW_HEX',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmRmepState_Enum' : _MetaInfoEnum('CfmPmRmepState_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmRmepStateEnum' : _MetaInfoEnum('CfmPmRmepStateEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'peer-mep-idle':'PEER_MEP_IDLE',
             'peer-mep-start':'PEER_MEP_START',
             'peer-mep-failed':'PEER_MEP_FAILED',
             'peer-mep-ok':'PEER_MEP_OK',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmBagCcmOffload_Enum' : _MetaInfoEnum('CfmBagCcmOffload_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmBagCcmOffloadEnum' : _MetaInfoEnum('CfmBagCcmOffloadEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'offload-none':'OFFLOAD_NONE',
             'offload-software':'OFFLOAD_SOFTWARE',
             'offload-hardware':'OFFLOAD_HARDWARE',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmAisReceive_Enum' : _MetaInfoEnum('CfmPmAisReceive_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmAisReceiveEnum' : _MetaInfoEnum('CfmPmAisReceiveEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'receive-none':'RECEIVE_NONE',
             'receive-ais':'RECEIVE_AIS',
             'receive-lck':'RECEIVE_LCK',
             'receive-direct':'RECEIVE_DIRECT',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmMaMpVariety_Enum' : _MetaInfoEnum('CfmMaMpVariety_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmMaMpVarietyEnum' : _MetaInfoEnum('CfmMaMpVarietyEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'mip':'MIP',
             'up-mep':'UP_MEP',
             'downmep':'DOWNMEP',
             'unknown-mep':'UNKNOWN_MEP',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmPktAction_Enum' : _MetaInfoEnum('CfmPmPktAction_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmPktActionEnum' : _MetaInfoEnum('CfmPmPktActionEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'packet-processed':'PACKET_PROCESSED',
             'packet-forwarded':'PACKET_FORWARDED',
@@ -222,42 +222,42 @@ _meta_table = {
             'filter-response-standby':'FILTER_RESPONSE_STANDBY',
             'filter-response-issu-secondary':'FILTER_RESPONSE_ISSU_SECONDARY',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'SlaBucketSize_Enum' : _MetaInfoEnum('SlaBucketSize_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'SlaBucketSizeEnum' : _MetaInfoEnum('SlaBucketSizeEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'buckets-per-probe':'BUCKETS_PER_PROBE',
             'probes-per-bucket':'PROBES_PER_BUCKET',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmEltDelayModel_Enum' : _MetaInfoEnum('CfmPmEltDelayModel_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmEltDelayModelEnum' : _MetaInfoEnum('CfmPmEltDelayModelEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'delay-model-invalid':'DELAY_MODEL_INVALID',
             'delay-model-logarithmic':'DELAY_MODEL_LOGARITHMIC',
             'delay-model-constant':'DELAY_MODEL_CONSTANT',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmAisTransmit_Enum' : _MetaInfoEnum('CfmPmAisTransmit_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmAisTransmitEnum' : _MetaInfoEnum('CfmPmAisTransmitEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'transmit-none':'TRANSMIT_NONE',
             'transmit-ais':'TRANSMIT_AIS',
             'transmit-ais-direct':'TRANSMIT_AIS_DIRECT',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmElrRelayAction_Enum' : _MetaInfoEnum('CfmPmElrRelayAction_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmElrRelayActionEnum' : _MetaInfoEnum('CfmPmElrRelayActionEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'elr-relay-hit':'ELR_RELAY_HIT',
             'elr-relay-fdb':'ELR_RELAY_FDB',
             'elr-relay-flood':'ELR_RELAY_FLOOD',
             'elr-relay-drop':'ELR_RELAY_DROP',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmPortStatus_Enum' : _MetaInfoEnum('CfmPmPortStatus_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmPortStatusEnum' : _MetaInfoEnum('CfmPmPortStatusEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'port-status-blocked':'PORT_STATUS_BLOCKED',
             'port-status-up':'PORT_STATUS_UP',
             'port-status-unknown':'PORT_STATUS_UNKNOWN',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmBagIwState_Enum' : _MetaInfoEnum('CfmBagIwState_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmBagIwStateEnum' : _MetaInfoEnum('CfmBagIwStateEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'interworking-up':'INTERWORKING_UP',
             'interworking-test':'INTERWORKING_TEST',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmBagMdidFmt_Enum' : _MetaInfoEnum('CfmBagMdidFmt_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmBagMdidFmtEnum' : _MetaInfoEnum('CfmBagMdidFmtEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'mdid-null':'MDID_NULL',
             'mdid-dns-like':'MDID_DNS_LIKE',
@@ -265,7 +265,7 @@ _meta_table = {
             'mdid-string':'MDID_STRING',
             'mdid-unknown':'MDID_UNKNOWN',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmBagBdidFmt_Enum' : _MetaInfoEnum('CfmBagBdidFmt_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmBagBdidFmtEnum' : _MetaInfoEnum('CfmBagBdidFmtEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'invalid':'INVALID',
             'bd-id':'BD_ID',
@@ -273,19 +273,19 @@ _meta_table = {
             'xc-mp2mp-id':'XC_MP2MP_ID',
             'down-only':'DOWN_ONLY',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmBagIssuRole_Enum' : _MetaInfoEnum('CfmBagIssuRole_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmBagIssuRoleEnum' : _MetaInfoEnum('CfmBagIssuRoleEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'unknown':'UNKNOWN',
             'primary':'PRIMARY',
             'secondary':'SECONDARY',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmBagStpState_Enum' : _MetaInfoEnum('CfmBagStpState_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmBagStpStateEnum' : _MetaInfoEnum('CfmBagStpStateEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'stp-up':'STP_UP',
             'stp-blocked':'STP_BLOCKED',
             'stp-unknown':'STP_UNKNOWN',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmBagMdLevel_Enum' : _MetaInfoEnum('CfmBagMdLevel_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmBagMdLevelEnum' : _MetaInfoEnum('CfmBagMdLevelEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'level0':'LEVEL0',
             'level1':'LEVEL1',
@@ -297,29 +297,29 @@ _meta_table = {
             'level7':'LEVEL7',
             'level-invalid':'LEVEL_INVALID',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'SlaOperPacketPriority_Enum' : _MetaInfoEnum('SlaOperPacketPriority_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'SlaOperPacketPriorityEnum' : _MetaInfoEnum('SlaOperPacketPriorityEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'priority-none':'PRIORITY_NONE',
             'priority-cos':'PRIORITY_COS',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmBagAisInterval_Enum' : _MetaInfoEnum('CfmBagAisInterval_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmBagAisIntervalEnum' : _MetaInfoEnum('CfmBagAisIntervalEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'ais-interval-none':'AIS_INTERVAL_NONE',
             'ais-interval1s':'AIS_INTERVAL1S',
             'ais-interval1m':'AIS_INTERVAL1M',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmRmepXcState_Enum' : _MetaInfoEnum('CfmPmRmepXcState_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmRmepXcStateEnum' : _MetaInfoEnum('CfmPmRmepXcStateEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'cross-check-ok':'CROSS_CHECK_OK',
             'cross-check-missing':'CROSS_CHECK_MISSING',
             'cross-check-extra':'CROSS_CHECK_EXTRA',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmLtMode_Enum' : _MetaInfoEnum('CfmPmLtMode_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmLtModeEnum' : _MetaInfoEnum('CfmPmLtModeEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'cfm-pm-lt-mode-basic':'CFM_PM_LT_MODE_BASIC',
             'cfm-pm-lt-mode-exploratory':'CFM_PM_LT_MODE_EXPLORATORY',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmIntfStatus_Enum' : _MetaInfoEnum('CfmPmIntfStatus_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmIntfStatusEnum' : _MetaInfoEnum('CfmPmIntfStatusEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'interface-status-up':'INTERFACE_STATUS_UP',
             'interface-status-down':'INTERFACE_STATUS_DOWN',
@@ -329,20 +329,20 @@ _meta_table = {
             'interface-status-not-present':'INTERFACE_STATUS_NOT_PRESENT',
             'interface-status-lower-layer-down':'INTERFACE_STATUS_LOWER_LAYER_DOWN',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmBagDirection_Enum' : _MetaInfoEnum('CfmBagDirection_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmBagDirectionEnum' : _MetaInfoEnum('CfmBagDirectionEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'direction-up':'DIRECTION_UP',
             'direction-down':'DIRECTION_DOWN',
             'direction-invalid':'DIRECTION_INVALID',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmEgressAction_Enum' : _MetaInfoEnum('CfmPmEgressAction_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmEgressActionEnum' : _MetaInfoEnum('CfmPmEgressActionEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'egress-ok':'EGRESS_OK',
             'egress-down':'EGRESS_DOWN',
             'egress-blocked':'EGRESS_BLOCKED',
             'egress-vid':'EGRESS_VID',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmElmReplyFilter_Enum' : _MetaInfoEnum('CfmPmElmReplyFilter_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmElmReplyFilterEnum' : _MetaInfoEnum('CfmPmElmReplyFilterEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'reply-filter-not-present':'REPLY_FILTER_NOT_PRESENT',
             'reply-filter-default':'REPLY_FILTER_DEFAULT',
@@ -350,19 +350,19 @@ _meta_table = {
             'reply-filter-spanning-tree':'REPLY_FILTER_SPANNING_TREE',
             'reply-filter-all-ports':'REPLY_FILTER_ALL_PORTS',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmAisDir_Enum' : _MetaInfoEnum('CfmAisDir_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmAisDirEnum' : _MetaInfoEnum('CfmAisDirEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'up':'UP',
             'down':'DOWN',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmAddlIntfStatus_Enum' : _MetaInfoEnum('CfmPmAddlIntfStatus_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmAddlIntfStatusEnum' : _MetaInfoEnum('CfmPmAddlIntfStatusEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'unknown':'UNKNOWN',
             'administratively-down':'ADMINISTRATIVELY_DOWN',
             'remote-excessive-errors':'REMOTE_EXCESSIVE_ERRORS',
             'local-excessive-errors':'LOCAL_EXCESSIVE_ERRORS',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmBagOpcode_Enum' : _MetaInfoEnum('CfmBagOpcode_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmBagOpcodeEnum' : _MetaInfoEnum('CfmBagOpcodeEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'reserved':'RESERVED',
             'ccm':'CCM',
@@ -371,12 +371,12 @@ _meta_table = {
             'ltr':'LTR',
             'ltm':'LTM',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'SlaOperTestPatternScheme_Enum' : _MetaInfoEnum('SlaOperTestPatternScheme_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'SlaOperTestPatternSchemeEnum' : _MetaInfoEnum('SlaOperTestPatternSchemeEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'hex':'HEX',
             'pseudo-random':'PSEUDO_RANDOM',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmMepFngState_Enum' : _MetaInfoEnum('CfmPmMepFngState_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmMepFngStateEnum' : _MetaInfoEnum('CfmPmMepFngStateEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'fng-reset':'FNG_RESET',
             'fng-defect':'FNG_DEFECT',
@@ -384,7 +384,7 @@ _meta_table = {
             'fng-defect-reported':'FNG_DEFECT_REPORTED',
             'fng-defect-clearing':'FNG_DEFECT_CLEARING',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'CfmPmPortIdFmt_Enum' : _MetaInfoEnum('CfmPmPortIdFmt_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'CfmPmPortIdFmtEnum' : _MetaInfoEnum('CfmPmPortIdFmtEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'port-id-interface-alias':'PORT_ID_INTERFACE_ALIAS',
             'port-id-port-component':'PORT_ID_PORT_COMPONENT',
@@ -395,12 +395,12 @@ _meta_table = {
             'port-id-local':'PORT_ID_LOCAL',
             'port-id-unknown':'PORT_ID_UNKNOWN',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'SlaOperBucket_Enum' : _MetaInfoEnum('SlaOperBucket_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'SlaOperBucketEnum' : _MetaInfoEnum('SlaOperBucketEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'bucket-type-bins':'BUCKET_TYPE_BINS',
             'bucket-type-samples':'BUCKET_TYPE_SAMPLES',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'SlaRecordableMetric_Enum' : _MetaInfoEnum('SlaRecordableMetric_Enum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
+    'SlaRecordableMetricEnum' : _MetaInfoEnum('SlaRecordableMetricEnum', 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper',
         {
             'metric-invalid':'METRIC_INVALID',
             'metric-round-trip-delay':'METRIC_ROUND_TRIP_DELAY',
@@ -416,7 +416,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId',
             False, 
             [
-            _MetaInfoClassMember('bridge-domain-id-format', REFERENCE_ENUM_CLASS, 'CfmBagBdidFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagBdidFmt_Enum', 
+            _MetaInfoClassMember('bridge-domain-id-format', REFERENCE_ENUM_CLASS, 'CfmBagBdidFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagBdidFmtEnum', 
                 [], [], 
                 '''                Bridge domain identifier format
                 ''',
@@ -494,7 +494,7 @@ _meta_table = {
                 ''',
                 'l2_fib_download_error',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                Level
                 ''',
@@ -565,13 +565,13 @@ _meta_table = {
                 ''',
                 'delay_constant_factor',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('delay-model', REFERENCE_ENUM_CLASS, 'CfmPmEltDelayModel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEltDelayModel_Enum', 
+            _MetaInfoClassMember('delay-model', REFERENCE_ENUM_CLASS, 'CfmPmEltDelayModelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEltDelayModelEnum', 
                 [], [], 
                 '''                Delay model for delay calculations
                 ''',
                 'delay_model',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('reply-filter', REFERENCE_ENUM_CLASS, 'CfmPmElmReplyFilter_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElmReplyFilter_Enum', 
+            _MetaInfoClassMember('reply-filter', REFERENCE_ENUM_CLASS, 'CfmPmElmReplyFilterEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElmReplyFilterEnum', 
                 [], [], 
                 '''                Reply Filtering mode used by responders
                 ''',
@@ -600,7 +600,7 @@ _meta_table = {
                 ''',
                 'exploratory_options',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'CfmPmLtMode_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmLtMode_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'CfmPmLtModeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmLtModeEnum', 
                 [], [], 
                 '''                Mode
                 ''',
@@ -629,7 +629,7 @@ _meta_table = {
                 ''',
                 'domain',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                Maintenance level
                 ''',
@@ -824,13 +824,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps.LocalMep.AisStatistics',
             False, 
             [
-            _MetaInfoClassMember('interval', REFERENCE_ENUM_CLASS, 'CfmBagAisInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagAisInterval_Enum', 
+            _MetaInfoClassMember('interval', REFERENCE_ENUM_CLASS, 'CfmBagAisIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagAisIntervalEnum', 
                 [], [], 
                 '''                AIS transmission interval
                 ''',
                 'interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-interval', REFERENCE_ENUM_CLASS, 'CfmBagAisInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagAisInterval_Enum', 
+            _MetaInfoClassMember('last-interval', REFERENCE_ENUM_CLASS, 'CfmBagAisIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagAisIntervalEnum', 
                 [], [], 
                 '''                The interval of the last received AIS packet
                 ''',
@@ -843,13 +843,13 @@ _meta_table = {
                 ''',
                 'last_mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                AIS transmission level
                 ''',
                 'level',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('receiving-ais', REFERENCE_ENUM_CLASS, 'CfmPmAisReceive_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmAisReceive_Enum', 
+            _MetaInfoClassMember('receiving-ais', REFERENCE_ENUM_CLASS, 'CfmPmAisReceiveEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmAisReceiveEnum', 
                 [], [], 
                 '''                Details of how the signal is being received
                 ''',
@@ -861,7 +861,7 @@ _meta_table = {
                 ''',
                 'receiving_start',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sending-ais', REFERENCE_ENUM_CLASS, 'CfmPmAisTransmit_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmAisTransmit_Enum', 
+            _MetaInfoClassMember('sending-ais', REFERENCE_ENUM_CLASS, 'CfmPmAisTransmitEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmAisTransmitEnum', 
                 [], [], 
                 '''                Details of how AIS is being transmitted
                 ''',
@@ -1213,13 +1213,13 @@ _meta_table = {
                 ''',
                 'ccm_generation_enabled',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccm-interval', REFERENCE_ENUM_CLASS, 'CfmBagCcmInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmInterval_Enum', 
+            _MetaInfoClassMember('ccm-interval', REFERENCE_ENUM_CLASS, 'CfmBagCcmIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmIntervalEnum', 
                 [], [], 
                 '''                The interval between CCMs
                 ''',
                 'ccm_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccm-offload', REFERENCE_ENUM_CLASS, 'CfmBagCcmOffload_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmOffload_Enum', 
+            _MetaInfoClassMember('ccm-offload', REFERENCE_ENUM_CLASS, 'CfmBagCcmOffloadEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmOffloadEnum', 
                 [], [], 
                 '''                Offload status of CCM processing
                 ''',
@@ -1262,13 +1262,13 @@ _meta_table = {
                 ''',
                 'error_ccm_defect',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('fault-notification-state', REFERENCE_ENUM_CLASS, 'CfmPmMepFngState_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmMepFngState_Enum', 
+            _MetaInfoClassMember('fault-notification-state', REFERENCE_ENUM_CLASS, 'CfmPmMepFngStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmMepFngStateEnum', 
                 [], [], 
                 '''                Fault Notification Generation state
                 ''',
                 'fault_notification_state',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('highest-defect', REFERENCE_ENUM_CLASS, 'CfmPmMepDefect_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmMepDefect_Enum', 
+            _MetaInfoClassMember('highest-defect', REFERENCE_ENUM_CLASS, 'CfmPmMepDefectEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmMepDefectEnum', 
                 [], [], 
                 '''                Highest-priority defect present since last FNG
                 reset
@@ -1287,13 +1287,13 @@ _meta_table = {
                 ''',
                 'interface_xr',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('interworking-state', REFERENCE_ENUM_CLASS, 'CfmBagIwState_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagIwState_Enum', 
+            _MetaInfoClassMember('interworking-state', REFERENCE_ENUM_CLASS, 'CfmBagIwStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagIwStateEnum', 
                 [], [], 
                 '''                Interface interworking state
                 ''',
                 'interworking_state',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                Maintenance level
                 ''',
@@ -1312,7 +1312,7 @@ _meta_table = {
                 ''',
                 'mac_status_defect',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mep-direction', REFERENCE_ENUM_CLASS, 'CfmBagDirection_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagDirection_Enum', 
+            _MetaInfoClassMember('mep-direction', REFERENCE_ENUM_CLASS, 'CfmBagDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagDirectionEnum', 
                 [], [], 
                 '''                MEP facing direction
                 ''',
@@ -1386,7 +1386,7 @@ _meta_table = {
                 ''',
                 'statistics',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('stp-state', REFERENCE_ENUM_CLASS, 'CfmBagStpState_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagStpState_Enum', 
+            _MetaInfoClassMember('stp-state', REFERENCE_ENUM_CLASS, 'CfmBagStpStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagStpStateEnum', 
                 [], [], 
                 '''                STP state
                 ''',
@@ -1432,13 +1432,13 @@ _meta_table = {
                 ''',
                 'interface',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                Domain level
                 ''',
                 'level',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('maintenance-point-type', REFERENCE_ENUM_CLASS, 'CfmMaMpVariety_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmMaMpVariety_Enum', 
+            _MetaInfoClassMember('maintenance-point-type', REFERENCE_ENUM_CLASS, 'CfmMaMpVarietyEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmMaMpVarietyEnum', 
                 [], [], 
                 '''                Type of Maintenance Point
                 ''',
@@ -1532,7 +1532,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain',
             False, 
             [
-            _MetaInfoClassMember('bridge-domain-id-format', REFERENCE_ENUM_CLASS, 'CfmBagBdidFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagBdidFmt_Enum', 
+            _MetaInfoClassMember('bridge-domain-id-format', REFERENCE_ENUM_CLASS, 'CfmBagBdidFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagBdidFmtEnum', 
                 [], [], 
                 '''                Bridge domain identifier format
                 ''',
@@ -1585,13 +1585,13 @@ _meta_table = {
                 ''',
                 'interface',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                Domain level
                 ''',
                 'level',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('maintenance-point-type', REFERENCE_ENUM_CLASS, 'CfmMaMpVariety_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmMaMpVariety_Enum', 
+            _MetaInfoClassMember('maintenance-point-type', REFERENCE_ENUM_CLASS, 'CfmMaMpVarietyEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmMaMpVarietyEnum', 
                 [], [], 
                 '''                Type of Maintenance Point
                 ''',
@@ -1718,7 +1718,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain',
             False, 
             [
-            _MetaInfoClassMember('bridge-domain-id-format', REFERENCE_ENUM_CLASS, 'CfmBagBdidFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagBdidFmt_Enum', 
+            _MetaInfoClassMember('bridge-domain-id-format', REFERENCE_ENUM_CLASS, 'CfmBagBdidFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagBdidFmtEnum', 
                 [], [], 
                 '''                Bridge domain identifier format
                 ''',
@@ -1806,7 +1806,7 @@ _meta_table = {
                 ''',
                 'bundle_level0',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccm-interval', REFERENCE_ENUM_CLASS, 'CfmBagCcmInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmInterval_Enum', 
+            _MetaInfoClassMember('ccm-interval', REFERENCE_ENUM_CLASS, 'CfmBagCcmIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmIntervalEnum', 
                 [], [], 
                 '''                Interval between CCMs sent on this MEP.
                 ''',
@@ -2192,13 +2192,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header',
             False, 
             [
-            _MetaInfoClassMember('interval', REFERENCE_ENUM_CLASS, 'CfmBagCcmInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmInterval_Enum', 
+            _MetaInfoClassMember('interval', REFERENCE_ENUM_CLASS, 'CfmBagCcmIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmIntervalEnum', 
                 [], [], 
                 '''                CCM interval
                 ''',
                 'interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                MD level
                 ''',
@@ -2210,7 +2210,7 @@ _meta_table = {
                 ''',
                 'mdid',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mdid-format', REFERENCE_ENUM_CLASS, 'CfmBagMdidFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdidFmt_Enum', 
+            _MetaInfoClassMember('mdid-format', REFERENCE_ENUM_CLASS, 'CfmBagMdidFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdidFmtEnum', 
                 [], [], 
                 '''                MDID Format
                 ''',
@@ -2240,7 +2240,7 @@ _meta_table = {
                 ''',
                 'short_ma_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('short-ma-name-format', REFERENCE_ENUM_CLASS, 'CfmBagSmanFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagSmanFmt_Enum', 
+            _MetaInfoClassMember('short-ma-name-format', REFERENCE_ENUM_CLASS, 'CfmBagSmanFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagSmanFmtEnum', 
                 [], [], 
                 '''                Short MA Name format
                 ''',
@@ -2309,7 +2309,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue',
             False, 
             [
-            _MetaInfoClassMember('chassis-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmt_Enum', 
+            _MetaInfoClassMember('chassis-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
                 [], [], 
                 '''                ChassisIDFormat
                 ''',
@@ -2350,7 +2350,7 @@ _meta_table = {
                 ''',
                 'chassis_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-type', REFERENCE_ENUM_CLASS, 'CfmPmChassisIdFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmChassisIdFmt_Enum', 
+            _MetaInfoClassMember('chassis-id-type', REFERENCE_ENUM_CLASS, 'CfmPmChassisIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmChassisIdFmtEnum', 
                 [], [], 
                 '''                Chassis ID Type
                 ''',
@@ -2431,7 +2431,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived',
             False, 
             [
-            _MetaInfoClassMember('additional-interface-status', REFERENCE_ENUM_CLASS, 'CfmPmAddlIntfStatus_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmAddlIntfStatus_Enum', 
+            _MetaInfoClassMember('additional-interface-status', REFERENCE_ENUM_CLASS, 'CfmPmAddlIntfStatusEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmAddlIntfStatusEnum', 
                 [], [], 
                 '''                Additional interface status
                 ''',
@@ -2443,7 +2443,7 @@ _meta_table = {
                 ''',
                 'header',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('interface-status', REFERENCE_ENUM_CLASS, 'CfmPmIntfStatus_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIntfStatus_Enum', 
+            _MetaInfoClassMember('interface-status', REFERENCE_ENUM_CLASS, 'CfmPmIntfStatusEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIntfStatusEnum', 
                 [], [], 
                 '''                Interface status
                 ''',
@@ -2461,7 +2461,7 @@ _meta_table = {
                 ''',
                 'organization_specific_tlv',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-status', REFERENCE_ENUM_CLASS, 'CfmPmPortStatus_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortStatus_Enum', 
+            _MetaInfoClassMember('port-status', REFERENCE_ENUM_CLASS, 'CfmPmPortStatusEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortStatusEnum', 
                 [], [], 
                 '''                Port status
                 ''',
@@ -2615,13 +2615,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep',
             False, 
             [
-            _MetaInfoClassMember('ccm-offload', REFERENCE_ENUM_CLASS, 'CfmBagCcmOffload_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmOffload_Enum', 
+            _MetaInfoClassMember('ccm-offload', REFERENCE_ENUM_CLASS, 'CfmBagCcmOffloadEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmOffloadEnum', 
                 [], [], 
                 '''                Offload status of received CCM handling
                 ''',
                 'ccm_offload',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('cross-check-state', REFERENCE_ENUM_CLASS, 'CfmPmRmepXcState_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmRmepXcState_Enum', 
+            _MetaInfoClassMember('cross-check-state', REFERENCE_ENUM_CLASS, 'CfmPmRmepXcStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmRmepXcStateEnum', 
                 [], [], 
                 '''                Cross-check state
                 ''',
@@ -2658,7 +2658,7 @@ _meta_table = {
                 ''',
                 'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('peer-mep-state', REFERENCE_ENUM_CLASS, 'CfmPmRmepState_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmRmepState_Enum', 
+            _MetaInfoClassMember('peer-mep-state', REFERENCE_ENUM_CLASS, 'CfmPmRmepStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmRmepStateEnum', 
                 [], [], 
                 '''                State of the peer MEP state machine
                 ''',
@@ -2729,13 +2729,13 @@ _meta_table = {
                 ''',
                 'interface_xr',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                Maintenance level
                 ''',
                 'level',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mep-direction', REFERENCE_ENUM_CLASS, 'CfmBagDirection_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagDirection_Enum', 
+            _MetaInfoClassMember('mep-direction', REFERENCE_ENUM_CLASS, 'CfmBagDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagDirectionEnum', 
                 [], [], 
                 '''                MEP facing direction
                 ''',
@@ -2794,7 +2794,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header',
             False, 
             [
-            _MetaInfoClassMember('delay-model', REFERENCE_ENUM_CLASS, 'CfmPmEltDelayModel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEltDelayModel_Enum', 
+            _MetaInfoClassMember('delay-model', REFERENCE_ENUM_CLASS, 'CfmPmEltDelayModelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEltDelayModelEnum', 
                 [], [], 
                 '''                Delay Model
                 ''',
@@ -2806,7 +2806,7 @@ _meta_table = {
                 ''',
                 'forwarded',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                MD level
                 ''',
@@ -2818,7 +2818,7 @@ _meta_table = {
                 ''',
                 'next_hop_timeout',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('relay-action', REFERENCE_ENUM_CLASS, 'CfmPmElrRelayAction_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElrRelayAction_Enum', 
+            _MetaInfoClassMember('relay-action', REFERENCE_ENUM_CLASS, 'CfmPmElrRelayActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElrRelayActionEnum', 
                 [], [], 
                 '''                Relay action
                 ''',
@@ -2900,7 +2900,7 @@ _meta_table = {
                 ''',
                 'host_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-hop-format', REFERENCE_ENUM_CLASS, 'CfmPmLastHopFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmLastHopFmt_Enum', 
+            _MetaInfoClassMember('last-hop-format', REFERENCE_ENUM_CLASS, 'CfmPmLastHopFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmLastHopFmtEnum', 
                 [], [], 
                 '''                LastHopFormat
                 ''',
@@ -2992,7 +2992,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue',
             False, 
             [
-            _MetaInfoClassMember('port-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmt_Enum', 
+            _MetaInfoClassMember('port-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
                 [], [], 
                 '''                PortIDFormat
                 ''',
@@ -3033,7 +3033,7 @@ _meta_table = {
                 ''',
                 'port_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-type', REFERENCE_ENUM_CLASS, 'CfmPmPortIdFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmt_Enum', 
+            _MetaInfoClassMember('port-id-type', REFERENCE_ENUM_CLASS, 'CfmPmPortIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmtEnum', 
                 [], [], 
                 '''                Port ID type
                 ''',
@@ -3062,7 +3062,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress',
             False, 
             [
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'CfmPmElrEgressAction_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElrEgressAction_Enum', 
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'CfmPmElrEgressActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElrEgressActionEnum', 
                 [], [], 
                 '''                Reply egress action
                 ''',
@@ -3149,7 +3149,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue',
             False, 
             [
-            _MetaInfoClassMember('port-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmt_Enum', 
+            _MetaInfoClassMember('port-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
                 [], [], 
                 '''                PortIDFormat
                 ''',
@@ -3190,7 +3190,7 @@ _meta_table = {
                 ''',
                 'port_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-type', REFERENCE_ENUM_CLASS, 'CfmPmPortIdFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmt_Enum', 
+            _MetaInfoClassMember('port-id-type', REFERENCE_ENUM_CLASS, 'CfmPmPortIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmtEnum', 
                 [], [], 
                 '''                Port ID type
                 ''',
@@ -3219,7 +3219,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress',
             False, 
             [
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'CfmPmElrIngressAction_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElrIngressAction_Enum', 
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'CfmPmElrIngressActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElrIngressActionEnum', 
                 [], [], 
                 '''                ELR Reply ingress action
                 ''',
@@ -3260,7 +3260,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue',
             False, 
             [
-            _MetaInfoClassMember('chassis-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmt_Enum', 
+            _MetaInfoClassMember('chassis-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
                 [], [], 
                 '''                ChassisIDFormat
                 ''',
@@ -3301,7 +3301,7 @@ _meta_table = {
                 ''',
                 'chassis_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-type', REFERENCE_ENUM_CLASS, 'CfmPmChassisIdFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmChassisIdFmt_Enum', 
+            _MetaInfoClassMember('chassis-id-type', REFERENCE_ENUM_CLASS, 'CfmPmChassisIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmChassisIdFmtEnum', 
                 [], [], 
                 '''                Chassis ID Type
                 ''',
@@ -3516,13 +3516,13 @@ _meta_table = {
                 ''',
                 'forwarded',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                MD level
                 ''',
                 'level',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('relay-action', REFERENCE_ENUM_CLASS, 'CfmPmRelayAction_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmRelayAction_Enum', 
+            _MetaInfoClassMember('relay-action', REFERENCE_ENUM_CLASS, 'CfmPmRelayActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmRelayActionEnum', 
                 [], [], 
                 '''                Relay action
                 ''',
@@ -3604,7 +3604,7 @@ _meta_table = {
                 ''',
                 'host_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-hop-format', REFERENCE_ENUM_CLASS, 'CfmPmLastHopFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmLastHopFmt_Enum', 
+            _MetaInfoClassMember('last-hop-format', REFERENCE_ENUM_CLASS, 'CfmPmLastHopFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmLastHopFmtEnum', 
                 [], [], 
                 '''                LastHopFormat
                 ''',
@@ -3650,7 +3650,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue',
             False, 
             [
-            _MetaInfoClassMember('port-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmt_Enum', 
+            _MetaInfoClassMember('port-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
                 [], [], 
                 '''                PortIDFormat
                 ''',
@@ -3691,7 +3691,7 @@ _meta_table = {
                 ''',
                 'port_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-type', REFERENCE_ENUM_CLASS, 'CfmPmPortIdFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmt_Enum', 
+            _MetaInfoClassMember('port-id-type', REFERENCE_ENUM_CLASS, 'CfmPmPortIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmtEnum', 
                 [], [], 
                 '''                Port ID type
                 ''',
@@ -3720,7 +3720,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress',
             False, 
             [
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'CfmPmEgressAction_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEgressAction_Enum', 
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'CfmPmEgressActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEgressActionEnum', 
                 [], [], 
                 '''                Reply egress action
                 ''',
@@ -3749,7 +3749,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue',
             False, 
             [
-            _MetaInfoClassMember('port-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmt_Enum', 
+            _MetaInfoClassMember('port-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
                 [], [], 
                 '''                PortIDFormat
                 ''',
@@ -3790,7 +3790,7 @@ _meta_table = {
                 ''',
                 'port_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-type', REFERENCE_ENUM_CLASS, 'CfmPmPortIdFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmt_Enum', 
+            _MetaInfoClassMember('port-id-type', REFERENCE_ENUM_CLASS, 'CfmPmPortIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmtEnum', 
                 [], [], 
                 '''                Port ID type
                 ''',
@@ -3819,7 +3819,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress',
             False, 
             [
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'CfmPmIngressAction_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIngressAction_Enum', 
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'CfmPmIngressActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIngressActionEnum', 
                 [], [], 
                 '''                Reply ingress action
                 ''',
@@ -3848,7 +3848,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue',
             False, 
             [
-            _MetaInfoClassMember('chassis-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmt_Enum', 
+            _MetaInfoClassMember('chassis-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
                 [], [], 
                 '''                ChassisIDFormat
                 ''',
@@ -3889,7 +3889,7 @@ _meta_table = {
                 ''',
                 'chassis_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-type', REFERENCE_ENUM_CLASS, 'CfmPmChassisIdFmt_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmChassisIdFmt_Enum', 
+            _MetaInfoClassMember('chassis-id-type', REFERENCE_ENUM_CLASS, 'CfmPmChassisIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmChassisIdFmtEnum', 
                 [], [], 
                 '''                Chassis ID Type
                 ''',
@@ -4065,13 +4065,13 @@ _meta_table = {
                 ''',
                 'delay_constant_factor',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('delay-model', REFERENCE_ENUM_CLASS, 'CfmPmEltDelayModel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEltDelayModel_Enum', 
+            _MetaInfoClassMember('delay-model', REFERENCE_ENUM_CLASS, 'CfmPmEltDelayModelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEltDelayModelEnum', 
                 [], [], 
                 '''                Delay model for delay calculations
                 ''',
                 'delay_model',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('reply-filter', REFERENCE_ENUM_CLASS, 'CfmPmElmReplyFilter_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElmReplyFilter_Enum', 
+            _MetaInfoClassMember('reply-filter', REFERENCE_ENUM_CLASS, 'CfmPmElmReplyFilterEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElmReplyFilterEnum', 
                 [], [], 
                 '''                Reply Filtering mode used by responders
                 ''',
@@ -4100,7 +4100,7 @@ _meta_table = {
                 ''',
                 'exploratory_options',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'CfmPmLtMode_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmLtMode_Enum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'CfmPmLtModeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmLtModeEnum', 
                 [], [], 
                 '''                Mode
                 ''',
@@ -4129,7 +4129,7 @@ _meta_table = {
                 ''',
                 'domain',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                Maintenance level
                 ''',
@@ -4379,7 +4379,7 @@ _meta_table = {
                 ''',
                 'ingress_interface_string',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel_Enum', 
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                Maintenance level
                 ''',
@@ -4573,7 +4573,7 @@ _meta_table = {
                 ''',
                 'defects',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'CfmBagDirection_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagDirection_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'CfmBagDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagDirectionEnum', 
                 [], [], 
                 '''                Direction of AIS packets
                 ''',
@@ -4585,7 +4585,7 @@ _meta_table = {
                 ''',
                 'last_started',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lowest-level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel_Enum', 
+            _MetaInfoClassMember('lowest-level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                Level of the lowest MEP transmitting AIS
                 ''',
@@ -4598,19 +4598,19 @@ _meta_table = {
                 ''',
                 'sent_packets',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('transmission-interval', REFERENCE_ENUM_CLASS, 'CfmBagAisInterval_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagAisInterval_Enum', 
+            _MetaInfoClassMember('transmission-interval', REFERENCE_ENUM_CLASS, 'CfmBagAisIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagAisIntervalEnum', 
                 [], [], 
                 '''                Interval at which AIS packets are transmitted
                 ''',
                 'transmission_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('transmission-level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel_Enum', 
+            _MetaInfoClassMember('transmission-level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                Level that AIS packets are transmitted on
                 ''',
                 'transmission_level',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('via-level', REFERENCE_LEAFLIST, 'CfmBagMdLevel_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel_Enum', 
+            _MetaInfoClassMember('via-level', REFERENCE_LEAFLIST, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                Levels of other MEPs receiving AIS
                 ''',
@@ -4627,7 +4627,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceAises.InterfaceAis',
             False, 
             [
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'CfmAisDir_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmAisDir_Enum', 
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'CfmAisDirEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmAisDirEnum', 
                 [], [], 
                 '''                AIS Direction
                 ''',
@@ -4651,7 +4651,7 @@ _meta_table = {
                 ''',
                 'interface_state',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('interworking-state', REFERENCE_ENUM_CLASS, 'CfmBagIwState_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagIwState_Enum', 
+            _MetaInfoClassMember('interworking-state', REFERENCE_ENUM_CLASS, 'CfmBagIwStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagIwStateEnum', 
                 [], [], 
                 '''                Interface interworking state
                 ''',
@@ -4663,7 +4663,7 @@ _meta_table = {
                 ''',
                 'statistics',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('stp-state', REFERENCE_ENUM_CLASS, 'CfmBagStpState_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagStpState_Enum', 
+            _MetaInfoClassMember('stp-state', REFERENCE_ENUM_CLASS, 'CfmBagStpStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagStpStateEnum', 
                 [], [], 
                 '''                STP state
                 ''',
@@ -4703,13 +4703,13 @@ _meta_table = {
                 ''',
                 'dropped_packets',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-malformed-opcode', REFERENCE_ENUM_CLASS, 'CfmBagOpcode_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagOpcode_Enum', 
+            _MetaInfoClassMember('last-malformed-opcode', REFERENCE_ENUM_CLASS, 'CfmBagOpcodeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagOpcodeEnum', 
                 [], [], 
                 '''                Opcode for last malformed packet
                 ''',
                 'last_malformed_opcode',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-malformed-reason', REFERENCE_ENUM_CLASS, 'CfmPmPktAction_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPktAction_Enum', 
+            _MetaInfoClassMember('last-malformed-reason', REFERENCE_ENUM_CLASS, 'CfmPmPktActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPktActionEnum', 
                 [], [], 
                 '''                Reason last malformed packet was malformed
                 ''',
@@ -4841,7 +4841,7 @@ _meta_table = {
                 ''',
                 'interfaces',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('issu-role', REFERENCE_ENUM_CLASS, 'CfmBagIssuRole_Enum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagIssuRole_Enum', 
+            _MetaInfoClassMember('issu-role', REFERENCE_ENUM_CLASS, 'CfmBagIssuRoleEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagIssuRoleEnum', 
                 [], [], 
                 '''                ISSU Role of CFM-D, if any.
                 ''',

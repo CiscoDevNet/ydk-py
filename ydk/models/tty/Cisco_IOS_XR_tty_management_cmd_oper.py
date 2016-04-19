@@ -141,8 +141,6 @@ class ShowUsers(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.session_id is not None:
                     return True
 
@@ -166,10 +164,6 @@ class ShowUsers(object):
 
                 return False
 
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
-                return False
-
             @staticmethod
             def _meta_info():
                 from ydk.models.tty._meta import _Cisco_IOS_XR_tty_management_cmd_oper as meta
@@ -187,17 +181,11 @@ class ShowUsers(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.session is not None:
                 for child_ref in self.session:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -217,18 +205,9 @@ class ShowUsers(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.sessions is not None and self.sessions._has_data():
             return True
 
-        if self.sessions is not None and self.sessions.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

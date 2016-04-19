@@ -23,15 +23,15 @@ from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYDataValidationError
 
 
-from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaBucketsSizeUnitsEnum_Enum
-from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaBurstIntervalUnitsEnum_Enum
-from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaPacketIntervalUnitsEnum_Enum
-from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaPaddingPattern_Enum
-from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaProbeDurationUnitsEnum_Enum
-from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaProbeIntervalDayEnum_Enum
-from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaProbeIntervalUnitsEnum_Enum
-from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaSend_Enum
-from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaStatisticTypeEnum_Enum
+from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaBucketsSizeUnitsEnumEnum
+from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaBurstIntervalUnitsEnumEnum
+from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaPacketIntervalUnitsEnumEnum
+from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaPaddingPatternEnum
+from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaProbeDurationUnitsEnumEnum
+from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaProbeIntervalDayEnumEnum
+from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaProbeIntervalUnitsEnumEnum
+from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaSendEnum
+from ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes import SlaStatisticTypeEnumEnum
 
 
 class Sla(object):
@@ -221,7 +221,12 @@ class Sla(object):
                             .. attribute:: padding_type
                             
                             	Type of padding to be used for the packet
-                            	**type**\: :py:class:`SlaPaddingPattern_Enum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaPaddingPattern_Enum>`
+                            	**type**\: :py:class:`SlaPaddingPatternEnum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaPaddingPatternEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             .. attribute:: padding_value
                             
@@ -230,12 +235,22 @@ class Sla(object):
                             
                             	**pattern:** [0\-9a\-fA\-F]{1,8}
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: size
                             
                             	Minimum size to pad outgoing packet to
                             	**type**\: int
                             
                             	**range:** 1..9000
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -266,8 +281,6 @@ class Sla(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.padding_type is not None:
                                     return True
 
@@ -278,10 +291,6 @@ class Sla(object):
                                     return True
 
                                 return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
 
                             @staticmethod
                             def _meta_info():
@@ -302,10 +311,20 @@ class Sla(object):
                             
                             	**range:** 1..3600
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: burst_interval_unit
                             
                             	Time unit associated with the BurstInterval .  This must be specified if, and only is, SendType is 'Burst'
-                            	**type**\: :py:class:`SlaBurstIntervalUnitsEnum_Enum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaBurstIntervalUnitsEnum_Enum>`
+                            	**type**\: :py:class:`SlaBurstIntervalUnitsEnumEnum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaBurstIntervalUnitsEnumEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             .. attribute:: packet_count
                             
@@ -314,6 +333,11 @@ class Sla(object):
                             
                             	**range:** 2..1200
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: packet_interval
                             
                             	Interval between packets
@@ -321,15 +345,30 @@ class Sla(object):
                             
                             	**range:** 1..10000
                             
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
                             .. attribute:: packet_interval_unit
                             
                             	Time unit associated with the PacketInterval, must not be 'Once'
-                            	**type**\: :py:class:`SlaPacketIntervalUnitsEnum_Enum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaPacketIntervalUnitsEnum_Enum>`
+                            	**type**\: :py:class:`SlaPacketIntervalUnitsEnumEnum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaPacketIntervalUnitsEnumEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             .. attribute:: send_type
                             
                             	The packet distribution\: single packets or bursts of packets.  If 'Burst' is specified , PacketCount and BurstInterval must be specified
-                            	**type**\: :py:class:`SlaSend_Enum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaSend_Enum>`
+                            	**type**\: :py:class:`SlaSendEnum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaSendEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
                             
                             
 
@@ -363,8 +402,6 @@ class Sla(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.burst_interval is not None:
                                     return True
 
@@ -385,10 +422,6 @@ class Sla(object):
 
                                 return False
 
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
-                                return True
-
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.infra._meta import _Cisco_IOS_XR_infra_sla_cfg as meta
@@ -408,12 +441,7 @@ class Sla(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.packet_size_and_padding is not None and self.packet_size_and_padding._has_data():
-                                return True
-
-                            if self.packet_size_and_padding is not None and self.packet_size_and_padding.is_presence():
                                 return True
 
                             if self.priority is not None:
@@ -422,16 +450,9 @@ class Sla(object):
                             if self.send is not None and self.send._has_data():
                                 return True
 
-                            if self.send is not None and self.send.is_presence():
-                                return True
-
                             if self.synthetic_loss_calculation_packets is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -452,10 +473,20 @@ class Sla(object):
                         
                         	**range:** 1..3600
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: probe_duration_unit
                         
                         	Time unit associated with the ProbeDuration. The value must not be 'Once'
-                        	**type**\: :py:class:`SlaProbeDurationUnitsEnum_Enum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeDurationUnitsEnum_Enum>`
+                        	**type**\: :py:class:`SlaProbeDurationUnitsEnumEnum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeDurationUnitsEnumEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: probe_interval
                         
@@ -464,15 +495,30 @@ class Sla(object):
                         
                         	**range:** 1..90
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: probe_interval_day
                         
                         	Day of week on which to schedule probes.  This must be specified if, and only if, ProbeIntervalUnit is 'Week'
-                        	**type**\: :py:class:`SlaProbeIntervalDayEnum_Enum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeIntervalDayEnum_Enum>`
+                        	**type**\: :py:class:`SlaProbeIntervalDayEnumEnum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeIntervalDayEnumEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: probe_interval_unit
                         
                         	Time unit associated with the ProbeInterval. The value must not be 'Once'.  If 'Week' or 'Day' is specified, probes are scheduled weekly or daily respectively
-                        	**type**\: :py:class:`SlaProbeIntervalUnitsEnum_Enum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeIntervalUnitsEnum_Enum>`
+                        	**type**\: :py:class:`SlaProbeIntervalUnitsEnumEnum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaProbeIntervalUnitsEnumEnum>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         .. attribute:: start_time_hour
                         
@@ -481,6 +527,11 @@ class Sla(object):
                         
                         	**range:** 0..23
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: start_time_minute
                         
                         	Time after midnight (in UTC) to send the first packet each day. This must be specified if, and only if, StartTimeHour is specified
@@ -488,12 +539,22 @@ class Sla(object):
                         
                         	**range:** 0..59
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: start_time_second
                         
                         	Time after midnight (in UTC) to send the first packet each day. This must only be specified if StartTimeHour is specified, and must not be specified if ProbeIntervalUnit is 'Week' or 'Day'
                         	**type**\: int
                         
                         	**range:** 0..59
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -529,8 +590,6 @@ class Sla(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.probe_duration is not None:
                                 return True
 
@@ -556,10 +615,6 @@ class Sla(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -597,7 +652,7 @@ class Sla(object):
                             .. attribute:: statistic_name
                             
                             	The type of statistic to measure
-                            	**type**\: :py:class:`SlaStatisticTypeEnum_Enum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaStatisticTypeEnum_Enum>`
+                            	**type**\: :py:class:`SlaStatisticTypeEnumEnum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaStatisticTypeEnumEnum>`
                             
                             .. attribute:: aggregation
                             
@@ -649,6 +704,11 @@ class Sla(object):
                                 
                                 	**range:** 0..100
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: bins_width
                                 
                                 	Width of each bin
@@ -656,12 +716,22 @@ class Sla(object):
                                 
                                 	**range:** 1..10000
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: bins_width_tenths
                                 
                                 	Tenths portion of the bin width
                                 	**type**\: int
                                 
                                 	**range:** 0..9
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 
 
@@ -692,8 +762,6 @@ class Sla(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.bins_count is not None:
                                         return True
 
@@ -704,10 +772,6 @@ class Sla(object):
                                         return True
 
                                     return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return True
 
                                 @staticmethod
                                 def _meta_info():
@@ -727,10 +791,20 @@ class Sla(object):
                                 
                                 	**range:** 1..100
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: buckets_size_unit
                                 
                                 	Unit associated with the BucketsSize
-                                	**type**\: :py:class:`SlaBucketsSizeUnitsEnum_Enum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaBucketsSizeUnitsEnum_Enum>`
+                                	**type**\: :py:class:`SlaBucketsSizeUnitsEnumEnum <ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes.SlaBucketsSizeUnitsEnumEnum>`
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 
 
@@ -760,8 +834,6 @@ class Sla(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.buckets_size is not None:
                                         return True
 
@@ -769,10 +841,6 @@ class Sla(object):
                                         return True
 
                                     return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return True
 
                                 @staticmethod
                                 def _meta_info():
@@ -795,15 +863,10 @@ class Sla(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.statistic_name is not None:
                                     return True
 
                                 if self.aggregation is not None and self.aggregation._has_data():
-                                    return True
-
-                                if self.aggregation is not None and self.aggregation.is_presence():
                                     return True
 
                                 if self.buckets_archive is not None:
@@ -812,16 +875,9 @@ class Sla(object):
                                 if self.buckets_size is not None and self.buckets_size._has_data():
                                     return True
 
-                                if self.buckets_size is not None and self.buckets_size.is_presence():
-                                    return True
-
                                 if self.enable is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -843,17 +899,11 @@ class Sla(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.statistic is not None:
                                 for child_ref in self.statistic:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -875,8 +925,6 @@ class Sla(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.profile_name is not None:
                             return True
 
@@ -886,25 +934,12 @@ class Sla(object):
                         if self.probe is not None and self.probe._has_data():
                             return True
 
-                        if self.probe is not None and self.probe.is_presence():
-                            return True
-
                         if self.schedule is not None and self.schedule._has_data():
-                            return True
-
-                        if self.schedule is not None and self.schedule.is_presence():
                             return True
 
                         if self.statistics is not None and self.statistics._has_data():
                             return True
 
-                        if self.statistics is not None and self.statistics.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -924,17 +959,11 @@ class Sla(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.profile is not None:
                         for child_ref in self.profile:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -954,18 +983,9 @@ class Sla(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.profiles is not None and self.profiles._has_data():
                     return True
 
-                if self.profiles is not None and self.profiles.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -985,18 +1005,9 @@ class Sla(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.ethernet is not None and self.ethernet._has_data():
                 return True
 
-            if self.ethernet is not None and self.ethernet.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1016,18 +1027,9 @@ class Sla(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.protocols is not None and self.protocols._has_data():
             return True
 
-        if self.protocols is not None and self.protocols.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

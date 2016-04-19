@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,12 +14,12 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'MatchSetOptionsRestrictedType_Enum' : _MetaInfoEnum('MatchSetOptionsRestrictedType_Enum', 'ydk.models.policy.policy_types',
+    'MatchSetOptionsRestrictedTypeEnum' : _MetaInfoEnum('MatchSetOptionsRestrictedTypeEnum', 'ydk.models.policy.policy_types',
         {
             'ANY':'ANY',
             'INVERT':'INVERT',
         }, 'policy-types', _yang_ns._namespaces['policy-types']),
-    'MatchSetOptionsType_Enum' : _MetaInfoEnum('MatchSetOptionsType_Enum', 'ydk.models.policy.policy_types',
+    'MatchSetOptionsTypeEnum' : _MetaInfoEnum('MatchSetOptionsTypeEnum', 'ydk.models.policy.policy_types',
         {
             'ANY':'ANY',
             'ALL':'ALL',
@@ -80,8 +80,8 @@ _meta_table = {
         'ydk.models.policy.policy_types'
         ),
     },
-    'BGP_Identity' : {
-        'meta_info' : _MetaInfoClass('BGP_Identity',
+    'Bgp_Identity' : {
+        'meta_info' : _MetaInfoClass('Bgp_Identity',
             False, 
             [
             ],
@@ -91,8 +91,8 @@ _meta_table = {
         'ydk.models.policy.policy_types'
         ),
     },
-    'DIRECTLYCONNECTED_Identity' : {
-        'meta_info' : _MetaInfoClass('DIRECTLYCONNECTED_Identity',
+    'DirectlyConnected_Identity' : {
+        'meta_info' : _MetaInfoClass('DirectlyConnected_Identity',
             False, 
             [
             ],
@@ -102,8 +102,8 @@ _meta_table = {
         'ydk.models.policy.policy_types'
         ),
     },
-    'ISIS_Identity' : {
-        'meta_info' : _MetaInfoClass('ISIS_Identity',
+    'Isis_Identity' : {
+        'meta_info' : _MetaInfoClass('Isis_Identity',
             False, 
             [
             ],
@@ -113,8 +113,8 @@ _meta_table = {
         'ydk.models.policy.policy_types'
         ),
     },
-    'LOCALAGGREGATE_Identity' : {
-        'meta_info' : _MetaInfoClass('LOCALAGGREGATE_Identity',
+    'LocalAggregate_Identity' : {
+        'meta_info' : _MetaInfoClass('LocalAggregate_Identity',
             False, 
             [
             ],
@@ -124,8 +124,8 @@ _meta_table = {
         'ydk.models.policy.policy_types'
         ),
     },
-    'OSPF3_Identity' : {
-        'meta_info' : _MetaInfoClass('OSPF3_Identity',
+    'Ospf3_Identity' : {
+        'meta_info' : _MetaInfoClass('Ospf3_Identity',
             False, 
             [
             ],
@@ -135,8 +135,8 @@ _meta_table = {
         'ydk.models.policy.policy_types'
         ),
     },
-    'OSPF_Identity' : {
-        'meta_info' : _MetaInfoClass('OSPF_Identity',
+    'Ospf_Identity' : {
+        'meta_info' : _MetaInfoClass('Ospf_Identity',
             False, 
             [
             ],
@@ -146,8 +146,8 @@ _meta_table = {
         'ydk.models.policy.policy_types'
         ),
     },
-    'STATIC_Identity' : {
-        'meta_info' : _MetaInfoClass('STATIC_Identity',
+    'Static_Identity' : {
+        'meta_info' : _MetaInfoClass('Static_Identity',
             False, 
             [
             ],

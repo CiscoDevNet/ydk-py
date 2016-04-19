@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,22 +14,22 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'EventManagerPolicySec_Enum' : _MetaInfoEnum('EventManagerPolicySec_Enum', 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg',
+    'EventManagerPolicySecEnum' : _MetaInfoEnum('EventManagerPolicySecEnum', 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg',
         {
             'rsa-2048':'RSA_2048',
             'trust':'TRUST',
         }, 'Cisco-IOS-XR-ha-eem-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ha-eem-cfg']),
-    'EventManagerPolicyMode_Enum' : _MetaInfoEnum('EventManagerPolicyMode_Enum', 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg',
+    'EventManagerPolicyModeEnum' : _MetaInfoEnum('EventManagerPolicyModeEnum', 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg',
         {
             'cisco':'CISCO',
             'trust':'TRUST',
         }, 'Cisco-IOS-XR-ha-eem-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ha-eem-cfg']),
-    'EventManagerChecksum_Enum' : _MetaInfoEnum('EventManagerChecksum_Enum', 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg',
+    'EventManagerChecksumEnum' : _MetaInfoEnum('EventManagerChecksumEnum', 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg',
         {
             'sha-1':'SHA_1',
             'md5':'MD5',
         }, 'Cisco-IOS-XR-ha-eem-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ha-eem-cfg']),
-    'EventManagerPolicy_Enum' : _MetaInfoEnum('EventManagerPolicy_Enum', 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg',
+    'EventManagerPolicyEnum' : _MetaInfoEnum('EventManagerPolicyEnum', 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg',
         {
             'system':'SYSTEM',
             'user':'USER',
@@ -90,7 +90,7 @@ _meta_table = {
                 ''',
                 'check_sum_value',
                 'Cisco-IOS-XR-ha-eem-cfg', False),
-            _MetaInfoClassMember('checksum-type', REFERENCE_ENUM_CLASS, 'EventManagerChecksum_Enum' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerChecksum_Enum', 
+            _MetaInfoClassMember('checksum-type', REFERENCE_ENUM_CLASS, 'EventManagerChecksumEnum' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerChecksumEnum', 
                 [], [], 
                 '''                Specify Embedded Event Manager policy checksum
                 ''',
@@ -103,20 +103,20 @@ _meta_table = {
                 ''',
                 'persist_time',
                 'Cisco-IOS-XR-ha-eem-cfg', False),
-            _MetaInfoClassMember('policy-security-level', REFERENCE_ENUM_CLASS, 'EventManagerPolicySec_Enum' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerPolicySec_Enum', 
+            _MetaInfoClassMember('policy-security-level', REFERENCE_ENUM_CLASS, 'EventManagerPolicySecEnum' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerPolicySecEnum', 
                 [], [], 
                 '''                Event Manager policy security Level
                 ''',
                 'policy_security_level',
                 'Cisco-IOS-XR-ha-eem-cfg', False),
-            _MetaInfoClassMember('policy-security-mode', REFERENCE_ENUM_CLASS, 'EventManagerPolicyMode_Enum' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerPolicyMode_Enum', 
+            _MetaInfoClassMember('policy-security-mode', REFERENCE_ENUM_CLASS, 'EventManagerPolicyModeEnum' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerPolicyModeEnum', 
                 [], [], 
                 '''                Specify Embedded Event Manager policy security
                 mode
                 ''',
                 'policy_security_mode',
                 'Cisco-IOS-XR-ha-eem-cfg', False),
-            _MetaInfoClassMember('policy-type', REFERENCE_ENUM_CLASS, 'EventManagerPolicy_Enum' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerPolicy_Enum', 
+            _MetaInfoClassMember('policy-type', REFERENCE_ENUM_CLASS, 'EventManagerPolicyEnum' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerPolicyEnum', 
                 [], [], 
                 '''                Event manager type of this policy
                 ''',

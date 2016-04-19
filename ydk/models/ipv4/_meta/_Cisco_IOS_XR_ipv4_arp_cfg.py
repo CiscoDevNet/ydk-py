@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,12 +14,12 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'ArpEntry_Enum' : _MetaInfoEnum('ArpEntry_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg',
+    'ArpEntryEnum' : _MetaInfoEnum('ArpEntryEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg',
         {
             'static':'STATIC',
             'alias':'ALIAS',
         }, 'Cisco-IOS-XR-ipv4-arp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg']),
-    'ArpEncap_Enum' : _MetaInfoEnum('ArpEncap_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg',
+    'ArpEncapEnum' : _MetaInfoEnum('ArpEncapEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg',
         {
             'arpa':'ARPA',
             'srp':'SRP',
@@ -267,13 +267,13 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv4-arp-cfg', True),
-            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'ArpEncap_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpEncap_Enum', 
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'ArpEncapEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpEncapEnum', 
                 [], [], 
                 '''                Encapsulation type
                 ''',
                 'encapsulation',
                 'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            _MetaInfoClassMember('entry-type', REFERENCE_ENUM_CLASS, 'ArpEntry_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpEntry_Enum', 
+            _MetaInfoClassMember('entry-type', REFERENCE_ENUM_CLASS, 'ArpEntryEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpEntryEnum', 
                 [], [], 
                 '''                Entry type
                 ''',

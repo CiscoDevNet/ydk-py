@@ -112,15 +112,9 @@ class MplsOam(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.allow_reverse_lsp is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -140,18 +134,9 @@ class MplsOam(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.control_channel is not None and self.control_channel._has_data():
                 return True
 
-            if self.control_channel is not None and self.control_channel.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -171,8 +156,6 @@ class MplsOam(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.disable_vendor_extension is not None:
             return True
 
@@ -182,13 +165,6 @@ class MplsOam(object):
         if self.reply_mode is not None and self.reply_mode._has_data():
             return True
 
-        if self.reply_mode is not None and self.reply_mode.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

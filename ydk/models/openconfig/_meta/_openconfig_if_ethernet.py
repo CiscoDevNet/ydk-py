@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -25,8 +25,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_if_ethernet'
         ),
     },
-    'SPEED_100Gb_Identity' : {
-        'meta_info' : _MetaInfoClass('SPEED_100Gb_Identity',
+    'Speed_100Gb_Identity' : {
+        'meta_info' : _MetaInfoClass('Speed_100Gb_Identity',
             False, 
             [
             ],
@@ -36,8 +36,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_if_ethernet'
         ),
     },
-    'SPEED_100Mb_Identity' : {
-        'meta_info' : _MetaInfoClass('SPEED_100Mb_Identity',
+    'Speed_100Mb_Identity' : {
+        'meta_info' : _MetaInfoClass('Speed_100Mb_Identity',
             False, 
             [
             ],
@@ -47,8 +47,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_if_ethernet'
         ),
     },
-    'SPEED_10Gb_Identity' : {
-        'meta_info' : _MetaInfoClass('SPEED_10Gb_Identity',
+    'Speed_10Gb_Identity' : {
+        'meta_info' : _MetaInfoClass('Speed_10Gb_Identity',
             False, 
             [
             ],
@@ -58,8 +58,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_if_ethernet'
         ),
     },
-    'SPEED_10Mb_Identity' : {
-        'meta_info' : _MetaInfoClass('SPEED_10Mb_Identity',
+    'Speed_10Mb_Identity' : {
+        'meta_info' : _MetaInfoClass('Speed_10Mb_Identity',
             False, 
             [
             ],
@@ -69,8 +69,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_if_ethernet'
         ),
     },
-    'SPEED_1Gb_Identity' : {
-        'meta_info' : _MetaInfoClass('SPEED_1Gb_Identity',
+    'Speed_1Gb_Identity' : {
+        'meta_info' : _MetaInfoClass('Speed_1Gb_Identity',
             False, 
             [
             ],
@@ -80,8 +80,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_if_ethernet'
         ),
     },
-    'SPEED_25Gb_Identity' : {
-        'meta_info' : _MetaInfoClass('SPEED_25Gb_Identity',
+    'Speed_25Gb_Identity' : {
+        'meta_info' : _MetaInfoClass('Speed_25Gb_Identity',
             False, 
             [
             ],
@@ -91,8 +91,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_if_ethernet'
         ),
     },
-    'SPEED_40Gb_Identity' : {
-        'meta_info' : _MetaInfoClass('SPEED_40Gb_Identity',
+    'Speed_40Gb_Identity' : {
+        'meta_info' : _MetaInfoClass('Speed_40Gb_Identity',
             False, 
             [
             ],
@@ -102,8 +102,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_if_ethernet'
         ),
     },
-    'SPEED_50Gb_Identity' : {
-        'meta_info' : _MetaInfoClass('SPEED_50Gb_Identity',
+    'Speed_50Gb_Identity' : {
+        'meta_info' : _MetaInfoClass('Speed_50Gb_Identity',
             False, 
             [
             ],
@@ -113,8 +113,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_if_ethernet'
         ),
     },
-    'SPEED_UNKNOWN_Identity' : {
-        'meta_info' : _MetaInfoClass('SPEED_UNKNOWN_Identity',
+    'Speed_Unknown_Identity' : {
+        'meta_info' : _MetaInfoClass('Speed_Unknown_Identity',
             False, 
             [
             ],

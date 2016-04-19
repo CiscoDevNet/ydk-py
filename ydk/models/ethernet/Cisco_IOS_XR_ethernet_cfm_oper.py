@@ -28,2576 +28,2351 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class CfmAisDir_Enum(Enum):
+class CfmAisDirEnum(Enum):
     """
-    CfmAisDir_Enum
+    CfmAisDirEnum
 
     Cfm ais dir
 
-    """
+    .. data:: UP = 0
+
+    	Packets sent inward
+
+    .. data:: DOWN = 1
+
+    	Packets sent outward
 
     """
 
-    Packets sent inward
-
-    """
     UP = 0
 
-    """
-
-    Packets sent outward
-
-    """
     DOWN = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmAisDir_Enum']
+        return meta._meta_table['CfmAisDirEnum']
 
 
-class CfmBagAisInterval_Enum(Enum):
+class CfmBagAisIntervalEnum(Enum):
     """
-    CfmBagAisInterval_Enum
+    CfmBagAisIntervalEnum
 
     CFM AIS intervals
 
-    """
+    .. data:: AIS_INTERVAL_NONE = 0
+
+    	Invalid AIS interval
+
+    .. data:: AIS_INTERVAL1S = 4
+
+    	Interval of 1s
+
+    .. data:: AIS_INTERVAL1M = 6
+
+    	Interval of 1 min
 
     """
 
-    Invalid AIS interval
-
-    """
     AIS_INTERVAL_NONE = 0
 
-    """
-
-    Interval of 1s
-
-    """
     AIS_INTERVAL1S = 4
 
-    """
-
-    Interval of 1 min
-
-    """
     AIS_INTERVAL1M = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmBagAisInterval_Enum']
+        return meta._meta_table['CfmBagAisIntervalEnum']
 
 
-class CfmBagBdidFmt_Enum(Enum):
+class CfmBagBdidFmtEnum(Enum):
     """
-    CfmBagBdidFmt_Enum
+    CfmBagBdidFmtEnum
 
     Bridge domain identifier format
 
-    """
+    .. data:: INVALID = 0
+
+    	Invalid BDID identifier format
+
+    .. data:: BD_ID = 1
+
+    	Identifier is a bridge domain ID
+
+    .. data:: XC_P2P_ID = 2
+
+    	Identifier is a P2P cross-connect ID
+
+    .. data:: XC_MP2MP_ID = 3
+
+    	Identifier is a MP2MP cross-connect ID
+
+    .. data:: DOWN_ONLY = 4
+
+    	Identifier is a maintenance association name
 
     """
 
-    Invalid BDID identifier format
-
-    """
     INVALID = 0
 
-    """
-
-    Identifier is a bridge domain ID
-
-    """
     BD_ID = 1
 
-    """
-
-    Identifier is a P2P cross\-connect ID
-
-    """
     XC_P2P_ID = 2
 
-    """
-
-    Identifier is a MP2MP cross\-connect ID
-
-    """
     XC_MP2MP_ID = 3
 
-    """
-
-    Identifier is a maintenance association name
-
-    """
     DOWN_ONLY = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmBagBdidFmt_Enum']
+        return meta._meta_table['CfmBagBdidFmtEnum']
 
 
-class CfmBagCcmInterval_Enum(Enum):
+class CfmBagCcmIntervalEnum(Enum):
     """
-    CfmBagCcmInterval_Enum
+    CfmBagCcmIntervalEnum
 
     CFM CCM intervals
 
-    """
+    .. data:: INTERVAL_NONE = 0
+
+    	Invalid CCM interval
+
+    .. data:: INTERVAL3_3MS = 1
+
+    	Interval of 3.3ms
+
+    .. data:: INTERVAL10MS = 2
+
+    	Interval of 10ms
+
+    .. data:: INTERVAL100MS = 3
+
+    	Interval of 100ms
+
+    .. data:: INTERVAL1S = 4
+
+    	Interval of 1s
+
+    .. data:: INTERVAL10S = 5
+
+    	Interval of 10s
+
+    .. data:: INTERVAL1M = 6
+
+    	Interval of 1 min
+
+    .. data:: INTERVAL10M = 7
+
+    	Interval of 10 mins
 
     """
 
-    Invalid CCM interval
-
-    """
     INTERVAL_NONE = 0
 
-    """
-
-    Interval of 3.3ms
-
-    """
     INTERVAL3_3MS = 1
 
-    """
-
-    Interval of 10ms
-
-    """
     INTERVAL10MS = 2
 
-    """
-
-    Interval of 100ms
-
-    """
     INTERVAL100MS = 3
 
-    """
-
-    Interval of 1s
-
-    """
     INTERVAL1S = 4
 
-    """
-
-    Interval of 10s
-
-    """
     INTERVAL10S = 5
 
-    """
-
-    Interval of 1 min
-
-    """
     INTERVAL1M = 6
 
-    """
-
-    Interval of 10 mins
-
-    """
     INTERVAL10M = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmBagCcmInterval_Enum']
+        return meta._meta_table['CfmBagCcmIntervalEnum']
 
 
-class CfmBagCcmOffload_Enum(Enum):
+class CfmBagCcmOffloadEnum(Enum):
     """
-    CfmBagCcmOffload_Enum
+    CfmBagCcmOffloadEnum
 
     Offload status of CCM processing
 
-    """
+    .. data:: OFFLOAD_NONE = 0
+
+    	CCM processing has not been offloaded
+
+    .. data:: OFFLOAD_SOFTWARE = 1
+
+    	CCM processing has been offloaded to software
+
+    .. data:: OFFLOAD_HARDWARE = 2
+
+    	CCM processing has been offloaded to hardware
 
     """
 
-    CCM processing has not been offloaded
-
-    """
     OFFLOAD_NONE = 0
 
-    """
-
-    CCM processing has been offloaded to software
-
-    """
     OFFLOAD_SOFTWARE = 1
 
-    """
-
-    CCM processing has been offloaded to hardware
-
-    """
     OFFLOAD_HARDWARE = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmBagCcmOffload_Enum']
+        return meta._meta_table['CfmBagCcmOffloadEnum']
 
 
-class CfmBagDirection_Enum(Enum):
+class CfmBagDirectionEnum(Enum):
     """
-    CfmBagDirection_Enum
+    CfmBagDirectionEnum
 
     MEP direction
 
-    """
+    .. data:: DIRECTION_UP = 0
+
+    	Up
+
+    .. data:: DIRECTION_DOWN = 1
+
+    	Down
+
+    .. data:: DIRECTION_INVALID = 2
+
+    	Invalid direction
 
     """
 
-    Up
-
-    """
     DIRECTION_UP = 0
 
-    """
-
-    Down
-
-    """
     DIRECTION_DOWN = 1
 
-    """
-
-    Invalid direction
-
-    """
     DIRECTION_INVALID = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmBagDirection_Enum']
+        return meta._meta_table['CfmBagDirectionEnum']
 
 
-class CfmBagIssuRole_Enum(Enum):
+class CfmBagIssuRoleEnum(Enum):
     """
-    CfmBagIssuRole_Enum
+    CfmBagIssuRoleEnum
 
     CFM ISSU role
 
-    """
+    .. data:: UNKNOWN = 0
+
+    	Unknown
+
+    .. data:: PRIMARY = 1
+
+    	Primary
+
+    .. data:: SECONDARY = 2
+
+    	Secondary
 
     """
 
-    Unknown
-
-    """
     UNKNOWN = 0
 
-    """
-
-    Primary
-
-    """
     PRIMARY = 1
 
-    """
-
-    Secondary
-
-    """
     SECONDARY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmBagIssuRole_Enum']
+        return meta._meta_table['CfmBagIssuRoleEnum']
 
 
-class CfmBagIwState_Enum(Enum):
+class CfmBagIwStateEnum(Enum):
     """
-    CfmBagIwState_Enum
+    CfmBagIwStateEnum
 
     CFM Interworking state
 
-    """
+    .. data:: INTERWORKING_UP = 0
+
+    	Interface is UP
+
+    .. data:: INTERWORKING_TEST = 1
+
+    	Interface is in TEST mode
 
     """
 
-    Interface is UP
-
-    """
     INTERWORKING_UP = 0
 
-    """
-
-    Interface is in TEST mode
-
-    """
     INTERWORKING_TEST = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmBagIwState_Enum']
+        return meta._meta_table['CfmBagIwStateEnum']
 
 
-class CfmBagMdLevel_Enum(Enum):
+class CfmBagMdLevelEnum(Enum):
     """
-    CfmBagMdLevel_Enum
+    CfmBagMdLevelEnum
 
     CFM level
 
-    """
+    .. data:: LEVEL0 = 0
+
+    	CFM level 0
+
+    .. data:: LEVEL1 = 1
+
+    	CFM level 1
+
+    .. data:: LEVEL2 = 2
+
+    	CFM level 2
+
+    .. data:: LEVEL3 = 3
+
+    	CFM level 3
+
+    .. data:: LEVEL4 = 4
+
+    	CFM level 4
+
+    .. data:: LEVEL5 = 5
+
+    	CFM level 5
+
+    .. data:: LEVEL6 = 6
+
+    	CFM level 6
+
+    .. data:: LEVEL7 = 7
+
+    	CFM level 7
+
+    .. data:: LEVEL_INVALID = 8
+
+    	Invalid CFM level
 
     """
 
-    CFM level 0
-
-    """
     LEVEL0 = 0
 
-    """
-
-    CFM level 1
-
-    """
     LEVEL1 = 1
 
-    """
-
-    CFM level 2
-
-    """
     LEVEL2 = 2
 
-    """
-
-    CFM level 3
-
-    """
     LEVEL3 = 3
 
-    """
-
-    CFM level 4
-
-    """
     LEVEL4 = 4
 
-    """
-
-    CFM level 5
-
-    """
     LEVEL5 = 5
 
-    """
-
-    CFM level 6
-
-    """
     LEVEL6 = 6
 
-    """
-
-    CFM level 7
-
-    """
     LEVEL7 = 7
 
-    """
-
-    Invalid CFM level
-
-    """
     LEVEL_INVALID = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmBagMdLevel_Enum']
+        return meta._meta_table['CfmBagMdLevelEnum']
 
 
-class CfmBagMdidFmt_Enum(Enum):
+class CfmBagMdidFmtEnum(Enum):
     """
-    CfmBagMdidFmt_Enum
+    CfmBagMdidFmtEnum
 
     CFM MDID format
 
-    """
+    .. data:: MDID_NULL = 1
+
+    	MDID is explicity NULL
+
+    .. data:: MDID_DNS_LIKE = 2
+
+    	MDID is based on a DNS name
+
+    .. data:: MDID_MAC_ADDRESS = 3
+
+    	MDID is a (MAC address, integer) pair
+
+    .. data:: MDID_STRING = 4
+
+    	MDID is a character string
+
+    .. data:: MDID_UNKNOWN = 5
+
+    	Unknown MDID format
 
     """
 
-    MDID is explicity NULL
-
-    """
     MDID_NULL = 1
 
-    """
-
-    MDID is based on a DNS name
-
-    """
     MDID_DNS_LIKE = 2
 
-    """
-
-    MDID is a (MAC address, integer) pair
-
-    """
     MDID_MAC_ADDRESS = 3
 
-    """
-
-    MDID is a character string
-
-    """
     MDID_STRING = 4
 
-    """
-
-    Unknown MDID format
-
-    """
     MDID_UNKNOWN = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmBagMdidFmt_Enum']
+        return meta._meta_table['CfmBagMdidFmtEnum']
 
 
-class CfmBagOpcode_Enum(Enum):
+class CfmBagOpcodeEnum(Enum):
     """
-    CfmBagOpcode_Enum
+    CfmBagOpcodeEnum
 
     CFM Opcode
 
-    """
+    .. data:: RESERVED = 0
+
+    	Reserved
+
+    .. data:: CCM = 1
+
+    	Continuity Check
+
+    .. data:: LBR = 2
+
+    	Loopback Reply
+
+    .. data:: LBM = 3
+
+    	Loopback Message
+
+    .. data:: LTR = 4
+
+    	Linktrace Reply
+
+    .. data:: LTM = 5
+
+    	Linktrace Message
 
     """
 
-    Reserved
-
-    """
     RESERVED = 0
 
-    """
-
-    Continuity Check
-
-    """
     CCM = 1
 
-    """
-
-    Loopback Reply
-
-    """
     LBR = 2
 
-    """
-
-    Loopback Message
-
-    """
     LBM = 3
 
-    """
-
-    Linktrace Reply
-
-    """
     LTR = 4
 
-    """
-
-    Linktrace Message
-
-    """
     LTM = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmBagOpcode_Enum']
+        return meta._meta_table['CfmBagOpcodeEnum']
 
 
-class CfmBagSmanFmt_Enum(Enum):
+class CfmBagSmanFmtEnum(Enum):
     """
-    CfmBagSmanFmt_Enum
+    CfmBagSmanFmtEnum
 
     Short MA Name format
 
-    """
+    .. data:: SMAN_VLAN_ID = 1
+
+    	Short MA Name is a 12-bit VLAN-ID
+
+    .. data:: SMAN_STRING = 2
+
+    	Short MA Name is a character string
+
+    .. data:: SMAN_UINT16 = 3
+
+    	Short MA Name is a 16-bit unsigned integer
+
+    .. data:: SMAN_VPN_ID = 4
+
+    	Short MA Name is a global VPN identifier
+
+    .. data:: SMAN_ICC = 32
+
+    	Short MA Name uses the ICC-based format
+
+    .. data:: SMAN_UNKNOWN = 33
+
+    	Unknown Short MA Name format
 
     """
 
-    Short MA Name is a 12\-bit VLAN\-ID
-
-    """
     SMAN_VLAN_ID = 1
 
-    """
-
-    Short MA Name is a character string
-
-    """
     SMAN_STRING = 2
 
-    """
-
-    Short MA Name is a 16\-bit unsigned integer
-
-    """
     SMAN_UINT16 = 3
 
-    """
-
-    Short MA Name is a global VPN identifier
-
-    """
     SMAN_VPN_ID = 4
 
-    """
-
-    Short MA Name uses the ICC\-based format
-
-    """
     SMAN_ICC = 32
 
-    """
-
-    Unknown Short MA Name format
-
-    """
     SMAN_UNKNOWN = 33
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmBagSmanFmt_Enum']
+        return meta._meta_table['CfmBagSmanFmtEnum']
 
 
-class CfmBagStpState_Enum(Enum):
+class CfmBagStpStateEnum(Enum):
     """
-    CfmBagStpState_Enum
+    CfmBagStpStateEnum
 
     CFM STP state
 
-    """
+    .. data:: STP_UP = 0
+
+    	Interface is UP
+
+    .. data:: STP_BLOCKED = 1
+
+    	Interface is STP-blocked
+
+    .. data:: STP_UNKNOWN = 2
+
+    	Unknown Interface STP state
 
     """
 
-    Interface is UP
-
-    """
     STP_UP = 0
 
-    """
-
-    Interface is STP\-blocked
-
-    """
     STP_BLOCKED = 1
 
-    """
-
-    Unknown Interface STP state
-
-    """
     STP_UNKNOWN = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmBagStpState_Enum']
+        return meta._meta_table['CfmBagStpStateEnum']
 
 
-class CfmMaMpVariety_Enum(Enum):
+class CfmMaMpVarietyEnum(Enum):
     """
-    CfmMaMpVariety_Enum
+    CfmMaMpVarietyEnum
 
     CFM MA Maintenance Point varieties
 
-    """
+    .. data:: MIP = 0
+
+    	MIP
+
+    .. data:: UP_MEP = 1
+
+    	Up MEP
+
+    .. data:: DOWNMEP = 2
+
+    	Down MEP
+
+    .. data:: UNKNOWN_MEP = 3
+
+    	Unknown MEP
 
     """
 
-    MIP
-
-    """
     MIP = 0
 
-    """
-
-    Up MEP
-
-    """
     UP_MEP = 1
 
-    """
-
-    Down MEP
-
-    """
     DOWNMEP = 2
 
-    """
-
-    Unknown MEP
-
-    """
     UNKNOWN_MEP = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmMaMpVariety_Enum']
+        return meta._meta_table['CfmMaMpVarietyEnum']
 
 
-class CfmPmAddlIntfStatus_Enum(Enum):
+class CfmPmAddlIntfStatusEnum(Enum):
     """
-    CfmPmAddlIntfStatus_Enum
+    CfmPmAddlIntfStatusEnum
 
     Additional interface status
 
-    """
+    .. data:: UNKNOWN = 0
+
+    	Additional interface status unknown
+
+    .. data:: ADMINISTRATIVELY_DOWN = 1
+
+    	Interface is explicitly shutdown in
+
+    	configuration
+
+    .. data:: REMOTE_EXCESSIVE_ERRORS = 2
+
+    	Remote interface has exceeded its 802.3 Link
+
+    	OAM error threshold
+
+    .. data:: LOCAL_EXCESSIVE_ERRORS = 3
+
+    	Local interface has exceeded its 802.3 Link OAM
+
+    	error threshold
 
     """
 
-    Additional interface status unknown
-
-    """
     UNKNOWN = 0
 
-    """
-
-    Interface is explicitly shutdown in
-    configuration
-
-    """
     ADMINISTRATIVELY_DOWN = 1
 
-    """
-
-    Remote interface has exceeded its 802.3 Link
-    OAM error threshold
-
-    """
     REMOTE_EXCESSIVE_ERRORS = 2
 
-    """
-
-    Local interface has exceeded its 802.3 Link OAM
-    error threshold
-
-    """
     LOCAL_EXCESSIVE_ERRORS = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmAddlIntfStatus_Enum']
+        return meta._meta_table['CfmPmAddlIntfStatusEnum']
 
 
-class CfmPmAisReceive_Enum(Enum):
+class CfmPmAisReceiveEnum(Enum):
     """
-    CfmPmAisReceive_Enum
+    CfmPmAisReceiveEnum
 
     Enumeration of how the MEP is receiving the
+
     signal, directly or via AIS or LCK messages.
 
-    """
+    .. data:: RECEIVE_NONE = 0
+
+    	No signal received
+
+    .. data:: RECEIVE_AIS = 1
+
+    	Receiving AIS messages
+
+    .. data:: RECEIVE_LCK = 2
+
+    	Receiving LCK messages
+
+    .. data:: RECEIVE_DIRECT = 3
+
+    	Receiving AIS directly from another MEP on the
+
+    	same interface
 
     """
 
-    No signal received
-
-    """
     RECEIVE_NONE = 0
 
-    """
-
-    Receiving AIS messages
-
-    """
     RECEIVE_AIS = 1
 
-    """
-
-    Receiving LCK messages
-
-    """
     RECEIVE_LCK = 2
 
-    """
-
-    Receiving AIS directly from another MEP on the
-    same interface
-
-    """
     RECEIVE_DIRECT = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmAisReceive_Enum']
+        return meta._meta_table['CfmPmAisReceiveEnum']
 
 
-class CfmPmAisTransmit_Enum(Enum):
+class CfmPmAisTransmitEnum(Enum):
     """
-    CfmPmAisTransmit_Enum
+    CfmPmAisTransmitEnum
 
     Enumeration of how the MEP is transmitting AIS,
+
     via a MIP or directly to a higher MEP
 
-    """
+    .. data:: TRANSMIT_NONE = 0
+
+    	AIS not transmitted
+
+    .. data:: TRANSMIT_AIS = 1
+
+    	AIS transmitted via MIP
+
+    .. data:: TRANSMIT_AIS_DIRECT = 2
+
+    	AIS signal passed directly to a higher MEP
 
     """
 
-    AIS not transmitted
-
-    """
     TRANSMIT_NONE = 0
 
-    """
-
-    AIS transmitted via MIP
-
-    """
     TRANSMIT_AIS = 1
 
-    """
-
-    AIS signal passed directly to a higher MEP
-
-    """
     TRANSMIT_AIS_DIRECT = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmAisTransmit_Enum']
+        return meta._meta_table['CfmPmAisTransmitEnum']
 
 
-class CfmPmChassisIdFmt_Enum(Enum):
+class CfmPmChassisIdFmtEnum(Enum):
     """
-    CfmPmChassisIdFmt_Enum
+    CfmPmChassisIdFmtEnum
 
     Chassis ID type
 
-    """
+    .. data:: CHASSIS_ID_CHASSIS_COMPONENT = 1
+
+    	Chassis ID is a component name
+
+    .. data:: CHASSIS_ID_INTERFACE_ALIAS = 2
+
+    	Chassis ID is an interface alias
+
+    .. data:: CHASSIS_ID_PORT_COMPONENT = 3
+
+    	Chassis ID is a port component name
+
+    .. data:: CHASSIS_ID_MAC_ADDRESS = 4
+
+    	Chassis ID is a MAC address
+
+    .. data:: CHASSIS_ID_NETWORK_ADDRESS = 5
+
+    	Chassis ID is a network address
+
+    .. data:: CHASSIS_ID_INTERFACE_NAME = 6
+
+    	Chassis ID is an interface name
+
+    .. data:: CHASSIS_ID_LOCAL = 7
+
+    	Chassis ID is a local name
+
+    .. data:: CHASSIS_ID_UNKNOWN_TYPE = 8
+
+    	Unknown Chassis ID type
 
     """
 
-    Chassis ID is a component name
-
-    """
     CHASSIS_ID_CHASSIS_COMPONENT = 1
 
-    """
-
-    Chassis ID is an interface alias
-
-    """
     CHASSIS_ID_INTERFACE_ALIAS = 2
 
-    """
-
-    Chassis ID is a port component name
-
-    """
     CHASSIS_ID_PORT_COMPONENT = 3
 
-    """
-
-    Chassis ID is a MAC address
-
-    """
     CHASSIS_ID_MAC_ADDRESS = 4
 
-    """
-
-    Chassis ID is a network address
-
-    """
     CHASSIS_ID_NETWORK_ADDRESS = 5
 
-    """
-
-    Chassis ID is an interface name
-
-    """
     CHASSIS_ID_INTERFACE_NAME = 6
 
-    """
-
-    Chassis ID is a local name
-
-    """
     CHASSIS_ID_LOCAL = 7
 
-    """
-
-    Unknown Chassis ID type
-
-    """
     CHASSIS_ID_UNKNOWN_TYPE = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmChassisIdFmt_Enum']
+        return meta._meta_table['CfmPmChassisIdFmtEnum']
 
 
-class CfmPmEgressAction_Enum(Enum):
+class CfmPmEgressActionEnum(Enum):
     """
-    CfmPmEgressAction_Enum
+    CfmPmEgressActionEnum
 
     Egress action
 
-    """
+    .. data:: EGRESS_OK = 1
+
+    	OK
+
+    .. data:: EGRESS_DOWN = 2
+
+    	Down
+
+    .. data:: EGRESS_BLOCKED = 3
+
+    	STP Blocked
+
+    .. data:: EGRESS_VID = 4
+
+    	VID Blocked
 
     """
 
-    OK
-
-    """
     EGRESS_OK = 1
 
-    """
-
-    Down
-
-    """
     EGRESS_DOWN = 2
 
-    """
-
-    STP Blocked
-
-    """
     EGRESS_BLOCKED = 3
 
-    """
-
-    VID Blocked
-
-    """
     EGRESS_VID = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmEgressAction_Enum']
+        return meta._meta_table['CfmPmEgressActionEnum']
 
 
-class CfmPmElmReplyFilter_Enum(Enum):
+class CfmPmElmReplyFilterEnum(Enum):
     """
-    CfmPmElmReplyFilter_Enum
+    CfmPmElmReplyFilterEnum
 
     Reply filter used for Exploratory Linktrace
+
     operations
 
-    """
+    .. data:: REPLY_FILTER_NOT_PRESENT = 0
+
+    	Reply Filter not present
+
+    .. data:: REPLY_FILTER_DEFAULT = 1
+
+    	Reply from ports which are not MAC-pruned,
+
+    	VID-pruned, or STP-blocked
+
+    .. data:: REPLY_FILTER_VLAN_TOPOLOGY = 2
+
+    	Reply from ports which are not VID-pruned or
+
+    	STP-blocked
+
+    .. data:: REPLY_FILTER_SPANNING_TREE = 3
+
+    	Reply from ports which are not STP-blocked
+
+    .. data:: REPLY_FILTER_ALL_PORTS = 4
+
+    	Reply from all ports
 
     """
 
-    Reply Filter not present
-
-    """
     REPLY_FILTER_NOT_PRESENT = 0
 
-    """
-
-    Reply from ports which are not MAC\-pruned,
-    VID\-pruned, or STP\-blocked
-
-    """
     REPLY_FILTER_DEFAULT = 1
 
-    """
-
-    Reply from ports which are not VID\-pruned or
-    STP\-blocked
-
-    """
     REPLY_FILTER_VLAN_TOPOLOGY = 2
 
-    """
-
-    Reply from ports which are not STP\-blocked
-
-    """
     REPLY_FILTER_SPANNING_TREE = 3
 
-    """
-
-    Reply from all ports
-
-    """
     REPLY_FILTER_ALL_PORTS = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmElmReplyFilter_Enum']
+        return meta._meta_table['CfmPmElmReplyFilterEnum']
 
 
-class CfmPmElrEgressAction_Enum(Enum):
+class CfmPmElrEgressActionEnum(Enum):
     """
-    CfmPmElrEgressAction_Enum
+    CfmPmElrEgressActionEnum
 
     ELR Egress action
 
-    """
+    .. data:: ELR_EGRESS_OK = 1
+
+    	OK
+
+    .. data:: ELR_EGRESS_DOWN = 2
+
+    	Down
+
+    .. data:: ELR_EGRESS_BLOCKED = 3
+
+    	STP Blocked
+
+    .. data:: ELR_EGRESS_VID = 4
+
+    	VID Blocked
+
+    .. data:: ELR_EGRESS_MAC = 255
+
+    	MAC Pruned
 
     """
 
-    OK
-
-    """
     ELR_EGRESS_OK = 1
 
-    """
-
-    Down
-
-    """
     ELR_EGRESS_DOWN = 2
 
-    """
-
-    STP Blocked
-
-    """
     ELR_EGRESS_BLOCKED = 3
 
-    """
-
-    VID Blocked
-
-    """
     ELR_EGRESS_VID = 4
 
-    """
-
-    MAC Pruned
-
-    """
     ELR_EGRESS_MAC = 255
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmElrEgressAction_Enum']
+        return meta._meta_table['CfmPmElrEgressActionEnum']
 
 
-class CfmPmElrIngressAction_Enum(Enum):
+class CfmPmElrIngressActionEnum(Enum):
     """
-    CfmPmElrIngressAction_Enum
+    CfmPmElrIngressActionEnum
 
     ELR Ingress action
 
-    """
+    .. data:: ELR_INGRESS_OK = 1
+
+    	OK
+
+    .. data:: ELR_INGRESS_DOWN = 2
+
+    	Down
+
+    .. data:: ELR_INGRESS_BLOCKED = 3
+
+    	STP Blocked
+
+    .. data:: ELR_INGRESS_VID = 4
+
+    	VID Blocked
 
     """
 
-    OK
-
-    """
     ELR_INGRESS_OK = 1
 
-    """
-
-    Down
-
-    """
     ELR_INGRESS_DOWN = 2
 
-    """
-
-    STP Blocked
-
-    """
     ELR_INGRESS_BLOCKED = 3
 
-    """
-
-    VID Blocked
-
-    """
     ELR_INGRESS_VID = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmElrIngressAction_Enum']
+        return meta._meta_table['CfmPmElrIngressActionEnum']
 
 
-class CfmPmElrRelayAction_Enum(Enum):
+class CfmPmElrRelayActionEnum(Enum):
     """
-    CfmPmElrRelayAction_Enum
+    CfmPmElrRelayActionEnum
 
     ELR relay action
 
-    """
+    .. data:: ELR_RELAY_HIT = 1
+
+    	Target Hit
+
+    .. data:: ELR_RELAY_FDB = 2
+
+    	Filtering database
+
+    .. data:: ELR_RELAY_FLOOD = 3
+
+    	Flood forwarded
+
+    .. data:: ELR_RELAY_DROP = 4
+
+    	Dropped
 
     """
 
-    Target Hit
-
-    """
     ELR_RELAY_HIT = 1
 
-    """
-
-    Filtering database
-
-    """
     ELR_RELAY_FDB = 2
 
-    """
-
-    Flood forwarded
-
-    """
     ELR_RELAY_FLOOD = 3
 
-    """
-
-    Dropped
-
-    """
     ELR_RELAY_DROP = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmElrRelayAction_Enum']
+        return meta._meta_table['CfmPmElrRelayActionEnum']
 
 
-class CfmPmEltDelayModel_Enum(Enum):
+class CfmPmEltDelayModelEnum(Enum):
     """
-    CfmPmEltDelayModel_Enum
+    CfmPmEltDelayModelEnum
 
     Delay model used for Exploratory Linktrace
+
     operations
 
-    """
+    .. data:: DELAY_MODEL_INVALID = 0
+
+    	Not a valid delay model
+
+    .. data:: DELAY_MODEL_LOGARITHMIC = 1
+
+    	Reply using logarithmic delay model
+
+    .. data:: DELAY_MODEL_CONSTANT = 2
+
+    	Reply using constant delay model
 
     """
 
-    Not a valid delay model
-
-    """
     DELAY_MODEL_INVALID = 0
 
-    """
-
-    Reply using logarithmic delay model
-
-    """
     DELAY_MODEL_LOGARITHMIC = 1
 
-    """
-
-    Reply using constant delay model
-
-    """
     DELAY_MODEL_CONSTANT = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmEltDelayModel_Enum']
+        return meta._meta_table['CfmPmEltDelayModelEnum']
 
 
-class CfmPmIdFmt_Enum(Enum):
+class CfmPmIdFmtEnum(Enum):
     """
-    CfmPmIdFmt_Enum
+    CfmPmIdFmtEnum
 
     ID format
 
-    """
+    .. data:: ID_FORMAT_IS_STRING = 0
+
+    	ID format is a string
+
+    .. data:: ID_FORMAT_IS_MAC_ADDRESS = 1
+
+    	ID format is a MAC address
+
+    .. data:: ID_FORMAT_IS_RAW_HEX = 2
+
+    	ID format is raw hex
 
     """
 
-    ID format is a string
-
-    """
     ID_FORMAT_IS_STRING = 0
 
-    """
-
-    ID format is a MAC address
-
-    """
     ID_FORMAT_IS_MAC_ADDRESS = 1
 
-    """
-
-    ID format is raw hex
-
-    """
     ID_FORMAT_IS_RAW_HEX = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmIdFmt_Enum']
+        return meta._meta_table['CfmPmIdFmtEnum']
 
 
-class CfmPmIngressAction_Enum(Enum):
+class CfmPmIngressActionEnum(Enum):
     """
-    CfmPmIngressAction_Enum
+    CfmPmIngressActionEnum
 
     Ingress action
 
-    """
+    .. data:: INGRESS_OK = 1
+
+    	OK
+
+    .. data:: INGRESS_DOWN = 2
+
+    	Down
+
+    .. data:: INGRESS_BLOCKED = 3
+
+    	STP Blocked
+
+    .. data:: INGRESS_VID = 4
+
+    	VID Blocked
 
     """
 
-    OK
-
-    """
     INGRESS_OK = 1
 
-    """
-
-    Down
-
-    """
     INGRESS_DOWN = 2
 
-    """
-
-    STP Blocked
-
-    """
     INGRESS_BLOCKED = 3
 
-    """
-
-    VID Blocked
-
-    """
     INGRESS_VID = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmIngressAction_Enum']
+        return meta._meta_table['CfmPmIngressActionEnum']
 
 
-class CfmPmIntfStatus_Enum(Enum):
+class CfmPmIntfStatusEnum(Enum):
     """
-    CfmPmIntfStatus_Enum
+    CfmPmIntfStatusEnum
 
     Interface status
 
-    """
+    .. data:: INTERFACE_STATUS_UP = 1
+
+    	Interface is up
+
+    .. data:: INTERFACE_STATUS_DOWN = 2
+
+    	Interface is down
+
+    .. data:: INTERFACE_STATUS_TESTING = 3
+
+    	Interface is in testing mode
+
+    .. data:: INTERFACE_STATUS_UNKNOWN = 4
+
+    	Unknown interface status
+
+    .. data:: INTERFACE_STATUS_DORMANT = 5
+
+    	Interface is dormant
+
+    .. data:: INTERFACE_STATUS_NOT_PRESENT = 6
+
+    	Interface status not found
+
+    .. data:: INTERFACE_STATUS_LOWER_LAYER_DOWN = 7
+
+    	Lower layer is down
 
     """
 
-    Interface is up
-
-    """
     INTERFACE_STATUS_UP = 1
 
-    """
-
-    Interface is down
-
-    """
     INTERFACE_STATUS_DOWN = 2
 
-    """
-
-    Interface is in testing mode
-
-    """
     INTERFACE_STATUS_TESTING = 3
 
-    """
-
-    Unknown interface status
-
-    """
     INTERFACE_STATUS_UNKNOWN = 4
 
-    """
-
-    Interface is dormant
-
-    """
     INTERFACE_STATUS_DORMANT = 5
 
-    """
-
-    Interface status not found
-
-    """
     INTERFACE_STATUS_NOT_PRESENT = 6
 
-    """
-
-    Lower layer is down
-
-    """
     INTERFACE_STATUS_LOWER_LAYER_DOWN = 7
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmIntfStatus_Enum']
+        return meta._meta_table['CfmPmIntfStatusEnum']
 
 
-class CfmPmLastHopFmt_Enum(Enum):
+class CfmPmLastHopFmtEnum(Enum):
     """
-    CfmPmLastHopFmt_Enum
+    CfmPmLastHopFmtEnum
 
     Last hop identifier format
 
-    """
+    .. data:: LAST_HOP_NONE = 0
+
+    	No last hop identifier
+
+    .. data:: LAST_HOP_HOST_NAME = 1
+
+    	Last hop identifier is a hostname
+
+    .. data:: LAST_HOP_EGRESS_ID = 2
+
+    	Last hop identifier is an egress ID
 
     """
 
-    No last hop identifier
-
-    """
     LAST_HOP_NONE = 0
 
-    """
-
-    Last hop identifier is a hostname
-
-    """
     LAST_HOP_HOST_NAME = 1
 
-    """
-
-    Last hop identifier is an egress ID
-
-    """
     LAST_HOP_EGRESS_ID = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmLastHopFmt_Enum']
+        return meta._meta_table['CfmPmLastHopFmtEnum']
 
 
-class CfmPmLtMode_Enum(Enum):
+class CfmPmLtModeEnum(Enum):
     """
-    CfmPmLtMode_Enum
+    CfmPmLtModeEnum
 
     Type of Linktrace operation
 
-    """
+    .. data:: CFM_PM_LT_MODE_BASIC = 1
+
+    	Basic IEEE 802.1ag Linktrace
+
+    .. data:: CFM_PM_LT_MODE_EXPLORATORY = 2
+
+    	Cisco Exploratory Linktrace
 
     """
 
-    Basic IEEE 802.1ag Linktrace
-
-    """
     CFM_PM_LT_MODE_BASIC = 1
 
-    """
-
-    Cisco Exploratory Linktrace
-
-    """
     CFM_PM_LT_MODE_EXPLORATORY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmLtMode_Enum']
+        return meta._meta_table['CfmPmLtModeEnum']
 
 
-class CfmPmMepDefect_Enum(Enum):
+class CfmPmMepDefectEnum(Enum):
     """
-    CfmPmMepDefect_Enum
+    CfmPmMepDefectEnum
 
     Defects that can be reported by a MEP
 
-    """
+    .. data:: DEFECT_NONE = 0
+
+    	No defect reported
+
+    .. data:: DEFECT_RDI_CCM = 1
+
+    	Some Peer MEP's CCM has the RDI bit set
+
+    .. data:: DEFECT_MA_CSTATUS = 2
+
+    	A Peer MEP port or interface status error has
+
+    	been reported
+
+    .. data:: DEFECT_REMOTE_CCM = 3
+
+    	Not receiving valid CCMs from at least one Peer
+
+    	MEP
+
+    .. data:: DEFECT_ERROR_CCM = 4
+
+    	Currently receiving invalid CCMs from at least
+
+    	one Peer MEP
+
+    .. data:: DEFECT_CROSS_CONNECT_CCM = 5
+
+    	Currently receiving CCMs from an incorrect
+
+    	service (MA)
 
     """
 
-    No defect reported
-
-    """
     DEFECT_NONE = 0
 
-    """
-
-    Some Peer MEP's CCM has the RDI bit set
-
-    """
     DEFECT_RDI_CCM = 1
 
-    """
-
-    A Peer MEP port or interface status error has
-    been reported
-
-    """
     DEFECT_MA_CSTATUS = 2
 
-    """
-
-    Not receiving valid CCMs from at least one Peer
-    MEP
-
-    """
     DEFECT_REMOTE_CCM = 3
 
-    """
-
-    Currently receiving invalid CCMs from at least
-    one Peer MEP
-
-    """
     DEFECT_ERROR_CCM = 4
 
-    """
-
-    Currently receiving CCMs from an incorrect
-    service (MA)
-
-    """
     DEFECT_CROSS_CONNECT_CCM = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmMepDefect_Enum']
+        return meta._meta_table['CfmPmMepDefectEnum']
 
 
-class CfmPmMepFngState_Enum(Enum):
+class CfmPmMepFngStateEnum(Enum):
     """
-    CfmPmMepFngState_Enum
+    CfmPmMepFngStateEnum
 
     Fault Notification Generation state machine
+
     states
 
-    """
+    .. data:: FNG_RESET = 1
+
+    	FNG in reset state
+
+    .. data:: FNG_DEFECT = 2
+
+    	FNG has detected but not yet reported a defect
+
+    .. data:: FNG_REPORT_DEFECT = 3
+
+    	FNG is in the process of reporting a defect
+
+    .. data:: FNG_DEFECT_REPORTED = 4
+
+    	FNG has reported a defect
+
+    .. data:: FNG_DEFECT_CLEARING = 5
+
+    	No defect present, but the reset timer has not
+
+    	yet expired
 
     """
 
-    FNG in reset state
-
-    """
     FNG_RESET = 1
 
-    """
-
-    FNG has detected but not yet reported a defect
-
-    """
     FNG_DEFECT = 2
 
-    """
-
-    FNG is in the process of reporting a defect
-
-    """
     FNG_REPORT_DEFECT = 3
 
-    """
-
-    FNG has reported a defect
-
-    """
     FNG_DEFECT_REPORTED = 4
 
-    """
-
-    No defect present, but the reset timer has not
-    yet expired
-
-    """
     FNG_DEFECT_CLEARING = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmMepFngState_Enum']
+        return meta._meta_table['CfmPmMepFngStateEnum']
 
 
-class CfmPmPktAction_Enum(Enum):
+class CfmPmPktActionEnum(Enum):
     """
-    CfmPmPktAction_Enum
+    CfmPmPktActionEnum
 
     Action taken for received packet
 
-    """
+    .. data:: PACKET_PROCESSED = 0
+
+    	Packet processed successfully
+
+    .. data:: PACKET_FORWARDED = 1
+
+    	Packet forwarded
+
+    .. data:: UNKNOWN_OPCODE = 2
+
+    	Packet dropped at a MEP due to unknown opcode
+
+    .. data:: FILTER_LEVEL = 3
+
+    	Packet dropped due to level/opcode filtering at
+
+    	a MEP
+
+    .. data:: FILTER_BLOCKED = 4
+
+    	Packet dropped because interface is STP blocked
+
+    .. data:: FILTER_LOCAL_MAC = 5
+
+    	Packet dropped due to local destination MAC
+
+    .. data:: MALFORMED_CCM_SIZE = 6
+
+    	CCM too short or too long
+
+    .. data:: MALFORMED_CCM_MEP_ID = 7
+
+    	Invalid MEP-ID
+
+    .. data:: MALFORMED_TOO_SHORT = 8
+
+    	Packet too short
+
+    .. data:: MALFORMED_DESTINATION_MAC_UNICAST = 9
+
+    	Destination MAC address does not match
+
+    	interface
+
+    .. data:: MALFORMED_DESTINATION_MAC_MULTICAST = 10
+
+    	Invalid multicast destination MAC address
+
+    .. data:: MALFORMED_TLV_OFFSET = 11
+
+    	TLV offset too short or beyond the end of the
+
+    	packet
+
+    .. data:: MALFORMED_LBM_SOURCE_MAC = 12
+
+    	Invalid source MAC address for LBM
+
+    .. data:: MALFORMED_LTR_RELAY_ACTION = 13
+
+    	Unknown LTR relay action
+
+    .. data:: MALFORMED_LTR_REPLY_TLV = 14
+
+    	LTR has neither reply-ingress or reply-egress
+
+    .. data:: MALFORMED_LT_ORIGIN = 15
+
+    	Invalid Linktrace Message origin MAC address
+
+    .. data:: MALFORMED_LTM_TARGET = 16
+
+    	Invalid LTM target MAC address
+
+    .. data:: MALFORMED_SOURCE_MAC = 17
+
+    	Invalid source MAC address
+
+    .. data:: MALFORMED_HEADER_TOO_SHORT = 18
+
+    	Packet too short for CFM header
+
+    .. data:: MALFORMED_TLV_HEADER_OVERRUN = 19
+
+    	TLV header extends beyond the end of the packet
+
+    .. data:: MALFORMED_TLV_OVERRUN = 20
+
+    	TLV extends beyond the end of the packet
+
+    .. data:: MALFORMED_DUPLICATE_SENDER_ID = 21
+
+    	Multiple Sender-ID TLVs found
+
+    .. data:: MALFORMED_DUPLICATE_PORT_STATUS = 22
+
+    	Multiple Port-status TLVs found
+
+    .. data:: MALFORMED_DUPLICATE_INTERFACE_STATUS = 23
+
+    	Multiple Interface-state TLVs found
+
+    .. data:: MALFORMED_WRONG_TLV = 24
+
+    	Invalid TLV for this type of packet found
+
+    .. data:: MALFORMED_DUPLICATE_DATA = 25
+
+    	Multiple Data TLVs found
+
+    .. data:: MALFORMED_DUPLICATE_LTR_EGRESS_ID = 26
+
+    	Multiple LTR-Egress-ID TLVs found
+
+    .. data:: MALFORMED_DUPLICATE_REPLY_INGRESS = 27
+
+    	Multiple Reply-ingress TLVs found
+
+    .. data:: MALFORMED_DUPLICATE_REPLY_EGRESS = 28
+
+    	Multiple Reply-egress TLVs found
+
+    .. data:: MALFORMED_DUPLICATE_LTM_EGRESS_ID = 29
+
+    	Multiple LTM-Egress-ID TLVs found
+
+    .. data:: MALFORMED_SENDER_ID_SIZE = 30
+
+    	Sender-ID TLV is too short
+
+    .. data:: MALFORMED_CHASSIS_ID_SIZE = 31
+
+    	Sender-ID TLV is too short to contain the
+
+    	Chassis ID
+
+    .. data:: MALFORMED_MGMT_ADDRESS_DOMAIN_SIZE = 32
+
+    	Sender-ID TLV is too short to contain the
+
+    	management address domain
+
+    .. data:: MALFORMED_MGMT_ADDRESS_SIZE = 33
+
+    	Sender-ID TLV is too short to contain the
+
+    	management address
+
+    .. data:: MALFORMED_PORT_STATUS_SIZE = 34
+
+    	Port-status TLV is too short
+
+    .. data:: MALFORMED_PORT_STATUS = 35
+
+    	Invalid Port status value
+
+    .. data:: MALFORMED_INTERFACE_STATUS_SIZE = 36
+
+    	Interface-status TLV is too short
+
+    .. data:: MALFORMED_INTERFACE_STATUS = 37
+
+    	Invalid Interface status value
+
+    .. data:: MALFORMED_ORGANIZATION_SPECIFIC_TLV_SIZE = 38
+
+    	Organization-specific TLV is too short
+
+    .. data:: MALFORMED_DUPLICATE_MEP_NAME = 39
+
+    	Multiple MEP-name TLVs found
+
+    .. data:: MALFORMED_DUPLICATE_ADDITIONAL_INTERFACE_STATUS = 40
+
+    	Multiple additional-interface-status TLVs found
+
+    .. data:: MALFORMED_LTR_EGRESS_ID_SIZE = 41
+
+    	LTR-Egress-ID TLV is too short
+
+    .. data:: MALFORMED_REPLY_INGRESS_SIZE = 42
+
+    	Reply-ingress TLV is too short
+
+    .. data:: MALFORMED_INGRESS_ACTION = 43
+
+    	Invalid ingress-action value
+
+    .. data:: MALFORMED_REPLY_INGRESS_MAC = 44
+
+    	Reply-ingress TLV has invalid MAC address
+
+    .. data:: MALFORMED_INGRESS_PORT_LENGTH_SIZE = 45
+
+    	Reply-ingress TLV is too short to contain the
+
+    	Port ID type
+
+    .. data:: MALFORMED_INGRESS_PORT_ID_LENGTH = 46
+
+    	Reply-ingress TLV has a zero Port ID length
+
+    .. data:: MALFORMED_INGRESS_PORT_ID_SIZE = 47
+
+    	Reply-ingress TLV is too short to contain the
+
+    	Port ID
+
+    .. data:: MALFORMED_REPLY_EGRESS_SIZE = 48
+
+    	Reply-egress TLV is too short
+
+    .. data:: MALFORMED_EGRESS_ACTION = 49
+
+    	Invalid egress-action value
+
+    .. data:: MALFORMED_REPLY_EGRESS_MAC = 50
+
+    	Reply-egress TLV has invalid MAC address
+
+    .. data:: MALFORMED_EGRESS_PORT_LENGTH_SIZE = 51
+
+    	Reply-egress TLV is too short to contain the
+
+    	Port ID type
+
+    .. data:: MALFORMED_EGRESS_PORT_ID_LENGTH = 52
+
+    	Reply-egress TLV has a zero Port ID length
+
+    .. data:: MALFORMED_EGRESS_PORT_ID_SIZE = 53
+
+    	Reply-egress TLV is too short to contain the
+
+    	Port ID
+
+    .. data:: MALFORMED_LTM_EGRESS_ID_SIZE = 54
+
+    	LTM-Egress_ID TLV is too short
+
+    .. data:: MALFORMED_MEP_NAME_SIZE = 55
+
+    	MEP-name TLV is too short
+
+    .. data:: MALFORMED_MEP_NAME_NAME_LENGTH = 56
+
+    	MEP-name TLV is too short to contain a MEP name
+
+    .. data:: MALFORMED_ADDITIONAL_INTERFACE_STATUS_SIZE = 57
+
+    	Additional-interface-status is too short
+
+    .. data:: MALFORMED_ADDITIONAL_INTERFACE_STATUS = 58
+
+    	Invalid additional interface status
+
+    .. data:: MALFORMED_CCM_INTERVAL = 59
+
+    	CCM has a zero CCM interval
+
+    .. data:: MALFORMED_MDID_MAC_ADDRESS_LENGTH = 60
+
+    	CCM has a MAC-address MDID but the MDID is the
+
+    	wrong length
+
+    .. data:: MALFORMED_MDID_LENGTH = 61
+
+    	CCM has an invalid MDID length
+
+    .. data:: MALFORMED_SMAN_LENGTH = 62
+
+    	CCM has an invalid Short MA Name length
+
+    .. data:: MALFORMED_SMAN2_BYTE_LENGTH = 63
+
+    	CCM has a VID or 16-bit Short MA Name but a
+
+    	mismatched length
+
+    .. data:: MALFORMED_SMAN_VPN_ID_LENGTH = 64
+
+    	CCM has a VPNID Short MA Name but a mismatched
+
+    	length
+
+    .. data:: MALFORMED_ELR_NO_REPLY_TLV = 65
+
+    	ELR has no ELR Reply TLVs
+
+    .. data:: MALFORMED_SEPARATE_ELR_REPLY_EGRESS = 66
+
+    	ELR Reply Egress TLVs not all adjacent
+
+    .. data:: MALFORMED_DCM_DESTINATION_MULTICAST = 67
+
+    	DCM has a multicast destination MAC
+
+    .. data:: MALFORMED_DCM_EMBED_LENGTH = 68
+
+    	DCM is too short to contain an Embedded PDU
+
+    .. data:: MALFORMED_DCM_EMBED_LEVEL = 69
+
+    	DCM Embedded PDU level does not match DCM level
+
+    .. data:: MALFORMED_DCM_EMBED_VERSION = 70
+
+    	DCM Embedded PDU version does not match DCM
+
+    	version
+
+    .. data:: MALFORMED_ELR_RELAY_ACTION = 71
+
+    	Unknown ELR relay action
+
+    .. data:: MALFORMED_ELR_TT_LS = 73
+
+    	Reply Ingress TTL is not one greater than Reply
+
+    	Egress TTL
+
+    .. data:: MALFORMED_ELR_TTL_INGRESS = 74
+
+    	Reply Ingress TTL present without ELR Reply
+
+    	Ingress TLV
+
+    .. data:: MALFORMED_ELR_TTL_EGRESS = 75
+
+    	Reply Egress TTL present without ELR Reply
+
+    	Egress TLV
+
+    .. data:: MALFORMED_ELM_DESTINATION_UNICAST = 76
+
+    	ELM Destination MAC must not be unicast
+
+    .. data:: MALFORMED_ELM_EGRESS_ID = 77
+
+    	ELM has no LTM Egress ID TLV
+
+    .. data:: MALFORMED_DCM_EMBED_OUI = 78
+
+    	Embedded DCM OUI unrecognized
+
+    .. data:: MALFORMED_DCM_EMBED_OPCODE = 79
+
+    	Embedded DCM Opcode is not ELM
+
+    .. data:: MALFORMED_ELM_CONSTANT_ZERO = 80
+
+    	ELM Constant Factor is zero
+
+    .. data:: MALFORMED_ELR_TIMEOUT_ZERO = 81
+
+    	ELR Next-Hop Timeout is zero
+
+    .. data:: MALFORMED_DUPLICATE_TEST = 82
+
+    	Multiple Test TLVs found
+
+    .. data:: MALFORMED_DMM_SOURCE_MAC = 83
+
+    	Invalid source MAC address for DMM
+
+    .. data:: MALFORMED_TEST_SIZE = 84
+
+    	Test TLV is too short
+
+    .. data:: MALFORMED_DMR_TIME_STAMPS = 85
+
+    	DMR has exactly one of its Rxf and Txb
+
+    	timestamps unspecified
+
+    .. data:: MALFORMED_DM_TIME_STAMP_FMT = 86
+
+    	The format of one or more timestamps is invalid
+
+    .. data:: MALFORMED_AIS_INTERVAL = 87
+
+    	AIS/LCK has invalid interval value (not 1
+
+    	second or 1 minute)
+
+    .. data:: FILTER_INTERFACE_DOWN = 88
+
+    	Packet dropped due to interface being down
+
+    .. data:: FILTER_FORWARD_STANDBY = 89
+
+    	Packet dropped - not forwarded because
+
+    	interface is a standby bundle
+
+    .. data:: MALFORMED_SMAN_ICC_BASED_LENGTH = 90
+
+    	CCM has an ICC-based format Short MA Name but a
+
+    	mismatched length
+
+    .. data:: FILTER_FOWARD_ISSU_SECONDARY = 120
+
+    	Packet dropped - not forwarded in secondary HA
+
+    	role
+
+    .. data:: FILTER_RESPONSE_STANDBY = 121
+
+    	Packet dropped - not responded to because
+
+    	interface is a standby bundle
+
+    .. data:: FILTER_RESPONSE_ISSU_SECONDARY = 122
+
+    	Packet dropped - not responded to in secondary
+
+    	HA role
 
     """
 
-    Packet processed successfully
-
-    """
     PACKET_PROCESSED = 0
 
-    """
-
-    Packet forwarded
-
-    """
     PACKET_FORWARDED = 1
 
-    """
-
-    Packet dropped at a MEP due to unknown opcode
-
-    """
     UNKNOWN_OPCODE = 2
 
-    """
-
-    Packet dropped due to level/opcode filtering at
-    a MEP
-
-    """
     FILTER_LEVEL = 3
 
-    """
-
-    Packet dropped because interface is STP blocked
-
-    """
     FILTER_BLOCKED = 4
 
-    """
-
-    Packet dropped due to local destination MAC
-
-    """
     FILTER_LOCAL_MAC = 5
 
-    """
-
-    CCM too short or too long
-
-    """
     MALFORMED_CCM_SIZE = 6
 
-    """
-
-    Invalid MEP\-ID
-
-    """
     MALFORMED_CCM_MEP_ID = 7
 
-    """
-
-    Packet too short
-
-    """
     MALFORMED_TOO_SHORT = 8
 
-    """
-
-    Destination MAC address does not match
-    interface
-
-    """
     MALFORMED_DESTINATION_MAC_UNICAST = 9
 
-    """
-
-    Invalid multicast destination MAC address
-
-    """
     MALFORMED_DESTINATION_MAC_MULTICAST = 10
 
-    """
-
-    TLV offset too short or beyond the end of the
-    packet
-
-    """
     MALFORMED_TLV_OFFSET = 11
 
-    """
-
-    Invalid source MAC address for LBM
-
-    """
     MALFORMED_LBM_SOURCE_MAC = 12
 
-    """
-
-    Unknown LTR relay action
-
-    """
     MALFORMED_LTR_RELAY_ACTION = 13
 
-    """
-
-    LTR has neither reply\-ingress or reply\-egress
-
-    """
     MALFORMED_LTR_REPLY_TLV = 14
 
-    """
-
-    Invalid Linktrace Message origin MAC address
-
-    """
     MALFORMED_LT_ORIGIN = 15
 
-    """
-
-    Invalid LTM target MAC address
-
-    """
     MALFORMED_LTM_TARGET = 16
 
-    """
-
-    Invalid source MAC address
-
-    """
     MALFORMED_SOURCE_MAC = 17
 
-    """
-
-    Packet too short for CFM header
-
-    """
     MALFORMED_HEADER_TOO_SHORT = 18
 
-    """
-
-    TLV header extends beyond the end of the packet
-
-    """
     MALFORMED_TLV_HEADER_OVERRUN = 19
 
-    """
-
-    TLV extends beyond the end of the packet
-
-    """
     MALFORMED_TLV_OVERRUN = 20
 
-    """
-
-    Multiple Sender\-ID TLVs found
-
-    """
     MALFORMED_DUPLICATE_SENDER_ID = 21
 
-    """
-
-    Multiple Port\-status TLVs found
-
-    """
     MALFORMED_DUPLICATE_PORT_STATUS = 22
 
-    """
-
-    Multiple Interface\-state TLVs found
-
-    """
     MALFORMED_DUPLICATE_INTERFACE_STATUS = 23
 
-    """
-
-    Invalid TLV for this type of packet found
-
-    """
     MALFORMED_WRONG_TLV = 24
 
-    """
-
-    Multiple Data TLVs found
-
-    """
     MALFORMED_DUPLICATE_DATA = 25
 
-    """
-
-    Multiple LTR\-Egress\-ID TLVs found
-
-    """
     MALFORMED_DUPLICATE_LTR_EGRESS_ID = 26
 
-    """
-
-    Multiple Reply\-ingress TLVs found
-
-    """
     MALFORMED_DUPLICATE_REPLY_INGRESS = 27
 
-    """
-
-    Multiple Reply\-egress TLVs found
-
-    """
     MALFORMED_DUPLICATE_REPLY_EGRESS = 28
 
-    """
-
-    Multiple LTM\-Egress\-ID TLVs found
-
-    """
     MALFORMED_DUPLICATE_LTM_EGRESS_ID = 29
 
-    """
-
-    Sender\-ID TLV is too short
-
-    """
     MALFORMED_SENDER_ID_SIZE = 30
 
-    """
-
-    Sender\-ID TLV is too short to contain the
-    Chassis ID
-
-    """
     MALFORMED_CHASSIS_ID_SIZE = 31
 
-    """
-
-    Sender\-ID TLV is too short to contain the
-    management address domain
-
-    """
     MALFORMED_MGMT_ADDRESS_DOMAIN_SIZE = 32
 
-    """
-
-    Sender\-ID TLV is too short to contain the
-    management address
-
-    """
     MALFORMED_MGMT_ADDRESS_SIZE = 33
 
-    """
-
-    Port\-status TLV is too short
-
-    """
     MALFORMED_PORT_STATUS_SIZE = 34
 
-    """
-
-    Invalid Port status value
-
-    """
     MALFORMED_PORT_STATUS = 35
 
-    """
-
-    Interface\-status TLV is too short
-
-    """
     MALFORMED_INTERFACE_STATUS_SIZE = 36
 
-    """
-
-    Invalid Interface status value
-
-    """
     MALFORMED_INTERFACE_STATUS = 37
 
-    """
-
-    Organization\-specific TLV is too short
-
-    """
     MALFORMED_ORGANIZATION_SPECIFIC_TLV_SIZE = 38
 
-    """
-
-    Multiple MEP\-name TLVs found
-
-    """
     MALFORMED_DUPLICATE_MEP_NAME = 39
 
-    """
-
-    Multiple additional\-interface\-status TLVs found
-
-    """
     MALFORMED_DUPLICATE_ADDITIONAL_INTERFACE_STATUS = 40
 
-    """
-
-    LTR\-Egress\-ID TLV is too short
-
-    """
     MALFORMED_LTR_EGRESS_ID_SIZE = 41
 
-    """
-
-    Reply\-ingress TLV is too short
-
-    """
     MALFORMED_REPLY_INGRESS_SIZE = 42
 
-    """
-
-    Invalid ingress\-action value
-
-    """
     MALFORMED_INGRESS_ACTION = 43
 
-    """
-
-    Reply\-ingress TLV has invalid MAC address
-
-    """
     MALFORMED_REPLY_INGRESS_MAC = 44
 
-    """
-
-    Reply\-ingress TLV is too short to contain the
-    Port ID type
-
-    """
     MALFORMED_INGRESS_PORT_LENGTH_SIZE = 45
 
-    """
-
-    Reply\-ingress TLV has a zero Port ID length
-
-    """
     MALFORMED_INGRESS_PORT_ID_LENGTH = 46
 
-    """
-
-    Reply\-ingress TLV is too short to contain the
-    Port ID
-
-    """
     MALFORMED_INGRESS_PORT_ID_SIZE = 47
 
-    """
-
-    Reply\-egress TLV is too short
-
-    """
     MALFORMED_REPLY_EGRESS_SIZE = 48
 
-    """
-
-    Invalid egress\-action value
-
-    """
     MALFORMED_EGRESS_ACTION = 49
 
-    """
-
-    Reply\-egress TLV has invalid MAC address
-
-    """
     MALFORMED_REPLY_EGRESS_MAC = 50
 
-    """
-
-    Reply\-egress TLV is too short to contain the
-    Port ID type
-
-    """
     MALFORMED_EGRESS_PORT_LENGTH_SIZE = 51
 
-    """
-
-    Reply\-egress TLV has a zero Port ID length
-
-    """
     MALFORMED_EGRESS_PORT_ID_LENGTH = 52
 
-    """
-
-    Reply\-egress TLV is too short to contain the
-    Port ID
-
-    """
     MALFORMED_EGRESS_PORT_ID_SIZE = 53
 
-    """
-
-    LTM\-Egress\_ID TLV is too short
-
-    """
     MALFORMED_LTM_EGRESS_ID_SIZE = 54
 
-    """
-
-    MEP\-name TLV is too short
-
-    """
     MALFORMED_MEP_NAME_SIZE = 55
 
-    """
-
-    MEP\-name TLV is too short to contain a MEP name
-
-    """
     MALFORMED_MEP_NAME_NAME_LENGTH = 56
 
-    """
-
-    Additional\-interface\-status is too short
-
-    """
     MALFORMED_ADDITIONAL_INTERFACE_STATUS_SIZE = 57
 
-    """
-
-    Invalid additional interface status
-
-    """
     MALFORMED_ADDITIONAL_INTERFACE_STATUS = 58
 
-    """
-
-    CCM has a zero CCM interval
-
-    """
     MALFORMED_CCM_INTERVAL = 59
 
-    """
-
-    CCM has a MAC\-address MDID but the MDID is the
-    wrong length
-
-    """
     MALFORMED_MDID_MAC_ADDRESS_LENGTH = 60
 
-    """
-
-    CCM has an invalid MDID length
-
-    """
     MALFORMED_MDID_LENGTH = 61
 
-    """
-
-    CCM has an invalid Short MA Name length
-
-    """
     MALFORMED_SMAN_LENGTH = 62
 
-    """
-
-    CCM has a VID or 16\-bit Short MA Name but a
-    mismatched length
-
-    """
     MALFORMED_SMAN2_BYTE_LENGTH = 63
 
-    """
-
-    CCM has a VPNID Short MA Name but a mismatched
-    length
-
-    """
     MALFORMED_SMAN_VPN_ID_LENGTH = 64
 
-    """
-
-    ELR has no ELR Reply TLVs
-
-    """
     MALFORMED_ELR_NO_REPLY_TLV = 65
 
-    """
-
-    ELR Reply Egress TLVs not all adjacent
-
-    """
     MALFORMED_SEPARATE_ELR_REPLY_EGRESS = 66
 
-    """
-
-    DCM has a multicast destination MAC
-
-    """
     MALFORMED_DCM_DESTINATION_MULTICAST = 67
 
-    """
-
-    DCM is too short to contain an Embedded PDU
-
-    """
     MALFORMED_DCM_EMBED_LENGTH = 68
 
-    """
-
-    DCM Embedded PDU level does not match DCM level
-
-    """
     MALFORMED_DCM_EMBED_LEVEL = 69
 
-    """
-
-    DCM Embedded PDU version does not match DCM
-    version
-
-    """
     MALFORMED_DCM_EMBED_VERSION = 70
 
-    """
-
-    Unknown ELR relay action
-
-    """
     MALFORMED_ELR_RELAY_ACTION = 71
 
-    """
-
-    Reply Ingress TTL is not one greater than Reply
-    Egress TTL
-
-    """
     MALFORMED_ELR_TT_LS = 73
 
-    """
-
-    Reply Ingress TTL present without ELR Reply
-    Ingress TLV
-
-    """
     MALFORMED_ELR_TTL_INGRESS = 74
 
-    """
-
-    Reply Egress TTL present without ELR Reply
-    Egress TLV
-
-    """
     MALFORMED_ELR_TTL_EGRESS = 75
 
-    """
-
-    ELM Destination MAC must not be unicast
-
-    """
     MALFORMED_ELM_DESTINATION_UNICAST = 76
 
-    """
-
-    ELM has no LTM Egress ID TLV
-
-    """
     MALFORMED_ELM_EGRESS_ID = 77
 
-    """
-
-    Embedded DCM OUI unrecognized
-
-    """
     MALFORMED_DCM_EMBED_OUI = 78
 
-    """
-
-    Embedded DCM Opcode is not ELM
-
-    """
     MALFORMED_DCM_EMBED_OPCODE = 79
 
-    """
-
-    ELM Constant Factor is zero
-
-    """
     MALFORMED_ELM_CONSTANT_ZERO = 80
 
-    """
-
-    ELR Next\-Hop Timeout is zero
-
-    """
     MALFORMED_ELR_TIMEOUT_ZERO = 81
 
-    """
-
-    Multiple Test TLVs found
-
-    """
     MALFORMED_DUPLICATE_TEST = 82
 
-    """
-
-    Invalid source MAC address for DMM
-
-    """
     MALFORMED_DMM_SOURCE_MAC = 83
 
-    """
-
-    Test TLV is too short
-
-    """
     MALFORMED_TEST_SIZE = 84
 
-    """
-
-    DMR has exactly one of its Rxf and Txb
-    timestamps unspecified
-
-    """
     MALFORMED_DMR_TIME_STAMPS = 85
 
-    """
-
-    The format of one or more timestamps is invalid
-
-    """
     MALFORMED_DM_TIME_STAMP_FMT = 86
 
-    """
-
-    AIS/LCK has invalid interval value (not 1
-    second or 1 minute)
-
-    """
     MALFORMED_AIS_INTERVAL = 87
 
-    """
-
-    Packet dropped due to interface being down
-
-    """
     FILTER_INTERFACE_DOWN = 88
 
-    """
-
-    Packet dropped \- not forwarded because
-    interface is a standby bundle
-
-    """
     FILTER_FORWARD_STANDBY = 89
 
-    """
-
-    CCM has an ICC\-based format Short MA Name but a
-    mismatched length
-
-    """
     MALFORMED_SMAN_ICC_BASED_LENGTH = 90
 
-    """
-
-    Packet dropped \- not forwarded in secondary HA
-    role
-
-    """
     FILTER_FOWARD_ISSU_SECONDARY = 120
 
-    """
-
-    Packet dropped \- not responded to because
-    interface is a standby bundle
-
-    """
     FILTER_RESPONSE_STANDBY = 121
 
-    """
-
-    Packet dropped \- not responded to in secondary
-    HA role
-
-    """
     FILTER_RESPONSE_ISSU_SECONDARY = 122
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmPktAction_Enum']
+        return meta._meta_table['CfmPmPktActionEnum']
 
 
-class CfmPmPortIdFmt_Enum(Enum):
+class CfmPmPortIdFmtEnum(Enum):
     """
-    CfmPmPortIdFmt_Enum
+    CfmPmPortIdFmtEnum
 
     Port ID format
 
-    """
+    .. data:: PORT_ID_INTERFACE_ALIAS = 1
+
+    	Port ID is an interface alias
+
+    .. data:: PORT_ID_PORT_COMPONENT = 2
+
+    	Port ID is a component name
+
+    .. data:: PORT_ID_MAC_ADDRESS = 3
+
+    	Port ID is a MAC address
+
+    .. data:: PORT_ID_NETWORK_ADDRESS = 4
+
+    	Port ID is a network address
+
+    .. data:: PORT_ID_INTERFACE_NAME = 5
+
+    	Port ID is an interface name
+
+    .. data:: PORT_ID_AGENT_CIRCUIT_ID = 6
+
+    	Port ID is an agent name
+
+    .. data:: PORT_ID_LOCAL = 7
+
+    	Port ID is a local name
+
+    .. data:: PORT_ID_UNKNOWN = 8
+
+    	Port ID format unknown
 
     """
 
-    Port ID is an interface alias
-
-    """
     PORT_ID_INTERFACE_ALIAS = 1
 
-    """
-
-    Port ID is a component name
-
-    """
     PORT_ID_PORT_COMPONENT = 2
 
-    """
-
-    Port ID is a MAC address
-
-    """
     PORT_ID_MAC_ADDRESS = 3
 
-    """
-
-    Port ID is a network address
-
-    """
     PORT_ID_NETWORK_ADDRESS = 4
 
-    """
-
-    Port ID is an interface name
-
-    """
     PORT_ID_INTERFACE_NAME = 5
 
-    """
-
-    Port ID is an agent name
-
-    """
     PORT_ID_AGENT_CIRCUIT_ID = 6
 
-    """
-
-    Port ID is a local name
-
-    """
     PORT_ID_LOCAL = 7
 
-    """
-
-    Port ID format unknown
-
-    """
     PORT_ID_UNKNOWN = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmPortIdFmt_Enum']
+        return meta._meta_table['CfmPmPortIdFmtEnum']
 
 
-class CfmPmPortStatus_Enum(Enum):
+class CfmPmPortStatusEnum(Enum):
     """
-    CfmPmPortStatus_Enum
+    CfmPmPortStatusEnum
 
     Port status
 
-    """
+    .. data:: PORT_STATUS_BLOCKED = 1
+
+    	Port is STP blocked
+
+    .. data:: PORT_STATUS_UP = 2
+
+    	Port is up
+
+    .. data:: PORT_STATUS_UNKNOWN = 3
+
+    	Unknown port status
 
     """
 
-    Port is STP blocked
-
-    """
     PORT_STATUS_BLOCKED = 1
 
-    """
-
-    Port is up
-
-    """
     PORT_STATUS_UP = 2
 
-    """
-
-    Unknown port status
-
-    """
     PORT_STATUS_UNKNOWN = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmPortStatus_Enum']
+        return meta._meta_table['CfmPmPortStatusEnum']
 
 
-class CfmPmRelayAction_Enum(Enum):
+class CfmPmRelayActionEnum(Enum):
     """
-    CfmPmRelayAction_Enum
+    CfmPmRelayActionEnum
 
     LTR relay action
 
-    """
+    .. data:: RELAY_HIT = 1
+
+    	Target Hit
+
+    .. data:: RELAY_FDB = 2
+
+    	Filtering database
+
+    .. data:: RELAY_MPDB = 3
+
+    	CCM Learning database
 
     """
 
-    Target Hit
-
-    """
     RELAY_HIT = 1
 
-    """
-
-    Filtering database
-
-    """
     RELAY_FDB = 2
 
-    """
-
-    CCM Learning database
-
-    """
     RELAY_MPDB = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmRelayAction_Enum']
+        return meta._meta_table['CfmPmRelayActionEnum']
 
 
-class CfmPmRmepState_Enum(Enum):
+class CfmPmRmepStateEnum(Enum):
     """
-    CfmPmRmepState_Enum
+    CfmPmRmepStateEnum
 
     State of the Peer MEP state machine
 
-    """
+    .. data:: PEER_MEP_IDLE = 1
+
+    	Momentary state during reset
+
+    .. data:: PEER_MEP_START = 2
+
+    	Loss timer not expired since reset, but no
+
+    	valid CCM received
+
+    .. data:: PEER_MEP_FAILED = 3
+
+    	Loss timer has expired
+
+    .. data:: PEER_MEP_OK = 4
+
+    	Loss timer has not expired since last valid CCM
 
     """
 
-    Momentary state during reset
-
-    """
     PEER_MEP_IDLE = 1
 
-    """
-
-    Loss timer not expired since reset, but no
-    valid CCM received
-
-    """
     PEER_MEP_START = 2
 
-    """
-
-    Loss timer has expired
-
-    """
     PEER_MEP_FAILED = 3
 
-    """
-
-    Loss timer has not expired since last valid CCM
-
-    """
     PEER_MEP_OK = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmRmepState_Enum']
+        return meta._meta_table['CfmPmRmepStateEnum']
 
 
-class CfmPmRmepXcState_Enum(Enum):
+class CfmPmRmepXcStateEnum(Enum):
     """
-    CfmPmRmepXcState_Enum
+    CfmPmRmepXcStateEnum
 
     Cross\-check state of a peer MEP
 
-    """
+    .. data:: CROSS_CHECK_OK = 0
+
+    	Cross-check OK
+
+    .. data:: CROSS_CHECK_MISSING = 1
+
+    	No CCMs received within loss time from peer MEP
+
+    .. data:: CROSS_CHECK_EXTRA = 2
+
+    	CCMs received from peer MEP not marked for
+
+    	cross-check
 
     """
 
-    Cross\-check OK
-
-    """
     CROSS_CHECK_OK = 0
 
-    """
-
-    No CCMs received within loss time from peer MEP
-
-    """
     CROSS_CHECK_MISSING = 1
 
-    """
-
-    CCMs received from peer MEP not marked for
-    cross\-check
-
-    """
     CROSS_CHECK_EXTRA = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['CfmPmRmepXcState_Enum']
+        return meta._meta_table['CfmPmRmepXcStateEnum']
 
 
-class SlaBucketSize_Enum(Enum):
+class SlaBucketSizeEnum(Enum):
     """
-    SlaBucketSize_Enum
+    SlaBucketSizeEnum
 
     Type of configuration of a bucket size
 
-    """
+    .. data:: BUCKETS_PER_PROBE = 0
+
+    	Bucket size is configured as buckets per probe
+
+    .. data:: PROBES_PER_BUCKET = 1
+
+    	Bucket size is configured as probes per bucket
 
     """
 
-    Bucket size is configured as buckets per probe
-
-    """
     BUCKETS_PER_PROBE = 0
 
-    """
-
-    Bucket size is configured as probes per bucket
-
-    """
     PROBES_PER_BUCKET = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['SlaBucketSize_Enum']
+        return meta._meta_table['SlaBucketSizeEnum']
 
 
-class SlaOperBucket_Enum(Enum):
+class SlaOperBucketEnum(Enum):
     """
-    SlaOperBucket_Enum
+    SlaOperBucketEnum
 
     Type of SLA metric bucket
 
-    """
+    .. data:: BUCKET_TYPE_BINS = 0
+
+    	SLA metric bin
+
+    .. data:: BUCKET_TYPE_SAMPLES = 1
+
+    	SLA metric sample
 
     """
 
-    SLA metric bin
-
-    """
     BUCKET_TYPE_BINS = 0
 
-    """
-
-    SLA metric sample
-
-    """
     BUCKET_TYPE_SAMPLES = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['SlaOperBucket_Enum']
+        return meta._meta_table['SlaOperBucketEnum']
 
 
-class SlaOperOperation_Enum(Enum):
+class SlaOperOperationEnum(Enum):
     """
-    SlaOperOperation_Enum
+    SlaOperOperationEnum
 
     Type of SLA operation
 
-    """
+    .. data:: OPERATION_TYPE_CONFIGURED = 0
+
+    	Configured SLA operation
+
+    .. data:: OPERATION_TYPE_ONDEMAND = 1
+
+    	On-demand SLA operation
 
     """
 
-    Configured SLA operation
-
-    """
     OPERATION_TYPE_CONFIGURED = 0
 
-    """
-
-    On\-demand SLA operation
-
-    """
     OPERATION_TYPE_ONDEMAND = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['SlaOperOperation_Enum']
+        return meta._meta_table['SlaOperOperationEnum']
 
 
-class SlaOperPacketPriority_Enum(Enum):
+class SlaOperPacketPriorityEnum(Enum):
     """
-    SlaOperPacketPriority_Enum
+    SlaOperPacketPriorityEnum
 
     Priority scheme for packet priority
 
-    """
+    .. data:: PRIORITY_NONE = 0
+
+    	Packet does not use any specified priority.
+
+    .. data:: PRIORITY_COS = 1
+
+    	Packet uses a specified 3-bit COS priority
+
+    	value.
 
     """
 
-    Packet does not use any specified priority.
-
-    """
     PRIORITY_NONE = 0
 
-    """
-
-    Packet uses a specified 3\-bit COS priority
-    value.
-
-    """
     PRIORITY_COS = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['SlaOperPacketPriority_Enum']
+        return meta._meta_table['SlaOperPacketPriorityEnum']
 
 
-class SlaOperTestPatternScheme_Enum(Enum):
+class SlaOperTestPatternSchemeEnum(Enum):
     """
-    SlaOperTestPatternScheme_Enum
+    SlaOperTestPatternSchemeEnum
 
     Test pattern scheme for packet padding
 
-    """
+    .. data:: HEX = 0
+
+    	Packet is padded with a user-specified string
+
+    .. data:: PSEUDO_RANDOM = 1
+
+    	Packet is padded with a pseudo-random bit
+
+    	sequence
 
     """
 
-    Packet is padded with a user\-specified string
-
-    """
     HEX = 0
 
-    """
-
-    Packet is padded with a pseudo\-random bit
-    sequence
-
-    """
     PSEUDO_RANDOM = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['SlaOperTestPatternScheme_Enum']
+        return meta._meta_table['SlaOperTestPatternSchemeEnum']
 
 
-class SlaRecordableMetric_Enum(Enum):
+class SlaRecordableMetricEnum(Enum):
     """
-    SlaRecordableMetric_Enum
+    SlaRecordableMetricEnum
 
     Types of metrics that can be recorded by probes
 
-    """
+    .. data:: METRIC_INVALID = 0
+
+    	Not a valid metric type
+
+    .. data:: METRIC_ROUND_TRIP_DELAY = 1
+
+    	Round-trip Delay
+
+    .. data:: METRIC_ONE_WAY_DELAY_SD = 2
+
+    	One-way Delay (Source->Destination)
+
+    .. data:: METRIC_ONE_WAY_DELAY_DS = 3
+
+    	One-way Delay (Destination->Source)
+
+    .. data:: METRIC_ROUND_TRIP_JITTER = 4
+
+    	Round-trip Jitter
+
+    .. data:: METRIC_ONE_WAY_JITTER_SD = 5
+
+    	One-way Jitter (Source->Destination)
+
+    .. data:: METRIC_ONE_WAY_JITTER_DS = 6
+
+    	One-way Jitter (Destination->Source)
+
+    .. data:: METRIC_ONE_WAY_FLR_SD = 7
+
+    	One-way Frame Loss Ratio (Source->Destination)
+
+    .. data:: METRIC_ONE_WAY_FLR_DS = 8
+
+    	One-way Frame Loss Ratio (Destination->Source)
 
     """
 
-    Not a valid metric type
-
-    """
     METRIC_INVALID = 0
 
-    """
-
-    Round\-trip Delay
-
-    """
     METRIC_ROUND_TRIP_DELAY = 1
 
-    """
-
-    One\-way Delay (Source\->Destination)
-
-    """
     METRIC_ONE_WAY_DELAY_SD = 2
 
-    """
-
-    One\-way Delay (Destination\->Source)
-
-    """
     METRIC_ONE_WAY_DELAY_DS = 3
 
-    """
-
-    Round\-trip Jitter
-
-    """
     METRIC_ROUND_TRIP_JITTER = 4
 
-    """
-
-    One\-way Jitter (Source\->Destination)
-
-    """
     METRIC_ONE_WAY_JITTER_SD = 5
 
-    """
-
-    One\-way Jitter (Destination\->Source)
-
-    """
     METRIC_ONE_WAY_JITTER_DS = 6
 
-    """
-
-    One\-way Frame Loss Ratio (Source\->Destination)
-
-    """
     METRIC_ONE_WAY_FLR_SD = 7
 
-    """
-
-    One\-way Frame Loss Ratio (Destination\->Source)
-
-    """
     METRIC_ONE_WAY_FLR_DS = 8
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-        return meta._meta_table['SlaRecordableMetric_Enum']
+        return meta._meta_table['SlaRecordableMetricEnum']
 
 
 
@@ -2754,7 +2529,7 @@ class Cfm(object):
                 .. attribute:: level
                 
                 	Level
-                	**type**\: :py:class:`CfmBagMdLevel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel_Enum>`
+                	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                 
                 .. attribute:: service_name
                 
@@ -2789,7 +2564,7 @@ class Cfm(object):
                     .. attribute:: bridge_domain_id_format
                     
                     	Bridge domain identifier format
-                    	**type**\: :py:class:`CfmBagBdidFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmt_Enum>`
+                    	**type**\: :py:class:`CfmBagBdidFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmtEnum>`
                     
                     .. attribute:: ce_id
                     
@@ -2844,8 +2619,6 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bridge_domain_id_format is not None:
                             return True
 
@@ -2861,10 +2634,6 @@ class Cfm(object):
                         if self.remote_ce_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2888,8 +2657,6 @@ class Cfm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.domain is not None:
                         return True
 
@@ -2897,9 +2664,6 @@ class Cfm(object):
                         return True
 
                     if self.bridge_domain_id is not None and self.bridge_domain_id._has_data():
-                        return True
-
-                    if self.bridge_domain_id is not None and self.bridge_domain_id.is_presence():
                         return True
 
                     if self.bridge_domain_is_configured is not None:
@@ -2919,10 +2683,6 @@ class Cfm(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
@@ -2940,17 +2700,11 @@ class Cfm(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.global_configuration_error is not None:
                     for child_ref in self.global_configuration_error:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3068,7 +2822,7 @@ class Cfm(object):
                     .. attribute:: level
                     
                     	Maintenance level
-                    	**type**\: :py:class:`CfmBagMdLevel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel_Enum>`
+                    	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                     
                     .. attribute:: options
                     
@@ -3178,7 +2932,7 @@ class Cfm(object):
                         .. attribute:: mode
                         
                         	Mode
-                        	**type**\: :py:class:`CfmPmLtMode_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLtMode_Enum>`
+                        	**type**\: :py:class:`CfmPmLtModeEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLtModeEnum>`
                         
                         
 
@@ -3236,18 +2990,12 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fdb_only is not None:
                                     return True
 
                                 if self.is_auto is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3270,12 +3018,12 @@ class Cfm(object):
                             .. attribute:: delay_model
                             
                             	Delay model for delay calculations
-                            	**type**\: :py:class:`CfmPmEltDelayModel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModel_Enum>`
+                            	**type**\: :py:class:`CfmPmEltDelayModelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModelEnum>`
                             
                             .. attribute:: reply_filter
                             
                             	Reply Filtering mode used by responders
-                            	**type**\: :py:class:`CfmPmElmReplyFilter_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElmReplyFilter_Enum>`
+                            	**type**\: :py:class:`CfmPmElmReplyFilterEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElmReplyFilterEnum>`
                             
                             
 
@@ -3304,8 +3052,6 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.delay_constant_factor is not None:
                                     return True
 
@@ -3315,10 +3061,6 @@ class Cfm(object):
                                 if self.reply_filter is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3340,27 +3082,15 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.basic_options is not None and self.basic_options._has_data():
-                                return True
-
-                            if self.basic_options is not None and self.basic_options.is_presence():
                                 return True
 
                             if self.exploratory_options is not None and self.exploratory_options._has_data():
                                 return True
 
-                            if self.exploratory_options is not None and self.exploratory_options.is_presence():
-                                return True
-
                             if self.mode is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3382,8 +3112,6 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.directed_mac_address is not None:
                             return True
 
@@ -3394,9 +3122,6 @@ class Cfm(object):
                             return True
 
                         if self.options is not None and self.options._has_data():
-                            return True
-
-                        if self.options is not None and self.options.is_presence():
                             return True
 
                         if self.service is not None:
@@ -3428,10 +3153,6 @@ class Cfm(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
@@ -3459,8 +3180,6 @@ class Cfm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.domain is not None:
                         return True
 
@@ -3482,13 +3201,6 @@ class Cfm(object):
                     if self.traceroute_information is not None and self.traceroute_information._has_data():
                         return True
 
-                    if self.traceroute_information is not None and self.traceroute_information.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3508,17 +3220,11 @@ class Cfm(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.incomplete_traceroute is not None:
                     for child_ref in self.incomplete_traceroute:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3591,12 +3297,12 @@ class Cfm(object):
                 .. attribute:: ccm_interval
                 
                 	The interval between CCMs
-                	**type**\: :py:class:`CfmBagCcmInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmInterval_Enum>`
+                	**type**\: :py:class:`CfmBagCcmIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmIntervalEnum>`
                 
                 .. attribute:: ccm_offload
                 
                 	Offload status of CCM processing
-                	**type**\: :py:class:`CfmBagCcmOffload_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffload_Enum>`
+                	**type**\: :py:class:`CfmBagCcmOffloadEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffloadEnum>`
                 
                 .. attribute:: cos
                 
@@ -3633,12 +3339,12 @@ class Cfm(object):
                 .. attribute:: fault_notification_state
                 
                 	Fault Notification Generation state
-                	**type**\: :py:class:`CfmPmMepFngState_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepFngState_Enum>`
+                	**type**\: :py:class:`CfmPmMepFngStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepFngStateEnum>`
                 
                 .. attribute:: highest_defect
                 
                 	Highest\-priority defect present since last FNG reset
-                	**type**\: :py:class:`CfmPmMepDefect_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepDefect_Enum>`
+                	**type**\: :py:class:`CfmPmMepDefectEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepDefectEnum>`
                 
                 .. attribute:: interface_state
                 
@@ -3655,12 +3361,12 @@ class Cfm(object):
                 .. attribute:: interworking_state
                 
                 	Interface interworking state
-                	**type**\: :py:class:`CfmBagIwState_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwState_Enum>`
+                	**type**\: :py:class:`CfmBagIwStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwStateEnum>`
                 
                 .. attribute:: level
                 
                 	Maintenance level
-                	**type**\: :py:class:`CfmBagMdLevel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel_Enum>`
+                	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                 
                 .. attribute:: mac_address
                 
@@ -3677,7 +3383,7 @@ class Cfm(object):
                 .. attribute:: mep_direction
                 
                 	MEP facing direction
-                	**type**\: :py:class:`CfmBagDirection_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirection_Enum>`
+                	**type**\: :py:class:`CfmBagDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirectionEnum>`
                 
                 .. attribute:: mep_id_xr
                 
@@ -3747,7 +3453,7 @@ class Cfm(object):
                 .. attribute:: stp_state
                 
                 	STP state
-                	**type**\: :py:class:`CfmBagStpState_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagStpState_Enum>`
+                	**type**\: :py:class:`CfmBagStpStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagStpStateEnum>`
                 
                 
 
@@ -3805,12 +3511,12 @@ class Cfm(object):
                     .. attribute:: interval
                     
                     	AIS transmission interval
-                    	**type**\: :py:class:`CfmBagAisInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisInterval_Enum>`
+                    	**type**\: :py:class:`CfmBagAisIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisIntervalEnum>`
                     
                     .. attribute:: last_interval
                     
                     	The interval of the last received AIS packet
-                    	**type**\: :py:class:`CfmBagAisInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisInterval_Enum>`
+                    	**type**\: :py:class:`CfmBagAisIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisIntervalEnum>`
                     
                     .. attribute:: last_mac_address
                     
@@ -3822,12 +3528,12 @@ class Cfm(object):
                     .. attribute:: level
                     
                     	AIS transmission level
-                    	**type**\: :py:class:`CfmBagMdLevel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel_Enum>`
+                    	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                     
                     .. attribute:: receiving_ais
                     
                     	Details of how the signal is being received
-                    	**type**\: :py:class:`CfmPmAisReceive_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisReceive_Enum>`
+                    	**type**\: :py:class:`CfmPmAisReceiveEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisReceiveEnum>`
                     
                     .. attribute:: receiving_start
                     
@@ -3837,7 +3543,7 @@ class Cfm(object):
                     .. attribute:: sending_ais
                     
                     	Details of how AIS is being transmitted
-                    	**type**\: :py:class:`CfmPmAisTransmit_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisTransmit_Enum>`
+                    	**type**\: :py:class:`CfmPmAisTransmitEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisTransmitEnum>`
                     
                     .. attribute:: sending_start
                     
@@ -3909,18 +3615,12 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.nanoseconds is not None:
                                 return True
 
                             if self.seconds is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3973,18 +3673,12 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.nanoseconds is not None:
                                 return True
 
                             if self.seconds is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4006,8 +3700,6 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interval is not None:
                             return True
 
@@ -4026,22 +3718,12 @@ class Cfm(object):
                         if self.receiving_start is not None and self.receiving_start._has_data():
                             return True
 
-                        if self.receiving_start is not None and self.receiving_start.is_presence():
-                            return True
-
                         if self.sending_ais is not None:
                             return True
 
                         if self.sending_start is not None and self.sending_start._has_data():
                             return True
 
-                        if self.sending_start is not None and self.sending_start.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4192,8 +3874,6 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.invalid_ccm_interval is not None:
                                 return True
 
@@ -4217,10 +3897,6 @@ class Cfm(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
@@ -4240,8 +3916,6 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ais_received is not None:
                             return True
 
@@ -4263,16 +3937,9 @@ class Cfm(object):
                         if self.remote_meps_defects is not None and self.remote_meps_defects._has_data():
                             return True
 
-                        if self.remote_meps_defects is not None and self.remote_meps_defects.is_presence():
-                            return True
-
                         if self.unexpected is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4533,8 +4200,6 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ai_ss_received is not None:
                             return True
 
@@ -4621,10 +4286,6 @@ class Cfm(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
@@ -4650,8 +4311,6 @@ class Cfm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.domain is not None:
                         return True
 
@@ -4665,9 +4324,6 @@ class Cfm(object):
                         return True
 
                     if self.ais_statistics is not None and self.ais_statistics._has_data():
-                        return True
-
-                    if self.ais_statistics is not None and self.ais_statistics.is_presence():
                         return True
 
                     if self.ccm_generation_enabled is not None:
@@ -4686,9 +4342,6 @@ class Cfm(object):
                         return True
 
                     if self.defects is not None and self.defects._has_data():
-                        return True
-
-                    if self.defects is not None and self.defects.is_presence():
                         return True
 
                     if self.domain_xr is not None:
@@ -4760,16 +4413,9 @@ class Cfm(object):
                     if self.statistics is not None and self.statistics._has_data():
                         return True
 
-                    if self.statistics is not None and self.statistics.is_presence():
-                        return True
-
                     if self.stp_state is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4789,17 +4435,11 @@ class Cfm(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.local_mep is not None:
                     for child_ref in self.local_mep:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4907,12 +4547,12 @@ class Cfm(object):
                     .. attribute:: level
                     
                     	Domain level
-                    	**type**\: :py:class:`CfmBagMdLevel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel_Enum>`
+                    	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                     
                     .. attribute:: maintenance_point_type
                     
                     	Type of Maintenance Point
-                    	**type**\: :py:class:`CfmMaMpVariety_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmMaMpVariety_Enum>`
+                    	**type**\: :py:class:`CfmMaMpVarietyEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmMaMpVarietyEnum>`
                     
                     .. attribute:: mep_id
                     
@@ -4956,8 +4596,6 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.domain_name is not None:
                             return True
 
@@ -4976,10 +4614,6 @@ class Cfm(object):
                         if self.service_name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5005,8 +4639,6 @@ class Cfm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.domain is not None:
                         return True
 
@@ -5022,16 +4654,9 @@ class Cfm(object):
                     if self.maintenance_point is not None and self.maintenance_point._has_data():
                         return True
 
-                    if self.maintenance_point is not None and self.maintenance_point.is_presence():
-                        return True
-
                     if self.mep_has_error is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5051,17 +4676,11 @@ class Cfm(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.maintenance_point is not None:
                     for child_ref in self.maintenance_point:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -5138,7 +4757,7 @@ class Cfm(object):
                 .. attribute:: ccm_interval
                 
                 	Interval between CCMs sent on this MEP
-                	**type**\: :py:class:`CfmBagCcmInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmInterval_Enum>`
+                	**type**\: :py:class:`CfmBagCcmIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmIntervalEnum>`
                 
                 .. attribute:: ccm_interval_not_supported
                 
@@ -5310,7 +4929,7 @@ class Cfm(object):
                     .. attribute:: bridge_domain_id_format
                     
                     	Bridge domain identifier format
-                    	**type**\: :py:class:`CfmBagBdidFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmt_Enum>`
+                    	**type**\: :py:class:`CfmBagBdidFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmtEnum>`
                     
                     .. attribute:: ce_id
                     
@@ -5365,8 +4984,6 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bridge_domain_id_format is not None:
                             return True
 
@@ -5382,10 +4999,6 @@ class Cfm(object):
                         if self.remote_ce_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5413,12 +5026,12 @@ class Cfm(object):
                     .. attribute:: level
                     
                     	Domain level
-                    	**type**\: :py:class:`CfmBagMdLevel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel_Enum>`
+                    	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                     
                     .. attribute:: maintenance_point_type
                     
                     	Type of Maintenance Point
-                    	**type**\: :py:class:`CfmMaMpVariety_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmMaMpVariety_Enum>`
+                    	**type**\: :py:class:`CfmMaMpVarietyEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmMaMpVarietyEnum>`
                     
                     .. attribute:: mep_id
                     
@@ -5462,8 +5075,6 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.domain_name is not None:
                             return True
 
@@ -5482,10 +5093,6 @@ class Cfm(object):
                         if self.service_name is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5570,18 +5177,12 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.controller is not None:
                                 return True
 
                             if self.responder is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5630,18 +5231,12 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.controller is not None:
                                 return True
 
                             if self.responder is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5690,18 +5285,12 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.controller is not None:
                                 return True
 
                             if self.responder is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -5723,30 +5312,15 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.delay_measurement is not None and self.delay_measurement._has_data():
-                            return True
-
-                        if self.delay_measurement is not None and self.delay_measurement.is_presence():
                             return True
 
                         if self.loopback is not None and self.loopback._has_data():
                             return True
 
-                        if self.loopback is not None and self.loopback.is_presence():
-                            return True
-
                         if self.synthetic_loss_measurement is not None and self.synthetic_loss_measurement._has_data():
                             return True
 
-                        if self.synthetic_loss_measurement is not None and self.synthetic_loss_measurement.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5763,7 +5337,7 @@ class Cfm(object):
                     .. attribute:: bridge_domain_id_format
                     
                     	Bridge domain identifier format
-                    	**type**\: :py:class:`CfmBagBdidFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmt_Enum>`
+                    	**type**\: :py:class:`CfmBagBdidFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmtEnum>`
                     
                     .. attribute:: ce_id
                     
@@ -5818,8 +5392,6 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.bridge_domain_id_format is not None:
                             return True
 
@@ -5835,10 +5407,6 @@ class Cfm(object):
                         if self.remote_ce_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -5864,8 +5432,6 @@ class Cfm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.domain is not None:
                         return True
 
@@ -5896,16 +5462,10 @@ class Cfm(object):
                     if self.interface_bridge_domain is not None and self.interface_bridge_domain._has_data():
                         return True
 
-                    if self.interface_bridge_domain is not None and self.interface_bridge_domain.is_presence():
-                        return True
-
                     if self.level_conflict is not None:
                         return True
 
                     if self.mep is not None and self.mep._has_data():
-                        return True
-
-                    if self.mep is not None and self.mep.is_presence():
                         return True
 
                     if self.no_domain is not None:
@@ -5944,9 +5504,6 @@ class Cfm(object):
                     if self.satellite_capabilities is not None and self.satellite_capabilities._has_data():
                         return True
 
-                    if self.satellite_capabilities is not None and self.satellite_capabilities.is_presence():
-                        return True
-
                     if self.satellite_error_string is not None:
                         return True
 
@@ -5959,9 +5516,6 @@ class Cfm(object):
                     if self.service_bridge_domain is not None and self.service_bridge_domain._has_data():
                         return True
 
-                    if self.service_bridge_domain is not None and self.service_bridge_domain.is_presence():
-                        return True
-
                     if self.sla_delay_measurement_operations_disabled is not None:
                         return True
 
@@ -5971,10 +5525,6 @@ class Cfm(object):
                     if self.sla_synthetic_loss_operations_disabled is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -5994,17 +5544,11 @@ class Cfm(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.mep_configuration_error is not None:
                     for child_ref in self.mep_configuration_error:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -6094,12 +5638,12 @@ class Cfm(object):
                 .. attribute:: level
                 
                 	Maintenance level
-                	**type**\: :py:class:`CfmBagMdLevel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel_Enum>`
+                	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                 
                 .. attribute:: mep_direction
                 
                 	MEP facing direction
-                	**type**\: :py:class:`CfmBagDirection_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirection_Enum>`
+                	**type**\: :py:class:`CfmBagDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirectionEnum>`
                 
                 .. attribute:: mep_id
                 
@@ -6156,12 +5700,12 @@ class Cfm(object):
                     .. attribute:: ccm_offload
                     
                     	Offload status of received CCM handling
-                    	**type**\: :py:class:`CfmBagCcmOffload_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffload_Enum>`
+                    	**type**\: :py:class:`CfmBagCcmOffloadEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffloadEnum>`
                     
                     .. attribute:: cross_check_state
                     
                     	Cross\-check state
-                    	**type**\: :py:class:`CfmPmRmepXcState_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepXcState_Enum>`
+                    	**type**\: :py:class:`CfmPmRmepXcStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepXcStateEnum>`
                     
                     .. attribute:: error_state
                     
@@ -6195,7 +5739,7 @@ class Cfm(object):
                     .. attribute:: peer_mep_state
                     
                     	State of the peer MEP state machine
-                    	**type**\: :py:class:`CfmPmRmepState_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepState_Enum>`
+                    	**type**\: :py:class:`CfmPmRmepStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepStateEnum>`
                     
                     .. attribute:: statistics
                     
@@ -6296,8 +5840,6 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.invalid_ccm_interval is not None:
                                 return True
 
@@ -6321,10 +5863,6 @@ class Cfm(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
@@ -6338,7 +5876,7 @@ class Cfm(object):
                         .. attribute:: additional_interface_status
                         
                         	Additional interface status
-                        	**type**\: :py:class:`CfmPmAddlIntfStatus_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAddlIntfStatus_Enum>`
+                        	**type**\: :py:class:`CfmPmAddlIntfStatusEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAddlIntfStatusEnum>`
                         
                         .. attribute:: header
                         
@@ -6348,7 +5886,7 @@ class Cfm(object):
                         .. attribute:: interface_status
                         
                         	Interface status
-                        	**type**\: :py:class:`CfmPmIntfStatus_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIntfStatus_Enum>`
+                        	**type**\: :py:class:`CfmPmIntfStatusEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIntfStatusEnum>`
                         
                         .. attribute:: mep_name
                         
@@ -6363,7 +5901,7 @@ class Cfm(object):
                         .. attribute:: port_status
                         
                         	Port status
-                        	**type**\: :py:class:`CfmPmPortStatus_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortStatus_Enum>`
+                        	**type**\: :py:class:`CfmPmPortStatusEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortStatusEnum>`
                         
                         .. attribute:: raw_data
                         
@@ -6416,12 +5954,12 @@ class Cfm(object):
                             .. attribute:: interval
                             
                             	CCM interval
-                            	**type**\: :py:class:`CfmBagCcmInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmInterval_Enum>`
+                            	**type**\: :py:class:`CfmBagCcmIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmIntervalEnum>`
                             
                             .. attribute:: level
                             
                             	MD level
-                            	**type**\: :py:class:`CfmBagMdLevel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel_Enum>`
+                            	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                             
                             .. attribute:: mdid
                             
@@ -6431,7 +5969,7 @@ class Cfm(object):
                             .. attribute:: mdid_format
                             
                             	MDID Format
-                            	**type**\: :py:class:`CfmBagMdidFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdidFmt_Enum>`
+                            	**type**\: :py:class:`CfmBagMdidFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdidFmtEnum>`
                             
                             .. attribute:: mep_id
                             
@@ -6460,7 +5998,7 @@ class Cfm(object):
                             .. attribute:: short_ma_name_format
                             
                             	Short MA Name format
-                            	**type**\: :py:class:`CfmBagSmanFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagSmanFmt_Enum>`
+                            	**type**\: :py:class:`CfmBagSmanFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagSmanFmtEnum>`
                             
                             .. attribute:: version
                             
@@ -6586,18 +6124,12 @@ class Cfm(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.integer is not None:
                                             return True
 
                                         if self.mac_address is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6619,15 +6151,10 @@ class Cfm(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.dns_like_name is not None:
                                         return True
 
                                     if self.mac_name is not None and self.mac_name._has_data():
-                                        return True
-
-                                    if self.mac_name is not None and self.mac_name.is_presence():
                                         return True
 
                                     if self.mdid_data is not None:
@@ -6639,10 +6166,6 @@ class Cfm(object):
                                     if self.string_name is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6761,18 +6284,12 @@ class Cfm(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.index is not None:
                                             return True
 
                                         if self.oui is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -6794,8 +6311,6 @@ class Cfm(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.icc_based is not None:
                                         return True
 
@@ -6817,13 +6332,6 @@ class Cfm(object):
                                     if self.vpn_id_name is not None and self.vpn_id_name._has_data():
                                         return True
 
-                                    if self.vpn_id_name is not None and self.vpn_id_name.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -6845,8 +6353,6 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.interval is not None:
                                     return True
 
@@ -6854,9 +6360,6 @@ class Cfm(object):
                                     return True
 
                                 if self.mdid is not None and self.mdid._has_data():
-                                    return True
-
-                                if self.mdid is not None and self.mdid.is_presence():
                                     return True
 
                                 if self.mdid_format is not None:
@@ -6874,19 +6377,12 @@ class Cfm(object):
                                 if self.short_ma_name is not None and self.short_ma_name._has_data():
                                     return True
 
-                                if self.short_ma_name is not None and self.short_ma_name.is_presence():
-                                    return True
-
                                 if self.short_ma_name_format is not None:
                                     return True
 
                                 if self.version is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6929,15 +6425,9 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.name is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -6998,8 +6488,6 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.oui is not None:
                                     return True
 
@@ -7009,10 +6497,6 @@ class Cfm(object):
                                 if self.value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7073,7 +6557,7 @@ class Cfm(object):
                                 .. attribute:: chassis_id_type
                                 
                                 	Chassis ID Type
-                                	**type**\: :py:class:`CfmPmChassisIdFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmt_Enum>`
+                                	**type**\: :py:class:`CfmPmChassisIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmtEnum>`
                                 
                                 .. attribute:: chassis_id_type_value
                                 
@@ -7110,7 +6594,7 @@ class Cfm(object):
                                     .. attribute:: chassis_id_format
                                     
                                     	ChassisIDFormat
-                                    	**type**\: :py:class:`CfmPmIdFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt_Enum>`
+                                    	**type**\: :py:class:`CfmPmIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
                                     
                                     .. attribute:: chassis_id_mac
                                     
@@ -7159,8 +6643,6 @@ class Cfm(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.chassis_id_format is not None:
                                             return True
 
@@ -7173,10 +6655,6 @@ class Cfm(object):
                                         if self.chassis_id_string is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -7198,8 +6676,6 @@ class Cfm(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.chassis_id is not None:
                                         return True
 
@@ -7212,13 +6688,6 @@ class Cfm(object):
                                     if self.chassis_id_value is not None and self.chassis_id_value._has_data():
                                         return True
 
-                                    if self.chassis_id_value is not None and self.chassis_id_value.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -7240,12 +6709,7 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.chassis_id is not None and self.chassis_id._has_data():
-                                    return True
-
-                                if self.chassis_id is not None and self.chassis_id.is_presence():
                                     return True
 
                                 if self.management_address is not None:
@@ -7254,10 +6718,6 @@ class Cfm(object):
                                 if self.management_address_domain is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7310,18 +6770,12 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.typecode is not None:
                                     return True
 
                                 if self.value is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7343,24 +6797,16 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.additional_interface_status is not None:
                                 return True
 
                             if self.header is not None and self.header._has_data():
                                 return True
 
-                            if self.header is not None and self.header.is_presence():
-                                return True
-
                             if self.interface_status is not None:
                                 return True
 
                             if self.mep_name is not None and self.mep_name._has_data():
-                                return True
-
-                            if self.mep_name is not None and self.mep_name.is_presence():
                                 return True
 
                             if self.organization_specific_tlv is not None:
@@ -7377,18 +6823,11 @@ class Cfm(object):
                             if self.sender_id is not None and self.sender_id._has_data():
                                 return True
 
-                            if self.sender_id is not None and self.sender_id.is_presence():
-                                return True
-
                             if self.unknown_tlv is not None:
                                 for child_ref in self.unknown_tlv:
                                     if child_ref._has_data():
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7442,18 +6881,12 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.nanoseconds is not None:
                                 return True
 
                             if self.seconds is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7600,18 +7033,12 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.nanoseconds is not None:
                                     return True
 
                                 if self.seconds is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -7633,8 +7060,6 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ccms_invalid_interval is not None:
                                 return True
 
@@ -7662,16 +7087,9 @@ class Cfm(object):
                             if self.last_ccm_received_time is not None and self.last_ccm_received_time._has_data():
                                 return True
 
-                            if self.last_ccm_received_time is not None and self.last_ccm_received_time.is_presence():
-                                return True
-
                             if self.last_ccm_sequence_number is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -7693,8 +7111,6 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ccm_offload is not None:
                             return True
 
@@ -7704,19 +7120,10 @@ class Cfm(object):
                         if self.error_state is not None and self.error_state._has_data():
                             return True
 
-                        if self.error_state is not None and self.error_state.is_presence():
-                            return True
-
                         if self.last_ccm_received is not None and self.last_ccm_received._has_data():
                             return True
 
-                        if self.last_ccm_received is not None and self.last_ccm_received.is_presence():
-                            return True
-
                         if self.last_up_down_time is not None and self.last_up_down_time._has_data():
-                            return True
-
-                        if self.last_up_down_time is not None and self.last_up_down_time.is_presence():
                             return True
 
                         if self.mac_address is not None:
@@ -7731,13 +7138,6 @@ class Cfm(object):
                         if self.statistics is not None and self.statistics._has_data():
                             return True
 
-                        if self.statistics is not None and self.statistics.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -7769,8 +7169,6 @@ class Cfm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.domain is not None:
                         return True
 
@@ -7807,19 +7205,12 @@ class Cfm(object):
                     if self.peer_mep is not None and self.peer_mep._has_data():
                         return True
 
-                    if self.peer_mep is not None and self.peer_mep.is_presence():
-                        return True
-
                     if self.service_xr is not None:
                         return True
 
                     if self.standby is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -7839,17 +7230,11 @@ class Cfm(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.peer_mep is not None:
                     for child_ref in self.peer_mep:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -8045,7 +7430,7 @@ class Cfm(object):
                         .. attribute:: delay_model
                         
                         	Delay Model
-                        	**type**\: :py:class:`CfmPmEltDelayModel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModel_Enum>`
+                        	**type**\: :py:class:`CfmPmEltDelayModelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModelEnum>`
                         
                         .. attribute:: forwarded
                         
@@ -8055,7 +7440,7 @@ class Cfm(object):
                         .. attribute:: level
                         
                         	MD level
-                        	**type**\: :py:class:`CfmBagMdLevel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel_Enum>`
+                        	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                         
                         .. attribute:: next_hop_timeout
                         
@@ -8067,7 +7452,7 @@ class Cfm(object):
                         .. attribute:: relay_action
                         
                         	Relay action
-                        	**type**\: :py:class:`CfmPmElrRelayAction_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrRelayAction_Enum>`
+                        	**type**\: :py:class:`CfmPmElrRelayActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrRelayActionEnum>`
                         
                         .. attribute:: reply_filter_unknown
                         
@@ -8134,8 +7519,6 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.delay_model is not None:
                                 return True
 
@@ -8168,10 +7551,6 @@ class Cfm(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
@@ -8195,7 +7574,7 @@ class Cfm(object):
                         .. attribute:: last_hop_format
                         
                         	LastHopFormat
-                        	**type**\: :py:class:`CfmPmLastHopFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmt_Enum>`
+                        	**type**\: :py:class:`CfmPmLastHopFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmtEnum>`
                         
                         
 
@@ -8256,18 +7635,12 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mac_address is not None:
                                     return True
 
                                 if self.unique_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8289,12 +7662,7 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.egress_id is not None and self.egress_id._has_data():
-                                return True
-
-                            if self.egress_id is not None and self.egress_id.is_presence():
                                 return True
 
                             if self.host_name is not None:
@@ -8303,10 +7671,6 @@ class Cfm(object):
                             if self.last_hop_format is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8367,8 +7731,6 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.oui is not None:
                                 return True
 
@@ -8378,10 +7740,6 @@ class Cfm(object):
                             if self.value is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8397,7 +7755,7 @@ class Cfm(object):
                         .. attribute:: action
                         
                         	Reply egress action
-                        	**type**\: :py:class:`CfmPmElrEgressAction_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrEgressAction_Enum>`
+                        	**type**\: :py:class:`CfmPmElrEgressActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrEgressActionEnum>`
                         
                         .. attribute:: last_egress_id
                         
@@ -8484,18 +7842,12 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mac_address is not None:
                                     return True
 
                                 if self.unique_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8548,18 +7900,12 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mac_address is not None:
                                     return True
 
                                 if self.unique_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8582,7 +7928,7 @@ class Cfm(object):
                             .. attribute:: port_id_type
                             
                             	Port ID type
-                            	**type**\: :py:class:`CfmPmPortIdFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmt_Enum>`
+                            	**type**\: :py:class:`CfmPmPortIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmtEnum>`
                             
                             .. attribute:: port_id_type_value
                             
@@ -8619,7 +7965,7 @@ class Cfm(object):
                                 .. attribute:: port_id_format
                                 
                                 	PortIDFormat
-                                	**type**\: :py:class:`CfmPmIdFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt_Enum>`
+                                	**type**\: :py:class:`CfmPmIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
                                 
                                 .. attribute:: port_id_mac
                                 
@@ -8668,8 +8014,6 @@ class Cfm(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.port_id_format is not None:
                                         return True
 
@@ -8682,10 +8026,6 @@ class Cfm(object):
                                     if self.port_id_string is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -8707,8 +8047,6 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.port_id is not None:
                                     return True
 
@@ -8721,13 +8059,6 @@ class Cfm(object):
                                 if self.port_id_value is not None and self.port_id_value._has_data():
                                     return True
 
-                                if self.port_id_value is not None and self.port_id_value.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8749,15 +8080,10 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.action is not None:
                                 return True
 
                             if self.last_egress_id is not None and self.last_egress_id._has_data():
-                                return True
-
-                            if self.last_egress_id is not None and self.last_egress_id.is_presence():
                                 return True
 
                             if self.mac_address is not None:
@@ -8766,19 +8092,9 @@ class Cfm(object):
                             if self.next_egress_id is not None and self.next_egress_id._has_data():
                                 return True
 
-                            if self.next_egress_id is not None and self.next_egress_id.is_presence():
-                                return True
-
                             if self.port_id is not None and self.port_id._has_data():
                                 return True
 
-                            if self.port_id is not None and self.port_id.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -8794,7 +8110,7 @@ class Cfm(object):
                         .. attribute:: action
                         
                         	ELR Reply ingress action
-                        	**type**\: :py:class:`CfmPmElrIngressAction_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrIngressAction_Enum>`
+                        	**type**\: :py:class:`CfmPmElrIngressActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrIngressActionEnum>`
                         
                         .. attribute:: last_egress_id
                         
@@ -8881,18 +8197,12 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mac_address is not None:
                                     return True
 
                                 if self.unique_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8945,18 +8255,12 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mac_address is not None:
                                     return True
 
                                 if self.unique_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -8979,7 +8283,7 @@ class Cfm(object):
                             .. attribute:: port_id_type
                             
                             	Port ID type
-                            	**type**\: :py:class:`CfmPmPortIdFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmt_Enum>`
+                            	**type**\: :py:class:`CfmPmPortIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmtEnum>`
                             
                             .. attribute:: port_id_type_value
                             
@@ -9016,7 +8320,7 @@ class Cfm(object):
                                 .. attribute:: port_id_format
                                 
                                 	PortIDFormat
-                                	**type**\: :py:class:`CfmPmIdFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt_Enum>`
+                                	**type**\: :py:class:`CfmPmIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
                                 
                                 .. attribute:: port_id_mac
                                 
@@ -9065,8 +8369,6 @@ class Cfm(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.port_id_format is not None:
                                         return True
 
@@ -9079,10 +8381,6 @@ class Cfm(object):
                                     if self.port_id_string is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9104,8 +8402,6 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.port_id is not None:
                                     return True
 
@@ -9118,13 +8414,6 @@ class Cfm(object):
                                 if self.port_id_value is not None and self.port_id_value._has_data():
                                     return True
 
-                                if self.port_id_value is not None and self.port_id_value.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9146,15 +8435,10 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.action is not None:
                                 return True
 
                             if self.last_egress_id is not None and self.last_egress_id._has_data():
-                                return True
-
-                            if self.last_egress_id is not None and self.last_egress_id.is_presence():
                                 return True
 
                             if self.mac_address is not None:
@@ -9163,19 +8447,9 @@ class Cfm(object):
                             if self.next_egress_id is not None and self.next_egress_id._has_data():
                                 return True
 
-                            if self.next_egress_id is not None and self.next_egress_id.is_presence():
-                                return True
-
                             if self.port_id is not None and self.port_id._has_data():
                                 return True
 
-                            if self.port_id is not None and self.port_id.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9236,7 +8510,7 @@ class Cfm(object):
                             .. attribute:: chassis_id_type
                             
                             	Chassis ID Type
-                            	**type**\: :py:class:`CfmPmChassisIdFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmt_Enum>`
+                            	**type**\: :py:class:`CfmPmChassisIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmtEnum>`
                             
                             .. attribute:: chassis_id_type_value
                             
@@ -9273,7 +8547,7 @@ class Cfm(object):
                                 .. attribute:: chassis_id_format
                                 
                                 	ChassisIDFormat
-                                	**type**\: :py:class:`CfmPmIdFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt_Enum>`
+                                	**type**\: :py:class:`CfmPmIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
                                 
                                 .. attribute:: chassis_id_mac
                                 
@@ -9322,8 +8596,6 @@ class Cfm(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.chassis_id_format is not None:
                                         return True
 
@@ -9336,10 +8608,6 @@ class Cfm(object):
                                     if self.chassis_id_string is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -9361,8 +8629,6 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.chassis_id is not None:
                                     return True
 
@@ -9375,13 +8641,6 @@ class Cfm(object):
                                 if self.chassis_id_value is not None and self.chassis_id_value._has_data():
                                     return True
 
-                                if self.chassis_id_value is not None and self.chassis_id_value.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9403,12 +8662,7 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.chassis_id is not None and self.chassis_id._has_data():
-                                return True
-
-                            if self.chassis_id is not None and self.chassis_id.is_presence():
                                 return True
 
                             if self.management_address is not None:
@@ -9417,10 +8671,6 @@ class Cfm(object):
                             if self.management_address_domain is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9473,18 +8723,12 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.typecode is not None:
                                 return True
 
                             if self.value is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9506,18 +8750,10 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.header is not None and self.header._has_data():
                             return True
 
-                        if self.header is not None and self.header.is_presence():
-                            return True
-
                         if self.last_hop is not None and self.last_hop._has_data():
-                            return True
-
-                        if self.last_hop is not None and self.last_hop.is_presence():
                             return True
 
                         if self.organization_specific_tlv is not None:
@@ -9531,19 +8767,10 @@ class Cfm(object):
                         if self.reply_egress is not None and self.reply_egress._has_data():
                             return True
 
-                        if self.reply_egress is not None and self.reply_egress.is_presence():
-                            return True
-
                         if self.reply_ingress is not None and self.reply_ingress._has_data():
                             return True
 
-                        if self.reply_ingress is not None and self.reply_ingress.is_presence():
-                            return True
-
                         if self.sender_id is not None and self.sender_id._has_data():
-                            return True
-
-                        if self.sender_id is not None and self.sender_id.is_presence():
                             return True
 
                         if self.unknown_tlv is not None:
@@ -9551,10 +8778,6 @@ class Cfm(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -9717,18 +8940,12 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mac_address is not None:
                                     return True
 
                                 if self.unique_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9781,18 +8998,12 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mac_address is not None:
                                     return True
 
                                 if self.unique_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -9814,24 +9025,12 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.last_egress_id is not None and self.last_egress_id._has_data():
-                                return True
-
-                            if self.last_egress_id is not None and self.last_egress_id.is_presence():
                                 return True
 
                             if self.next_egress_id is not None and self.next_egress_id._has_data():
                                 return True
 
-                            if self.next_egress_id is not None and self.next_egress_id.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -9852,12 +9051,12 @@ class Cfm(object):
                         .. attribute:: level
                         
                         	MD level
-                        	**type**\: :py:class:`CfmBagMdLevel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel_Enum>`
+                        	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                         
                         .. attribute:: relay_action
                         
                         	Relay action
-                        	**type**\: :py:class:`CfmPmRelayAction_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRelayAction_Enum>`
+                        	**type**\: :py:class:`CfmPmRelayActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRelayActionEnum>`
                         
                         .. attribute:: terminal_mep
                         
@@ -9922,8 +9121,6 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.forwarded is not None:
                                 return True
 
@@ -9950,10 +9147,6 @@ class Cfm(object):
 
                             return False
 
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return False
-
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
@@ -9977,7 +9170,7 @@ class Cfm(object):
                         .. attribute:: last_hop_format
                         
                         	LastHopFormat
-                        	**type**\: :py:class:`CfmPmLastHopFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmt_Enum>`
+                        	**type**\: :py:class:`CfmPmLastHopFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmtEnum>`
                         
                         
 
@@ -10038,18 +9231,12 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.mac_address is not None:
                                     return True
 
                                 if self.unique_id is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10071,12 +9258,7 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.egress_id is not None and self.egress_id._has_data():
-                                return True
-
-                            if self.egress_id is not None and self.egress_id.is_presence():
                                 return True
 
                             if self.host_name is not None:
@@ -10085,10 +9267,6 @@ class Cfm(object):
                             if self.last_hop_format is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10149,8 +9327,6 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.oui is not None:
                                 return True
 
@@ -10160,10 +9336,6 @@ class Cfm(object):
                             if self.value is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10179,7 +9351,7 @@ class Cfm(object):
                         .. attribute:: action
                         
                         	Reply egress action
-                        	**type**\: :py:class:`CfmPmEgressAction_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEgressAction_Enum>`
+                        	**type**\: :py:class:`CfmPmEgressActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEgressActionEnum>`
                         
                         .. attribute:: mac_address
                         
@@ -10222,7 +9394,7 @@ class Cfm(object):
                             .. attribute:: port_id_type
                             
                             	Port ID type
-                            	**type**\: :py:class:`CfmPmPortIdFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmt_Enum>`
+                            	**type**\: :py:class:`CfmPmPortIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmtEnum>`
                             
                             .. attribute:: port_id_type_value
                             
@@ -10259,7 +9431,7 @@ class Cfm(object):
                                 .. attribute:: port_id_format
                                 
                                 	PortIDFormat
-                                	**type**\: :py:class:`CfmPmIdFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt_Enum>`
+                                	**type**\: :py:class:`CfmPmIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
                                 
                                 .. attribute:: port_id_mac
                                 
@@ -10308,8 +9480,6 @@ class Cfm(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.port_id_format is not None:
                                         return True
 
@@ -10322,10 +9492,6 @@ class Cfm(object):
                                     if self.port_id_string is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -10347,8 +9513,6 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.port_id is not None:
                                     return True
 
@@ -10361,13 +9525,6 @@ class Cfm(object):
                                 if self.port_id_value is not None and self.port_id_value._has_data():
                                     return True
 
-                                if self.port_id_value is not None and self.port_id_value.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10389,8 +9546,6 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.action is not None:
                                 return True
 
@@ -10400,13 +9555,6 @@ class Cfm(object):
                             if self.port_id is not None and self.port_id._has_data():
                                 return True
 
-                            if self.port_id is not None and self.port_id.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10422,7 +9570,7 @@ class Cfm(object):
                         .. attribute:: action
                         
                         	Reply ingress action
-                        	**type**\: :py:class:`CfmPmIngressAction_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIngressAction_Enum>`
+                        	**type**\: :py:class:`CfmPmIngressActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIngressActionEnum>`
                         
                         .. attribute:: mac_address
                         
@@ -10465,7 +9613,7 @@ class Cfm(object):
                             .. attribute:: port_id_type
                             
                             	Port ID type
-                            	**type**\: :py:class:`CfmPmPortIdFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmt_Enum>`
+                            	**type**\: :py:class:`CfmPmPortIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmtEnum>`
                             
                             .. attribute:: port_id_type_value
                             
@@ -10502,7 +9650,7 @@ class Cfm(object):
                                 .. attribute:: port_id_format
                                 
                                 	PortIDFormat
-                                	**type**\: :py:class:`CfmPmIdFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt_Enum>`
+                                	**type**\: :py:class:`CfmPmIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
                                 
                                 .. attribute:: port_id_mac
                                 
@@ -10551,8 +9699,6 @@ class Cfm(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.port_id_format is not None:
                                         return True
 
@@ -10565,10 +9711,6 @@ class Cfm(object):
                                     if self.port_id_string is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -10590,8 +9732,6 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.port_id is not None:
                                     return True
 
@@ -10604,13 +9744,6 @@ class Cfm(object):
                                 if self.port_id_value is not None and self.port_id_value._has_data():
                                     return True
 
-                                if self.port_id_value is not None and self.port_id_value.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10632,8 +9765,6 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.action is not None:
                                 return True
 
@@ -10643,13 +9774,6 @@ class Cfm(object):
                             if self.port_id is not None and self.port_id._has_data():
                                 return True
 
-                            if self.port_id is not None and self.port_id.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10710,7 +9834,7 @@ class Cfm(object):
                             .. attribute:: chassis_id_type
                             
                             	Chassis ID Type
-                            	**type**\: :py:class:`CfmPmChassisIdFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmt_Enum>`
+                            	**type**\: :py:class:`CfmPmChassisIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmtEnum>`
                             
                             .. attribute:: chassis_id_type_value
                             
@@ -10747,7 +9871,7 @@ class Cfm(object):
                                 .. attribute:: chassis_id_format
                                 
                                 	ChassisIDFormat
-                                	**type**\: :py:class:`CfmPmIdFmt_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt_Enum>`
+                                	**type**\: :py:class:`CfmPmIdFmtEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
                                 
                                 .. attribute:: chassis_id_mac
                                 
@@ -10796,8 +9920,6 @@ class Cfm(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.chassis_id_format is not None:
                                         return True
 
@@ -10810,10 +9932,6 @@ class Cfm(object):
                                     if self.chassis_id_string is not None:
                                         return True
 
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -10835,8 +9953,6 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.chassis_id is not None:
                                     return True
 
@@ -10849,13 +9965,6 @@ class Cfm(object):
                                 if self.chassis_id_value is not None and self.chassis_id_value._has_data():
                                     return True
 
-                                if self.chassis_id_value is not None and self.chassis_id_value.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -10877,12 +9986,7 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.chassis_id is not None and self.chassis_id._has_data():
-                                return True
-
-                            if self.chassis_id is not None and self.chassis_id.is_presence():
                                 return True
 
                             if self.management_address is not None:
@@ -10891,10 +9995,6 @@ class Cfm(object):
                             if self.management_address_domain is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10947,18 +10047,12 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.typecode is not None:
                                 return True
 
                             if self.value is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -10980,24 +10074,13 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.egress_id is not None and self.egress_id._has_data():
-                            return True
-
-                        if self.egress_id is not None and self.egress_id.is_presence():
                             return True
 
                         if self.header is not None and self.header._has_data():
                             return True
 
-                        if self.header is not None and self.header.is_presence():
-                            return True
-
                         if self.last_hop is not None and self.last_hop._has_data():
-                            return True
-
-                        if self.last_hop is not None and self.last_hop.is_presence():
                             return True
 
                         if self.organization_specific_tlv is not None:
@@ -11011,19 +10094,10 @@ class Cfm(object):
                         if self.reply_egress is not None and self.reply_egress._has_data():
                             return True
 
-                        if self.reply_egress is not None and self.reply_egress.is_presence():
-                            return True
-
                         if self.reply_ingress is not None and self.reply_ingress._has_data():
                             return True
 
-                        if self.reply_ingress is not None and self.reply_ingress.is_presence():
-                            return True
-
                         if self.sender_id is not None and self.sender_id._has_data():
-                            return True
-
-                        if self.sender_id is not None and self.sender_id.is_presence():
                             return True
 
                         if self.unknown_tlv is not None:
@@ -11031,10 +10105,6 @@ class Cfm(object):
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -11062,7 +10132,7 @@ class Cfm(object):
                     .. attribute:: level
                     
                     	Maintenance level
-                    	**type**\: :py:class:`CfmBagMdLevel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel_Enum>`
+                    	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                     
                     .. attribute:: options
                     
@@ -11172,7 +10242,7 @@ class Cfm(object):
                         .. attribute:: mode
                         
                         	Mode
-                        	**type**\: :py:class:`CfmPmLtMode_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLtMode_Enum>`
+                        	**type**\: :py:class:`CfmPmLtModeEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLtModeEnum>`
                         
                         
 
@@ -11230,18 +10300,12 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.fdb_only is not None:
                                     return True
 
                                 if self.is_auto is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11264,12 +10328,12 @@ class Cfm(object):
                             .. attribute:: delay_model
                             
                             	Delay model for delay calculations
-                            	**type**\: :py:class:`CfmPmEltDelayModel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModel_Enum>`
+                            	**type**\: :py:class:`CfmPmEltDelayModelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModelEnum>`
                             
                             .. attribute:: reply_filter
                             
                             	Reply Filtering mode used by responders
-                            	**type**\: :py:class:`CfmPmElmReplyFilter_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElmReplyFilter_Enum>`
+                            	**type**\: :py:class:`CfmPmElmReplyFilterEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElmReplyFilterEnum>`
                             
                             
 
@@ -11298,8 +10362,6 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.delay_constant_factor is not None:
                                     return True
 
@@ -11309,10 +10371,6 @@ class Cfm(object):
                                 if self.reply_filter is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -11334,27 +10392,15 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.basic_options is not None and self.basic_options._has_data():
-                                return True
-
-                            if self.basic_options is not None and self.basic_options.is_presence():
                                 return True
 
                             if self.exploratory_options is not None and self.exploratory_options._has_data():
                                 return True
 
-                            if self.exploratory_options is not None and self.exploratory_options.is_presence():
-                                return True
-
                             if self.mode is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -11376,8 +10422,6 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.directed_mac_address is not None:
                             return True
 
@@ -11388,9 +10432,6 @@ class Cfm(object):
                             return True
 
                         if self.options is not None and self.options._has_data():
-                            return True
-
-                        if self.options is not None and self.options.is_presence():
                             return True
 
                         if self.service is not None:
@@ -11422,10 +10463,6 @@ class Cfm(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
@@ -11453,8 +10490,6 @@ class Cfm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.domain is not None:
                         return True
 
@@ -11486,13 +10521,6 @@ class Cfm(object):
                     if self.traceroute_information is not None and self.traceroute_information._has_data():
                         return True
 
-                    if self.traceroute_information is not None and self.traceroute_information.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11512,17 +10540,11 @@ class Cfm(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.traceroute_cache is not None:
                     for child_ref in self.traceroute_cache:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -11542,54 +10564,27 @@ class Cfm(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.global_configuration_errors is not None and self.global_configuration_errors._has_data():
-                return True
-
-            if self.global_configuration_errors is not None and self.global_configuration_errors.is_presence():
                 return True
 
             if self.incomplete_traceroutes is not None and self.incomplete_traceroutes._has_data():
                 return True
 
-            if self.incomplete_traceroutes is not None and self.incomplete_traceroutes.is_presence():
-                return True
-
             if self.local_meps is not None and self.local_meps._has_data():
-                return True
-
-            if self.local_meps is not None and self.local_meps.is_presence():
                 return True
 
             if self.maintenance_points is not None and self.maintenance_points._has_data():
                 return True
 
-            if self.maintenance_points is not None and self.maintenance_points.is_presence():
-                return True
-
             if self.mep_configuration_errors is not None and self.mep_configuration_errors._has_data():
-                return True
-
-            if self.mep_configuration_errors is not None and self.mep_configuration_errors.is_presence():
                 return True
 
             if self.peer_meps is not None and self.peer_meps._has_data():
                 return True
 
-            if self.peer_meps is not None and self.peer_meps.is_presence():
-                return True
-
             if self.traceroute_caches is not None and self.traceroute_caches._has_data():
                 return True
 
-            if self.traceroute_caches is not None and self.traceroute_caches.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -11736,7 +10731,7 @@ class Cfm(object):
                     .. attribute:: level
                     
                     	Maintenance level
-                    	**type**\: :py:class:`CfmBagMdLevel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel_Enum>`
+                    	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                     
                     .. attribute:: service_xr
                     
@@ -11795,8 +10790,6 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.domain is not None:
                             return True
 
@@ -11829,10 +10822,6 @@ class Cfm(object):
 
                         return False
 
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
-                        return False
-
                     @staticmethod
                     def _meta_info():
                         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
@@ -11852,17 +10841,11 @@ class Cfm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ccm_learning_database is not None:
                         for child_ref in self.ccm_learning_database:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -11901,7 +10884,7 @@ class Cfm(object):
                     .. attribute:: direction
                     
                     	AIS Direction
-                    	**type**\: :py:class:`CfmAisDir_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmAisDir_Enum>`
+                    	**type**\: :py:class:`CfmAisDirEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmAisDirEnum>`
                     
                     .. attribute:: interface_name
                     
@@ -11925,7 +10908,7 @@ class Cfm(object):
                     .. attribute:: interworking_state
                     
                     	Interface interworking state
-                    	**type**\: :py:class:`CfmBagIwState_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwState_Enum>`
+                    	**type**\: :py:class:`CfmBagIwStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwStateEnum>`
                     
                     .. attribute:: statistics
                     
@@ -11935,7 +10918,7 @@ class Cfm(object):
                     .. attribute:: stp_state
                     
                     	STP state
-                    	**type**\: :py:class:`CfmBagStpState_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagStpState_Enum>`
+                    	**type**\: :py:class:`CfmBagStpStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagStpStateEnum>`
                     
                     
 
@@ -11968,7 +10951,7 @@ class Cfm(object):
                         .. attribute:: direction
                         
                         	Direction of AIS packets
-                        	**type**\: :py:class:`CfmBagDirection_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirection_Enum>`
+                        	**type**\: :py:class:`CfmBagDirectionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirectionEnum>`
                         
                         .. attribute:: last_started
                         
@@ -11978,7 +10961,7 @@ class Cfm(object):
                         .. attribute:: lowest_level
                         
                         	Level of the lowest MEP transmitting AIS
-                        	**type**\: :py:class:`CfmBagMdLevel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel_Enum>`
+                        	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                         
                         .. attribute:: sent_packets
                         
@@ -11990,17 +10973,17 @@ class Cfm(object):
                         .. attribute:: transmission_interval
                         
                         	Interval at which AIS packets are transmitted
-                        	**type**\: :py:class:`CfmBagAisInterval_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisInterval_Enum>`
+                        	**type**\: :py:class:`CfmBagAisIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisIntervalEnum>`
                         
                         .. attribute:: transmission_level
                         
                         	Level that AIS packets are transmitted on
-                        	**type**\: :py:class:`CfmBagMdLevel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel_Enum>`
+                        	**type**\: :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                         
                         .. attribute:: via_level
                         
                         	Levels of other MEPs receiving AIS
-                        	**type**\: list of :py:class:`CfmBagMdLevel_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel_Enum>`
+                        	**type**\: list of :py:class:`CfmBagMdLevelEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                         
                         
 
@@ -12165,8 +11148,6 @@ class Cfm(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.invalid_ccm_interval is not None:
                                         return True
 
@@ -12190,10 +11171,6 @@ class Cfm(object):
 
                                     return False
 
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return False
-
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
@@ -12213,8 +11190,6 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.ais_received is not None:
                                     return True
 
@@ -12236,16 +11211,9 @@ class Cfm(object):
                                 if self.remote_meps_defects is not None and self.remote_meps_defects._has_data():
                                     return True
 
-                                if self.remote_meps_defects is not None and self.remote_meps_defects.is_presence():
-                                    return True
-
                                 if self.unexpected is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -12298,18 +11266,12 @@ class Cfm(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.nanoseconds is not None:
                                     return True
 
                                 if self.seconds is not None:
                                     return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -12331,21 +11293,13 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.defects is not None and self.defects._has_data():
-                                return True
-
-                            if self.defects is not None and self.defects.is_presence():
                                 return True
 
                             if self.direction is not None:
                                 return True
 
                             if self.last_started is not None and self.last_started._has_data():
-                                return True
-
-                            if self.last_started is not None and self.last_started.is_presence():
                                 return True
 
                             if self.lowest_level is not None:
@@ -12365,10 +11319,6 @@ class Cfm(object):
                                     if child is not None:
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -12394,8 +11344,6 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.direction is not None:
                             return True
 
@@ -12414,16 +11362,9 @@ class Cfm(object):
                         if self.statistics is not None and self.statistics._has_data():
                             return True
 
-                        if self.statistics is not None and self.statistics.is_presence():
-                            return True
-
                         if self.stp_state is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12445,17 +11386,11 @@ class Cfm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface_ais is not None:
                         for child_ref in self.interface_ais:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12539,12 +11474,12 @@ class Cfm(object):
                         .. attribute:: last_malformed_opcode
                         
                         	Opcode for last malformed packet
-                        	**type**\: :py:class:`CfmBagOpcode_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagOpcode_Enum>`
+                        	**type**\: :py:class:`CfmBagOpcodeEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagOpcodeEnum>`
                         
                         .. attribute:: last_malformed_reason
                         
                         	Reason last malformed packet was malformed
-                        	**type**\: :py:class:`CfmPmPktAction_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPktAction_Enum>`
+                        	**type**\: :py:class:`CfmPmPktActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPktActionEnum>`
                         
                         .. attribute:: malformed_packets
                         
@@ -12581,8 +11516,6 @@ class Cfm(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.dropped_packets is not None:
                                 return True
 
@@ -12595,10 +11528,6 @@ class Cfm(object):
                             if self.malformed_packets is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -12622,8 +11551,6 @@ class Cfm(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.interface is not None:
                             return True
 
@@ -12633,13 +11560,6 @@ class Cfm(object):
                         if self.statistics is not None and self.statistics._has_data():
                             return True
 
-                        if self.statistics is not None and self.statistics.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -12661,17 +11581,11 @@ class Cfm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.interface_statistic is not None:
                         for child_ref in self.interface_statistic:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -12757,7 +11671,7 @@ class Cfm(object):
                 .. attribute:: issu_role
                 
                 	ISSU Role of CFM\-D, if any
-                	**type**\: :py:class:`CfmBagIssuRole_Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIssuRole_Enum>`
+                	**type**\: :py:class:`CfmBagIssuRoleEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIssuRoleEnum>`
                 
                 .. attribute:: local_meps
                 
@@ -12914,8 +11828,6 @@ class Cfm(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.bnm_enabled_links is not None:
                         return True
 
@@ -12996,10 +11908,6 @@ class Cfm(object):
 
                     return False
 
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
-                    return False
-
                 @staticmethod
                 def _meta_info():
                     from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
@@ -13019,39 +11927,21 @@ class Cfm(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node is not None:
                     return True
 
                 if self.ccm_learning_databases is not None and self.ccm_learning_databases._has_data():
                     return True
 
-                if self.ccm_learning_databases is not None and self.ccm_learning_databases.is_presence():
-                    return True
-
                 if self.interface_aises is not None and self.interface_aises._has_data():
-                    return True
-
-                if self.interface_aises is not None and self.interface_aises.is_presence():
                     return True
 
                 if self.interface_statistics is not None and self.interface_statistics._has_data():
                     return True
 
-                if self.interface_statistics is not None and self.interface_statistics.is_presence():
-                    return True
-
                 if self.summary is not None and self.summary._has_data():
                     return True
 
-                if self.summary is not None and self.summary.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -13071,17 +11961,11 @@ class Cfm(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -13101,24 +11985,12 @@ class Cfm(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.global_ is not None and self.global_._has_data():
-            return True
-
-        if self.global_ is not None and self.global_.is_presence():
             return True
 
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

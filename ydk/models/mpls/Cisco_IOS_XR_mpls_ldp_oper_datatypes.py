@@ -20,33 +20,31 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class MplsLdpOperAfName_Enum(Enum):
+class MplsLdpOperAfNameEnum(Enum):
     """
-    MplsLdpOperAfName_Enum
+    MplsLdpOperAfNameEnum
 
     Mpls ldp oper af name
 
-    """
+    .. data:: IPV4 = 1
+
+    	IPv4
+
+    .. data:: IPV6 = 2
+
+    	IPv6
 
     """
 
-    IPv4
-
-    """
     IPV4 = 1
 
-    """
-
-    IPv6
-
-    """
     IPV6 = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.mpls._meta import _Cisco_IOS_XR_mpls_ldp_oper_datatypes as meta
-        return meta._meta_table['MplsLdpOperAfName_Enum']
+        return meta._meta_table['MplsLdpOperAfNameEnum']
 
 
 

@@ -24,595 +24,532 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class GmplsOtuTtiMode_Enum(Enum):
+class GmplsOtuTtiModeEnum(Enum):
     """
-    GmplsOtuTtiMode_Enum
+    GmplsOtuTtiModeEnum
 
     Gmpls otu tti mode
 
-    """
+    .. data:: GMPLS_OTU_TTI_MODE_NONE = 0
+
+    	Not Set
+
+    .. data:: GMPLS_OTU_TTI_MODE_SM = 1
+
+    	Section Monitoring
+
+    .. data:: GMPLS_OTU_TTI_MODE_PM = 2
+
+    	Path Monitoring
+
+    .. data:: GMPLS_OTU_TTI_MODE_TCM = 3
+
+    	Tandem Connection Monitoring
 
     """
 
-    Not Set
-
-    """
     GMPLS_OTU_TTI_MODE_NONE = 0
 
-    """
-
-    Section Monitoring
-
-    """
     GMPLS_OTU_TTI_MODE_SM = 1
 
-    """
-
-    Path Monitoring
-
-    """
     GMPLS_OTU_TTI_MODE_PM = 2
 
-    """
-
-    Tandem Connection Monitoring
-
-    """
     GMPLS_OTU_TTI_MODE_TCM = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['GmplsOtuTtiMode_Enum']
+        return meta._meta_table['GmplsOtuTtiModeEnum']
 
 
-class OtuDerState_Enum(Enum):
+class OtuDerStateEnum(Enum):
     """
-    OtuDerState_Enum
+    OtuDerStateEnum
 
     Otu der state
 
-    """
+    .. data:: OUT_OF_SERVICE = 0
+
+    	Out Of Service
+
+    .. data:: IN_SERVICE = 1
+
+    	In Service
+
+    .. data:: MAINTENANCE = 2
+
+    	Maintenance
+
+    .. data:: AIS = 3
+
+    	Automatic In Service
 
     """
 
-    Out Of Service
-
-    """
     OUT_OF_SERVICE = 0
 
-    """
-
-    In Service
-
-    """
     IN_SERVICE = 1
 
-    """
-
-    Maintenance
-
-    """
     MAINTENANCE = 2
 
-    """
-
-    Automatic In Service
-
-    """
     AIS = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuDerState_Enum']
+        return meta._meta_table['OtuDerStateEnum']
 
 
-class OtuG709fecMode_Enum(Enum):
+class OtuG709FecModeEnum(Enum):
     """
-    OtuG709fecMode_Enum
+    OtuG709FecModeEnum
 
     Otu g709fec mode
 
-    """
+    .. data:: OTU_BAG_NONE_FEC = 1
+
+    	NONE
+
+    .. data:: OTU_BAG_STANDARD_FEC = 2
+
+    	STANDARD
+
+    .. data:: OTU_BAG_1_I_7_FEC = 4
+
+    	ENHANCEDI.7
+
+    .. data:: OTU_BAG_1_I_4_FEC = 8
+
+    	ENHANCEDI.4
+
+    .. data:: OTU_BAG_SWIZZLE_FEC = 16
+
+    	SWIZZLE
+
+    .. data:: OTU_BAG_HG20_FEC = 32
+
+    	HIGH GAIN20
+
+    .. data:: OTU_BAG_ENHANCED_HG7_FEC = 64
+
+    	Enhanced High Gain 7
+
+    .. data:: OTU_BAG_SD20_FEC = 128
+
+    	Soft-Decision 20
+
+    .. data:: OTU_BAG_SD7_FEC = 256
+
+    	Soft-Decision 7
+
+    .. data:: OTU_BAG_ALL_FEC = 512
+
+    	ALL
 
     """
 
-    NONE
-
-    """
     OTU_BAG_NONE_FEC = 1
 
-    """
-
-    STANDARD
-
-    """
     OTU_BAG_STANDARD_FEC = 2
 
-    """
-
-    ENHANCEDI.7
-
-    """
     OTU_BAG_1_I_7_FEC = 4
 
-    """
-
-    ENHANCEDI.4
-
-    """
     OTU_BAG_1_I_4_FEC = 8
 
-    """
-
-    SWIZZLE
-
-    """
     OTU_BAG_SWIZZLE_FEC = 16
 
-    """
-
-    HIGH GAIN20
-
-    """
     OTU_BAG_HG20_FEC = 32
 
-    """
-
-    Enhanced High Gain 7
-
-    """
     OTU_BAG_ENHANCED_HG7_FEC = 64
 
-    """
-
-    Soft\-Decision 20
-
-    """
     OTU_BAG_SD20_FEC = 128
 
-    """
-
-    Soft\-Decision 7
-
-    """
     OTU_BAG_SD7_FEC = 256
 
-    """
-
-    ALL
-
-    """
     OTU_BAG_ALL_FEC = 512
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuG709fecMode_Enum']
+        return meta._meta_table['OtuG709FecModeEnum']
 
 
-class OtuLoopBackMode_Enum(Enum):
+class OtuLoopBackModeEnum(Enum):
     """
-    OtuLoopBackMode_Enum
+    OtuLoopBackModeEnum
 
     Otu loop back mode
 
-    """
+    .. data:: NONE = 1
+
+    	None
+
+    .. data:: LINE = 2
+
+    	Line
+
+    .. data:: INTERNAL = 4
+
+    	Internal
 
     """
 
-    None
-
-    """
     NONE = 1
 
-    """
-
-    Line
-
-    """
     LINE = 2
 
-    """
-
-    Internal
-
-    """
     INTERNAL = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuLoopBackMode_Enum']
+        return meta._meta_table['OtuLoopBackModeEnum']
 
 
-class OtuPerMon_Enum(Enum):
+class OtuPerMonEnum(Enum):
     """
-    OtuPerMon_Enum
+    OtuPerMonEnum
 
     Otu per mon
 
-    """
+    .. data:: DISABLE = 0
+
+    	Disable
+
+    .. data:: ENABLE = 1
+
+    	Enable
 
     """
 
-    Disable
-
-    """
     DISABLE = 0
 
-    """
-
-    Enable
-
-    """
     ENABLE = 1
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuPerMon_Enum']
+        return meta._meta_table['OtuPerMonEnum']
 
 
-class OtuPpFsmState_Enum(Enum):
+class OtuPpFsmStateEnum(Enum):
     """
-    OtuPpFsmState_Enum
+    OtuPpFsmStateEnum
 
     Otu pp fsm state
 
-    """
+    .. data:: OTU_IN_ACTIVE = 0
+
+    	In Active
+
+    .. data:: OTU_DISABLED = 1
+
+    	Disabled
+
+    .. data:: OTU_NORMAL_STATE = 2
+
+    	Normal
+
+    .. data:: OTU_LOCAL_FAILING = 3
+
+    	Local Failing
+
+    .. data:: OTU_REMOTE_FAILING = 4
+
+    	Remote Failing
+
+    .. data:: OTU_MAIN_T_FAILING = 5
+
+    	Maintance Failing
+
+    .. data:: OTU_REGEN_FAILING = 6
+
+    	Regenerator Failing
+
+    .. data:: OTU_LOCAL_FAILED = 7
+
+    	Local Failed
+
+    .. data:: OTU_REMOTE_FAILED = 8
+
+    	Remote Failed
+
+    .. data:: OTU_MAIN_T_FAILED = 9
+
+    	Maintance Failed
+
+    .. data:: OTU_REGEN_FAILED = 10
+
+    	Regenerator Failed
 
     """
 
-    In Active
-
-    """
     OTU_IN_ACTIVE = 0
 
-    """
-
-    Disabled
-
-    """
     OTU_DISABLED = 1
 
-    """
-
-    Normal
-
-    """
     OTU_NORMAL_STATE = 2
 
-    """
-
-    Local Failing
-
-    """
     OTU_LOCAL_FAILING = 3
 
-    """
-
-    Remote Failing
-
-    """
     OTU_REMOTE_FAILING = 4
 
-    """
-
-    Maintance Failing
-
-    """
     OTU_MAIN_T_FAILING = 5
 
-    """
-
-    Regenerator Failing
-
-    """
     OTU_REGEN_FAILING = 6
 
-    """
-
-    Local Failed
-
-    """
     OTU_LOCAL_FAILED = 7
 
-    """
-
-    Remote Failed
-
-    """
     OTU_REMOTE_FAILED = 8
 
-    """
-
-    Maintance Failed
-
-    """
     OTU_MAIN_T_FAILED = 9
 
-    """
-
-    Regenerator Failed
-
-    """
     OTU_REGEN_FAILED = 10
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuPpFsmState_Enum']
+        return meta._meta_table['OtuPpFsmStateEnum']
 
 
-class OtuPpIntfState_Enum(Enum):
+class OtuPpIntfStateEnum(Enum):
     """
-    OtuPpIntfState_Enum
+    OtuPpIntfStateEnum
 
     Otu pp intf state
 
-    """
+    .. data:: OTU_PP_INTF_UP = 0
+
+    	Interface is Up
+
+    .. data:: OTU_PP_INTF_FAILING = 1
+
+    	Interface is Going Down
+
+    .. data:: OTU_PP_INTF_DOWN = 2
+
+    	Interface Down
 
     """
 
-    Interface is Up
-
-    """
     OTU_PP_INTF_UP = 0
 
-    """
-
-    Interface is Going Down
-
-    """
     OTU_PP_INTF_FAILING = 1
 
-    """
-
-    Interface Down
-
-    """
     OTU_PP_INTF_DOWN = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuPpIntfState_Enum']
+        return meta._meta_table['OtuPpIntfStateEnum']
 
 
-class OtuSecState_Enum(Enum):
+class OtuSecStateEnum(Enum):
     """
-    OtuSecState_Enum
+    OtuSecStateEnum
 
     Otu sec state
 
-    """
+    .. data:: NORMAL = 0
+
+    	Normal
+
+    .. data:: MAINTENANCE = 1
+
+    	Maintenance
+
+    .. data:: AIS = 2
+
+    	Automatic In Service
 
     """
 
-    Normal
-
-    """
     NORMAL = 0
 
-    """
-
-    Maintenance
-
-    """
     MAINTENANCE = 1
 
-    """
-
-    Automatic In Service
-
-    """
     AIS = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuSecState_Enum']
+        return meta._meta_table['OtuSecStateEnum']
 
 
-class OtuStateEt_Enum(Enum):
+class OtuStateEtEnum(Enum):
     """
-    OtuStateEt_Enum
+    OtuStateEtEnum
 
     Otu state et
 
-    """
+    .. data:: NOT_READY = 0
+
+    	Not Ready
+
+    .. data:: ADMIN_DOWN = 1
+
+    	Admin Down
+
+    .. data:: DOWN = 2
+
+    	Down
+
+    .. data:: UP = 3
+
+    	Up
+
+    .. data:: SHUTDOWN = 4
+
+    	Shutdown
+
+    .. data:: ERROR_DISABLE = 5
+
+    	Error Disable
+
+    .. data:: DOWN_IMMEDIATE = 6
+
+    	Down Immediate
+
+    .. data:: DOWN_IMMEDIATE_ADMIN = 7
+
+    	Down Immediate Admin
+
+    .. data:: DOWN_GRACEFUL = 8
+
+    	Down Graceful
+
+    .. data:: BEGIN_SHUTDOWN = 9
+
+    	Begin Shutdown
+
+    .. data:: END_SHUTDOWN = 10
+
+    	End Shutdown
+
+    .. data:: BEGIN_ERROR_DISABLE = 11
+
+    	Begin Error Disable
+
+    .. data:: END_ERROR_DISABLE = 12
+
+    	End Error Disable
+
+    .. data:: BEGIN_DOWN_GRACEFUL = 13
+
+    	Begin Down Graceful
+
+    .. data:: RESET = 14
+
+    	Reset
+
+    .. data:: OPERATIONAL = 15
+
+    	Operational
+
+    .. data:: NOT_OPERATIONAL = 16
+
+    	Not Operational
+
+    .. data:: UNKNOWN = 17
+
+    	Unknown
+
+    .. data:: LAST = 18
+
+    	Last
 
     """
 
-    Not Ready
-
-    """
     NOT_READY = 0
 
-    """
-
-    Admin Down
-
-    """
     ADMIN_DOWN = 1
 
-    """
-
-    Down
-
-    """
     DOWN = 2
 
-    """
-
-    Up
-
-    """
     UP = 3
 
-    """
-
-    Shutdown
-
-    """
     SHUTDOWN = 4
 
-    """
-
-    Error Disable
-
-    """
     ERROR_DISABLE = 5
 
-    """
-
-    Down Immediate
-
-    """
     DOWN_IMMEDIATE = 6
 
-    """
-
-    Down Immediate Admin
-
-    """
     DOWN_IMMEDIATE_ADMIN = 7
 
-    """
-
-    Down Graceful
-
-    """
     DOWN_GRACEFUL = 8
 
-    """
-
-    Begin Shutdown
-
-    """
     BEGIN_SHUTDOWN = 9
 
-    """
-
-    End Shutdown
-
-    """
     END_SHUTDOWN = 10
 
-    """
-
-    Begin Error Disable
-
-    """
     BEGIN_ERROR_DISABLE = 11
 
-    """
-
-    End Error Disable
-
-    """
     END_ERROR_DISABLE = 12
 
-    """
-
-    Begin Down Graceful
-
-    """
     BEGIN_DOWN_GRACEFUL = 13
 
-    """
-
-    Reset
-
-    """
     RESET = 14
 
-    """
-
-    Operational
-
-    """
     OPERATIONAL = 15
 
-    """
-
-    Not Operational
-
-    """
     NOT_OPERATIONAL = 16
 
-    """
-
-    Unknown
-
-    """
     UNKNOWN = 17
 
-    """
-
-    Last
-
-    """
     LAST = 18
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuStateEt_Enum']
+        return meta._meta_table['OtuStateEtEnum']
 
 
-class OtuTtiEt_Enum(Enum):
+class OtuTtiEtEnum(Enum):
     """
-    OtuTtiEt_Enum
+    OtuTtiEtEnum
 
     Otu tti et
 
-    """
+    .. data:: ASCII = 0
+
+    	ASCII
+
+    .. data:: HEX = 1
+
+    	HEX
+
+    .. data:: FULL_ASCII = 2
+
+    	FULL ASCII
+
+    .. data:: FULL_HEX = 3
+
+    	FULL HEX
 
     """
 
-    ASCII
-
-    """
     ASCII = 0
 
-    """
-
-    HEX
-
-    """
     HEX = 1
 
-    """
-
-    FULL ASCII
-
-    """
     FULL_ASCII = 2
 
-    """
-
-    FULL HEX
-
-    """
     FULL_HEX = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.controller._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuTtiEt_Enum']
+        return meta._meta_table['OtuTtiEtEnum']
 
 
 
@@ -697,7 +634,7 @@ class Otu(object):
                 .. attribute:: derivedstate_mode
                 
                 	Derived State
-                	**type**\: :py:class:`OtuDerState_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuDerState_Enum>`
+                	**type**\: :py:class:`OtuDerStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuDerStateEnum>`
                 
                 .. attribute:: ec
                 
@@ -714,7 +651,7 @@ class Otu(object):
                 .. attribute:: fec_mode
                 
                 	FEC
-                	**type**\: :py:class:`OtuG709fecMode_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuG709fecMode_Enum>`
+                	**type**\: :py:class:`OtuG709FecModeEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuG709FecModeEnum>`
                 
                 .. attribute:: gcc_mode
                 
@@ -724,7 +661,7 @@ class Otu(object):
                 .. attribute:: gmpls_tti_mode
                 
                 	GMPLS TTI MODE
-                	**type**\: :py:class:`GmplsOtuTtiMode_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.GmplsOtuTtiMode_Enum>`
+                	**type**\: :py:class:`GmplsOtuTtiModeEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.GmplsOtuTtiModeEnum>`
                 
                 .. attribute:: gmpls_tvm_id
                 
@@ -741,7 +678,7 @@ class Otu(object):
                 .. attribute:: loopback_mode
                 
                 	Loopback
-                	**type**\: :py:class:`OtuLoopBackMode_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuLoopBackMode_Enum>`
+                	**type**\: :py:class:`OtuLoopBackModeEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuLoopBackModeEnum>`
                 
                 .. attribute:: name
                 
@@ -768,7 +705,7 @@ class Otu(object):
                 .. attribute:: performance_monitoring
                 
                 	Performance Monitoring
-                	**type**\: :py:class:`OtuPerMon_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuPerMon_Enum>`
+                	**type**\: :py:class:`OtuPerMonEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuPerMonEnum>`
                 
                 .. attribute:: pre_fec_ber_mantissa
                 
@@ -828,7 +765,7 @@ class Otu(object):
                 .. attribute:: sec_state
                 
                 	Sec State
-                	**type**\: :py:class:`OtuSecState_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuSecState_Enum>`
+                	**type**\: :py:class:`OtuSecStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
                 
                 .. attribute:: sf
                 
@@ -840,7 +777,7 @@ class Otu(object):
                 .. attribute:: state
                 
                 	Admin State
-                	**type**\: :py:class:`OtuStateEt_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuStateEt_Enum>`
+                	**type**\: :py:class:`OtuStateEtEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuStateEtEnum>`
                 
                 .. attribute:: tti_mode
                 
@@ -948,18 +885,12 @@ class Otu(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.if_index is not None:
                             return True
 
                         if self.router_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1156,8 +1087,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -1170,10 +1099,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1236,8 +1161,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -1250,10 +1173,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1316,8 +1235,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -1330,10 +1247,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1396,8 +1309,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -1410,10 +1321,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1476,8 +1383,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -1490,10 +1395,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1556,8 +1457,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -1570,10 +1469,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1636,8 +1531,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -1650,10 +1543,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1716,8 +1605,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -1730,10 +1617,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1796,8 +1679,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -1810,10 +1691,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1876,8 +1753,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -1890,10 +1765,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1956,8 +1827,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -1970,10 +1839,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2036,8 +1901,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -2050,10 +1913,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2116,8 +1975,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -2130,10 +1987,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2196,8 +2049,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -2210,10 +2061,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2276,8 +2123,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -2290,10 +2135,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2356,8 +2197,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -2370,10 +2209,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2436,8 +2271,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.counter is not None:
                                 return True
 
@@ -2450,10 +2283,6 @@ class Otu(object):
                             if self.reporting_enabled is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2475,114 +2304,57 @@ class Otu(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.ais is not None and self.ais._has_data():
-                            return True
-
-                        if self.ais is not None and self.ais.is_presence():
                             return True
 
                         if self.bdi is not None and self.bdi._has_data():
                             return True
 
-                        if self.bdi is not None and self.bdi.is_presence():
-                            return True
-
                         if self.biae is not None and self.biae._has_data():
-                            return True
-
-                        if self.biae is not None and self.biae.is_presence():
                             return True
 
                         if self.ec is not None and self.ec._has_data():
                             return True
 
-                        if self.ec is not None and self.ec.is_presence():
-                            return True
-
                         if self.eoc is not None and self.eoc._has_data():
-                            return True
-
-                        if self.eoc is not None and self.eoc.is_presence():
                             return True
 
                         if self.fec_mismatch is not None and self.fec_mismatch._has_data():
                             return True
 
-                        if self.fec_mismatch is not None and self.fec_mismatch.is_presence():
-                            return True
-
                         if self.fecunc is not None and self.fecunc._has_data():
-                            return True
-
-                        if self.fecunc is not None and self.fecunc.is_presence():
                             return True
 
                         if self.iae is not None and self.iae._has_data():
                             return True
 
-                        if self.iae is not None and self.iae.is_presence():
-                            return True
-
                         if self.lof is not None and self.lof._has_data():
-                            return True
-
-                        if self.lof is not None and self.lof.is_presence():
                             return True
 
                         if self.lom is not None and self.lom._has_data():
                             return True
 
-                        if self.lom is not None and self.lom.is_presence():
-                            return True
-
                         if self.los is not None and self.los._has_data():
-                            return True
-
-                        if self.los is not None and self.los.is_presence():
                             return True
 
                         if self.oof is not None and self.oof._has_data():
                             return True
 
-                        if self.oof is not None and self.oof.is_presence():
-                            return True
-
                         if self.oom is not None and self.oom._has_data():
-                            return True
-
-                        if self.oom is not None and self.oom.is_presence():
                             return True
 
                         if self.sd_ber is not None and self.sd_ber._has_data():
                             return True
 
-                        if self.sd_ber is not None and self.sd_ber.is_presence():
-                            return True
-
                         if self.sf_ber is not None and self.sf_ber._has_data():
-                            return True
-
-                        if self.sf_ber is not None and self.sf_ber.is_presence():
                             return True
 
                         if self.tim is not None and self.tim._has_data():
                             return True
 
-                        if self.tim is not None and self.tim.is_presence():
-                            return True
-
                         if self.uc is not None and self.uc._has_data():
                             return True
 
-                        if self.uc is not None and self.uc.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2598,12 +2370,12 @@ class Otu(object):
                     .. attribute:: proactive_fsm_if_state
                     
                     	Proactive FSM IF State
-                    	**type**\: :py:class:`OtuPpIntfState_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuPpIntfState_Enum>`
+                    	**type**\: :py:class:`OtuPpIntfStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuPpIntfStateEnum>`
                     
                     .. attribute:: proactive_fsm_state
                     
                     	Proactive FSM State
-                    	**type**\: :py:class:`OtuPpFsmState_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuPpFsmState_Enum>`
+                    	**type**\: :py:class:`OtuPpFsmStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuPpFsmStateEnum>`
                     
                     .. attribute:: proactive_status
                     
@@ -2634,7 +2406,7 @@ class Otu(object):
                     .. attribute:: sec_state
                     
                     	Secondary Admin State
-                    	**type**\: :py:class:`OtuSecState_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuSecState_Enum>`
+                    	**type**\: :py:class:`OtuSecStateEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
                     
                     .. attribute:: trig_thresh_coeff
                     
@@ -2691,8 +2463,6 @@ class Otu(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.proactive_fsm_if_state is not None:
                             return True
 
@@ -2723,10 +2493,6 @@ class Otu(object):
                         if self.trigger_window is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2779,18 +2545,12 @@ class Otu(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.if_index is not None:
                             return True
 
                         if self.router_id is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -2811,17 +2571,17 @@ class Otu(object):
                     .. attribute:: g709tti_exp_mode
                     
                     	G709TTI Expected
-                    	**type**\: :py:class:`OtuTtiEt_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt_Enum>`
+                    	**type**\: :py:class:`OtuTtiEtEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuTtiEtEnum>`
                     
                     .. attribute:: g709tti_rec_mode
                     
                     	G709TTI Recieved
-                    	**type**\: :py:class:`OtuTtiEt_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt_Enum>`
+                    	**type**\: :py:class:`OtuTtiEtEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuTtiEtEnum>`
                     
                     .. attribute:: g709tti_sent_mode
                     
                     	G709TTI sent
-                    	**type**\: :py:class:`OtuTtiEt_Enum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt_Enum>`
+                    	**type**\: :py:class:`OtuTtiEtEnum <ydk.models.controller.Cisco_IOS_XR_controller_otu_oper.OtuTtiEtEnum>`
                     
                     .. attribute:: rec
                     
@@ -2905,8 +2665,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.dapi is not None:
                                 for child in self.dapi:
                                     if child is not None:
@@ -2922,10 +2680,6 @@ class Otu(object):
                                     if child is not None:
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -2986,8 +2740,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.dapi is not None:
                                 for child in self.dapi:
                                     if child is not None:
@@ -3003,10 +2755,6 @@ class Otu(object):
                                     if child is not None:
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3067,8 +2815,6 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.dapi is not None:
                                 for child in self.dapi:
                                     if child is not None:
@@ -3084,10 +2830,6 @@ class Otu(object):
                                     if child is not None:
                                         return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -3109,12 +2851,7 @@ class Otu(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.exp is not None and self.exp._has_data():
-                            return True
-
-                        if self.exp is not None and self.exp.is_presence():
                             return True
 
                         if self.g709tti_exp_mode is not None:
@@ -3129,19 +2866,9 @@ class Otu(object):
                         if self.rec is not None and self.rec._has_data():
                             return True
 
-                        if self.rec is not None and self.rec.is_presence():
-                            return True
-
                         if self.tx is not None and self.tx._has_data():
                             return True
 
-                        if self.tx is not None and self.tx.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -3163,8 +2890,6 @@ class Otu(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.derivedstate_mode is not None:
                         return True
 
@@ -3189,9 +2914,6 @@ class Otu(object):
                     if self.local is not None and self.local._has_data():
                         return True
 
-                    if self.local is not None and self.local.is_presence():
-                        return True
-
                     if self.loopback_mode is not None:
                         return True
 
@@ -3207,9 +2929,6 @@ class Otu(object):
                         return True
 
                     if self.otu_alarm_info is not None and self.otu_alarm_info._has_data():
-                        return True
-
-                    if self.otu_alarm_info is not None and self.otu_alarm_info.is_presence():
                         return True
 
                     if self.performance_monitoring is not None:
@@ -3230,9 +2949,6 @@ class Otu(object):
                     if self.proactive is not None and self.proactive._has_data():
                         return True
 
-                    if self.proactive is not None and self.proactive.is_presence():
-                        return True
-
                     if self.q is not None:
                         return True
 
@@ -3240,9 +2956,6 @@ class Otu(object):
                         return True
 
                     if self.remote is not None and self.remote._has_data():
-                        return True
-
-                    if self.remote is not None and self.remote.is_presence():
                         return True
 
                     if self.sd is not None:
@@ -3260,19 +2973,12 @@ class Otu(object):
                     if self.tti_mode is not None and self.tti_mode._has_data():
                         return True
 
-                    if self.tti_mode is not None and self.tti_mode.is_presence():
-                        return True
-
                     if self.uc is not None:
                         return True
 
                     if self.uc_value is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -3294,21 +3000,12 @@ class Otu(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.controller_name is not None:
                     return True
 
                 if self.info is not None and self.info._has_data():
                     return True
 
-                if self.info is not None and self.info.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -3328,17 +3025,11 @@ class Otu(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.controller is not None:
                 for child_ref in self.controller:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3358,18 +3049,9 @@ class Otu(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.controllers is not None and self.controllers._has_data():
             return True
 
-        if self.controllers is not None and self.controllers.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

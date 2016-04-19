@@ -24,132 +24,127 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class Ipv6MaIfAddrState_Enum(Enum):
+class Ipv6MaIfAddrStateEnum(Enum):
     """
-    Ipv6MaIfAddrState_Enum
+    Ipv6MaIfAddrStateEnum
 
     Interface address states
 
-    """
+    .. data:: ACTIVE = 1
+
+    	This is an active address that can appear as
+
+    	the destination or source address of a packet
+
+    .. data:: DEPRECATED = 2
+
+    	This is a valid but deprecated address that
+
+    	should no longer be used as a source address in
+
+    	new communications
+
+    .. data:: DUPLICATE = 3
+
+    	This is a duplicate (invalid) address because
+
+    	of conflict
+
+    .. data:: INACCESSIBLE = 4
+
+    	This is not accessible because the interface to
+
+    	which this address is assigned is not
+
+    	operational
+
+    .. data:: TENTATIVE = 5
+
+    	Status can not be determined for some reason
 
     """
 
-    This is an active address that can appear as
-    the destination or source address of a packet
-
-    """
     ACTIVE = 1
 
-    """
-
-    This is a valid but deprecated address that
-    should no longer be used as a source address in
-    new communications
-
-    """
     DEPRECATED = 2
 
-    """
-
-    This is a duplicate (invalid) address because
-    of conflict
-
-    """
     DUPLICATE = 3
 
-    """
-
-    This is not accessible because the interface to
-    which this address is assigned is not
-    operational
-
-    """
     INACCESSIBLE = 4
 
-    """
-
-    Status can not be determined for some reason
-
-    """
     TENTATIVE = 5
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
-        return meta._meta_table['Ipv6MaIfAddrState_Enum']
+        return meta._meta_table['Ipv6MaIfAddrStateEnum']
 
 
-class Ipv6MaIfLineState_Enum(Enum):
+class Ipv6MaIfLineStateEnum(Enum):
     """
-    Ipv6MaIfLineState_Enum
+    Ipv6MaIfLineStateEnum
 
     Interface line states
 
-    """
+    .. data:: DOWN = 1
+
+    	Interface state is down
+
+    .. data:: UP = 2
+
+    	Interface state is up
+
+    .. data:: UNKNOWN = 3
+
+    	Interface state is unknown
+
+    .. data:: ERROR = 4
+
+    	Interface state is incorrect
 
     """
 
-    Interface state is down
-
-    """
     DOWN = 1
 
-    """
-
-    Interface state is up
-
-    """
     UP = 2
 
-    """
-
-    Interface state is unknown
-
-    """
     UNKNOWN = 3
 
-    """
-
-    Interface state is incorrect
-
-    """
     ERROR = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
-        return meta._meta_table['Ipv6MaIfLineState_Enum']
+        return meta._meta_table['Ipv6MaIfLineStateEnum']
 
 
-class Ipv6MaOperState_Enum(Enum):
+class Ipv6MaOperStateEnum(Enum):
     """
-    Ipv6MaOperState_Enum
+    Ipv6MaOperStateEnum
 
     Interface oper states
 
-    """
+    .. data:: OPER_UP = 1
+
+    	Interface oper state is up
+
+    .. data:: OPER_DOWN = 2
+
+    	Interface oper state is down
 
     """
 
-    Interface oper state is up
-
-    """
     OPER_UP = 1
 
-    """
-
-    Interface oper state is down
-
-    """
     OPER_DOWN = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ipv6._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
-        return meta._meta_table['Ipv6MaOperState_Enum']
+        return meta._meta_table['Ipv6MaOperStateEnum']
 
 
 
@@ -297,18 +292,12 @@ class Ipv6Network(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ip_assigned is not None:
                         return True
 
                     if self.ip_unnumbered is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -359,18 +348,12 @@ class Ipv6Network(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ip_assigned is not None:
                         return True
 
                     if self.ip_unnumbered is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -421,18 +404,12 @@ class Ipv6Network(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ip_assigned is not None:
                         return True
 
                     if self.ip_unnumbered is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -483,18 +460,12 @@ class Ipv6Network(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.ip_assigned is not None:
                         return True
 
                     if self.ip_unnumbered is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -514,24 +485,13 @@ class Ipv6Network(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.if_down_down is not None and self.if_down_down._has_data():
-                    return True
-
-                if self.if_down_down is not None and self.if_down_down.is_presence():
                     return True
 
                 if self.if_shutdown_down is not None and self.if_shutdown_down._has_data():
                     return True
 
-                if self.if_shutdown_down is not None and self.if_shutdown_down.is_presence():
-                    return True
-
                 if self.if_up_down is not None and self.if_up_down._has_data():
-                    return True
-
-                if self.if_up_down is not None and self.if_up_down.is_presence():
                     return True
 
                 if self.if_up_down_basecaps_up is not None:
@@ -540,13 +500,6 @@ class Ipv6Network(object):
                 if self.if_up_up is not None and self.if_up_up._has_data():
                     return True
 
-                if self.if_up_up is not None and self.if_up_up.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -566,18 +519,9 @@ class Ipv6Network(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.summary is not None and self.summary._has_data():
                 return True
 
-            if self.summary is not None and self.summary.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -765,18 +709,12 @@ class Ipv6Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip_assigned is not None:
                                 return True
 
                             if self.ip_unnumbered is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -829,18 +767,12 @@ class Ipv6Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip_assigned is not None:
                                 return True
 
                             if self.ip_unnumbered is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -893,18 +825,12 @@ class Ipv6Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip_assigned is not None:
                                 return True
 
                             if self.ip_unnumbered is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -957,18 +883,12 @@ class Ipv6Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.ip_assigned is not None:
                                 return True
 
                             if self.ip_unnumbered is not None:
                                 return True
 
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -990,24 +910,13 @@ class Ipv6Network(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.if_down_down is not None and self.if_down_down._has_data():
-                            return True
-
-                        if self.if_down_down is not None and self.if_down_down.is_presence():
                             return True
 
                         if self.if_shutdown_down is not None and self.if_shutdown_down._has_data():
                             return True
 
-                        if self.if_shutdown_down is not None and self.if_shutdown_down.is_presence():
-                            return True
-
                         if self.if_up_down is not None and self.if_up_down._has_data():
-                            return True
-
-                        if self.if_up_down is not None and self.if_up_down.is_presence():
                             return True
 
                         if self.if_up_down_basecaps_up is not None:
@@ -1016,13 +925,6 @@ class Ipv6Network(object):
                         if self.if_up_up is not None and self.if_up_up._has_data():
                             return True
 
-                        if self.if_up_up is not None and self.if_up_up.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1150,7 +1052,7 @@ class Ipv6Network(object):
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
-                                	**type**\: :py:class:`Ipv6MaIfLineState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState_Enum>`
+                                	**type**\: :py:class:`Ipv6MaIfLineStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineStateEnum>`
                                 
                                 .. attribute:: link_local_address
                                 
@@ -1189,7 +1091,7 @@ class Ipv6Network(object):
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\: :py:class:`Ipv6MaIfAddrState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState_Enum>`
+                                    	**type**\: :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
                                     
                                     .. attribute:: is_anycast
                                     
@@ -1239,8 +1141,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
@@ -1256,10 +1156,6 @@ class Ipv6Network(object):
                                         if self.route_tag is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1282,7 +1178,7 @@ class Ipv6Network(object):
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\: :py:class:`Ipv6MaIfAddrState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState_Enum>`
+                                    	**type**\: :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
                                     
                                     .. attribute:: is_anycast
                                     
@@ -1332,8 +1228,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
@@ -1349,10 +1243,6 @@ class Ipv6Network(object):
                                         if self.route_tag is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1376,8 +1266,6 @@ class Ipv6Network(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
@@ -1392,13 +1280,6 @@ class Ipv6Network(object):
                                     if self.link_local_address is not None and self.link_local_address._has_data():
                                         return True
 
-                                    if self.link_local_address is not None and self.link_local_address.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -1420,17 +1301,11 @@ class Ipv6Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.brief is not None:
                                     for child_ref in self.brief:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1528,7 +1403,7 @@ class Ipv6Network(object):
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
-                                	**type**\: :py:class:`Ipv6MaIfLineState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState_Enum>`
+                                	**type**\: :py:class:`Ipv6MaIfLineStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineStateEnum>`
                                 
                                 .. attribute:: link_local_address
                                 
@@ -1560,7 +1435,7 @@ class Ipv6Network(object):
                                 .. attribute:: operation_state
                                 
                                 	IPv6 Operation State
-                                	**type**\: :py:class:`Ipv6MaOperState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperState_Enum>`
+                                	**type**\: :py:class:`Ipv6MaOperStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperStateEnum>`
                                 
                                 .. attribute:: rg_id_exists
                                 
@@ -1675,8 +1550,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.common_in_bound is not None:
                                             return True
 
@@ -1689,10 +1562,6 @@ class Ipv6Network(object):
                                         if self.out_bound is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1715,7 +1584,7 @@ class Ipv6Network(object):
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\: :py:class:`Ipv6MaIfAddrState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState_Enum>`
+                                    	**type**\: :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
                                     
                                     .. attribute:: is_anycast
                                     
@@ -1765,8 +1634,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
@@ -1782,10 +1649,6 @@ class Ipv6Network(object):
                                         if self.route_tag is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -1871,8 +1734,6 @@ class Ipv6Network(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.destination is not None:
                                                 return True
 
@@ -1882,10 +1743,6 @@ class Ipv6Network(object):
                                             if self.source is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -1942,8 +1799,6 @@ class Ipv6Network(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.destination is not None:
                                                 return True
 
@@ -1953,10 +1808,6 @@ class Ipv6Network(object):
                                             if self.source is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -1978,24 +1829,12 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.input is not None and self.input._has_data():
-                                            return True
-
-                                        if self.input is not None and self.input.is_presence():
                                             return True
 
                                         if self.output is not None and self.output._has_data():
                                             return True
 
-                                        if self.output is not None and self.output.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2017,7 +1856,6 @@ class Ipv6Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        pass
 
                                     @property
                                     def _common_path(self):
@@ -2033,12 +1871,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2060,7 +1892,6 @@ class Ipv6Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        pass
 
                                     @property
                                     def _common_path(self):
@@ -2076,12 +1907,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2103,7 +1928,6 @@ class Ipv6Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        pass
 
                                     @property
                                     def _common_path(self):
@@ -2119,12 +1943,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2146,7 +1964,6 @@ class Ipv6Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        pass
 
                                     @property
                                     def _common_path(self):
@@ -2162,12 +1979,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2190,7 +2001,7 @@ class Ipv6Network(object):
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\: :py:class:`Ipv6MaIfAddrState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState_Enum>`
+                                    	**type**\: :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
                                     
                                     .. attribute:: is_anycast
                                     
@@ -2240,8 +2051,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
@@ -2257,10 +2066,6 @@ class Ipv6Network(object):
                                         if self.route_tag is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2315,8 +2120,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.common is not None:
                                             for child in self.common:
                                                 if child is not None:
@@ -2332,10 +2135,6 @@ class Ipv6Network(object):
                                                 if child is not None:
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2380,15 +2179,9 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2451,8 +2244,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.allow_default_route is not None:
                                             return True
 
@@ -2465,10 +2256,6 @@ class Ipv6Network(object):
                                         if self.mode is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2490,7 +2277,6 @@ class Ipv6Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        pass
 
                                     @property
                                     def _common_path(self):
@@ -2506,12 +2292,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2535,15 +2315,10 @@ class Ipv6Network(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
                                     if self.access_control_list is not None and self.access_control_list._has_data():
-                                        return True
-
-                                    if self.access_control_list is not None and self.access_control_list.is_presence():
                                         return True
 
                                     if self.address is not None:
@@ -2554,13 +2329,7 @@ class Ipv6Network(object):
                                     if self.bgp_pa is not None and self.bgp_pa._has_data():
                                         return True
 
-                                    if self.bgp_pa is not None and self.bgp_pa.is_presence():
-                                        return True
-
                                     if self.caps_utime is not None and self.caps_utime._has_data():
-                                        return True
-
-                                    if self.caps_utime is not None and self.caps_utime.is_presence():
                                         return True
 
                                     if self.flow_tag_dst is not None:
@@ -2572,19 +2341,10 @@ class Ipv6Network(object):
                                     if self.fwd_dis_utime is not None and self.fwd_dis_utime._has_data():
                                         return True
 
-                                    if self.fwd_dis_utime is not None and self.fwd_dis_utime.is_presence():
-                                        return True
-
                                     if self.fwd_en_utime is not None and self.fwd_en_utime._has_data():
                                         return True
 
-                                    if self.fwd_en_utime is not None and self.fwd_en_utime.is_presence():
-                                        return True
-
                                     if self.idb_utime is not None and self.idb_utime._has_data():
-                                        return True
-
-                                    if self.idb_utime is not None and self.idb_utime.is_presence():
                                         return True
 
                                     if self.is_icmp_unreach_enabled is not None:
@@ -2596,9 +2356,6 @@ class Ipv6Network(object):
                                     if self.link_local_address is not None and self.link_local_address._has_data():
                                         return True
 
-                                    if self.link_local_address is not None and self.link_local_address.is_presence():
-                                        return True
-
                                     if self.mlacp_active is not None:
                                         return True
 
@@ -2606,9 +2363,6 @@ class Ipv6Network(object):
                                         return True
 
                                     if self.multi_access_control_list is not None and self.multi_access_control_list._has_data():
-                                        return True
-
-                                    if self.multi_access_control_list is not None and self.multi_access_control_list.is_presence():
                                         return True
 
                                     if self.multicast_group is not None:
@@ -2625,19 +2379,9 @@ class Ipv6Network(object):
                                     if self.rpf is not None and self.rpf._has_data():
                                         return True
 
-                                    if self.rpf is not None and self.rpf.is_presence():
-                                        return True
-
                                     if self.utime is not None and self.utime._has_data():
                                         return True
 
-                                    if self.utime is not None and self.utime.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2659,17 +2403,11 @@ class Ipv6Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.detail is not None:
                                     for child_ref in self.detail:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -2722,7 +2460,7 @@ class Ipv6Network(object):
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
-                                	**type**\: :py:class:`Ipv6MaIfLineState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState_Enum>`
+                                	**type**\: :py:class:`Ipv6MaIfLineStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineStateEnum>`
                                 
                                 .. attribute:: link_local_address
                                 
@@ -2761,7 +2499,7 @@ class Ipv6Network(object):
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\: :py:class:`Ipv6MaIfAddrState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState_Enum>`
+                                    	**type**\: :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
                                     
                                     .. attribute:: is_anycast
                                     
@@ -2811,8 +2549,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
@@ -2828,10 +2564,6 @@ class Ipv6Network(object):
                                         if self.route_tag is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2854,7 +2586,7 @@ class Ipv6Network(object):
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\: :py:class:`Ipv6MaIfAddrState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState_Enum>`
+                                    	**type**\: :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
                                     
                                     .. attribute:: is_anycast
                                     
@@ -2904,8 +2636,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
@@ -2921,10 +2651,6 @@ class Ipv6Network(object):
                                         if self.route_tag is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -2948,8 +2674,6 @@ class Ipv6Network(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
@@ -2964,13 +2688,6 @@ class Ipv6Network(object):
                                     if self.link_local_address is not None and self.link_local_address._has_data():
                                         return True
 
-                                    if self.link_local_address is not None and self.link_local_address.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -2992,17 +2709,11 @@ class Ipv6Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.global_brief is not None:
                                     for child_ref in self.global_brief:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -3100,7 +2811,7 @@ class Ipv6Network(object):
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
-                                	**type**\: :py:class:`Ipv6MaIfLineState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState_Enum>`
+                                	**type**\: :py:class:`Ipv6MaIfLineStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineStateEnum>`
                                 
                                 .. attribute:: link_local_address
                                 
@@ -3132,7 +2843,7 @@ class Ipv6Network(object):
                                 .. attribute:: operation_state
                                 
                                 	IPv6 Operation State
-                                	**type**\: :py:class:`Ipv6MaOperState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperState_Enum>`
+                                	**type**\: :py:class:`Ipv6MaOperStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperStateEnum>`
                                 
                                 .. attribute:: rg_id_exists
                                 
@@ -3247,8 +2958,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.common_in_bound is not None:
                                             return True
 
@@ -3261,10 +2970,6 @@ class Ipv6Network(object):
                                         if self.out_bound is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3287,7 +2992,7 @@ class Ipv6Network(object):
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\: :py:class:`Ipv6MaIfAddrState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState_Enum>`
+                                    	**type**\: :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
                                     
                                     .. attribute:: is_anycast
                                     
@@ -3337,8 +3042,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
@@ -3354,10 +3057,6 @@ class Ipv6Network(object):
                                         if self.route_tag is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3443,8 +3142,6 @@ class Ipv6Network(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.destination is not None:
                                                 return True
 
@@ -3454,10 +3151,6 @@ class Ipv6Network(object):
                                             if self.source is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3514,8 +3207,6 @@ class Ipv6Network(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.is_presence():
-                                                return True
                                             if self.destination is not None:
                                                 return True
 
@@ -3525,10 +3216,6 @@ class Ipv6Network(object):
                                             if self.source is not None:
                                                 return True
 
-                                            return False
-
-                                        def is_presence(self):
-                                            ''' Returns True if this instance represents presence container else returns False '''
                                             return False
 
                                         @staticmethod
@@ -3550,24 +3237,12 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.input is not None and self.input._has_data():
-                                            return True
-
-                                        if self.input is not None and self.input.is_presence():
                                             return True
 
                                         if self.output is not None and self.output._has_data():
                                             return True
 
-                                        if self.output is not None and self.output.is_presence():
-                                            return True
-
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3589,7 +3264,6 @@ class Ipv6Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        pass
 
                                     @property
                                     def _common_path(self):
@@ -3605,12 +3279,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3632,7 +3300,6 @@ class Ipv6Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        pass
 
                                     @property
                                     def _common_path(self):
@@ -3648,12 +3315,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3675,7 +3336,6 @@ class Ipv6Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        pass
 
                                     @property
                                     def _common_path(self):
@@ -3691,12 +3351,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3718,7 +3372,6 @@ class Ipv6Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        pass
 
                                     @property
                                     def _common_path(self):
@@ -3734,12 +3387,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3762,7 +3409,7 @@ class Ipv6Network(object):
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\: :py:class:`Ipv6MaIfAddrState_Enum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState_Enum>`
+                                    	**type**\: :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
                                     
                                     .. attribute:: is_anycast
                                     
@@ -3812,8 +3459,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
@@ -3829,10 +3474,6 @@ class Ipv6Network(object):
                                         if self.route_tag is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3887,8 +3528,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.common is not None:
                                             for child in self.common:
                                                 if child is not None:
@@ -3904,10 +3543,6 @@ class Ipv6Network(object):
                                                 if child is not None:
                                                     return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -3952,15 +3587,9 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.address is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4023,8 +3652,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
                                         if self.allow_default_route is not None:
                                             return True
 
@@ -4037,10 +3664,6 @@ class Ipv6Network(object):
                                         if self.mode is not None:
                                             return True
 
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4062,7 +3685,6 @@ class Ipv6Network(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        pass
 
                                     @property
                                     def _common_path(self):
@@ -4078,12 +3700,6 @@ class Ipv6Network(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.is_presence():
-                                            return True
-                                        return False
-
-                                    def is_presence(self):
-                                        ''' Returns True if this instance represents presence container else returns False '''
                                         return False
 
                                     @staticmethod
@@ -4107,15 +3723,10 @@ class Ipv6Network(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.interface_name is not None:
                                         return True
 
                                     if self.access_control_list is not None and self.access_control_list._has_data():
-                                        return True
-
-                                    if self.access_control_list is not None and self.access_control_list.is_presence():
                                         return True
 
                                     if self.address is not None:
@@ -4126,13 +3737,7 @@ class Ipv6Network(object):
                                     if self.bgp_pa is not None and self.bgp_pa._has_data():
                                         return True
 
-                                    if self.bgp_pa is not None and self.bgp_pa.is_presence():
-                                        return True
-
                                     if self.caps_utime is not None and self.caps_utime._has_data():
-                                        return True
-
-                                    if self.caps_utime is not None and self.caps_utime.is_presence():
                                         return True
 
                                     if self.flow_tag_dst is not None:
@@ -4144,19 +3749,10 @@ class Ipv6Network(object):
                                     if self.fwd_dis_utime is not None and self.fwd_dis_utime._has_data():
                                         return True
 
-                                    if self.fwd_dis_utime is not None and self.fwd_dis_utime.is_presence():
-                                        return True
-
                                     if self.fwd_en_utime is not None and self.fwd_en_utime._has_data():
                                         return True
 
-                                    if self.fwd_en_utime is not None and self.fwd_en_utime.is_presence():
-                                        return True
-
                                     if self.idb_utime is not None and self.idb_utime._has_data():
-                                        return True
-
-                                    if self.idb_utime is not None and self.idb_utime.is_presence():
                                         return True
 
                                     if self.is_icmp_unreach_enabled is not None:
@@ -4168,9 +3764,6 @@ class Ipv6Network(object):
                                     if self.link_local_address is not None and self.link_local_address._has_data():
                                         return True
 
-                                    if self.link_local_address is not None and self.link_local_address.is_presence():
-                                        return True
-
                                     if self.mlacp_active is not None:
                                         return True
 
@@ -4178,9 +3771,6 @@ class Ipv6Network(object):
                                         return True
 
                                     if self.multi_access_control_list is not None and self.multi_access_control_list._has_data():
-                                        return True
-
-                                    if self.multi_access_control_list is not None and self.multi_access_control_list.is_presence():
                                         return True
 
                                     if self.multicast_group is not None:
@@ -4197,19 +3787,9 @@ class Ipv6Network(object):
                                     if self.rpf is not None and self.rpf._has_data():
                                         return True
 
-                                    if self.rpf is not None and self.rpf.is_presence():
-                                        return True
-
                                     if self.utime is not None and self.utime._has_data():
                                         return True
 
-                                    if self.utime is not None and self.utime.is_presence():
-                                        return True
-
-                                    return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
                                     return False
 
                                 @staticmethod
@@ -4231,17 +3811,11 @@ class Ipv6Network(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.global_detail is not None:
                                     for child_ref in self.global_detail:
                                         if child_ref._has_data():
                                             return True
 
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -4265,39 +3839,21 @@ class Ipv6Network(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.vrf_name is not None:
                                 return True
 
                             if self.briefs is not None and self.briefs._has_data():
                                 return True
 
-                            if self.briefs is not None and self.briefs.is_presence():
-                                return True
-
                             if self.details is not None and self.details._has_data():
-                                return True
-
-                            if self.details is not None and self.details.is_presence():
                                 return True
 
                             if self.global_briefs is not None and self.global_briefs._has_data():
                                 return True
 
-                            if self.global_briefs is not None and self.global_briefs.is_presence():
-                                return True
-
                             if self.global_details is not None and self.global_details._has_data():
                                 return True
 
-                            if self.global_details is not None and self.global_details.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -4319,17 +3875,11 @@ class Ipv6Network(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf is not None:
                             for child_ref in self.vrf:
                                 if child_ref._has_data():
                                     return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -4351,24 +3901,12 @@ class Ipv6Network(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.summary is not None and self.summary._has_data():
-                        return True
-
-                    if self.summary is not None and self.summary.is_presence():
                         return True
 
                     if self.vrfs is not None and self.vrfs._has_data():
                         return True
 
-                    if self.vrfs is not None and self.vrfs.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -4390,21 +3928,12 @@ class Ipv6Network(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.node_name is not None:
                     return True
 
                 if self.interface_data is not None and self.interface_data._has_data():
                     return True
 
-                if self.interface_data is not None and self.interface_data.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -4424,17 +3953,11 @@ class Ipv6Network(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -4454,24 +3977,12 @@ class Ipv6Network(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.interface_global_data is not None and self.interface_global_data._has_data():
-            return True
-
-        if self.interface_global_data is not None and self.interface_global_data.is_presence():
             return True
 
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.nodes is not None and self.nodes.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

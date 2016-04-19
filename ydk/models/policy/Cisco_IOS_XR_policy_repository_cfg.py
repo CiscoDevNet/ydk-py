@@ -108,18 +108,12 @@ class RoutingPolicy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.maximum_lines_of_policy is not None:
                 return True
 
             if self.maximum_number_of_policies is not None:
                 return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -193,18 +187,12 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.route_policy_name is not None:
                     return True
 
                 if self.rpl_route_policy is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -224,17 +212,11 @@ class RoutingPolicy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.route_policy is not None:
                 for child_ref in self.route_policy:
                     if child_ref._has_data():
                         return True
 
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -477,18 +459,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rpl_extended_community_opaque_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -508,17 +484,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.append_extended_community_opaque_set is not None:
                     for child_ref in self.append_extended_community_opaque_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -592,18 +562,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rpl_extended_community_seg_nh_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -623,17 +587,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.append_extended_community_seg_nh_set is not None:
                     for child_ref in self.append_extended_community_seg_nh_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -707,18 +665,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rplospf_area_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -738,17 +690,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.append_ospf_area_set is not None:
                     for child_ref in self.append_ospf_area_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -822,18 +768,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rplas_path_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -853,17 +793,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.as_path_set is not None:
                     for child_ref in self.as_path_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -937,18 +871,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rpl_community_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -968,17 +896,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.community_set is not None:
                     for child_ref in self.community_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1052,18 +974,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rpl_extended_community_bandwidth_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1083,17 +999,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.extended_community_bandwidth_set is not None:
                     for child_ref in self.extended_community_bandwidth_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1167,18 +1077,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rpl_extended_community_cost_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1198,17 +1102,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.extended_community_cost_set is not None:
                     for child_ref in self.extended_community_cost_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1282,18 +1180,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rpl_extended_community_opaque_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1313,17 +1205,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.extended_community_opaque_set is not None:
                     for child_ref in self.extended_community_opaque_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1397,18 +1283,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rpl_extended_community_rt_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1428,17 +1308,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.extended_community_rt_set is not None:
                     for child_ref in self.extended_community_rt_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1512,18 +1386,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rpl_extended_community_seg_nh_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1543,17 +1411,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.extended_community_seg_nh_set is not None:
                     for child_ref in self.extended_community_seg_nh_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1627,18 +1489,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rpl_extended_community_soo_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1658,17 +1514,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.extended_community_soo_set is not None:
                     for child_ref in self.extended_community_soo_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1757,18 +1607,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rplospf_area_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1788,17 +1632,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.ospf_area_set is not None:
                     for child_ref in self.ospf_area_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1839,15 +1677,9 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.policy_global_set is not None:
                     return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1921,18 +1753,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rpl_prefix_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1952,17 +1778,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.prefix_set is not None:
                     for child_ref in self.prefix_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2036,18 +1856,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rpl_extended_community_opaque_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2067,17 +1881,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.prepend_extended_community_opaque_set is not None:
                     for child_ref in self.prepend_extended_community_opaque_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2151,18 +1959,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rpl_extended_community_seg_nh_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2182,17 +1984,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.prepend_extended_community_seg_nh_set is not None:
                     for child_ref in self.prepend_extended_community_seg_nh_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2266,18 +2062,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rplospf_area_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2297,17 +2087,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.prepend_ospf_area_set is not None:
                     for child_ref in self.prepend_ospf_area_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2381,18 +2165,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rplrd_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2412,17 +2190,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.rd_set is not None:
                     for child_ref in self.rd_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2496,18 +2268,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rpl_extended_community_opaque_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2527,17 +2293,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.remove_extended_community_opaque_set is not None:
                     for child_ref in self.remove_extended_community_opaque_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2611,18 +2371,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rpl_extended_community_seg_nh_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2642,17 +2396,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.remove_extended_community_seg_nh_set is not None:
                     for child_ref in self.remove_extended_community_seg_nh_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2726,18 +2474,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rplospf_area_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2757,17 +2499,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.remove_ospf_area_set is not None:
                     for child_ref in self.remove_ospf_area_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2841,18 +2577,12 @@ class RoutingPolicy(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.set_name is not None:
                         return True
 
                     if self.rpl_tag_set is not None:
                         return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -2872,17 +2602,11 @@ class RoutingPolicy(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.tag_set is not None:
                     for child_ref in self.tag_set:
                         if child_ref._has_data():
                             return True
 
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -2902,144 +2626,72 @@ class RoutingPolicy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.append_extended_community_opaque_sets is not None and self.append_extended_community_opaque_sets._has_data():
-                return True
-
-            if self.append_extended_community_opaque_sets is not None and self.append_extended_community_opaque_sets.is_presence():
                 return True
 
             if self.append_extended_community_seg_nh_sets is not None and self.append_extended_community_seg_nh_sets._has_data():
                 return True
 
-            if self.append_extended_community_seg_nh_sets is not None and self.append_extended_community_seg_nh_sets.is_presence():
-                return True
-
             if self.append_ospf_area_sets is not None and self.append_ospf_area_sets._has_data():
-                return True
-
-            if self.append_ospf_area_sets is not None and self.append_ospf_area_sets.is_presence():
                 return True
 
             if self.as_path_sets is not None and self.as_path_sets._has_data():
                 return True
 
-            if self.as_path_sets is not None and self.as_path_sets.is_presence():
-                return True
-
             if self.community_sets is not None and self.community_sets._has_data():
-                return True
-
-            if self.community_sets is not None and self.community_sets.is_presence():
                 return True
 
             if self.extended_community_bandwidth_sets is not None and self.extended_community_bandwidth_sets._has_data():
                 return True
 
-            if self.extended_community_bandwidth_sets is not None and self.extended_community_bandwidth_sets.is_presence():
-                return True
-
             if self.extended_community_cost_sets is not None and self.extended_community_cost_sets._has_data():
-                return True
-
-            if self.extended_community_cost_sets is not None and self.extended_community_cost_sets.is_presence():
                 return True
 
             if self.extended_community_opaque_sets is not None and self.extended_community_opaque_sets._has_data():
                 return True
 
-            if self.extended_community_opaque_sets is not None and self.extended_community_opaque_sets.is_presence():
-                return True
-
             if self.extended_community_rt_sets is not None and self.extended_community_rt_sets._has_data():
-                return True
-
-            if self.extended_community_rt_sets is not None and self.extended_community_rt_sets.is_presence():
                 return True
 
             if self.extended_community_seg_nh_sets is not None and self.extended_community_seg_nh_sets._has_data():
                 return True
 
-            if self.extended_community_seg_nh_sets is not None and self.extended_community_seg_nh_sets.is_presence():
-                return True
-
             if self.extended_community_soo_sets is not None and self.extended_community_soo_sets._has_data():
-                return True
-
-            if self.extended_community_soo_sets is not None and self.extended_community_soo_sets.is_presence():
                 return True
 
             if self.ospf_area_sets is not None and self.ospf_area_sets._has_data():
                 return True
 
-            if self.ospf_area_sets is not None and self.ospf_area_sets.is_presence():
-                return True
-
             if self.policy_global_set_table is not None and self.policy_global_set_table._has_data():
-                return True
-
-            if self.policy_global_set_table is not None and self.policy_global_set_table.is_presence():
                 return True
 
             if self.prefix_sets is not None and self.prefix_sets._has_data():
                 return True
 
-            if self.prefix_sets is not None and self.prefix_sets.is_presence():
-                return True
-
             if self.prepend_extended_community_opaque_sets is not None and self.prepend_extended_community_opaque_sets._has_data():
-                return True
-
-            if self.prepend_extended_community_opaque_sets is not None and self.prepend_extended_community_opaque_sets.is_presence():
                 return True
 
             if self.prepend_extended_community_seg_nh_sets is not None and self.prepend_extended_community_seg_nh_sets._has_data():
                 return True
 
-            if self.prepend_extended_community_seg_nh_sets is not None and self.prepend_extended_community_seg_nh_sets.is_presence():
-                return True
-
             if self.prepend_ospf_area_sets is not None and self.prepend_ospf_area_sets._has_data():
-                return True
-
-            if self.prepend_ospf_area_sets is not None and self.prepend_ospf_area_sets.is_presence():
                 return True
 
             if self.rd_sets is not None and self.rd_sets._has_data():
                 return True
 
-            if self.rd_sets is not None and self.rd_sets.is_presence():
-                return True
-
             if self.remove_extended_community_opaque_sets is not None and self.remove_extended_community_opaque_sets._has_data():
-                return True
-
-            if self.remove_extended_community_opaque_sets is not None and self.remove_extended_community_opaque_sets.is_presence():
                 return True
 
             if self.remove_extended_community_seg_nh_sets is not None and self.remove_extended_community_seg_nh_sets._has_data():
                 return True
 
-            if self.remove_extended_community_seg_nh_sets is not None and self.remove_extended_community_seg_nh_sets.is_presence():
-                return True
-
             if self.remove_ospf_area_sets is not None and self.remove_ospf_area_sets._has_data():
-                return True
-
-            if self.remove_ospf_area_sets is not None and self.remove_ospf_area_sets.is_presence():
                 return True
 
             if self.tag_sets is not None and self.tag_sets._has_data():
                 return True
 
-            if self.tag_sets is not None and self.tag_sets.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -3059,33 +2711,18 @@ class RoutingPolicy(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.editor is not None:
             return True
 
         if self.limits is not None and self.limits._has_data():
             return True
 
-        if self.limits is not None and self.limits.is_presence():
-            return True
-
         if self.route_policies is not None and self.route_policies._has_data():
-            return True
-
-        if self.route_policies is not None and self.route_policies.is_presence():
             return True
 
         if self.sets is not None and self.sets._has_data():
             return True
 
-        if self.sets is not None and self.sets.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

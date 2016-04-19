@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,13 +14,13 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'BagDhcpv6dIaId_Enum' : _MetaInfoEnum('BagDhcpv6dIaId_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper',
+    'BagDhcpv6DIaIdEnum' : _MetaInfoEnum('BagDhcpv6DIaIdEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper',
         {
             'iana':'IANA',
             'iapd':'IAPD',
             'iata':'IATA',
         }, 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper']),
-    'BagDhcpv6dFsmState_Enum' : _MetaInfoEnum('BagDhcpv6dFsmState_Enum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper',
+    'BagDhcpv6DFsmStateEnum' : _MetaInfoEnum('BagDhcpv6DFsmStateEnum', 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper',
         {
             'server-initializing':'SERVER_INITIALIZING',
             'server-waiting-dpm':'SERVER_WAITING_DPM',
@@ -145,8 +145,8 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb',
+    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb',
             False, 
             [
             _MetaInfoClassMember('lease-time', ATTRIBUTE, 'int' , None, None, 
@@ -180,11 +180,11 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses',
+    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses',
             False, 
             [
-            _MetaInfoClassMember('bag-dhcpv6d-addr-attrb', REFERENCE_LIST, 'BagDhcpv6dAddrAttrb' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb', 
+            _MetaInfoClassMember('bag-dhcpv6d-addr-attrb', REFERENCE_LIST, 'BagDhcpv6DAddrAttrb' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb', 
                 [], [], 
                 '''                bag dhcpv6d addr attrb
                 ''',
@@ -197,11 +197,11 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo',
+    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo',
             False, 
             [
-            _MetaInfoClassMember('addresses', REFERENCE_CLASS, 'Addresses' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses', 
+            _MetaInfoClassMember('addresses', REFERENCE_CLASS, 'Addresses' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses', 
                 [], [], 
                 '''                List of addresses in this IA
                 ''',
@@ -219,13 +219,13 @@ _meta_table = {
                 ''',
                 'ia_id',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('ia-type', REFERENCE_ENUM_CLASS, 'BagDhcpv6dIaId_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dIaId_Enum', 
+            _MetaInfoClassMember('ia-type', REFERENCE_ENUM_CLASS, 'BagDhcpv6DIaIdEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6DIaIdEnum', 
                 [], [], 
                 '''                IA type
                 ''',
                 'ia_type',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'BagDhcpv6dFsmState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dFsmState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'BagDhcpv6DFsmStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6DFsmStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -248,7 +248,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd',
             False, 
             [
-            _MetaInfoClassMember('bag-dhcpv6d-ia-id-pd-info', REFERENCE_LIST, 'BagDhcpv6dIaIdPdInfo' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo', 
+            _MetaInfoClassMember('bag-dhcpv6d-ia-id-pd-info', REFERENCE_LIST, 'BagDhcpv6DIaIdPdInfo' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo', 
                 [], [], 
                 '''                bag dhcpv6d ia id pd info
                 ''',
@@ -612,8 +612,8 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference',
+    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6DProxyIidReference' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6DProxyIidReference',
             False, 
             [
             _MetaInfoClassMember('proxy-iid-interface-name', ATTRIBUTE, 'str' , None, None, 
@@ -639,7 +639,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences',
             False, 
             [
-            _MetaInfoClassMember('ipv6-dhcpv6d-proxy-iid-reference', REFERENCE_LIST, 'Ipv6Dhcpv6dProxyIidReference' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference', 
+            _MetaInfoClassMember('ipv6-dhcpv6d-proxy-iid-reference', REFERENCE_LIST, 'Ipv6Dhcpv6DProxyIidReference' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6DProxyIidReference', 
                 [], [], 
                 '''                ipv6 dhcpv6d proxy iid reference
                 ''',
@@ -652,8 +652,8 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference',
+    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference',
             False, 
             [
             _MetaInfoClassMember('proxy-reference-interface-name', ATTRIBUTE, 'str' , None, None, 
@@ -673,7 +673,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences',
             False, 
             [
-            _MetaInfoClassMember('ipv6-dhcpv6d-proxy-interface-reference', REFERENCE_LIST, 'Ipv6Dhcpv6dProxyInterfaceReference' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference', 
+            _MetaInfoClassMember('ipv6-dhcpv6d-proxy-interface-reference', REFERENCE_LIST, 'Ipv6Dhcpv6DProxyInterfaceReference' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference', 
                 [], [], 
                 '''                ipv6 dhcpv6d proxy interface reference
                 ''',
@@ -686,8 +686,8 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference',
+    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6DProxyVrfReference' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6DProxyVrfReference',
             False, 
             [
             _MetaInfoClassMember('proxy-reference-vrf-name', ATTRIBUTE, 'str' , None, None, 
@@ -707,7 +707,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences',
             False, 
             [
-            _MetaInfoClassMember('ipv6-dhcpv6d-proxy-vrf-reference', REFERENCE_LIST, 'Ipv6Dhcpv6dProxyVrfReference' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference', 
+            _MetaInfoClassMember('ipv6-dhcpv6d-proxy-vrf-reference', REFERENCE_LIST, 'Ipv6Dhcpv6DProxyVrfReference' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6DProxyVrfReference', 
                 [], [], 
                 '''                ipv6 dhcpv6d proxy vrf reference
                 ''',
@@ -889,8 +889,8 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics',
+    'Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics',
             False, 
             [
             _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
@@ -918,11 +918,11 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat',
+    'Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat',
             False, 
             [
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics', 
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics', 
                 [], [], 
                 '''                Proxy statistics
                 ''',
@@ -945,7 +945,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Statistics',
             False, 
             [
-            _MetaInfoClassMember('ipv6-dhcpv6d-proxy-stat', REFERENCE_LIST, 'Ipv6Dhcpv6dProxyStat' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat', 
+            _MetaInfoClassMember('ipv6-dhcpv6d-proxy-stat', REFERENCE_LIST, 'Ipv6Dhcpv6DProxyStat' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat', 
                 [], [], 
                 '''                ipv6 dhcpv6d proxy stat
                 ''',
@@ -1779,8 +1779,8 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics',
+    'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics',
             False, 
             [
             _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
@@ -1808,11 +1808,11 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat',
+    'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat',
             False, 
             [
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics', 
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics', 
                 [], [], 
                 '''                Relay statistics
                 ''',
@@ -1835,7 +1835,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Statistics',
             False, 
             [
-            _MetaInfoClassMember('ipv6-dhcpv6d-relay-stat', REFERENCE_LIST, 'Ipv6Dhcpv6dRelayStat' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat', 
+            _MetaInfoClassMember('ipv6-dhcpv6d-relay-stat', REFERENCE_LIST, 'Ipv6Dhcpv6DRelayStat' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat', 
                 [], [], 
                 '''                ipv6 dhcpv6d relay stat
                 ''',
@@ -2523,8 +2523,8 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb',
+    'Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb',
             False, 
             [
             _MetaInfoClassMember('lease-time', ATTRIBUTE, 'int' , None, None, 
@@ -2558,11 +2558,11 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses',
+    'Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses',
             False, 
             [
-            _MetaInfoClassMember('bag-dhcpv6d-addr-attrb', REFERENCE_LIST, 'BagDhcpv6dAddrAttrb' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb', 
+            _MetaInfoClassMember('bag-dhcpv6d-addr-attrb', REFERENCE_LIST, 'BagDhcpv6DAddrAttrb' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb', 
                 [], [], 
                 '''                bag dhcpv6d addr attrb
                 ''',
@@ -2575,11 +2575,11 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo',
+    'Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo',
             False, 
             [
-            _MetaInfoClassMember('addresses', REFERENCE_CLASS, 'Addresses' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses', 
+            _MetaInfoClassMember('addresses', REFERENCE_CLASS, 'Addresses' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses', 
                 [], [], 
                 '''                List of addresses in this IA
                 ''',
@@ -2597,13 +2597,13 @@ _meta_table = {
                 ''',
                 'ia_id',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('ia-type', REFERENCE_ENUM_CLASS, 'BagDhcpv6dIaId_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dIaId_Enum', 
+            _MetaInfoClassMember('ia-type', REFERENCE_ENUM_CLASS, 'BagDhcpv6DIaIdEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6DIaIdEnum', 
                 [], [], 
                 '''                IA type
                 ''',
                 'ia_type',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'BagDhcpv6dFsmState_Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dFsmState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'BagDhcpv6DFsmStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6DFsmStateEnum', 
                 [], [], 
                 '''                State
                 ''',
@@ -2626,7 +2626,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd',
             False, 
             [
-            _MetaInfoClassMember('bag-dhcpv6d-ia-id-pd-info', REFERENCE_LIST, 'BagDhcpv6dIaIdPdInfo' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo', 
+            _MetaInfoClassMember('bag-dhcpv6d-ia-id-pd-info', REFERENCE_LIST, 'BagDhcpv6DIaIdPdInfo' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo', 
                 [], [], 
                 '''                bag dhcpv6d ia id pd info
                 ''',
@@ -3002,8 +3002,8 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference',
+    'Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DServerInterfaceReference' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DServerInterfaceReference',
             False, 
             [
             _MetaInfoClassMember('server-reference-interface-name', ATTRIBUTE, 'str' , None, None, 
@@ -3023,7 +3023,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences',
             False, 
             [
-            _MetaInfoClassMember('ipv6-dhcpv6d-server-interface-reference', REFERENCE_LIST, 'Ipv6Dhcpv6dServerInterfaceReference' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference', 
+            _MetaInfoClassMember('ipv6-dhcpv6d-server-interface-reference', REFERENCE_LIST, 'Ipv6Dhcpv6DServerInterfaceReference' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DServerInterfaceReference', 
                 [], [], 
                 '''                ipv6 dhcpv6d server interface reference
                 ''',
@@ -3234,8 +3234,8 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics',
+    'Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics',
             False, 
             [
             _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
@@ -3263,11 +3263,11 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat',
+    'Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat',
             False, 
             [
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics', 
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics', 
                 [], [], 
                 '''                Server statistics
                 ''',
@@ -3290,7 +3290,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Statistics',
             False, 
             [
-            _MetaInfoClassMember('ipv6-dhcpv6d-server-stat', REFERENCE_LIST, 'Ipv6Dhcpv6dServerStat' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat', 
+            _MetaInfoClassMember('ipv6-dhcpv6d-server-stat', REFERENCE_LIST, 'Ipv6Dhcpv6DServerStat' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat', 
                 [], [], 
                 '''                ipv6 dhcpv6d server stat
                 ''',
@@ -4060,18 +4060,18 @@ _meta_table = {
         ),
     },
 }
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Summary']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Summary']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Summary']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6DProxyIidReference']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6DProxyVrfReference']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info']['meta_info']
@@ -4079,8 +4079,8 @@ _meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
@@ -4107,8 +4107,8 @@ _meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs']['meta_info'].parent =_meta_table['Dh
 _meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Clients']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Clients']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Binding']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Summary']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Binding']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
@@ -4131,24 +4131,24 @@ _meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf']['meta_info'].parent =_meta_table
 _meta_table['Dhcpv6.Nodes.Node.Relay.Binding']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Relay.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DServerInterfaceReference']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInfo']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Statistics']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']

@@ -24,90 +24,82 @@ from ydk.errors import YPYError, YPYDataValidationError
 
 
 
-class SpanMirrorInterval_Enum(Enum):
+class SpanMirrorIntervalEnum(Enum):
     """
-    SpanMirrorInterval_Enum
+    SpanMirrorIntervalEnum
 
     Span mirror interval
 
-    """
+    .. data:: Y_512 = 1
+
+    	Mirror 1 in every 512 packets
+
+    .. data:: Y_1K = 2
+
+    	Mirror 1 in every 1024 packets
+
+    .. data:: Y_2K = 3
+
+    	Mirror 1 in every 2048 packets
+
+    .. data:: Y_4K = 4
+
+    	Mirror 1 in every 4096 packets
+
+    .. data:: Y_8K = 5
+
+    	Mirror 1 in every 8192 packets
+
+    .. data:: Y_16K = 6
+
+    	Mirror 1 in every 16384 packets
 
     """
 
-    Mirror 1 in every 512 packets
-
-    """
     Y_512 = 1
 
-    """
-
-    Mirror 1 in every 1024 packets
-
-    """
     Y_1K = 2
 
-    """
-
-    Mirror 1 in every 2048 packets
-
-    """
     Y_2K = 3
 
-    """
-
-    Mirror 1 in every 4096 packets
-
-    """
     Y_4K = 4
 
-    """
-
-    Mirror 1 in every 8192 packets
-
-    """
     Y_8K = 5
 
-    """
-
-    Mirror 1 in every 16384 packets
-
-    """
     Y_16K = 6
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg as meta
-        return meta._meta_table['SpanMirrorInterval_Enum']
+        return meta._meta_table['SpanMirrorIntervalEnum']
 
 
-class SpanTrafficDirection_Enum(Enum):
+class SpanTrafficDirectionEnum(Enum):
     """
-    SpanTrafficDirection_Enum
+    SpanTrafficDirectionEnum
 
     Span traffic direction
 
-    """
+    .. data:: RX_ONLY = 1
+
+    	Replicate only received (ingress) traffic
+
+    .. data:: TX_ONLY = 2
+
+    	Replicate only transmitted (egress) traffic
 
     """
 
-    Replicate only received (ingress) traffic
-
-    """
     RX_ONLY = 1
 
-    """
-
-    Replicate only transmitted (egress) traffic
-
-    """
     TX_ONLY = 2
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.ethernet._meta import _Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg as meta
-        return meta._meta_table['SpanTrafficDirection_Enum']
+        return meta._meta_table['SpanTrafficDirectionEnum']
 
 
 

@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,14 +14,14 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'AclTcpflagsOperator_Enum' : _MetaInfoEnum('AclTcpflagsOperator_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
+    'AclTcpflagsOperatorEnum' : _MetaInfoEnum('AclTcpflagsOperatorEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
         {
             'match-none':'MATCH_NONE',
             'match-all':'MATCH_ALL',
             'match-any-old':'MATCH_ANY_OLD',
             'match-any':'MATCH_ANY',
         }, 'Cisco-IOS-XR-ipv4-acl-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-oper']),
-    'AclPortOperator_Enum' : _MetaInfoEnum('AclPortOperator_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
+    'AclPortOperatorEnum' : _MetaInfoEnum('AclPortOperatorEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
         {
             'none':'NONE',
             'eq':'EQ',
@@ -32,13 +32,13 @@ _meta_table = {
             'onebyte':'ONEBYTE',
             'twobytes':'TWOBYTES',
         }, 'Cisco-IOS-XR-ipv4-acl-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-oper']),
-    'AclAce1_Enum' : _MetaInfoEnum('AclAce1_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
+    'AclAce1Enum' : _MetaInfoEnum('AclAce1Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
         {
             'normal':'NORMAL',
             'remark':'REMARK',
             'abf':'ABF',
         }, 'Cisco-IOS-XR-ipv4-acl-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-oper']),
-    'AclPortOperator_Enum' : _MetaInfoEnum('AclPortOperator_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
+    'AclPortOperatorEnum' : _MetaInfoEnum('AclPortOperatorEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
         {
             'none':'NONE',
             'eq':'EQ',
@@ -49,13 +49,13 @@ _meta_table = {
             'onebyte':'ONEBYTE',
             'twobytes':'TWOBYTES',
         }, 'Cisco-IOS-XR-ipv4-acl-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-oper']),
-    'BagAclNh_Enum' : _MetaInfoEnum('BagAclNh_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
+    'BagAclNhEnum' : _MetaInfoEnum('BagAclNhEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
         {
             'nexthop-none':'NEXTHOP_NONE',
             'nexthop-default':'NEXTHOP_DEFAULT',
             'nexthop':'NEXTHOP',
         }, 'Cisco-IOS-XR-ipv4-acl-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-oper']),
-    'AclPortOperator_Enum' : _MetaInfoEnum('AclPortOperator_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
+    'AclPortOperatorEnum' : _MetaInfoEnum('AclPortOperatorEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
         {
             'none':'NONE',
             'eq':'EQ',
@@ -66,7 +66,7 @@ _meta_table = {
             'onebyte':'ONEBYTE',
             'twobytes':'TWOBYTES',
         }, 'Cisco-IOS-XR-ipv4-acl-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-oper']),
-    'AclAction_Enum' : _MetaInfoEnum('AclAction_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
+    'AclActionEnum' : _MetaInfoEnum('AclActionEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
         {
             'deny':'DENY',
             'permit':'PERMIT',
@@ -75,20 +75,20 @@ _meta_table = {
             'fallthrough':'FALLTHROUGH',
             'invalid':'INVALID',
         }, 'Cisco-IOS-XR-ipv4-acl-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-oper']),
-    'BagAclNhStatus_Enum' : _MetaInfoEnum('BagAclNhStatus_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
+    'BagAclNhStatusEnum' : _MetaInfoEnum('BagAclNhStatusEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
         {
             'not-present':'NOT_PRESENT',
             'unknown':'UNKNOWN',
             'down':'DOWN',
             'up':'UP',
         }, 'Cisco-IOS-XR-ipv4-acl-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-oper']),
-    'AclLog_Enum' : _MetaInfoEnum('AclLog_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
+    'AclLogEnum' : _MetaInfoEnum('AclLogEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
         {
             'log-none':'LOG_NONE',
             'log':'LOG',
             'log-input':'LOG_INPUT',
         }, 'Cisco-IOS-XR-ipv4-acl-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-oper']),
-    'AclAce1_Enum' : _MetaInfoEnum('AclAce1_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
+    'AclAce1Enum' : _MetaInfoEnum('AclAce1Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper',
         {
             'normal':'NORMAL',
             'remark':'REMARK',
@@ -104,7 +104,7 @@ _meta_table = {
                 ''',
                 'next_hop',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BagAclNh_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'BagAclNh_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BagAclNhEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'BagAclNhEnum', 
                 [], [], 
                 '''                the next-hop type
                 ''',
@@ -139,7 +139,7 @@ _meta_table = {
                 ''',
                 'next_hop',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'BagAclNhStatus_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'BagAclNhStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'BagAclNhStatusEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'BagAclNhStatusEnum', 
                 [], [], 
                 '''                The next hop status
                 ''',
@@ -198,7 +198,7 @@ _meta_table = {
                 ''',
                 'destination_address_mask',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
-            _MetaInfoClassMember('destination-operator', REFERENCE_ENUM_CLASS, 'AclPortOperator_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperator_Enum', 
+            _MetaInfoClassMember('destination-operator', REFERENCE_ENUM_CLASS, 'AclPortOperatorEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperatorEnum', 
                 [], [], 
                 '''                Destination operator
                 ''',
@@ -264,7 +264,7 @@ _meta_table = {
                 ''',
                 'fragments',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
-            _MetaInfoClassMember('grant', REFERENCE_ENUM_CLASS, 'AclAction_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclAction_Enum', 
+            _MetaInfoClassMember('grant', REFERENCE_ENUM_CLASS, 'AclActionEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclActionEnum', 
                 [], [], 
                 '''                Permit/deny
                 ''',
@@ -288,13 +288,13 @@ _meta_table = {
                 ''',
                 'is_icmp_off',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
-            _MetaInfoClassMember('item-type', REFERENCE_ENUM_CLASS, 'AclAce1_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclAce1_Enum', 
+            _MetaInfoClassMember('item-type', REFERENCE_ENUM_CLASS, 'AclAce1Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclAce1Enum', 
                 [], [], 
                 '''                ACE type (acl, remark)
                 ''',
                 'item_type',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
-            _MetaInfoClassMember('log-option', REFERENCE_ENUM_CLASS, 'AclLog_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclLog_Enum', 
+            _MetaInfoClassMember('log-option', REFERENCE_ENUM_CLASS, 'AclLogEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclLogEnum', 
                 [], [], 
                 '''                Log option
                 ''',
@@ -306,7 +306,7 @@ _meta_table = {
                 ''',
                 'next_hop_info',
                 'Cisco-IOS-XR-ipv4-acl-oper', False, max_elements=3),
-            _MetaInfoClassMember('next-hop-type', REFERENCE_ENUM_CLASS, 'BagAclNh_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'BagAclNh_Enum', 
+            _MetaInfoClassMember('next-hop-type', REFERENCE_ENUM_CLASS, 'BagAclNhEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'BagAclNhEnum', 
                 [], [], 
                 '''                Next hop type
                 ''',
@@ -330,7 +330,7 @@ _meta_table = {
                 ''',
                 'port_length2',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
-            _MetaInfoClassMember('port-length-operator', REFERENCE_ENUM_CLASS, 'AclPortOperator_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperator_Enum', 
+            _MetaInfoClassMember('port-length-operator', REFERENCE_ENUM_CLASS, 'AclPortOperatorEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperatorEnum', 
                 [], [], 
                 '''                Port length operator
                 ''',
@@ -366,7 +366,7 @@ _meta_table = {
                 ''',
                 'sequence',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
-            _MetaInfoClassMember('sorce-operator', REFERENCE_ENUM_CLASS, 'AclPortOperator_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperator_Enum', 
+            _MetaInfoClassMember('sorce-operator', REFERENCE_ENUM_CLASS, 'AclPortOperatorEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperatorEnum', 
                 [], [], 
                 '''                Deprecated by Source operator
                 ''',
@@ -396,7 +396,7 @@ _meta_table = {
                 ''',
                 'source_address_mask',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
-            _MetaInfoClassMember('source-operator', REFERENCE_ENUM_CLASS, 'AclPortOperator_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperator_Enum', 
+            _MetaInfoClassMember('source-operator', REFERENCE_ENUM_CLASS, 'AclPortOperatorEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperatorEnum', 
                 [], [], 
                 '''                Source operator
                 ''',
@@ -438,7 +438,7 @@ _meta_table = {
                 ''',
                 'tcp_flags_mask',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
-            _MetaInfoClassMember('tcp-flags-operator', REFERENCE_ENUM_CLASS, 'AclTcpflagsOperator_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclTcpflagsOperator_Enum', 
+            _MetaInfoClassMember('tcp-flags-operator', REFERENCE_ENUM_CLASS, 'AclTcpflagsOperatorEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclTcpflagsOperatorEnum', 
                 [], [], 
                 '''                TCP flags operator
                 ''',
@@ -456,7 +456,7 @@ _meta_table = {
                 ''',
                 'ttl2',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
-            _MetaInfoClassMember('ttl-operator', REFERENCE_ENUM_CLASS, 'AclPortOperator_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperator_Enum', 
+            _MetaInfoClassMember('ttl-operator', REFERENCE_ENUM_CLASS, 'AclPortOperatorEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperatorEnum', 
                 [], [], 
                 '''                TTL operator
                 ''',
@@ -543,7 +543,7 @@ _meta_table = {
                 ''',
                 'acl_name',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
-            _MetaInfoClassMember('grant', REFERENCE_ENUM_CLASS, 'AclAction_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclAction_Enum', 
+            _MetaInfoClassMember('grant', REFERENCE_ENUM_CLASS, 'AclActionEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclActionEnum', 
                 [], [], 
                 '''                Grant value permit/deny 
                 ''',
@@ -555,7 +555,7 @@ _meta_table = {
                 ''',
                 'hits',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
-            _MetaInfoClassMember('item-type', REFERENCE_ENUM_CLASS, 'AclAce1_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclAce1_Enum', 
+            _MetaInfoClassMember('item-type', REFERENCE_ENUM_CLASS, 'AclAce1Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclAce1Enum', 
                 [], [], 
                 '''                ACE type (prefix, remark)
                 ''',
@@ -573,7 +573,7 @@ _meta_table = {
                 ''',
                 'minimum_length',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
-            _MetaInfoClassMember('operator', REFERENCE_ENUM_CLASS, 'AclPortOperator_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperator_Enum', 
+            _MetaInfoClassMember('operator', REFERENCE_ENUM_CLASS, 'AclPortOperatorEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperatorEnum', 
                 [], [], 
                 '''                Port Operator
                 ''',
@@ -678,7 +678,7 @@ _meta_table = {
                 ''',
                 'access_list_name',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
-            _MetaInfoClassMember('application-id', REFERENCE_ENUM_CLASS, 'AclUsageAppIdEnum_Enum' , 'ydk.models.common.Cisco_IOS_XR_common_acl_datatypes', 'AclUsageAppIdEnum_Enum', 
+            _MetaInfoClassMember('application-id', REFERENCE_ENUM_CLASS, 'AclUsageAppIdEnumEnum' , 'ydk.models.common.Cisco_IOS_XR_common_acl_datatypes', 'AclUsageAppIdEnumEnum', 
                 [], [], 
                 '''                Application ID
                 ''',

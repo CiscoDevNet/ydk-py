@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'ArpResolutionHistoryStatus_Enum' : _MetaInfoEnum('ArpResolutionHistoryStatus_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper',
+    'ArpResolutionHistoryStatusEnum' : _MetaInfoEnum('ArpResolutionHistoryStatusEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper',
         {
             'status-none':'STATUS_NONE',
             'status-resolution-request':'STATUS_RESOLUTION_REQUEST',
@@ -39,7 +39,7 @@ _meta_table = {
             'status-removed-v1':'STATUS_REMOVED_V1',
             'status-resolved-peer-sync':'STATUS_RESOLVED_PEER_SYNC',
         }, 'Cisco-IOS-XR-ipv4-arp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-oper']),
-    'IpArpBagEncap_Enum' : _MetaInfoEnum('IpArpBagEncap_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper',
+    'IpArpBagEncapEnum' : _MetaInfoEnum('IpArpBagEncapEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper',
         {
             'none':'NONE',
             'arpa':'ARPA',
@@ -49,7 +49,7 @@ _meta_table = {
             'srpa':'SRPA',
             'srpb':'SRPB',
         }, 'Cisco-IOS-XR-ipv4-arp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-oper']),
-    'ArpGmpBagEncap_Enum' : _MetaInfoEnum('ArpGmpBagEncap_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper',
+    'ArpGmpBagEncapEnum' : _MetaInfoEnum('ArpGmpBagEncapEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper',
         {
             'none':'NONE',
             'arpa':'ARPA',
@@ -59,19 +59,19 @@ _meta_table = {
             'srpa':'SRPA',
             'srpb':'SRPB',
         }, 'Cisco-IOS-XR-ipv4-arp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-oper']),
-    'IpArpBagMedia_Enum' : _MetaInfoEnum('IpArpBagMedia_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper',
+    'IpArpBagMediaEnum' : _MetaInfoEnum('IpArpBagMediaEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper',
         {
             'media-arpa':'MEDIA_ARPA',
             'media-srp':'MEDIA_SRP',
             'media-unknown':'MEDIA_UNKNOWN',
         }, 'Cisco-IOS-XR-ipv4-arp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-oper']),
-    'ArpGmpBagEntry_Enum' : _MetaInfoEnum('ArpGmpBagEntry_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper',
+    'ArpGmpBagEntryEnum' : _MetaInfoEnum('ArpGmpBagEntryEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper',
         {
             'null':'NULL',
             'static':'STATIC',
             'alias':'ALIAS',
         }, 'Cisco-IOS-XR-ipv4-arp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-oper']),
-    'IpArpBagState_Enum' : _MetaInfoEnum('IpArpBagState_Enum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper',
+    'IpArpBagStateEnum' : _MetaInfoEnum('IpArpBagStateEnum', 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper',
         {
             'state-none':'STATE_NONE',
             'state-interface':'STATE_INTERFACE',
@@ -112,7 +112,7 @@ _meta_table = {
                 ''',
                 'age',
                 'Cisco-IOS-XR-ipv4-arp-oper', False),
-            _MetaInfoClassMember('encapsulation-type', REFERENCE_ENUM_CLASS, 'IpArpBagEncap_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'IpArpBagEncap_Enum', 
+            _MetaInfoClassMember('encapsulation-type', REFERENCE_ENUM_CLASS, 'IpArpBagEncapEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'IpArpBagEncapEnum', 
                 [], [], 
                 '''                Source encapsulation type
                 ''',
@@ -130,13 +130,13 @@ _meta_table = {
                 ''',
                 'hardware_length',
                 'Cisco-IOS-XR-ipv4-arp-oper', False),
-            _MetaInfoClassMember('media-type', REFERENCE_ENUM_CLASS, 'IpArpBagMedia_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'IpArpBagMedia_Enum', 
+            _MetaInfoClassMember('media-type', REFERENCE_ENUM_CLASS, 'IpArpBagMediaEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'IpArpBagMediaEnum', 
                 [], [], 
                 '''                Media type for this entry
                 ''',
                 'media_type',
                 'Cisco-IOS-XR-ipv4-arp-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'IpArpBagState_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'IpArpBagState_Enum', 
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'IpArpBagStateEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'IpArpBagStateEnum', 
                 [], [], 
                 '''                State of this entry
                 ''',
@@ -213,7 +213,7 @@ _meta_table = {
                 ''',
                 'resolution_request_count',
                 'Cisco-IOS-XR-ipv4-arp-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ArpResolutionHistoryStatus_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'ArpResolutionHistoryStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ArpResolutionHistoryStatusEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'ArpResolutionHistoryStatusEnum', 
                 [], [], 
                 '''                Resolution status
                 ''',
@@ -290,7 +290,7 @@ _meta_table = {
                 ''',
                 'resolution_request_count',
                 'Cisco-IOS-XR-ipv4-arp-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ArpResolutionHistoryStatus_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'ArpResolutionHistoryStatus_Enum', 
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ArpResolutionHistoryStatusEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'ArpResolutionHistoryStatusEnum', 
                 [], [], 
                 '''                Resolution status
                 ''',
@@ -1015,13 +1015,13 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv4-arp-oper', True),
-            _MetaInfoClassMember('encapsulation-type', REFERENCE_ENUM_CLASS, 'ArpGmpBagEncap_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'ArpGmpBagEncap_Enum', 
+            _MetaInfoClassMember('encapsulation-type', REFERENCE_ENUM_CLASS, 'ArpGmpBagEncapEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'ArpGmpBagEncapEnum', 
                 [], [], 
                 '''                Encap type
                 ''',
                 'encapsulation_type',
                 'Cisco-IOS-XR-ipv4-arp-oper', False),
-            _MetaInfoClassMember('entry-type', REFERENCE_ENUM_CLASS, 'ArpGmpBagEntry_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'ArpGmpBagEntry_Enum', 
+            _MetaInfoClassMember('entry-type', REFERENCE_ENUM_CLASS, 'ArpGmpBagEntryEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'ArpGmpBagEntryEnum', 
                 [], [], 
                 '''                Entry type static/alias
                 ''',
@@ -1067,13 +1067,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry',
             False, 
             [
-            _MetaInfoClassMember('encapsulation-type', REFERENCE_ENUM_CLASS, 'ArpGmpBagEncap_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'ArpGmpBagEncap_Enum', 
+            _MetaInfoClassMember('encapsulation-type', REFERENCE_ENUM_CLASS, 'ArpGmpBagEncapEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'ArpGmpBagEncapEnum', 
                 [], [], 
                 '''                Encap type
                 ''',
                 'encapsulation_type',
                 'Cisco-IOS-XR-ipv4-arp-oper', False),
-            _MetaInfoClassMember('entry-type', REFERENCE_ENUM_CLASS, 'ArpGmpBagEntry_Enum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'ArpGmpBagEntry_Enum', 
+            _MetaInfoClassMember('entry-type', REFERENCE_ENUM_CLASS, 'ArpGmpBagEntryEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_oper', 'ArpGmpBagEntryEnum', 
                 [], [], 
                 '''                Entry type static/alias
                 ''',

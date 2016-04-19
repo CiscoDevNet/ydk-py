@@ -171,12 +171,22 @@ class Ip(object):
                         	Access list
                         	**type**\: str
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: small_server
                         
                         	Set number of allowable TCP small servers, specify 0 for no\-limit
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -204,8 +214,6 @@ class Ip(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.access_control_list_name is not None:
                                 return True
 
@@ -213,10 +221,6 @@ class Ip(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -233,12 +237,22 @@ class Ip(object):
                         	Specify the access list
                         	**type**\: str
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: small_server
                         
                         	Set number of allowable small servers, specify 0 for no\-limit
                         	**type**\: int
                         
                         	**range:** 0..2147483647
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -266,8 +280,6 @@ class Ip(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.access_control_list_name is not None:
                                 return True
 
@@ -275,10 +287,6 @@ class Ip(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -297,24 +305,12 @@ class Ip(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.tcp_small_servers is not None and self.tcp_small_servers._has_data():
-                            return True
-
-                        if self.tcp_small_servers is not None and self.tcp_small_servers.is_presence():
                             return True
 
                         if self.udp_small_servers is not None and self.udp_small_servers._has_data():
                             return True
 
-                        if self.udp_small_servers is not None and self.udp_small_servers.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -334,18 +330,9 @@ class Ip(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.small_servers is not None and self.small_servers._has_data():
                         return True
 
-                    if self.small_servers is not None and self.small_servers.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -407,12 +394,22 @@ class Ip(object):
                         	Access list
                         	**type**\: str
                         
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
                         .. attribute:: small_server
                         
                         	Set number of allowable TCP small servers, specify 0 for no\-limit
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
 
@@ -440,8 +437,6 @@ class Ip(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.access_control_list_name is not None:
                                 return True
 
@@ -449,10 +444,6 @@ class Ip(object):
                                 return True
 
                             return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
-                            return True
 
                         @staticmethod
                         def _meta_info():
@@ -471,18 +462,9 @@ class Ip(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.tcp_small_servers is not None and self.tcp_small_servers._has_data():
                             return True
 
-                        if self.tcp_small_servers is not None and self.tcp_small_servers.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -502,18 +484,9 @@ class Ip(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.small_servers is not None and self.small_servers._has_data():
                         return True
 
-                    if self.small_servers is not None and self.small_servers.is_presence():
-                        return True
-
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -641,12 +614,22 @@ class Ip(object):
                                 	Access list
                                 	**type**\: str
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: maximum_server
                                 
                                 	Set number of allowable servers
                                 	**type**\: int
                                 
                                 	**range:** 1..100
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 
 
@@ -676,8 +659,6 @@ class Ip(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.access_list_name is not None:
                                         return True
 
@@ -685,10 +666,6 @@ class Ip(object):
                                         return True
 
                                     return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return True
 
                                 @staticmethod
                                 def _meta_info():
@@ -709,18 +686,9 @@ class Ip(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.tcp is not None and self.tcp._has_data():
                                     return True
 
-                                if self.tcp is not None and self.tcp.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -759,6 +727,11 @@ class Ip(object):
                                 	Access list
                                 	**type**\: str
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: dscp_value
                                 
                                 	Set IP DSCP (DiffServ CodePoint) for TFTP Server Packets
@@ -766,10 +739,20 @@ class Ip(object):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: home_directory
                                 
                                 	Specify device name where file is read from (e .g. flash\:)
                                 	**type**\: str
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 .. attribute:: maximum_server
                                 
@@ -777,6 +760,11 @@ class Ip(object):
                                 	**type**\: int
                                 
                                 	**range:** 0..2147483647
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 
 
@@ -808,8 +796,6 @@ class Ip(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.access_list_name is not None:
                                         return True
 
@@ -823,10 +809,6 @@ class Ip(object):
                                         return True
 
                                     return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return True
 
                                 @staticmethod
                                 def _meta_info():
@@ -847,18 +829,9 @@ class Ip(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.udp is not None and self.udp._has_data():
                                     return True
 
-                                if self.udp is not None and self.udp.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -880,24 +853,12 @@ class Ip(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.telnet is not None and self.telnet._has_data():
-                                return True
-
-                            if self.telnet is not None and self.telnet.is_presence():
                                 return True
 
                             if self.tftp is not None and self.tftp._has_data():
                                 return True
 
-                            if self.tftp is not None and self.tftp.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -965,12 +926,22 @@ class Ip(object):
                                 	Access list
                                 	**type**\: str
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: maximum_server
                                 
                                 	Set number of allowable servers
                                 	**type**\: int
                                 
                                 	**range:** 1..100
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 
 
@@ -1000,8 +971,6 @@ class Ip(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.access_list_name is not None:
                                         return True
 
@@ -1009,10 +978,6 @@ class Ip(object):
                                         return True
 
                                     return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return True
 
                                 @staticmethod
                                 def _meta_info():
@@ -1033,18 +998,9 @@ class Ip(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.tcp is not None and self.tcp._has_data():
                                     return True
 
-                                if self.tcp is not None and self.tcp.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1083,6 +1039,11 @@ class Ip(object):
                                 	Access list
                                 	**type**\: str
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: dscp_value
                                 
                                 	Set IP DSCP (DiffServ CodePoint) for TFTP Server Packets
@@ -1090,10 +1051,20 @@ class Ip(object):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
                                 .. attribute:: home_directory
                                 
                                 	Specify device name where file is read from (e .g. flash\:)
                                 	**type**\: str
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 .. attribute:: maximum_server
                                 
@@ -1101,6 +1072,11 @@ class Ip(object):
                                 	**type**\: int
                                 
                                 	**range:** 0..2147483647
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
                                 
                                 
 
@@ -1132,8 +1108,6 @@ class Ip(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_presence():
-                                        return True
                                     if self.access_list_name is not None:
                                         return True
 
@@ -1147,10 +1121,6 @@ class Ip(object):
                                         return True
 
                                     return False
-
-                                def is_presence(self):
-                                    ''' Returns True if this instance represents presence container else returns False '''
-                                    return True
 
                                 @staticmethod
                                 def _meta_info():
@@ -1171,18 +1141,9 @@ class Ip(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.is_presence():
-                                    return True
                                 if self.udp is not None and self.udp._has_data():
                                     return True
 
-                                if self.udp is not None and self.udp.is_presence():
-                                    return True
-
-                                return False
-
-                            def is_presence(self):
-                                ''' Returns True if this instance represents presence container else returns False '''
                                 return False
 
                             @staticmethod
@@ -1204,24 +1165,12 @@ class Ip(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_presence():
-                                return True
                             if self.telnet is not None and self.telnet._has_data():
-                                return True
-
-                            if self.telnet is not None and self.telnet.is_presence():
                                 return True
 
                             if self.tftp is not None and self.tftp._has_data():
                                 return True
 
-                            if self.tftp is not None and self.tftp.is_presence():
-                                return True
-
-                            return False
-
-                        def is_presence(self):
-                            ''' Returns True if this instance represents presence container else returns False '''
                             return False
 
                         @staticmethod
@@ -1243,27 +1192,15 @@ class Ip(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.vrf_name is not None:
                             return True
 
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
-                        if self.ipv4 is not None and self.ipv4.is_presence():
-                            return True
-
                         if self.ipv6 is not None and self.ipv6._has_data():
                             return True
 
-                        if self.ipv6 is not None and self.ipv6.is_presence():
-                            return True
-
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1283,17 +1220,11 @@ class Ip(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.vrf is not None:
                         for child_ref in self.vrf:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1313,30 +1244,15 @@ class Ip(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.ipv4 is not None and self.ipv4._has_data():
-                    return True
-
-                if self.ipv4 is not None and self.ipv4.is_presence():
                     return True
 
                 if self.ipv6 is not None and self.ipv6._has_data():
                     return True
 
-                if self.ipv6 is not None and self.ipv6.is_presence():
-                    return True
-
                 if self.vrfs is not None and self.vrfs._has_data():
                     return True
 
-                if self.vrfs is not None and self.vrfs.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1356,18 +1272,9 @@ class Ip(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.services is not None and self.services._has_data():
                 return True
 
-            if self.services is not None and self.services.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1494,18 +1401,12 @@ class Ip(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.is_presence():
-                            return True
                         if self.port_id is not None:
                             return True
 
                         if self.enable is not None:
                             return True
 
-                        return False
-
-                    def is_presence(self):
-                        ''' Returns True if this instance represents presence container else returns False '''
                         return False
 
                     @staticmethod
@@ -1525,17 +1426,11 @@ class Ip(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_presence():
-                        return True
                     if self.port is not None:
                         for child_ref in self.port:
                             if child_ref._has_data():
                                 return True
 
-                    return False
-
-                def is_presence(self):
-                    ''' Returns True if this instance represents presence container else returns False '''
                     return False
 
                 @staticmethod
@@ -1555,21 +1450,12 @@ class Ip(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.is_presence():
-                    return True
                 if self.disable is not None:
                     return True
 
                 if self.ports is not None and self.ports._has_data():
                     return True
 
-                if self.ports is not None and self.ports.is_presence():
-                    return True
-
-                return False
-
-            def is_presence(self):
-                ''' Returns True if this instance represents presence container else returns False '''
                 return False
 
             @staticmethod
@@ -1589,18 +1475,9 @@ class Ip(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.udp is not None and self.udp._has_data():
                 return True
 
-            if self.udp is not None and self.udp.is_presence():
-                return True
-
-            return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
             return False
 
         @staticmethod
@@ -1620,24 +1497,12 @@ class Ip(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.cinetd is not None and self.cinetd._has_data():
-            return True
-
-        if self.cinetd is not None and self.cinetd.is_presence():
             return True
 
         if self.forward_protocol is not None and self.forward_protocol._has_data():
             return True
 
-        if self.forward_protocol is not None and self.forward_protocol.is_presence():
-            return True
-
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod
@@ -1747,6 +1612,11 @@ class IpTcp(object):
         	Directory name 
         	**type**\: str
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: max_debug_files
         
         	Set number of Debug files
@@ -1754,12 +1624,22 @@ class IpTcp(object):
         
         	**range:** 1..10000
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: max_file_size_files
         
         	Set size of debug files in bytes
         	**type**\: int
         
         	**range:** 1024..4294967295
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -1788,8 +1668,6 @@ class IpTcp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.directoryname is not None:
                 return True
 
@@ -1800,10 +1678,6 @@ class IpTcp(object):
                 return True
 
             return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
 
         @staticmethod
         def _meta_info():
@@ -1822,12 +1696,22 @@ class IpTcp(object):
         
         	**range:** 1..16
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: tcp_out_q_threads
         
         	OutQ Threads
         	**type**\: int
         
         	**range:** 1..16
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -1855,8 +1739,6 @@ class IpTcp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.tcp_in_q_threads is not None:
                 return True
 
@@ -1864,10 +1746,6 @@ class IpTcp(object):
                 return True
 
             return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
 
         @staticmethod
         def _meta_info():
@@ -1886,12 +1764,22 @@ class IpTcp(object):
         
         	**range:** 0..100
         
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: tcpmin_throttle
         
         	Min throttle
         	**type**\: int
         
         	**range:** 0..100
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
         
         
 
@@ -1919,8 +1807,6 @@ class IpTcp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_presence():
-                return True
             if self.tcpmaxthrottle is not None:
                 return True
 
@@ -1928,10 +1814,6 @@ class IpTcp(object):
                 return True
 
             return False
-
-        def is_presence(self):
-            ''' Returns True if this instance represents presence container else returns False '''
-            return True
 
         @staticmethod
         def _meta_info():
@@ -1950,24 +1832,16 @@ class IpTcp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.is_presence():
-            return True
         if self.accept_rate is not None:
             return True
 
         if self.directory is not None and self.directory._has_data():
             return True
 
-        if self.directory is not None and self.directory.is_presence():
-            return True
-
         if self.maximum_segment_size is not None:
             return True
 
         if self.num_thread is not None and self.num_thread._has_data():
-            return True
-
-        if self.num_thread is not None and self.num_thread.is_presence():
             return True
 
         if self.path_mtu_discovery is not None:
@@ -1985,19 +1859,12 @@ class IpTcp(object):
         if self.throttle is not None and self.throttle._has_data():
             return True
 
-        if self.throttle is not None and self.throttle.is_presence():
-            return True
-
         if self.timestamp is not None:
             return True
 
         if self.window_size is not None:
             return True
 
-        return False
-
-    def is_presence(self):
-        ''' Returns True if this instance represents presence container else returns False '''
         return False
 
     @staticmethod

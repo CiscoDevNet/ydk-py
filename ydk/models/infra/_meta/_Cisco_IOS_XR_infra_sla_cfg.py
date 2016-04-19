@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -18,7 +18,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding',
             False, 
             [
-            _MetaInfoClassMember('padding-type', REFERENCE_ENUM_CLASS, 'SlaPaddingPattern_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaPaddingPattern_Enum', 
+            _MetaInfoClassMember('padding-type', REFERENCE_ENUM_CLASS, 'SlaPaddingPatternEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaPaddingPatternEnum', 
                 [], [], 
                 '''                Type of padding to be used for the packet
                 ''',
@@ -58,7 +58,7 @@ _meta_table = {
                 ''',
                 'burst_interval',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('burst-interval-unit', REFERENCE_ENUM_CLASS, 'SlaBurstIntervalUnitsEnum_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaBurstIntervalUnitsEnum_Enum', 
+            _MetaInfoClassMember('burst-interval-unit', REFERENCE_ENUM_CLASS, 'SlaBurstIntervalUnitsEnumEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaBurstIntervalUnitsEnumEnum', 
                 [], [], 
                 '''                Time unit associated with the BurstInterval
                 .  This must be specified if, and only is,
@@ -80,14 +80,14 @@ _meta_table = {
                 ''',
                 'packet_interval',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('packet-interval-unit', REFERENCE_ENUM_CLASS, 'SlaPacketIntervalUnitsEnum_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaPacketIntervalUnitsEnum_Enum', 
+            _MetaInfoClassMember('packet-interval-unit', REFERENCE_ENUM_CLASS, 'SlaPacketIntervalUnitsEnumEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaPacketIntervalUnitsEnumEnum', 
                 [], [], 
                 '''                Time unit associated with the
                 PacketInterval, must not be 'Once'.
                 ''',
                 'packet_interval_unit',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('send-type', REFERENCE_ENUM_CLASS, 'SlaSend_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaSend_Enum', 
+            _MetaInfoClassMember('send-type', REFERENCE_ENUM_CLASS, 'SlaSendEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaSendEnum', 
                 [], [], 
                 '''                The packet distribution: single packets or
                 bursts of packets.  If 'Burst' is specified
@@ -154,7 +154,7 @@ _meta_table = {
                 ''',
                 'probe_duration',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('probe-duration-unit', REFERENCE_ENUM_CLASS, 'SlaProbeDurationUnitsEnum_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaProbeDurationUnitsEnum_Enum', 
+            _MetaInfoClassMember('probe-duration-unit', REFERENCE_ENUM_CLASS, 'SlaProbeDurationUnitsEnumEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaProbeDurationUnitsEnumEnum', 
                 [], [], 
                 '''                Time unit associated with the ProbeDuration.
                 The value must not be 'Once'.
@@ -169,7 +169,7 @@ _meta_table = {
                 ''',
                 'probe_interval',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('probe-interval-day', REFERENCE_ENUM_CLASS, 'SlaProbeIntervalDayEnum_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaProbeIntervalDayEnum_Enum', 
+            _MetaInfoClassMember('probe-interval-day', REFERENCE_ENUM_CLASS, 'SlaProbeIntervalDayEnumEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaProbeIntervalDayEnumEnum', 
                 [], [], 
                 '''                Day of week on which to schedule probes. 
                 This must be specified if, and only if,
@@ -177,7 +177,7 @@ _meta_table = {
                 ''',
                 'probe_interval_day',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('probe-interval-unit', REFERENCE_ENUM_CLASS, 'SlaProbeIntervalUnitsEnum_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaProbeIntervalUnitsEnum_Enum', 
+            _MetaInfoClassMember('probe-interval-unit', REFERENCE_ENUM_CLASS, 'SlaProbeIntervalUnitsEnumEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaProbeIntervalUnitsEnumEnum', 
                 [], [], 
                 '''                Time unit associated with the ProbeInterval.
                 The value must not be 'Once'.  If 'Week' or
@@ -259,7 +259,7 @@ _meta_table = {
                 ''',
                 'buckets_size',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            _MetaInfoClassMember('buckets-size-unit', REFERENCE_ENUM_CLASS, 'SlaBucketsSizeUnitsEnum_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaBucketsSizeUnitsEnum_Enum', 
+            _MetaInfoClassMember('buckets-size-unit', REFERENCE_ENUM_CLASS, 'SlaBucketsSizeUnitsEnumEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaBucketsSizeUnitsEnumEnum', 
                 [], [], 
                 '''                Unit associated with the BucketsSize
                 ''',
@@ -276,7 +276,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic',
             False, 
             [
-            _MetaInfoClassMember('statistic-name', REFERENCE_ENUM_CLASS, 'SlaStatisticTypeEnum_Enum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaStatisticTypeEnum_Enum', 
+            _MetaInfoClassMember('statistic-name', REFERENCE_ENUM_CLASS, 'SlaStatisticTypeEnumEnum' , 'ydk.models.infra.Cisco_IOS_XR_infra_sla_datatypes', 'SlaStatisticTypeEnumEnum', 
                 [], [], 
                 '''                The type of statistic to measure
                 ''',

@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,23 +14,23 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'BfdEchoStartupValidate_Enum' : _MetaInfoEnum('BfdEchoStartupValidate_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg',
+    'BfdEchoStartupValidateEnum' : _MetaInfoEnum('BfdEchoStartupValidateEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg',
         {
             'off':'OFF',
             'on':'ON',
             'force':'FORCE',
         }, 'Cisco-IOS-XR-ip-bfd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-cfg']),
-    'BfdIfIpv6ChecksumUsage_Enum' : _MetaInfoEnum('BfdIfIpv6ChecksumUsage_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg',
+    'BfdIfIpv6ChecksumUsageEnum' : _MetaInfoEnum('BfdIfIpv6ChecksumUsageEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg',
         {
             'disable':'DISABLE',
             'enable':'ENABLE',
         }, 'Cisco-IOS-XR-ip-bfd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-cfg']),
-    'BfdIfEchoUsage_Enum' : _MetaInfoEnum('BfdIfEchoUsage_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg',
+    'BfdIfEchoUsageEnum' : _MetaInfoEnum('BfdIfEchoUsageEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg',
         {
             'enable':'ENABLE',
             'disable':'DISABLE',
         }, 'Cisco-IOS-XR-ip-bfd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-cfg']),
-    'BfdBundleCoexistenceBobBlb_Enum' : _MetaInfoEnum('BfdBundleCoexistenceBobBlb_Enum', 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg',
+    'BfdBundleCoexistenceBobBlbEnum' : _MetaInfoEnum('BfdBundleCoexistenceBobBlbEnum', 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg',
         {
             'inherited':'INHERITED',
             'logical':'LOGICAL',
@@ -39,7 +39,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bfd.Bundle.Coexistence',
             False, 
             [
-            _MetaInfoClassMember('bob-blb', REFERENCE_ENUM_CLASS, 'BfdBundleCoexistenceBobBlb_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'BfdBundleCoexistenceBobBlb_Enum', 
+            _MetaInfoClassMember('bob-blb', REFERENCE_ENUM_CLASS, 'BfdBundleCoexistenceBobBlbEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'BfdBundleCoexistenceBobBlbEnum', 
                 [], [], 
                 '''                Coexistence mode for BoB and BLB feature
                 ''',
@@ -119,7 +119,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bfd.EchoStartup',
             False, 
             [
-            _MetaInfoClassMember('validate', REFERENCE_ENUM_CLASS, 'BfdEchoStartupValidate_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'BfdEchoStartupValidate_Enum', 
+            _MetaInfoClassMember('validate', REFERENCE_ENUM_CLASS, 'BfdEchoStartupValidateEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'BfdEchoStartupValidateEnum', 
                 [], [], 
                 '''                BFD echo validation prior to session bringup
                 ''',
@@ -242,7 +242,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-bfd-cfg', True),
-            _MetaInfoClassMember('interface-echo-usage', REFERENCE_ENUM_CLASS, 'BfdIfEchoUsage_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'BfdIfEchoUsage_Enum', 
+            _MetaInfoClassMember('interface-echo-usage', REFERENCE_ENUM_CLASS, 'BfdIfEchoUsageEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'BfdIfEchoUsageEnum', 
                 [], [], 
                 '''                Echo usage for this interface
                 ''',
@@ -270,7 +270,7 @@ _meta_table = {
                         'interface_ipv4_echo_source',
                         'Cisco-IOS-XR-ip-bfd-cfg', False),
                 ]),
-            _MetaInfoClassMember('ipv6-checksum', REFERENCE_ENUM_CLASS, 'BfdIfIpv6ChecksumUsage_Enum' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'BfdIfIpv6ChecksumUsage_Enum', 
+            _MetaInfoClassMember('ipv6-checksum', REFERENCE_ENUM_CLASS, 'BfdIfIpv6ChecksumUsageEnum' , 'ydk.models.ip.Cisco_IOS_XR_ip_bfd_cfg', 'BfdIfIpv6ChecksumUsageEnum', 
                 [], [], 
                 '''                IPv6 checksum usage for this interface -
                 Interface config will always take precedence

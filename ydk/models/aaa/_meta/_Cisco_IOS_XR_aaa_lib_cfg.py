@@ -6,7 +6,7 @@ import collections
 
 from enum import Enum
 
-from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum, _dm_validate_value
+from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
@@ -14,7 +14,7 @@ from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'AaaMethod_Enum' : _MetaInfoEnum('AaaMethod_Enum', 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg',
+    'AaaMethodEnum' : _MetaInfoEnum('AaaMethodEnum', 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg',
         {
             'not-set':'NOT_SET',
             'none':'NONE',
@@ -34,13 +34,13 @@ _meta_table = {
             'diameter':'DIAMETER',
             'last':'LAST',
         }, 'Cisco-IOS-XR-aaa-lib-cfg', _yang_ns._namespaces['Cisco-IOS-XR-aaa-lib-cfg']),
-    'AaaAccountingUpdate_Enum' : _MetaInfoEnum('AaaAccountingUpdate_Enum', 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg',
+    'AaaAccountingUpdateEnum' : _MetaInfoEnum('AaaAccountingUpdateEnum', 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg',
         {
             'none':'NONE',
             'newinfo':'NEWINFO',
             'periodic':'PERIODIC',
         }, 'Cisco-IOS-XR-aaa-lib-cfg', _yang_ns._namespaces['Cisco-IOS-XR-aaa-lib-cfg']),
-    'AaaAccounting_Enum' : _MetaInfoEnum('AaaAccounting_Enum', 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg',
+    'AaaAccountingEnum' : _MetaInfoEnum('AaaAccountingEnum', 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg',
         {
             'not-set':'NOT_SET',
             'start-stop':'START_STOP',
@@ -56,7 +56,7 @@ _meta_table = {
                 ''',
                 'periodic_interval',
                 'Cisco-IOS-XR-aaa-lib-cfg', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'AaaAccountingUpdate_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg', 'AaaAccountingUpdate_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'AaaAccountingUpdateEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg', 'AaaAccountingUpdateEnum', 
                 [], [], 
                 '''                newinfo/periodic
                 ''',
@@ -92,7 +92,7 @@ _meta_table = {
                 ''',
                 'broadcast',
                 'Cisco-IOS-XR-aaa-lib-cfg', False),
-            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethod_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg', 'AaaMethod_Enum', 
+            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg', 'AaaMethodEnum', 
                 [], [], 
                 '''                Method Types
                 ''',
@@ -110,7 +110,7 @@ _meta_table = {
                 ''',
                 'server_group_name',
                 'Cisco-IOS-XR-aaa-lib-cfg', False, max_elements=4),
-            _MetaInfoClassMember('type-xr', REFERENCE_ENUM_CLASS, 'AaaAccounting_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg', 'AaaAccounting_Enum', 
+            _MetaInfoClassMember('type-xr', REFERENCE_ENUM_CLASS, 'AaaAccountingEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg', 'AaaAccountingEnum', 
                 [], [], 
                 '''                Stop only/Start Stop
                 ''',
@@ -157,7 +157,7 @@ _meta_table = {
                 ''',
                 'type',
                 'Cisco-IOS-XR-aaa-lib-cfg', True),
-            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethod_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg', 'AaaMethod_Enum', 
+            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg', 'AaaMethodEnum', 
                 [], [], 
                 '''                Methods
                 ''',
@@ -210,7 +210,7 @@ _meta_table = {
                 ''',
                 'type',
                 'Cisco-IOS-XR-aaa-lib-cfg', True),
-            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethod_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg', 'AaaMethod_Enum', 
+            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_lib_cfg', 'AaaMethodEnum', 
                 [], [], 
                 '''                Methods
                 ''',
@@ -437,7 +437,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.Radius.DynamicAuthorization',
             False, 
             [
-            _MetaInfoClassMember('authentication-type', REFERENCE_ENUM_CLASS, 'AaaAuthentication_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaAuthentication_Enum', 
+            _MetaInfoClassMember('authentication-type', REFERENCE_ENUM_CLASS, 'AaaAuthenticationEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaAuthenticationEnum', 
                 [], [], 
                 '''                RADIUS  dynamic  authorization  type
                 ''',
@@ -449,7 +449,7 @@ _meta_table = {
                 ''',
                 'clients',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
-            _MetaInfoClassMember('ignore', REFERENCE_ENUM_CLASS, 'AaaSelectKey_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaSelectKey_Enum', 
+            _MetaInfoClassMember('ignore', REFERENCE_ENUM_CLASS, 'AaaSelectKeyEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaSelectKeyEnum', 
                 [], [], 
                 '''                Ignore option for server key or session key
                 ''',
@@ -594,7 +594,7 @@ _meta_table = {
                 ''',
                 'dscp',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False, [
-                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'AaaDscpValue_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaDscpValue_Enum', 
+                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'AaaDscpValueEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaDscpValueEnum', 
                         [], [], 
                         '''                        Specify the DSCP value
                         ''',
@@ -624,7 +624,7 @@ _meta_table = {
                 ''',
                 'dscp',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False, [
-                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'AaaDscpValue_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaDscpValue_Enum', 
+                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'AaaDscpValueEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaDscpValueEnum', 
                         [], [], 
                         '''                        Specify the DSCP value
                         ''',
@@ -706,7 +706,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.Radius.RadiusAttribute.AcctMultiSessionId.IncludeParentSessionId',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_ENUM_CLASS, 'AaaConfig_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaConfig_Enum', 
+            _MetaInfoClassMember('config', REFERENCE_ENUM_CLASS, 'AaaConfigEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaConfigEnum', 
                 [], [], 
                 '''                false/true
                 ''',
@@ -741,7 +741,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.Radius.RadiusAttribute.AcctSessionId.PrependNasPortId',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_ENUM_CLASS, 'AaaConfig_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaConfig_Enum', 
+            _MetaInfoClassMember('config', REFERENCE_ENUM_CLASS, 'AaaConfigEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaConfigEnum', 
                 [], [], 
                 '''                false/true
                 ''',
@@ -1081,7 +1081,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Reply',
             False, 
             [
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'AaaAction_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaAction_Enum', 
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'AaaActionEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaActionEnum', 
                 [], [], 
                 '''                Specify the attribute list type accept or
                 reject
@@ -1105,7 +1105,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Request',
             False, 
             [
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'AaaAction_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaAction_Enum', 
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'AaaActionEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaActionEnum', 
                 [], [], 
                 '''                Specify the attribute list type accept or
                 reject
@@ -1152,7 +1152,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Reply',
             False, 
             [
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'AaaAction_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaAction_Enum', 
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'AaaActionEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaActionEnum', 
                 [], [], 
                 '''                Specify the attribute list type accept or
                 reject
@@ -1176,7 +1176,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Request',
             False, 
             [
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'AaaAction_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaAction_Enum', 
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'AaaActionEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_protocol_radius_cfg', 'AaaActionEnum', 
                 [], [], 
                 '''                Specify the attribute list type accept or
                 reject
@@ -1916,7 +1916,7 @@ _meta_table = {
                 ''',
                 'dscp',
                 'Cisco-IOS-XR-aaa-tacacs-cfg', False, [
-                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'TacacsDscpValue_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_tacacs_cfg', 'TacacsDscpValue_Enum', 
+                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'TacacsDscpValueEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_tacacs_cfg', 'TacacsDscpValueEnum', 
                         [], [], 
                         '''                        Specify the DSCP value
                         ''',
@@ -1946,7 +1946,7 @@ _meta_table = {
                 ''',
                 'dscp',
                 'Cisco-IOS-XR-aaa-tacacs-cfg', False, [
-                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'TacacsDscpValue_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_tacacs_cfg', 'TacacsDscpValue_Enum', 
+                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'TacacsDscpValueEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_tacacs_cfg', 'TacacsDscpValueEnum', 
                         [], [], 
                         '''                        Specify the DSCP value
                         ''',
@@ -2107,7 +2107,7 @@ _meta_table = {
                 ''',
                 'task_id',
                 'Cisco-IOS-XR-aaa-locald-cfg', True),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'AaaLocaldTaskClass_Enum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_locald_cfg', 'AaaLocaldTaskClass_Enum', 
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'AaaLocaldTaskClassEnum' , 'ydk.models.aaa.Cisco_IOS_XR_aaa_locald_cfg', 'AaaLocaldTaskClassEnum', 
                 [], [], 
                 '''                This specifies the operation permitted for
                 this task eg: read/write/execute/debug
