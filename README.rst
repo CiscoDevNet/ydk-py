@@ -38,6 +38,10 @@ Create a new virtual environment::
     $ virtualenv -p python2.7 ydk-py
     $ source ydk-py/bin/activate
 
+Install requirements::
+
+    (ydk-py)$ pip install -r requirements.txt
+
 Install YDK-Py::
 
     (ydk-py)$ pip install dist/ydk-0.4.0.tar.gz
