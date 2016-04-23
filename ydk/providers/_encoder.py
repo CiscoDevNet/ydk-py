@@ -71,7 +71,7 @@ class XmlEncoder(object):
 
             member_elem = None
             NSMAP = {}
-            if member.mtype not in [REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST] or isinstance(value, DELETE) or isinstance(value, READ):
+            if member.mtype not in [REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST, REFERENCE_IDENTITY_CLASS] or isinstance(value, DELETE) or isinstance(value, READ):
                 member_elem = etree.SubElement(elem, member.name, nsmap=NSMAP)
 
                 if entity.i_meta.namespace is not None \
@@ -104,6 +104,10 @@ class XmlEncoder(object):
                     member_elem.text = self.encode_value(contained_member, NSMAP, value)
                     if len(member_elem.text) > 0:
                         break
+            elif member.mtype == REFERENCE_IDENTITY_CLASS:
+                text = self.encode_value(member, NSMAP, value)
+                member_elem = etree.SubElement(elem, member.name, nsmap=NSMAP)
+                member_elem.text = text
             else:
                 member_elem.text = self.encode_value(member, NSMAP, value)
         return elem
@@ -118,5 +122,3 @@ def entity_is_rpc_input(entity):
         hasattr(entity.parent, 'is_rpc') and \
         entity.parent.is_rpc and \
         entity._meta_info().yang_name == 'input'
-
-
