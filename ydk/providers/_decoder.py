@@ -105,7 +105,7 @@ class XmlDecoder(object):
                 return rt[0].text
             elif contained_member.ptype == 'long' and rt[0].text is not None and rt[0].text.isdigit():
                 return long(rt[0].text)
-            elif contained_member.ptype == 'int' and rt[0].text is not None and rt[0].isidigit():
+            elif contained_member.ptype == 'int' and rt[0].text is not None and rt[0].text.isdigit():
                 return int(rt[0].text)
             elif contained_member.ptype == 'Decimal64' and rt[0].text is not None:
                 try:
@@ -213,7 +213,7 @@ class XmlDecoder(object):
                 identity_mod_name = None
                 identity_name = None
 
-                if ':' in rt[0]:
+                if ':' in rt[0].text:
                     (prefix, identity_name) = rt[0].text.split(':')
                     identity_ns = rt[0].nsmap[prefix]
                     identity_mod_name = None
